@@ -1,0 +1,502 @@
+@charset "UTF-8";
+/* =========================================================
+   StarRiver Arts — Colors & Type Tokens
+   ---------------------------------------------------------
+   Brand:  StarRiver Arts
+   Sources: uploads/StarRiver.png, Formosa*, TERRA, Skyhook
+            + StarRiverVRCInfo repo (zh_TW copy, roboto/sans
+            UI, leaderboard site chrome)
+   ========================================================= */
+
+/* ----- Fonts — TASA Orbiter family (brand) -----------------
+   Three optical sizes, shipped as .otf:
+     Display : marketing / hero / poster type (48px+)
+     Deck    : mid-scale headlines and UI titles (20–44px)
+     Text    : body and small UI (≤ 18px)
+   All weights self-hosted; no CDN fallback needed. ---------- */
+
+/* --- Display ----------------------------------------------- */
+@font-face {
+  font-family: "TASA Orbiter Display";
+  font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDisplay-Regular-BF64891cba1d563.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Display";
+  font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDisplay-Medium-BF64891cba56e9b.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Display";
+  font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDisplay-SemiBold-BF64891cba47942.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Display";
+  font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDisplay-Bold-BF64891cba5ae6f.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Display";
+  font-weight: 900; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDisplay-Black-BF64891cba23c21.otf") format("opentype");
+}
+
+/* --- Deck (mid) -------------------------------------------- */
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDeck-Regular-BF64891cba23854.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDeck-Medium-BF64891cba192ce.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDeck-SemiBold-BF64891cba48835.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterDeck-Bold-BF64891cba35ec7.otf") format("opentype");
+}
+
+/* --- Text (body) ------------------------------------------- */
+@font-face {
+  font-family: "TASA Orbiter Text";
+  font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterText-Regular-BF64891cba384f3.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Text";
+  font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterText-Medium-BF64891cb9e8a75.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Text";
+  font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterText-SemiBold-BF64891cba09cfc.otf") format("opentype");
+}
+@font-face {
+  font-family: "TASA Orbiter Text";
+  font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/TASAOrbiterText-Bold-BF64891cba00f5b.otf") format("opentype");
+}
+
+/* --- Chinese companions (Google Fonts, all SIL OFL) --------
+   Four modes; each .sr-mode-* class swaps --font-body-cjk.    */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap");
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+:root {
+  /* ---- Core brand anchors ----
+     Recalibrated: cream/paper base (Anton & Irene direction —
+     ). Paper is the editorial warm ground; bone is
+     the slightly cooler surface below paper for stacked planes;
+     chalk is the barely-there tint for inline wells. Void black
+     stays for hero/marquee but never for body text. */
+  --sr-void:           #0E0E10;  /* ink-black — softer than true black */
+  --sr-ink:            #14140E;  /* editorial near-black body ink */
+  --sr-graphite:       #282829;  /* badge ring neutral, used everywhere */
+  --sr-paper:          #F3EEE3;  /* warm cream — the editorial ground */
+  --sr-bone:           #EAE4D6;  /* cooler cream — stacked surface */
+  --sr-chalk:          #F8F5EC;  /* barely-tinted, for inline wells */
+
+  /* ---- StarRiver (primary badge) ---- */
+  --sr-amber:          #E88A2E;  /* ring + rocket — the signature accent */
+  --sr-amber-hi:       #F3A24C;  /* ring outer tint (hover/press-up) */
+  --sr-amber-lo:       #B8671E;  /* pressed/darker */
+  --sr-comet:          #B9E4E8;  /* pale cyan meteor trail */
+  --sr-comet-deep:     #98A4B8;  /* muted slate-blue trail shadow */
+  --sr-star:           #FFFFFF;  /* stars on the void */
+
+  /* ---- Formosa Aerospace (co-brand) ---- */
+  --fa-signal:         #0072BC;  /* core Formosa blue */
+  --fa-signal-hi:      #2E97DA;
+  --fa-signal-lo:      #004F85;
+
+  /* ---- TERRA / Skyhook (co-brand) ---- */
+  --terra-ocean:       #2DAEB7;  /* teal sea */
+  --terra-leaf:        #A0D987;  /* continent green */
+  --terra-forest:      #2A8A2A;  /* TERRA wordmark green */
+
+  /* ---- Neutrals scale — warm-biased to sit on cream paper ----
+     Every step has a faint warm/yellow bias so greys don't look
+     surgical against --sr-paper. Cool surgical greys fight the
+     ground; these sit into it. */
+  --gray-900:          #14140E;  /* = ink */
+  --gray-800:          #282823;
+  --gray-700:          #3B3A35;
+  --gray-600:          #5C5A52;
+  --gray-500:          #8B887E;
+  --gray-400:          #B4B1A5;
+  --gray-300:          #D4D1C4;
+  --gray-200:          #E4E1D3;
+  --gray-100:          #EEEADC;
+  --gray-050:          #F3EEE3;  /* = paper */
+
+  /* ---- Semantic: foreground / background ---- */
+  --fg-1:              var(--sr-ink);        /* primary body ink (warm near-black) */
+  --fg-2:              var(--gray-700);      /* secondary */
+  --fg-3:              var(--gray-500);      /* tertiary / meta */
+  --fg-inverse:        var(--sr-paper);      /* on void backgrounds */
+  --fg-link:           var(--fa-signal);
+  --fg-link-hover:     var(--fa-signal-lo);
+  --fg-accent:         var(--sr-amber);
+  --fg-danger:         #C23A2C;
+  --fg-success:        var(--terra-forest);
+  --fg-warn:           var(--sr-amber-lo);
+
+  --bg-1:              var(--sr-paper);     /* cream editorial ground */
+  --bg-2:              var(--sr-bone);      /* stacked surface */
+  --bg-3:              var(--sr-chalk);     /* inline well (note: lighter, not darker) */
+  --bg-inverse:        var(--sr-void);      /* hero / marquee */
+  --bg-ring:           var(--sr-graphite);  /* the "badge ring" frame color */
+
+  /* ---- Medium-specific bg ----
+     --bg-web: what you see in browsers (paper cream).
+     --bg-vrc: what reads best inside VRChat — cream looks muddy at low
+     in-game gamma, so VR surfaces push to a cleaner off-white and use
+     higher fg contrast. Use the .sr-medium-vrc class to switch. */
+  --bg-web:            var(--sr-paper);
+  --bg-vrc:            #F2F1EC;
+  --fg-web:            var(--sr-ink);
+  --fg-vrc:            #0B0B0B;
+
+  /* ---- Border ---- */
+  --border-hair:       1px solid var(--gray-200);
+  --border-line:       1.5px solid var(--gray-300);
+  --border-strong:     2px solid var(--sr-graphite);
+  --border-amber:      2px solid var(--sr-amber);
+
+  /* ---- Radii ---- */
+  --r-xs:              2px;
+  --r-sm:              4px;
+  --r-md:              8px;
+  --r-lg:              14px;
+  --r-xl:              22px;
+  --r-pill:            999px;
+  --r-badge:           999px;  /* patches are always round */
+
+  /* ---- Spacing ---- */
+  --s-0:               0;
+  --s-1:               4px;
+  --s-2:               8px;
+  --s-3:               12px;
+  --s-4:               16px;
+  --s-5:               24px;
+  --s-6:               32px;
+  --s-7:               48px;
+  --s-8:               64px;
+  --s-9:               96px;
+
+  /* ---- Shadow (minimal — we prefer rings + borders) ---- */
+  --shadow-sm:         0 1px 2px rgba(20,20,21,0.08);
+  --shadow-md:         0 4px 14px rgba(20,20,21,0.10);
+  --shadow-lg:         0 12px 40px rgba(20,20,21,0.16);
+  --shadow-badge:      0 2px 0 0 var(--sr-amber-lo),
+                       0 8px 18px rgba(20,20,21,0.18);
+
+  /* ---- Motion ---- */
+  --ease-standard:     cubic-bezier(.22,.61,.36,1);
+  --ease-in:           cubic-bezier(.55,.05,.67,.19);
+  --ease-out:          cubic-bezier(.22,.61,.36,1);
+  --dur-fast:          120ms;
+  --dur-base:          220ms;
+  --dur-slow:          420ms;
+  --orbit-dur:         14s;   /* the signature slow orbit loop */
+
+  /* ---- Gradients / FX ---- */
+  --sky-meteor:        linear-gradient(100deg,
+                          var(--sr-comet) 0%,
+                          var(--sr-comet-deep) 55%,
+                          transparent 100%);
+  --patch-ring:        radial-gradient(circle at 50% 50%,
+                          transparent 58%,
+                          var(--sr-graphite) 58% 82%,
+                          var(--sr-amber) 82% 100%);
+}
+
+/* =========================================================
+   TYPE
+   ========================================================= */
+:root {
+  /* --- families ---
+     Display : big marketing / hero type (48px+)
+     Deck    : mid-scale UI titles and headlines (20–44px)
+     Text    : body and small UI (<= 18px)
+     CJK companion: swappable via mode classes (default = sans)
+     Mono:    JetBrains Mono for timestamps / code / leaderboards */
+
+  /* default CJK stack = Mission mode (sans) */
+  --font-cjk:          "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+                       system-ui, sans-serif;
+  --font-cjk-serif:    "Noto Serif TC", "Source Han Serif TC",
+                       "PingFang TC", serif;
+
+  --font-display:      "TASA Orbiter Display", var(--font-cjk);
+  --font-deck:         "TASA Orbiter Deck", var(--font-cjk);
+  --font-body:         "TASA Orbiter Text", var(--font-cjk);
+  --font-mono:         "JetBrains Mono", "SFMono-Regular", Menlo,
+                       Consolas, monospace;
+
+  /* --- type scale (16px base) --- */
+  --fs-xs:             12px;
+  --fs-sm:             14px;
+  --fs-md:             16px;
+  --fs-lg:             18px;
+  --fs-xl:             22px;
+  --fs-2xl:            28px;
+  --fs-3xl:            36px;
+  --fs-4xl:            48px;
+  --fs-5xl:            64px;
+  --fs-6xl:            84px;
+
+  --lh-tight:          1.08;
+  --lh-snug:           1.22;
+  --lh-base:           1.5;
+  --lh-loose:          1.7;
+
+  --ls-display:        -0.02em;
+  --ls-caps:           0.08em;
+  --ls-caps-wide:      0.16em;
+  --ls-body:           0;
+}
+
+/* -------- semantic element styles --------
+   Apply via class OR direct tag, your choice. */
+.sr-h1, h1.sr, .sr-type h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-5xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.sr-h2, h2.sr, .sr-type h2 {
+  font-family: var(--font-deck);
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-1);
+}
+.sr-h3, h3.sr, .sr-type h3 {
+  font-family: var(--font-deck);
+  font-weight: 600;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.sr-kicker, .sr-type .kicker {
+  font-family: var(--font-deck);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  line-height: 1;
+  letter-spacing: var(--ls-caps-wide);
+  text-transform: uppercase;
+  color: var(--sr-amber);
+}
+.sr-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.sr-p, p.sr, .sr-type p {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.sr-lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-base);
+  color: var(--fg-1);
+}
+.sr-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--fg-3);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+}
+.sr-code, code.sr, .sr-type code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-2);
+  padding: 0.1em 0.35em;
+  border-radius: var(--r-sm);
+  color: var(--fg-1);
+}
+.sr-wordmark {
+  /* treatment used on badges like "FORMOSA / AEROSPACE" */
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.sr-display, .sr-type .display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-6xl);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+/* =========================================================
+   SUB-BRAND PALETTES (added)
+   ========================================================= */
+:root {
+  /* ---- Project T — Taiwan mountain roads ---- */
+  --pt-sign-green:    #1E6B3E;   /* highway directional sign green */
+  --pt-sign-blue:     #1F5EA8;   /* Yilan blue / provincial sign blue */
+  --pt-dusk:          #F0A94C;   /* dusk gold */
+  --pt-jungle:        #2D5A3D;   /* tropical jungle */
+  --pt-asphalt:       #2A2A2B;   /* asphalt */
+  --pt-line:          #F4E04D;   /* centre line yellow */
+  --pt-contour:       #5A5A5C;   /* contour grey */
+  --pt-paper:         #F4F0E6;   /* map paper */
+
+  /* ---- Racing Club (placeholder; later pass) ---- */
+  --rc-flag:          #111111;
+  --rc-flag-alt:      #FFFFFF;
+  --rc-signal:        #E53935;
+}
+
+/* =========================================================
+   SUB-BRANDS — one brand core, five audience faces.
+   Apply on <body> or any subtree; each redefines the
+   brand-facing design tokens.
+
+     .sr-brand-starriver   → mother brand (default)
+     .sr-brand-project-t   → Project T  — 
+     .sr-brand-formosa     → Formosa Aerospace
+     .sr-brand-racing      → VR 
+     .sr-brand-museum      → VR  (queued; reuses starriver)
+   ========================================================= */
+
+/* ---- StarRiver Arts (mother) ---- */
+.sr-brand-starriver,
+body:not([class*="sr-brand-"]) {
+  --font-cjk:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display:   "TASA Orbiter Display", var(--font-cjk);
+  --font-deck:      "TASA Orbiter Deck",    var(--font-cjk);
+  --font-body:      "TASA Orbiter Text",    var(--font-cjk);
+  --brand-accent:       var(--sr-amber);
+  --brand-accent-ink:   var(--sr-void);
+  --brand-surface:      var(--sr-paper);     /* cream editorial ground */
+  --brand-surface-alt:  var(--sr-bone);      /* cooler cream stacked */
+  --brand-ring:         var(--sr-graphite);
+  --brand-radius:       var(--r-sm);
+  --brand-tone:         "archival / studio-voice / 探討概念與理想";
+}
+
+/* ---- Project T —  ---- */
+.sr-brand-project-t {
+  --font-cjk:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display:   "TASA Orbiter Display", var(--font-cjk);
+  --font-deck:      "TASA Orbiter Deck",    var(--font-cjk);
+  --font-body:      "TASA Orbiter Text",    var(--font-cjk);
+  --brand-accent:       var(--pt-sign-green);
+  --brand-accent-ink:   #FFFFFF;
+  --brand-surface:      var(--pt-paper);
+  --brand-surface-alt:  #FFFFFF;
+  --brand-ring:         var(--pt-asphalt);
+  --brand-radius:       2px;                    /* highway-sign flatness */
+  --brand-tone:         "地誌式 / 公路文件口吻 / 地名準確、編號在前";
+}
+
+/* ---- Formosa Aerospace ---- */
+.sr-brand-formosa {
+  --font-cjk:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display:   "TASA Orbiter Display", var(--font-cjk);
+  --font-deck:      "TASA Orbiter Deck",    var(--font-cjk);
+  --font-body:      "TASA Orbiter Text",    var(--font-cjk);
+  --brand-accent:       var(--fa-signal);
+  --brand-accent-ink:   #FFFFFF;
+  --brand-surface:      var(--sr-paper);
+  --brand-surface-alt:  var(--sr-bone);
+  --brand-ring:         var(--sr-graphite);
+  --brand-radius:       var(--r-sm);
+  --brand-tone:         "spec-sheet / Taiwan-localised NASA-JAXA / bilingual";
+}
+
+/* ---- VR  (placeholder; queued) ---- */
+.sr-brand-racing {
+  --font-cjk:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display:   "TASA Orbiter Deck", var(--font-cjk);
+  --font-deck:      "TASA Orbiter Deck", var(--font-cjk);
+  --font-body:      "TASA Orbiter Text", var(--font-cjk);
+  --brand-accent:       var(--rc-signal);
+  --brand-accent-ink:   #FFFFFF;
+  --brand-surface:      var(--sr-paper);
+  --brand-surface-alt:  var(--sr-bone);
+  --brand-ring:         var(--rc-flag);
+  --brand-radius:       var(--r-lg);
+  --brand-tone:         "clubhouse / 親近 / 邀請 / 好記住";
+}
+
+/* ---- VR  (queued; re-uses StarRiver chassis) ---- */
+.sr-brand-museum {
+  --font-cjk:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-display:   "TASA Orbiter Display", var(--font-cjk);
+  --font-deck:      "TASA Orbiter Deck",    var(--font-cjk);
+  --font-body:      "TASA Orbiter Text",    var(--font-cjk);
+  --brand-accent:       var(--sr-amber);
+  --brand-accent-ink:   var(--sr-void);
+  --brand-surface:      var(--sr-bone);     /* museum = cooler cream */
+  --brand-surface-alt:  var(--sr-paper);
+  --brand-ring:         var(--sr-graphite);
+  --brand-radius:       0;                    /* gallery-square */
+  --brand-tone:         "curatorial / 專業 / 概念導向 (queued)";
+}
+
+/* =========================================================
+   MEDIUM MATRIX — flat screens vs VRChat in-world.
+   The SAME brand can appear in both; the medium dictates
+   fallbacks. Apply .sr-medium-vrc on any VR-bound preview so
+   demos actually look like they'll look in-world.
+   ========================================================= */
+.sr-medium-web {
+  --brand-surface:     var(--bg-web);
+  --brand-fg:          var(--fg-web);
+}
+
+.sr-medium-vrc {
+  /* VRChat gamma crushes mid-greys and pushes warm casts toward
+     muddy. So: cleaner off-white ground, higher-contrast fg,
+     borders and type weight both bumped one step. */
+  --brand-surface:     var(--bg-vrc);
+  --brand-fg:          var(--fg-vrc);
+  --border-hair:       1.5px solid var(--gray-300);
+  --border-line:       2px   solid var(--gray-400);
+  --border-strong:     3px   solid var(--sr-graphite);
+  /* Disable animation tokens — most VR shaders can't play them,
+     and what moves should be diegetic (in-world), not UI. */
+  --dur-fast:          0ms;
+  --dur-base:          0ms;
+  --dur-slow:          0ms;
+}
+
+/* ---- .sr-type — opt-in class that applies body-text defaults */
+.sr-type {
+  font-family: var(--font-body);
+  color: var(--fg-1);
+  background: var(--brand-surface, var(--bg-1));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>星河 StarRiver Arts</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:var(--font-body);
+  background:var(--sr-graphite);
+  color:var(--sr-paper);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Language ── */
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+
+/* ── Layout ── */
+.page{display:flex;flex-direction:column;height:100vh}
+
+/* ── Header ── */
+header{
+  height:64px;
+  flex-shrink:0;
+  display:flex;align-items:center;
+  padding:0 40px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  position:relative;z-index:10;
+}
+.header-brand{
+  display:flex;align-items:center;gap:12px;
+  margin-right:auto;
+}
+.header-patch{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--sr-graphite);
+  border:2px solid var(--sr-amber);
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.header-patch img{width:30px;height:30px;object-fit:contain;border-radius:50%}
+.header-wordmark{
+  font-family:var(--font-deck);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.06em;
+  color:var(--sr-paper);
+}
+.header-tagline{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(243,238,227,.35);
+  margin-left:4px;
+}
+.lang-btn{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(243,238,227,.4);
+  background:none;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:2px;
+  padding:5px 10px;
+  cursor:pointer;
+  transition:color 200ms,border-color 200ms;
+}
+.lang-btn:hover{color:var(--sr-paper);border-color:rgba(255,255,255,.3)}
+
+/* ── Column grid ── */
+.columns{
+  flex:1;
+  display:flex;
+  overflow:hidden;
+}
+
+.col{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:flex 500ms cubic-bezier(.22,.61,.36,1);
+  display:flex;flex-direction:column;
+  border-right:1px solid rgba(255,255,255,.05);
+}
+.col:last-child{border-right:none}
+
+/* hover state — expand */
+.columns:has(.col:hover) .col{flex:.7}
+.columns:has(.col:hover) .col:hover{flex:1.9}
+
+/* fallback for browsers without :has */
+@supports not selector(:has(a,b)){
+  .col.hovered{flex:1.9}
+  .col.shrunk{flex:.7}
+}
+
+/* ── Column backgrounds ── */
+.col-studio{background:var(--sr-paper)}
+.col-play{background:#1A1E26}
+.col-museum{background:#F0EDE6}
+.col-works{background:var(--sr-void)}
+
+/* top accent bar */
+.col::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  opacity:0;
+  transition:opacity 400ms;
+}
+.col:hover::before{opacity:1}
+.col-studio::before{background:var(--sr-amber)}
+.col-play::before{background:var(--sr-comet)}
+.col-museum::before{background:var(--sr-graphite)}
+.col-works::before{background:var(--sr-amber)}
+
+/* ── Column inner ── */
+.col-inner{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  padding:36px 28px 36px;
+}
+
+/* kicker */
+.col-kicker{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:auto;
+  transition:opacity 300ms;
+}
+.col-studio .col-kicker{color:var(--gray-400)}
+.col-play .col-kicker{color:rgba(185,228,232,.5)}
+.col-museum .col-kicker{color:var(--gray-400)}
+.col-works .col-kicker{color:var(--sr-amber);opacity:.6}
+
+/* number */
+.col-num{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:11vw;
+  line-height:1;
+  letter-spacing:-.04em;
+  position:absolute;
+  bottom:-0.15em;right:-0.05em;
+  transition:opacity 300ms,transform 400ms cubic-bezier(.22,.61,.36,1);
+  pointer-events:none;
+  user-select:none;
+}
+.col-studio .col-num{color:rgba(20,20,14,.04)}
+.col-play .col-num{color:rgba(185,228,232,.04)}
+.col-museum .col-num{color:rgba(40,40,41,.04)}
+.col-works .col-num{color:rgba(232,138,46,.06)}
+.col:hover .col-num{transform:scale(1.04) translateY(-2%);opacity:1}
+
+/* title */
+.col-title{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(22px, 2.2vw, 36px);
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin-bottom:10px;
+  transition:transform 400ms cubic-bezier(.22,.61,.36,1);
+}
+.col-studio .col-title{color:var(--sr-ink)}
+.col-play .col-title{color:var(--sr-paper)}
+.col-museum .col-title{color:var(--sr-graphite)}
+.col-works .col-title{color:var(--sr-paper)}
+.col:hover .col-title{transform:translateY(-4px)}
+
+/* subtitle (hidden at rest, fades in on hover) */
+.col-sub{
+  font-family:var(--font-body);
+  font-size:13px;
+  line-height:1.55;
+  max-width:220px;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity 350ms 80ms,transform 350ms 80ms cubic-bezier(.22,.61,.36,1);
+}
+.col-studio .col-sub{color:var(--gray-600)}
+.col-play .col-sub{color:rgba(243,238,227,.6)}
+.col-museum .col-sub{color:var(--gray-600)}
+.col-works .col-sub{color:rgba(243,238,227,.6)}
+.col:hover .col-sub{opacity:1;transform:translateY(0)}
+
+/* enter button */
+.col-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:10px 16px;
+  border-radius:2px;
+  margin-top:20px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity 300ms 120ms,transform 300ms 120ms cubic-bezier(.22,.61,.36,1),background 200ms;
+  text-decoration:none;
+  width:fit-content;
+}
+.col-studio .col-btn{background:var(--sr-amber);color:var(--sr-void)}
+.col-studio .col-btn:hover{background:var(--sr-amber-hi)}
+.col-play .col-btn{background:var(--sr-comet);color:var(--sr-void)}
+.col-play .col-btn:hover{background:#d4f0f4}
+.col-museum .col-btn{background:var(--sr-graphite);color:var(--sr-paper)}
+.col-museum .col-btn:hover{background:var(--gray-700)}
+.col-works .col-btn{background:var(--sr-amber);color:var(--sr-void)}
+.col-works .col-btn:hover{background:var(--sr-amber-hi)}
+.col:hover .col-btn{opacity:1;transform:translateY(0)}
+.col-btn svg{width:10px;height:10px;flex-shrink:0}
+
+/* ── Mobile fallback ── */
+@media(max-width:700px){
+  html,body{overflow:auto}
+  .columns{flex-direction:column;height:auto}
+  .col{flex:none;height:25vh;min-height:160px}
+  .col-num{display:none}
+  .col-sub{opacity:1;transform:none}
+  .col-btn{opacity:1;transform:none}
+  .col-inner{padding:24px 20px}
+  header{padding:0 20px}
+  .header-tagline{display:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-brand">
+      <div class="header-patch">
+        <img src="assets/logos/starriver-primary.png" alt="StarRiver Arts">
+      </div>
+      <span class="header-wordmark">星河 STARRIVER ARTS</span>
+      <span class="header-tagline">
+        <span class="zh">· 保存 · 普及 · 發展</span>
+        <span class="en">· Preservation · Accessibility · Development</span>
+      </span>
+    </div>
+    <button class="lang-btn" id="langBtn">
+      <span class="zh">EN</span><span class="en">中</span>
+    </button>
+  </header>
+
+  <!-- COLUMNS -->
+  <div class="columns">
+
+    <!-- Studio -->
+    <div class="col col-studio" id="col-0">
+      <div class="col-inner">
+        <div class="col-kicker">01 · Studio</div>
+        <div style="flex:1"></div>
+        <div class="col-title">
+          <span class="zh">創作者</span>
+          <span class="en">Creator</span>
+        </div>
+        <div class="col-sub">
+          <span class="zh">作品集 · 委託 · 專業形象。探索我的工作與能力。</span>
+          <span class="en">Portfolio · commissions · professional identity.</span>
+        </div>
+        <a class="col-btn" href="studio.html">
+          <span class="zh">進入</span>
+          <span class="en">Enter</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        </a>
+      </div>
+      <div class="col-num">01</div>
+    </div>
+
+    <!-- Play -->
+    <div class="col col-play" id="col-1">
+      <div class="col-inner">
+        <div class="col-kicker">02 · Play</div>
+        <div style="flex:1"></div>
+        <div class="col-title">
+          <span class="zh">遊玩</span>
+          <span class="en">Player</span>
+        </div>
+        <div class="col-sub">
+          <span class="zh">VRChat 世界 · 社群活動 · 賽車俱樂部。</span>
+          <span class="en">VRChat worlds · community events · racing club.</span>
+        </div>
+        <a class="col-btn" href="play.html">
+          <span class="zh">進入</span>
+          <span class="en">Enter</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        </a>
+      </div>
+      <div class="col-num">02</div>
+    </div>
+
+    <!-- Museum -->
+    <div class="col col-museum" id="col-2">
+      <div class="col-inner">
+        <div class="col-kicker">03 · Museum</div>
+        <div style="flex:1"></div>
+        <div class="col-title">
+          <span class="zh">美術館</span>
+          <span class="en">Museum</span>
+        </div>
+        <div class="col-sub">
+          <span class="zh">展覽資訊 · 投稿 · 數位藝術節目。</span>
+          <span class="en">Exhibitions · open call · digital art programme.</span>
+        </div>
+        <a class="col-btn" href="museum.html">
+          <span class="zh">進入</span>
+          <span class="en">Enter</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        </a>
+      </div>
+      <div class="col-num">03</div>
+    </div>
+
+    <!-- Works -->
+    <div class="col col-works" id="col-3">
+      <div class="col-inner">
+        <div class="col-kicker">04 · Works</div>
+        <div style="flex:1"></div>
+        <div class="col-title">
+          <span class="zh">作品宇宙</span>
+          <span class="en">Universe</span>
+        </div>
+        <div class="col-sub">
+          <span class="zh">創作者視角 · 概念探索 · 星河的世界觀。</span>
+          <span class="en">The creator's universe — concepts, ideas, worlds.</span>
+        </div>
+        <a class="col-btn" href="works.html">
+          <span class="zh">進入</span>
+          <span class="en">Enter</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        </a>
+      </div>
+      <div class="col-num">04</div>
+    </div>
+
+  </div><!-- /columns -->
+</div><!-- /page -->
+
+<script>
+(function(){
+  // Language
+  var html = document.documentElement;
+  var btn = document.getElementById('langBtn');
+  var saved = localStorage.getItem('sr-lang') || 'zh';
+  function setLang(l){
+    html.className = 'lang-' + l;
+    html.lang = l === 'zh' ? 'zh-TW' : 'en';
+    localStorage.setItem('sr-lang', l);
+  }
+  setLang(saved);
+  btn.addEventListener('click', function(){
+    setLang(localStorage.getItem('sr-lang') === 'zh' ? 'en' : 'zh');
+  });
+
+  // :has() fallback for older browsers
+  var supportsHas = CSS.supports('selector(:has(a))');
+  if(!supportsHas){
+    var cols = document.querySelectorAll('.col');
+    cols.forEach(function(col){
+      col.addEventListener('mouseenter', function(){
+        cols.forEach(function(c){ c.classList.remove('hovered'); c.classList.add('shrunk'); });
+        col.classList.remove('shrunk'); col.classList.add('hovered');
+      });
+      col.addEventListener('mouseleave', function(){
+        cols.forEach(function(c){ c.classList.remove('hovered','shrunk'); });
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
