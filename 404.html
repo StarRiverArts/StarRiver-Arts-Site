@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 — 星河 StarRiver Arts</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--font-body);background:var(--sr-void);color:var(--sr-paper);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+
+/* Stars */
+.stars{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.star{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d,4s) ease-in-out infinite var(--dl,0s)}
+@keyframes tw{0%,100%{opacity:var(--lo,.05)}50%{opacity:var(--hi,.25)}}
+
+main{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px}
+
+/* Giant 404 */
+.num{
+  font-family:var(--font-display);font-weight:900;
+  font-size:min(38vw,38vh);
+  line-height:.88;letter-spacing:-.05em;
+  background:linear-gradient(135deg, var(--sr-amber) 0%, var(--sr-comet) 55%, var(--sr-comet-deep) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  user-select:none;
+  margin-bottom:24px;
+}
+
+.msg{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,238,227,.3);margin-bottom:32px}
+.home-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sr-paper);border:1px solid rgba(243,238,227,.18);border-radius:2px;
+  padding:11px 20px;text-decoration:none;transition:background 200ms,border-color 200ms;
+}
+.home-link:hover{background:rgba(243,238,227,.06);border-color:rgba(243,238,227,.3)}
+.home-link svg{width:10px;height:10px}
+
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<main>
+  <div class="num">404</div>
+  <div class="msg"><span class="zh">找不到這個頁面</span><span class="en">Page not found</span></div>
+  <a class="home-link" href="index.html">
+    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+    <span class="zh">返回首頁</span><span class="en">Back to Hub</span>
+  </a>
+</main>
+<script>
+(function(){
+  var h=document.documentElement;
+  var s=localStorage.getItem('sr-lang')||'zh';
+  h.className='lang-'+s;h.lang=s==='zh'?'zh-TW':'en';
+
+  // Stars
+  var se=document.getElementById('stars');
+  var cnt=Math.floor(window.innerWidth*window.innerHeight/8000);
+  for(var i=0;i<cnt;i++){
+    var el=document.createElement('div');el.className='star';
+    var sz=Math.random()<.72?1:(Math.random()<.55?1.5:2);
+    el.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;--d:'+(3+Math.random()*5).toFixed(1)+'s;--dl:-'+(Math.random()*6).toFixed(1)+'s;--lo:'+(Math.random()*.08+.02).toFixed(2)+';--hi:'+(Math.random()*.22+.08).toFixed(2);
+    se.appendChild(el);
+  }
+})();
+</script>
+</body>
+</html>

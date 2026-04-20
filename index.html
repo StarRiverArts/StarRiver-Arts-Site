@@ -10,375 +10,279 @@
 html,body{height:100%;overflow:hidden}
 body{
   font-family:var(--font-body);
-  background:var(--sr-graphite);
-  color:var(--sr-paper);
+  background:#0d0d0f;
+  color:#f3eee3;
   -webkit-font-smoothing:antialiased;
 }
-
-/* ── Language ── */
 html.lang-zh .en{display:none}
 html.lang-en .zh{display:none}
-
-/* ── Layout ── */
 .page{display:flex;flex-direction:column;height:100vh}
 
-/* ── Header ── */
+/* HEADER */
 header{
-  height:64px;
-  flex-shrink:0;
-  display:flex;align-items:center;
-  padding:0 40px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  position:relative;z-index:10;
+  height:80px;flex-shrink:0;
+  display:flex;align-items:center;padding:0 36px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  position:relative;z-index:20;
 }
-.header-brand{
-  display:flex;align-items:center;gap:12px;
-  margin-right:auto;
+.hb{display:flex;align-items:center;gap:14px;margin-right:auto}
+.hlogo{
+  width:52px;height:52px;border-radius:50%;
+  border:2px solid var(--sr-amber);overflow:hidden;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  animation:pulsering 4s ease-in-out infinite;
 }
-.header-patch{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--sr-graphite);
-  border:2px solid var(--sr-amber);
-  overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
+@keyframes pulsering{
+  0%,100%{box-shadow:0 0 0 0 rgba(232,138,46,.4)}
+  50%{box-shadow:0 0 0 6px rgba(232,138,46,0)}
 }
-.header-patch img{width:30px;height:30px;object-fit:contain;border-radius:50%}
-.header-wordmark{
-  font-family:var(--font-deck);
-  font-weight:700;
-  font-size:14px;
-  letter-spacing:.06em;
-  color:var(--sr-paper);
+.hlogo img{width:46px;height:46px;object-fit:contain;border-radius:50%}
+.hw{font-family:var(--font-deck);font-weight:700;font-size:26px;letter-spacing:.04em;color:rgba(243,238,227,.9)}
+.lb{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(243,238,227,.3);background:none;
+  border:1px solid rgba(255,255,255,.1);border-radius:2px;
+  padding:4px 10px;cursor:pointer;
+  transition:color 250ms,border-color 250ms;
 }
-.header-tagline{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:rgba(243,238,227,.35);
-  margin-left:4px;
-}
-.lang-btn{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:rgba(243,238,227,.4);
-  background:none;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:2px;
-  padding:5px 10px;
-  cursor:pointer;
-  transition:color 200ms,border-color 200ms;
-}
-.lang-btn:hover{color:var(--sr-paper);border-color:rgba(255,255,255,.3)}
+.lb:hover{color:rgba(243,238,227,.8);border-color:rgba(255,255,255,.25)}
 
-/* ── Column grid ── */
+/* STARS */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,4s) ease-in-out infinite var(--dl,0s)}
+@keyframes twinkle{0%,100%{opacity:var(--lo,.06)}50%{opacity:var(--hi,.3)}}
+
+/* COLUMNS */
 .columns{
-  flex:1;
-  display:flex;
-  overflow:hidden;
+  flex:1;display:flex;overflow:hidden;
+  position:relative;z-index:1;
 }
-
 .col{
-  flex:1;
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition:flex 500ms cubic-bezier(.22,.61,.36,1);
+  flex:1;position:relative;overflow:hidden;cursor:pointer;
+  transition:flex 650ms cubic-bezier(.22,.61,.36,1);
+  border-right:1px solid rgba(255,255,255,.04);
   display:flex;flex-direction:column;
-  border-right:1px solid rgba(255,255,255,.05);
 }
 .col:last-child{border-right:none}
+.columns:has(.col:hover) .col{flex:.6}
+.columns:has(.col:hover) .col:hover{flex:2.2}
 
-/* hover state — expand */
-.columns:has(.col:hover) .col{flex:.7}
-.columns:has(.col:hover) .col:hover{flex:1.9}
-
-/* fallback for browsers without :has */
-@supports not selector(:has(a,b)){
-  .col.hovered{flex:1.9}
-  .col.shrunk{flex:.7}
+/* faint accent top bar on hover */
+.col::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  opacity:0;transition:opacity 400ms;
 }
+.col:hover::after{opacity:1}
+.col-0::after{background:var(--sr-amber)}
+.col-1::after{background:#a8d8c4}
+.col-2::after{background:#dcdcdc}
 
-/* ── Column backgrounds ── */
-.col-studio{background:var(--sr-paper)}
-.col-play{background:#1A1E26}
-.col-museum{background:#F0EDE6}
-.col-works{background:var(--sr-void)}
-
-/* top accent bar */
-.col::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;
-  height:2px;
-  opacity:0;
-  transition:opacity 400ms;
+/* large background number */
+.col-num{
+  position:absolute;
+  bottom:-0.1em;right:-0.02em;
+  font-family:var(--font-display);font-weight:900;
+  font-size:min(22vw,22vh);
+  line-height:1;letter-spacing:-.04em;
+  pointer-events:none;user-select:none;
+  transition:opacity 500ms,transform 500ms cubic-bezier(.22,.61,.36,1);
 }
-.col:hover::before{opacity:1}
-.col-studio::before{background:var(--sr-amber)}
-.col-play::before{background:var(--sr-comet)}
-.col-museum::before{background:var(--sr-graphite)}
-.col-works::before{background:var(--sr-amber)}
+.col-0 .col-num{color:rgba(232,138,46,.04)}
+.col-1 .col-num{color:rgba(168,216,196,.04)}
+.col-2 .col-num{color:rgba(220,220,220,.04)}
+.col:hover .col-num{opacity:.6;transform:scale(1.04) translateY(-1%)}
 
-/* ── Column inner ── */
+/* content */
 .col-inner{
   position:absolute;inset:0;
   display:flex;flex-direction:column;
-  padding:36px 28px 36px;
+  padding:36px 30px 40px;
 }
-
-/* kicker */
 .col-kicker{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  margin-bottom:auto;
-  transition:opacity 300ms;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(243,238,227,.2);margin-bottom:auto;
+  transition:opacity 400ms;
 }
-.col-studio .col-kicker{color:var(--gray-400)}
-.col-play .col-kicker{color:rgba(185,228,232,.5)}
-.col-museum .col-kicker{color:var(--gray-400)}
-.col-works .col-kicker{color:var(--sr-amber);opacity:.6}
-
-/* number */
-.col-num{
-  font-family:var(--font-display);
-  font-weight:900;
-  font-size:11vw;
-  line-height:1;
-  letter-spacing:-.04em;
-  position:absolute;
-  bottom:-0.15em;right:-0.05em;
-  transition:opacity 300ms,transform 400ms cubic-bezier(.22,.61,.36,1);
-  pointer-events:none;
-  user-select:none;
-}
-.col-studio .col-num{color:rgba(20,20,14,.04)}
-.col-play .col-num{color:rgba(185,228,232,.04)}
-.col-museum .col-num{color:rgba(40,40,41,.04)}
-.col-works .col-num{color:rgba(232,138,46,.06)}
-.col:hover .col-num{transform:scale(1.04) translateY(-2%);opacity:1}
-
-/* title */
+.col:hover .col-kicker{opacity:.45}
 .col-title{
-  font-family:var(--font-display);
-  font-weight:900;
-  font-size:clamp(22px, 2.2vw, 36px);
-  line-height:1.05;
-  letter-spacing:-.02em;
-  margin-bottom:10px;
-  transition:transform 400ms cubic-bezier(.22,.61,.36,1);
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(48px,5.5vw,84px);
+  line-height:.92;letter-spacing:-.03em;
+  margin-bottom:6px;
+  transition:transform 500ms cubic-bezier(.22,.61,.36,1);
 }
-.col-studio .col-title{color:var(--sr-ink)}
-.col-play .col-title{color:var(--sr-paper)}
-.col-museum .col-title{color:var(--sr-graphite)}
-.col-works .col-title{color:var(--sr-paper)}
-.col:hover .col-title{transform:translateY(-4px)}
-
-/* subtitle (hidden at rest, fades in on hover) */
-.col-sub{
-  font-family:var(--font-body);
-  font-size:13px;
-  line-height:1.55;
-  max-width:220px;
-  opacity:0;
-  transform:translateY(8px);
-  transition:opacity 350ms 80ms,transform 350ms 80ms cubic-bezier(.22,.61,.36,1);
+.col-0 .col-title{color:#ede4cc}
+.col-1 .col-title{color:#b8d8c4}
+.col-2 .col-title{color:#dcdcde}
+.col:hover .col-title{transform:translateY(-5px)}
+.col-zh{
+  font-family:var(--font-body);font-size:14px;letter-spacing:.04em;
+  margin-top:4px;opacity:.35;transition:opacity 400ms;
 }
-.col-studio .col-sub{color:var(--gray-600)}
-.col-play .col-sub{color:rgba(243,238,227,.6)}
-.col-museum .col-sub{color:var(--gray-600)}
-.col-works .col-sub{color:rgba(243,238,227,.6)}
-.col:hover .col-sub{opacity:1;transform:translateY(0)}
-
-/* enter button */
+.col-0 .col-zh{color:#ede4cc}
+.col-1 .col-zh{color:#b8d8c4}
+.col-2 .col-zh{color:#dcdcde}
+.col:hover .col-zh{opacity:.6}
+.col-desc{
+  font-family:var(--font-body);font-size:14px;line-height:1.55;
+  max-width:220px;margin-top:12px;color:rgba(243,238,227,.4);
+  opacity:0;transform:translateY(8px);
+  transition:opacity 340ms 80ms,transform 340ms 80ms cubic-bezier(.22,.61,.36,1);
+}
+.col:hover .col-desc{opacity:1;transform:translateY(0)}
 .col-btn{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  padding:10px 16px;
-  border-radius:2px;
-  margin-top:20px;
-  opacity:0;
-  transform:translateY(10px);
-  transition:opacity 300ms 120ms,transform 300ms 120ms cubic-bezier(.22,.61,.36,1),background 200ms;
-  text-decoration:none;
-  width:fit-content;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:10px 18px;border-radius:2px;margin-top:18px;width:fit-content;
+  opacity:0;transform:translateY(10px);text-decoration:none;
+  transition:opacity 290ms 140ms,transform 290ms 140ms cubic-bezier(.22,.61,.36,1),background 200ms;
 }
-.col-studio .col-btn{background:var(--sr-amber);color:var(--sr-void)}
-.col-studio .col-btn:hover{background:var(--sr-amber-hi)}
-.col-play .col-btn{background:var(--sr-comet);color:var(--sr-void)}
-.col-play .col-btn:hover{background:#d4f0f4}
-.col-museum .col-btn{background:var(--sr-graphite);color:var(--sr-paper)}
-.col-museum .col-btn:hover{background:var(--gray-700)}
-.col-works .col-btn{background:var(--sr-amber);color:var(--sr-void)}
-.col-works .col-btn:hover{background:var(--sr-amber-hi)}
 .col:hover .col-btn{opacity:1;transform:translateY(0)}
+.col-0 .col-btn{background:rgba(232,138,46,.15);color:#ede4cc;border:1px solid rgba(232,138,46,.3)}
+.col-0 .col-btn:hover{background:rgba(232,138,46,.28)}
+.col-1 .col-btn{background:rgba(70,160,100,.18);color:#b8d8c4;border:1px solid rgba(90,180,120,.25)}
+.col-1 .col-btn:hover{background:rgba(70,160,100,.32)}
+.col-2 .col-btn{background:rgba(210,210,215,.1);color:#dcdcde;border:1px solid rgba(210,210,215,.18)}
+.col-2 .col-btn:hover{background:rgba(210,210,215,.22)}
 .col-btn svg{width:10px;height:10px;flex-shrink:0}
 
-/* ── Mobile fallback ── */
-@media(max-width:700px){
+/* CLICK OVERLAY */
+.tov{position:fixed;inset:0;z-index:100;pointer-events:none;
+     background:#0d0d0f;opacity:0;transition:opacity 500ms}
+.tov.on{pointer-events:all;opacity:1}
+
+/* MOBILE */
+@media(max-width:680px){
   html,body{overflow:auto}
   .columns{flex-direction:column;height:auto}
-  .col{flex:none;height:25vh;min-height:160px}
-  .col-num{display:none}
-  .col-sub{opacity:1;transform:none}
-  .col-btn{opacity:1;transform:none}
-  .col-inner{padding:24px 20px}
+  .col{flex:none!important;height:32vh;min-height:160px}
+  .col-desc,.col-btn{opacity:1!important;transform:none!important}
   header{padding:0 20px}
-  .header-tagline{display:none}
+  .hw{font-size:20px}
+  .hlogo{width:38px;height:38px}
+  .hlogo img{width:32px;height:32px}
 }
 </style>
 </head>
 <body>
+
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div class="tov" id="tov"></div>
+
 <div class="page">
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-brand">
-      <div class="header-patch">
-        <img src="assets/logos/starriver-primary.png" alt="StarRiver Arts">
-      </div>
-      <span class="header-wordmark">星河 STARRIVER ARTS</span>
-      <span class="header-tagline">
-        <span class="zh">· 保存 · 普及 · 發展</span>
-        <span class="en">· Preservation · Accessibility · Development</span>
-      </span>
+<header>
+  <div class="hb">
+    <div class="hlogo">
+      <img src="assets/logos/starriver-primary.png" alt="StarRiver Arts">
     </div>
-    <button class="lang-btn" id="langBtn">
-      <span class="zh">EN</span><span class="en">中</span>
-    </button>
-  </header>
+    <span class="hw">星河 STARRIVER ARTS</span>
+  </div>
+  <button class="lb" id="lbtn"><span class="zh">EN</span><span class="en">中</span></button>
+</header>
 
-  <!-- COLUMNS -->
-  <div class="columns">
+<div class="columns" id="colsWrap">
 
-    <!-- Studio -->
-    <div class="col col-studio" id="col-0">
-      <div class="col-inner">
-        <div class="col-kicker">01 · Studio</div>
-        <div style="flex:1"></div>
-        <div class="col-title">
-          <span class="zh">創作者</span>
-          <span class="en">Creator</span>
-        </div>
-        <div class="col-sub">
-          <span class="zh">作品集 · 委託 · 專業形象。探索我的工作與能力。</span>
-          <span class="en">Portfolio · commissions · professional identity.</span>
-        </div>
-        <a class="col-btn" href="studio.html">
-          <span class="zh">進入</span>
-          <span class="en">Enter</span>
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-        </a>
-      </div>
-      <div class="col-num">01</div>
+  <!-- Studio -->
+  <div class="col col-0">
+    <div class="col-num">01</div>
+    <div class="col-inner">
+      <div class="col-kicker">01 · Studio</div>
+      <div style="flex:1"></div>
+      <div class="col-title">Studio</div>
+      <div class="col-zh">專案作品</div>
+      <div class="col-desc">Selected works and capabilities</div>
+      <a class="col-btn" href="studio.html">
+        Enter
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
     </div>
+  </div>
 
-    <!-- Play -->
-    <div class="col col-play" id="col-1">
-      <div class="col-inner">
-        <div class="col-kicker">02 · Play</div>
-        <div style="flex:1"></div>
-        <div class="col-title">
-          <span class="zh">遊玩</span>
-          <span class="en">Player</span>
-        </div>
-        <div class="col-sub">
-          <span class="zh">VRChat 世界 · 社群活動 · 賽車俱樂部。</span>
-          <span class="en">VRChat worlds · community events · racing club.</span>
-        </div>
-        <a class="col-btn" href="play.html">
-          <span class="zh">進入</span>
-          <span class="en">Enter</span>
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-        </a>
-      </div>
-      <div class="col-num">02</div>
+  <!-- Project T / Play -->
+  <div class="col col-1">
+    <div class="col-num">02</div>
+    <div class="col-inner">
+      <div class="col-kicker">02 · Play</div>
+      <div style="flex:1"></div>
+      <div class="col-title">Project T</div>
+      <div class="col-zh">數位體驗</div>
+      <div class="col-desc">VR environments and Taiwan landscapes</div>
+      <a class="col-btn" href="play.html">
+        Enter
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
     </div>
+  </div>
 
-    <!-- Museum -->
-    <div class="col col-museum" id="col-2">
-      <div class="col-inner">
-        <div class="col-kicker">03 · Museum</div>
-        <div style="flex:1"></div>
-        <div class="col-title">
-          <span class="zh">美術館</span>
-          <span class="en">Museum</span>
-        </div>
-        <div class="col-sub">
-          <span class="zh">展覽資訊 · 投稿 · 數位藝術節目。</span>
-          <span class="en">Exhibitions · open call · digital art programme.</span>
-        </div>
-        <a class="col-btn" href="museum.html">
-          <span class="zh">進入</span>
-          <span class="en">Enter</span>
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-        </a>
-      </div>
-      <div class="col-num">03</div>
+  <!-- Museum -->
+  <div class="col col-2">
+    <div class="col-num">03</div>
+    <div class="col-inner">
+      <div class="col-kicker">03 · Museum</div>
+      <div style="flex:1"></div>
+      <div class="col-title">Museum</div>
+      <div class="col-zh">美術館</div>
+      <div class="col-desc">Exhibitions and conceptual works</div>
+      <a class="col-btn" href="museum.html">
+        Enter
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
     </div>
+  </div>
 
-    <!-- Works -->
-    <div class="col col-works" id="col-3">
-      <div class="col-inner">
-        <div class="col-kicker">04 · Works</div>
-        <div style="flex:1"></div>
-        <div class="col-title">
-          <span class="zh">作品宇宙</span>
-          <span class="en">Universe</span>
-        </div>
-        <div class="col-sub">
-          <span class="zh">創作者視角 · 概念探索 · 星河的世界觀。</span>
-          <span class="en">The creator's universe — concepts, ideas, worlds.</span>
-        </div>
-        <a class="col-btn" href="works.html">
-          <span class="zh">進入</span>
-          <span class="en">Enter</span>
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-        </a>
-      </div>
-      <div class="col-num">04</div>
-    </div>
-
-  </div><!-- /columns -->
-</div><!-- /page -->
+</div>
+</div>
 
 <script>
 (function(){
-  // Language
-  var html = document.documentElement;
-  var btn = document.getElementById('langBtn');
-  var saved = localStorage.getItem('sr-lang') || 'zh';
-  function setLang(l){
-    html.className = 'lang-' + l;
-    html.lang = l === 'zh' ? 'zh-TW' : 'en';
-    localStorage.setItem('sr-lang', l);
-  }
-  setLang(saved);
-  btn.addEventListener('click', function(){
-    setLang(localStorage.getItem('sr-lang') === 'zh' ? 'en' : 'zh');
-  });
+/* Language */
+var html=document.documentElement;
+var lbtn=document.getElementById('lbtn');
+var saved=localStorage.getItem('sr-lang')||'zh';
+function setLang(l){
+  html.className='lang-'+l;
+  html.lang=l==='zh'?'zh-TW':'en';
+  localStorage.setItem('sr-lang',l);
+}
+setLang(saved);
+lbtn.addEventListener('click',function(){
+  setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh');
+});
 
-  // :has() fallback for older browsers
-  var supportsHas = CSS.supports('selector(:has(a))');
-  if(!supportsHas){
-    var cols = document.querySelectorAll('.col');
-    cols.forEach(function(col){
-      col.addEventListener('mouseenter', function(){
-        cols.forEach(function(c){ c.classList.remove('hovered'); c.classList.add('shrunk'); });
-        col.classList.remove('shrunk'); col.classList.add('hovered');
-      });
-      col.addEventListener('mouseleave', function(){
-        cols.forEach(function(c){ c.classList.remove('hovered','shrunk'); });
-      });
+/* Stars */
+var se=document.getElementById('stars');
+var cnt=Math.floor(window.innerWidth*window.innerHeight/8000);
+for(var i=0;i<cnt;i++){
+  var s=document.createElement('div');
+  s.className='star';
+  var sz=Math.random()<.72?1:(Math.random()<.55?1.5:2);
+  s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;--d:'+(3+Math.random()*5.5).toFixed(1)+'s;--dl:-'+(Math.random()*7).toFixed(1)+'s;--lo:'+(Math.random()*.1+.03).toFixed(2)+';--hi:'+(Math.random()*.28+.1).toFixed(2);
+  se.appendChild(s);
+}
+
+/* Click transition */
+var tov=document.getElementById('tov');
+document.querySelectorAll('.col-btn').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    var href=btn.getAttribute('href');
+    tov.classList.add('on');
+    setTimeout(function(){window.location.href=href;},520);
+  });
+});
+
+/* :has() fallback */
+if(!CSS.supports('selector(:has(a))')){
+  var cols=document.querySelectorAll('.col');
+  cols.forEach(function(col,i){
+    col.addEventListener('mouseenter',function(){
+      cols.forEach(function(c,j){c.style.flex=j===i?'2.2':'.6';});
     });
-  }
+    col.addEventListener('mouseleave',function(){
+      cols.forEach(function(c){c.style.flex='1';});
+    });
+  });
+}
 })();
 </script>
 </body>

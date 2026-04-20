@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond Gravity — StarRiver Arts</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--sr-paper);color:var(--sr-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  height:60px;background:var(--sr-paper);
+  border-bottom:1px solid var(--gray-200);
+  display:flex;align-items:center;padding:0 48px;gap:0;
+}
+.nav-back{
+  display:flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-500);margin-right:auto;transition:color 200ms;
+}
+.nav-back:hover{color:var(--sr-ink)}
+.nav-back svg{width:10px;height:10px}
+.nav-brand{font-family:var(--font-deck);font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--gray-400)}
+.lang-btn{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;
+  padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms;
+}
+.lang-btn:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+
+/* HERO */
+.hero-image{
+  width:100%;aspect-ratio:21/9;background:var(--sr-bone);
+  overflow:hidden;position:relative;
+  border-bottom:1px solid var(--gray-200);
+}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);
+  background:var(--sr-bone);
+}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+.content-grid{display:grid;grid-template-columns:1fr 260px;gap:64px;padding:56px 0 48px;align-items:start}
+.main-col{}
+.meta-col{position:sticky;top:80px}
+
+/* TITLE AREA */
+.project-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:10px}
+.project-title{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:.95;letter-spacing:-.03em;color:var(--sr-ink);margin-bottom:20px;text-wrap:balance}
+
+/* CONCEPT */
+.concept{font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--gray-700);max-width:620px;margin-bottom:64px}
+.concept p+p{margin-top:14px}
+
+/* SECTION LABEL */
+.sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gray-200)}
+
+/* GALLERY */
+.gallery-section{margin-bottom:64px}
+.gallery-wrap{position:relative}
+.gallery-track{
+  display:flex;gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:4px;
+  cursor:grab;
+}
+.gallery-track:active{cursor:grabbing}
+.gallery-track::-webkit-scrollbar{height:3px}
+.gallery-track::-webkit-scrollbar-track{background:var(--gray-200)}
+.gallery-track::-webkit-scrollbar-thumb{background:var(--gray-400);border-radius:2px}
+.gallery-item{
+  flex-shrink:0;scroll-snap-align:start;
+  width:clamp(280px,55%,500px);
+  display:flex;flex-direction:column;gap:8px;
+}
+.gallery-thumb{
+  aspect-ratio:16/9;background:var(--sr-bone);border-radius:2px;
+  overflow:hidden;border:1px solid var(--gray-200);position:relative;
+}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.g-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);
+}
+.gallery-caption{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--gray-500);line-height:1.5;padding:0 2px}
+.gallery-arrows{display:flex;gap:6px;margin-top:12px}
+.g-arrow{
+  font-family:var(--font-mono);font-size:11px;color:var(--gray-500);
+  background:none;border:1px solid var(--gray-200);border-radius:2px;
+  padding:6px 12px;cursor:pointer;transition:color 150ms,border-color 150ms;
+}
+.g-arrow:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+
+/* TECH DETAILS */
+.tech-section{margin-bottom:64px}
+.tech-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden}
+.tech-item{
+  display:grid;grid-template-columns:160px 1fr;gap:16px;
+  padding:16px 20px;border-top:1px solid var(--gray-200);
+  background:var(--sr-chalk);
+}
+.tech-item:first-child{border-top:none}
+.tech-key{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);padding-top:1px}
+.tech-val{font-family:var(--font-body);font-size:14px;color:var(--sr-ink);line-height:1.55}
+
+/* META SIDEBAR */
+.meta-block{background:var(--sr-chalk);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px}
+.meta-row{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-top:1px solid var(--gray-200)}
+.meta-row:first-child{border-top:none}
+.meta-key{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+.meta-val{font-family:var(--font-body);font-size:13px;color:var(--sr-ink);line-height:1.4}
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--fa-signal);color:#fff;border:none;border-radius:2px;
+  padding:12px 16px;width:100%;cursor:pointer;text-decoration:none;
+  transition:background 200ms;
+}
+.cta-btn:hover{background:var(--fa-signal-lo)}
+.cta-btn svg{width:10px;height:10px}
+
+/* PREV/NEXT */
+.project-nav{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);
+  overflow:hidden;margin:64px 0 0;
+}
+.pnav-item{
+  background:var(--sr-chalk);padding:20px 22px;
+  display:flex;flex-direction:column;gap:4px;cursor:pointer;
+  transition:background 150ms;text-decoration:none;color:inherit;
+}
+.pnav-item:hover{background:var(--sr-bone)}
+.pnav-dir{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400)}
+.pnav-title{font-family:var(--font-deck);font-weight:600;font-size:16px;color:var(--sr-ink)}
+.pnav-item.next{text-align:right}
+
+/* FOOTER */
+footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margin-top:80px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-name{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:rgba(243,238,227,.7)}
+.footer-copy{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-600)}
+
+@media(max-width:800px){
+  .wrap{padding:0 24px}
+  nav{padding:0 24px}
+  .content-grid{grid-template-columns:1fr;gap:40px}
+  .meta-col{position:static}
+  .tech-item{grid-template-columns:1fr;gap:4px}
+  .project-nav{grid-template-columns:1fr}
+  .hero-image{aspect-ratio:16/9}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-back" href="../studio.html">
+    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+    <span class="zh">工作室</span><span class="en">Studio</span>
+  </a>
+  <span class="nav-brand">星河 STARRIVER ARTS</span>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中</span></button>
+</nav>
+
+<!-- HERO IMAGE -->
+<!-- Replace thumb-ph with <img src="..."> when screenshots are ready -->
+<div class="hero-image">
+  <div class="hero-ph"><span class="zh">主視覺截圖待放</span><span class="en">Hero screenshot — replace this placeholder</span></div>
+</div>
+
+<div class="wrap">
+<div class="content-grid">
+
+  <!-- MAIN -->
+  <div class="main-col">
+
+    <div class="project-kicker">Formosa Aerospace · 2024 · VRChat</div>
+    <h1 class="project-title">Beyond Gravity</h1>
+
+    <!-- CONCEPT -->
+    <div class="concept">
+      <p class="zh">Beyond Gravity 以 VRChat 為媒介，呈現天鉤（Skyhook）軌道運輸系統的尺度與運作概念。在 Space Jam 3 兩週的製作限制下，選擇以實體空間行走取代說明文字：訪客站在太空站結構中移動，用身體感受軌道高度與機械比例。</p>
+      <p class="zh">作品的核心問題是：科學概念能否在不依賴圖表和文字的情況下被空間化？天鉤站的設計回答這個問題——每個展示板的位置、高度、視角都服從敘事邏輯，而非裝飾邏輯。</p>
+      <p class="en">Beyond Gravity uses VRChat to present the concept and scale of a Skyhook orbital transport system. Within the two-week constraint of Space Jam 3, the design choice was to spatialise the science rather than explain it: visitors walk through the station structure, using their body to feel orbital altitude and mechanical proportion.</p>
+      <p class="en">The core question: can scientific concepts be spatially experienced without charts and text? The Skyhook station answers this — every display panel's position, height, and viewing angle follows narrative logic, not decorative logic.</p>
+    </div>
+
+    <!-- VISUAL GALLERY -->
+    <div class="gallery-section">
+      <div class="sec-label"><span class="zh">視覺紀錄</span><span class="en">Visual Record</span></div>
+      <div class="gallery-wrap">
+        <div class="gallery-track" id="vg">
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">外觀全景</span><span class="en">Exterior overview</span></div></div>
+            <div class="gallery-caption zh">太空站外觀 · 軌道高度視角</div>
+            <div class="gallery-caption en">Station exterior · Orbital altitude perspective</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">天鉤展示廳</span><span class="en">Skyhook exhibit hall</span></div></div>
+            <div class="gallery-caption zh">主展示廳 · 天鉤結構模型與說明板</div>
+            <div class="gallery-caption en">Main hall · Skyhook structural model and explanation panels</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">空天飛機展示</span><span class="en">Spaceplane exhibit</span></div></div>
+            <div class="gallery-caption zh">空天飛機展區 · 比例模型</div>
+            <div class="gallery-caption en">Spaceplane section · Scale model</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">地球視角</span><span class="en">Earth view</span></div></div>
+            <div class="gallery-caption zh">觀景窗 · 地球與軌道夜景</div>
+            <div class="gallery-caption en">Observation window · Earth and orbital night scene</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">活動照片</span><span class="en">Event photo</span></div></div>
+            <div class="gallery-caption zh">Space Jam 3 評審期間 · 社群訪問記錄</div>
+            <div class="gallery-caption en">Space Jam 3 judging period · Community visit record</div>
+          </div>
+        </div>
+        <div class="gallery-arrows">
+          <button class="g-arrow" onclick="scroll_gallery('vg',-1)">← <span class="zh">上一張</span><span class="en">Prev</span></button>
+          <button class="g-arrow" onclick="scroll_gallery('vg',1)"><span class="zh">下一張</span><span class="en">Next</span> →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL GALLERY -->
+    <div class="gallery-section">
+      <div class="sec-label"><span class="zh">技術過程</span><span class="en">Technical Process</span></div>
+      <div class="gallery-wrap">
+        <div class="gallery-track" id="tg">
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">Unity 場景結構</span><span class="en">Unity scene hierarchy</span></div></div>
+            <div class="gallery-caption zh">Unity 場景層級 · 模組化結構分組</div>
+            <div class="gallery-caption en">Unity scene hierarchy · Modular structure grouping</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">光照設定</span><span class="en">Lighting setup</span></div></div>
+            <div class="gallery-caption zh">光照方案 · 烘焙 Global Illumination + 反射探針</div>
+            <div class="gallery-caption en">Lighting scheme · Baked GI + reflection probes</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">多邊形預算</span><span class="en">Polygon budget</span></div></div>
+            <div class="gallery-caption zh">Scene Stats · Quest 平台多邊形預算管理</div>
+            <div class="gallery-caption en">Scene stats · Quest platform polygon budget management</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-thumb"><div class="g-ph"><span class="zh">展示板 Udon</span><span class="en">Display panel Udon</span></div></div>
+            <div class="gallery-caption zh">Udon Graph · 互動說明板邏輯</div>
+            <div class="gallery-caption en">Udon Graph · Interactive display panel logic</div>
+          </div>
+        </div>
+        <div class="gallery-arrows">
+          <button class="g-arrow" onclick="scroll_gallery('tg',-1)">← <span class="zh">上一張</span><span class="en">Prev</span></button>
+          <button class="g-arrow" onclick="scroll_gallery('tg',1)"><span class="zh">下一張</span><span class="en">Next</span> →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL DETAILS -->
+    <div class="tech-section">
+      <div class="sec-label"><span class="zh">技術細節</span><span class="en">Technical Details</span></div>
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">平台</span><span class="en">Platform</span></div>
+          <div class="tech-val">VRChat SDK3 · PC + Quest 2 雙平台 · 公開世界，最大 32 人</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">製作時間</span><span class="en">Duration</span></div>
+          <div class="tech-val zh">2 週（VRChat Space Jam 3 限時挑戰）· 單人獨立完成</div>
+          <div class="tech-val en">2 weeks (VRChat Space Jam 3 timed challenge) · Solo</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">幾何結構</span><span class="en">Geometry</span></div>
+          <div class="tech-val zh">模組化金屬結構件，手建 mesh + ProBuilder 混合。Quest 平台控制在 200K 多邊形以內。</div>
+          <div class="tech-val en">Modular metal structural components, hand-built mesh + ProBuilder hybrid. Quest target: under 200K polygons.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">光照</span><span class="en">Lighting</span></div>
+          <div class="tech-val zh">烘焙 GI + 反射探針。模擬軌道太陽直射光（高對比硬陰影）+ 地球反照補光。</div>
+          <div class="tech-val en">Baked GI + reflection probes. Simulates direct orbital sunlight (high-contrast hard shadows) + Earth albedo fill.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">互動機制</span><span class="en">Interaction</span></div>
+          <div class="tech-val zh">Udon Graph 驅動的說明板系統，觸碰觸發文字切換，無需複雜狀態機。</div>
+          <div class="tech-val en">Udon Graph-driven display panel system — touch-triggered text switching, no complex state machine required.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT NAV -->
+    <div class="project-nav">
+      <div class="pnav-item">
+        <div class="pnav-dir zh">← 上一件</div>
+        <div class="pnav-dir en">← Previous</div>
+        <div class="pnav-title" style="opacity:.4">—</div>
+      </div>
+      <a class="pnav-item next" href="starsight-mt.html">
+        <div class="pnav-dir zh">下一件 →</div>
+        <div class="pnav-dir en">Next →</div>
+        <div class="pnav-title">StarSight Mt. 觀星山</div>
+      </a>
+    </div>
+
+  </div><!-- /main-col -->
+
+  <!-- META SIDEBAR -->
+  <div class="meta-col">
+    <div class="meta-block">
+      <div class="meta-row">
+        <div class="meta-key zh">年份</div><div class="meta-key en">Year</div>
+        <div class="meta-val">2024</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">媒介</div><div class="meta-key en">Medium</div>
+        <div class="meta-val">VRChat SDK3</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">群組</div><div class="meta-key en">Group</div>
+        <div class="meta-val">Formosa Aerospace</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">製作週期</div><div class="meta-key en">Duration</div>
+        <div class="meta-val zh">2 週</div>
+        <div class="meta-val en">2 weeks</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">角色</div><div class="meta-key en">Role</div>
+        <div class="meta-val zh">環境設計 · 互動設計 · 單人</div>
+        <div class="meta-val en">Environment design · Interaction design · Solo</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">狀態</div><div class="meta-key en">Status</div>
+        <div class="meta-val" style="color:var(--terra-forest)"><span class="zh">已發佈</span><span class="en">Released</span></div>
+      </div>
+    </div>
+
+    <a class="cta-btn" href="https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03" target="_blank" rel="noopener">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      <span class="zh">在 VRChat 中體驗</span>
+      <span class="en">Experience in VRChat</span>
+    </a>
+  </div>
+
+</div><!-- /content-grid -->
+</div><!-- /wrap -->
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <span class="footer-name">星河 STARRIVER ARTS</span>
+      <span class="footer-copy">© 2025 · <span class="zh">保存 · 普及 · 發展</span><span class="en">Preservation · Accessibility · Development</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var btn=document.getElementById('langBtn');
+  var saved=localStorage.getItem('sr-lang')||'zh';
+  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  setLang(saved);
+  btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+})();
+
+// Gallery scroll
+function scroll_gallery(id, dir) {
+  var track = document.getElementById(id);
+  var item = track.querySelector('.gallery-item');
+  if (!item) return;
+  var itemW = item.offsetWidth + 12; // gap
+  track.scrollBy({ left: dir * itemW, behavior: 'smooth' });
+}
+
+// Gallery drag-to-scroll
+document.querySelectorAll('.gallery-track').forEach(function(track) {
+  var isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', function(e) {
+    isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', function() { isDown = false; });
+  track.addEventListener('mouseup', function() { isDown = false; });
+  track.addEventListener('mousemove', function(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+});
+</script>
+</body>
+</html>
