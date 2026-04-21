@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StarSight Mt. 觀星山 — StarRiver Arts</title>
+<link rel="icon" href="../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--sr-paper);color:var(--sr-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+nav{position:sticky;top:0;z-index:100;height:60px;background:var(--sr-paper);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 48px;gap:0}
+.nav-back{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);margin-right:auto;transition:color 200ms}
+.nav-back:hover{color:var(--sr-ink)}
+.nav-back svg{width:10px;height:10px}
+.nav-brand{font-family:var(--font-deck);font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--gray-400)}
+.lang-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms}
+.lang-btn:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+.hero-image{width:100%;aspect-ratio:21/9;background:var(--sr-bone);overflow:hidden;position:relative;border-bottom:1px solid var(--gray-200)}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+.content-grid{display:grid;grid-template-columns:1fr 260px;gap:64px;padding:56px 0 48px;align-items:start}
+.meta-col{position:sticky;top:80px}
+.project-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:10px}
+.project-title{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:.95;letter-spacing:-.03em;color:var(--sr-ink);margin-bottom:20px;text-wrap:balance}
+.concept{font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--gray-700);max-width:620px;margin-bottom:64px}
+.concept p+p{margin-top:14px}
+.sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gray-200)}
+.gallery-section{margin-bottom:64px}
+.gallery-wrap{position:relative}
+.gallery-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:4px;cursor:grab}
+.gallery-track:active{cursor:grabbing}
+.gallery-track::-webkit-scrollbar{height:3px}
+.gallery-track::-webkit-scrollbar-track{background:var(--gray-200)}
+.gallery-track::-webkit-scrollbar-thumb{background:var(--gray-400);border-radius:2px}
+.gallery-item{flex-shrink:0;scroll-snap-align:start;width:clamp(280px,55%,500px);display:flex;flex-direction:column;gap:8px}
+.gallery-thumb{aspect-ratio:16/9;background:var(--sr-bone);border-radius:2px;overflow:hidden;border:1px solid var(--gray-200);position:relative}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-caption{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--gray-500);line-height:1.5;padding:0 2px}
+.gallery-arrows{display:flex;gap:6px;margin-top:12px}
+.g-arrow{font-family:var(--font-mono);font-size:11px;color:var(--gray-500);background:none;border:1px solid var(--gray-200);border-radius:2px;padding:6px 12px;cursor:pointer;transition:color 150ms,border-color 150ms}
+.g-arrow:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+.tech-section{margin-bottom:64px}
+.tech-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden}
+.tech-item{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:16px 20px;border-top:1px solid var(--gray-200);background:var(--sr-chalk)}
+.tech-item:first-child{border-top:none}
+.tech-key{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);padding-top:1px}
+.tech-val{font-family:var(--font-body);font-size:14px;color:var(--sr-ink);line-height:1.55}
+.meta-block{background:var(--sr-chalk);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px}
+.meta-row{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-top:1px solid var(--gray-200)}
+.meta-row:first-child{border-top:none}
+.meta-key{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+.meta-val{font-family:var(--font-body);font-size:13px;color:var(--sr-ink);line-height:1.4}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--fa-signal);color:#fff;border:none;border-radius:2px;padding:12px 16px;width:100%;cursor:pointer;text-decoration:none;transition:background 200ms}
+.cta-btn:hover{background:var(--fa-signal-lo)}
+.cta-btn svg{width:10px;height:10px}
+.project-nav{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden;margin:64px 0 0}
+.pnav-item{background:var(--sr-chalk);padding:20px 22px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:background 150ms;text-decoration:none;color:inherit}
+.pnav-item:hover{background:var(--sr-bone)}
+.pnav-dir{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400)}
+.pnav-title{font-family:var(--font-deck);font-weight:600;font-size:16px;color:var(--sr-ink)}
+.pnav-item.next{text-align:right}
+footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margin-top:80px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-name{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:rgba(243,238,227,.7)}
+.footer-copy{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-600)}
+@media(max-width:800px){
+  .wrap{padding:0 24px}
+  nav{padding:0 24px}
+  .content-grid{grid-template-columns:1fr;gap:40px}
+  .meta-col{position:static}
+  .tech-item{grid-template-columns:1fr;gap:4px}
+  .project-nav{grid-template-columns:1fr}
+  .hero-image{aspect-ratio:16/9}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="../studio.html">
+    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+    <span class="zh">工作室</span><span class="en">Studio</span>
+  </a>
+  <span class="nav-brand">星河 STARRIVER ARTS</span>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中</span></button>
+</nav>
+
+<div class="hero-image">
+  <!-- 高架橋下紅色跑車，正面行駛 -->
+  <img src="starsight-mt/hero.png" alt="StarSight Mt. 觀星山">
+</div>
+
+<div class="wrap">
+<div class="content-grid">
+
+  <div class="main-col">
+
+    <div class="project-kicker">Project T · 2025 · VRChat</div>
+    <h1 class="project-title">StarSight Mt. 觀星山</h1>
+
+    <div class="concept">
+      <p class="zh">作為個人能力驗證，於一個月內製作的虛構臺灣山景，也為接下來的計畫做準備。</p>
+      <p class="en"></p>
+    </div>
+
+    <!-- 視覺紀錄 -->
+    <div class="gallery-section">
+      <div class="sec-label"><span class="zh">視覺紀錄</span><span class="en">Visual Record</span></div>
+      <div class="gallery-wrap">
+        <div class="gallery-track" id="vg">
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <img src="starsight-mt/v-01.png" alt="">
+            </div>
+            <div class="gallery-caption zh">明隧道段 · 紅色日本自動車穿過光影之間。</div>
+            <div class="gallery-caption en">Tunnel section · Red car passing through light and shadow</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <!-- 山壁擋土牆旁的隧道入口，針葉林坡面 -->
+              <img src="starsight-mt/v-02.png" alt="">
+            </div>
+            <div class="gallery-caption zh">山道隧道口 · 擋土牆與針葉林坡面</div>
+            <div class="gallery-caption en">Mountain tunnel entrance · Retaining wall and forested slope</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <img src="starsight-mt/v-03.png" alt="">
+            </div>
+            <div class="gallery-caption zh">火箭模型與紅葉林</div>
+            <div class="gallery-caption en"> Rocket model among red-leafed trees</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <img src="starsight-mt/v-04.png" alt="">
+            </div>
+            <div class="gallery-caption zh">模仿現實公車，添增趣味性</div>
+            <div class="gallery-caption en">Adding realism to the bus, enhancing fun</div>
+          </div>
+
+        </div>
+        <div class="gallery-arrows">
+          <button class="g-arrow" onclick="scroll_gallery('vg',-1)">← <span class="zh">上一張</span><span class="en">Prev</span></button>
+          <button class="g-arrow" onclick="scroll_gallery('vg',1)"><span class="zh">下一張</span><span class="en">Next</span> →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技術過程 -->
+    <div class="gallery-section">
+      <div class="sec-label"><span class="zh">技術過程</span><span class="en">Technical Process</span></div>
+      <div class="gallery-wrap">
+        <div class="gallery-track" id="tg">
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <!-- Unity 編輯器：複雜蜿蜒賽道 mesh 俯視圖，彎道密集 -->
+              <img src="starsight-mt/p-01.png" alt="">
+            </div>
+            <div class="gallery-caption zh">賽道設計 · Unity 賽道 mesh 俯視</div>
+            <div class="gallery-caption en">Track design · Unity race mesh top-down view</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <!-- Unity 編輯器：隧道內部走廊，柱列與光照測試 -->
+              <img src="starsight-mt/p-02.png" alt="">
+            </div>
+            <div class="gallery-caption zh">隧道建模 · 柱列結構與光照測試</div>
+            <div class="gallery-caption en">Tunnel build · Pillar structure and lighting test</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <!-- Unity 編輯器：山道鳥瞰，急彎連續、植被鋪設中 -->
+              <img src="starsight-mt/p-03.png" alt="">
+            </div>
+            <div class="gallery-caption zh">地形鳥瞰 · 山道急彎與植被配置</div>
+            <div class="gallery-caption en">Terrain aerial · Mountain hairpins and vegetation layout</div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              <!-- Unity 編輯器：發射台上的火箭模型，旁有建物配置 -->
+              <img src="starsight-mt/p-04.png" alt="">
+            </div>
+            <div class="gallery-caption zh">火箭展示建模 · 發射台與場地配置</div>
+            <div class="gallery-caption en">Rocket display build · Launch pad and site layout</div>
+          </div>
+
+        </div>
+        <div class="gallery-arrows">
+          <button class="g-arrow" onclick="scroll_gallery('tg',-1)">← <span class="zh">上一張</span><span class="en">Prev</span></button>
+          <button class="g-arrow" onclick="scroll_gallery('tg',1)"><span class="zh">下一張</span><span class="en">Next</span> →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技術細節 -->
+    <div class="tech-section">
+      <div class="sec-label"><span class="zh">技術細節</span><span class="en">Technical Details</span></div>
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">平台</span><span class="en">Platform</span></div>
+          <div class="tech-val">VRChat SDK3 · PC + Quest 雙平台 · 公開世界</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">製作時間</span><span class="en">Duration</span></div>
+          <div class="tech-val zh">一個月</div>
+          <div class="tech-val en">One month</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">系列</span><span class="en">Series</span></div>
+          <div class="tech-val">Project T</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">角色</span><span class="en">Role</span></div>
+          <div class="tech-val zh">環境設計 · 賽道設計 · 單人</div>
+          <div class="tech-val en">Environment design · Race design · Solo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-nav">
+      <a class="pnav-item" href="beyond-gravity.html">
+        <div class="pnav-dir zh">← 上一件</div>
+        <div class="pnav-dir en">← Previous</div>
+        <div class="pnav-title">Beyond Gravity</div>
+      </a>
+      <a class="pnav-item next" href="wuling.html">
+        <div class="pnav-dir zh">下一件 →</div>
+        <div class="pnav-dir en">Next →</div>
+        <div class="pnav-title">Project T — 武嶺</div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="meta-col">
+    <div class="meta-block">
+      <div class="meta-row">
+        <div class="meta-key zh">年份</div><div class="meta-key en">Year</div>
+        <div class="meta-val">2025</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">媒介</div><div class="meta-key en">Medium</div>
+        <div class="meta-val">VRChat SDK3</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">系列</div><div class="meta-key en">Series</div>
+        <div class="meta-val">Project T</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">角色</div><div class="meta-key en">Role</div>
+        <div class="meta-val zh">環境設計 · 賽道設計 · 單人</div>
+        <div class="meta-val en">Environment · Race design · Solo</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">狀態</div><div class="meta-key en">Status</div>
+        <div class="meta-val" style="color:var(--terra-forest)"><span class="zh">已發佈</span><span class="en">Released</span></div>
+      </div>
+    </div>
+    <a class="cta-btn" href="https://vrchat.com/home/launch?worldId=wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03" target="_blank" rel="noopener">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      <span class="zh">在 VRChat 中體驗</span>
+      <span class="en">Experience in VRChat</span>
+    </a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <span class="footer-name">星河 STARRIVER ARTS</span>
+      <span class="footer-copy">© 2026 · <span class="zh">觀測 · 思考 · 再構築</span><span class="en">Preservation · Accessibility · Development</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var btn=document.getElementById('langBtn');
+  var saved=localStorage.getItem('sr-lang')||'zh';
+  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  setLang(saved);
+  btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+})();
+function scroll_gallery(id,dir){var t=document.getElementById(id),i=t.querySelector('.gallery-item');if(!i)return;t.scrollBy({left:dir*(i.offsetWidth+12),behavior:'smooth'})}
+document.querySelectorAll('.gallery-track').forEach(function(t){
+  var d=false,sx,sl;
+  t.addEventListener('mousedown',function(e){d=true;sx=e.pageX-t.offsetLeft;sl=t.scrollLeft});
+  t.addEventListener('mouseleave',function(){d=false});
+  t.addEventListener('mouseup',function(){d=false});
+  t.addEventListener('mousemove',function(e){if(!d)return;e.preventDefault();t.scrollLeft=sl-(e.pageX-t.offsetLeft-sx)*1.2});
+});
+</script>
+</body>
+</html>
