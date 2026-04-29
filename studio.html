@@ -15,137 +15,98 @@ html.lang-zh .en{display:none}
 html.lang-en .zh{display:none}
 
 /* NAV */
-nav{
-  position:sticky;top:0;z-index:100;
-  height:60px;background:var(--sr-paper);
-  border-bottom:1px solid var(--gray-200);
-  display:flex;align-items:center;padding:0 48px;
-}
+nav{position:sticky;top:0;z-index:100;height:60px;background:var(--sr-paper);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 48px}
 .nav-home{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none}
 .nav-patch{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--sr-amber);overflow:hidden;flex-shrink:0}
 .nav-patch img{width:100%;height:100%;object-fit:contain}
 .nav-brand{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--sr-ink)}
 .nav-links{display:flex}
-.nav-links a{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gray-500);padding:0 14px;height:60px;display:flex;align-items:center;
-  border-bottom:2px solid transparent;transition:color 200ms,border-color 200ms;
-}
+.nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);padding:0 14px;height:60px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color 200ms,border-color 200ms}
 .nav-links a:hover{color:var(--sr-ink)}
 .nav-links a.active{color:var(--sr-ink);border-bottom-color:var(--sr-amber)}
-.lang-btn{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;
-  padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms;
-}
+.lang-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms}
 .lang-btn:hover{color:var(--sr-ink);border-color:var(--gray-400)}
 
 /* LAYOUT */
 .wrap{max-width:1100px;margin:0 auto;padding:0 48px}
-section{padding:80px 0;border-top:1px solid var(--gray-200);margin-top:0}
-section:first-of-type{border-top:none}
-.sec-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:40px}
+section{padding:72px 0;border-top:1px solid var(--gray-200)}
+.sec-kicker{font-family:var(--font-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:36px}
 
 /* INTRO */
-.intro{padding:72px 0 64px}
-.intro-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:16px}
-.intro-title{font-family:var(--font-display);font-weight:900;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.03em;color:var(--sr-ink);margin-bottom:20px;text-wrap:balance}
+.intro{padding:64px 0 56px}
+.intro-kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:14px}
+.intro-title{font-family:var(--font-display);font-weight:900;font-size:clamp(44px,5.5vw,76px);line-height:.95;letter-spacing:-.03em;color:var(--sr-ink);margin-bottom:20px;text-wrap:balance}
 .intro-sub{font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--gray-600);max-width:520px}
-.intro-rule{width:40px;height:2px;background:var(--sr-amber);margin-top:32px}
+.intro-sub+.intro-sub{margin-top:4px}
+.intro-rule{width:40px;height:2px;background:var(--sr-amber);margin-top:28px}
 
 /* PROJECTS GRID */
 .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden}
-.project-card{
-  background:var(--sr-paper);cursor:pointer;
-  display:flex;flex-direction:column;
-  transition:background 180ms;
-  text-decoration:none;color:inherit;
-}
+.project-card{background:var(--sr-paper);cursor:pointer;display:flex;flex-direction:column;transition:background 180ms;text-decoration:none;color:inherit}
 .project-card:hover{background:var(--sr-chalk)}
-.project-thumb{
-  aspect-ratio:16/9;background:var(--sr-bone);overflow:hidden;position:relative;
-  border-bottom:1px solid var(--gray-200);
-}
+.project-card.no-link{cursor:default}
+.project-card.no-link:hover{background:var(--sr-paper)}
+.project-thumb{aspect-ratio:16/9;background:var(--sr-bone);overflow:hidden;position:relative;border-bottom:1px solid var(--gray-200)}
 .project-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb-ph{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);
-  background:var(--sr-bone);
-}
-.project-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:8px}
+.thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);background:var(--sr-bone)}
+.project-body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;gap:6px}
 .project-title{font-family:var(--font-deck);font-weight:600;font-size:20px;color:var(--sr-ink);line-height:1.1;transition:color 180ms}
-.project-card:hover .project-title{color:var(--sr-amber-lo)}
+.project-card:hover:not(.no-link) .project-title{color:var(--sr-amber-lo)}
 .project-desc{font-family:var(--font-body);font-size:14px;color:var(--gray-600);line-height:1.55}
-.project-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.project-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);border:1px solid var(--gray-200);border-radius:2px;padding:3px 8px;background:var(--sr-paper)}
 .tag.wip{border-color:var(--sr-amber);color:var(--sr-amber-lo)}
-.project-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--fa-signal);margin-top:auto;padding-top:12px;
-  transition:color 150ms;
-}
+.tag.soon{border-color:var(--gray-300);color:var(--gray-400)}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--fa-signal);margin-top:auto;padding-top:10px;transition:color 150ms}
 .project-link:hover{color:var(--fa-signal-lo)}
 .project-link svg{width:10px;height:10px}
-
-/* full-width mention row */
-.project-mention{
-  grid-column:1/-1;background:var(--sr-paper);
-  display:grid;grid-template-columns:200px 1fr;gap:24px;
-  padding:16px 24px;align-items:baseline;
-  border-top:none;
-}
-.project-mention:hover{background:var(--sr-chalk)}
+.project-mention{grid-column:1/-1;background:var(--sr-paper);display:grid;grid-template-columns:200px 1fr;gap:24px;padding:14px 22px;align-items:baseline}
 .mention-meta{font-family:var(--font-mono);font-size:10px;color:var(--gray-300);letter-spacing:.06em;text-transform:uppercase}
 .mention-text{font-family:var(--font-body);font-size:14px;color:var(--gray-500);line-height:1.55}
 
 /* IDENTITY */
 .identity-block{max-width:600px}
-.identity-name{font-family:var(--font-display);font-weight:900;font-size:36px;letter-spacing:-.02em;color:var(--sr-ink);margin-bottom:6px}
-.identity-role{font-family:var(--font-deck);font-weight:500;font-size:18px;color:var(--gray-600);margin-bottom:16px}
+.identity-name{font-family:var(--font-display);font-weight:900;font-size:40px;letter-spacing:-.025em;color:var(--sr-ink);margin-bottom:6px}
+.identity-role{font-family:var(--font-deck);font-weight:500;font-size:19px;color:var(--gray-600);margin-bottom:16px}
 .identity-body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--gray-600)}
 .identity-body p+p{margin-top:10px}
-.identity-current{
-  display:inline-block;margin-top:18px;
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--sr-amber);border-left:2px solid var(--sr-amber);padding-left:10px;
-}
+.identity-current{display:inline-block;margin-top:18px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sr-amber);border-left:2px solid var(--sr-amber);padding-left:10px}
 
 /* CAPABILITIES */
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden}
-.cap-cell{background:var(--sr-chalk);padding:22px 24px;display:flex;flex-direction:column;gap:6px}
-.cap-title{font-family:var(--font-deck);font-weight:600;font-size:15px;color:var(--sr-ink)}
+.cap-cell{background:var(--sr-chalk);padding:20px 22px;display:flex;flex-direction:column;gap:5px}
+.cap-title{font-family:var(--font-deck);font-weight:600;font-size:16px;color:var(--sr-ink)}
 .cap-desc{font-family:var(--font-body);font-size:13px;color:var(--gray-500);line-height:1.5}
 
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden;max-width:560px}
-.contact-cell{background:var(--sr-chalk);padding:22px 28px;display:flex;flex-direction:column;gap:4px}
-.contact-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
-.contact-val{font-family:var(--font-deck);font-weight:500;font-size:16px;color:var(--sr-ink)}
-.contact-val a:hover{text-decoration:underline;text-decoration-color:var(--sr-amber);text-underline-offset:3px}
-.contact-note{font-family:var(--font-body);font-size:14px;color:var(--gray-500);line-height:1.55;margin-bottom:24px;max-width:480px}
+/* CONTACT — plain text, clearly link-looking */
+.contact-note{font-family:var(--font-body);font-size:15px;color:var(--gray-600);line-height:1.6;margin-bottom:28px;max-width:480px}
+.contact-items{display:flex;flex-direction:column;gap:22px}
+.contact-item{display:flex;flex-direction:column;gap:4px}
+.contact-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+.contact-val{font-family:var(--font-deck);font-weight:500;font-size:20px;color:var(--sr-ink)}
+.contact-val a{color:var(--sr-ink);text-decoration:none;border-bottom:1.5px solid var(--gray-300);padding-bottom:1px;transition:border-color 200ms,color 200ms}
+.contact-val a:hover{color:var(--fa-signal);border-color:var(--fa-signal)}
 
 /* FOOTER */
-footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margin-top:80px}
+footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margin-top:80px}
 .footer-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .footer-brand{display:flex;align-items:center;gap:14px}
-.footer-patch{width:44px;height:44px;border-radius:50%;border:2px solid var(--sr-amber);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.footer-patch img{width:38px;height:38px;object-fit:contain;border-radius:50%}
+.footer-patch{width:40px;height:40px;border-radius:50%;border:2px solid var(--sr-amber);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.footer-patch img{width:34px;height:34px;object-fit:contain;border-radius:50%}
 .footer-name{font-family:var(--font-deck);font-weight:700;font-size:14px;color:var(--sr-paper);letter-spacing:.04em}
 .footer-sub{font-family:var(--font-mono);font-size:10px;color:var(--gray-500);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 .footer-nav{display:flex;flex-direction:column;gap:7px;align-items:flex-end}
 .footer-nav a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);transition:color 150ms}
 .footer-nav a:hover{color:var(--sr-paper)}
-.footer-copy{margin-top:36px;padding-top:18px;border-top:1px solid var(--gray-800);font-family:var(--font-mono);font-size:10px;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--gray-800);font-family:var(--font-mono);font-size:10px;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media(max-width:800px){
-  .wrap{padding:0 24px}
-  nav{padding:0 24px}
+  .wrap{padding:0 20px}
+  nav{padding:0 20px}
   .projects-grid,.cap-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
   .project-mention{grid-template-columns:1fr;gap:4px}
   .footer-nav{align-items:flex-start}
-  .intro-title{font-size:clamp(32px,8vw,52px)}
+  .intro-title{font-size:clamp(36px,9vw,54px)}
 }
 </style>
 </head>
@@ -165,7 +126,6 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margi
 
 <div class="wrap">
 
-  <!-- INTRO -->
   <div class="intro">
     <div class="intro-kicker"><span class="zh">數位體驗創作者 · 台灣</span><span class="en">Digital Artist · Taiwan</span></div>
     <h1 class="intro-title">星河 StarRiver Arts</h1>
@@ -182,135 +142,85 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margi
 
       <!-- Beyond Gravity -->
       <a class="project-card" href="projects/beyond-gravity.html">
-        <div class="project-thumb">
-          <img src="projects/beyond-gravity/thumb.png" alt="Beyond Gravity">
-        </div>
+        <div class="project-thumb"><img src="projects/beyond-gravity/thumb.png" alt="Beyond Gravity"></div>
         <div class="project-body">
           <div class="project-title">Beyond Gravity</div>
           <div class="project-desc zh">天鉤太空站科普展示世界。VRChat Space Jam 3 參賽作品。耗時兩周。</div>
-          <div class="project-desc en">Skyhook space station science exhibition. Solo, two-week build for VRChat Space Jam 3.</div>
-          <div class="project-meta">
-            <span class="tag">2026</span>
-            <span class="tag">VRChat</span>
-            <span class="tag">Sci-Fi Scene</span>
-          </div>
-          <div class="project-link">
-            <span class="zh">查看作品</span><span class="en">View project</span>
-            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-          </div>
+          <div class="project-desc en">Skyhook space station science exhibition. Solo two-week build for VRChat Space Jam 3.</div>
+          <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Sci-Fi Scene</span></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
       <!-- StarSight Mt. -->
       <a class="project-card" href="projects/starsight-mt.html">
-        <div class="project-thumb">
-          <img src="projects/starsight-mt/thumb.png" alt="StarSight Mt.">
-        </div>
+        <div class="project-thumb"><img src="projects/starsight-mt/thumb.png" alt="StarSight Mt."></div>
         <div class="project-body">
           <div class="project-title">StarSight Mt. 觀星山</div>
           <div class="project-desc zh">完整虛構台灣山道，包含賽道與個人展示空間。一個月獨立完成。</div>
-          <div class="project-desc en">A fully playable fictional Taiwan mountain road with racing mechanics and personal exhibition space. Solo, one month.</div>
-          <div class="project-meta">
-            <span class="tag">2025</span>
-            <span class="tag">VRChat</span>
-            <span class="tag">Project T</span>
-          </div>
-          <div class="project-link">
-            <span class="zh">查看作品</span><span class="en">View project</span>
-            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-          </div>
+          <div class="project-desc en">Fully playable fictional Taiwan mountain road with racing mechanics and personal exhibition space. Solo, one month.</div>
+          <div class="project-meta"><span class="tag">2025</span><span class="tag">VRChat</span><span class="tag">Project T</span></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
-      <!-- FreeTrajectory -->
-      <a class="project-card" href="projects/freeturn.html">
-        <div class="project-thumb">
-          <img src="projects/freeturn/thumb.png" alt="FreeTrajectory">
-        </div>
+      <!-- FreeTrajectory 致遊軌跡 -->
+      <a class="project-card" href="projects/free-trajectory.html">
+        <div class="project-thumb"><img src="projects/free-trajectory/thumb.png" alt="FreeTrajectory"></div>
         <div class="project-body">
           <div class="project-title"><span class="zh">致遊軌跡LR</span><span class="en">FreeTrajectory</span></div>
-          <div class="project-desc zh">景觀跨域整合，VR現場展示，走入設計之中。</div>
-          <div class="project-desc en">Landscape Recreation mixed with VR exhibition. Walk through the design.</div>
-          <div class="project-meta">
-            <span class="tag">2024</span>
-            <span class="tag">Landscape Recreation</span>
-            <span class="tag">Real-life Exhibition</span>
-          </div>
-          <div class="project-link" style="opacity:.4;pointer-events:none">
-            <span class="zh">查看作品</span><span class="en">View project</span>
-            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-          </div>
+          <div class="project-desc zh">景觀跨域整合，VR 現場展示，走入設計之中。</div>
+          <div class="project-desc en">Landscape recreation mixed with VR exhibition. Walk through the design.</div>
+          <div class="project-meta"><span class="tag">2024</span><span class="tag">Landscape Recreation</span><span class="tag">Real-life Exhibition</span></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
-      <!-- 9Turns -->
+      <!-- 9Turns 九彎十八拐 -->
       <a class="project-card" href="projects/9turns.html">
-        <div class="project-thumb">
-          <img src="projects/9turns/thumb.png" alt="9Turns">
-        </div>
+        <div class="project-thumb"><img src="projects/9turns/thumb.png" alt="9 Turns"></div>
         <div class="project-body">
-          <div class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — Wuling</span></div>
-          <div class="project-desc zh">台9線石牌公園-頭城段數位場景。在虛擬體驗中駕駛車輛。</div>
-          <div class="project-desc en">Digital twin of Wuling Pass, Highway 14A. Taiwan's highest road point at 3,275 m elevation (in progress).</div>
-          <div class="project-meta">
-            <span class="tag">2025</span>
-            <span class="tag">VRChat</span>
-            <span class="tag">Real-life Exhibition</span>
-          </div>
-          <div class="project-link" style="opacity:.4;pointer-events:none">
-            <span class="zh">查看作品</span><span class="en">View project</span>
-            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-          </div>
+          <div class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — 9 Turns</span></div>
+          <div class="project-desc zh">台 9 丙線石牌公園-頭城段數位場景。在虛擬體驗中駕駛車輛。</div>
+          <div class="project-desc en">Digital scene of Highway 9C, Shibei Park to Toucheng. Drive through the route in VR.</div>
+          <div class="project-meta"><span class="tag">2023</span><span class="tag">VRChat</span><span class="tag">Project T</span></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
-      </a>      
+      </a>
 
       <!-- Wuling WIP -->
       <a class="project-card" href="projects/wuling.html">
-        <div class="project-thumb">
-          <img src="projects/wuling/thumb.png" alt="Wuling">
-        </div>
+        <div class="project-thumb"><img src="projects/wuling/thumb.png" alt="Project T — 武嶺"></div>
         <div class="project-body">
           <div class="project-title"><span class="zh">Project T — 武嶺</span><span class="en">Project T — Wuling</span></div>
           <div class="project-desc zh">台 14 甲線武嶺段數位孿生。台灣公路最高點，海拔 3275m（進行中）。</div>
-          <div class="project-desc en">Digital twin of Wuling Pass, Highway 14A. Taiwan's highest road point at 3,275 m elevation (in progress).</div>
-          <div class="project-meta">
-            <span class="tag">2026</span>
-            <span class="tag">VRChat</span>
-            <span class="tag">Project T</span>            
-            <span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span></span>
-          </div>
-          <div class="project-link" style="opacity:.4;pointer-events:none">
-            <span class="zh">上線後開放</span><span class="en">Available on release</span>
-          </div>
-        </div>
-      </a>      
-
-      <!-- Museum -->
-      <a class="project-card" href="museum/story/museum-project.html">
-        <div class="project-thumb">
-          <img src="museum/thumb.png" alt="Museum">
-        </div>
-        <div class="project-body">
-          <div class="project-title"><span class="zh">Project Museum</span><span class="en">Project T — Wuling</span></div>
-          <div class="project-desc zh">景觀建築設計實例，虛擬策展空間。</div>
-          <div class="project-desc en">Landscape architectural design example, virtual exhibition space.</div>
-          <div class="project-meta">
-            <span class="tag">2027</span>
-            <span class="tag">VRChat</span>
-            <span class="tag">Virtual Exhibition</span>            
-            <span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span></span>
-          </div>
-          <div class="project-link" style="opacity:.4;pointer-events:none">
-            <span class="zh">上線後開放</span><span class="en">Available on release</span>
-          </div>
+          <div class="project-desc en">Digital twin of Wuling Pass, Highway 14A. Taiwan's highest road point at 3,275 m (in progress).</div>
+          <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Project T</span><span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span></span></div>
+          <div class="project-link" style="opacity:.38;pointer-events:none"><span class="zh">上線後開放</span><span class="en">Available on release</span></div>
         </div>
       </a>
-            
-      <!-- Mentions row -->
+
+      <!-- Museum WIP -->
+      <div class="project-card no-link">
+        <div class="project-thumb">
+          <div class="thumb-ph" style="flex-direction:column;gap:10px">
+            <span style="font-size:28px;opacity:.2">◎</span>
+            <span class="zh">規劃中</span><span class="en">Planned</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title"><span class="zh">Project Museum</span><span class="en">Project Museum</span></div>
+          <div class="project-desc zh">景觀建築設計實例，虛擬策展空間。長期計畫。</div>
+          <div class="project-desc en">Landscape architectural design example, virtual exhibition space. Long-term project.</div>
+          <div class="project-meta"><span class="tag">2027</span><span class="tag">VRChat</span><span class="tag soon"><span class="zh">規劃中</span><span class="en">Planned</span></span></div>
+        </div>
+      </div>
+
+      <!-- Mentions -->
       <div class="project-mention">
         <div class="mention-meta"><span class="zh">其他作品</span><span class="en">Other works</span></div>
-        <div class="mention-text zh">星門廣場(VR展覽空間)(2024) · 樞紐計畫(VRCHAT 社群空間協作計畫)(2025-    ) · 多個 VRChat 社群空間（2023–2024）</div>
-        <div class="mention-text en">Nexus Project (VRCHAT Community Space Collaboration Project) (2025-    ) · Multiple VRChat Community Spaces (2023–2024)</div>
+        <div class="mention-text zh">星門廣場（VR 展覽空間，2024）· 樞紐計畫（VRChat 社群空間協作，2025–）· 多個 VRChat 社群空間（2023–2024）</div>
+        <div class="mention-text en">Nexus Project (VRChat community collaboration, 2025–) · Multiple VRChat community spaces (2023–2024)</div>
       </div>
 
     </div>
@@ -378,15 +288,15 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margi
   <!-- 04 CONTACT -->
   <section id="contact">
     <div class="sec-kicker"><span class="zh">04 · 聯絡</span><span class="en">04 · Contact</span></div>
-    <p class="contact-note zh">委託、合作邀約或任何詢問，歡迎透過以下方式聯絡。</p>
-    <p class="contact-note en">For commissions, collaborations, or enquiries, please get in touch.</p>
-    <div class="contact-grid">
-      <div class="contact-cell">
+    <p class="contact-note zh">委託、合作邀約或任何詢問，歡迎聯絡。</p>
+    <p class="contact-note en">Available for commissions, collaborations, and enquiries.</p>
+    <div class="contact-items">
+      <div class="contact-item">
         <div class="contact-label zh">電子郵件</div>
         <div class="contact-label en">Email</div>
-        <div class="contact-val"><a href="mailto:StarRiverAnything@gmail.com">StarRiverAnything@gmail.com</a></div>
+        <div class="contact-val"><a href="mailto:StarRiverAnythings@gmail.com">StarRiverAnythings@gmail.com</a></div>
       </div>
-      <div class="contact-cell">
+      <div class="contact-item">
         <div class="contact-label zh">電話</div>
         <div class="contact-label en">Phone</div>
         <div class="contact-val"><a href="tel:+886963440412">0963-440-412</a></div>
@@ -413,8 +323,8 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margi
       </div>
     </div>
     <div class="footer-copy">
-      <span>© 2025 星河 StarRiver Arts</span>
-      <span class="zh">保存 · 普及 · 發展</span>
+      <span>© 2026 星河 StarRiver Arts</span>
+      <span class="zh">觀測 · 思考 · 再構築</span>
       <span class="en">Preservation · Accessibility · Development</span>
     </div>
   </div>
@@ -422,12 +332,10 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:48px 0 40px;margi
 
 <script>
 (function(){
-  var html=document.documentElement;
-  var btn=document.getElementById('langBtn');
-  var saved=localStorage.getItem('sr-lang')||'zh';
-  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
-  setLang(saved);
-  btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+  var h=document.documentElement,b=document.getElementById('langBtn');
+  var s=localStorage.getItem('sr-lang')||'zh';
+  function l(v){h.className='lang-'+v;h.lang=v==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',v)}
+  l(s);b.addEventListener('click',function(){l(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
 })();
 </script>
 </body>

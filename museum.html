@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Museum — 星河 StarRiver Arts</title>
-<link rel="icon" href="assets/logos/starriver-primary.png">
 <link rel="stylesheet" href="colors_and_type.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -22,6 +21,7 @@ nav{height:60px;flex-shrink:0;display:flex;align-items:center;padding:0 48px;bor
 
 main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;position:relative}
 
+/* decorative rule lines */
 .rules{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .rule{position:absolute;background:rgba(40,40,41,.06)}
 .rule-h{height:1px;left:0;right:0}
@@ -31,14 +31,8 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
 .title{font-family:var(--font-display);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.92;letter-spacing:-.03em;color:var(--sr-graphite);margin-bottom:10px}
 .subtitle{font-family:var(--font-body);font-size:13px;color:var(--gray-400);letter-spacing:.04em;margin-bottom:40px}
 .rule-amber{width:40px;height:2px;background:var(--sr-amber);margin:0 auto 40px}
-.body-text{font-family:var(--font-body);font-size:16px;color:var(--gray-600);line-height:1.65;max-width:400px;margin-bottom:12px}
-.wip-note{
-  margin-top:24px;
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--sr-amber);border:1px solid var(--sr-amber);border-radius:2px;
-  padding:8px 16px;display:inline-block;
-}
-.home-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sr-graphite);border:1px solid rgba(40,40,41,.2);border-radius:2px;padding:10px 18px;text-decoration:none;transition:background 200ms;margin-top:28px}
+.body-text{font-family:var(--font-body);font-size:16px;color:var(--gray-600);line-height:1.65;max-width:400px;margin-bottom:36px}
+.home-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sr-graphite);border:1px solid rgba(40,40,41,.2);border-radius:2px;padding:10px 18px;text-decoration:none;transition:background 200ms}
 .home-link:hover{background:rgba(40,40,41,.06)}
 .home-link svg{width:10px;height:10px}
 </style>
@@ -60,17 +54,13 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;justify-conten
   </div>
   <div class="kicker"><span class="zh">03 · 美術館</span><span class="en">03 · Museum</span></div>
   <div class="title">Museum</div>
-  <div class="subtitle zh">數位藝文展示空間</div>
-  <div class="subtitle en">Digital Art Exhibition Space</div>
+  <div class="subtitle zh">美術館</div>
   <div class="rule-amber"></div>
-  <p class="body-text zh">美術館為大型專案，正在製作中。</p>
-  <p class="body-text zh">預計 2027 年開放，屆時將於此提供導覽連結。</p>
-  <p class="body-text en">StarRiver Museum is an independent large-scale project with its own dedicated site.</p>
-  <p class="body-text en">Planned opening 2027 — a link will be provided here on launch.</p>
-  <div class="wip-note"><span class="zh">製作中 · 2027</span><span class="en">In Development · 2027</span></div>
+  <p class="body-text zh">展覽資訊、投稿計畫與數位藝術節目即將上線。</p>
+  <p class="body-text en">Exhibition information, open call, and digital art programme — coming soon.</p>
   <a class="home-link" href="index.html">
     <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
-    <span class="zh">看看其他的</span><span class="en">Back to Hub</span>
+    <span class="zh">返回首頁</span><span class="en">Back to Hub</span>
   </a>
 </main>
 <script>
