@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Time Attack | VR Racing Club | StarRiver Arts</title>
+  <link rel="icon" href="../../../assets/logos/starriver-primary.png">
+  <link rel="stylesheet" href="../../../colors_and_type.css">
+  <link rel="stylesheet" href="../../project-t.css">
+  <link rel="stylesheet" href="timeattack.css">
+</head>
+<body class="project-t-page timeattack-page sr-brand-project-t sr-type sr-medium-web" data-view="overview">
+  <div class="ta-shell">
+    <header class="ta-topbar">
+      <a class="pt-brand" href="../../../index.html">
+        <span class="pt-brand-badge">
+          <img src="../../../assets/logos/starriver-primary.png" alt="StarRiver Arts">
+        </span>
+        <span class="pt-brand-copy">
+          <span class="pt-brand-kicker">RacingClub / TimeAttack</span>
+          <span class="pt-brand-name">VR Racing Club</span>
+        </span>
+      </a>
+      <nav class="ta-topbar-nav" aria-label="Back navigation">
+        <a class="pt-toplink" href="../">
+          <span class="zh">返回 Racing Club</span>
+          <span class="en">Back to Racing Club</span>
+        </a>
+        <a class="pt-toplink" href="../../">
+          <span class="zh">返回 Project T</span>
+          <span class="en">Back to Project T</span>
+        </a>
+        <button class="pt-lang" type="button" data-lang-toggle>
+          <span class="zh">EN</span>
+          <span class="en">中文</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="ta-page">
+      <section class="ta-hero">
+        <div class="ta-headline">
+          <div class="pt-kicker">
+            <span class="zh">Racing Club / Time Attack</span>
+            <span class="en">Racing Club / Time Attack</span>
+          </div>
+          <h1 class="ta-title">
+            <span class="zh" data-page-title-zh>Time Attack</span>
+            <span class="en" data-page-title-en>Time Attack</span>
+          </h1>
+          <p class="ta-desc zh" data-page-desc-zh>讀取計時總覽中。</p>
+          <p class="ta-desc en" data-page-desc-en>Loading the time-attack overview.</p>
+        </div>
+        <aside class="ta-hero-side">
+          <div class="ta-status-card">
+            <div class="ta-label">
+              <span class="zh">最近建置</span>
+              <span class="en">Last Build</span>
+            </div>
+            <div class="ta-value" data-generated-at>pending</div>
+            <p class="ta-meta">
+              <span class="zh">這個時間戳由本機 builder 寫入，用來標記目前網站資料的產生時點。</span>
+              <span class="en">This timestamp is written by the local builder to show when the current site data was generated.</span>
+            </p>
+          </div>
+          <div class="ta-callout">
+            <div class="ta-label">
+              <span class="zh">資料模型</span>
+              <span class="en">Data Model</span>
+            </div>
+            <p class="ta-meta">
+              <span class="zh">單一輸入表 + lookup 索引 + 本機 builder 產出 JSON。未來只要換掉來源資料，不需要重寫前端外殼。</span>
+              <span class="en">Single input sheet + lookup tables + local JSON builder. Future source changes should not require a new frontend shell.</span>
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <nav class="ta-localnav" aria-label="Time Attack navigation">
+        <a class="ta-navlink" href="./" data-view-link="overview">
+          <span class="zh">總覽</span>
+          <span class="en">Overview</span>
+        </a>
+        <a class="ta-navlink" href="./tracks.html" data-view-link="tracks">
+          <span class="zh">賽道</span>
+          <span class="en">Tracks</span>
+        </a>
+        <a class="ta-navlink" href="./players.html" data-view-link="players">
+          <span class="zh">玩家</span>
+          <span class="en">Players</span>
+        </a>
+        <a class="ta-navlink" href="./vehicles.html" data-view-link="vehicles">
+          <span class="zh">車輛</span>
+          <span class="en">Vehicles</span>
+        </a>
+        <a class="ta-navlink" href="./events.html" data-view-link="events">
+          <span class="zh">活動</span>
+          <span class="en">Events</span>
+        </a>
+        <a class="ta-navlink" href="./review.html" data-view-link="review">
+          <span class="zh">審核</span>
+          <span class="en">Review</span>
+        </a>
+      </nav>
+
+      <div class="ta-layout">
+        <aside class="ta-sidebar">
+          <section class="ta-sidebar-card">
+            <div class="ta-label">
+              <span class="zh">目前頁面</span>
+              <span class="en">Current View</span>
+            </div>
+            <h2>
+              <span class="zh" data-sidebar-view-zh>總覽</span>
+              <span class="en" data-sidebar-view-en>Overview</span>
+            </h2>
+            <div data-sidebar-list class="ta-empty">Loading notes.</div>
+          </section>
+          <section class="ta-sidebar-card">
+            <div class="ta-label">
+              <span class="zh">Builder 狀態</span>
+              <span class="en">Builder State</span>
+            </div>
+            <div class="ta-value" data-build-state>pending</div>
+            <p class="ta-meta">
+              <span class="zh">Schema</span>
+              <span class="en">Schema</span>
+              <strong data-schema-version>0.0.0</strong>
+            </p>
+            <p class="ta-meta">
+              <code data-source-label>local builder pending</code>
+            </p>
+          </section>
+        </aside>
+
+        <section class="ta-main">
+          <section class="ta-content-card">
+            <div class="ta-content-head">
+              <div class="ta-headline-group">
+                <div class="ta-label">
+                  <span class="zh">全站摘要</span>
+                  <span class="en">Global Summary</span>
+                </div>
+                <h2>
+                  <span class="zh">共用計數槽位</span>
+                  <span class="en">Shared Metric Slots</span>
+                </h2>
+              </div>
+            </div>
+            <div data-summary-root class="ta-empty">Loading summary cards.</div>
+          </section>
+
+          <div data-page-root class="ta-empty">Loading page modules.</div>
+        </section>
+      </div>
+
+      <footer class="ta-footer">
+        <span>play / RacingClub / TimeAttack</span>
+        <span>static shell</span>
+        <span>json-fed pages</span>
+      </footer>
+    </main>
+  </div>
+  <script src="../../project-t.js"></script>
+  <script src="timeattack.js"></script>
+</body>
+</html>

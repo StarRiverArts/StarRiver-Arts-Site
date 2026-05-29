@@ -1,0 +1,149 @@
+{
+  "title_zh": "審核與正式榜單",
+  "title_en": "Review And Formal Board",
+  "description_zh": "審核頁負責區分正式榜單資格，並保留待審、退回與已核准紀錄的人工處理入口。",
+  "description_en": "The review page separates formal-board eligibility and keeps the manual processing surface for pending, rejected, and approved submissions.",
+  "sidebar_zh": [
+    "正式榜單只接受 `approved_record` 類型，且必須通過人工確認。",
+    "審核條件之後可以補上 FPS、見證人、錄影與規則版本等欄位。",
+    "被拒絕的正式提交不會再進個人頁與車輛頁的統計池。"
+  ],
+  "sidebar_en": [
+    "Formal boards only accept `approved_record` entries and they must pass manual review.",
+    "Future review fields can include FPS, witness, footage, and rule-version requirements.",
+    "Rejected formal submissions are excluded from player and vehicle analysis pools."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "正式送審",
+      "label_en": "Formal Submissions",
+      "value": "7",
+      "note_zh": "所有走正式送審流程的紀錄",
+      "note_en": "All runs sent through the formal submission flow"
+    },
+    {
+      "label_zh": "已核准",
+      "label_en": "Approved",
+      "value": "5",
+      "note_zh": "已進 Approved Record 榜單",
+      "note_en": "Already visible on the Approved Record board"
+    },
+    {
+      "label_zh": "待審核",
+      "label_en": "Pending",
+      "value": "2",
+      "note_zh": "等待人工確認",
+      "note_en": "Waiting for manual review"
+    },
+    {
+      "label_zh": "已退回",
+      "label_en": "Rejected",
+      "value": "0",
+      "note_zh": "不符合正式榜單規格",
+      "note_en": "Rejected from the formal board flow"
+    }
+  ],
+  "review_cards": [
+    {
+      "status_zh": "已送件",
+      "status_en": "Submitted",
+      "title_zh": "Akina DH",
+      "title_en": "Akina DH",
+      "player_display_name": "Dave",
+      "vehicle_display_name": "EVO IX",
+      "lap_time_text": "1:26.004",
+      "record_date": "2026-05-13",
+      "event_name": "Legacy Review Queue",
+      "submission_note": "Imported from legacy review_summary.json"
+    },
+    {
+      "status_zh": "待補件",
+      "status_en": "Needs Info",
+      "title_zh": "Unknown Route",
+      "title_en": "Unknown Route",
+      "player_display_name": "Eve",
+      "vehicle_display_name": "GR86",
+      "lap_time_text": "1:40.250",
+      "record_date": "2026-05-13",
+      "event_name": "Legacy Review Queue",
+      "submission_note": "Imported from legacy review_summary.json"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-05-13",
+      "label_zh": "已核准紀錄",
+      "label_en": "Approved Run",
+      "title_zh": "Akina DH / Uphill",
+      "title_en": "Touge Series / Uphill",
+      "meta_zh": "Bob / EVO IX / 1:30.250",
+      "meta_en": "Bob / EVO IX / 1:30.250",
+      "body_zh": "Different route",
+      "body_en": "Different route"
+    },
+    {
+      "date": "2026-05-12",
+      "label_zh": "已核准紀錄",
+      "label_en": "Approved Run",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Alice / EVO IX / 1:24.120",
+      "meta_en": "Alice / EVO IX / 1:24.120",
+      "body_zh": "Car swap run",
+      "body_en": "Car swap run"
+    },
+    {
+      "date": "2026-05-11",
+      "label_zh": "已核准紀錄",
+      "label_en": "Approved Run",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Bob / RX-7 / 1:22.900",
+      "meta_en": "Bob / RX-7 / 1:22.900",
+      "body_zh": "New route best",
+      "body_en": "New route best"
+    },
+    {
+      "date": "2026-05-10",
+      "label_zh": "已核准紀錄",
+      "label_en": "Approved Run",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Alice / RX-7 / 1:23.456",
+      "meta_en": "Alice / RX-7 / 1:23.456",
+      "body_zh": "First verified run",
+      "body_en": "First verified run"
+    },
+    {
+      "date": "2025-12-10",
+      "label_zh": "已核准紀錄",
+      "label_en": "Approved Run",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Carol / GR86 / 1:25.500",
+      "meta_en": "Carol / GR86 / 1:25.500",
+      "body_zh": "Legacy imported record",
+      "body_en": "Legacy imported record"
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "審核規格",
+      "label_en": "Review Criteria",
+      "title_zh": "預留的人工審核項目",
+      "title_en": "Reserved Manual Review Fields",
+      "body_zh": "目前只先保留審核狀態，之後可以補上見證人、錄影連結、FPS、版本與備註欄位。",
+      "body_en": "Only the review status is stored for now, but witness, footage, FPS, build version, and extra notes can be added later.",
+      "items_zh": [
+        "FPS 或效能門檻",
+        "見證人 / 裁定人",
+        "錄影或原始證據連結"
+      ],
+      "items_en": [
+        "FPS or performance thresholds",
+        "Witness or steward fields",
+        "Video or raw evidence links"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "title_zh": "車輛統計頁",
+  "title_en": "Vehicle Analysis",
+  "description_zh": "車輛頁以母型合併多個世界變體，同時保留最常用變體與目前最快車手資訊。",
+  "description_en": "Vehicle pages merge multiple world variants into canonical models while still retaining the fastest drivers and most-used variants.",
+  "sidebar_zh": [
+    "輸入層保留 `vehicle_variant_code`，統計層再映射到 `vehicle_model_code`。",
+    "這樣可以同時看見世界內的改裝差異，也能統整同一台車的母型表現。",
+    "如果未來要補車種熱門度與賽道性質關係，這頁會是主承載點。"
+  ],
+  "sidebar_en": [
+    "Input keeps `vehicle_variant_code`, while analysis maps variants back to `vehicle_model_code`.",
+    "That preserves world-specific tuning differences while still showing canonical car performance.",
+    "This page will eventually carry popularity and track-property correlations for vehicle classes."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "車輛母型",
+      "label_en": "Vehicle Models",
+      "value": "3",
+      "note_zh": "有至少一筆有效紀錄的母型",
+      "note_en": "Canonical models with at least one valid run"
+    },
+    {
+      "label_zh": "世界變體",
+      "label_en": "Variants",
+      "value": "3",
+      "note_zh": "lookup 內已登記的變體碼",
+      "note_en": "Variant codes defined in lookup"
+    },
+    {
+      "label_zh": "母型奪榜",
+      "label_en": "Open Model Leads",
+      "value": "2",
+      "note_zh": "所有一般池路線奪榜總和",
+      "note_en": "Total open-pool route leads across all models"
+    },
+    {
+      "label_zh": "Approved 奪榜",
+      "label_en": "Approved Model Leads",
+      "value": "2",
+      "note_zh": "正式榜單中的母型路線奪榜總和",
+      "note_en": "Total approved-board route leads across all models"
+    }
+  ],
+  "vehicle_cards": [
+    {
+      "vehicle_model_code": "veh_002",
+      "title": "EVO IX",
+      "subtitle_zh": "Imported Vehicle",
+      "subtitle_en": "Imported Vehicle",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "母型變體",
+          "label_en": "Variants",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常見駕駛：Alice",
+        "偏好賽道：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVO IX",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Alice",
+          "value": 1
+        },
+        {
+          "label": "Bob",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "Alice / EVO IX",
+          "lap_time_text": "1:24.120"
+        },
+        {
+          "rank": 2,
+          "route_label": "Akina DH / Uphill",
+          "sub_label": "Bob / EVO IX",
+          "lap_time_text": "1:30.250"
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_001",
+      "title": "RX-7",
+      "subtitle_zh": "Imported Vehicle",
+      "subtitle_en": "Imported Vehicle",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "母型變體",
+          "label_en": "Variants",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常見駕駛：Alice",
+        "偏好賽道：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "RX-7",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Alice",
+          "value": 1
+        },
+        {
+          "label": "Bob",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "Bob / RX-7",
+          "lap_time_text": "1:22.900"
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_003",
+      "title": "GR86",
+      "subtitle_zh": "Imported Vehicle",
+      "subtitle_en": "Imported Vehicle",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "母型變體",
+          "label_en": "Variants",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常見駕駛：Carol",
+        "偏好賽道：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "GR86",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Carol",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "Carol / GR86",
+          "lap_time_text": "1:25.500"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "後續擴充",
+      "label_en": "Next Analysis",
+      "title_zh": "可再加入的車輛頁模組",
+      "title_en": "Next Vehicle Modules",
+      "body_zh": "接下來可補車種熱門度、不同賽道性質上的表現差異，以及同母型不同變體的對照。",
+      "body_en": "Next steps include vehicle-class popularity, performance by track property, and variant-vs-variant comparisons inside the same canonical model.",
+      "items_zh": [
+        "車種與賽道標籤關聯",
+        "賽道車種熱門度",
+        "不同世界變體的相對表現"
+      ],
+      "items_en": [
+        "Vehicle-class correlations against track tags",
+        "Track-side vehicle popularity",
+        "Relative performance across world-specific variants"
+      ]
+    }
+  ]
+}

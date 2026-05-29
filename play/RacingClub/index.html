@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Racing Club | Project T | 星河 StarRiver Arts</title>
+  <link rel="icon" href="../../assets/logos/starriver-primary.png">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="../project-t.css">
+</head>
+<body class="project-t-page sr-brand-project-t sr-type sr-medium-web">
+  <div class="pt-shell">
+    <header class="pt-topbar">
+      <a class="pt-brand" href="../../index.html">
+        <span class="pt-brand-badge">
+          <img src="../../assets/logos/starriver-primary.png" alt="StarRiver Arts">
+        </span>
+        <span class="pt-brand-copy">
+          <span class="pt-brand-kicker">Project T / Play</span>
+          <span class="pt-brand-name">Racing Club</span>
+        </span>
+      </a>
+      <nav class="pt-topbar-nav" aria-label="Section navigation">
+        <a class="pt-toplink" href="../">
+          <span class="zh">返回 Project T</span>
+          <span class="en">Back to Project T</span>
+        </a>
+        <a class="pt-toplink" href="./TimeAttack/">
+          <span class="zh">Time Attack</span>
+          <span class="en">Time Attack</span>
+        </a>
+        <button class="pt-lang" type="button" data-lang-toggle>
+          <span class="zh">EN</span>
+          <span class="en">中文</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="pt-page">
+      <section class="pt-hero">
+        <div class="pt-hero-copy">
+          <div class="pt-kicker">
+            <span class="zh">Racing Club / 社群入口</span>
+            <span class="en">Racing Club / Community Entry</span>
+          </div>
+          <h1 class="pt-title">VR Racing Club</h1>
+          <p class="pt-subtitle zh">
+            以 Project T 系列山道世界為賽場的 VRChat 競速社群。
+            玩家在台9線與各山道世界中對決計時，紀錄由 Time Attack 站統一追蹤，
+            並定期舉辦社群車聚與賽季活動。
+          </p>
+          <p class="pt-subtitle en">
+            A VRChat racing community that uses Project T mountain-road worlds as its circuit.
+            Players chase each other's times across Highway 9 and other mountain-road worlds;
+            all records are tracked through the Time Attack site, with regular race nights
+            and seasonal events.
+          </p>
+          <div class="pt-actions">
+            <article class="pt-card">
+              <div class="pt-card-label">
+                <span class="zh">主要入口</span>
+                <span class="en">Primary Entry</span>
+              </div>
+              <h2 class="pt-card-title">Time Attack 紀錄站</h2>
+              <p class="pt-card-text zh">
+                查看各賽道的車手排名、車輛紀錄、個人成績與活動結果。
+                紀錄站分為賽道、車手、車輛、活動與審核五個分頁，由 builder 定期更新。
+              </p>
+              <p class="pt-card-text en">
+                View track leaderboards, vehicle records, personal bests, and event results.
+                The site is split across track, player, vehicle, event, and review sections,
+                updated periodically by the local builder.
+              </p>
+              <a class="pt-card-link" href="./TimeAttack/">
+                <span class="zh">進入紀錄站</span>
+                <span class="en">Open Records</span>
+              </a>
+            </article>
+
+            <article class="pt-card">
+              <div class="pt-card-label">
+                <span class="zh">站點規劃</span>
+                <span class="en">Planning</span>
+              </div>
+              <h2 class="pt-card-title">
+                <span class="zh">資料與頁面架構</span>
+                <span class="en">Data & Page Architecture</span>
+              </h2>
+              <p class="pt-card-text zh">
+                詳細規劃寫在 <code class="sr-code">規劃.md</code>，
+                涵蓋單一輸入表欄位定義、四張 lookup 索引表、審核流程與 builder 靜態輸出路徑。
+              </p>
+              <p class="pt-card-text en">
+                The full plan lives in <code class="sr-code">規劃.md</code>, covering the input sheet schema,
+                four lookup tables, the review flow, and builder output paths.
+              </p>
+              <a class="pt-card-link" href="./規劃.md">
+                <span class="zh">查看規劃</span>
+                <span class="en">Read Plan</span>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <aside class="pt-shields">
+          <div class="pt-shield-row">
+            <div class="pt-shield">
+              <strong>RC</strong>
+              <span>Club</span>
+            </div>
+            <div class="pt-shield">
+              <strong>TA</strong>
+              <span>Records</span>
+            </div>
+            <div class="pt-shield">
+              <strong>EV</strong>
+              <span>Events</span>
+            </div>
+          </div>
+          <div class="pt-note">
+            <div class="pt-note-label">
+              <span class="zh">關於紀錄系統</span>
+              <span class="en">About Records</span>
+            </div>
+            <p class="pt-note-body zh">
+              紀錄分為「正式 Approved Record」與「一般 Time Attack」兩軌。
+              正式板需人工審核；一般板保留社群平時練習紀錄。
+              兩軌資料均在 <code class="sr-code">TimeAttack</code> 站內分頁呈現。
+            </p>
+            <p class="pt-note-body en">
+              Records run on two channels: formal Approved Records (manually reviewed) and
+              regular Time Attack (community practice runs). Both channels are presented as
+              separate boards inside the <code class="sr-code">TimeAttack</code> site.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="pt-section">
+        <div class="pt-section-head">
+          <div>
+            <h2 class="pt-section-title">
+              <span class="zh">社群連結</span>
+              <span class="en">Social Links</span>
+            </h2>
+            <p class="pt-section-note zh">先保留社群入口卡片，之後補上正式連結。</p>
+            <p class="pt-section-note en">Social slots are reserved here; replace placeholders with real links later.</p>
+          </div>
+        </div>
+        <div class="pt-social-grid">
+          <article class="pt-social-card">
+            <div class="pt-social-label">Discord</div>
+            <h3 class="pt-social-title">Discord</h3>
+            <p class="pt-social-text zh">社群集合、賽道開放通知、比賽與週聚資訊。</p>
+            <p class="pt-social-text en">Community chat, event notices, and open-track updates.</p>
+            <span class="pt-social-link is-disabled">
+              <span class="zh">待補連結</span>
+              <span class="en">Link Pending</span>
+            </span>
+          </article>
+          <article class="pt-social-card">
+            <div class="pt-social-label">VRChat</div>
+            <h3 class="pt-social-title">VRChat Group</h3>
+            <p class="pt-social-text zh">之後可接 VRChat 群組、世界清單或俱樂部入口。</p>
+            <p class="pt-social-text en">Reserved for VRChat group, world list, or club portal links.</p>
+            <span class="pt-social-link is-disabled">
+              <span class="zh">待補連結</span>
+              <span class="en">Link Pending</span>
+            </span>
+          </article>
+          <article class="pt-social-card">
+            <div class="pt-social-label">Media</div>
+            <h3 class="pt-social-title">YouTube / Media</h3>
+            <p class="pt-social-text zh">可接精華、更新影片、賽道導覽或活動紀錄。</p>
+            <p class="pt-social-text en">Reserved for highlights, updates, track guides, and event footage.</p>
+            <span class="pt-social-link is-disabled">
+              <span class="zh">待補連結</span>
+              <span class="en">Link Pending</span>
+            </span>
+          </article>
+          <article class="pt-social-card">
+            <div class="pt-social-label">Updates</div>
+            <h3 class="pt-social-title">X / Threads / Notes</h3>
+            <p class="pt-social-text zh">之後可接對外更新、賽季公告與版本異動。</p>
+            <p class="pt-social-text en">Reserved for public updates, season notes, and version changes.</p>
+            <span class="pt-social-link is-disabled">
+              <span class="zh">待補連結</span>
+              <span class="en">Link Pending</span>
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <section class="pt-section">
+        <div class="pt-section-head">
+          <div>
+            <h2 class="pt-section-title">
+              <span class="zh">後續接口</span>
+              <span class="en">Reserved Interfaces</span>
+            </h2>
+            <p class="pt-section-note zh">這些區塊先不接資料，只保留入口位置。</p>
+            <p class="pt-section-note en">These blocks stay light for now and only reserve future entry points.</p>
+          </div>
+        </div>
+        <div class="pt-mini-grid">
+          <article class="pt-mini-card">
+            <div class="pt-mini-label">
+              <span class="zh">世界</span>
+              <span class="en">Worlds</span>
+            </div>
+            <h3 class="pt-mini-title">
+              <span class="zh">賽道 / 場地頁</span>
+              <span class="en">Track & Venue Pages</span>
+            </h3>
+            <p class="pt-mini-text zh">承接世界介紹、世界名稱、作者、連結與地景系列。</p>
+            <p class="pt-mini-text en">Reserved for world profiles, names, authors, links, and landscape pages.</p>
+          </article>
+          <article class="pt-mini-card">
+            <div class="pt-mini-label">
+              <span class="zh">活動</span>
+              <span class="en">Events</span>
+            </div>
+            <h3 class="pt-mini-title">
+              <span class="zh">活動 / 賽季頁</span>
+              <span class="en">Events & Seasons</span>
+            </h3>
+            <p class="pt-mini-text zh">承接排位賽、錦標賽、積分與賽季歷史。</p>
+            <p class="pt-mini-text en">Reserved for qualifiers, championships, points, and season history.</p>
+          </article>
+          <article class="pt-mini-card">
+            <div class="pt-mini-label">
+              <span class="zh">媒體</span>
+              <span class="en">Media</span>
+            </div>
+            <h3 class="pt-mini-title">
+              <span class="zh">圖片 / 精華</span>
+              <span class="en">Gallery & Highlights</span>
+            </h3>
+            <p class="pt-mini-text zh">承接圖片牆、精華影片與紀錄圖輸出。</p>
+            <p class="pt-mini-text en">Reserved for galleries, highlight videos, and generated record cards.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="pt-footer">
+        <span>play / RacingClub</span>
+        <span>Intro + social shell</span>
+        <span>TimeAttack ready</span>
+      </footer>
+    </main>
+  </div>
+  <script src="../project-t.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design System Visualize | Museum | StarRiver Arts</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:
+  radial-gradient(circle at 84% 10%, rgba(188,153,92,.18), transparent 24%),
+  radial-gradient(circle at 16% 20%, rgba(71,93,126,.16), transparent 26%),
+  linear-gradient(180deg,#0f1116 0%,#171a20 100%);
+color:#f4f1e8;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:18px 28px;background:rgba(15,17,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-home,.nav-link{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,232,.72)}
+.nav-home:hover,.nav-link:hover{color:#fff}
+.nav-links{display:flex;gap:16px;margin-left:auto}
+.lang-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,232,.64);background:none;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 10px;cursor:pointer}
+.lang-btn:hover{color:#fff;border-color:rgba(255,255,255,.28)}
+.shell{max-width:1240px;margin:0 auto;padding:52px 28px 72px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:28px}
+.hero-copy,.hero-note,.tool-card{border:1px solid rgba(255,255,255,.1);border-radius:28px;background:rgba(255,255,255,.04)}
+.hero-copy{padding:36px 34px 30px}
+.kicker,.tool-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,232,.54)}
+.title{font-family:var(--font-display);font-weight:900;font-size:clamp(46px,7vw,92px);line-height:.9;letter-spacing:-.05em;margin:16px 0 18px}
+.desc{max-width:760px;font-size:18px;line-height:1.75;color:rgba(244,241,232,.78)}
+.desc+.desc{margin-top:8px}
+.hero-rule{width:56px;height:2px;background:var(--sr-amber);margin-top:28px}
+.hero-note{padding:28px;display:flex;flex-direction:column;gap:16px}
+.note-copy{font-size:14px;line-height:1.72;color:rgba(244,241,232,.72)}
+.note-list{display:grid;gap:10px}
+.note-item{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,241,232,.66);padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.05)}
+.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.tool-card{padding:24px;display:flex;flex-direction:column;gap:12px;min-height:300px}
+.tool-title{font-family:var(--font-deck);font-size:28px;font-weight:700;line-height:1.06}
+.tool-text{font-size:15px;line-height:1.72;color:rgba(244,241,232,.76)}
+.tool-meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,232,.64);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 9px}
+.tool-link,.tool-passive{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.tool-link{color:#fff}
+.tool-link:hover{color:#f4d79f}
+.tool-link svg{width:10px;height:10px}
+.tool-passive{color:rgba(244,241,232,.56)}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,232,.48)}
+@media (max-width:980px){
+  .hero,.tool-grid{grid-template-columns:1fr}
+  .shell{padding:32px 18px 56px}
+  nav{padding:16px 18px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-home" href="../../../index.html">StarRiver Arts</a>
+  <div class="nav-links">
+    <a class="nav-link" href="../../"><span class="zh">返回 Museum</span><span class="en">Back to Museum</span></a>
+    <a class="nav-link" href="../../../index.html"><span class="zh">返回主站</span><span class="en">Back to Hub</span></a>
+  </div>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中文</span></button>
+</nav>
+
+<main class="shell">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker"><span class="zh">Museum / Interactive / Design System Visualize</span><span class="en">Museum / Interactive / Design System Visualize</span></div>
+      <h1 class="title">Design System Visualize</h1>
+      <p class="desc zh">這一頁承接 VR Gallery Spatial System 的兩個工具頁。它們保持為 standalone HTML，不包進 iframe，也不需要額外 build step。</p>
+      <p class="desc en">This page hosts the two VR Gallery Spatial System tool pages. They remain standalone HTML tools with no iframe embedding and no extra build step.</p>
+      <div class="hero-rule"></div>
+    </div>
+    <aside class="hero-note">
+      <div class="tool-label"><span class="zh">頁面狀態</span><span class="en">Page State</span></div>
+      <p class="note-copy zh">兩個工具都可直接打開。場景資料保存在瀏覽器端，適合在規劃、校正與策展前期反覆使用。</p>
+      <p class="note-copy en">Both tools open directly in the browser. Scene data stays on the client side, suitable for repeated planning, calibration, and pre-production use.</p>
+      <div class="note-list">
+        <div class="note-item">standalone html</div>
+        <div class="note-item">browser localstorage</div>
+        <div class="note-item">no install after publish</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="tool-grid">
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">工具一</span><span class="en">Tool 01</span></div>
+      <h2 class="tool-title"><span class="zh">Spatial Planner</span><span class="en">Spatial Planner</span></h2>
+      <p class="tool-text zh">平面與立面同步的展場配置工具，可放置 reserve、牆面與燈具，並用於檢查視角、照明覆蓋與清空距離。</p>
+      <p class="tool-text en">Plan-plus-elevation gallery layout tool for placing reserves, walls, and lights, with checks for view cone, coverage, and clearance.</p>
+      <div class="tool-meta">
+        <span class="tag">layout</span>
+        <span class="tag">lighting</span>
+        <span class="tag">validation</span>
+      </div>
+      <a class="tool-link" href="./spatial-planner.html">
+        <span class="zh">打開工具</span><span class="en">Open Tool</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">工具二</span><span class="en">Tool 02</span></div>
+      <h2 class="tool-title"><span class="zh">Falloff Predictor</span><span class="en">Falloff Predictor</span></h2>
+      <p class="tool-text zh">用來預估不同光衰減模型與材質顏色下的呈現效果，快速比較照度、色偏與修正建議。</p>
+      <p class="tool-text en">Predicts render outcomes across falloff models and surface colours, comparing lux, colour drift, and recommended adjustments.</p>
+      <div class="tool-meta">
+        <span class="tag">falloff</span>
+        <span class="tag">colour drift</span>
+        <span class="tag">lux target</span>
+      </div>
+      <a class="tool-link" href="./falloff-predictor.html">
+        <span class="zh">打開工具</span><span class="en">Open Tool</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">發布方式</span><span class="en">Publication Model</span></div>
+      <h2 class="tool-title"><span class="zh">Standalone Pages</span><span class="en">Standalone Pages</span></h2>
+      <p class="tool-text zh">這裡不做嵌入式包裝。每個工具都是可單獨分享、可直接開啟的公開頁面，之後只要替換對應 HTML 即可更新。</p>
+      <p class="tool-text en">No embedded wrapper here. Each tool is a shareable standalone public page; updates only require replacing the corresponding HTML file.</p>
+      <div class="tool-meta">
+        <span class="tag">direct publish</span>
+        <span class="tag">no iframe</span>
+        <span class="tag">static deployment</span>
+      </div>
+      <div class="tool-passive"><span class="zh">目前模式</span><span class="en">Current Mode</span></div>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <span>museum / interactive / design-system-visualize</span>
+    <span>spatial planner + falloff predictor</span>
+    <span>standalone pages</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var h=document.documentElement,b=document.getElementById('langBtn');
+  var s=localStorage.getItem('sr-lang')||'zh';
+  function setLang(v){h.className='lang-'+v;h.lang=v==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',v)}
+  setLang(s);
+  b.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+})();
+</script>
+</body>
+</html>

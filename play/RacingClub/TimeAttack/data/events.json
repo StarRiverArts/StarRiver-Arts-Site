@@ -1,0 +1,67 @@
+{
+  "title_zh": "活動與賽季頁",
+  "title_en": "Events And Seasons",
+  "description_zh": "活動頁先承接賽季、排位賽與錦標賽的索引，未來再逐步接上積分系統與賽程結果。",
+  "description_en": "The events page starts as an index for seasons, qualifiers, and championships, and can later grow into a full points system and results archive.",
+  "sidebar_zh": [
+    "事件欄位會比計時頁複雜，第一版先保留活動索引與最近提交紀錄。",
+    "後續若加入積分規則、分組或 heat 設計，建議都從 `events_meta` 延伸。",
+    "如果輸入表未指定 event_code，該紀錄仍可進一般分析，但不會掛到活動頁。"
+  ],
+  "sidebar_en": [
+    "Event data will become more complex than raw time-attack records, so v1 only keeps the event index and recent linked submissions.",
+    "Points rules, class splits, and heat structures should later extend from `events_meta`.",
+    "Runs without an `event_code` can still enter general analysis, but they will not appear inside event cards."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "賽季數",
+      "label_en": "Seasons",
+      "value": "0",
+      "note_zh": "目前 metadata 已定義的賽季",
+      "note_en": "Seasons currently defined in metadata"
+    },
+    {
+      "label_zh": "活動數",
+      "label_en": "Events",
+      "value": "0",
+      "note_zh": "已建立索引的活動項目",
+      "note_en": "Indexed events currently in metadata"
+    },
+    {
+      "label_zh": "活動綁定紀錄",
+      "label_en": "Linked Runs",
+      "value": "0",
+      "note_zh": "目前有 event_code 的紀錄",
+      "note_en": "Runs that currently carry an event code"
+    },
+    {
+      "label_zh": "正式活動提交",
+      "label_en": "Formal Event Runs",
+      "value": "0",
+      "note_zh": "活動下的正式送審紀錄",
+      "note_en": "Formal approved-record submissions linked to an event"
+    }
+  ],
+  "event_cards": [],
+  "sections": [
+    {
+      "label_zh": "積分系統",
+      "label_en": "Points Layer",
+      "title_zh": "預留賽季與積分擴充",
+      "title_en": "Reserved Season And Points Expansion",
+      "body_zh": "等活動頁資料穩定後，可以再接上分組、資格賽、積分規則與每站名次結果。",
+      "body_en": "Once event metadata stabilizes, this page can expand into grids, qualifiers, points rules, and full round-by-round standings.",
+      "items_zh": [
+        "排位賽 / 錦標賽格式",
+        "站別積分與總積分",
+        "車隊分數與賽季結算"
+      ],
+      "items_en": [
+        "Qualifier and championship formats",
+        "Round points and season totals",
+        "Team scoring and season wrap-ups"
+      ]
+    }
+  ]
+}

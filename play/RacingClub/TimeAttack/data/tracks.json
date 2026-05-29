@@ -1,0 +1,245 @@
+{
+  "title_zh": "賽道路線分析",
+  "title_en": "Track And Route Analysis",
+  "description_zh": "以賽道世界和路線為單位，分開展示 Approved Record 與 Normal Time Attack 兩種榜單。",
+  "description_en": "Track-world and route analysis split into separate Approved Record and Normal Time Attack boards.",
+  "sidebar_zh": [
+    "賽道以世界為主鍵，同名道路但不同世界不會混在一起。",
+    "車輛榜以母型統計，子列仍保留玩家名稱與目前最快成績。",
+    "待審核的正式提交不會直接進 Approved Record 榜單，但會進審核頁。"
+  ],
+  "sidebar_en": [
+    "Tracks are keyed at the world level; same roads in different worlds stay separate.",
+    "Vehicle boards are grouped by canonical model while still showing the current driver and fastest time.",
+    "Pending formal submissions do not enter the Approved board until review is complete."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "賽道世界",
+      "label_en": "Track Worlds",
+      "value": "1",
+      "note_zh": "以世界識別的路線集合",
+      "note_en": "World-level route families"
+    },
+    {
+      "label_zh": "路線數",
+      "label_en": "Routes",
+      "value": "2",
+      "note_zh": "可產生榜單的 route 組合",
+      "note_en": "Route combinations that produce boards"
+    },
+    {
+      "label_zh": "Approved 路線榜",
+      "label_en": "Approved Routes",
+      "value": "2",
+      "note_zh": "已有正式審核紀錄的路線",
+      "note_en": "Routes that already have approved formal records"
+    },
+    {
+      "label_zh": "待審送件",
+      "label_en": "Pending Formal",
+      "value": "0",
+      "note_zh": "等待人工審核的正式提交",
+      "note_en": "Formal submissions waiting for manual review"
+    }
+  ],
+  "catalog_cards": [
+    {
+      "label_zh": "Legacy Approved Import",
+      "label_en": "Legacy Approved Import",
+      "title_zh": "Akina DH",
+      "title_en": "Touge Series",
+      "body_zh": "作者 Imported，共 2 條可分析路線。",
+      "body_en": "Author Imported, with 2 analyzable routes in this world.",
+      "meta_zh": "標籤：",
+      "meta_en": "Tags: ",
+      "chips": [
+        "Downhill",
+        "Uphill"
+      ],
+      "href": "",
+      "href_label_zh": "VRChat 世界",
+      "href_label_en": "VRChat World"
+    }
+  ],
+  "leaderboards": [
+    {
+      "variant_name": "Akina DH",
+      "route_name": "Downhill",
+      "world_name": "Touge Series",
+      "route_note_zh": "由舊版 records.json 匯入",
+      "route_note_en": "Imported from a legacy records.json artifact",
+      "approved_fastest": {
+        "lap_time_text": "1:22.900",
+        "racer_display_name": "Bob",
+        "vehicle_display_name": "RX-7"
+      },
+      "approved_player_best": [
+        {
+          "rank": 1,
+          "player_display_name": "Bob",
+          "vehicle_model_name": "RX-7",
+          "lap_time_text": "1:22.900",
+          "delta_to_best_text": "+0.000",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        },
+        {
+          "rank": 2,
+          "player_display_name": "Alice",
+          "vehicle_model_name": "RX-7",
+          "lap_time_text": "1:23.456",
+          "delta_to_best_text": "+0.556",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        },
+        {
+          "rank": 3,
+          "player_display_name": "Carol",
+          "vehicle_model_name": "GR86",
+          "lap_time_text": "1:25.500",
+          "delta_to_best_text": "+2.600",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        }
+      ],
+      "approved_vehicle_best": [
+        {
+          "rank": 1,
+          "vehicle_model_name": "RX-7",
+          "player_display_name": "Bob",
+          "lap_time_text": "1:22.900",
+          "delta_to_best_text": "+0.000",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        },
+        {
+          "rank": 2,
+          "vehicle_model_name": "EVO IX",
+          "player_display_name": "Alice",
+          "lap_time_text": "1:24.120",
+          "delta_to_best_text": "+1.220",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        },
+        {
+          "rank": 3,
+          "vehicle_model_name": "GR86",
+          "player_display_name": "Carol",
+          "lap_time_text": "1:25.500",
+          "delta_to_best_text": "+2.600",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        }
+      ],
+      "normal_fastest": null,
+      "normal_player_best": [],
+      "normal_vehicle_best": [],
+      "pending_submissions": 0
+    },
+    {
+      "variant_name": "Akina DH",
+      "route_name": "Uphill",
+      "world_name": "Touge Series",
+      "route_note_zh": "由舊版 records.json 匯入",
+      "route_note_en": "Imported from a legacy records.json artifact",
+      "approved_fastest": {
+        "lap_time_text": "1:30.250",
+        "racer_display_name": "Bob",
+        "vehicle_display_name": "EVO IX"
+      },
+      "approved_player_best": [
+        {
+          "rank": 1,
+          "player_display_name": "Bob",
+          "vehicle_model_name": "EVO IX",
+          "lap_time_text": "1:30.250",
+          "delta_to_best_text": "+0.000",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        }
+      ],
+      "approved_vehicle_best": [
+        {
+          "rank": 1,
+          "vehicle_model_name": "EVO IX",
+          "player_display_name": "Bob",
+          "lap_time_text": "1:30.250",
+          "delta_to_best_text": "+0.000",
+          "channel_label_zh": "Approved Record",
+          "channel_label_en": "Approved Record"
+        }
+      ],
+      "normal_fastest": null,
+      "normal_player_best": [],
+      "normal_vehicle_best": [],
+      "pending_submissions": 0
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-05-13",
+      "label_zh": "賽道紀錄變化",
+      "label_en": "Record Change",
+      "title_zh": "Akina DH / Uphill",
+      "title_en": "Touge Series / Uphill",
+      "meta_zh": "Bob 以 EVO IX 跑出 1:30.250",
+      "meta_en": "Bob set 1:30.250 in EVO IX",
+      "body_zh": "Approved Record 路線榜單更新。",
+      "body_en": "Approved Record route benchmark updated."
+    },
+    {
+      "date": "2026-05-11",
+      "label_zh": "賽道紀錄變化",
+      "label_en": "Record Change",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Bob 以 RX-7 跑出 1:22.900",
+      "meta_en": "Bob set 1:22.900 in RX-7",
+      "body_zh": "Approved Record 路線榜單更新。",
+      "body_en": "Approved Record route benchmark updated."
+    },
+    {
+      "date": "2026-05-10",
+      "label_zh": "賽道紀錄變化",
+      "label_en": "Record Change",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Alice 以 RX-7 跑出 1:23.456",
+      "meta_en": "Alice set 1:23.456 in RX-7",
+      "body_zh": "Approved Record 路線榜單更新。",
+      "body_en": "Approved Record route benchmark updated."
+    },
+    {
+      "date": "2025-12-10",
+      "label_zh": "賽道紀錄變化",
+      "label_en": "Record Change",
+      "title_zh": "Akina DH / Downhill",
+      "title_en": "Touge Series / Downhill",
+      "meta_zh": "Carol 以 GR86 跑出 1:25.500",
+      "meta_en": "Carol set 1:25.500 in GR86",
+      "body_zh": "Approved Record 路線榜單更新。",
+      "body_en": "Approved Record route benchmark updated."
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "後續擴充",
+      "label_en": "Next Analysis",
+      "title_zh": "預留的賽道分析",
+      "title_en": "Reserved Track Analysis",
+      "body_zh": "這個頁面接下來可以再補賽道熱門車種、紀錄刷新頻率、車輛與賽道標籤的關係。",
+      "body_en": "This page can later expand into route popularity, record refresh frequency, and correlations between vehicles and track tags.",
+      "items_zh": [
+        "賽道紀錄變化時間線",
+        "賽道熱門車種 / 車輛比例",
+        "車種與 uphill / downhill / night 等標籤關聯"
+      ],
+      "items_en": [
+        "Track-record change timeline",
+        "Popular vehicle classes and models per route",
+        "Vehicle correlations against uphill / downhill / night-style tags"
+      ]
+    }
+  ]
+}

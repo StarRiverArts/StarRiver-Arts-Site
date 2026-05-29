@@ -1,0 +1,116 @@
+{
+  "title_zh": "Time Attack 計時紀錄",
+  "title_en": "Time Attack Records",
+  "description_zh": "VR Racing Club 的計時頁面以單一輸入表為核心，拆出正式審核的 Approved Record、一般練習用的 Normal Time Attack，以及玩家、車輛、賽道和活動分析。",
+  "description_en": "VR Racing Club time-attack hub built around a single input sheet, split into the formal Approved Record board, the regular Normal Time Attack board, and analysis views for tracks, players, vehicles, events, and review.",
+  "build_state": "live",
+  "sidebar_zh": [
+    "正式榜單只吃 `record_channel = approved_record` 且 `review_status = approved` 的紀錄。",
+    "一般計時榜只吃 `record_channel = normal_time_attack` 的社群練習成績。",
+    "個人頁與車輛頁可以吸收未審核但未被否決的紀錄，用來做趨勢與使用分析。"
+  ],
+  "sidebar_en": [
+    "Formal boards only include `record_channel = approved_record` plus `review_status = approved`.",
+    "Normal boards include community practice runs under `record_channel = normal_time_attack`.",
+    "Player and vehicle analysis can still use unreviewed-but-not-rejected runs for trend tracking."
+  ],
+  "count_cards": [
+    {
+      "label_zh": "總輸入筆數",
+      "label_en": "All Runs",
+      "value": "5",
+      "note_zh": "輸入表中所有紀錄列",
+      "note_en": "All imported rows from the input sheet"
+    },
+    {
+      "label_zh": "Approved 上榜",
+      "label_en": "Approved Board",
+      "value": "5",
+      "note_zh": "正式榜單可見紀錄",
+      "note_en": "Runs visible on the formal board"
+    },
+    {
+      "label_zh": "待審核",
+      "label_en": "Pending Review",
+      "value": "2",
+      "note_zh": "已送審但尚未完成人工確認",
+      "note_en": "Approved-record submissions still waiting for manual review"
+    },
+    {
+      "label_zh": "一般計時",
+      "label_en": "Normal Board",
+      "value": "0",
+      "note_zh": "一般 Time Attack 練習紀錄",
+      "note_en": "Community practice runs on the normal board"
+    },
+    {
+      "label_zh": "賽道世界",
+      "label_en": "Track Worlds",
+      "value": "1",
+      "note_zh": "以世界為準的賽道識別",
+      "note_en": "World-level track identities"
+    },
+    {
+      "label_zh": "車輛母型",
+      "label_en": "Vehicle Models",
+      "value": "3",
+      "note_zh": "以統計母型合併多個世界變體",
+      "note_en": "Canonical vehicle models merged across multiple world variants"
+    }
+  ],
+  "board_cards": [
+    {
+      "label_zh": "正式榜單",
+      "label_en": "Formal Board",
+      "title_zh": "Approved Record",
+      "title_en": "Approved Record",
+      "description_zh": "只收錄通過人工審核的正式提交，用來承擔最嚴格的賽道紀錄頁與對外輸出。",
+      "description_en": "Only manually approved formal submissions appear here. This is the strict board for official track records and outward-facing exports.",
+      "href": "./review.html",
+      "href_label_zh": "前往審核頁",
+      "href_label_en": "Open Review"
+    },
+    {
+      "label_zh": "社群練習",
+      "label_en": "Open Practice",
+      "title_zh": "Normal Time Attack",
+      "title_en": "Normal Time Attack",
+      "description_zh": "一般玩家練跑與社群活動使用的主榜，不要求正式見證條件，但仍保留時間分析價值。",
+      "description_en": "Main board for practice laps and community runs. It does not require formal witness rules but still feeds player and vehicle analysis.",
+      "href": "./tracks.html",
+      "href_label_zh": "看賽道路線",
+      "href_label_en": "Open Tracks"
+    },
+    {
+      "label_zh": "頁面拆分",
+      "label_en": "Page Split",
+      "title_zh": "Tracks / Players / Vehicles",
+      "title_en": "Tracks / Players / Vehicles",
+      "description_zh": "賽道頁負責榜單，玩家頁負責個人表現，車輛頁負責母型與變體統計，活動頁再承接賽季和積分系統。",
+      "description_en": "Tracks own the boards, players own individual performance, vehicles own model-and-variant stats, and events will later carry season and points systems.",
+      "href": "./players.html",
+      "href_label_zh": "看玩家頁",
+      "href_label_en": "Open Players"
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "資料流",
+      "label_en": "Data Flow",
+      "title_zh": "單一輸入表到靜態頁",
+      "title_en": "Single Sheet To Static Pages",
+      "body_zh": "Builder 讀取輸入表與 lookup 索引，先產生分析 JSON，再由這些靜態頁直接讀取。",
+      "body_en": "The builder reads the input sheet plus lookup indexes, generates analysis JSON, and the static pages consume those artifacts directly.",
+      "items_zh": [
+        "Google Sheet 或 CSV 匯出作為唯一輸入來源",
+        "本機 builder 重建所有排行榜與分析頁資料",
+        "最終只修改 `play/RacingClub/TimeAttack/data/*.json` 後再推上 GitHub Pages"
+      ],
+      "items_en": [
+        "Google Sheet or CSV export remains the single input source",
+        "A local builder regenerates every board and analysis artifact",
+        "Only `play/RacingClub/TimeAttack/data/*.json` needs to change before pushing to GitHub Pages"
+      ]
+    }
+  ]
+}

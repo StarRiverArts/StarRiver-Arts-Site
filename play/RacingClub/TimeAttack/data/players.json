@@ -1,0 +1,223 @@
+{
+  "title_zh": "玩家個人頁",
+  "title_en": "Player Analysis",
+  "description_zh": "玩家頁吸收未被否決的所有有效紀錄，用來看個人最佳、常用車種與賽道性質關係。",
+  "description_en": "Player pages absorb all non-rejected runs so they can track personal bests, favorite vehicles, and track-tag tendencies.",
+  "sidebar_zh": [
+    "玩家唯一值使用 `player_id`，顯示名稱只是 lookup 對應。",
+    "這裡的個人最佳會吸收未審核但未被拒絕的紀錄。",
+    "如果後續加入隊伍積分或賽季表現，會優先從這頁延伸。"
+  ],
+  "sidebar_en": [
+    "Players are keyed by `player_id`; display names only come from lookup.",
+    "Personal-best analysis can include runs that are still unreviewed as long as they were not rejected.",
+    "Future team points and season-performance layers should extend from this page."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "玩家數",
+      "label_en": "Players",
+      "value": "3",
+      "note_zh": "有至少一筆有效紀錄的玩家",
+      "note_en": "Players with at least one valid run"
+    },
+    {
+      "label_zh": "隊伍數",
+      "label_en": "Teams",
+      "value": "0",
+      "note_zh": "目前 lookup 中已有的隊伍標示",
+      "note_en": "Teams currently assigned in lookup"
+    },
+    {
+      "label_zh": "一般路線領跑",
+      "label_en": "Open Leaders",
+      "value": "2",
+      "note_zh": "一般池內目前已有領跑者的路線",
+      "note_en": "Routes that already have an open-pool leader"
+    },
+    {
+      "label_zh": "Approved 領跑",
+      "label_en": "Approved Leaders",
+      "value": "2",
+      "note_zh": "正式榜單已建立的路線領跑",
+      "note_en": "Routes with established leaders on the approved board"
+    }
+  ],
+  "player_cards": [
+    {
+      "player_id": "racer_002",
+      "title": "Bob",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "2"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "2"
+        }
+      ],
+      "tags": [
+        "常用車種：RX-7",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "RX-7",
+          "value": 1
+        },
+        {
+          "label": "EVO IX",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "RX-7 / Approved Record",
+          "lap_time_text": "1:22.900"
+        },
+        {
+          "rank": 2,
+          "route_label": "Akina DH / Uphill",
+          "sub_label": "EVO IX / Approved Record",
+          "lap_time_text": "1:30.250"
+        }
+      ]
+    },
+    {
+      "player_id": "racer_001",
+      "title": "Alice",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：RX-7",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "RX-7",
+          "value": 1
+        },
+        {
+          "label": "EVO IX",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "RX-7 / Approved Record",
+          "lap_time_text": "1:23.456"
+        }
+      ]
+    },
+    {
+      "player_id": "racer_003",
+      "title": "Carol",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：GR86",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "GR86",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akina DH / Downhill",
+          "sub_label": "GR86 / Approved Record",
+          "lap_time_text": "1:25.500"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "後續擴充",
+      "label_en": "Next Analysis",
+      "title_zh": "可再加入的個人頁模組",
+      "title_en": "Next Player Modules",
+      "body_zh": "玩家頁後續可以加入成績變化圖、賽季積分、隊伍貢獻與賽道標籤勝率。",
+      "body_en": "Player pages can later grow into performance-change charts, season points, team contribution, and win rates across track tags.",
+      "items_zh": [
+        "個人成績變化時間線",
+        "車種 / 車輛使用頻次",
+        "對 uphill / downhill / technical 標籤的表現偏向"
+      ],
+      "items_en": [
+        "Personal performance-change timeline",
+        "Vehicle class / model usage frequency",
+        "Performance tendencies against uphill / downhill / technical tags"
+      ]
+    }
+  ]
+}
