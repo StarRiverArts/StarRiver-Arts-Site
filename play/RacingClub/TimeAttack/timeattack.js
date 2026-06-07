@@ -402,7 +402,7 @@ const renderTrackGroupRows = (groups, subKey) => {
           ${g.rows
             .map(
               (row, i) => `
-            <div class="ta-mini-row">
+            <div class="ta-mini-row ta-mini-row-track">
               <span class="ta-mini-rank">${i + 1}</span>
               <span class="ta-mini-name">${escapeHtml(row.track_name || "")}</span>
               <span class="ta-mini-sub">${escapeHtml(row[subKey] || "")}</span>
@@ -532,7 +532,7 @@ const renderHistoryChart = (route) => {
 
   const W = 320;
   const H = 72;
-  const PAD = { top: 6, right: 6, bottom: 18, left: 6 };
+  const PAD = { top: 12, right: 6, bottom: 18, left: 28 };
   const plotW = W - PAD.left - PAD.right;
   const plotH = H - PAD.top - PAD.bottom;
 
@@ -542,14 +542,14 @@ const renderHistoryChart = (route) => {
   const dateSpan = maxDate - minDate || 1;
 
   const times = runs.map((r) => r.lap_time_ms);
-  const minMs = Math.min(...times);
-  const maxMs = Math.max(...times);
-  const timeSpan = maxMs - minMs || 1;
+  const bestMs = Math.min(...times);
+  const worstMs = Math.max(...times);
+  const deltaSpan = worstMs - bestMs || 1;
 
   const toX = (i) =>
     PAD.left + ((dates[i] - minDate) / dateSpan) * plotW;
   const toY = (ms) =>
-    PAD.top + ((maxMs - ms) / timeSpan) * plotH;
+    PAD.top + ((ms - bestMs) / deltaSpan) * plotH;
 
   const pts = runs.map((r, i) => `${toX(i).toFixed(1)},${toY(r.lap_time_ms).toFixed(1)}`).join(" ");
 
@@ -558,7 +558,8 @@ const renderHistoryChart = (route) => {
       const cx = toX(i).toFixed(1);
       const cy = toY(r.lap_time_ms).toFixed(1);
       const cls = r.is_pb ? "ta-chart-dot is-pb" : "ta-chart-dot";
-      const tip = `${r.date} · ${r.lap_time_text} · ${escapeHtml(r.vehicle)}`;
+      const deltaText = `+${((r.lap_time_ms - bestMs) / 1000).toFixed(3)}`;
+      const tip = `${r.date} · ${r.lap_time_text} · ${escapeHtml(r.vehicle)} · ${deltaText}`;
       return `<circle cx="${cx}" cy="${cy}" r="3.5" class="${cls}"><title>${tip}</title></circle>`;
     })
     .join("");
@@ -569,18 +570,24 @@ const renderHistoryChart = (route) => {
   const diffSign = diffMs > 0 ? "▼ " : diffMs < 0 ? "▲ " : "";
   const diffText = diffMs !== 0 ? `${diffSign}${Math.abs(diffMs / 1000).toFixed(3)}s` : "持平";
   const diffCls = diffMs > 0 ? "is-improve" : diffMs < 0 ? "is-regress" : "";
+  const bestRun = runs.reduce(
+    (currentBest, run) => (run.lap_time_ms < currentBest.lap_time_ms ? run : currentBest),
+    runs[0],
+  );
 
   return `
     <div class="ta-history-block">
       <div class="ta-history-route-label">${escapeHtml(route.route_label)}</div>
       <svg viewBox="0 0 ${W} ${H}" class="ta-history-svg" role="img" aria-label="${escapeHtml(route.route_label)} history">
+        <line x1="${PAD.left}" y1="${PAD.top}" x2="${PAD.left + plotW}" y2="${PAD.top}" class="ta-chart-axis"/>
+        <text x="${PAD.left - 6}" y="${PAD.top + 3}" text-anchor="end" class="ta-chart-axis-label">0</text>
         <polyline points="${pts}" class="ta-chart-line"/>
         ${dots}
       </svg>
       <div class="ta-chart-meta">
         <span>${runs.length} runs</span>
         <span class="ta-chart-diff ${diffCls}">${diffText}</span>
-        <span class="ta-chart-best">${runs[runs.length - 1].lap_time_text}</span>
+        <span class="ta-chart-best">PB ${bestRun.lap_time_text}</span>
       </div>
     </div>
   `;

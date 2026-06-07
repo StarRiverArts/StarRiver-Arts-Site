@@ -205,7 +205,7 @@ body.timeattack-page {
 .ta-layout {
   display: grid;
   gap: 18px;
-  grid-template-columns: minmax(260px, 0.32fr) minmax(0, 0.68fr);
+  grid-template-columns: 1fr;
   margin-top: 12px;
 }
 
@@ -213,6 +213,25 @@ body.timeattack-page {
 .ta-main {
   display: grid;
   gap: 18px;
+}
+
+.ta-sidebar-card {
+  align-items: start;
+  display: grid;
+  gap: 10px 22px;
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+}
+
+.ta-sidebar-card > .ta-label,
+.ta-sidebar-card > h2 {
+  grid-column: 1;
+}
+
+.ta-sidebar-card > [data-sidebar-list] {
+  align-self: center;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 0;
 }
 
 .ta-sidebar-card h2,
@@ -240,6 +259,19 @@ body.timeattack-page {
 
 .ta-inline-list {
   list-style: none;
+}
+
+.ta-sidebar-card .ta-inline-list {
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.ta-sidebar-card .ta-inline-list li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin: 0;
+  padding: 10px 12px;
 }
 
 .ta-inline-list li,
@@ -278,7 +310,8 @@ body.timeattack-page {
 }
 
 .ta-profile-grid {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
 }
 
 .ta-review-grid {
@@ -358,6 +391,19 @@ body.timeattack-page {
 .ta-catalog-card,
 .ta-profile-card,
 .ta-review-card {
+  display: grid;
+  gap: 12px;
+}
+
+.ta-profile-card,
+.ta-profile-head,
+.ta-detail-card,
+.ta-history-block,
+.ta-detail-list {
+  min-width: 0;
+}
+
+.ta-profile-head {
   display: grid;
   gap: 12px;
 }
@@ -517,6 +563,7 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-body);
   font-size: 14px;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -527,6 +574,7 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-body);
   font-size: 12px;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -554,7 +602,7 @@ body.timeattack-page {
 .ta-stat-grid {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
 .ta-stat-pill {
@@ -605,15 +653,22 @@ body.timeattack-page {
 
 .ta-counter-label {
   color: rgba(255, 255, 255, 0.82);
+  flex: 1 1 auto;
   font-family: var(--font-body);
   font-size: 14px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ta-counter-value {
   color: rgba(255, 255, 255, 0.7);
+  flex: 0 0 auto;
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .ta-review-head {
@@ -656,6 +711,15 @@ body.timeattack-page {
     grid-template-columns: 1fr;
   }
 
+  .ta-sidebar-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ta-sidebar-card > [data-sidebar-list] {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
   .ta-lb-col:first-child {
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -689,6 +753,7 @@ body.timeattack-page {
 
   .ta-lb-sub,
   .ta-mini-sub,
+  .ta-mini-plat,
   .ta-lb-time,
   .ta-mini-time {
     grid-column: 2;
@@ -804,8 +869,8 @@ body.timeattack-page {
   text-align: right;
 }
 
-.ta-row-name { font-weight: 600; color: var(--ta-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ta-row-sub  { font-size: 11px; color: var(--ta-text-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ta-row-name { font-weight: 600; color: var(--ta-text); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ta-row-sub  { font-size: 11px; color: var(--ta-text-soft); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .ta-row-plat {
   font-size: 9px;
@@ -848,10 +913,17 @@ body.timeattack-page {
   margin-bottom: 4px;
 }
 
+.ta-mini-row-track {
+  grid-template-columns: 24px minmax(0, 1fr) minmax(0, auto) auto auto;
+}
+
 .ta-mini-plat {
   font-size: 9px;
   color: var(--sr-text-muted, #888);
+  font-family: var(--font-mono);
   letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* ── History chart ──────────────────────────────────────────── */
@@ -891,6 +963,19 @@ body.timeattack-page {
   overflow: visible;
 }
 
+.ta-chart-axis {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-dasharray: 4 4;
+  stroke-width: 1;
+}
+
+.ta-chart-axis-label {
+  fill: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
 .ta-chart-line {
   fill: none;
   stroke: var(--ta-accent);
@@ -911,6 +996,7 @@ body.timeattack-page {
 
 .ta-chart-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   font-size: 11px;
   color: var(--ta-text-soft);

@@ -1053,8 +1053,6 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
 
 def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
     general_pool = [record for record in records if record["is_general_pool"]]
-    approved_route_leaders = best_by([record for record in records if record["is_approved_board"]], "route_key")
-    general_route_leaders = best_by(general_pool, "route_key")
 
     player_cards = []
     for player_id, player in sorted(lookup["players"].items(), key=lambda item: item[1]["display_name_primary"]):
@@ -1063,10 +1061,10 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
             continue
 
         best_times = best_by(player_records, "route_key")
+        official_records = [record for record in records if record["is_approved_board"] and record["player_id"] == player_id]
         vehicle_counter = Counter(record["vehicle_model_name"] for record in player_records)
         tag_counter = Counter(tag for record in player_records for tag in record["track_tags"])
-        approved_holds = sum(1 for record in approved_route_leaders.values() if record["player_id"] == player_id)
-        general_holds = sum(1 for record in general_route_leaders.values() if record["player_id"] == player_id)
+        best_vehicle_count = len({record["vehicle_model_code"] for record in best_times.values()})
 
         best_rows = []
         for index, record in enumerate(
@@ -1149,9 +1147,9 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 "subtitle_en": player["team_name"] or "Unassigned",
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(player_records))},
-                    {"label_zh": "個人最佳路線", "label_en": "Route PBs", "value": str(len(best_times))},
-                    {"label_zh": "一般路線奪榜", "label_en": "Open Route Leads", "value": str(general_holds)},
-                    {"label_zh": "Approved 奪榜", "label_en": "Approved Leads", "value": str(approved_holds)},
+                    {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
+                    {"label_zh": "賽道最佳", "label_en": "Track Bests", "value": str(len(best_times))},
+                    {"label_zh": "車種最佳", "label_en": "Vehicle Bests", "value": str(best_vehicle_count)},
                 ],
                 "tags": [
                     f"常用車種：{favorite_label(vehicle_counter)}",
@@ -1168,7 +1166,8 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
     player_cards.sort(
         key=lambda card: (
             -int(card["stats"][2]["value"]),
-            -int(card["stats"][3]["value"]),
+            -int(card["stats"][1]["value"]),
+            -int(card["stats"][0]["value"]),
             card["title"],
         )
     )
@@ -1244,8 +1243,6 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
 
 def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
     general_pool = [record for record in records if record["is_general_pool"]]
-    approved_route_leaders = best_by([record for record in records if record["is_approved_board"]], "route_key")
-    general_route_leaders = best_by(general_pool, "route_key")
 
     vehicle_cards = []
     for model_code, model in sorted(lookup["vehicle_models"].items(), key=lambda item: item[1]["vehicle_model_name"]):
@@ -1254,11 +1251,10 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
             continue
 
         best_times = best_by(model_records, "route_key")
+        official_records = [record for record in records if record["is_approved_board"] and record["vehicle_model_code"] == model_code]
         variant_counter = Counter(record["vehicle_variant_name"] for record in model_records)
         driver_counter = Counter(record["player_display_name"] for record in model_records)
         tag_counter = Counter(tag for record in model_records for tag in record["track_tags"])
-        approved_holds = sum(1 for record in approved_route_leaders.values() if record["vehicle_model_code"] == model_code)
-        general_holds = sum(1 for record in general_route_leaders.values() if record["vehicle_model_code"] == model_code)
 
         best_rows = []
         for index, record in enumerate(
@@ -1309,9 +1305,8 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "drivetrain": drivetrain,
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(model_records))},
-                    {"label_zh": "母型變體", "label_en": "Variants", "value": str(len(model["variant_names"]))},
-                    {"label_zh": "一般路線奪榜", "label_en": "Open Route Leads", "value": str(general_holds)},
-                    {"label_zh": "Approved 奪榜", "label_en": "Approved Leads", "value": str(approved_holds)},
+                    {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
+                    {"label_zh": "賽道最佳", "label_en": "Track Bests", "value": str(len(best_times))},
                 ],
                 "tags": [
                     f"常見駕駛：{favorite_label(driver_counter)}",
@@ -1327,7 +1322,8 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
     vehicle_cards.sort(
         key=lambda card: (
             -int(card["stats"][2]["value"]),
-            -int(card["stats"][3]["value"]),
+            -int(card["stats"][1]["value"]),
+            -int(card["stats"][0]["value"]),
             card["title"],
         )
     )
@@ -1363,18 +1359,18 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "note_en": "Variant codes defined in lookup",
             },
             {
-                "label_zh": "母型奪榜",
-                "label_en": "Open Model Leads",
-                "value": str(sum(int(card["stats"][2]["value"]) for card in vehicle_cards)),
-                "note_zh": "所有一般池路線奪榜總和",
-                "note_en": "Total open-pool route leads across all models",
+                "label_zh": "正式紀錄",
+                "label_en": "Official Runs",
+                "value": str(sum(int(card["stats"][1]["value"]) for card in vehicle_cards)),
+                "note_zh": "所有母型累積的正式榜單紀錄",
+                "note_en": "Official approved-board runs across all models",
             },
             {
-                "label_zh": "Approved 奪榜",
-                "label_en": "Approved Model Leads",
-                "value": str(sum(int(card["stats"][3]["value"]) for card in vehicle_cards)),
-                "note_zh": "正式榜單中的母型路線奪榜總和",
-                "note_en": "Total approved-board route leads across all models",
+                "label_zh": "賽道最佳",
+                "label_en": "Track Bests",
+                "value": str(sum(int(card["stats"][2]["value"]) for card in vehicle_cards)),
+                "note_zh": "各母型在不同路線上留下的最佳紀錄數",
+                "note_en": "Per-model track-best entries accumulated across routes",
             },
         ],
         "vehicle_cards": vehicle_cards,
