@@ -19,6 +19,14 @@ const TA_ROUTE_LABELS = {
     zh: "活動",
     en: "Events",
   },
+  catalog: {
+    zh: "索引",
+    en: "Index",
+  },
+  info: {
+    zh: "資訊",
+    en: "Info",
+  },
   review: {
     zh: "審核",
     en: "Review",
@@ -771,32 +779,85 @@ const renderTimeline = (items) => {
   `;
 };
 
-const renderOverview = (data) => [
-  renderModule("頁面入口", "Page Entry", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards)),
-  renderModule("資料流", "Data Flow", "實作說明", "Implementation Notes", renderSectionCards(data.sections)),
-]
-  .filter(Boolean)
-  .join("");
+const renderIndexRows = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-board-empty">No entries yet.</p>';
+  }
+  return `<div class="ta-board-rows">${rows
+    .map((row, i) => {
+      const nameInner = escapeHtml(row.name || "");
+      const name = row.href
+        ? `<a class="ta-index-link" href="${escapeHtml(row.href)}" target="_blank" rel="noopener">${nameInner}</a>`
+        : nameInner;
+      const meta = row.meta ? `<span class="ta-row-plat">${escapeHtml(row.meta)}</span>` : `<span></span>`;
+      return `
+      <div class="ta-board-row">
+        <span class="ta-row-rank">${i + 1}</span>
+        <span class="ta-row-name">${name}</span>
+        <span class="ta-row-sub">${escapeHtml(row.sub || "")}</span>
+        ${meta}
+        <span class="ta-row-time">${escapeHtml(row.value || "")}</span>
+      </div>`;
+    })
+    .join("")}</div>`;
+};
+
+const renderIndexTables = (indexes) => {
+  if (!Array.isArray(indexes) || indexes.length === 0) {
+    return '<p class="ta-empty">No index yet.</p>';
+  }
+  return indexes
+    .map(
+      (group) => `
+        <article class="ta-track-board">
+          <div class="ta-track-board-head">
+            <h3 class="ta-section-title">
+              ${renderBilingual(group.label_zh, group.label_en)}
+            </h3>
+            <p class="ta-section-text">${escapeHtml((group.rows || []).length)} ${escapeHtml(
+              "筆",
+            )}</p>
+          </div>
+          ${renderIndexRows(group.rows)}
+        </article>
+      `,
+    )
+    .join("");
+};
+
+const renderOverview = (data) =>
+  // Core metrics and the data-model notes now live on the Info page; the
+  // overview is a clean landing that routes into the analysis views.
+  renderModule("頁面入口", "Page Entry", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards));
 
 const renderPageModules = (view, data) => {
   if (view === "overview") {
     return renderOverview(data);
   }
 
+  if (view === "catalog") {
+    return renderIndexTables(data.indexes);
+  }
+
+  if (view === "info") {
+    return [
+      renderModule("分析摘要", "Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards)),
+      renderModule("資料流", "Data Flow", "資料模型", "Data Model", renderSectionCards(data.sections)),
+    ]
+      .filter(Boolean)
+      .join("");
+  }
+
   if (view === "tracks") {
-    const metricHtml = Array.isArray(data.metric_cards) && data.metric_cards.length
-      ? renderModule("分析摘要", "Metrics", "核心指標", "Key Numbers", renderSummaryCards(data.metric_cards))
-      : "";
+    // Core metrics now live on the Info page; tracks shows records only.
     const boardsHtml = Array.isArray(data.boards) && data.boards.length
       ? renderTrackBoards(data)
       : "";
-    return metricHtml + boardsHtml;
+    return boardsHtml;
   }
 
+  // Analysis pages (players / vehicles / events): records only, no metric cards.
   const modules = [];
-  if (Array.isArray(data.metric_cards) && data.metric_cards.length) {
-    modules.push(renderModule("分析摘要", "Shared Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards)));
-  }
   if (Array.isArray(data.player_cards) && data.player_cards.length) {
     modules.push(renderModule("個人頁", "Player Profiles", "玩家分析", "Player Analysis", renderPlayerCards(data.player_cards)));
   }
@@ -877,9 +938,6 @@ const initTimeAttack = async () => {
     setTextContent("[data-sidebar-view-zh]", labels.zh);
     setTextContent("[data-sidebar-view-en]", labels.en);
 
-    if (view === "overview") {
-      setHtml("[data-summary-root]", renderSummaryCards(summary.count_cards));
-    }
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "tracks") attachBoardToggleListeners();
     setHtml(

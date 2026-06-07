@@ -10,13 +10,15 @@ from pathlib import Path
 from typing import Any
 
 
-SCHEMA_VERSION = "0.3.0"
+SCHEMA_VERSION = "0.4.0"
 ROUTE_FILE_MAP = {
     "overview": "summary.json",
     "tracks": "tracks.json",
     "players": "players.json",
     "vehicles": "vehicles.json",
     "events": "events.json",
+    "catalog": "catalog.json",
+    "info": "info.json",
     "review": "review.json",
 }
 WORKSPACE_ROOT = Path(__file__).resolve().parents[5]
@@ -635,11 +637,11 @@ def build_manifest(source_label: str) -> dict[str, Any]:
     }
 
 
-def build_summary(
+def compute_count_cards(
     records: list[dict[str, Any]],
     lookup: dict[str, Any],
-    extra_review_cards: list[dict[str, Any]] | None = None,
-) -> dict[str, Any]:
+    extra_pending: int = 0,
+) -> list[dict[str, Any]]:
     approved_board = [record for record in records if record["is_approved_board"]]
     pending_review = [
         record
@@ -647,6 +649,80 @@ def build_summary(
         if record["record_channel"] == "approved_record" and record["review_status"] == "pending"
     ]
     normal_board = [record for record in records if record["is_normal_board"]]
+
+    return [
+        {
+            "label_zh": "總輸入筆數",
+            "label_en": "All Runs",
+            "value": str(len(records)),
+            "note_zh": "輸入表中所有紀錄列",
+            "note_en": "All imported rows from the input sheet",
+        },
+        {
+            "label_zh": "Approved 上榜",
+            "label_en": "Approved Board",
+            "value": str(len(approved_board)),
+            "note_zh": "正式榜單可見紀錄",
+            "note_en": "Runs visible on the formal board",
+        },
+        {
+            "label_zh": "待審核",
+            "label_en": "Pending Review",
+            "value": str(len(pending_review) + extra_pending),
+            "note_zh": "已送審但尚未完成人工確認",
+            "note_en": "Approved-record submissions still waiting for manual review",
+        },
+        {
+            "label_zh": "一般計時",
+            "label_en": "Normal Board",
+            "value": str(len(normal_board)),
+            "note_zh": "一般 Time Attack 練習紀錄",
+            "note_en": "Community practice runs on the normal board",
+        },
+        {
+            "label_zh": "賽道世界",
+            "label_en": "Track Worlds",
+            "value": str(len(lookup["track_worlds"])),
+            "note_zh": "以世界為準的賽道識別",
+            "note_en": "World-level track identities",
+        },
+        {
+            "label_zh": "車輛母型",
+            "label_en": "Vehicle Models",
+            "value": str(len(lookup["vehicle_models"])),
+            "note_zh": "以統計母型合併多個世界變體",
+            "note_en": "Canonical vehicle models merged across multiple world variants",
+        },
+    ]
+
+
+DATA_MODEL_SECTIONS = [
+    {
+        "label_zh": "資料流",
+        "label_en": "Data Flow",
+        "title_zh": "單一輸入表到靜態頁",
+        "title_en": "Single Sheet To Static Pages",
+        "body_zh": "Builder 讀取輸入表與 lookup 索引，先產生分析 JSON，再由這些靜態頁直接讀取。",
+        "body_en": "The builder reads the input sheet plus lookup indexes, generates analysis JSON, and the static pages consume those artifacts directly.",
+        "items_zh": [
+            "Google Sheet 或 CSV 匯出作為唯一輸入來源",
+            "本機 builder 重建所有排行榜與分析頁資料",
+            "最終只修改 `play/RacingClub/TimeAttack/data/*.json` 後再推上 GitHub Pages",
+        ],
+        "items_en": [
+            "Google Sheet or CSV export remains the single input source",
+            "A local builder regenerates every board and analysis artifact",
+            "Only `play/RacingClub/TimeAttack/data/*.json` needs to change before pushing to GitHub Pages",
+        ],
+    }
+]
+
+
+def build_summary(
+    records: list[dict[str, Any]],
+    lookup: dict[str, Any],
+    extra_review_cards: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     extra_pending = len(extra_review_cards or [])
 
     return {
@@ -672,50 +748,7 @@ def build_summary(
             "Normal boards include community practice runs under `record_channel = normal_time_attack`.",
             "Player and vehicle analysis can still use unreviewed-but-not-rejected runs for trend tracking.",
         ],
-        "count_cards": [
-            {
-                "label_zh": "總輸入筆數",
-                "label_en": "All Runs",
-                "value": str(len(records)),
-                "note_zh": "輸入表中所有紀錄列",
-                "note_en": "All imported rows from the input sheet",
-            },
-            {
-                "label_zh": "Approved 上榜",
-                "label_en": "Approved Board",
-                "value": str(len(approved_board)),
-                "note_zh": "正式榜單可見紀錄",
-                "note_en": "Runs visible on the formal board",
-            },
-            {
-                "label_zh": "待審核",
-                "label_en": "Pending Review",
-                "value": str(len(pending_review) + extra_pending),
-                "note_zh": "已送審但尚未完成人工確認",
-                "note_en": "Approved-record submissions still waiting for manual review",
-            },
-            {
-                "label_zh": "一般計時",
-                "label_en": "Normal Board",
-                "value": str(len(normal_board)),
-                "note_zh": "一般 Time Attack 練習紀錄",
-                "note_en": "Community practice runs on the normal board",
-            },
-            {
-                "label_zh": "賽道世界",
-                "label_en": "Track Worlds",
-                "value": str(len(lookup["track_worlds"])),
-                "note_zh": "以世界為準的賽道識別",
-                "note_en": "World-level track identities",
-            },
-            {
-                "label_zh": "車輛母型",
-                "label_en": "Vehicle Models",
-                "value": str(len(lookup["vehicle_models"])),
-                "note_zh": "以統計母型合併多個世界變體",
-                "note_en": "Canonical vehicle models merged across multiple world variants",
-            },
-        ],
+        "count_cards": compute_count_cards(records, lookup, extra_pending),
         "board_cards": [
             {
                 "label_zh": "正式榜單",
@@ -724,9 +757,9 @@ def build_summary(
                 "title_en": "Approved Record",
                 "description_zh": "只收錄通過人工審核的正式提交，用來承擔最嚴格的賽道紀錄頁與對外輸出。",
                 "description_en": "Only manually approved formal submissions appear here. This is the strict board for official track records and outward-facing exports.",
-                "href": "./review.html",
-                "href_label_zh": "前往審核頁",
-                "href_label_en": "Open Review",
+                "href": "./tracks.html",
+                "href_label_zh": "看賽道榜單",
+                "href_label_en": "Open Tracks",
             },
             {
                 "label_zh": "社群練習",
@@ -751,26 +784,123 @@ def build_summary(
                 "href_label_en": "Open Players",
             },
         ],
-        "sections": [
+        "sections": DATA_MODEL_SECTIONS,
+    }
+
+
+def build_catalog_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
+    general_pool = [record for record in records if record["is_general_pool"]]
+
+    # World index: one row per track world that has runs.
+    world_run_counts: Counter[str] = Counter(r["track_world_code"] for r in general_pool)
+    world_route_counts: dict[str, set[str]] = defaultdict(set)
+    for r in general_pool:
+        world_route_counts[r["track_world_code"]].add(r["route_key"])
+
+    world_rows = []
+    for tw_code, count in world_run_counts.most_common():
+        track = lookup["track_worlds"].get(tw_code, {})
+        world_rows.append(
             {
-                "label_zh": "資料流",
-                "label_en": "Data Flow",
-                "title_zh": "單一輸入表到靜態頁",
-                "title_en": "Single Sheet To Static Pages",
-                "body_zh": "Builder 讀取輸入表與 lookup 索引，先產生分析 JSON，再由這些靜態頁直接讀取。",
-                "body_en": "The builder reads the input sheet plus lookup indexes, generates analysis JSON, and the static pages consume those artifacts directly.",
-                "items_zh": [
-                    "Google Sheet 或 CSV 匯出作為唯一輸入來源",
-                    "本機 builder 重建所有排行榜與分析頁資料",
-                    "最終只修改 `play/RacingClub/TimeAttack/data/*.json` 後再推上 GitHub Pages",
-                ],
-                "items_en": [
-                    "Google Sheet or CSV export remains the single input source",
-                    "A local builder regenerates every board and analysis artifact",
-                    "Only `play/RacingClub/TimeAttack/data/*.json` needs to change before pushing to GitHub Pages",
-                ],
+                "name": track.get("track_display_name") or track.get("world_name") or tw_code,
+                "sub": track.get("track_author") or "",
+                "meta": f"{len(world_route_counts[tw_code])} 路線",
+                "value": f"{count} 筆",
+                "href": track.get("world_url") or "",
             }
+        )
+
+    # Player index: one row per player that has runs.
+    player_run_counts: Counter[str] = Counter(r["player_id"] for r in general_pool)
+    player_rows = []
+    for player_id, count in player_run_counts.most_common():
+        player = lookup["players"].get(player_id, {})
+        player_rows.append(
+            {
+                "name": player.get("display_name_primary") or player_id,
+                "sub": player.get("team_name") or "",
+                "value": f"{count} 筆",
+            }
+        )
+
+    # Vehicle index: one row per canonical model that has runs.
+    vehicle_run_counts: Counter[str] = Counter(r["vehicle_model_code"] for r in general_pool)
+    vehicle_rows = []
+    for model_code, count in vehicle_run_counts.most_common():
+        model = lookup["vehicle_models"].get(model_code, {})
+        vehicle_rows.append(
+            {
+                "name": model.get("vehicle_model_name") or model_code,
+                "sub": model.get("vehicle_class") or "",
+                "meta": f"{len(model.get('variant_names', []))} 變體" if model.get("variant_names") else "",
+                "value": f"{count} 筆",
+            }
+        )
+
+    return {
+        "title_zh": "索引",
+        "title_en": "Index",
+        "description_zh": "賽道世界、玩家與車輛的快速索引，依紀錄筆數排序，方便直接查找而不必逐頁翻找。",
+        "description_en": "A fast directory of track worlds, players, and vehicles, ranked by run count so you can look things up without paging through the analysis views.",
+        "sidebar_zh": [
+            "索引只列出目前有有效紀錄的項目。",
+            "排序依紀錄筆數由多到少。",
+            "點世界名稱（若有連結）可直接前往該賽道世界。",
         ],
+        "sidebar_en": [
+            "The index only lists entries that currently have valid runs.",
+            "Ordering is by run count, most runs first.",
+            "World names link out to their source world when a URL is available.",
+        ],
+        "indexes": [
+            {
+                "key": "worlds",
+                "label_zh": "世界索引",
+                "label_en": "World Index",
+                "rows": world_rows,
+            },
+            {
+                "key": "players",
+                "label_zh": "玩家索引",
+                "label_en": "Player Index",
+                "rows": player_rows,
+            },
+            {
+                "key": "vehicles",
+                "label_zh": "車輛索引",
+                "label_en": "Vehicle Index",
+                "rows": vehicle_rows,
+            },
+        ],
+    }
+
+
+def build_info_page(
+    records: list[dict[str, Any]],
+    lookup: dict[str, Any],
+    source_label: str,
+    extra_review_cards: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    extra_pending = len(extra_review_cards or [])
+    return {
+        "title_zh": "資訊",
+        "title_en": "Info",
+        "description_zh": "本站的核心指標、builder 狀態與資料模型說明集中在這頁，讓各分析頁專心呈現紀錄。",
+        "description_en": "Core metrics, builder status, and the data-model notes live here so the analysis pages can stay focused on records.",
+        "build_state": "live",
+        "source_label": source_label,
+        "sidebar_zh": [
+            "核心指標每次 builder 重建時更新。",
+            "builder 狀態顯示最近建置時間與 schema 版本。",
+            "資料模型說明本站如何從單一輸入表產生靜態頁。",
+        ],
+        "sidebar_en": [
+            "Core metrics refresh every time the builder runs.",
+            "Builder status shows the last build time and schema version.",
+            "The data model explains how a single input sheet feeds the static pages.",
+        ],
+        "metric_cards": compute_count_cards(records, lookup, extra_pending),
+        "sections": DATA_MODEL_SECTIONS,
     }
 
 
@@ -1515,6 +1645,8 @@ def build_all(args: argparse.Namespace) -> None:
     players = build_player_pages(records, lookup)
     vehicles = build_vehicle_pages(records, lookup)
     events = build_event_pages(records, lookup)
+    catalog = build_catalog_pages(records, lookup)
+    info = build_info_page(records, lookup, source_label, extras.get("review_cards"))
     review = build_review_pages(records, extras.get("review_cards"))
 
     write_json(args.output_dir / ROUTE_FILE_MAP["overview"], summary)
@@ -1522,6 +1654,8 @@ def build_all(args: argparse.Namespace) -> None:
     write_json(args.output_dir / ROUTE_FILE_MAP["players"], players)
     write_json(args.output_dir / ROUTE_FILE_MAP["vehicles"], vehicles)
     write_json(args.output_dir / ROUTE_FILE_MAP["events"], events)
+    write_json(args.output_dir / ROUTE_FILE_MAP["catalog"], catalog)
+    write_json(args.output_dir / ROUTE_FILE_MAP["info"], info)
     write_json(args.output_dir / ROUTE_FILE_MAP["review"], review)
     write_json(args.output_dir / "manifest.json", manifest)
 

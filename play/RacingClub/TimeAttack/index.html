@@ -52,25 +52,14 @@
           <p class="ta-desc en" data-page-desc-en>Loading the time-attack overview.</p>
         </div>
         <aside class="ta-hero-side">
-          <div class="ta-status-card">
-            <div class="ta-label">
-              <span class="zh">最近建置</span>
-              <span class="en">Last Build</span>
-            </div>
-            <div class="ta-value" data-generated-at>pending</div>
-            <p class="ta-meta">
-              <span class="zh">這個時間戳由本機 builder 寫入，用來標記目前網站資料的產生時點。</span>
-              <span class="en">This timestamp is written by the local builder to show when the current site data was generated.</span>
-            </p>
-          </div>
           <div class="ta-callout">
             <div class="ta-label">
-              <span class="zh">資料模型</span>
-              <span class="en">Data Model</span>
+              <span class="zh">分流入口</span>
+              <span class="en">Hub</span>
             </div>
             <p class="ta-meta">
-              <span class="zh">單一輸入表 + lookup 索引 + 本機 builder 產出 JSON。未來只要換掉來源資料，不需要重寫前端外殼。</span>
-              <span class="en">Single input sheet + lookup tables + local JSON builder. Future source changes should not require a new frontend shell.</span>
+              <span class="zh">這裡是計時站的入口。賽道紀錄與分析在各分頁，世界與玩家索引在「索引」，核心指標與 builder 狀態在「資訊」。</span>
+              <span class="en">This is the time-attack hub. Records and analysis live in each view, directories live under Index, and core metrics plus builder status live under Info.</span>
             </p>
           </div>
         </aside>
@@ -97,9 +86,13 @@
           <span class="zh">活動</span>
           <span class="en">Events</span>
         </a>
-        <a class="ta-navlink" href="./review.html" data-view-link="review">
-          <span class="zh">審核</span>
-          <span class="en">Review</span>
+        <a class="ta-navlink" href="./catalog.html" data-view-link="catalog">
+          <span class="zh">索引</span>
+          <span class="en">Index</span>
+        </a>
+        <a class="ta-navlink" href="./info.html" data-view-link="info">
+          <span class="zh">資訊</span>
+          <span class="en">Info</span>
         </a>
       </nav>
 
@@ -116,40 +109,9 @@
             </h2>
             <div data-sidebar-list class="ta-empty">Loading notes.</div>
           </section>
-          <section class="ta-sidebar-card">
-            <div class="ta-label">
-              <span class="zh">Builder 狀態</span>
-              <span class="en">Builder State</span>
-            </div>
-            <div class="ta-value" data-build-state>pending</div>
-            <p class="ta-meta">
-              <span class="zh">Schema</span>
-              <span class="en">Schema</span>
-              <strong data-schema-version>0.0.0</strong>
-            </p>
-            <p class="ta-meta">
-              <code data-source-label>local builder pending</code>
-            </p>
-          </section>
         </aside>
 
         <section class="ta-main">
-          <section class="ta-content-card">
-            <div class="ta-content-head">
-              <div class="ta-headline-group">
-                <div class="ta-label">
-                  <span class="zh">全站摘要</span>
-                  <span class="en">Global Summary</span>
-                </div>
-                <h2>
-                  <span class="zh">共用計數槽位</span>
-                  <span class="en">Shared Metric Slots</span>
-                </h2>
-              </div>
-            </div>
-            <div data-summary-root class="ta-empty">Loading summary cards.</div>
-          </section>
-
           <div data-page-root class="ta-empty">Loading page modules.</div>
         </section>
       </div>
