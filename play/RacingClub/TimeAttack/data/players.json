@@ -17,7 +17,7 @@
     {
       "label_zh": "玩家數",
       "label_en": "Players",
-      "value": "3",
+      "value": "77",
       "note_zh": "有至少一筆有效紀錄的玩家",
       "note_en": "Players with at least one valid run"
     },
@@ -31,79 +31,2414 @@
     {
       "label_zh": "一般路線領跑",
       "label_en": "Open Leaders",
-      "value": "2",
+      "value": "82",
       "note_zh": "一般池內目前已有領跑者的路線",
       "note_en": "Routes that already have an open-pool leader"
     },
     {
       "label_zh": "Approved 領跑",
       "label_en": "Approved Leaders",
-      "value": "2",
+      "value": "82",
       "note_zh": "正式榜單已建立的路線領跑",
       "note_en": "Routes with established leaders on the approved board"
     }
   ],
   "player_cards": [
     {
-      "player_id": "racer_002",
-      "title": "Bob",
+      "player_id": "plr_starriver_arts",
+      "title": "StarRiver Arts",
       "subtitle_zh": "未分隊",
       "subtitle_en": "Unassigned",
       "stats": [
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "2"
+          "value": "211"
         },
         {
           "label_zh": "個人最佳路線",
           "label_en": "Route PBs",
-          "value": "2"
+          "value": "64"
         },
         {
           "label_zh": "一般路線奪榜",
           "label_en": "Open Route Leads",
-          "value": "2"
+          "value": "21"
         },
         {
           "label_zh": "Approved 奪榜",
           "label_en": "Approved Leads",
-          "value": "2"
+          "value": "21"
         }
       ],
       "tags": [
-        "常用車種：RX-7",
-        "偏好標籤：-"
+        "常用車種：AE86T",
+        "偏好標籤：公路"
       ],
       "usage_rows": [
         {
-          "label": "RX-7",
-          "value": 1
+          "label": "AE86T",
+          "value": 18
         },
         {
-          "label": "EVO IX",
-          "value": 1
+          "label": "GC8-F (Impreza)",
+          "value": 13
+        },
+        {
+          "label": "FD3S (RX7)",
+          "value": 7
         }
       ],
-      "tag_rows": [],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 60
+        },
+        {
+          "label": "下行",
+          "value": 44
+        },
+        {
+          "label": "高速",
+          "value": 32
+        }
+      ],
       "best_times": [
         {
           "rank": 1,
-          "route_label": "Akina DH / Downhill",
-          "sub_label": "RX-7 / Approved Record",
-          "lap_time_text": "1:22.900"
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:24.033"
         },
         {
           "rank": 2,
-          "route_label": "Akina DH / Uphill",
-          "sub_label": "EVO IX / Approved Record",
-          "lap_time_text": "1:30.250"
+          "route_label": "Akagi / Downhill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "03:21.783"
+        },
+        {
+          "rank": 3,
+          "route_label": "Charlotte / Unknown",
+          "sub_label": "OscarMayerWeinermobile / Approved Record",
+          "lap_time_text": "00:32.150"
+        },
+        {
+          "rank": 4,
+          "route_label": "Chikuyasan / Unknown",
+          "sub_label": "VR-1_KOUKI / Approved Record",
+          "lap_time_text": "03:16.483"
+        },
+        {
+          "rank": 5,
+          "route_label": "Falstone Rally / Unknown",
+          "sub_label": "EVO / Approved Record",
+          "lap_time_text": "03:19.267"
+        },
+        {
+          "rank": 6,
+          "route_label": "Fukuoka / Unknown",
+          "sub_label": "R35 / Approved Record",
+          "lap_time_text": "04:19.550"
+        },
+        {
+          "rank": 7,
+          "route_label": "Futatsukane / Counter-Clockwise",
+          "sub_label": "LE6-Attack / Approved Record",
+          "lap_time_text": "05:08.134"
+        },
+        {
+          "rank": 8,
+          "route_label": "H-Nanamagari / Downhill",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "01:11.285"
+        },
+        {
+          "rank": 9,
+          "route_label": "H-Nanamagari / Uphill",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "01:21.059"
+        },
+        {
+          "rank": 10,
+          "route_label": "Hakone / Downhill",
+          "sub_label": "FC3S / Approved Record",
+          "lap_time_text": "03:48.567"
+        },
+        {
+          "rank": 11,
+          "route_label": "Happogahara / Outbound",
+          "sub_label": "GXPA16 (GR Yaris) / Approved Record",
+          "lap_time_text": "04:02.967"
+        },
+        {
+          "rank": 12,
+          "route_label": "Kamidomarizaka / Downhill",
+          "sub_label": "PachirokuGT-Attack / Approved Record",
+          "lap_time_text": "04:57.650"
+        },
+        {
+          "rank": 13,
+          "route_label": "Kamidomarizaka / HC",
+          "sub_label": "GC8-Attack / Approved Record",
+          "lap_time_text": "02:27.250"
+        },
+        {
+          "rank": 14,
+          "route_label": "LasVegas / Unknown",
+          "sub_label": "mcl39(McLaren) / Approved Record",
+          "lap_time_text": "02:08.517"
+        },
+        {
+          "rank": 15,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Highline TT / Approved Record",
+          "lap_time_text": "04:35.983"
+        },
+        {
+          "rank": 16,
+          "route_label": "Monaco / Unknown",
+          "sub_label": "sf25(Ferrari) / Approved Record",
+          "lap_time_text": "02:24.017"
+        },
+        {
+          "rank": 17,
+          "route_label": "Mt.Hakone / Inbound",
+          "sub_label": "FD3S (RX7) / Approved Record",
+          "lap_time_text": "05:43.900"
+        },
+        {
+          "rank": 18,
+          "route_label": "Mt.Talkan / Uphill",
+          "sub_label": "SLS / Approved Record",
+          "lap_time_text": "05:32.507"
+        },
+        {
+          "rank": 19,
+          "route_label": "Nagao / Downhill",
+          "sub_label": "Karin 96 / Approved Record",
+          "lap_time_text": "04:54.700"
+        },
+        {
+          "rank": 20,
+          "route_label": "Nanamagari / Downhill",
+          "sub_label": "EK9C (Civic Type-R) / Approved Record",
+          "lap_time_text": "03:27.667"
+        },
+        {
+          "rank": 21,
+          "route_label": "Nurburgring / GP Layout",
+          "sub_label": "R35 / Approved Record",
+          "lap_time_text": "02:22.783"
+        },
+        {
+          "rank": 22,
+          "route_label": "Nurburgring / Nordschleife",
+          "sub_label": "R35 / Approved Record",
+          "lap_time_text": "08:58.750"
+        },
+        {
+          "rank": 23,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "04:10.533"
+        },
+        {
+          "rank": 24,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "R35N2 / Approved Record",
+          "lap_time_text": "04:28.450"
+        },
+        {
+          "rank": 25,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "LE6-Attack / Approved Record",
+          "lap_time_text": "02:07.217"
+        },
+        {
+          "rank": 26,
+          "route_label": "Sadamine / Full Course Downhill",
+          "sub_label": "SXE10 (Altezza) / Approved Record",
+          "lap_time_text": "03:38.533"
+        },
+        {
+          "rank": 27,
+          "route_label": "Sadamine / Full Course Uphill",
+          "sub_label": "FD3S (RX7)(TT) / Approved Record",
+          "lap_time_text": "04:11.517"
+        },
+        {
+          "rank": 28,
+          "route_label": "Sadamine / OC Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "02:34.967"
+        },
+        {
+          "rank": 29,
+          "route_label": "Sadamine / OC Uphill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:04.711"
+        },
+        {
+          "rank": 30,
+          "route_label": "Shomaru / Double Course",
+          "sub_label": "SXE10 (Altezza) / Approved Record",
+          "lap_time_text": "09:01.155"
+        },
+        {
+          "rank": 31,
+          "route_label": "Shomaru / Inbound",
+          "sub_label": "EA11R (Cappuccino) / Approved Record",
+          "lap_time_text": "04:11.283"
+        },
+        {
+          "rank": 32,
+          "route_label": "Shomaru / Outbound",
+          "sub_label": "EA11R (Cappuccino) / Approved Record",
+          "lap_time_text": "03:58.951"
+        },
+        {
+          "rank": 33,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "sf25(Ferrari) / Approved Record",
+          "lap_time_text": "02:14.233"
+        },
+        {
+          "rank": 34,
+          "route_label": "Summit / Unknown",
+          "sub_label": "Pulsar / Approved Record",
+          "lap_time_text": "01:54.184"
+        },
+        {
+          "rank": 35,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "FL5 (Civic Type-R) / Approved Record",
+          "lap_time_text": "03:51.850"
+        },
+        {
+          "rank": 36,
+          "route_label": "Tsubaki / Uphill",
+          "sub_label": "FL5 (Civic Type-R) / Approved Record",
+          "lap_time_text": "04:18.750"
+        },
+        {
+          "rank": 37,
+          "route_label": "Tsuchisaka / Downhill",
+          "sub_label": "EVOVI/CP9A / Approved Record",
+          "lap_time_text": "02:10.100"
+        },
+        {
+          "rank": 38,
+          "route_label": "Tsuchisaka / Inbound",
+          "sub_label": "EVOVI/CP9A / Approved Record",
+          "lap_time_text": "03:54.916"
+        },
+        {
+          "rank": 39,
+          "route_label": "Tsuchisaka / Outbound",
+          "sub_label": "EVOVI/CP9A / Approved Record",
+          "lap_time_text": "03:41.783"
+        },
+        {
+          "rank": 40,
+          "route_label": "Tsuchisaka / Uphill",
+          "sub_label": "EVOVI/CP9A / Approved Record",
+          "lap_time_text": "02:31.567"
+        },
+        {
+          "rank": 41,
+          "route_label": "Tsuchisaka Snow / Outbound",
+          "sub_label": "NA8C (Mx5 Roadster) / Approved Record",
+          "lap_time_text": "03:32.755"
+        },
+        {
+          "rank": 42,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "03:44.283"
+        },
+        {
+          "rank": 43,
+          "route_label": "Tsukuba / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "01:55.733"
+        },
+        {
+          "rank": 44,
+          "route_label": "Tsukuba / Inbound",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "04:04.033"
+        },
+        {
+          "rank": 45,
+          "route_label": "Tsukuba / Outbound",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "03:38.883"
+        },
+        {
+          "rank": 46,
+          "route_label": "Tsukuba / Uphill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "02:01.817"
+        },
+        {
+          "rank": 47,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "ER34 (R34 23GT Turbo) / Approved Record",
+          "lap_time_text": "03:44.867"
+        },
+        {
+          "rank": 48,
+          "route_label": "Usui V2 / Clockwise",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:37.616"
+        },
+        {
+          "rank": 49,
+          "route_label": "Usui V2 / Counter-Clockwise",
+          "sub_label": "EVOX/CZ4A / Approved Record",
+          "lap_time_text": "03:39.300"
+        },
+        {
+          "rank": 50,
+          "route_label": "Vestoril / Unknown",
+          "sub_label": "WIL94 / Approved Record",
+          "lap_time_text": "01:51.867"
+        },
+        {
+          "rank": 51,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "07:07.817"
+        },
+        {
+          "rank": 52,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:39.899"
+        },
+        {
+          "rank": 53,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:15.916"
+        },
+        {
+          "rank": 54,
+          "route_label": "妙義(妙義ASV) / Uphill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:32.935"
+        },
+        {
+          "rank": 55,
+          "route_label": "妙義環線 / Clockwise",
+          "sub_label": "S13 / Approved Record",
+          "lap_time_text": "03:16.217"
+        },
+        {
+          "rank": 56,
+          "route_label": "妙義環線 / Counter-Clockwise",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:27.017"
+        },
+        {
+          "rank": 57,
+          "route_label": "碓冰DAA / Counter-Clockwise",
+          "sub_label": "BMW CS / Approved Record",
+          "lap_time_text": "01:50.083"
+        },
+        {
+          "rank": 58,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "EVOIV/CN9A / Approved Record",
+          "lap_time_text": "03:44.367"
+        },
+        {
+          "rank": 59,
+          "route_label": "秋名 / Uphill",
+          "sub_label": "EVOIV/CN9A / Approved Record",
+          "lap_time_text": "04:16.900"
+        },
+        {
+          "rank": 60,
+          "route_label": "秋名湖 / Clockwise",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:30.783"
+        },
+        {
+          "rank": 61,
+          "route_label": "秋名湖 / Counter-Clockwise",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "04:21.017"
+        },
+        {
+          "rank": 62,
+          "route_label": "秋名無限 / Downhill",
+          "sub_label": "Comfort / Approved Record",
+          "lap_time_text": "04:11.017"
+        },
+        {
+          "rank": 63,
+          "route_label": "秋名雪 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "04:07.100"
+        },
+        {
+          "rank": 64,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:33.283"
         }
       ]
     },
     {
-      "player_id": "racer_001",
-      "title": "Alice",
+      "player_id": "plr_lolidia",
+      "title": "Lolidia",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "42"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "20"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "18"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "18"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T",
+          "value": 12
+        },
+        {
+          "label": "AE86T-V2",
+          "value": 6
+        },
+        {
+          "label": "Karin 96",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 16
+        },
+        {
+          "label": "下行",
+          "value": 13
+        },
+        {
+          "label": "高速",
+          "value": 11
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "FD3S (RX7) V2 / Approved Record",
+          "lap_time_text": "02:57.285"
+        },
+        {
+          "rank": 2,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "Revuelto / Approved Record",
+          "lap_time_text": "04:26.223"
+        },
+        {
+          "rank": 3,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Karin 96 / Approved Record",
+          "lap_time_text": "03:10.575"
+        },
+        {
+          "rank": 4,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "991(911 GT3) / Approved Record",
+          "lap_time_text": "03:45.534"
+        },
+        {
+          "rank": 5,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "GC8-Attack / Approved Record",
+          "lap_time_text": "01:43.689"
+        },
+        {
+          "rank": 6,
+          "route_label": "Sadamine / Full Course Downhill",
+          "sub_label": "FD3S (RX7)(ST) / Approved Record",
+          "lap_time_text": "03:14.333"
+        },
+        {
+          "rank": 7,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "AE86T2 / Approved Record",
+          "lap_time_text": "03:32.300"
+        },
+        {
+          "rank": 8,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:25.666"
+        },
+        {
+          "rank": 9,
+          "route_label": "Tsukuba / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "01:37.708"
+        },
+        {
+          "rank": 10,
+          "route_label": "Tsukuba / Inbound",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:19.736"
+        },
+        {
+          "rank": 11,
+          "route_label": "Tsukuba / Uphill",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "01:45.067"
+        },
+        {
+          "rank": 12,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "ER34 / Approved Record",
+          "lap_time_text": "03:11.521"
+        },
+        {
+          "rank": 13,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "SampleCar / Approved Record",
+          "lap_time_text": "06:32.145"
+        },
+        {
+          "rank": 14,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:31.733"
+        },
+        {
+          "rank": 15,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:07.689"
+        },
+        {
+          "rank": 16,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "03:26.812"
+        },
+        {
+          "rank": 17,
+          "route_label": "秋名 / Uphill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "03:45.583"
+        },
+        {
+          "rank": 18,
+          "route_label": "秋名無限 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:39.734"
+        },
+        {
+          "rank": 19,
+          "route_label": "秋名雪 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:51.022"
+        },
+        {
+          "rank": 20,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:27.978"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_linwu_05",
+      "title": "LinWu_05",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "65"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "39"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "16"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "16"
+        }
+      ],
+      "tags": [
+        "常用車種：380SX",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "380SX",
+          "value": 10
+        },
+        {
+          "label": "NA1 (NSX)",
+          "value": 8
+        },
+        {
+          "label": "BNR34",
+          "value": 8
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 9
+        },
+        {
+          "label": "下行",
+          "value": 6
+        },
+        {
+          "label": "高速",
+          "value": 5
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Fukuoka / Unknown",
+          "sub_label": "R35 / Approved Record",
+          "lap_time_text": "03:55.750"
+        },
+        {
+          "rank": 2,
+          "route_label": "Gunsai / Course A",
+          "sub_label": "MCR R34 / Approved Record",
+          "lap_time_text": "02:00.465"
+        },
+        {
+          "rank": 3,
+          "route_label": "Gunsai / Full Course",
+          "sub_label": "MCR R34 / Approved Record",
+          "lap_time_text": "03:16.956"
+        },
+        {
+          "rank": 4,
+          "route_label": "GunsaiCP / Course A",
+          "sub_label": "MCR R34 / Approved Record",
+          "lap_time_text": "00:50.776"
+        },
+        {
+          "rank": 5,
+          "route_label": "GunsaiCP / Full Course",
+          "sub_label": "MCR R34 / Approved Record",
+          "lap_time_text": "02:52.605"
+        },
+        {
+          "rank": 6,
+          "route_label": "H-Nanamagari / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "01:13.538"
+        },
+        {
+          "rank": 7,
+          "route_label": "H-Nanamagari / Uphill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "01:16.890"
+        },
+        {
+          "rank": 8,
+          "route_label": "Hakone / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:37.333"
+        },
+        {
+          "rank": 9,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "NA6CE (Mx5 Roadster) / Approved Record",
+          "lap_time_text": "03:29.617"
+        },
+        {
+          "rank": 10,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "NA1 (NSX) / Approved Record",
+          "lap_time_text": "04:16.701"
+        },
+        {
+          "rank": 11,
+          "route_label": "Momiji / Uphill",
+          "sub_label": "NA6CE (Mx5 Roadster) / Approved Record",
+          "lap_time_text": "03:32.600"
+        },
+        {
+          "rank": 12,
+          "route_label": "Mt.Talkan / Downhill",
+          "sub_label": "BMW M1 / Approved Record",
+          "lap_time_text": "03:43.800"
+        },
+        {
+          "rank": 13,
+          "route_label": "Mt.Talkan / Uphill",
+          "sub_label": "BMW M1 / Approved Record",
+          "lap_time_text": "03:21.434"
+        },
+        {
+          "rank": 14,
+          "route_label": "Nagoya / Unknown",
+          "sub_label": "EVOX/CZ4A / Approved Record",
+          "lap_time_text": "03:30.467"
+        },
+        {
+          "rank": 15,
+          "route_label": "Nanamagari / Downhill",
+          "sub_label": "NA2 / Approved Record",
+          "lap_time_text": "03:43.034"
+        },
+        {
+          "rank": 16,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "04:07.284"
+        },
+        {
+          "rank": 17,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "R35N2 / Approved Record",
+          "lap_time_text": "04:13.083"
+        },
+        {
+          "rank": 18,
+          "route_label": "Shomaru / Outbound",
+          "sub_label": "EA11R (Cappuccino) / Approved Record",
+          "lap_time_text": "03:47.783"
+        },
+        {
+          "rank": 19,
+          "route_label": "Summit / Unknown",
+          "sub_label": "CX-3 / Approved Record",
+          "lap_time_text": "01:48.350"
+        },
+        {
+          "rank": 20,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "NA1 (NSX) / Approved Record",
+          "lap_time_text": "03:46.934"
+        },
+        {
+          "rank": 21,
+          "route_label": "Tsubaki / Uphill",
+          "sub_label": "NA1 (NSX) / Approved Record",
+          "lap_time_text": "04:12.467"
+        },
+        {
+          "rank": 22,
+          "route_label": "Tsuchisaka Snow / Inbound",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "03:44.942"
+        },
+        {
+          "rank": 23,
+          "route_label": "Tsuchisaka Snow / Outbound",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "03:48.300"
+        },
+        {
+          "rank": 24,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "03:45.083"
+        },
+        {
+          "rank": 25,
+          "route_label": "Tsukuba / Downhill",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "01:46.533"
+        },
+        {
+          "rank": 26,
+          "route_label": "Tsukuba / Outbound",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "03:59.434"
+        },
+        {
+          "rank": 27,
+          "route_label": "Tsukuba / Uphill",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "01:56.100"
+        },
+        {
+          "rank": 28,
+          "route_label": "Tsukuba Snow / Inbound",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "04:05.203"
+        },
+        {
+          "rank": 29,
+          "route_label": "Tsukuba Snow / Outbound",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "04:01.783"
+        },
+        {
+          "rank": 30,
+          "route_label": "Usui V2 / Clockwise",
+          "sub_label": "380SX / Approved Record",
+          "lap_time_text": "03:47.284"
+        },
+        {
+          "rank": 31,
+          "route_label": "Usui V2 / Counter-Clockwise",
+          "sub_label": "380SX / Approved Record",
+          "lap_time_text": "03:45.367"
+        },
+        {
+          "rank": 32,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "SW20 (MR2) / Approved Record",
+          "lap_time_text": "03:58.636"
+        },
+        {
+          "rank": 33,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:21.083"
+        },
+        {
+          "rank": 34,
+          "route_label": "妙義(妙義ASV) / Uphill",
+          "sub_label": "380SX / Approved Record",
+          "lap_time_text": "03:34.768"
+        },
+        {
+          "rank": 35,
+          "route_label": "妙義環線 / Clockwise",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:29.950"
+        },
+        {
+          "rank": 36,
+          "route_label": "妙義環線 / Counter-Clockwise",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:32.750"
+        },
+        {
+          "rank": 37,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:54.233"
+        },
+        {
+          "rank": 38,
+          "route_label": "秋名雪 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "04:11.733"
+        },
+        {
+          "rank": 39,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "01:41.450"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_bannraven",
+      "title": "BannRaven",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "17"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "9"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "6"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "6"
+        }
+      ],
+      "tags": [
+        "常用車種：rb21(RedBull)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "rb21(RedBull)",
+          "value": 9
+        },
+        {
+          "label": "NSX",
+          "value": 2
+        },
+        {
+          "label": "Revolution VIII",
+          "value": 2
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Chikuyasan / Unknown",
+          "sub_label": "VRR250R / Approved Record",
+          "lap_time_text": "02:32.028"
+        },
+        {
+          "rank": 2,
+          "route_label": "Futatsukane / Counter-Clockwise",
+          "sub_label": "NSX / Approved Record",
+          "lap_time_text": "04:49.250"
+        },
+        {
+          "rank": 3,
+          "route_label": "Futatsukane / Counter-Clockwise",
+          "sub_label": "LE88E-Attack / Approved Record",
+          "lap_time_text": "04:21.083"
+        },
+        {
+          "rank": 4,
+          "route_label": "Kamidomarizaka / Downhill",
+          "sub_label": "NSX / Approved Record",
+          "lap_time_text": "02:15.121"
+        },
+        {
+          "rank": 5,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Revolution VIII / Approved Record",
+          "lap_time_text": "03:29.491"
+        },
+        {
+          "rank": 6,
+          "route_label": "Monaco / Unknown",
+          "sub_label": "rb21(RedBull) / Approved Record",
+          "lap_time_text": "01:07.264"
+        },
+        {
+          "rank": 7,
+          "route_label": "Nurburgring / Nordschleife",
+          "sub_label": "NA1 (NSX) / Approved Record",
+          "lap_time_text": "07:13.681"
+        },
+        {
+          "rank": 8,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "rb21(RedBull) / Approved Record",
+          "lap_time_text": "01:14.570"
+        },
+        {
+          "rank": 9,
+          "route_label": "Suzuka / Unknown",
+          "sub_label": "rb21(RedBull) / Approved Record",
+          "lap_time_text": "01:33.681"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_kinokono_tenka",
+      "title": "Kinokono_Tenka",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "31"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "15"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "3"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "3"
+        }
+      ],
+      "tags": [
+        "常用車種：EG6 (civic)",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EG6 (civic)",
+          "value": 14
+        },
+        {
+          "label": "EK9 (Civic Type-R)",
+          "value": 5
+        },
+        {
+          "label": "GC8-F (Impreza)",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 9
+        },
+        {
+          "label": "高速",
+          "value": 6
+        },
+        {
+          "label": "下行",
+          "value": 5
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "04:12.597"
+        },
+        {
+          "rank": 2,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "04:38.889"
+        },
+        {
+          "rank": 3,
+          "route_label": "Sadamine / Full Course Downhill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:40.305"
+        },
+        {
+          "rank": 4,
+          "route_label": "Sadamine / Full Course Uphill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "04:22.750"
+        },
+        {
+          "rank": 5,
+          "route_label": "Sadamine / OC Downhill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "02:41.777"
+        },
+        {
+          "rank": 6,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "03:53.319"
+        },
+        {
+          "rank": 7,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "03:38.347"
+        },
+        {
+          "rank": 8,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:54.680"
+        },
+        {
+          "rank": 9,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:14.570"
+        },
+        {
+          "rank": 10,
+          "route_label": "妙義環線 / Clockwise",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:15.721"
+        },
+        {
+          "rank": 11,
+          "route_label": "妙義環線 / Counter-Clockwise",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:20.254"
+        },
+        {
+          "rank": 12,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "EG6 (civic) / Approved Record",
+          "lap_time_text": "03:41.361"
+        },
+        {
+          "rank": 13,
+          "route_label": "秋名湖 / Clockwise",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:20.861"
+        },
+        {
+          "rank": 14,
+          "route_label": "秋名湖 / Counter-Clockwise",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:20.861"
+        },
+        {
+          "rank": 15,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "01:46.184"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_redfrogss",
+      "title": "Redfrogss",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "30"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "17"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "3"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "3"
+        }
+      ],
+      "tags": [
+        "常用車種：991(911 GT3)",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "991(911 GT3)",
+          "value": 3
+        },
+        {
+          "label": "GC8-F (Impreza)",
+          "value": 2
+        },
+        {
+          "label": "S13",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 4
+        },
+        {
+          "label": "高速",
+          "value": 4
+        },
+        {
+          "label": "下行",
+          "value": 2
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.411"
+        },
+        {
+          "rank": 2,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "FD3S (RX7) V2 / Approved Record",
+          "lap_time_text": "03:10.484"
+        },
+        {
+          "rank": 3,
+          "route_label": "Akagi / Uphill",
+          "sub_label": "FD3S (RX7) V2 / Approved Record",
+          "lap_time_text": "03:26.441"
+        },
+        {
+          "rank": 4,
+          "route_label": "Fukuoka / Unknown",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "03:51.624"
+        },
+        {
+          "rank": 5,
+          "route_label": "Futatsukane / Counter-Clockwise",
+          "sub_label": "Wonder-ATTACK-1 / Approved Record",
+          "lap_time_text": "04:37.267"
+        },
+        {
+          "rank": 6,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "JA4 Tuned / Approved Record",
+          "lap_time_text": "06:04.617"
+        },
+        {
+          "rank": 7,
+          "route_label": "Mt.Talkan / Uphill",
+          "sub_label": "Z4 / Approved Record",
+          "lap_time_text": "03:33.443"
+        },
+        {
+          "rank": 8,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "03:58.825"
+        },
+        {
+          "rank": 9,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "R35N2 / Approved Record",
+          "lap_time_text": "04:04.383"
+        },
+        {
+          "rank": 10,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "sf25(Ferrari) / Approved Record",
+          "lap_time_text": "01:18.033"
+        },
+        {
+          "rank": 11,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "03:56.156"
+        },
+        {
+          "rank": 12,
+          "route_label": "Tsubaki / Uphill",
+          "sub_label": "NA1 (NSX) / Approved Record",
+          "lap_time_text": "04:18.849"
+        },
+        {
+          "rank": 13,
+          "route_label": "妙義環線 / Clockwise",
+          "sub_label": "S13 / Approved Record",
+          "lap_time_text": "03:20.925"
+        },
+        {
+          "rank": 14,
+          "route_label": "妙義環線 / Counter-Clockwise",
+          "sub_label": "S13 / Approved Record",
+          "lap_time_text": "03:16.824"
+        },
+        {
+          "rank": 15,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:50.440"
+        },
+        {
+          "rank": 16,
+          "route_label": "秋名湖 / Clockwise",
+          "sub_label": "S15 / Approved Record",
+          "lap_time_text": "03:26.617"
+        },
+        {
+          "rank": 17,
+          "route_label": "秋名湖 / Counter-Clockwise",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:28.201"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_038",
+      "title": "ねぎたま",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "11"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "5"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "3"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "3"
+        }
+      ],
+      "tags": [
+        "常用車種：X7 RR",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "X7 RR",
+          "value": 3
+        },
+        {
+          "label": "rb21(RedBull)",
+          "value": 1
+        },
+        {
+          "label": "mcl39(McLaren)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 2
+        },
+        {
+          "label": "髮夾彎",
+          "value": 2
+        },
+        {
+          "label": "長直線",
+          "value": 2
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "X7 RR / Approved Record",
+          "lap_time_text": "03:11.998"
+        },
+        {
+          "rank": 2,
+          "route_label": "Monaco / Unknown",
+          "sub_label": "rb21(RedBull) / Approved Record",
+          "lap_time_text": "01:02.344"
+        },
+        {
+          "rank": 3,
+          "route_label": "Nagao / Downhill",
+          "sub_label": "X7 RR / Approved Record",
+          "lap_time_text": "03:39.631"
+        },
+        {
+          "rank": 4,
+          "route_label": "碓冰DAA / Counter-Clockwise",
+          "sub_label": "R34 / Approved Record",
+          "lap_time_text": "01:46.925"
+        },
+        {
+          "rank": 5,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:27.980"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_cannedcarbon",
+      "title": "CannedCarbon",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "5"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：CP9A LightTuned",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "CP9A LightTuned",
+          "value": 1
+        },
+        {
+          "label": "DE3ACuM0",
+          "value": 1
+        },
+        {
+          "label": "AW11 LightTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "omote_rokkou / Downhill",
+          "sub_label": "DE3ACuM0 / Approved Record",
+          "lap_time_text": "02:23.800"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_chrno_c",
+      "title": "Chrno_C",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "3"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：Macchiato",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Macchiato",
+          "value": 1
+        },
+        {
+          "label": "EVO3",
+          "value": 1
+        },
+        {
+          "label": "LapinTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 3
+        },
+        {
+          "label": "髮夾彎",
+          "value": 3
+        },
+        {
+          "label": "長直線",
+          "value": 3
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.263"
+        },
+        {
+          "rank": 2,
+          "route_label": "F1 Circuit / Unknown",
+          "sub_label": "FORMULA CAR / Approved Record",
+          "lap_time_text": "02:07.783"
+        },
+        {
+          "rank": 3,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:33.889"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_kurotsuki",
+      "title": "Kurotsuki.",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "5"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：VRR250R",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "VRR250R",
+          "value": 3
+        },
+        {
+          "label": "CZ9A",
+          "value": 1
+        },
+        {
+          "label": "VR-1_KOUKI",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Chikuyasan / Unknown",
+          "sub_label": "VRR250R / Approved Record",
+          "lap_time_text": "03:00.236"
+        },
+        {
+          "rank": 2,
+          "route_label": "Fukuoka / Unknown",
+          "sub_label": "CZ9A / Approved Record",
+          "lap_time_text": "03:36.859"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_motherevo",
+      "title": "MotherEVO",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：EVOIII/CE9A",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVOIII/CE9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "05:34.457"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_nykdsamurai",
+      "title": "NYKDSamurai",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：FW47",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "FW47",
+          "value": 1
+        },
+        {
+          "label": "MCL39",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Suzuka / Unknown",
+          "sub_label": "FW47 / Approved Record",
+          "lap_time_text": "01:32.384"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_vrcgpaul",
+      "title": "VRCGPaul",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "4"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "4"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：mcl39(McLaren)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "mcl39(McLaren)",
+          "value": 2
+        },
+        {
+          "label": "Emrydes",
+          "value": 1
+        },
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.361"
+        },
+        {
+          "rank": 2,
+          "route_label": "LasVegas / Unknown",
+          "sub_label": "mcl39(McLaren) / Approved Record",
+          "lap_time_text": "01:30.278"
+        },
+        {
+          "rank": 3,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Emrydes / Approved Record",
+          "lap_time_text": "03:38.466"
+        },
+        {
+          "rank": 4,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "mcl39(McLaren) / Approved Record",
+          "lap_time_text": "01:18.800"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yang",
+      "title": "Yang路人",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "5"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：FD3S-Aspec",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "FD3S-Aspec",
+          "value": 1
+        },
+        {
+          "label": "FD3S SuperG",
+          "value": 1
+        },
+        {
+          "label": "JA4 Tuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.322"
+        },
+        {
+          "rank": 2,
+          "route_label": "Falstone Rally / Unknown",
+          "sub_label": "TGX-D38 / Approved Record",
+          "lap_time_text": "03:22.089"
+        },
+        {
+          "rank": 3,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "FD3S SuperG / Approved Record",
+          "lap_time_text": "04:43.300"
+        },
+        {
+          "rank": 4,
+          "route_label": "Kamidomarizaka / HC",
+          "sub_label": "FD3SAM-Attack / Approved Record",
+          "lap_time_text": "01:59.711"
+        },
+        {
+          "rank": 5,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "FD3S-Aspec / Approved Record",
+          "lap_time_text": "01:58.844"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yukat",
+      "title": "Yukat_鬱貓",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：Macchiato",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Macchiato",
+          "value": 1
+        },
+        {
+          "label": "Alyo",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "VR660 / Unknown",
+          "sub_label": "Alyo / Approved Record",
+          "lap_time_text": "00:47.399"
+        },
+        {
+          "rank": 2,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "01:42.399"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yukira",
+      "title": "Yukira雪夜",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "4"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "3"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：MCL civic",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "MCL civic",
+          "value": 1
+        },
+        {
+          "label": "Bus",
+          "value": 1
+        },
+        {
+          "label": "FD3S-Drift",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "LE8-Attack / Approved Record",
+          "lap_time_text": "01:52.717"
+        },
+        {
+          "rank": 2,
+          "route_label": "Vestoril / Unknown",
+          "sub_label": "MCL civic / Approved Record",
+          "lap_time_text": "01:26.844"
+        },
+        {
+          "rank": 3,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "Bus / Approved Record",
+          "lap_time_text": "11:49.699"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_003",
+      "title": "アビドサスヒカリ",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "31"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "16"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T",
+          "value": 5
+        },
+        {
+          "label": "FD3S (RX7)",
+          "value": 4
+        },
+        {
+          "label": "EVOIII/CE9A",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 11
+        },
+        {
+          "label": "下行",
+          "value": 8
+        },
+        {
+          "label": "技術",
+          "value": 4
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "03:23.111"
+        },
+        {
+          "rank": 2,
+          "route_label": "Nanamagari / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:30.300"
+        },
+        {
+          "rank": 3,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "982(718Cayman) / Approved Record",
+          "lap_time_text": "04:13.365"
+        },
+        {
+          "rank": 4,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "GT86/ZN6 V2 / Approved Record",
+          "lap_time_text": "04:41.429"
+        },
+        {
+          "rank": 5,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "FD3S-Aspec / Approved Record",
+          "lap_time_text": "02:10.894"
+        },
+        {
+          "rank": 6,
+          "route_label": "Shomaru / Outbound",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "03:51.988"
+        },
+        {
+          "rank": 7,
+          "route_label": "Summit / Unknown",
+          "sub_label": "22B / Approved Record",
+          "lap_time_text": "01:44.480"
+        },
+        {
+          "rank": 8,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:45.364"
+        },
+        {
+          "rank": 9,
+          "route_label": "Tsukuba / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "01:46.400"
+        },
+        {
+          "rank": 10,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "FD3S (RX7) / Approved Record",
+          "lap_time_text": "03:37.205"
+        },
+        {
+          "rank": 11,
+          "route_label": "Usui V2 / Clockwise",
+          "sub_label": "GR86/ZN8 / Approved Record",
+          "lap_time_text": "03:48.159"
+        },
+        {
+          "rank": 12,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "06:54.888"
+        },
+        {
+          "rank": 13,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "03:48.100"
+        },
+        {
+          "rank": 14,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "FD3S (RX7) / Approved Record",
+          "lap_time_text": "03:24.429"
+        },
+        {
+          "rank": 15,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "S30Z(Nissan Fairlady Z/Devil Z) / Approved Record",
+          "lap_time_text": "03:44.567"
+        },
+        {
+          "rank": 16,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:33.453"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_048",
+      "title": "夜者",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "4"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：PinoBus",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "PinoBus",
+          "value": 1
+        },
+        {
+          "label": "GC8-Attack",
+          "value": 1
+        },
+        {
+          "label": "FT3O-Attack",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:16.967"
+        },
+        {
+          "rank": 2,
+          "route_label": "Falstone Rally / Unknown",
+          "sub_label": "TGX-D38 / Approved Record",
+          "lap_time_text": "03:22.378"
+        },
+        {
+          "rank": 3,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "GtR34-Attack / Approved Record",
+          "lap_time_text": "01:54.900"
+        },
+        {
+          "rank": 4,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "PinoBus / Approved Record",
+          "lap_time_text": "05:00.900"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_034",
+      "title": "菲娜 希琉絲",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "31"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "7"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "1"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "1"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T-V2",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T-V2",
+          "value": 4
+        },
+        {
+          "label": "FD3S (RX7)(TT)",
+          "value": 4
+        },
+        {
+          "label": "GT86/ZN6 V2",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 10
+        },
+        {
+          "label": "下行",
+          "value": 10
+        },
+        {
+          "label": "高速",
+          "value": 8
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.550"
+        },
+        {
+          "rank": 2,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "FD3S SuperG / Approved Record",
+          "lap_time_text": "04:21.508"
+        },
+        {
+          "rank": 3,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "03:54.333"
+        },
+        {
+          "rank": 4,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "SuptokaV80B-Attack / Approved Record",
+          "lap_time_text": "01:52.267"
+        },
+        {
+          "rank": 5,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "FD3S (RX7) / Approved Record",
+          "lap_time_text": "03:40.750"
+        },
+        {
+          "rank": 6,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:34.484"
+        },
+        {
+          "rank": 7,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "03:32.833"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_zaten",
+      "title": "-Zaten-",
       "subtitle_zh": "未分隊",
       "subtitle_en": "Unassigned",
       "stats": [
@@ -129,32 +2464,28 @@
         }
       ],
       "tags": [
-        "常用車種：RX-7",
+        "常用車種：R35N2",
         "偏好標籤：-"
       ],
       "usage_rows": [
         {
-          "label": "RX-7",
-          "value": 1
-        },
-        {
-          "label": "EVO IX",
-          "value": 1
+          "label": "R35N2",
+          "value": 2
         }
       ],
       "tag_rows": [],
       "best_times": [
         {
           "rank": 1,
-          "route_label": "Akina DH / Downhill",
-          "sub_label": "RX-7 / Approved Record",
-          "lap_time_text": "1:23.456"
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N2 / Approved Record",
+          "lap_time_text": "04:59.430"
         }
       ]
     },
     {
-      "player_id": "racer_003",
-      "title": "Carol",
+      "player_id": "plr_9ewi",
+      "title": "9ewi",
       "subtitle_zh": "未分隊",
       "subtitle_en": "Unassigned",
       "stats": [
@@ -180,12 +2511,72 @@
         }
       ],
       "tags": [
-        "常用車種：GR86",
+        "常用車種：CoachKart",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "CoachKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "CoachKart / Approved Record",
+          "lap_time_text": "02:38.035"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_azucia",
+      "title": "Azucia",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：w16(Mercedes)",
         "偏好標籤：-"
       ],
       "usage_rows": [
         {
-          "label": "GR86",
+          "label": "w16(Mercedes)",
           "value": 1
         }
       ],
@@ -193,9 +2584,3346 @@
       "best_times": [
         {
           "rank": 1,
-          "route_label": "Akina DH / Downhill",
-          "sub_label": "GR86 / Approved Record",
-          "lap_time_text": "1:25.500"
+          "route_label": "LasVegas / Unknown",
+          "sub_label": "w16(Mercedes) / Approved Record",
+          "lap_time_text": "02:18.523"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_bu1227",
+      "title": "Bu1227",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：PinoBus",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "PinoBus",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "PinoBus / Approved Record",
+          "lap_time_text": "03:37.533"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_ch",
+      "title": "CH-流光-黃",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVO3",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVO3",
+          "value": 1
+        },
+        {
+          "label": "Macchiato",
+          "value": 1
+        },
+        {
+          "label": "LapinTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 3
+        },
+        {
+          "label": "髮夾彎",
+          "value": 3
+        },
+        {
+          "label": "長直線",
+          "value": 3
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "01:51.722"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_chisey",
+      "title": "Chisey",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Pajero",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "Pajero",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Summit / Unknown",
+          "sub_label": "Pajero / Approved Record",
+          "lap_time_text": "02:24.715"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_doyakyon",
+      "title": "Doyakyon",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVOIII/CE9A",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVOIII/CE9A",
+          "value": 1
+        },
+        {
+          "label": "AE86T",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Sadamine / Full Course Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:25.900"
+        },
+        {
+          "rank": 2,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "EVOIII/CE9A / Approved Record",
+          "lap_time_text": "07:05.333"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_error",
+      "title": "ERROR",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：S14-Drift",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "S14-Drift",
+          "value": 1
+        },
+        {
+          "label": "GraveDigger",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Falstone Rally / Unknown",
+          "sub_label": "GraveDigger / Approved Record",
+          "lap_time_text": "04:33.922"
+        },
+        {
+          "rank": 2,
+          "route_label": "Kamidomarizaka / HC",
+          "sub_label": "S14-Drift / Approved Record",
+          "lap_time_text": "03:59.767"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_hayasaka_ishimi",
+      "title": "Hayasaka_Ishimi",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：sf25(Ferrari)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "sf25(Ferrari)",
+          "value": 2
+        },
+        {
+          "label": "w16(Mercedes)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "sf25(Ferrari) / Approved Record",
+          "lap_time_text": "01:16.400"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_ii_momo_ii",
+      "title": "II Momo II",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Macchiato",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Macchiato",
+          "value": 1
+        },
+        {
+          "label": "LE88E-Attack",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Futatsukane / Counter-Clockwise",
+          "sub_label": "LE88E-Attack / Approved Record",
+          "lap_time_text": "04:40.497"
+        },
+        {
+          "rank": 2,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "02:42.891"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_jerry205",
+      "title": "Jerry205",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:20.021"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_lai00",
+      "title": "Lai00",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:26.806"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_light_spirit",
+      "title": "Light_Spirit",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Macchiato",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Macchiato",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "01:33.193"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_linjeyooo",
+      "title": "Linjeyooo",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "7"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "3"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：S15HOW-Drift",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "S15HOW-Drift",
+          "value": 2
+        },
+        {
+          "label": "LapinTuned",
+          "value": 1
+        },
+        {
+          "label": "EVO3",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 3
+        },
+        {
+          "label": "髮夾彎",
+          "value": 3
+        },
+        {
+          "label": "長直線",
+          "value": 3
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Kamidomarizaka / Downhill",
+          "sub_label": "LE3-Attack / Approved Record",
+          "lap_time_text": "03:46.650"
+        },
+        {
+          "rank": 2,
+          "route_label": "Kamidomarizaka / HC",
+          "sub_label": "GTR34-Drift / Approved Record",
+          "lap_time_text": "02:52.317"
+        },
+        {
+          "rank": 3,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "01:49.183"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_lireth",
+      "title": "Lireth",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：SampleCar",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "SampleCar",
+          "value": 1
+        },
+        {
+          "label": "Macchiato",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 2
+        },
+        {
+          "label": "髮夾彎",
+          "value": 2
+        },
+        {
+          "label": "長直線",
+          "value": 2
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "九彎十八拐CVS / Downhill",
+          "sub_label": "SampleCar / Approved Record",
+          "lap_time_text": "06:46.305"
+        },
+        {
+          "rank": 2,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "02:05.836"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_miku_atri",
+      "title": "Miku-ATRI",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:34.813"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_momo_yun",
+      "title": "Momo_Yun",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:40.633"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_mrvalentine",
+      "title": "MrValentine",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Comet Custom",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "Comet Custom",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Comet Custom / Approved Record",
+          "lap_time_text": "11:14.917"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_neko_qwq",
+      "title": "NEKO QWQ",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：SilEighty",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "SilEighty",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "04:30.333"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_ritcher_yen",
+      "title": "Ritcher_Yen",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：SilEighty",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "SilEighty",
+          "value": 2
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:19.116"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_rushia_angel",
+      "title": "Rushia Angel",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "12"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "4"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T",
+          "value": 5
+        },
+        {
+          "label": "SW20 (MR2)",
+          "value": 2
+        },
+        {
+          "label": "EVOIII/CE9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 9
+        },
+        {
+          "label": "下行",
+          "value": 9
+        },
+        {
+          "label": "多彎",
+          "value": 8
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Emrydes / Approved Record",
+          "lap_time_text": "04:47.624"
+        },
+        {
+          "rank": 2,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:33.909"
+        },
+        {
+          "rank": 3,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:20.315"
+        },
+        {
+          "rank": 4,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:41.430"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_sakanakokokoko",
+      "title": "Sakanakokokoko",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "16"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "9"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：R35N3",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "R35N3",
+          "value": 4
+        },
+        {
+          "label": "BNR34",
+          "value": 2
+        },
+        {
+          "label": "S14Q",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 5
+        },
+        {
+          "label": "髮夾彎",
+          "value": 3
+        },
+        {
+          "label": "長直線",
+          "value": 3
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "S14Q / Approved Record",
+          "lap_time_text": "04:02.883"
+        },
+        {
+          "rank": 2,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "04:31.833"
+        },
+        {
+          "rank": 3,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "04:45.550"
+        },
+        {
+          "rank": 4,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR34 / Approved Record",
+          "lap_time_text": "04:08.150"
+        },
+        {
+          "rank": 5,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "NA6CE (Mx5 Roadster) / Approved Record",
+          "lap_time_text": "04:15.333"
+        },
+        {
+          "rank": 6,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "04:38.017"
+        },
+        {
+          "rank": 7,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "380SX / Approved Record",
+          "lap_time_text": "03:50.750"
+        },
+        {
+          "rank": 8,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "FD3S (RX7)(TT) / Approved Record",
+          "lap_time_text": "05:01.467"
+        },
+        {
+          "rank": 9,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "CoachKart / Approved Record",
+          "lap_time_text": "01:51.900"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_stiik",
+      "title": "Stiik",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVO3",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVO3",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:33.522"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_tbk19",
+      "title": "TBK19",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:26.167"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_too_to",
+      "title": "Too突突兔To",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：992(911 GT3)",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "992(911 GT3)",
+          "value": 1
+        },
+        {
+          "label": "LapinTuned",
+          "value": 1
+        },
+        {
+          "label": "CoachKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 2
+        },
+        {
+          "label": "髮夾彎",
+          "value": 2
+        },
+        {
+          "label": "長直線",
+          "value": 2
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Nurburgring / GP Layout",
+          "sub_label": "992(911 GT3) / Approved Record",
+          "lap_time_text": "02:37.570"
+        },
+        {
+          "rank": 2,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "02:34.206"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_undead_desu",
+      "title": "Undead desu",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:33.583"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yangtao",
+      "title": "Yangtao",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：LapinTuned",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "LapinTuned",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 2
+        },
+        {
+          "label": "髮夾彎",
+          "value": 2
+        },
+        {
+          "label": "長直線",
+          "value": 2
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "01:38.733"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yuanji_deca",
+      "title": "Yuanji Deca",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "9"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "7"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：DB42 (GR Supra)",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "DB42 (GR Supra)",
+          "value": 2
+        },
+        {
+          "label": "AE86T-V2",
+          "value": 1
+        },
+        {
+          "label": "SW20 (MR2)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 3
+        },
+        {
+          "label": "下行",
+          "value": 2
+        },
+        {
+          "label": "高速",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "DB42 (GR Supra) / Approved Record",
+          "lap_time_text": "03:46.208"
+        },
+        {
+          "rank": 2,
+          "route_label": "Odawara / Counter-Clockwise",
+          "sub_label": "DB42 (GR Supra) / Approved Record",
+          "lap_time_text": "05:44.195"
+        },
+        {
+          "rank": 3,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:48.729"
+        },
+        {
+          "rank": 4,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "SW20 (MR2) / Approved Record",
+          "lap_time_text": "04:59.930"
+        },
+        {
+          "rank": 5,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:30.313"
+        },
+        {
+          "rank": 6,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "05:05.145"
+        },
+        {
+          "rank": 7,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "PinoBus / Approved Record",
+          "lap_time_text": "04:28.549"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_yune",
+      "title": "Yune",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "19"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "6"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：SilEighty",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "SilEighty",
+          "value": 6
+        },
+        {
+          "label": "FD3S (RX7)",
+          "value": 3
+        },
+        {
+          "label": "BNR32 Gr.A",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 6
+        },
+        {
+          "label": "下行",
+          "value": 6
+        },
+        {
+          "label": "高速",
+          "value": 3
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "04:04.424"
+        },
+        {
+          "rank": 2,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "FD3S (RX7) / Approved Record",
+          "lap_time_text": "03:53.106"
+        },
+        {
+          "rank": 3,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR32 Gr.A / Approved Record",
+          "lap_time_text": "03:39.200"
+        },
+        {
+          "rank": 4,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:35.090"
+        },
+        {
+          "rank": 5,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:14.160"
+        },
+        {
+          "rank": 6,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "GC8-F (Impreza) / Approved Record",
+          "lap_time_text": "03:39.117"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_zihchin",
+      "title": "ZihChin",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "3"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：GT86/ZN6",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "GT86/ZN6",
+          "value": 2
+        },
+        {
+          "label": "HCR32",
+          "value": 1
+        },
+        {
+          "label": "BNR32 Gr.A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "高速",
+          "value": 1
+        },
+        {
+          "label": "下行",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "04:01.170"
+        },
+        {
+          "rank": 2,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR32 Gr.A / Approved Record",
+          "lap_time_text": "03:54.073"
+        },
+        {
+          "rank": 3,
+          "route_label": "秋名無限 / Downhill",
+          "sub_label": "HCR32 / Approved Record",
+          "lap_time_text": "04:33.450"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_aqua",
+      "title": "_Aqua",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：LapinTuned",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "LapinTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "01:47.305"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_daisukilian",
+      "title": "daisukilian",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：GC8-Attack",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8-Attack",
+          "value": 1
+        },
+        {
+          "label": "MS2-Attack",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "GC8-Attack / Approved Record",
+          "lap_time_text": "01:47.875"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_ikuhopen",
+      "title": "ikuhopen",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "25"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "12"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：GR86/ZN8",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "GR86/ZN8",
+          "value": 5
+        },
+        {
+          "label": "GT86/ZN6",
+          "value": 3
+        },
+        {
+          "label": "S14Q",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 10
+        },
+        {
+          "label": "下行",
+          "value": 10
+        },
+        {
+          "label": "高速",
+          "value": 9
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Akagi / Downhill",
+          "sub_label": "FD3S (RX7) V2 / Approved Record",
+          "lap_time_text": "03:15.133"
+        },
+        {
+          "rank": 2,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "991(911 GT3) / Approved Record",
+          "lap_time_text": "03:52.183"
+        },
+        {
+          "rank": 3,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "AE86T2 / Approved Record",
+          "lap_time_text": "03:42.061"
+        },
+        {
+          "rank": 4,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "BNR32 Gr.A / Approved Record",
+          "lap_time_text": "03:45.027"
+        },
+        {
+          "rank": 5,
+          "route_label": "Tsukuba / Downhill",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "01:39.980"
+        },
+        {
+          "rank": 6,
+          "route_label": "Tsukuba / Uphill",
+          "sub_label": "EK9 (Civic Type-R) / Approved Record",
+          "lap_time_text": "01:47.236"
+        },
+        {
+          "rank": 7,
+          "route_label": "Usui V1 / Clockwise",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:29.773"
+        },
+        {
+          "rank": 8,
+          "route_label": "伊呂波坂 / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:46.387"
+        },
+        {
+          "rank": 9,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "S14Q / Approved Record",
+          "lap_time_text": "03:18.107"
+        },
+        {
+          "rank": 10,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "GR86/ZN8 / Approved Record",
+          "lap_time_text": "03:31.127"
+        },
+        {
+          "rank": 11,
+          "route_label": "秋名無限 / Downhill",
+          "sub_label": "GT86/ZN6 / Approved Record",
+          "lap_time_text": "03:41.460"
+        },
+        {
+          "rank": 12,
+          "route_label": "秋名雪 / Downhill",
+          "sub_label": "ST205 (Celica) / Approved Record",
+          "lap_time_text": "04:10.053"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_mita",
+      "title": "mita",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：LapinTuned",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "LapinTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "LapinTuned / Approved Record",
+          "lap_time_text": "02:39.625"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_panjingye333",
+      "title": "panjingye333",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:33.433"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_richardyukiko",
+      "title": "richardyukiko",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Stinger",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Stinger",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Stinger / Approved Record",
+          "lap_time_text": "04:06.183"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_unreal",
+      "title": "unreal",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVO3",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVO3",
+          "value": 1
+        },
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:26.833"
+        },
+        {
+          "rank": 2,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "02:06.256"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_wasdwa",
+      "title": "wasdwa",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "04:07.517"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_windnight5",
+      "title": "windnight5",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "5"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：sf25(Ferrari)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "sf25(Ferrari)",
+          "value": 2
+        },
+        {
+          "label": "e45",
+          "value": 1
+        },
+        {
+          "label": "mcl39(McLaren)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "PachirokuGT-Attack / Approved Record",
+          "lap_time_text": "02:00.444"
+        },
+        {
+          "rank": 2,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "sf25(Ferrari) / Approved Record",
+          "lap_time_text": "01:16.500"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_antidote",
+      "title": "~Antidote~",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVOVII/CT9A",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVOVII/CT9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:12.959"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_sigma",
+      "title": "『Sigma』",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T-V2",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T-V2",
+          "value": 1
+        },
+        {
+          "label": "AE86T2",
+          "value": 1
+        },
+        {
+          "label": "FL5 (Civic Type-R)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "高速",
+          "value": 1
+        },
+        {
+          "label": "下行",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Tsubaki / Downhill",
+          "sub_label": "FL5 (Civic Type-R) / Approved Record",
+          "lap_time_text": "03:47.372"
+        },
+        {
+          "rank": 2,
+          "route_label": "秋名 / Downhill",
+          "sub_label": "AE86T-V2 / Approved Record",
+          "lap_time_text": "03:36.400"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_045",
+      "title": "しんかさん",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：CoachKart",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "CoachKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "CoachKart / Approved Record",
+          "lap_time_text": "01:59.958"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_032",
+      "title": "不會玩遊戲的屑",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：c45(KickSauber)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "c45(KickSauber)",
+          "value": 1
+        },
+        {
+          "label": "amr25(AstonMartin)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "amr25(AstonMartin) / Approved Record",
+          "lap_time_text": "01:47.854"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_042",
+      "title": "你算是惹到棉花了",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：Macchiato",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "Macchiato",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "Macchiato / Approved Record",
+          "lap_time_text": "02:05.133"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_017",
+      "title": "千夜火鍋",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：SilEighty",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "SilEighty",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "SilEighty / Approved Record",
+          "lap_time_text": "03:32.058"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_zhou",
+      "title": "周-ZHOU",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：BNR32",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "BNR32",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "04:48.805"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_019",
+      "title": "咪咪處刑人大木",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVOVII/CT9A",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVOVII/CT9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:39.391"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_072",
+      "title": "圖圖子",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "7"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：GTR34-Attack",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "GTR34-Attack",
+          "value": 2
+        },
+        {
+          "label": "N2X-Attack",
+          "value": 2
+        },
+        {
+          "label": "GTR34-Drift",
+          "value": 2
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Kamidomarizaka / Downhill",
+          "sub_label": "GTR34-Attack / Approved Record",
+          "lap_time_text": "03:26.222"
+        },
+        {
+          "rank": 2,
+          "route_label": "Kamidomarizaka / HC",
+          "sub_label": "N2X-Attack / Approved Record",
+          "lap_time_text": "02:04.311"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_031",
+      "title": "憶雨蕭歌",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：mcl39(McLaren)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "mcl39(McLaren)",
+          "value": 1
+        },
+        {
+          "label": "rb21(RedBull)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "mcl39(McLaren) / Approved Record",
+          "lap_time_text": "01:34.775"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_c101",
+      "title": "拾貳 c101",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：BNR32",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "BNR32",
+          "value": 1
+        },
+        {
+          "label": "EVOVII/CT9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "BNR32 / Approved Record",
+          "lap_time_text": "03:33.833"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_060",
+      "title": "松前緒花",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:29.258"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_023",
+      "title": "江柚凝",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86T",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86T",
+          "value": 1
+        },
+        {
+          "label": "R35N3",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Odawara / Clockwise",
+          "sub_label": "R35N3 / Approved Record",
+          "lap_time_text": "04:02.417"
+        },
+        {
+          "rank": 2,
+          "route_label": "Tsukuba / Double Course",
+          "sub_label": "AE86T / Approved Record",
+          "lap_time_text": "03:42.071"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_052",
+      "title": "熾花",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "2"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AE86 LightTuned",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AE86 LightTuned",
+          "value": 1
+        },
+        {
+          "label": "PachirokuGT-Attack",
+          "value": 1
+        },
+        {
+          "label": "LE8-Attack",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "AE86 LightTuned / Approved Record",
+          "lap_time_text": "05:39.859"
+        },
+        {
+          "rank": 2,
+          "route_label": "Ryuoukouzan / Downhill",
+          "sub_label": "LE8-Attack / Approved Record",
+          "lap_time_text": "02:00.233"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_056",
+      "title": "猹猹猹猹",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：AdvancedKart",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "AdvancedKart",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "@Kart / Unknown",
+          "sub_label": "AdvancedKart / Approved Record",
+          "lap_time_text": "00:24.345"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_a",
+      "title": "突擊的狗熊A",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：FD3S SuperG",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "FD3S SuperG",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "HarunaG / Downhill",
+          "sub_label": "FD3S SuperG / Approved Record",
+          "lap_time_text": "04:46.933"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_028",
+      "title": "羽沫嫇夏",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：c45(KickSauber)",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "c45(KickSauber)",
+          "value": 1
+        },
+        {
+          "label": "rb21(RedBull)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Silverstone / Unknown",
+          "sub_label": "c45(KickSauber) / Approved Record",
+          "lap_time_text": "01:14.722"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_047",
+      "title": "起名字好煩人",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVO3",
+        "偏好標籤：公路"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVO3",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "公路",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        },
+        {
+          "label": "長直線",
+          "value": 1
+        }
+      ],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "觀星山 / Downhill",
+          "sub_label": "EVO3 / Approved Record",
+          "lap_time_text": "01:51.722"
+        }
+      ]
+    },
+    {
+      "player_id": "plr_016",
+      "title": "鬼-瓦輪",
+      "subtitle_zh": "未分隊",
+      "subtitle_en": "Unassigned",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "個人最佳路線",
+          "label_en": "Route PBs",
+          "value": "1"
+        },
+        {
+          "label_zh": "一般路線奪榜",
+          "label_en": "Open Route Leads",
+          "value": "0"
+        },
+        {
+          "label_zh": "Approved 奪榜",
+          "label_en": "Approved Leads",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "常用車種：EVOVII/CT9A",
+        "偏好標籤：-"
+      ],
+      "usage_rows": [
+        {
+          "label": "EVOVII/CT9A",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "妙義(妙義ASV) / Downhill",
+          "sub_label": "EVOVII/CT9A / Approved Record",
+          "lap_time_text": "03:22.820"
         }
       ]
     }

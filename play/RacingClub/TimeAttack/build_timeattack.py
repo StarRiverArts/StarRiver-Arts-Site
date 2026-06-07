@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sqlite3
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -30,9 +31,15 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--source-mode",
-        choices=("auto", "normalized", "legacy-json"),
+        choices=("auto", "normalized", "legacy-json", "sqlite"),
         default="auto",
-        help="Choose between the normalized local CSV source and a legacy JSON source.",
+        help="Data source: sqlite (preferred), normalized CSV, or legacy JSON.",
+    )
+    parser.add_argument(
+        "--sqlite",
+        type=Path,
+        default=None,
+        help="Path to ta_data.sqlite (defaults to ta_data.sqlite next to this script).",
     )
     parser.add_argument(
         "--source-dir",
@@ -67,6 +74,14 @@ def parse_args() -> argparse.Namespace:
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def _find_csv(source_dir: Path, stem: str) -> Path:
+    for suffix in ("", ".sample"):
+        candidate = source_dir / f"{stem}{suffix}.csv"
+        if candidate.exists():
+            return candidate
+    return source_dir / f"{stem}.sample.csv"
 
 
 def write_json(path: Path, payload: dict[str, Any]) -> None:
@@ -179,12 +194,12 @@ def favorite_label(counter: Counter[str], fallback: str = "-") -> str:
 def load_normalized_source_data(
     source_dir: Path,
 ) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
-    track_world_rows = read_csv_rows(source_dir / "tracks_meta.sample.csv")
-    route_rows = read_csv_rows(source_dir / "routes_meta.sample.csv")
-    player_rows = read_csv_rows(source_dir / "players_meta.sample.csv")
-    vehicle_rows = read_csv_rows(source_dir / "vehicles_meta.sample.csv")
-    event_rows = read_csv_rows(source_dir / "events_meta.sample.csv")
-    record_rows = read_csv_rows(source_dir / "records_input.sample.csv")
+    track_world_rows = read_csv_rows(_find_csv(source_dir, "tracks_meta"))
+    route_rows = read_csv_rows(_find_csv(source_dir, "routes_meta"))
+    player_rows = read_csv_rows(_find_csv(source_dir, "players_meta"))
+    vehicle_rows = read_csv_rows(_find_csv(source_dir, "vehicles_meta"))
+    event_rows = read_csv_rows(_find_csv(source_dir, "events_meta"))
+    record_rows = read_csv_rows(_find_csv(source_dir, "records_input"))
 
     track_worlds = {
         row["track_world_code"]: {
@@ -437,9 +452,142 @@ def load_legacy_json_data(
     return records, lookup, {"review_cards": extra_review_cards}
 
 
+def load_sqlite_data(
+    db_path: Path,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+
+    track_worlds = {
+        row["track_world_code"]: dict(row)
+        for row in conn.execute("SELECT * FROM track_worlds")
+    }
+    routes = {
+        route_key(row["track_world_code"], row["route_code"]): dict(row)
+        for row in conn.execute("SELECT * FROM routes")
+    }
+    players = {row["player_id"]: dict(row) for row in conn.execute("SELECT * FROM players")}
+    vehicle_variants = {
+        row["vehicle_variant_code"]: dict(row)
+        for row in conn.execute("SELECT * FROM vehicles")
+    }
+    events = {
+        row["event_code"]: dict(row)
+        for row in conn.execute("SELECT * FROM events WHERE event_code != ''")
+    }
+
+    vehicle_models: dict[str, dict[str, Any]] = {}
+    for row in vehicle_variants.values():
+        model = vehicle_models.setdefault(
+            row["vehicle_model_code"],
+            {
+                "vehicle_model_code": row["vehicle_model_code"],
+                "vehicle_model_name": row["vehicle_model_name"],
+                "vehicle_class": row["vehicle_class"],
+                "vehicle_tags": set(),
+                "variant_names": [],
+            },
+        )
+        model["variant_names"].append(row["vehicle_variant_name"])
+        model["vehicle_tags"].update(parse_list(row.get("vehicle_tags") or ""))
+
+    sql = """
+        SELECT r.record_id, r.record_date, r.track_world_code, r.route_code,
+               r.player_id, r.vehicle_variant_code, r.platform_code, r.system_code,
+               r.lap_time_ms, r.lap_time_text, r.record_channel, r.review_status,
+               r.event_code, r.season_code, r.submission_note,
+               t.track_display_name, t.world_name, t.world_url, t.track_author,
+               t.system_name, t.track_tags,
+               rt.route_display_name, rt.route_note_zh, rt.route_note_en,
+               p.display_name_primary, p.team_name,
+               v.vehicle_variant_name, v.vehicle_model_code, v.vehicle_model_name,
+               v.vehicle_class, v.vehicle_tags AS vehicle_tags_raw
+        FROM records r
+        JOIN track_worlds t  ON r.track_world_code = t.track_world_code
+        JOIN routes rt        ON r.track_world_code = rt.track_world_code
+                             AND r.route_code = rt.route_code
+        JOIN players p        ON r.player_id = p.player_id
+        JOIN vehicles v       ON r.vehicle_variant_code = v.vehicle_variant_code
+    """
+    records: list[dict[str, Any]] = []
+    for raw in conn.execute(sql):
+        row = dict(raw)
+        rk = route_key(row["track_world_code"], row["route_code"])
+        channel = row["record_channel"]
+        review_status = row["review_status"]
+        event = events.get(row.get("event_code") or "")
+        records.append(
+            {
+                "record_id": row["record_id"],
+                "record_date": row["record_date"],
+                "track_world_code": row["track_world_code"],
+                "route_code": row["route_code"],
+                "player_id": row["player_id"],
+                "vehicle_variant_code": row["vehicle_variant_code"],
+                "platform_code": row["platform_code"],
+                "system_code": row["system_code"],
+                "lap_time_ms": row["lap_time_ms"],
+                "lap_time_text": row["lap_time_text"],
+                "record_channel": channel,
+                "review_status": review_status,
+                "event_code": row.get("event_code") or "",
+                "season_code": row.get("season_code") or "",
+                "submission_note": row.get("submission_note") or "",
+                "route_key": rk,
+                "route_label_zh": f"{row['track_display_name']} / {row['route_display_name']}",
+                "route_label_en": f"{row['world_name']} / {row['route_display_name']}",
+                "track_display_name": row["track_display_name"],
+                "world_name": row["world_name"],
+                "world_url": row["world_url"],
+                "track_author": row["track_author"],
+                "system_name": row["system_name"],
+                "track_tags": parse_list(row["track_tags"]),
+                "route_display_name": row["route_display_name"],
+                "player_display_name": row["display_name_primary"],
+                "team_name": row.get("team_name") or "",
+                "vehicle_variant_name": row["vehicle_variant_name"],
+                "vehicle_model_code": row["vehicle_model_code"],
+                "vehicle_model_name": row["vehicle_model_name"],
+                "vehicle_class": row["vehicle_class"],
+                "vehicle_tags": parse_list(row.get("vehicle_tags_raw") or ""),
+                "event_name": event["event_name"] if event else "",
+                "event_type": event["event_type"] if event else "",
+                "season_name": event["season_name"] if event else (row.get("season_code") or ""),
+                "channel_label_zh": "Approved Record" if channel == "approved_record" else "Normal Time Attack",
+                "channel_label_en": "Approved Record" if channel == "approved_record" else "Normal Time Attack",
+                "is_approved_board": channel == "approved_record" and review_status == "approved",
+                "is_normal_board": channel == "normal_time_attack" and review_status != "rejected",
+                "is_general_pool": review_status != "rejected",
+            }
+        )
+
+    conn.close()
+    lookup = {
+        "track_worlds": track_worlds,
+        "routes": routes,
+        "players": players,
+        "vehicle_variants": vehicle_variants,
+        "vehicle_models": vehicle_models,
+        "events": events,
+    }
+    return records, lookup, {"review_cards": []}
+
+
+DEFAULT_SQLITE = Path(__file__).resolve().parent / "ta_data.sqlite"
+
+
 def resolve_source(
     args: argparse.Namespace,
 ) -> tuple[str, list[dict[str, Any]], dict[str, Any], dict[str, Any], str]:
+    sqlite_path = args.sqlite or DEFAULT_SQLITE
+    if args.source_mode in {"auto", "sqlite"} and sqlite_path.exists():
+        label = args.source_label or make_source_label(sqlite_path, "ta_data.sqlite")
+        records, lookup, extras = load_sqlite_data(sqlite_path)
+        return "sqlite", records, lookup, extras, label
+
+    if args.source_mode == "sqlite":
+        raise FileNotFoundError(f"SQLite database not found: {sqlite_path}")
+
     records_json = args.records_json or LEGACY_RECORDS_CANDIDATE
     review_json = args.review_json or LEGACY_REVIEW_CANDIDATE
 
@@ -873,6 +1021,45 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 }
             )
 
+        # Build chronological history per route (only routes with >=2 runs)
+        route_runs: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for rec in sorted(
+            player_records,
+            key=lambda r: (r["record_date"], r["record_id"]),
+        ):
+            route_runs[rec["route_key"]].append(rec)
+
+        history: list[dict[str, Any]] = []
+        for rk, runs in sorted(
+            route_runs.items(),
+            key=lambda item: -len(item[1]),  # most-run routes first
+        ):
+            if len(runs) < 2:
+                continue
+            pb_ms: int | None = None
+            run_items = []
+            for run in runs:
+                is_pb = pb_ms is None or run["lap_time_ms"] < pb_ms
+                if is_pb:
+                    pb_ms = run["lap_time_ms"]
+                run_items.append(
+                    {
+                        "date": run["record_date"],
+                        "lap_time_ms": run["lap_time_ms"],
+                        "lap_time_text": run["lap_time_text"],
+                        "vehicle": run["vehicle_model_name"],
+                        "is_pb": is_pb,
+                    }
+                )
+            history.append(
+                {
+                    "route_key": rk,
+                    "route_label": runs[0]["route_label_zh"],
+                    "run_count": len(runs),
+                    "runs": run_items,
+                }
+            )
+
         player_cards.append(
             {
                 "player_id": player_id,
@@ -892,6 +1079,7 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 "usage_rows": top_counter_items(vehicle_counter),
                 "tag_rows": top_counter_items(tag_counter),
                 "best_times": best_rows,
+                "history": history,
             }
         )
 

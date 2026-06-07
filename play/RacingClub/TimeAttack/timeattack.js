@@ -648,7 +648,9 @@ const initTimeAttack = async () => {
     setTextContent("[data-sidebar-view-zh]", labels.zh);
     setTextContent("[data-sidebar-view-en]", labels.en);
 
-    setHtml("[data-summary-root]", renderSummaryCards(summary.count_cards));
+    if (view === "overview") {
+      setHtml("[data-summary-root]", renderSummaryCards(summary.count_cards));
+    }
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     setHtml(
       "[data-sidebar-list]",
