@@ -1,32 +1,20 @@
 @charset "UTF-8";
 
-/* ── Landscape palette ──────────────────────────────────────────
-   天青色 → 山藍 山綠 → 土黃 淺綠
+/* ── Dark green palette ──────────────────────────────────────────
+   深綠色底 + 白色 / 淺灰字
    ───────────────────────────────────────────────────────────── */
 :root {
-  --ta-sky:         #6ECCD8;
-  --ta-mtn-blue:    #3E6880;
-  --ta-mtn-green:   #3C6442;
-  --ta-earth:       #7A5A30;
-  --ta-grass:       #4E7C46;
-  --ta-text:        #F0F8F4;
-  --ta-text-soft:   rgba(230, 248, 240, 0.72);
-  --ta-card:        rgba(8, 18, 12, 0.52);
+  --ta-bg:          #0E2018;
+  --ta-text:        #FFFFFF;
+  --ta-text-soft:   rgba(255, 255, 255, 0.68);
+  --ta-card:        rgba(255, 255, 255, 0.05);
   --ta-border:      rgba(255, 255, 255, 0.14);
-  --ta-accent:      #88D8E8;
-  --ta-accent-warm: #D4A860;
+  --ta-accent:      #D8E2DC;
+  --ta-accent-warm: #D8E2DC;
 }
 
 body.timeattack-page {
-  background:
-    linear-gradient(
-      180deg,
-      #5BBDD0  0%,
-      #3D6880  18%,
-      #3A6040  42%,
-      #6A5030  72%,
-      #4A7048  100%
-    );
+  background: linear-gradient(180deg, #102619 0%, #0C1B13 100%);
   background-attachment: fixed;
   color: var(--ta-text);
 }
@@ -40,8 +28,8 @@ body.timeattack-page {
 .ta-topbar {
   align-items: center;
   backdrop-filter: blur(16px);
-  background: rgba(36, 100, 120, 0.72);
-  border-bottom: 1px solid rgba(110, 204, 216, 0.28);
+  background: rgba(14, 32, 24, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   display: flex;
   gap: 14px;
   justify-content: space-between;
@@ -76,7 +64,7 @@ body.timeattack-page {
 }
 
 .ta-title {
-  color: #f8f3e8;
+  color: #fff;
   font-family: var(--font-display);
   font-size: clamp(42px, 7vw, 88px);
   font-weight: 900;
@@ -86,7 +74,7 @@ body.timeattack-page {
 }
 
 .ta-desc {
-  color: rgba(243, 238, 227, 0.76);
+  color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-body);
   font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.7;
@@ -180,7 +168,7 @@ body.timeattack-page {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
-  color: rgba(240, 252, 248, 0.80);
+  color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -194,14 +182,14 @@ body.timeattack-page {
 }
 
 .ta-navlink:hover {
-  background: rgba(110, 204, 216, 0.18);
-  border-color: rgba(110, 204, 216, 0.40);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.32);
   color: #fff;
 }
 
 .ta-navlink.is-active {
-  background: rgba(110, 204, 216, 0.28);
-  border-color: rgba(212, 168, 96, 0.60);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.40);
   color: #fff;
 }
 
@@ -296,7 +284,7 @@ body.timeattack-page {
 
 .ta-board-title,
 .ta-section-title {
-  color: rgba(248, 243, 232, 0.96);
+  color: rgba(255, 255, 255, 0.96);
   font-family: var(--font-deck);
   font-size: 22px;
   font-weight: 700;
@@ -308,7 +296,7 @@ body.timeattack-page {
 .ta-board-text,
 .ta-section-text,
 .ta-profile-subtitle {
-  color: rgba(243, 238, 227, 0.7);
+  color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.7;
@@ -317,10 +305,10 @@ body.timeattack-page {
 
 .ta-card-link {
   align-items: center;
-  background: rgba(185, 228, 232, 0.08);
-  border: 1px solid rgba(185, 228, 232, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
-  color: #dff8fb;
+  color: #fff;
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -338,8 +326,8 @@ body.timeattack-page {
 }
 
 .ta-card-link:hover {
-  background: rgba(185, 228, 232, 0.14);
-  border-color: rgba(185, 228, 232, 0.32);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-1px);
 }
 
@@ -377,7 +365,7 @@ body.timeattack-page {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  color: rgba(243, 238, 227, 0.82);
+  color: rgba(255, 255, 255, 0.8);
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: 10px;
@@ -420,7 +408,7 @@ body.timeattack-page {
 }
 
 .ta-lb-title {
-  color: rgba(248, 243, 232, 0.96);
+  color: rgba(255, 255, 255, 0.96);
   font-family: var(--font-deck);
   font-size: 20px;
   font-weight: 700;
@@ -457,7 +445,7 @@ body.timeattack-page {
 }
 
 .ta-lb-fastest-time {
-  color: #f0a94c;
+  color: #fff;
   font-family: var(--font-mono);
   font-size: 18px;
   font-weight: 700;
@@ -465,7 +453,7 @@ body.timeattack-page {
 }
 
 .ta-lb-fastest-meta {
-  color: rgba(243, 238, 227, 0.54);
+  color: rgba(255, 255, 255, 0.6);
   font-family: var(--font-body);
   font-size: 13px;
 }
@@ -485,7 +473,7 @@ body.timeattack-page {
 }
 
 .ta-lb-col-head {
-  color: rgba(185, 228, 232, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -509,7 +497,7 @@ body.timeattack-page {
 
 .ta-lb-rank,
 .ta-mini-rank {
-  color: rgba(185, 228, 232, 0.5);
+  color: rgba(255, 255, 255, 0.45);
   font-family: var(--font-mono);
   font-size: 11px;
   text-align: right;
@@ -517,7 +505,7 @@ body.timeattack-page {
 
 .ta-lb-name,
 .ta-mini-name {
-  color: rgba(248, 243, 232, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-body);
   font-size: 14px;
   overflow: hidden;
@@ -527,7 +515,7 @@ body.timeattack-page {
 
 .ta-lb-sub,
 .ta-mini-sub {
-  color: rgba(243, 238, 227, 0.46);
+  color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-body);
   font-size: 12px;
   overflow: hidden;
@@ -537,7 +525,7 @@ body.timeattack-page {
 
 .ta-lb-time,
 .ta-mini-time {
-  color: rgba(240, 169, 76, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
@@ -547,7 +535,7 @@ body.timeattack-page {
 
 .ta-board-empty,
 .ta-empty {
-  color: rgba(243, 238, 227, 0.5);
+  color: rgba(255, 255, 255, 0.58);
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.65;
@@ -570,7 +558,7 @@ body.timeattack-page {
 }
 
 .ta-stat-pill strong {
-  color: rgba(248, 243, 232, 0.96);
+  color: rgba(255, 255, 255, 0.96);
   font-family: var(--font-deck);
   font-size: 26px;
   font-weight: 700;
@@ -607,13 +595,13 @@ body.timeattack-page {
 }
 
 .ta-counter-label {
-  color: rgba(248, 243, 232, 0.82);
+  color: rgba(255, 255, 255, 0.82);
   font-family: var(--font-body);
   font-size: 14px;
 }
 
 .ta-counter-value {
-  color: rgba(185, 228, 232, 0.86);
+  color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.08em;
@@ -638,7 +626,7 @@ body.timeattack-page {
 
 .ta-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(243, 238, 227, 0.5);
+  color: rgba(255, 255, 255, 0.58);
   display: flex;
   flex-wrap: wrap;
   font-family: var(--font-mono);
@@ -733,7 +721,7 @@ body.timeattack-page {
 
 .ta-toggle-btn.is-active,
 .ta-toggle-btn:hover {
-  background: rgba(110, 204, 216, 0.32);
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
   border-color: var(--ta-accent);
 }
@@ -828,7 +816,7 @@ body.timeattack-page {
 .ta-index-link {
   color: var(--ta-text);
   text-decoration: none;
-  border-bottom: 1px solid rgba(136, 216, 232, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .ta-index-link:hover {

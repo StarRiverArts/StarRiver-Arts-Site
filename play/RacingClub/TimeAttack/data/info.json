@@ -1,0 +1,82 @@
+{
+  "title_zh": "資訊",
+  "title_en": "Info",
+  "description_zh": "本站的核心指標、builder 狀態與資料模型說明集中在這頁，讓各分析頁專心呈現紀錄。",
+  "description_en": "Core metrics, builder status, and the data-model notes live here so the analysis pages can stay focused on records.",
+  "build_state": "live",
+  "source_label": "StarRiverSite/StarRiver-Arts-Site/play/RacingClub/TimeAttack/ta_data.sqlite",
+  "sidebar_zh": [
+    "核心指標每次 builder 重建時更新。",
+    "builder 狀態顯示最近建置時間與 schema 版本。",
+    "資料模型說明本站如何從單一輸入表產生靜態頁。"
+  ],
+  "sidebar_en": [
+    "Core metrics refresh every time the builder runs.",
+    "Builder status shows the last build time and schema version.",
+    "The data model explains how a single input sheet feeds the static pages."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "總輸入筆數",
+      "label_en": "All Runs",
+      "value": "695",
+      "note_zh": "輸入表中所有紀錄列",
+      "note_en": "All imported rows from the input sheet"
+    },
+    {
+      "label_zh": "Approved 上榜",
+      "label_en": "Approved Board",
+      "value": "0",
+      "note_zh": "正式榜單可見紀錄",
+      "note_en": "Runs visible on the formal board"
+    },
+    {
+      "label_zh": "待審核",
+      "label_en": "Pending Review",
+      "value": "0",
+      "note_zh": "已送審但尚未完成人工確認",
+      "note_en": "Approved-record submissions still waiting for manual review"
+    },
+    {
+      "label_zh": "一般計時",
+      "label_en": "Normal Board",
+      "value": "695",
+      "note_zh": "一般 Time Attack 練習紀錄",
+      "note_en": "Community practice runs on the normal board"
+    },
+    {
+      "label_zh": "賽道世界",
+      "label_en": "Track Worlds",
+      "value": "53",
+      "note_zh": "以世界為準的賽道識別",
+      "note_en": "World-level track identities"
+    },
+    {
+      "label_zh": "車輛母型",
+      "label_en": "Vehicle Models",
+      "value": "150",
+      "note_zh": "以統計母型合併多個世界變體",
+      "note_en": "Canonical vehicle models merged across multiple world variants"
+    }
+  ],
+  "sections": [
+    {
+      "label_zh": "資料流",
+      "label_en": "Data Flow",
+      "title_zh": "單一輸入表到靜態頁",
+      "title_en": "Single Sheet To Static Pages",
+      "body_zh": "Builder 讀取輸入表與 lookup 索引，先產生分析 JSON，再由這些靜態頁直接讀取。",
+      "body_en": "The builder reads the input sheet plus lookup indexes, generates analysis JSON, and the static pages consume those artifacts directly.",
+      "items_zh": [
+        "Google Sheet 或 CSV 匯出作為唯一輸入來源",
+        "本機 builder 重建所有排行榜與分析頁資料",
+        "最終只修改 `play/RacingClub/TimeAttack/data/*.json` 後再推上 GitHub Pages"
+      ],
+      "items_en": [
+        "Google Sheet or CSV export remains the single input source",
+        "A local builder regenerates every board and analysis artifact",
+        "Only `play/RacingClub/TimeAttack/data/*.json` needs to change before pushing to GitHub Pages"
+      ]
+    }
+  ]
+}
