@@ -33,6 +33,8 @@ const TA_ROUTE_LABELS = {
   },
 };
 
+const ENABLE_HISTORY_CHARTS = false;
+
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => {
     const map = {
@@ -594,6 +596,7 @@ const renderHistoryChart = (route) => {
 };
 
 const renderHistorySection = (history) => {
+  if (!ENABLE_HISTORY_CHARTS) return "";
   if (!Array.isArray(history) || history.length === 0) return "";
   const charts = history.map((route) => renderHistoryChart(route)).filter(Boolean).join("");
   if (!charts) return "";
