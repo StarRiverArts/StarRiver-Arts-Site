@@ -681,3 +681,227 @@ body.timeattack-page::before {
     flex-direction: column;
   }
 }
+
+/* ── Track board controls ───────────────────────────────────── */
+
+.ta-board-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.ta-toggle-group {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.ta-toggle-btn {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--sr-border, #2a3050);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--sr-text-muted, #888);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.ta-toggle-btn.is-active,
+.ta-toggle-btn:hover {
+  background: var(--sr-accent, #3b82f6);
+  color: #fff;
+  border-color: var(--sr-accent, #3b82f6);
+}
+
+/* Board view visibility */
+.ta-board-view { display: none; }
+[data-boards-container][data-active-view="player"] [data-board-view="player"] { display: block; }
+[data-boards-container][data-active-view="vehicle"] [data-board-view="vehicle"] { display: block; }
+
+/* Platform filter */
+[data-boards-container][data-active-plat="pcvr"] .ta-board-row:not([data-plat="pcvr"]) { display: none; }
+[data-boards-container][data-active-plat="pc"] .ta-board-row:not([data-plat="pc"]) { display: none; }
+[data-boards-container][data-active-plat="quest"] .ta-board-row:not([data-plat="quest"]) { display: none; }
+
+/* Track board card */
+.ta-track-board {
+  background: var(--sr-bg-card, #1a1f35);
+  border: 1px solid var(--sr-border, #2a3050);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.ta-track-board-head {
+  margin-bottom: 12px;
+}
+
+.ta-track-board-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+
+.ta-route-section {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sr-border, #2a3050);
+}
+
+.ta-route-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sr-text-muted, #888);
+  margin-bottom: 6px;
+}
+
+/* Board rows */
+.ta-board-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ta-board-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 1fr 40px 90px;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.ta-row-rank {
+  font-size: 11px;
+  color: var(--sr-text-muted, #888);
+  text-align: right;
+}
+
+.ta-row-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ta-row-sub  { font-size: 11px; color: var(--sr-text-muted, #888); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.ta-row-plat {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--sr-text-muted, #888);
+  text-align: center;
+}
+
+.ta-row-time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+  color: var(--sr-accent, #3b82f6);
+}
+
+/* Track groups (player/vehicle pages) */
+.ta-track-groups { margin-top: 0; }
+
+.ta-track-group {
+  margin-bottom: 12px;
+}
+
+.ta-track-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sr-accent, #3b82f6);
+  margin-bottom: 4px;
+}
+
+.ta-mini-plat {
+  font-size: 9px;
+  color: var(--sr-text-muted, #888);
+  letter-spacing: 0.04em;
+}
+
+/* ── History chart ──────────────────────────────────────────── */
+
+.ta-history-section {
+  margin-top: 12px;
+}
+
+.ta-history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.ta-history-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ta-history-route-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sr-text-muted, #888);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ta-history-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.ta-chart-line {
+  fill: none;
+  stroke: var(--sr-accent, #3b82f6);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.ta-chart-dot {
+  fill: var(--sr-bg-card, #1e2233);
+  stroke: var(--sr-accent, #3b82f6);
+  stroke-width: 1.5;
+}
+
+.ta-chart-dot.is-pb {
+  fill: var(--sr-accent, #3b82f6);
+}
+
+.ta-chart-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--sr-text-muted, #888);
+  align-items: baseline;
+}
+
+.ta-chart-diff {
+  font-weight: 600;
+}
+
+.ta-chart-diff.is-improve {
+  color: #4ade80;
+}
+
+.ta-chart-diff.is-regress {
+  color: #f87171;
+}
+
+.ta-chart-best {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--sr-text, #e2e8f0);
+}

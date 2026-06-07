@@ -272,6 +272,144 @@ const renderBoardSection = (labelZh, labelEn, fastest, playerRows, vehicleRows) 
   </section>
 `;
 
+// ── Track board (new leaderboard-first structure) ─────────────────────────
+
+const renderBoardRows = (rows, nameKey, subKey) => {
+  if (!rows || rows.length === 0) {
+    return '<p class="ta-board-empty">No records yet.</p>';
+  }
+  return `<div class="ta-board-rows">${rows
+    .map(
+      (row) => `
+      <div class="ta-board-row" data-plat="${escapeHtml(row.platform || "")}">
+        <span class="ta-row-rank">${row.rank}</span>
+        <span class="ta-row-name">${escapeHtml(row[nameKey] || "")}</span>
+        <span class="ta-row-sub">${escapeHtml(row[subKey] || "")}</span>
+        <span class="ta-row-plat">${escapeHtml((row.platform || "").toUpperCase())}</span>
+        <span class="ta-row-time">${escapeHtml(row.lap_time_text || "")}</span>
+      </div>`,
+    )
+    .join("")}</div>`;
+};
+
+const renderTrackBoard = (board) => {
+  const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
+    .filter(Boolean)
+    .map((t) => `<span class="ta-chip ta-chip-meta">${escapeHtml(t)}</span>`)
+    .join("");
+  const techChips = (board.tech_tags || [])
+    .map((t) => `<span class="ta-chip">${escapeHtml(t)}</span>`)
+    .join("");
+
+  const routesHtml = (board.routes || [])
+    .map(
+      (route) => `
+      <div class="ta-route-section">
+        <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
+        <div class="ta-board-view" data-board-view="player">
+          ${renderBoardRows(route.player_rows, "name", "vehicle")}
+        </div>
+        <div class="ta-board-view" data-board-view="vehicle">
+          ${renderBoardRows(route.vehicle_rows, "name", "driver")}
+        </div>
+      </div>`,
+    )
+    .join("");
+
+  return `
+    <article class="ta-track-board">
+      <div class="ta-track-board-head">
+        <div class="ta-label">${escapeHtml(board.world_name)}</div>
+        <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        <div class="ta-chip-list">${metaChips}${techChips}</div>
+      </div>
+      ${routesHtml}
+    </article>`;
+};
+
+const renderTrackBoards = (data) => {
+  const boards = data.boards || [];
+  const platforms = data.platforms || [];
+
+  const platBtns = [
+    `<button class="ta-toggle-btn is-active" data-plat="all"><span class="zh">全部</span><span class="en">All</span></button>`,
+    ...platforms.map(
+      (p) =>
+        `<button class="ta-toggle-btn" data-plat="${escapeHtml(p)}">${escapeHtml(p.toUpperCase())}</button>`,
+    ),
+  ].join("");
+
+  const boardsHtml = boards.map(renderTrackBoard).join("");
+
+  return `
+    <div class="ta-board-controls">
+      <div class="ta-toggle-group" data-view-toggle>
+        <button class="ta-toggle-btn is-active" data-view="player">
+          <span class="zh">個人榜</span><span class="en">Players</span>
+        </button>
+        <button class="ta-toggle-btn" data-view="vehicle">
+          <span class="zh">車輛榜</span><span class="en">Vehicles</span>
+        </button>
+      </div>
+      <div class="ta-toggle-group" data-plat-toggle>${platBtns}</div>
+    </div>
+    <div class="ta-boards-container" data-boards-container data-active-view="player" data-active-plat="all">
+      ${boardsHtml}
+    </div>`;
+};
+
+const attachBoardToggleListeners = () => {
+  document.addEventListener("click", (e) => {
+    const viewBtn = e.target.closest("[data-view-toggle] [data-view]");
+    if (viewBtn) {
+      document.querySelectorAll("[data-view-toggle] .ta-toggle-btn").forEach((b) =>
+        b.classList.remove("is-active"),
+      );
+      viewBtn.classList.add("is-active");
+      const c = document.querySelector("[data-boards-container]");
+      if (c) c.dataset.activeView = viewBtn.dataset.view;
+    }
+    const platBtn = e.target.closest("[data-plat-toggle] [data-plat]");
+    if (platBtn) {
+      document.querySelectorAll("[data-plat-toggle] .ta-toggle-btn").forEach((b) =>
+        b.classList.remove("is-active"),
+      );
+      platBtn.classList.add("is-active");
+      const c = document.querySelector("[data-boards-container]");
+      if (c) c.dataset.activePlat = platBtn.dataset.plat;
+    }
+  });
+};
+
+// ── Track group rows (player/vehicle pages) ────────────────────────────────
+
+const renderTrackGroupRows = (groups, subKey) => {
+  if (!groups || groups.length === 0) return "";
+  return groups
+    .map(
+      (g) => `
+      <div class="ta-track-group">
+        <div class="ta-track-group-label">${escapeHtml(g.env)}</div>
+        <div class="ta-detail-list">
+          ${g.rows
+            .map(
+              (row, i) => `
+            <div class="ta-mini-row">
+              <span class="ta-mini-rank">${i + 1}</span>
+              <span class="ta-mini-name">${escapeHtml(row.track_name || "")}</span>
+              <span class="ta-mini-sub">${escapeHtml(row[subKey] || "")}</span>
+              <span class="ta-mini-plat">${escapeHtml((row.platform || "").toUpperCase())}</span>
+              <span class="ta-mini-time">${escapeHtml(row.lap_time_text || "")}</span>
+            </div>`,
+            )
+            .join("")}
+        </div>
+      </div>`,
+    )
+    .join("");
+};
+
+// ── (kept for potential legacy use) ────────────────────────────────────────
 const renderTrackLeaderboards = (leaderboards) => {
   if (!Array.isArray(leaderboards) || leaderboards.length === 0) {
     return '<p class="ta-empty">No track boards yet.</p>';
@@ -380,6 +518,81 @@ const renderDetailRows = (rows) => {
   `;
 };
 
+const renderHistoryChart = (route) => {
+  const runs = route.runs;
+  if (!runs || runs.length < 2) return "";
+
+  const W = 320;
+  const H = 72;
+  const PAD = { top: 6, right: 6, bottom: 18, left: 6 };
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+
+  const dates = runs.map((r) => new Date(r.date + "T00:00:00Z").getTime());
+  const minDate = Math.min(...dates);
+  const maxDate = Math.max(...dates);
+  const dateSpan = maxDate - minDate || 1;
+
+  const times = runs.map((r) => r.lap_time_ms);
+  const minMs = Math.min(...times);
+  const maxMs = Math.max(...times);
+  const timeSpan = maxMs - minMs || 1;
+
+  const toX = (i) =>
+    PAD.left + ((dates[i] - minDate) / dateSpan) * plotW;
+  const toY = (ms) =>
+    PAD.top + ((maxMs - ms) / timeSpan) * plotH;
+
+  const pts = runs.map((r, i) => `${toX(i).toFixed(1)},${toY(r.lap_time_ms).toFixed(1)}`).join(" ");
+
+  const dots = runs
+    .map((r, i) => {
+      const cx = toX(i).toFixed(1);
+      const cy = toY(r.lap_time_ms).toFixed(1);
+      const cls = r.is_pb ? "ta-chart-dot is-pb" : "ta-chart-dot";
+      const tip = `${r.date} · ${r.lap_time_text} · ${escapeHtml(r.vehicle)}`;
+      return `<circle cx="${cx}" cy="${cy}" r="3.5" class="${cls}"><title>${tip}</title></circle>`;
+    })
+    .join("");
+
+  const firstMs = runs[0].lap_time_ms;
+  const lastMs = runs[runs.length - 1].lap_time_ms;
+  const diffMs = firstMs - lastMs;
+  const diffSign = diffMs > 0 ? "▼ " : diffMs < 0 ? "▲ " : "";
+  const diffText = diffMs !== 0 ? `${diffSign}${Math.abs(diffMs / 1000).toFixed(3)}s` : "持平";
+  const diffCls = diffMs > 0 ? "is-improve" : diffMs < 0 ? "is-regress" : "";
+
+  return `
+    <div class="ta-history-block">
+      <div class="ta-history-route-label">${escapeHtml(route.route_label)}</div>
+      <svg viewBox="0 0 ${W} ${H}" class="ta-history-svg" role="img" aria-label="${escapeHtml(route.route_label)} history">
+        <polyline points="${pts}" class="ta-chart-line"/>
+        ${dots}
+      </svg>
+      <div class="ta-chart-meta">
+        <span>${runs.length} runs</span>
+        <span class="ta-chart-diff ${diffCls}">${diffText}</span>
+        <span class="ta-chart-best">${runs[runs.length - 1].lap_time_text}</span>
+      </div>
+    </div>
+  `;
+};
+
+const renderHistorySection = (history) => {
+  if (!Array.isArray(history) || history.length === 0) return "";
+  const charts = history.map((route) => renderHistoryChart(route)).filter(Boolean).join("");
+  if (!charts) return "";
+  return `
+    <section class="ta-detail-card ta-history-section">
+      <div class="ta-lb-col-head">
+        <span class="zh">賽道歷史成績</span>
+        <span class="en">Track History</span>
+      </div>
+      <div class="ta-history-grid">${charts}</div>
+    </section>
+  `;
+};
+
 const renderProfileGrid = (cards, labels) => {
   if (!Array.isArray(cards) || cards.length === 0) {
     return '<p class="ta-empty">No profile cards yet.</p>';
@@ -437,12 +650,22 @@ const renderProfileGrid = (cards, labels) => {
                 </div>
                 ${renderChipList(card.tags)}
                 ${detailGrid}
-                <section class="ta-detail-card">
-                  <div class="ta-lb-col-head">
-                    ${renderBilingual(labels.listZh, labels.listEn)}
-                  </div>
-                  ${renderDetailRows(card.best_times)}
-                </section>
+                ${
+                  Array.isArray(card.track_groups) && card.track_groups.length
+                    ? `<section class="ta-detail-card ta-track-groups">
+                        <div class="ta-lb-col-head">
+                          ${renderBilingual(labels.listZh, labels.listEn)}
+                        </div>
+                        ${renderTrackGroupRows(card.track_groups, labels.subKey || "vehicle")}
+                      </section>`
+                    : `<section class="ta-detail-card">
+                        <div class="ta-lb-col-head">
+                          ${renderBilingual(labels.listZh, labels.listEn)}
+                        </div>
+                        ${renderDetailRows(card.best_times)}
+                      </section>`
+                }
+                ${renderHistorySection(card.history)}
               </article>
             `;
           },
@@ -458,8 +681,9 @@ const renderPlayerCards = (cards) =>
     usageEn: "Vehicle Usage",
     tagZh: "賽道標籤",
     tagEn: "Track Tags",
-    listZh: "個人最佳",
-    listEn: "Personal Bests",
+    listZh: "賽道個人最佳",
+    listEn: "Personal Bests By Track",
+    subKey: "vehicle",
   });
 
 const renderVehicleCards = (cards) =>
@@ -468,8 +692,9 @@ const renderVehicleCards = (cards) =>
     usageEn: "Variant Usage",
     tagZh: "常見車手",
     tagEn: "Frequent Drivers",
-    listZh: "母型最佳",
-    listEn: "Model Bests",
+    listZh: "賽道車輛最佳",
+    listEn: "Vehicle Bests By Track",
+    subKey: "driver",
   });
 
 const renderEventCards = (cards) =>
@@ -558,15 +783,19 @@ const renderPageModules = (view, data) => {
     return renderOverview(data);
   }
 
+  if (view === "tracks") {
+    const metricHtml = Array.isArray(data.metric_cards) && data.metric_cards.length
+      ? renderModule("分析摘要", "Metrics", "核心指標", "Key Numbers", renderSummaryCards(data.metric_cards))
+      : "";
+    const boardsHtml = Array.isArray(data.boards) && data.boards.length
+      ? renderTrackBoards(data)
+      : "";
+    return metricHtml + boardsHtml;
+  }
+
   const modules = [];
   if (Array.isArray(data.metric_cards) && data.metric_cards.length) {
     modules.push(renderModule("分析摘要", "Shared Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards)));
-  }
-  if (Array.isArray(data.catalog_cards) && data.catalog_cards.length) {
-    modules.push(renderModule("世界索引", "World Index", "賽道世界", "Track Worlds", renderCatalogCards(data.catalog_cards)));
-  }
-  if (Array.isArray(data.leaderboards) && data.leaderboards.length) {
-    modules.push(renderModule("雙榜單", "Dual Boards", "路線排行榜", "Route Boards", renderTrackLeaderboards(data.leaderboards)));
   }
   if (Array.isArray(data.player_cards) && data.player_cards.length) {
     modules.push(renderModule("個人頁", "Player Profiles", "玩家分析", "Player Analysis", renderPlayerCards(data.player_cards)));
@@ -652,6 +881,7 @@ const initTimeAttack = async () => {
       setHtml("[data-summary-root]", renderSummaryCards(summary.count_cards));
     }
     setHtml("[data-page-root]", renderPageModules(view, pageData));
+    if (view === "tracks") attachBoardToggleListeners();
     setHtml(
       "[data-sidebar-list]",
       `

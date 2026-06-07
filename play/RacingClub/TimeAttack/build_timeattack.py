@@ -775,218 +775,146 @@ def build_summary(
 
 
 def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
-    approved_board = [record for record in records if record["is_approved_board"]]
-    normal_board = [record for record in records if record["is_normal_board"]]
+    general_pool = [record for record in records if record["is_general_pool"]]
 
-    catalog_cards = []
-    for track_world_code, track in sorted(lookup["track_worlds"].items(), key=lambda item: item[1]["track_display_name"]):
-        routes = [
-            route
-            for route in lookup["routes"].values()
-            if route["track_world_code"] == track_world_code
-        ]
-        catalog_cards.append(
-            {
-                "label_zh": track["system_name"],
-                "label_en": track["system_name"],
-                "title_zh": track["track_display_name"],
-                "title_en": track["world_name"],
-                "body_zh": f"作者 {track['track_author']}，共 {len(routes)} 條可分析路線。",
-                "body_en": f"Author {track['track_author']}, with {len(routes)} analyzable routes in this world.",
-                "meta_zh": "標籤：" + " / ".join(track["track_tags"]),
-                "meta_en": "Tags: " + " / ".join(track["track_tags"]),
-                "chips": [route["route_display_name"] for route in routes],
-                "href": track["world_url"],
-                "href_label_zh": "VRChat 世界",
-                "href_label_en": "VRChat World",
-            }
+    boards: list[dict[str, Any]] = []
+    for tw_code, track in sorted(
+        lookup["track_worlds"].items(),
+        key=lambda item: item[1]["track_display_name"],
+    ):
+        track_routes = sorted(
+            [r for r in lookup["routes"].values() if r["track_world_code"] == tw_code],
+            key=lambda r: r["route_display_name"],
         )
+        route_boards = []
+        for route in track_routes:
+            rk = route_key(tw_code, route["route_code"])
+            route_records = [r for r in general_pool if r["route_key"] == rk]
+            if not route_records:
+                continue
 
-    leaderboards = []
-    approved_route_bests = best_by(approved_board, "route_key")
-    normal_route_bests = best_by(normal_board, "route_key")
+            player_bests: dict[str, dict[str, Any]] = {}
+            for rec in route_records:
+                pid = rec["player_id"]
+                if pid not in player_bests or rec["lap_time_ms"] < player_bests[pid]["lap_time_ms"]:
+                    player_bests[pid] = rec
 
-    for route_id, route in sorted(lookup["routes"].items(), key=lambda item: (lookup["track_worlds"][item[1]["track_world_code"]]["track_display_name"], item[1]["route_display_name"])):
-        track = lookup["track_worlds"][route["track_world_code"]]
-        route_approved = [record for record in approved_board if record["route_key"] == route_id]
-        route_normal = [record for record in normal_board if record["route_key"] == route_id]
-        approved_best = best_by(route_approved, "player_id")
-        approved_vehicle_best = best_by(route_approved, "vehicle_model_code")
-        normal_best = best_by(route_normal, "player_id")
-        normal_vehicle_best = best_by(route_normal, "vehicle_model_code")
+            vehicle_bests: dict[str, dict[str, Any]] = {}
+            for rec in route_records:
+                vm = rec["vehicle_model_code"]
+                if vm not in vehicle_bests or rec["lap_time_ms"] < vehicle_bests[vm]["lap_time_ms"]:
+                    vehicle_bests[vm] = rec
 
-        for record in approved_best.values():
-            record["delta_to_best_text"] = record.get("is_approved_board_delta_text", "-")
-        for record in approved_vehicle_best.values():
-            record["delta_to_best_text"] = record.get("is_approved_board_delta_text", "-")
-        for record in normal_best.values():
-            record["delta_to_best_text"] = record.get("is_normal_board_delta_text", "-")
-        for record in normal_vehicle_best.values():
-            record["delta_to_best_text"] = record.get("is_normal_board_delta_text", "-")
-
-        leaderboards.append(
-            {
-                "variant_name": track["track_display_name"],
-                "route_name": route["route_display_name"],
-                "world_name": track["world_name"],
-                "route_note_zh": route["route_note_zh"],
-                "route_note_en": route["route_note_en"],
-                "approved_fastest": (
-                    {
-                        "lap_time_text": approved_route_bests[route_id]["lap_time_text"],
-                        "racer_display_name": approved_route_bests[route_id]["player_display_name"],
-                        "vehicle_display_name": approved_route_bests[route_id]["vehicle_model_name"],
-                    }
-                    if route_id in approved_route_bests
-                    else None
-                ),
-                "approved_player_best": rank_rows(
-                    list(approved_best.values()),
-                    "player_display_name",
-                    "vehicle_model_name",
-                ),
-                "approved_vehicle_best": rank_rows(
-                    list(approved_vehicle_best.values()),
-                    "vehicle_model_name",
-                    "player_display_name",
-                ),
-                "normal_fastest": (
-                    {
-                        "lap_time_text": normal_route_bests[route_id]["lap_time_text"],
-                        "racer_display_name": normal_route_bests[route_id]["player_display_name"],
-                        "vehicle_display_name": normal_route_bests[route_id]["vehicle_model_name"],
-                    }
-                    if route_id in normal_route_bests
-                    else None
-                ),
-                "normal_player_best": rank_rows(
-                    list(normal_best.values()),
-                    "player_display_name",
-                    "vehicle_model_name",
-                ),
-                "normal_vehicle_best": rank_rows(
-                    list(normal_vehicle_best.values()),
-                    "vehicle_model_name",
-                    "player_display_name",
-                ),
-                "pending_submissions": sum(
-                    1
-                    for record in records
-                    if record["route_key"] == route_id
-                    and record["record_channel"] == "approved_record"
-                    and record["review_status"] == "pending"
-                ),
-            }
-        )
-
-    timeline_items = []
-    for route_id, route_records in defaultdict(list, ((record["route_key"], []) for record in approved_board)).items():
-        pass
-
-    route_histories: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for record in approved_board:
-        route_histories[record["route_key"]].append(record)
-
-    for route_id, route_records in route_histories.items():
-        current_best: dict[str, Any] | None = None
-        for record in sorted(route_records, key=lambda item: (item["record_date"], item["lap_time_ms"], item["record_id"])):
-            if current_best is None or record["lap_time_ms"] < current_best["lap_time_ms"]:
-                route = lookup["routes"][route_id]
-                track = lookup["track_worlds"][route["track_world_code"]]
-                timeline_items.append(
-                    {
-                        "date": record["record_date"],
-                        "label_zh": "賽道紀錄變化",
-                        "label_en": "Record Change",
-                        "title_zh": f"{track['track_display_name']} / {route['route_display_name']}",
-                        "title_en": f"{track['world_name']} / {route['route_display_name']}",
-                        "meta_zh": f"{record['player_display_name']} 以 {record['vehicle_model_name']} 跑出 {record['lap_time_text']}",
-                        "meta_en": f"{record['player_display_name']} set {record['lap_time_text']} in {record['vehicle_model_name']}",
-                        "body_zh": "Approved Record 路線榜單更新。",
-                        "body_en": "Approved Record route benchmark updated.",
-                    }
+            player_rows = [
+                {
+                    "rank": i,
+                    "name": rec["player_display_name"],
+                    "lap_time_ms": rec["lap_time_ms"],
+                    "lap_time_text": rec["lap_time_text"],
+                    "vehicle": rec["vehicle_model_name"],
+                    "platform": rec["platform_code"],
+                    "date": rec["record_date"],
+                }
+                for i, rec in enumerate(
+                    sorted(player_bests.values(), key=lambda r: (r["lap_time_ms"], r["record_date"])),
+                    start=1,
                 )
-                current_best = record
+            ][:20]
 
-    timeline_items.sort(key=lambda item: item["date"], reverse=True)
+            vehicle_rows = [
+                {
+                    "rank": i,
+                    "name": rec["vehicle_model_name"],
+                    "lap_time_ms": rec["lap_time_ms"],
+                    "lap_time_text": rec["lap_time_text"],
+                    "driver": rec["player_display_name"],
+                    "platform": rec["platform_code"],
+                    "date": rec["record_date"],
+                }
+                for i, rec in enumerate(
+                    sorted(vehicle_bests.values(), key=lambda r: (r["lap_time_ms"], r["record_date"])),
+                    start=1,
+                )
+            ][:20]
+
+            route_boards.append({
+                "route_code": route["route_code"],
+                "route_display_name": route["route_display_name"],
+                "record_count": len(route_records),
+                "player_rows": player_rows,
+                "vehicle_rows": vehicle_rows,
+            })
+
+        if not route_boards:
+            continue
+
+        tech_tags = [t.strip() for t in (track.get("track_tags") or "").split("|") if t.strip()]
+        boards.append({
+            "track_world_code": tw_code,
+            "track_display_name": track["track_display_name"],
+            "world_name": track["world_name"],
+            "track_env": track.get("track_env") or "",
+            "track_shape": track.get("track_shape") or "",
+            "track_distance": track.get("track_distance") or "",
+            "difficulty": track.get("difficulty") or "",
+            "tech_tags": tech_tags,
+            "routes": route_boards,
+        })
+
+    all_platforms = sorted({
+        r["platform_code"] for r in records
+        if r["platform_code"] and r["platform_code"] not in ("", "unknown")
+    })
+
+    active_routes = len({rk for r in general_pool for rk in [r["route_key"]]})
 
     return {
-        "title_zh": "賽道路線分析",
-        "title_en": "Track And Route Analysis",
-        "description_zh": "以賽道世界和路線為單位，分開展示 Approved Record 與 Normal Time Attack 兩種榜單。",
-        "description_en": "Track-world and route analysis split into separate Approved Record and Normal Time Attack boards.",
+        "title_zh": "賽道計時排行榜",
+        "title_en": "Track Leaderboards",
+        "description_zh": "以賽道為卡片，顯示每位玩家與每台車的最快單圈。預設全平台，可切換篩選。",
+        "description_en": "One card per track. Each card shows the fastest lap per player and per vehicle. Defaults to all platforms; filter to a single platform via the toggle.",
         "sidebar_zh": [
-            "賽道以世界為主鍵，同名道路但不同世界不會混在一起。",
-            "車輛榜以母型統計，子列仍保留玩家名稱與目前最快成績。",
-            "待審核的正式提交不會直接進 Approved Record 榜單，但會進審核頁。",
+            "個人榜：每位玩家在該路線的最快一筆。",
+            "車輛榜：每台車型在該路線的最快一筆。",
+            "平台篩選不影響排名號碼，僅隱藏其他平台的行。",
         ],
         "sidebar_en": [
-            "Tracks are keyed at the world level; same roads in different worlds stay separate.",
-            "Vehicle boards are grouped by canonical model while still showing the current driver and fastest time.",
-            "Pending formal submissions do not enter the Approved board until review is complete.",
+            "Player board: one fastest run per player per route.",
+            "Vehicle board: one fastest run per vehicle model per route.",
+            "Platform filter hides rows; rank numbers are not recalculated.",
         ],
         "metric_cards": [
             {
                 "label_zh": "賽道世界",
                 "label_en": "Track Worlds",
-                "value": str(len(lookup["track_worlds"])),
-                "note_zh": "以世界識別的路線集合",
-                "note_en": "World-level route families",
+                "value": str(len(boards)),
+                "note_zh": "有計時紀錄的世界數",
+                "note_en": "Worlds that have at least one timed run",
             },
             {
-                "label_zh": "路線數",
-                "label_en": "Routes",
-                "value": str(len(lookup["routes"])),
-                "note_zh": "可產生榜單的 route 組合",
-                "note_en": "Route combinations that produce boards",
+                "label_zh": "活躍路線",
+                "label_en": "Active Routes",
+                "value": str(active_routes),
+                "note_zh": "有至少一筆紀錄的路線",
+                "note_en": "Routes with at least one recorded run",
             },
             {
-                "label_zh": "Approved 路線榜",
-                "label_en": "Approved Routes",
-                "value": str(len({record["route_key"] for record in approved_board})),
-                "note_zh": "已有正式審核紀錄的路線",
-                "note_en": "Routes that already have approved formal records",
+                "label_zh": "總紀錄數",
+                "label_en": "Total Runs",
+                "value": str(len(general_pool)),
+                "note_zh": "一般計時池內的全部紀錄",
+                "note_en": "All runs in the general pool",
             },
             {
-                "label_zh": "待審送件",
-                "label_en": "Pending Formal",
-                "value": str(
-                    len(
-                        {
-                            record["record_id"]
-                            for record in records
-                            if record["record_channel"] == "approved_record"
-                            and record["review_status"] == "pending"
-                        }
-                    )
-                ),
-                "note_zh": "等待人工審核的正式提交",
-                "note_en": "Formal submissions waiting for manual review",
+                "label_zh": "平台數",
+                "label_en": "Platforms",
+                "value": str(len(all_platforms)),
+                "note_zh": "有紀錄的平台種類",
+                "note_en": "Distinct platforms with records",
             },
         ],
-        "catalog_cards": catalog_cards,
-        "leaderboards": leaderboards,
-        "timeline": timeline_items[:8],
-        "sections": [
-            {
-                "label_zh": "後續擴充",
-                "label_en": "Next Analysis",
-                "title_zh": "預留的賽道分析",
-                "title_en": "Reserved Track Analysis",
-                "body_zh": "這個頁面接下來可以再補賽道熱門車種、紀錄刷新頻率、車輛與賽道標籤的關係。",
-                "body_en": "This page can later expand into route popularity, record refresh frequency, and correlations between vehicles and track tags.",
-                "items_zh": [
-                    "賽道紀錄變化時間線",
-                    "賽道熱門車種 / 車輛比例",
-                    "車種與 uphill / downhill / night 等標籤關聯",
-                ],
-                "items_en": [
-                    "Track-record change timeline",
-                    "Popular vehicle classes and models per route",
-                    "Vehicle correlations against uphill / downhill / night-style tags",
-                ],
-            }
-        ],
+        "platforms": all_platforms,
+        "boards": boards,
     }
 
 
@@ -1060,6 +988,26 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 }
             )
 
+        # Group personal bests by track_env for the track_groups view
+        env_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for rec in sorted(
+            best_times.values(),
+            key=lambda r: (r["track_display_name"], r["route_display_name"]),
+        ):
+            env = lookup["track_worlds"].get(rec["track_world_code"], {}).get("track_env") or "其他"
+            env_groups[env].append({
+                "track_name": rec["route_label_zh"],
+                "lap_time_ms": rec["lap_time_ms"],
+                "lap_time_text": rec["lap_time_text"],
+                "vehicle": rec["vehicle_model_name"],
+                "platform": rec["platform_code"],
+                "date": rec["record_date"],
+            })
+        track_groups = [
+            {"env": env, "rows": rows}
+            for env, rows in sorted(env_groups.items())
+        ]
+
         player_cards.append(
             {
                 "player_id": player_id,
@@ -1079,6 +1027,7 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 "usage_rows": top_counter_items(vehicle_counter),
                 "tag_rows": top_counter_items(tag_counter),
                 "best_times": best_rows,
+                "track_groups": track_groups,
                 "history": history,
             }
         )
@@ -1192,12 +1141,39 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 }
             )
 
+        # drivetrain from the first variant (1:1 mapping currently)
+        first_variant = lookup["vehicle_variants"].get(
+            model_records[0]["vehicle_variant_code"] if model_records else model_code, {}
+        )
+        drivetrain = first_variant.get("drivetrain") or ""
+
+        # Group bests by track_env for track_groups view
+        veh_env_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for rec in sorted(
+            best_times.values(),
+            key=lambda r: (r["track_display_name"], r["route_display_name"]),
+        ):
+            env = lookup["track_worlds"].get(rec["track_world_code"], {}).get("track_env") or "其他"
+            veh_env_groups[env].append({
+                "track_name": rec["route_label_zh"],
+                "lap_time_ms": rec["lap_time_ms"],
+                "lap_time_text": rec["lap_time_text"],
+                "driver": rec["player_display_name"],
+                "platform": rec["platform_code"],
+                "date": rec["record_date"],
+            })
+        veh_track_groups = [
+            {"env": env, "rows": rows}
+            for env, rows in sorted(veh_env_groups.items())
+        ]
+
         vehicle_cards.append(
             {
                 "vehicle_model_code": model_code,
                 "title": model["vehicle_model_name"],
                 "subtitle_zh": model["vehicle_class"],
                 "subtitle_en": model["vehicle_class"],
+                "drivetrain": drivetrain,
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(model_records))},
                     {"label_zh": "母型變體", "label_en": "Variants", "value": str(len(model["variant_names"]))},
@@ -1211,6 +1187,7 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "usage_rows": top_counter_items(variant_counter),
                 "tag_rows": top_counter_items(driver_counter),
                 "best_times": best_rows,
+                "track_groups": veh_track_groups,
             }
         )
 
