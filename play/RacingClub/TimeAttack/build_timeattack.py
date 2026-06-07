@@ -991,6 +991,9 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
             "routes": route_boards,
         })
 
+    # Most-popular tracks first, ranked by total run count across the world's routes.
+    boards.sort(key=lambda b: -sum(route["record_count"] for route in b["routes"]))
+
     all_platforms = sorted({
         r["platform_code"] for r in records
         if r["platform_code"] and r["platform_code"] not in ("", "unknown")
