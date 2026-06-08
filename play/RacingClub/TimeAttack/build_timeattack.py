@@ -193,6 +193,134 @@ def favorite_label(counter: Counter[str], fallback: str = "-") -> str:
     return counter.most_common(1)[0][0]
 
 
+BADGE_META = {
+    "TR": {
+        "label_zh": "賽道紀錄",
+        "label_en": "Track Record",
+        "tone": "tr",
+    },
+    "CR": {
+        "label_zh": "車輛紀錄",
+        "label_en": "Car Record",
+        "tone": "cr",
+    },
+    "PR": {
+        "label_zh": "個人紀錄",
+        "label_en": "Personal Record",
+        "tone": "pr",
+    },
+}
+
+
+def normalize_tags(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    return parse_list(str(value or ""))
+
+
+def sort_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(records, key=lambda item: (item["lap_time_ms"], item["record_date"], item["record_id"]))
+
+
+def build_route_badge_index(records: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in records:
+        grouped[record["route_key"]].append(record)
+
+    route_badges: dict[str, dict[str, Any]] = {}
+    for route_id, route_records in grouped.items():
+        ranked = sort_records(route_records)
+        tr_record_id = ranked[0]["record_id"] if ranked else None
+        cr_record_ids: dict[str, str] = {}
+        pr_record_ids: dict[str, str] = {}
+
+        for record in ranked:
+            cr_record_ids.setdefault(record["vehicle_model_code"], record["record_id"])
+            pr_record_ids.setdefault(record["player_id"], record["record_id"])
+
+        route_badges[route_id] = {
+            "tr_record_id": tr_record_id,
+            "cr_record_ids": cr_record_ids,
+            "pr_record_ids": pr_record_ids,
+        }
+
+    return route_badges
+
+
+def badge_code_for_record(record: dict[str, Any], route_badges: dict[str, dict[str, Any]]) -> str:
+    route_meta = route_badges.get(record["route_key"], {})
+    if route_meta.get("tr_record_id") == record["record_id"]:
+        return "TR"
+    if route_meta.get("cr_record_ids", {}).get(record["vehicle_model_code"]) == record["record_id"]:
+        return "CR"
+    if route_meta.get("pr_record_ids", {}).get(record["player_id"]) == record["record_id"]:
+        return "PR"
+    return ""
+
+
+def badge_payload(code: str) -> dict[str, str]:
+    meta = BADGE_META.get(code)
+    if not meta:
+        return {
+            "badge_code": "",
+            "badge_label_zh": "",
+            "badge_label_en": "",
+            "badge_tone": "",
+        }
+    return {
+        "badge_code": code,
+        "badge_label_zh": meta["label_zh"],
+        "badge_label_en": meta["label_en"],
+        "badge_tone": meta["tone"],
+    }
+
+
+def build_badged_row(
+    record: dict[str, Any],
+    route_badges: dict[str, dict[str, Any]],
+    *,
+    rank: int,
+    peer_label: str,
+) -> dict[str, Any]:
+    badge_code = badge_code_for_record(record, route_badges)
+    return {
+        "rank": rank,
+        "route_label_zh": record["route_label_zh"],
+        "route_label_en": record["route_label_en"],
+        "player_display_name": record["player_display_name"],
+        "vehicle_model_name": record["vehicle_model_name"],
+        "lap_time_ms": record["lap_time_ms"],
+        "lap_time_text": record["lap_time_text"],
+        "delta_to_best_text": record.get("delta_to_best_text", "-"),
+        "platform": record["platform_code"] or "unknown",
+        "record_date": record["record_date"],
+        "track_env": record.get("track_env") or "其他",
+        "track_tags": normalize_tags(record.get("track_tags")),
+        "peer_label": peer_label,
+        **badge_payload(badge_code),
+    }
+
+
+def popularity_bucket(run_count: int) -> dict[str, str]:
+    if run_count >= 10:
+        return {
+            "key": "spotlight",
+            "label_zh": "熱門車種",
+            "label_en": "Spotlight Cars",
+        }
+    if run_count >= 4:
+        return {
+            "key": "active",
+            "label_zh": "活躍車種",
+            "label_en": "Active Cars",
+        }
+    return {
+        "key": "rare",
+        "label_zh": "少量紀錄",
+        "label_en": "Rare Cars",
+    }
+
+
 def load_normalized_source_data(
     source_dir: Path,
 ) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
@@ -906,6 +1034,7 @@ def build_info_page(
 
 def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
     general_pool = [record for record in records if record["is_general_pool"]]
+    route_badges = build_route_badge_index(general_pool)
 
     boards: list[dict[str, Any]] = []
     for tw_code, track in sorted(
@@ -919,66 +1048,71 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
         route_boards = []
         for route in track_routes:
             rk = route_key(tw_code, route["route_code"])
-            route_records = [r for r in general_pool if r["route_key"] == rk]
+            route_records = sort_records([r for r in general_pool if r["route_key"] == rk])
             if not route_records:
                 continue
 
-            player_bests: dict[str, dict[str, Any]] = {}
-            for rec in route_records:
-                pid = rec["player_id"]
-                if pid not in player_bests or rec["lap_time_ms"] < player_bests[pid]["lap_time_ms"]:
-                    player_bests[pid] = rec
+            player_bests = best_by(route_records, "player_id")
+            vehicle_bests = best_by(route_records, "vehicle_model_code")
 
-            vehicle_bests: dict[str, dict[str, Any]] = {}
-            for rec in route_records:
-                vm = rec["vehicle_model_code"]
-                if vm not in vehicle_bests or rec["lap_time_ms"] < vehicle_bests[vm]["lap_time_ms"]:
-                    vehicle_bests[vm] = rec
-
-            player_rows = [
-                {
-                    "rank": i,
-                    "name": rec["player_display_name"],
-                    "lap_time_ms": rec["lap_time_ms"],
-                    "lap_time_text": rec["lap_time_text"],
-                    "vehicle": rec["vehicle_model_name"],
-                    "platform": rec["platform_code"],
-                    "date": rec["record_date"],
-                }
-                for i, rec in enumerate(
-                    sorted(player_bests.values(), key=lambda r: (r["lap_time_ms"], r["record_date"])),
-                    start=1,
+            route_rows = []
+            for index, record in enumerate(route_records, start=1):
+                route_rows.append(
+                    build_badged_row(
+                        {
+                            **record,
+                            "track_env": track.get("track_env") or "其他",
+                        },
+                        route_badges,
+                        rank=index,
+                        peer_label=record["vehicle_model_name"],
+                    )
                 )
-            ][:20]
 
-            vehicle_rows = [
-                {
-                    "rank": i,
-                    "name": rec["vehicle_model_name"],
-                    "lap_time_ms": rec["lap_time_ms"],
-                    "lap_time_text": rec["lap_time_text"],
-                    "driver": rec["player_display_name"],
-                    "platform": rec["platform_code"],
-                    "date": rec["record_date"],
-                }
-                for i, rec in enumerate(
-                    sorted(vehicle_bests.values(), key=lambda r: (r["lap_time_ms"], r["record_date"])),
-                    start=1,
+            player_rows = []
+            for index, record in enumerate(sort_records(list(player_bests.values())), start=1):
+                player_rows.append(
+                    build_badged_row(
+                        {
+                            **record,
+                            "track_env": track.get("track_env") or "其他",
+                        },
+                        route_badges,
+                        rank=index,
+                        peer_label=record["vehicle_model_name"],
+                    )
                 )
-            ][:20]
+
+            vehicle_rows = []
+            for index, record in enumerate(sort_records(list(vehicle_bests.values())), start=1):
+                vehicle_rows.append(
+                    build_badged_row(
+                        {
+                            **record,
+                            "track_env": track.get("track_env") or "其他",
+                        },
+                        route_badges,
+                        rank=index,
+                        peer_label=record["player_display_name"],
+                    )
+                )
 
             route_boards.append({
                 "route_code": route["route_code"],
                 "route_display_name": route["route_display_name"],
+                "route_note_zh": route.get("route_note_zh") or "",
+                "route_note_en": route.get("route_note_en") or "",
                 "record_count": len(route_records),
+                "route_rows": route_rows,
                 "player_rows": player_rows,
                 "vehicle_rows": vehicle_rows,
+                "fastest": route_rows[0],
             })
 
         if not route_boards:
             continue
 
-        tech_tags = [t.strip() for t in (track.get("track_tags") or "").split("|") if t.strip()]
+        tech_tags = normalize_tags(track.get("track_tags"))
         boards.append({
             "track_world_code": tw_code,
             "track_display_name": track["track_display_name"],
@@ -1004,17 +1138,17 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
     return {
         "title_zh": "賽道計時排行榜",
         "title_en": "Track Leaderboards",
-        "description_zh": "以賽道為卡片，顯示每位玩家與每台車的最快單圈。預設全平台，可切換篩選。",
-        "description_en": "One card per track. Each card shows the fastest lap per player and per vehicle. Defaults to all platforms; filter to a single platform via the toggle.",
+        "description_zh": "賽道頁改以 leaderboard demo 的結構顯示三種視角：全紀錄榜、車輛榜、玩家榜，並直接標示 TR / CR / PR。",
+        "description_en": "The tracks page now follows the leaderboard-demo structure: full route board, car board, and player board, with direct TR / CR / PR badges.",
         "sidebar_zh": [
-            "個人榜：每位玩家在該路線的最快一筆。",
-            "車輛榜：每台車型在該路線的最快一筆。",
-            "平台篩選不影響排名號碼，僅隱藏其他平台的行。",
+            "TR：該路線全部有效紀錄裡最快的一筆。",
+            "CR：該路線中，同一車型的最快一筆；若同時是 TR，則只顯示 TR。",
+            "PR：該路線中，同一玩家的最快一筆；若同時是 TR 或 CR，則由高優先級覆蓋。",
         ],
         "sidebar_en": [
-            "Player board: one fastest run per player per route.",
-            "Vehicle board: one fastest run per vehicle model per route.",
-            "Platform filter hides rows; rank numbers are not recalculated.",
+            "TR is the single fastest valid run on a route.",
+            "CR is the fastest run for a vehicle model on that route, unless the same run is already TR.",
+            "PR is the fastest run for a player on that route, unless a higher-priority badge already applies.",
         ],
         "metric_cards": [
             {
@@ -1032,11 +1166,11 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
                 "note_en": "Routes with at least one recorded run",
             },
             {
-                "label_zh": "總紀錄數",
-                "label_en": "Total Runs",
+                "label_zh": "有效紀錄",
+                "label_en": "Valid Runs",
                 "value": str(len(general_pool)),
-                "note_zh": "一般計時池內的全部紀錄",
-                "note_en": "All runs in the general pool",
+                "note_zh": "未被拒絕、可進 leaderboard 的紀錄總數",
+                "note_en": "All non-rejected runs that can enter the leaderboard",
             },
             {
                 "label_zh": "平台數",
@@ -1053,6 +1187,7 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
 
 def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
     general_pool = [record for record in records if record["is_general_pool"]]
+    route_badges = build_route_badge_index(general_pool)
 
     player_cards = []
     for player_id, player in sorted(lookup["players"].items(), key=lambda item: item[1]["display_name_primary"]):
@@ -1061,23 +1196,28 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
             continue
 
         best_times = best_by(player_records, "route_key")
+        route_best_records = sort_records(list(best_times.values()))
         official_records = [record for record in records if record["is_approved_board"] and record["player_id"] == player_id]
         vehicle_counter = Counter(record["vehicle_model_name"] for record in player_records)
         tag_counter = Counter(tag for record in player_records for tag in record["track_tags"])
-        best_vehicle_count = len({record["vehicle_model_code"] for record in best_times.values()})
+        env_counter = Counter(
+            lookup["track_worlds"].get(record["track_world_code"], {}).get("track_env") or "其他"
+            for record in player_records
+        )
+        badge_counts = Counter(badge_code_for_record(record, route_badges) for record in route_best_records)
 
-        best_rows = []
-        for index, record in enumerate(
-            sorted(best_times.values(), key=lambda item: (item["track_display_name"], item["route_display_name"])),
-            start=1,
-        ):
-            best_rows.append(
-                {
-                    "rank": index,
-                    "route_label": record["route_label_zh"],
-                    "sub_label": f"{record['vehicle_model_name']} / {record['channel_label_zh']}",
-                    "lap_time_text": record["lap_time_text"],
-                }
+        record_rows = []
+        for index, record in enumerate(route_best_records, start=1):
+            record_rows.append(
+                build_badged_row(
+                    {
+                        **record,
+                        "track_env": lookup["track_worlds"].get(record["track_world_code"], {}).get("track_env") or "其他",
+                    },
+                    route_badges,
+                    rank=index,
+                    peer_label=record["vehicle_model_name"],
+                )
             )
 
         # Build chronological history per route (only routes with >=2 runs)
@@ -1119,53 +1259,42 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 }
             )
 
-        # Group personal bests by track_env for the track_groups view
-        env_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
-        for rec in sorted(
-            best_times.values(),
-            key=lambda r: (r["track_display_name"], r["route_display_name"]),
-        ):
-            env = lookup["track_worlds"].get(rec["track_world_code"], {}).get("track_env") or "其他"
-            env_groups[env].append({
-                "track_name": rec["route_label_zh"],
-                "lap_time_ms": rec["lap_time_ms"],
-                "lap_time_text": rec["lap_time_text"],
-                "vehicle": rec["vehicle_model_name"],
-                "platform": rec["platform_code"],
-                "date": rec["record_date"],
-            })
-        track_groups = [
-            {"env": env, "rows": rows}
-            for env, rows in sorted(env_groups.items())
-        ]
-
         player_cards.append(
             {
                 "player_id": player_id,
                 "title": player["display_name_primary"],
-                "subtitle_zh": player["team_name"] or "未分隊",
-                "subtitle_en": player["team_name"] or "Unassigned",
+                "team_name": player["team_name"] or "",
+                "subtitle_zh": player["team_name"] or "未分隊車手",
+                "subtitle_en": player["team_name"] or "Independent Driver",
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(player_records))},
                     {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
-                    {"label_zh": "賽道最佳", "label_en": "Track Bests", "value": str(len(best_times))},
-                    {"label_zh": "車種最佳", "label_en": "Vehicle Bests", "value": str(best_vehicle_count)},
+                    {"label_zh": "賽道最佳", "label_en": "Track Records", "value": str(badge_counts["TR"])},
+                    {"label_zh": "車種最佳", "label_en": "Car Records", "value": str(badge_counts["CR"])},
                 ],
-                "tags": [
-                    f"常用車種：{favorite_label(vehicle_counter)}",
-                    f"偏好標籤：{favorite_label(tag_counter)}",
+                "badge_counts": {
+                    "TR": badge_counts["TR"],
+                    "CR": badge_counts["CR"],
+                    "PR": badge_counts["PR"],
+                },
+                "tag_chips": [
+                    {"label": player["team_name"] or "未分隊", "tone": "team"},
+                    {"label": f"主力車種 {favorite_label(vehicle_counter)}", "tone": "vehicle"},
+                    {"label": f"偏好環境 {favorite_label(env_counter)}", "tone": "env"},
+                    {"label": f"路線標籤 {favorite_label(tag_counter)}", "tone": "skill"},
                 ],
-                "usage_rows": top_counter_items(vehicle_counter),
-                "tag_rows": top_counter_items(tag_counter),
-                "best_times": best_rows,
-                "track_groups": track_groups,
+                "usage_rows": top_counter_items(vehicle_counter, limit=4),
+                "tag_rows": top_counter_items(tag_counter, limit=4),
+                "record_rows": record_rows,
                 "history": history,
             }
         )
 
     player_cards.sort(
         key=lambda card: (
-            -int(card["stats"][2]["value"]),
+            -card["badge_counts"]["TR"],
+            -card["badge_counts"]["CR"],
+            -card["badge_counts"]["PR"],
             -int(card["stats"][1]["value"]),
             -int(card["stats"][0]["value"]),
             card["title"],
@@ -1175,17 +1304,17 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
     return {
         "title_zh": "玩家個人頁",
         "title_en": "Player Analysis",
-        "description_zh": "玩家頁吸收未被否決的所有有效紀錄，用來看個人最佳、常用車種與賽道性質關係。",
-        "description_en": "Player pages absorb all non-rejected runs so they can track personal bests, favorite vehicles, and track-tag tendencies.",
+        "description_zh": "玩家頁改成滿版直排檔案卡。每條路線保留該玩家的最快一筆，並直接標示 TR / CR / PR。",
+        "description_en": "Player pages are now full-width profile cards. Each route keeps that player's fastest valid run and marks it as TR / CR / PR directly.",
         "sidebar_zh": [
             "玩家唯一值使用 `player_id`，顯示名稱只是 lookup 對應。",
-            "這裡的個人最佳會吸收未審核但未被拒絕的紀錄。",
-            "如果後續加入隊伍積分或賽季表現，會優先從這頁延伸。",
+            "這裡的 PR 是該玩家在該路線的最快一筆；若同時滿足車輛或賽道路線最高，會被 CR / TR 覆蓋。",
+            "正式紀錄只計入已核准的 `Approved Record`，未被拒絕的其他有效紀錄仍可進個人頁。",
         ],
         "sidebar_en": [
             "Players are keyed by `player_id`; display names only come from lookup.",
-            "Personal-best analysis can include runs that are still unreviewed as long as they were not rejected.",
-            "Future team points and season-performance layers should extend from this page.",
+            "PR is the player's fastest valid run on that route; it is overridden when the same run is also CR or TR.",
+            "Official counts only include approved formal submissions, while non-rejected runs still feed the player profile.",
         ],
         "metric_cards": [
             {
@@ -1203,18 +1332,24 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 "note_en": "Teams currently assigned in lookup",
             },
             {
-                "label_zh": "一般路線領跑",
-                "label_en": "Open Leaders",
+                "label_zh": "TR 數量",
+                "label_en": "Track Records",
                 "value": str(len(best_by([record for record in records if record["is_general_pool"]], "route_key"))),
-                "note_zh": "一般池內目前已有領跑者的路線",
-                "note_en": "Routes that already have an open-pool leader",
+                "note_zh": "一般有效池內已確立的賽道路線最快數",
+                "note_en": "Route-level fastest runs established in the valid pool",
             },
             {
-                "label_zh": "Approved 領跑",
-                "label_en": "Approved Leaders",
-                "value": str(len(best_by([record for record in records if record["is_approved_board"]], "route_key"))),
-                "note_zh": "正式榜單已建立的路線領跑",
-                "note_en": "Routes with established leaders on the approved board",
+                "label_zh": "CR 數量",
+                "label_en": "Car Records",
+                "value": str(
+                    sum(
+                        1
+                        for record in best_by([record for record in records if record["is_general_pool"]], "record_id").values()
+                        if badge_code_for_record(record, route_badges) == "CR"
+                    )
+                ),
+                "note_zh": "目前一般有效池內的車輛路線紀錄數",
+                "note_en": "Vehicle-model route records currently present in the valid pool",
             },
         ],
         "player_cards": player_cards,
@@ -1243,6 +1378,7 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
 
 def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> dict[str, Any]:
     general_pool = [record for record in records if record["is_general_pool"]]
+    route_badges = build_route_badge_index(general_pool)
 
     vehicle_cards = []
     for model_code, model in sorted(lookup["vehicle_models"].items(), key=lambda item: item[1]["vehicle_model_name"]):
@@ -1251,23 +1387,29 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
             continue
 
         best_times = best_by(model_records, "route_key")
+        route_best_records = sort_records(list(best_times.values()))
         official_records = [record for record in records if record["is_approved_board"] and record["vehicle_model_code"] == model_code]
         variant_counter = Counter(record["vehicle_variant_name"] for record in model_records)
         driver_counter = Counter(record["player_display_name"] for record in model_records)
         tag_counter = Counter(tag for record in model_records for tag in record["track_tags"])
+        env_counter = Counter(
+            lookup["track_worlds"].get(record["track_world_code"], {}).get("track_env") or "其他"
+            for record in model_records
+        )
+        badge_counts = Counter(badge_code_for_record(record, route_badges) for record in route_best_records)
 
-        best_rows = []
-        for index, record in enumerate(
-            sorted(best_times.values(), key=lambda item: (item["track_display_name"], item["route_display_name"])),
-            start=1,
-        ):
-            best_rows.append(
-                {
-                    "rank": index,
-                    "route_label": record["route_label_zh"],
-                    "sub_label": f"{record['player_display_name']} / {record['vehicle_variant_name']}",
-                    "lap_time_text": record["lap_time_text"],
-                }
+        record_rows = []
+        for index, record in enumerate(route_best_records, start=1):
+            record_rows.append(
+                build_badged_row(
+                    {
+                        **record,
+                        "track_env": lookup["track_worlds"].get(record["track_world_code"], {}).get("track_env") or "其他",
+                    },
+                    route_badges,
+                    rank=index,
+                    peer_label=record["player_display_name"],
+                )
             )
 
         # drivetrain from the first variant (1:1 mapping currently)
@@ -1275,55 +1417,50 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
             model_records[0]["vehicle_variant_code"] if model_records else model_code, {}
         )
         drivetrain = first_variant.get("drivetrain") or ""
-
-        # Group bests by track_env for track_groups view
-        veh_env_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
-        for rec in sorted(
-            best_times.values(),
-            key=lambda r: (r["track_display_name"], r["route_display_name"]),
-        ):
-            env = lookup["track_worlds"].get(rec["track_world_code"], {}).get("track_env") or "其他"
-            veh_env_groups[env].append({
-                "track_name": rec["route_label_zh"],
-                "lap_time_ms": rec["lap_time_ms"],
-                "lap_time_text": rec["lap_time_text"],
-                "driver": rec["player_display_name"],
-                "platform": rec["platform_code"],
-                "date": rec["record_date"],
-            })
-        veh_track_groups = [
-            {"env": env, "rows": rows}
-            for env, rows in sorted(veh_env_groups.items())
-        ]
+        popularity = popularity_bucket(len(model_records))
 
         vehicle_cards.append(
             {
                 "vehicle_model_code": model_code,
                 "title": model["vehicle_model_name"],
+                "vehicle_class": model["vehicle_class"],
                 "subtitle_zh": model["vehicle_class"],
                 "subtitle_en": model["vehicle_class"],
                 "drivetrain": drivetrain,
+                "popularity_bucket_key": popularity["key"],
+                "popularity_bucket_zh": popularity["label_zh"],
+                "popularity_bucket_en": popularity["label_en"],
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(model_records))},
                     {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
-                    {"label_zh": "賽道最佳", "label_en": "Track Bests", "value": str(len(best_times))},
+                    {"label_zh": "賽道最佳", "label_en": "Track Records", "value": str(badge_counts["TR"])},
                 ],
-                "tags": [
-                    f"常見駕駛：{favorite_label(driver_counter)}",
-                    f"偏好賽道：{favorite_label(tag_counter)}",
+                "badge_counts": {
+                    "TR": badge_counts["TR"],
+                    "CR": badge_counts["CR"],
+                    "PR": badge_counts["PR"],
+                },
+                "tag_chips": [
+                    {"label": popularity["label_zh"], "tone": "team"},
+                    {"label": model["vehicle_class"], "tone": "vehicle"},
+                    {"label": f"驅動型式 {drivetrain or '-'}", "tone": "meta"},
+                    {"label": f"偏好環境 {favorite_label(env_counter)}", "tone": "env"},
+                    {"label": f"常見車手 {favorite_label(driver_counter)}", "tone": "skill"},
                 ],
-                "usage_rows": top_counter_items(variant_counter),
-                "tag_rows": top_counter_items(driver_counter),
-                "best_times": best_rows,
-                "track_groups": veh_track_groups,
+                "usage_rows": top_counter_items(variant_counter, limit=4),
+                "tag_rows": top_counter_items(driver_counter, limit=4),
+                "record_rows": record_rows,
             }
         )
 
+    bucket_order = {"spotlight": 0, "active": 1, "rare": 2}
     vehicle_cards.sort(
         key=lambda card: (
-            -int(card["stats"][2]["value"]),
-            -int(card["stats"][1]["value"]),
+            bucket_order.get(card["popularity_bucket_key"], 99),
             -int(card["stats"][0]["value"]),
+            -card["badge_counts"]["TR"],
+            -card["badge_counts"]["CR"],
+            -int(card["stats"][1]["value"]),
             card["title"],
         )
     )
@@ -1331,17 +1468,17 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
     return {
         "title_zh": "車輛統計頁",
         "title_en": "Vehicle Analysis",
-        "description_zh": "車輛頁以母型合併多個世界變體，同時保留最常用變體與目前最快車手資訊。",
-        "description_en": "Vehicle pages merge multiple world variants into canonical models while still retaining the fastest drivers and most-used variants.",
+        "description_zh": "車輛頁改成依熱門度分段的滿版卡。每條路線保留該車型的最快一筆，並直接標示 TR / CR。",
+        "description_en": "Vehicle pages are now full-width cards grouped by popularity. Each route keeps the fastest valid run for that car model and marks it as TR / CR.",
         "sidebar_zh": [
             "輸入層保留 `vehicle_variant_code`，統計層再映射到 `vehicle_model_code`。",
-            "這樣可以同時看見世界內的改裝差異，也能統整同一台車的母型表現。",
-            "如果未來要補車種熱門度與賽道性質關係，這頁會是主承載點。",
+            "這頁的 CR 是該車型在該路線的最快一筆；若同時也是整條路線最快，則升級顯示為 TR。",
+            "熱門度先以有效紀錄數粗分，讓熱門車型優先顯示在前段。",
         ],
         "sidebar_en": [
             "Input keeps `vehicle_variant_code`, while analysis maps variants back to `vehicle_model_code`.",
-            "That preserves world-specific tuning differences while still showing canonical car performance.",
-            "This page will eventually carry popularity and track-property correlations for vehicle classes.",
+            "CR is the fastest run for that model on a route; it upgrades to TR when the same run is also the route's fastest overall.",
+            "Popularity is currently bucketed by valid-run volume so heavily used cars surface first.",
         ],
         "metric_cards": [
             {
@@ -1367,10 +1504,10 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
             },
             {
                 "label_zh": "賽道最佳",
-                "label_en": "Track Bests",
-                "value": str(sum(int(card["stats"][2]["value"]) for card in vehicle_cards)),
-                "note_zh": "各母型在不同路線上留下的最佳紀錄數",
-                "note_en": "Per-model track-best entries accumulated across routes",
+                "label_en": "Track Records",
+                "value": str(sum(card["badge_counts"]["TR"] for card in vehicle_cards)),
+                "note_zh": "車型紀錄中，同時也是整條路線最快的筆數",
+                "note_en": "Runs that are both a model best and the fastest overall route record",
             },
         ],
         "vehicle_cards": vehicle_cards,

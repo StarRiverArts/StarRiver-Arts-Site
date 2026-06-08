@@ -1199,3 +1199,481 @@ body.timeattack-page {
   font-variant-numeric: tabular-nums;
   color: var(--ta-text);
 }
+
+/* ── Leaderboard demo adaptation ───────────────────────────── */
+
+.ta-board-view {
+  display: none;
+}
+
+[data-boards-container][data-active-view="route"] [data-board-view="route"] {
+  display: block;
+}
+
+[data-boards-container][data-active-view="player"] [data-board-view="player"] {
+  display: block;
+}
+
+[data-boards-container][data-active-view="vehicle"] [data-board-view="vehicle"] {
+  display: block;
+}
+
+[data-boards-container][data-active-plat="pcvr"] .ta-record-row:not([data-plat="pcvr"]) {
+  display: none;
+}
+
+[data-boards-container][data-active-plat="pc"] .ta-record-row:not([data-plat="pc"]) {
+  display: none;
+}
+
+[data-boards-container][data-active-plat="quest"] .ta-record-row:not([data-plat="quest"]) {
+  display: none;
+}
+
+.ta-board-legend,
+.ta-track-chiprow,
+.ta-record-chiprow,
+.ta-profile-chiprow,
+.ta-profile-badge-rail,
+.ta-profile-panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ta-board-legend {
+  margin: 0 0 18px;
+}
+
+.ta-track-board {
+  display: grid;
+  gap: 18px;
+}
+
+.ta-track-board-head {
+  gap: 12px;
+}
+
+.ta-route-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.ta-route-board {
+  background: rgba(255, 255, 255, 0.024);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: grid;
+  gap: 12px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.ta-route-head,
+.ta-fastest-strip,
+.ta-profile-feature-head,
+.ta-profile-group-head {
+  align-items: end;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.ta-route-note {
+  color: var(--ta-text-soft);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+
+.ta-route-stat,
+.ta-fastest-kicker,
+.ta-fastest-main span,
+.ta-record-meta,
+.ta-profile-record-peer,
+.ta-profile-record-gap {
+  color: var(--ta-text-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ta-fastest-strip {
+  align-items: center;
+  background: linear-gradient(90deg, rgba(185, 228, 232, 0.12), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(185, 228, 232, 0.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.ta-fastest-main {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.ta-fastest-main strong {
+  color: var(--ta-text-strong);
+  font-family: var(--font-deck);
+  font-size: 18px;
+  line-height: 1.05;
+}
+
+.ta-fastest-time {
+  color: var(--ta-text-strong);
+  font-family: var(--font-mono);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.ta-track-table-wrap,
+.ta-profile-record-wrap {
+  overflow-x: auto;
+}
+
+.ta-record-table,
+.ta-profile-record-table {
+  border-collapse: collapse;
+  min-width: 100%;
+  width: 100%;
+}
+
+.ta-record-table thead th,
+.ta-profile-record-table thead th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--ta-text-faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ta-record-table tbody td,
+.ta-profile-record-table tbody td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  vertical-align: top;
+}
+
+.ta-record-table tbody tr:last-child td,
+.ta-profile-record-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ta-record-row.is-leader td {
+  background: rgba(185, 228, 232, 0.05);
+}
+
+.ta-record-rank,
+.ta-profile-record-rank {
+  color: var(--ta-text-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ta-record-primary {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.ta-record-primary strong {
+  color: var(--ta-text-strong);
+  display: block;
+  font-family: var(--font-deck);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.ta-record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+
+.ta-record-peer,
+.ta-profile-record-peer {
+  min-width: 140px;
+}
+
+.ta-record-time,
+.ta-profile-record-time {
+  color: var(--ta-text-strong);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ta-record-gap,
+.ta-profile-record-gap {
+  white-space: nowrap;
+}
+
+.ta-record-badge,
+.ta-profile-stamp {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 8px;
+  min-height: 32px;
+  padding: 7px 12px;
+}
+
+.ta-record-badge {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+}
+
+.ta-record-badge-code,
+.ta-profile-stamp strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.ta-record-badge-text,
+.ta-profile-stamp small {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ta-record-badge.is-tr,
+.ta-profile-stamp.is-tr {
+  background: rgba(240, 169, 76, 0.16);
+  border-color: rgba(240, 169, 76, 0.36);
+  color: #ffd59a;
+}
+
+.ta-record-badge.is-cr,
+.ta-profile-stamp.is-cr {
+  background: rgba(126, 207, 218, 0.14);
+  border-color: rgba(126, 207, 218, 0.34);
+  color: #d4fbff;
+}
+
+.ta-record-badge.is-pr,
+.ta-profile-stamp.is-pr {
+  background: rgba(72, 187, 120, 0.14);
+  border-color: rgba(72, 187, 120, 0.34);
+  color: #c8ffd8;
+}
+
+.ta-record-badge.is-empty {
+  color: var(--ta-text-faint);
+}
+
+.ta-record-badge.is-empty,
+.ta-profile-stamp.is-reserved {
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+}
+
+.ta-tag-chip {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  min-height: 28px;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+
+.ta-tag-chip.is-team {
+  background: rgba(240, 169, 76, 0.12);
+  border: 1px solid rgba(240, 169, 76, 0.28);
+  color: #ffd59a;
+}
+
+.ta-tag-chip.is-vehicle {
+  background: rgba(126, 207, 218, 0.12);
+  border: 1px solid rgba(126, 207, 218, 0.24);
+  color: #d4fbff;
+}
+
+.ta-tag-chip.is-env {
+  background: rgba(72, 187, 120, 0.14);
+  border: 1px solid rgba(72, 187, 120, 0.26);
+  color: #cbffdd;
+}
+
+.ta-tag-chip.is-skill {
+  background: rgba(160, 122, 255, 0.14);
+  border: 1px solid rgba(160, 122, 255, 0.28);
+  color: #e3d5ff;
+}
+
+.ta-tag-chip.is-speed {
+  background: rgba(245, 101, 101, 0.14);
+  border: 1px solid rgba(245, 101, 101, 0.26);
+  color: #ffd0d0;
+}
+
+.ta-tag-chip.is-meta {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--ta-text);
+}
+
+.ta-profile-groups,
+.ta-profile-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.ta-profile-feature {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.026)),
+    rgba(8, 11, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: var(--ta-shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.ta-profile-feature::before {
+  background: linear-gradient(90deg, rgba(185, 228, 232, 0.92), rgba(240, 169, 76, 0.72));
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ta-profile-marquee {
+  background: linear-gradient(135deg, rgba(185, 228, 232, 0.08), rgba(255, 255, 255, 0.02));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+}
+
+.ta-profile-placeholder {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  color: var(--ta-text-faint);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  min-height: 52px;
+  padding: 10px 14px;
+  text-transform: uppercase;
+}
+
+.ta-profile-placeholder.is-main {
+  min-height: 68px;
+}
+
+.ta-profile-feature-main {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+}
+
+.ta-profile-panels {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.ta-profile-panel {
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 10px 0 8px;
+}
+
+.ta-profile-panel.is-records {
+  padding: 0;
+}
+
+.ta-profile-panel.is-records .ta-lb-col-head {
+  padding-top: 14px;
+}
+
+.ta-profile-group-head {
+  margin-bottom: -2px;
+}
+
+@media (max-width: 900px) {
+  .ta-route-head,
+  .ta-fastest-strip,
+  .ta-profile-feature-head,
+  .ta-profile-group-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .ta-fastest-time {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .ta-record-table thead,
+  .ta-profile-record-table thead {
+    display: none;
+  }
+
+  .ta-record-table tbody,
+  .ta-record-table tr,
+  .ta-record-table td,
+  .ta-profile-record-table tbody,
+  .ta-profile-record-table tr,
+  .ta-profile-record-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .ta-record-table tbody tr,
+  .ta-profile-record-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 0;
+  }
+
+  .ta-record-table tbody tr:last-child,
+  .ta-profile-record-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ta-record-table tbody td,
+  .ta-profile-record-table tbody td {
+    border: 0;
+    padding: 6px 0;
+  }
+
+  .ta-record-rank,
+  .ta-profile-record-rank {
+    text-align: left;
+  }
+
+  .ta-record-peer,
+  .ta-profile-record-peer,
+  .ta-record-gap,
+  .ta-profile-record-gap {
+    min-width: 0;
+  }
+}

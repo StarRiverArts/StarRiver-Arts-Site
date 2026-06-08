@@ -282,48 +282,174 @@ const renderBoardSection = (labelZh, labelEn, fastest, playerRows, vehicleRows) 
   </section>
 `;
 
-// ── Track board (new leaderboard-first structure) ─────────────────────────
+// ── Track board (leaderboard demo adaptation) ─────────────────────────────
 
-const renderBoardRows = (rows, nameKey, subKey) => {
-  if (!rows || rows.length === 0) {
+const badgeTone = (row) => (row.badge_tone || row.badge_code || "").toLowerCase() || "empty";
+
+const tagToneForText = (text) => {
+  const value = String(text || "");
+  if (!value) return "meta";
+  if (/(山道|公路|高速公路|賽道|卡丁車|其他|Clockwise|Counter|Downhill|Uphill)/i.test(value)) {
+    return "env";
+  }
+  if (/(高速|High|Speed|Long)/i.test(value)) {
+    return "speed";
+  }
+  if (/(技術|髮夾|Technical|Hairpin|Switchback)/i.test(value)) {
+    return "skill";
+  }
+  if (/(隧道|Tunnel|Night|City)/i.test(value)) {
+    return "meta";
+  }
+  return "skill";
+};
+
+const renderToneChip = (text, tone) =>
+  `<span class="ta-tag-chip is-${escapeHtml(tone || "meta")}">${escapeHtml(text || "")}</span>`;
+
+const renderRouteTagChips = (row) => {
+  const chips = [];
+  if (row.track_env) {
+    chips.push(renderToneChip(row.track_env, "env"));
+  }
+  (row.track_tags || []).slice(0, 2).forEach((tag) => {
+    chips.push(renderToneChip(tag, tagToneForText(tag)));
+  });
+  return chips.length ? `<div class="ta-record-chiprow">${chips.join("")}</div>` : "";
+};
+
+const renderRecordBadge = (row) => {
+  if (!row.badge_code) {
+    return '<span class="ta-record-badge is-empty">—</span>';
+  }
+  return `
+    <span class="ta-record-badge is-${escapeHtml(badgeTone(row))}">
+      <span class="ta-record-badge-code">${escapeHtml(row.badge_code)}</span>
+      <span class="ta-record-badge-text">${renderBilingual(row.badge_label_zh, row.badge_label_en)}</span>
+    </span>
+  `;
+};
+
+const renderTrackLegend = () => `
+  <div class="ta-board-legend" aria-label="Badge legend">
+    <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("賽道紀錄", "Track Record")}</span></span>
+    <span class="ta-record-badge is-cr"><span class="ta-record-badge-code">CR</span><span class="ta-record-badge-text">${renderBilingual("車輛紀錄", "Car Record")}</span></span>
+    <span class="ta-record-badge is-pr"><span class="ta-record-badge-code">PR</span><span class="ta-record-badge-text">${renderBilingual("個人紀錄", "Personal Record")}</span></span>
+  </div>
+`;
+
+const renderTrackLeaderboardTable = (rows, view) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
     return '<p class="ta-board-empty">No records yet.</p>';
   }
-  return `<div class="ta-board-rows">${rows
-    .map(
-      (row) => `
-      <div class="ta-board-row" data-plat="${escapeHtml(row.platform || "")}">
-        <span class="ta-row-rank">${row.rank}</span>
-        <span class="ta-row-name">${escapeHtml(row[nameKey] || "")}</span>
-        <span class="ta-row-sub">${escapeHtml(row[subKey] || "")}</span>
-        <span class="ta-row-plat">${escapeHtml((row.platform || "").toUpperCase())}</span>
-        <span class="ta-row-time">${escapeHtml(row.lap_time_text || "")}</span>
-      </div>`,
-    )
-    .join("")}</div>`;
+
+  const primaryTitle =
+    view === "vehicle"
+      ? renderBilingual("車輛", "Vehicle")
+      : renderBilingual("車手", "Driver");
+  const peerTitle =
+    view === "vehicle"
+      ? renderBilingual("最快車手", "Fastest Driver")
+      : renderBilingual("代表車輛", "Representative Car");
+
+  return `
+    <div class="ta-track-table-wrap">
+      <table class="ta-record-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>${primaryTitle}</th>
+            <th>${peerTitle}</th>
+            <th>${renderBilingual("時間", "Time")}</th>
+            <th>${renderBilingual("差距", "Gap")}</th>
+            <th>${renderBilingual("標記", "Badge")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map((row) => {
+              const primary =
+                view === "vehicle" ? row.vehicle_model_name || "" : row.player_display_name || "";
+              const peer =
+                view === "vehicle" ? row.player_display_name || "" : row.vehicle_model_name || "";
+              return `
+                <tr class="ta-record-row${row.rank === 1 ? " is-leader" : ""}" data-plat="${escapeHtml(row.platform || "")}">
+                  <td class="ta-record-rank">${escapeHtml(row.rank)}</td>
+                  <td>
+                    <div class="ta-record-primary">
+                      <strong>${escapeHtml(primary)}</strong>
+                      <div class="ta-record-meta">
+                        <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
+                        <span>${escapeHtml(row.record_date || "")}</span>
+                      </div>
+                      ${renderRouteTagChips(row)}
+                    </div>
+                  </td>
+                  <td class="ta-record-peer">${escapeHtml(peer)}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
+                  <td class="ta-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
+                  <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
+                </tr>
+              `;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
 };
 
 const renderTrackBoard = (board) => {
   const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
     .filter(Boolean)
-    .map((t) => `<span class="ta-chip ta-chip-meta">${escapeHtml(t)}</span>`)
+    .map((tag) => renderToneChip(tag, "meta"))
     .join("");
-  const techChips = (board.tech_tags || [])
-    .map((t) => `<span class="ta-chip">${escapeHtml(t)}</span>`)
-    .join("");
+  const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
 
   const routesHtml = (board.routes || [])
-    .map(
-      (route) => `
-      <div class="ta-route-section">
-        <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
-        <div class="ta-board-view" data-board-view="player">
-          ${renderBoardRows(route.player_rows, "name", "vehicle")}
-        </div>
-        <div class="ta-board-view" data-board-view="vehicle">
-          ${renderBoardRows(route.vehicle_rows, "name", "driver")}
-        </div>
-      </div>`,
-    )
+    .map((route) => {
+      const fastest = route.fastest;
+      const fastestStrip = fastest
+        ? `
+          <div class="ta-fastest-strip">
+            <div class="ta-fastest-kicker">
+              <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("目前最快", "Fastest Now")}</span></span>
+            </div>
+            <div class="ta-fastest-main">
+              <strong>${escapeHtml(fastest.player_display_name || "")}</strong>
+              <span>${escapeHtml(fastest.vehicle_model_name || "")}</span>
+            </div>
+            <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
+          </div>
+        `
+        : "";
+
+      return `
+        <section class="ta-route-board">
+          <div class="ta-route-head">
+            <div>
+              <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
+              ${
+                route.route_note_zh || route.route_note_en
+                  ? `<p class="ta-route-note">${renderBilingual(route.route_note_zh, route.route_note_en)}</p>`
+                  : ""
+              }
+            </div>
+            <div class="ta-route-stat">${escapeHtml(route.record_count || 0)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>
+          </div>
+          ${fastestStrip}
+          <div class="ta-board-view" data-board-view="route">
+            ${renderTrackLeaderboardTable(route.route_rows, "route")}
+          </div>
+          <div class="ta-board-view" data-board-view="vehicle">
+            ${renderTrackLeaderboardTable(route.vehicle_rows, "vehicle")}
+          </div>
+          <div class="ta-board-view" data-board-view="player">
+            ${renderTrackLeaderboardTable(route.player_rows, "player")}
+          </div>
+        </section>
+      `;
+    })
     .join("");
 
   return `
@@ -331,10 +457,11 @@ const renderTrackBoard = (board) => {
       <div class="ta-track-board-head">
         <div class="ta-label">${escapeHtml(board.world_name)}</div>
         <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
-        <div class="ta-chip-list">${metaChips}${techChips}</div>
+        <div class="ta-track-chiprow">${metaChips}${techChips}</div>
       </div>
-      ${routesHtml}
-    </article>`;
+      <div class="ta-route-stack">${routesHtml}</div>
+    </article>
+  `;
 };
 
 const renderTrackBoards = (data) => {
@@ -342,51 +469,59 @@ const renderTrackBoards = (data) => {
   const platforms = data.platforms || [];
 
   const platBtns = [
-    `<button class="ta-toggle-btn is-active" data-plat="all"><span class="zh">全部</span><span class="en">All</span></button>`,
+    `<button class="ta-toggle-btn is-active" data-plat="all"><span class="zh">全部平台</span><span class="en">All Platforms</span></button>`,
     ...platforms.map(
-      (p) =>
-        `<button class="ta-toggle-btn" data-plat="${escapeHtml(p)}">${escapeHtml(p.toUpperCase())}</button>`,
+      (platform) =>
+        `<button class="ta-toggle-btn" data-plat="${escapeHtml(platform)}">${escapeHtml(platform.toUpperCase())}</button>`,
     ),
   ].join("");
-
-  const boardsHtml = boards.map(renderTrackBoard).join("");
 
   return `
     <div class="ta-board-controls">
       <div class="ta-toggle-group" data-view-toggle>
-        <button class="ta-toggle-btn is-active" data-view="player">
-          <span class="zh">個人榜</span><span class="en">Players</span>
+        <button class="ta-toggle-btn is-active" data-view="route">
+          <span class="zh">賽道榜</span><span class="en">Route Board</span>
         </button>
         <button class="ta-toggle-btn" data-view="vehicle">
-          <span class="zh">車輛榜</span><span class="en">Vehicles</span>
+          <span class="zh">車輛榜</span><span class="en">Car Board</span>
+        </button>
+        <button class="ta-toggle-btn" data-view="player">
+          <span class="zh">玩家榜</span><span class="en">Player Board</span>
         </button>
       </div>
       <div class="ta-toggle-group" data-plat-toggle>${platBtns}</div>
     </div>
-    <div class="ta-boards-container" data-boards-container data-active-view="player" data-active-plat="all">
-      ${boardsHtml}
-    </div>`;
+    ${renderTrackLegend()}
+    <div class="ta-boards-container" data-boards-container data-active-view="route" data-active-plat="all">
+      ${(boards || []).map(renderTrackBoard).join("")}
+    </div>
+  `;
 };
 
 const attachBoardToggleListeners = () => {
   document.addEventListener("click", (e) => {
     const viewBtn = e.target.closest("[data-view-toggle] [data-view]");
     if (viewBtn) {
-      document.querySelectorAll("[data-view-toggle] .ta-toggle-btn").forEach((b) =>
-        b.classList.remove("is-active"),
+      document.querySelectorAll("[data-view-toggle] .ta-toggle-btn").forEach((button) =>
+        button.classList.remove("is-active"),
       );
       viewBtn.classList.add("is-active");
-      const c = document.querySelector("[data-boards-container]");
-      if (c) c.dataset.activeView = viewBtn.dataset.view;
+      const container = document.querySelector("[data-boards-container]");
+      if (container) {
+        container.dataset.activeView = viewBtn.dataset.view;
+      }
     }
+
     const platBtn = e.target.closest("[data-plat-toggle] [data-plat]");
     if (platBtn) {
-      document.querySelectorAll("[data-plat-toggle] .ta-toggle-btn").forEach((b) =>
-        b.classList.remove("is-active"),
+      document.querySelectorAll("[data-plat-toggle] .ta-toggle-btn").forEach((button) =>
+        button.classList.remove("is-active"),
       );
       platBtn.classList.add("is-active");
-      const c = document.querySelector("[data-boards-container]");
-      if (c) c.dataset.activePlat = platBtn.dataset.plat;
+      const container = document.querySelector("[data-boards-container]");
+      if (container) {
+        container.dataset.activePlat = platBtn.dataset.plat;
+      }
     }
   });
 };
@@ -693,27 +828,225 @@ const renderProfileGrid = (cards, labels) => {
   `;
 };
 
-const renderPlayerCards = (cards) =>
-  renderProfileGrid(cards, {
-    usageZh: "常用車輛",
-    usageEn: "Vehicle Usage",
-    tagZh: "賽道標籤",
-    tagEn: "Track Tags",
-    listZh: "賽道個人最佳",
-    listEn: "Personal Bests By Track",
-    subKey: "vehicle",
+const renderProfilePlaceholder = (modifier, labelZh, labelEn) => `
+  <div class="ta-profile-placeholder ${modifier}">
+    <span class="zh">${escapeHtml(labelZh)}</span>
+    <span class="en">${escapeHtml(labelEn)}</span>
+  </div>
+`;
+
+const renderProfileTagChips = (chips) => {
+  if (!Array.isArray(chips) || chips.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-profile-chiprow">
+      ${chips.map((chip) => renderToneChip(chip.label, chip.tone)).join("")}
+    </div>
+  `;
+};
+
+const renderProfileBadgeRail = (counts = {}) => {
+  const countRail = ["TR", "CR", "PR"]
+    .map((code) => {
+      const count = Number(counts[code] || 0);
+      return `
+        <span class="ta-profile-stamp is-${code.toLowerCase()}">
+          <strong>${code}</strong>
+          <small>${count}</small>
+        </span>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="ta-profile-badge-rail">
+      ${countRail}
+      <span class="ta-profile-stamp is-reserved">${renderBilingual("賽事徽章預留", "Event Badge Slot")}</span>
+      <span class="ta-profile-stamp is-reserved">${renderBilingual("成就徽章預留", "Achievement Slot")}</span>
+    </div>
+  `;
+};
+
+const renderProfilePanel = (labelZh, labelEn, rows) => `
+  <section class="ta-profile-panel">
+    <div class="ta-lb-col-head">${renderBilingual(labelZh, labelEn)}</div>
+    ${renderCounterRows(rows)}
+  </section>
+`;
+
+const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-empty">No records yet.</p>';
+  }
+
+  return `
+    <div class="ta-profile-record-wrap">
+      <table class="ta-profile-record-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>${renderBilingual("路線", "Route")}</th>
+            <th>${renderBilingual(peerLabelZh, peerLabelEn)}</th>
+            <th>${renderBilingual("時間", "Time")}</th>
+            <th>${renderBilingual("差距", "Gap")}</th>
+            <th>${renderBilingual("標記", "Badge")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map(
+              (row) => `
+                <tr>
+                  <td class="ta-profile-record-rank">${escapeHtml(row.rank)}</td>
+                  <td>
+                    <div class="ta-record-primary">
+                      <strong>${renderBilingual(row.route_label_zh || "", row.route_label_en || "")}</strong>
+                      <div class="ta-record-meta">
+                        <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
+                        <span>${escapeHtml(row.record_date || "")}</span>
+                      </div>
+                      ${renderRouteTagChips(row)}
+                    </div>
+                  </td>
+                  <td class="ta-profile-record-peer">${escapeHtml(row[peerField] || "")}</td>
+                  <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
+                  <td class="ta-profile-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
+                  <td class="ta-profile-record-badge">${renderRecordBadge(row)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+};
+
+const renderProfileFeatureCard = (card, config) => {
+  const usagePanel = renderProfilePanel(config.usageZh, config.usageEn, card.usage_rows || []);
+  const tagPanel = renderProfilePanel(config.tagZh, config.tagEn, card.tag_rows || []);
+
+  return `
+    <article class="ta-profile-feature">
+      <div class="ta-profile-marquee">
+        ${renderProfilePlaceholder("is-main", config.bannerZh, config.bannerEn)}
+        ${renderProfileBadgeRail(card.badge_counts)}
+        ${renderProfilePlaceholder("is-team", "車隊橫幅預留", "Team Banner Slot")}
+      </div>
+      <div class="ta-profile-feature-main">
+        <div class="ta-profile-feature-head">
+          <div class="ta-headline-group">
+            <div class="ta-label">${renderBilingual(config.fileZh, config.fileEn)}</div>
+            <h3 class="ta-section-title">${escapeHtml(card.title || "")}</h3>
+            <p class="ta-profile-subtitle">${renderBilingual(card.subtitle_zh, card.subtitle_en)}</p>
+          </div>
+          ${renderStatPills(card.stats)}
+        </div>
+        ${renderProfileTagChips(card.tag_chips)}
+        <div class="ta-profile-panels">
+          ${usagePanel}
+          ${tagPanel}
+        </div>
+        <section class="ta-profile-panel is-records">
+          <div class="ta-lb-col-head">${renderBilingual(config.listZh, config.listEn)}</div>
+          ${renderProfileRecordTable(card.record_rows, config.peerZh, config.peerEn, config.peerField)}
+        </section>
+        ${renderHistorySection(card.history)}
+      </div>
+    </article>
+  `;
+};
+
+const renderPlayerCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No player profiles yet.</p>';
+  }
+
+  return `
+    <div class="ta-profile-stack">
+      ${cards
+        .map((card) =>
+          renderProfileFeatureCard(card, {
+            fileZh: "玩家檔案",
+            fileEn: "Driver File",
+            bannerZh: "個人橫幅預留",
+            bannerEn: "Personal Banner Slot",
+            usageZh: "常用車輛",
+            usageEn: "Vehicle Usage",
+            tagZh: "路線標籤",
+            tagEn: "Track Tags",
+            listZh: "個人最佳路線",
+            listEn: "Route Personal Bests",
+            peerZh: "使用車輛",
+            peerEn: "Car Used",
+            peerField: "vehicle_model_name",
+          }),
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderVehicleCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No vehicle profiles yet.</p>';
+  }
+
+  const bucketOrder = ["spotlight", "active", "rare"];
+  const grouped = new Map();
+  cards.forEach((card) => {
+    const key = card.popularity_bucket_key || "rare";
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        label_zh: card.popularity_bucket_zh || "少量紀錄",
+        label_en: card.popularity_bucket_en || "Rare Cars",
+        cards: [],
+      });
+    }
+    grouped.get(key).cards.push(card);
   });
 
-const renderVehicleCards = (cards) =>
-  renderProfileGrid(cards, {
-    usageZh: "變體使用",
-    usageEn: "Variant Usage",
-    tagZh: "常見車手",
-    tagEn: "Frequent Drivers",
-    listZh: "賽道車輛最佳",
-    listEn: "Vehicle Bests By Track",
-    subKey: "driver",
-  });
+  return `
+    <div class="ta-profile-groups">
+      ${bucketOrder
+        .filter((key) => grouped.has(key))
+        .map((key) => {
+          const group = grouped.get(key);
+          return `
+            <section class="ta-profile-group">
+              <div class="ta-profile-group-head">
+                <h3 class="ta-board-title">${renderBilingual(group.label_zh, group.label_en)}</h3>
+                <p class="ta-board-text">${escapeHtml(group.cards.length)} ${renderBilingual("台車型", "models")}</p>
+              </div>
+              <div class="ta-profile-stack">
+                ${group.cards
+                  .map((card) =>
+                    renderProfileFeatureCard(card, {
+                      fileZh: "車輛檔案",
+                      fileEn: "Car File",
+                      bannerZh: "車輛橫幅預留",
+                      bannerEn: "Car Banner Slot",
+                      usageZh: "世界變體",
+                      usageEn: "World Variants",
+                      tagZh: "常見車手",
+                      tagEn: "Frequent Drivers",
+                      listZh: "車型最佳路線",
+                      listEn: "Model Best Routes",
+                      peerZh: "最快車手",
+                      peerEn: "Fastest Driver",
+                      peerField: "player_display_name",
+                    }),
+                  )
+                  .join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+};
 
 const renderEventCards = (cards) =>
   renderProfileGrid(cards, {
