@@ -354,6 +354,10 @@ body.timeattack-page {
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
+.ta-summary-grid.is-compact {
+  grid-template-columns: repeat(var(--ta-summary-count, 4), minmax(0, 1fr));
+}
+
 .ta-board-grid,
 .ta-catalog-grid {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -377,6 +381,26 @@ body.timeattack-page {
   gap: 12px;
   min-height: 148px;
   padding: 20px;
+}
+
+.ta-page-info-card {
+  display: grid;
+  gap: 14px;
+}
+
+.ta-summary-grid.is-compact .ta-summary-card {
+  gap: 8px;
+  min-height: 108px;
+  padding: 16px 18px;
+}
+
+.ta-summary-grid.is-compact .ta-summary-value {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.ta-summary-grid.is-compact .ta-summary-text {
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .ta-board-title,
@@ -674,6 +698,11 @@ body.timeattack-page {
   grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
+.ta-profile-feature-head .ta-stat-grid {
+  grid-template-columns: repeat(var(--ta-stat-count, 4), minmax(0, 1fr));
+  width: 100%;
+}
+
 .ta-stat-pill {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -809,6 +838,10 @@ body.timeattack-page {
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
+
+  .ta-summary-grid.is-compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -847,6 +880,10 @@ body.timeattack-page {
 
   .ta-toggle-btn {
     flex: 1 1 0;
+  }
+
+  .ta-summary-grid.is-compact {
+    grid-template-columns: 1fr;
   }
 
   .ta-lb-row,
@@ -1271,12 +1308,16 @@ body.timeattack-page {
 
 .ta-route-head,
 .ta-fastest-strip,
-.ta-profile-feature-head,
 .ta-profile-group-head {
   align-items: end;
   display: flex;
   gap: 12px;
   justify-content: space-between;
+}
+
+.ta-profile-feature-head {
+  display: grid;
+  gap: 14px;
 }
 
 .ta-route-note {
@@ -1621,10 +1662,13 @@ body.timeattack-page {
 @media (max-width: 900px) {
   .ta-route-head,
   .ta-fastest-strip,
-  .ta-profile-feature-head,
   .ta-profile-group-head {
     align-items: start;
     flex-direction: column;
+  }
+
+  .ta-profile-feature-head .ta-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ta-fastest-time {

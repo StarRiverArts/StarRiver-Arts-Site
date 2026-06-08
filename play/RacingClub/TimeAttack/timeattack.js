@@ -63,13 +63,13 @@ const renderCardLink = (href, labelZh, labelEn) => {
   `;
 };
 
-const renderSummaryCards = (cards) => {
+const renderSummaryCards = (cards, options = {}) => {
   if (!Array.isArray(cards) || cards.length === 0) {
     return '<p class="ta-empty">No summary cards yet.</p>';
   }
 
   return `
-    <div class="ta-summary-grid">
+    <div class="ta-summary-grid${options.compact ? " is-compact" : ""}" style="--ta-summary-count:${cards.length}">
       ${cards
         .map(
           (card) => `
@@ -86,6 +86,21 @@ const renderSummaryCards = (cards) => {
         )
         .join("")}
     </div>
+  `;
+};
+
+const renderPageSnapshot = (metricCards) => {
+  if (!Array.isArray(metricCards) || metricCards.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="ta-content-card ta-page-info-card">
+      <div class="ta-label">
+        ${renderBilingual("頁面資訊", "Page Info")}
+      </div>
+      ${renderSummaryCards(metricCards, { compact: true })}
+    </section>
   `;
 };
 
@@ -399,67 +414,56 @@ const renderTrackLeaderboardTable = (rows, view) => {
   `;
 };
 
-const renderTrackBoard = (board) => {
+const renderTrackRouteCard = (board, route) => {
   const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
     .filter(Boolean)
     .map((tag) => renderToneChip(tag, "meta"))
     .join("");
   const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
-
-  const routesHtml = (board.routes || [])
-    .map((route) => {
-      const fastest = route.fastest;
-      const fastestStrip = fastest
-        ? `
-          <div class="ta-fastest-strip">
-            <div class="ta-fastest-kicker">
-              <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("目前最快", "Fastest Now")}</span></span>
-            </div>
-            <div class="ta-fastest-main">
-              <strong>${escapeHtml(fastest.player_display_name || "")}</strong>
-              <span>${escapeHtml(fastest.vehicle_model_name || "")}</span>
-            </div>
-            <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
-          </div>
-        `
-        : "";
-
-      return `
-        <section class="ta-route-board">
-          <div class="ta-route-head">
-            <div>
-              <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
-              ${
-                route.route_note_zh || route.route_note_en
-                  ? `<p class="ta-route-note">${renderBilingual(route.route_note_zh, route.route_note_en)}</p>`
-                  : ""
-              }
-            </div>
-            <div class="ta-route-stat">${escapeHtml(route.record_count || 0)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>
-          </div>
-          ${fastestStrip}
-          <div class="ta-board-view" data-board-view="route">
-            ${renderTrackLeaderboardTable(route.route_rows, "route")}
-          </div>
-          <div class="ta-board-view" data-board-view="vehicle">
-            ${renderTrackLeaderboardTable(route.vehicle_rows, "vehicle")}
-          </div>
-          <div class="ta-board-view" data-board-view="player">
-            ${renderTrackLeaderboardTable(route.player_rows, "player")}
-          </div>
-        </section>
-      `;
-    })
-    .join("");
+  const fastest = route.fastest;
+  const fastestStrip = fastest
+    ? `
+      <div class="ta-fastest-strip">
+        <div class="ta-fastest-kicker">
+          <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("目前最快", "Fastest Now")}</span></span>
+        </div>
+        <div class="ta-fastest-main">
+          <strong>${escapeHtml(fastest.player_display_name || "")}</strong>
+          <span>${escapeHtml(fastest.vehicle_model_name || "")}</span>
+        </div>
+        <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
+      </div>
+    `
+    : "";
 
   return `
-    <article class="ta-track-board">
+    <article class="ta-track-board ta-route-card">
       <div class="ta-track-board-head">
         <div class="ta-label">${escapeHtml(board.world_name)}</div>
         <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        <div class="ta-route-head">
+          <div>
+            <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
+            ${
+              route.route_note_zh || route.route_note_en
+                ? `<p class="ta-route-note">${renderBilingual(route.route_note_zh, route.route_note_en)}</p>`
+                : ""
+            }
+          </div>
+          <div class="ta-route-stat">${escapeHtml(route.record_count || 0)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>
+        </div>
         <div class="ta-track-chiprow">${metaChips}${techChips}</div>
       </div>
-      <div class="ta-route-stack">${routesHtml}</div>
+      ${fastestStrip}
+      <div class="ta-board-view" data-board-view="route">
+        ${renderTrackLeaderboardTable(route.route_rows, "route")}
+      </div>
+      <div class="ta-board-view" data-board-view="vehicle">
+        ${renderTrackLeaderboardTable(route.vehicle_rows, "vehicle")}
+      </div>
+      <div class="ta-board-view" data-board-view="player">
+        ${renderTrackLeaderboardTable(route.player_rows, "player")}
+      </div>
     </article>
   `;
 };
@@ -467,6 +471,10 @@ const renderTrackBoard = (board) => {
 const renderTrackBoards = (data) => {
   const boards = data.boards || [];
   const platforms = data.platforms || [];
+  const routeCards = boards.reduce((cards, board) => {
+    (board.routes || []).forEach((route) => cards.push(renderTrackRouteCard(board, route)));
+    return cards;
+  }, []);
 
   const platBtns = [
     `<button class="ta-toggle-btn is-active" data-plat="all"><span class="zh">全部平台</span><span class="en">All Platforms</span></button>`,
@@ -493,7 +501,7 @@ const renderTrackBoards = (data) => {
     </div>
     ${renderTrackLegend()}
     <div class="ta-boards-container" data-boards-container data-active-view="route" data-active-plat="all">
-      ${(boards || []).map(renderTrackBoard).join("")}
+      ${routeCards.join("")}
     </div>
   `;
 };
@@ -604,7 +612,7 @@ const renderStatPills = (stats) => {
     return "";
   }
   return `
-    <div class="ta-stat-grid">
+    <div class="ta-stat-grid" style="--ta-stat-count:${stats.length}">
       ${stats
         .map(
           (stat) => `
@@ -1179,7 +1187,7 @@ const renderPageModules = (view, data) => {
   }
 
   if (view === "catalog") {
-    return renderIndexTables(data.indexes);
+    return [renderPageSnapshot(data.metric_cards), renderIndexTables(data.indexes)].filter(Boolean).join("");
   }
 
   if (view === "info") {
@@ -1192,15 +1200,13 @@ const renderPageModules = (view, data) => {
   }
 
   if (view === "tracks") {
-    // Core metrics now live on the Info page; tracks shows records only.
     const boardsHtml = Array.isArray(data.boards) && data.boards.length
       ? renderTrackBoards(data)
       : "";
-    return boardsHtml;
+    return [renderPageSnapshot(data.metric_cards), boardsHtml].filter(Boolean).join("");
   }
 
-  // Analysis pages (players / vehicles / events): records only, no metric cards.
-  const modules = [];
+  const modules = [renderPageSnapshot(data.metric_cards)];
   if (Array.isArray(data.player_cards) && data.player_cards.length) {
     modules.push(renderModule("個人頁", "Player Profiles", "玩家分析", "Player Analysis", renderPlayerCards(data.player_cards)));
   }
