@@ -33,7 +33,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;pa
 .panel-note{font-size:14px;line-height:1.7;color:var(--gray-600)}
 .panel-list{display:grid;gap:10px;margin-top:18px}
 .panel-item{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);padding:10px 12px;border-radius:14px;background:rgba(40,40,41,.05)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:28px}
 .card{padding:24px 24px 22px;display:flex;flex-direction:column;gap:12px;min-height:260px}
 .card-title{font-family:var(--font-deck);font-size:28px;font-weight:700;line-height:1.04}
 .card-text{font-size:15px;line-height:1.72;color:var(--gray-600)}
@@ -87,6 +87,23 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;pa
   </section>
 
   <section class="grid">
+
+    <article class="card">
+      <div class="card-label"><span class="zh">數位展品 · Digital Exhibit</span><span class="en">Digital Exhibit</span></div>
+      <h2 class="card-title">VR Gallery Spatial System</h2>
+      <p class="card-text zh">VR 美術館的完整設計系統。空間層涵蓋材質、光源人因、留白、展品預留量體與曲線幾何；標識層定義字級、安裝高度與尋路色碼。以 130 cm avatar 為基準。</p>
+      <p class="card-text en">A complete design system for VR gallery environments. The spatial layer covers materials, light, ergonomics, whitespace, reserve volumes, and curve geometry; the signage layer defines typographic scale, mounting heights, and wayfinding colour codes. Calibrated to a 130 cm avatar.</p>
+      <div class="card-meta">
+        <span class="tag">Spatial Design</span>
+        <span class="tag">Signage System</span>
+        <span class="tag">2025–2026</span>
+      </div>
+      <a class="card-link" href="./interactive/vr-gallery-spatial-system/">
+        <span class="zh">進入展覽</span><span class="en">Enter Exhibit</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+
     <article class="card">
       <div class="card-label"><span class="zh">互動工具</span><span class="en">Interactive Tools</span></div>
       <h2 class="card-title"><span class="zh">Design System Visualize</span><span class="en">Design System Visualize</span></h2>

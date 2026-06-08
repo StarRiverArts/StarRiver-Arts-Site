@@ -1,16 +1,25 @@
 @charset "UTF-8";
 
-/* ── Dark green palette ──────────────────────────────────────────
-   深綠色底 + 白色 / 淺灰字
+/* ── Play surface palette ────────────────────────────────────────
+   Neutral asphalt + comet cyan, aligned with the updated /play
+   design language while keeping the current multi-page IA intact.
    ───────────────────────────────────────────────────────────── */
 :root {
-  --ta-bg:          #0E2018;
-  --ta-text:        #FFFFFF;
-  --ta-text-soft:   rgba(255, 255, 255, 0.68);
-  --ta-card:        rgba(255, 255, 255, 0.05);
-  --ta-border:      rgba(255, 255, 255, 0.14);
-  --ta-accent:      #D8E2DC;
-  --ta-accent-warm: #D8E2DC;
+  --ta-bg:          #1A1E26;
+  --ta-text:        #F4EFE4;
+  --ta-text-strong: #FFF9F0;
+  --ta-text-soft:   rgba(244, 239, 228, 0.68);
+  --ta-text-faint:  rgba(244, 239, 228, 0.50);
+  --ta-card:        rgba(11, 14, 18, 0.78);
+  --ta-card-soft:   rgba(255, 255, 255, 0.032);
+  --ta-card-strong: rgba(255, 255, 255, 0.068);
+  --ta-border:      rgba(255, 255, 255, 0.10);
+  --ta-border-strong: rgba(255, 255, 255, 0.16);
+  --ta-accent:      #B9E4E8;
+  --ta-accent-ink:  #17363A;
+  --ta-accent-warm: #F0A94C;
+  --ta-shadow:      0 20px 44px rgba(0, 0, 0, 0.24);
+  --ta-shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.16);
 }
 
 body.timeattack-page {
@@ -23,7 +32,10 @@ body.timeattack-page {
   --fg-web: #ffffff;
   --fg-vrc: #ffffff;
   --sr-ink: #ffffff;
-  background: linear-gradient(180deg, #102619 0%, #0C1B13 100%);
+  background:
+    radial-gradient(circle at 14% 0%, rgba(185, 228, 232, 0.13), transparent 28%),
+    radial-gradient(circle at 84% 4%, rgba(240, 169, 76, 0.08), transparent 20%),
+    linear-gradient(180deg, #242a34 0%, #1d2129 28%, #17191d 100%);
   background-attachment: fixed;
   color: var(--ta-text);
 }
@@ -37,34 +49,37 @@ body.timeattack-page {
 .ta-topbar {
   align-items: center;
   backdrop-filter: blur(16px);
-  background: rgba(14, 32, 24, 0.82);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(20, 22, 27, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   gap: 14px;
   justify-content: space-between;
-  padding: 16px 22px;
+  padding: 16px 24px;
   position: sticky;
   top: 0;
   z-index: 22;
 }
 
 .ta-topbar-nav {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: flex-end;
 }
 
 .ta-page {
   margin: 0 auto;
-  max-width: 1440px;
-  padding: 30px 22px 72px;
+  max-width: 1280px;
+  padding: 36px 40px 80px;
 }
 
 .ta-hero {
+  align-items: end;
   display: grid;
-  gap: 20px;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  padding-bottom: 24px;
+  gap: 22px 28px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  padding-bottom: 16px;
 }
 
 .ta-headline {
@@ -73,13 +88,14 @@ body.timeattack-page {
 }
 
 .ta-title {
-  color: #fff;
+  color: var(--ta-text-strong);
   font-family: var(--font-display);
   font-size: clamp(42px, 7vw, 88px);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 0.92;
   margin: 0;
+  max-width: 9ch;
 }
 
 .ta-desc {
@@ -88,12 +104,14 @@ body.timeattack-page {
   font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.7;
   margin: 0;
-  max-width: 52ch;
+  max-width: 48ch;
 }
 
 .ta-hero-side {
+  align-content: start;
   display: grid;
   gap: 14px;
+  grid-template-columns: 1fr;
 }
 
 .ta-status-card,
@@ -106,11 +124,16 @@ body.timeattack-page {
 .ta-profile-card,
 .ta-review-card,
 .ta-timeline-item {
-  background: var(--ta-card);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.028)),
+    var(--ta-card);
   backdrop-filter: blur(14px);
   border: 1px solid var(--ta-border);
-  border-radius: 16px;
+  border-radius: 18px;
   color: var(--ta-text);
+  box-shadow: var(--ta-shadow-soft);
+  overflow: hidden;
+  position: relative;
 }
 
 .ta-status-card,
@@ -125,10 +148,34 @@ body.timeattack-page {
   padding: 18px 18px 20px;
 }
 
+.ta-status-card::before,
+.ta-callout::before,
+.ta-sidebar-card::before,
+.ta-content-card::before,
+.ta-summary-card::before,
+.ta-board-card::before,
+.ta-catalog-card::before,
+.ta-profile-card::before,
+.ta-review-card::before,
+.ta-timeline-item::before,
+.ta-track-board::before,
+.ta-detail-card::before {
+  background: linear-gradient(90deg, rgba(185, 228, 232, 0.92), rgba(240, 169, 76, 0.72));
+  content: "";
+  height: 3px;
+  left: 0;
+  opacity: 0.72;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .ta-content-card-inner {
-  background: transparent;
-  border: 0;
-  padding: 0;
+  background: rgba(255, 255, 255, 0.024);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  box-shadow: none;
+  padding: 18px;
 }
 
 .ta-status-card {
@@ -140,7 +187,7 @@ body.timeattack-page {
   color: var(--ta-accent);
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -167,21 +214,34 @@ body.timeattack-page {
 }
 
 .ta-localnav {
+  align-items: flex-end;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(180deg, rgba(14, 17, 22, 0.9), rgba(14, 17, 22, 0.74));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  border-radius: 18px 18px 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 8px 0 18px;
+  gap: 4px;
+  margin: 6px 0 24px;
+  padding: 8px 10px 0;
+  position: sticky;
+  top: 76px;
+  z-index: 18;
 }
 
 .ta-navlink {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
+  align-items: center;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 12px 12px 0 0;
   color: rgba(255, 255, 255, 0.72);
+  display: inline-flex;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
-  padding: 10px 14px;
+  min-height: 44px;
+  padding: 10px 10px 12px;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -191,21 +251,22 @@ body.timeattack-page {
 }
 
 .ta-navlink:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
 
 .ta-navlink.is-active {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.40);
+  background: rgba(185, 228, 232, 0.08);
+  border-color: var(--ta-accent);
+  box-shadow: inset 0 -1px 0 rgba(185, 228, 232, 0.22);
   color: #fff;
 }
 
 .ta-layout {
+  align-items: start;
   display: grid;
-  gap: 18px;
-  grid-template-columns: 1fr;
+  gap: 20px;
+  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
   margin-top: 12px;
 }
 
@@ -215,23 +276,16 @@ body.timeattack-page {
   gap: 18px;
 }
 
+.ta-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 154px;
+}
+
 .ta-sidebar-card {
-  align-items: start;
   display: grid;
-  gap: 10px 22px;
-  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-}
-
-.ta-sidebar-card > .ta-label,
-.ta-sidebar-card > h2 {
-  grid-column: 1;
-}
-
-.ta-sidebar-card > [data-sidebar-list] {
-  align-self: center;
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  min-width: 0;
+  gap: 12px;
+  padding: 20px;
 }
 
 .ta-sidebar-card h2,
@@ -263,15 +317,15 @@ body.timeattack-page {
 
 .ta-sidebar-card .ta-inline-list {
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .ta-sidebar-card .ta-inline-list li {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--ta-card-soft);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   margin: 0;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 .ta-inline-list li,
@@ -320,8 +374,9 @@ body.timeattack-page {
 
 .ta-summary-card {
   display: grid;
-  gap: 10px;
-  padding: 18px;
+  gap: 12px;
+  min-height: 148px;
+  padding: 20px;
 }
 
 .ta-board-title,
@@ -341,16 +396,16 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-body);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.75;
   margin: 0;
 }
 
 .ta-card-link {
   align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(185, 228, 232, 0.10);
+  border: 1px solid rgba(185, 228, 232, 0.22);
   border-radius: 999px;
-  color: #fff;
+  color: #eaffff;
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -368,8 +423,8 @@ body.timeattack-page {
 }
 
 .ta-card-link:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(185, 228, 232, 0.16);
+  border-color: rgba(185, 228, 232, 0.34);
   transform: translateY(-1px);
 }
 
@@ -392,7 +447,8 @@ body.timeattack-page {
 .ta-profile-card,
 .ta-review-card {
   display: grid;
-  gap: 12px;
+  gap: 16px;
+  padding: 22px;
 }
 
 .ta-profile-card,
@@ -417,16 +473,22 @@ body.timeattack-page {
 .ta-chip,
 .ta-status-pill {
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.84);
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   padding: 8px 10px;
   text-transform: uppercase;
+}
+
+.ta-chip.ta-chip-meta {
+  background: rgba(185, 228, 232, 0.08);
+  border-color: rgba(185, 228, 232, 0.18);
+  color: rgba(232, 251, 255, 0.94);
 }
 
 .ta-status-pill.is-pending {
@@ -538,11 +600,12 @@ body.timeattack-page {
 
 .ta-lb-row,
 .ta-mini-row {
-  align-items: baseline;
+  align-items: center;
   display: grid;
-  gap: 6px;
-  grid-template-columns: 24px 1fr auto auto;
-  padding: 6px 16px;
+  gap: 6px 12px;
+  grid-template-areas: "rank name sub time";
+  grid-template-columns: 24px minmax(0, 1fr) minmax(0, auto) auto;
+  padding: 8px 16px;
 }
 
 .ta-lb-row:nth-child(even),
@@ -555,6 +618,7 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.45);
   font-family: var(--font-mono);
   font-size: 11px;
+  grid-area: rank;
   text-align: right;
 }
 
@@ -563,6 +627,7 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-body);
   font-size: 14px;
+  grid-area: name;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -574,6 +639,7 @@ body.timeattack-page {
   color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-body);
   font-size: 12px;
+  grid-area: sub;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -586,6 +652,8 @@ body.timeattack-page {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
+  grid-area: time;
+  justify-self: end;
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -597,6 +665,7 @@ body.timeattack-page {
   font-size: 14px;
   line-height: 1.65;
   margin: 0;
+  min-width: 0;
 }
 
 .ta-stat-grid {
@@ -607,7 +676,7 @@ body.timeattack-page {
 
 .ta-stat-pill {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 14px;
   display: grid;
   gap: 8px;
@@ -629,10 +698,12 @@ body.timeattack-page {
 }
 
 .ta-detail-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.026);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
-  padding: 6px 0 8px;
+  overflow: hidden;
+  padding: 10px 0 8px;
+  position: relative;
 }
 
 .ta-counter-list {
@@ -690,7 +761,7 @@ body.timeattack-page {
 
 .ta-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-wrap: wrap;
   font-family: var(--font-mono);
@@ -698,9 +769,24 @@ body.timeattack-page {
   gap: 10px 18px;
   justify-content: space-between;
   letter-spacing: 0.12em;
-  margin-top: 36px;
-  padding-top: 18px;
+  margin-top: 40px;
+  padding-top: 20px;
   text-transform: uppercase;
+}
+
+.ta-meta strong {
+  color: var(--ta-text-strong);
+  font-weight: 700;
+}
+
+.ta-meta code {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: var(--ta-text-strong);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
 }
 
 @media (max-width: 1020px) {
@@ -715,9 +801,8 @@ body.timeattack-page {
     grid-template-columns: 1fr;
   }
 
-  .ta-sidebar-card > [data-sidebar-list] {
-    grid-column: 1;
-    grid-row: auto;
+  .ta-sidebar {
+    position: static;
   }
 
   .ta-lb-col:first-child {
@@ -738,7 +823,13 @@ body.timeattack-page {
   }
 
   .ta-localnav {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
     gap: 8px;
+    padding: 4px 0 0;
+    position: static;
+    top: auto;
   }
 
   .ta-navlink {
@@ -746,17 +837,40 @@ body.timeattack-page {
     padding: 9px 12px;
   }
 
-  .ta-lb-row,
-  .ta-mini-row {
-    grid-template-columns: 20px 1fr;
+  .ta-board-controls {
+    align-items: stretch;
   }
 
-  .ta-lb-sub,
-  .ta-mini-sub,
+  .ta-toggle-group {
+    width: 100%;
+  }
+
+  .ta-toggle-btn {
+    flex: 1 1 0;
+  }
+
+  .ta-lb-row,
+  .ta-mini-row {
+    gap: 4px 10px;
+    grid-template-areas:
+      "rank name time"
+      ". sub sub";
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+  }
+
+  .ta-board-row,
+  .ta-mini-row-track {
+    grid-template-areas:
+      "rank name time"
+      ". sub plat";
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+  }
+
+  .ta-row-plat,
   .ta-mini-plat,
-  .ta-lb-time,
-  .ta-mini-time {
-    grid-column: 2;
+  .ta-lb-sub,
+  .ta-mini-sub {
+    justify-self: start;
   }
 
   .ta-footer {
@@ -767,37 +881,59 @@ body.timeattack-page {
 /* ── Track board controls ───────────────────────────────────── */
 
 .ta-board-controls {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: space-between;
   margin-bottom: 20px;
-  align-items: center;
+  padding: 10px 12px;
+  box-shadow: var(--ta-shadow-soft);
 }
 
 .ta-toggle-group {
   display: flex;
-  gap: 4px;
   flex-wrap: wrap;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 4px;
 }
 
 .ta-toggle-btn {
-  padding: 6px 14px;
+  align-items: center;
+  display: inline-flex;
+  padding: 8px 14px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.03em;
-  border: 1px solid rgba(255,255,255,0.20);
-  border-radius: 6px;
-  background: rgba(255,255,255,0.08);
-  color: var(--ta-text-soft);
+  letter-spacing: 0.08em;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  justify-content: center;
+  min-height: 36px;
+  text-transform: uppercase;
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
 }
 
-.ta-toggle-btn.is-active,
 .ta-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
-  border-color: var(--ta-accent);
+}
+
+.ta-toggle-btn.is-active {
+  background: var(--ta-accent);
+  color: var(--ta-accent-ink);
+  box-shadow: 0 10px 20px rgba(185, 228, 232, 0.18);
 }
 
 /* Board view visibility */
@@ -811,80 +947,121 @@ body.timeattack-page {
 [data-boards-container][data-active-plat="quest"] .ta-board-row:not([data-plat="quest"]) { display: none; }
 
 /* Track board card */
+.ta-boards-container {
+  display: grid;
+  gap: 16px;
+}
+
 .ta-track-board {
-  background: var(--ta-card);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.028)),
+    rgba(8, 11, 15, 0.68);
   backdrop-filter: blur(14px);
-  border: 1px solid var(--ta-border);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 14px;
+  border: 1px solid var(--ta-border-strong);
+  border-radius: 20px;
   color: var(--ta-text);
+  margin-bottom: 0;
+  padding: 20px;
+  position: relative;
+  box-shadow: var(--ta-shadow-soft);
 }
 
 .ta-track-board-head {
-  margin-bottom: 12px;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .ta-track-board-title {
-  font-size: 15px;
+  color: var(--ta-text-strong);
+  font-family: var(--font-deck);
+  font-size: 24px;
   font-weight: 700;
-  margin: 4px 0 8px;
+  line-height: 1.08;
+  margin: 0;
 }
 
 .ta-route-section {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid var(--sr-border, #2a3050);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 14px;
+  padding-top: 14px;
 }
 
 .ta-route-label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ta-accent);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 /* Board rows */
 .ta-board-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  gap: 4px;
 }
 
 .ta-board-row {
   display: grid;
-  grid-template-columns: 24px 1fr 1fr 40px 90px;
-  gap: 6px;
+  grid-template-areas: "rank name sub plat time";
+  grid-template-columns: 24px minmax(0, 1.2fr) minmax(0, 0.95fr) 56px auto;
+  gap: 6px 12px;
   align-items: center;
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 12px;
   font-size: 12px;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 10px 12px;
+}
+
+.ta-board-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.044);
 }
 
 .ta-row-rank {
+  grid-area: rank;
   font-size: 11px;
-  color: var(--sr-text-muted, #888);
+  color: rgba(255, 255, 255, 0.44);
   text-align: right;
 }
 
-.ta-row-name { font-weight: 600; color: var(--ta-text); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ta-row-sub  { font-size: 11px; color: var(--ta-text-soft); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ta-row-name {
+  color: var(--ta-text);
+  font-weight: 600;
+  grid-area: name;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ta-row-sub  {
+  color: var(--ta-text-soft);
+  font-size: 11px;
+  grid-area: sub;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .ta-row-plat {
+  color: var(--ta-text-faint);
   font-size: 9px;
   font-weight: 700;
+  grid-area: plat;
   letter-spacing: 0.05em;
-  color: var(--ta-text-soft);
   text-align: center;
 }
 
 .ta-row-time {
+  color: var(--ta-accent);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
+  grid-area: time;
   text-align: right;
-  color: var(--ta-accent);
+  white-space: nowrap;
 }
 
 .ta-index-link {
@@ -907,20 +1084,22 @@ body.timeattack-page {
 .ta-track-group-label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ta-accent);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .ta-mini-row-track {
-  grid-template-columns: 24px minmax(0, 1fr) minmax(0, auto) auto auto;
+  grid-template-areas: "rank name sub plat time";
+  grid-template-columns: 24px minmax(0, 1fr) minmax(0, auto) 54px auto;
 }
 
 .ta-mini-plat {
+  color: rgba(255, 255, 255, 0.5);
   font-size: 9px;
-  color: var(--sr-text-muted, #888);
   font-family: var(--font-mono);
+  grid-area: plat;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
