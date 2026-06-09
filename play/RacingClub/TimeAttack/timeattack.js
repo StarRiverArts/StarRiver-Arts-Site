@@ -579,6 +579,28 @@ const getQueryParam = (key) => {
   }
 };
 
+// In-page lateral switcher: filter box + dropdown + prev/next to jump ids.
+const renderDetailSwitcher = (kind, items, currentId, labelZh, labelEn) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+  const options = items
+    .map(
+      (item) =>
+        `<option value="${escapeHtml(item.id)}"${item.id === currentId ? " selected" : ""}>${escapeHtml(item.name)}</option>`,
+    )
+    .join("");
+  return `
+    <div class="ta-detail-switch" data-detail-switch-kind="${escapeHtml(kind)}">
+      <span class="ta-label ta-switch-label">${renderBilingual(labelZh, labelEn)}</span>
+      <button type="button" class="ta-switch-btn" data-switch-step="-1" aria-label="Previous">◀</button>
+      <input type="text" class="ta-switch-filter" data-switch-filter placeholder="篩選 / Filter…" autocomplete="off">
+      <select class="ta-switch-select" data-switch-select aria-label="Switch">${options}</select>
+      <button type="button" class="ta-switch-btn" data-switch-step="1" aria-label="Next">▶</button>
+    </div>
+  `;
+};
+
 // A provided-but-unknown id must not silently render the first entry.
 const renderDetailNotFound = (kindZh, kindEn, id, backHref, backZh, backEn) => `
   <article class="ta-content-card ta-content-card-inner">
@@ -608,6 +630,13 @@ const renderTrackDetail = (data, id, routeCode) => {
       focusBoard = { ...board, routes: [route] };
     }
   }
+  const switcher = renderDetailSwitcher(
+    "track",
+    boards.map((item) => ({ id: item.track_world_code, name: item.track_display_name })),
+    board.track_world_code,
+    "切換賽道",
+    "Switch Track",
+  );
   const header = `
     <article class="ta-track-board ta-track-detail-head">
       <div class="ta-label">${escapeHtml(board.world_name)}</div>
@@ -618,7 +647,44 @@ const renderTrackDetail = (data, id, routeCode) => {
       </div>
     </article>
   `;
-  return header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  return switcher + header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+};
+
+// Lateral id switching for the detail pages (track/player/vehicle).
+const attachDetailSwitchListeners = () => {
+  const root = document.querySelector("[data-detail-switch-kind]");
+  if (!root) {
+    return;
+  }
+  const select = root.querySelector("[data-switch-select]");
+  const filter = root.querySelector("[data-switch-filter]");
+  if (!select) {
+    return;
+  }
+  const go = (id) => {
+    if (id) {
+      window.location.search = "?id=" + encodeURIComponent(id);
+    }
+  };
+  select.addEventListener("change", () => go(select.value));
+  root.querySelectorAll("[data-switch-step]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const visible = Array.from(select.options).filter((opt) => !opt.hidden);
+      const idx = visible.findIndex((opt) => opt.value === select.value);
+      const next = visible[idx + Number(btn.dataset.switchStep)];
+      if (next) {
+        go(next.value);
+      }
+    });
+  });
+  if (filter) {
+    filter.addEventListener("input", () => {
+      const q = filter.value.trim().toLowerCase();
+      Array.from(select.options).forEach((opt) => {
+        opt.hidden = q !== "" && !opt.textContent.toLowerCase().includes(q);
+      });
+    });
+  }
 };
 
 const attachBoardToggleListeners = () => {
@@ -1160,7 +1226,14 @@ const renderPlayerDetail = (data, id) => {
   if (!card) {
     return renderDetailNotFound("玩家", "Player", id, "./players.html", "返回玩家清單", "Back to Players");
   }
-  return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
+  const switcher = renderDetailSwitcher(
+    "player",
+    cards.map((item) => ({ id: item.player_id, name: item.title })),
+    card.player_id,
+    "切換玩家",
+    "Switch Player",
+  );
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
 };
 
 const VEHICLE_PROFILE_CONFIG = {
@@ -1248,7 +1321,14 @@ const renderVehicleDetail = (data, id) => {
   if (!card) {
     return renderDetailNotFound("車輛", "Vehicle", id, "./vehicles.html", "返回車輛清單", "Back to Vehicles");
   }
-  return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>`;
+  const switcher = renderDetailSwitcher(
+    "vehicle",
+    cards.map((item) => ({ id: item.vehicle_model_code, name: item.title })),
+    card.vehicle_model_code,
+    "切換車輛",
+    "Switch Vehicle",
+  );
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>`;
 };
 
 const renderEventCards = (cards) =>
@@ -1515,6 +1595,7 @@ const initTimeAttack = async () => {
 
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "track") attachBoardToggleListeners();
+    if (view === "track" || view === "player" || view === "vehicle") attachDetailSwitchListeners();
     setHtml(
       "[data-sidebar-list]",
       `

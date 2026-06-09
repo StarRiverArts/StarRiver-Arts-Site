@@ -1817,3 +1817,66 @@ body.timeattack-page {
   flex-wrap: wrap;
   margin: 4px 0 0;
 }
+
+.ta-detail-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--ta-border);
+  border-radius: 8px;
+  background: var(--ta-card-soft);
+}
+
+.ta-switch-label {
+  margin-right: 2px;
+}
+
+.ta-switch-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--ta-border);
+  border-radius: 6px;
+  background: var(--ta-card-strong);
+  color: var(--ta-text);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ta-switch-btn:hover {
+  border-color: var(--ta-accent);
+  color: var(--ta-text-strong);
+}
+
+.ta-switch-filter {
+  flex: 1 1 120px;
+  min-width: 100px;
+  padding: 7px 10px;
+  border: 1px solid var(--ta-border);
+  border-radius: 6px;
+  background: var(--ta-bg);
+  color: var(--ta-text);
+  font-size: 13px;
+}
+
+.ta-switch-select {
+  flex: 2 1 200px;
+  min-width: 160px;
+  padding: 7px 10px;
+  border: 1px solid var(--ta-border);
+  border-radius: 6px;
+  background: var(--ta-bg);
+  color: var(--ta-text);
+  font-size: 13px;
+}
+
+.ta-switch-filter:focus,
+.ta-switch-select:focus {
+  outline: none;
+  border-color: var(--ta-accent);
+}
