@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vehicle | Time Attack | VR Racing Club | StarRiver Arts</title>
+  <link rel="icon" href="../../../assets/logos/starriver-primary.png">
+  <link rel="stylesheet" href="../../../colors_and_type.css">
+  <link rel="stylesheet" href="../../project-t.css">
+  <link rel="stylesheet" href="timeattack.css">
+</head>
+<body class="project-t-page timeattack-page sr-brand-project-t sr-type sr-medium-web" data-view="vehicle">
+  <div class="ta-shell">
+    <header class="ta-topbar">
+      <a class="pt-brand" href="../../../index.html">
+        <span class="pt-brand-badge">
+          <img src="../../../assets/logos/starriver-primary.png" alt="StarRiver Arts">
+        </span>
+        <span class="pt-brand-copy">
+          <span class="pt-brand-kicker">RacingClub / TimeAttack</span>
+          <span class="pt-brand-name">VR Racing Club</span>
+        </span>
+      </a>
+      <nav class="ta-topbar-nav" aria-label="Back navigation">
+        <a class="pt-toplink" href="./vehicles.html">
+          <span class="zh">返回車輛清單</span>
+          <span class="en">Back to Vehicles</span>
+        </a>
+        <a class="pt-toplink" href="../">
+          <span class="zh">返回 Racing Club</span>
+          <span class="en">Back to Racing Club</span>
+        </a>
+        <button class="pt-lang" type="button" data-lang-toggle>
+          <span class="zh">EN</span>
+          <span class="en">中文</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="ta-page">
+      <section class="ta-hero">
+        <div class="ta-headline">
+          <div class="pt-kicker">
+            <span class="zh">Racing Club / Time Attack / 車輛</span>
+            <span class="en">Racing Club / Time Attack / Vehicle</span>
+          </div>
+          <h1 class="ta-title">
+            <span class="zh" data-page-title-zh>車輛檔案</span>
+            <span class="en" data-page-title-en>Car File</span>
+          </h1>
+          <p class="ta-desc zh" data-page-desc-zh>讀取車輛檔案中。</p>
+          <p class="ta-desc en" data-page-desc-en>Loading the car profile.</p>
+        </div>
+        <aside class="ta-hero-side">
+          <div class="ta-callout">
+            <div class="ta-label">
+              <span class="zh">車輛檔案</span>
+              <span class="en">Car File</span>
+            </div>
+            <p class="ta-meta">
+              <span class="zh">車型最佳路線、世界變體、常見車手、CR / TR 計數與成績歷程。統計層以 `vehicle_model_code` 為主鍵。</span>
+              <span class="en">Model best routes, world variants, frequent drivers, CR / TR counts, and run history. Stats are keyed by `vehicle_model_code`.</span>
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <nav class="ta-localnav" aria-label="Time Attack navigation">
+        <a class="ta-navlink" href="./" data-view-link="overview"><span class="zh">總覽</span><span class="en">Overview</span></a>
+        <a class="ta-navlink" href="./tracks.html" data-view-link="tracks"><span class="zh">賽道</span><span class="en">Tracks</span></a>
+        <a class="ta-navlink" href="./players.html" data-view-link="players"><span class="zh">玩家</span><span class="en">Players</span></a>
+        <a class="ta-navlink" href="./vehicles.html" data-view-link="vehicles"><span class="zh">車輛</span><span class="en">Vehicles</span></a>
+        <a class="ta-navlink" href="./events.html" data-view-link="events"><span class="zh">活動</span><span class="en">Events</span></a>
+        <a class="ta-navlink" href="./catalog.html" data-view-link="catalog"><span class="zh">索引</span><span class="en">Index</span></a>
+        <a class="ta-navlink" href="./info.html" data-view-link="info"><span class="zh">資訊</span><span class="en">Info</span></a>
+      </nav>
+
+      <div class="ta-layout">
+        <aside class="ta-sidebar">
+          <section class="ta-sidebar-card">
+            <div class="ta-label"><span class="zh">目前頁面</span><span class="en">Current View</span></div>
+            <h2><span class="zh" data-sidebar-view-zh>車輛檔案</span><span class="en" data-sidebar-view-en>Car File</span></h2>
+            <div data-sidebar-list class="ta-empty">Loading notes.</div>
+          </section>
+        </aside>
+
+        <section class="ta-main">
+          <div data-page-root class="ta-empty">Loading page modules.</div>
+        </section>
+      </div>
+
+      <footer class="ta-footer">
+        <span>vehicle detail</span>
+        <span>car profile</span>
+        <span>json-fed page</span>
+      </footer>
+    </main>
+  </div>
+  <script src="../../project-t.js"></script>
+  <script src="timeattack.js"></script>
+</body>
+</html>

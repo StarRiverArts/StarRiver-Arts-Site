@@ -579,11 +579,26 @@ const getQueryParam = (key) => {
   }
 };
 
+// A provided-but-unknown id must not silently render the first entry.
+const renderDetailNotFound = (kindZh, kindEn, id, backHref, backZh, backEn) => `
+  <article class="ta-content-card ta-content-card-inner">
+    <h2 class="ta-section-title">${renderBilingual("找不到" + kindZh, kindEn + " not found")}</h2>
+    <p class="ta-section-text">
+      ${renderBilingual("沒有對應的" + kindZh + "資料：", "No matching " + kindEn.toLowerCase() + " for id:")}
+      <code>${escapeHtml(id || "(empty)")}</code>
+    </p>
+    <a class="ta-card-link" href="${escapeHtml(backHref)}">${renderBilingual(backZh, backEn)}</a>
+  </article>
+`;
+
 const renderTrackDetail = (data, id, routeCode) => {
   const boards = data.boards || [];
-  const board = boards.find((item) => item.track_world_code === id) || boards[0];
+  if (!boards.length) {
+    return '<p class="ta-empty">No tracks yet.</p>';
+  }
+  const board = id ? boards.find((item) => item.track_world_code === id) : boards[0];
   if (!board) {
-    return '<p class="ta-empty">Track not found.</p>';
+    return renderDetailNotFound("賽道", "Track", id, "./tracks.html", "返回賽道清單", "Back to Tracks");
   }
   // If a specific route is requested, narrow the board to that route.
   let focusBoard = board;
@@ -1138,9 +1153,12 @@ const renderPlayerList = (data) => {
 
 const renderPlayerDetail = (data, id) => {
   const cards = data.player_cards || [];
-  const card = cards.find((item) => item.player_id === id) || cards[0];
+  if (!cards.length) {
+    return '<p class="ta-empty">No players yet.</p>';
+  }
+  const card = id ? cards.find((item) => item.player_id === id) : cards[0];
   if (!card) {
-    return '<p class="ta-empty">Player not found.</p>';
+    return renderDetailNotFound("玩家", "Player", id, "./players.html", "返回玩家清單", "Back to Players");
   }
   return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
 };
@@ -1223,9 +1241,12 @@ const renderVehicleList = (data) => {
 
 const renderVehicleDetail = (data, id) => {
   const cards = data.vehicle_cards || [];
-  const card = cards.find((item) => item.vehicle_model_code === id) || cards[0];
+  if (!cards.length) {
+    return '<p class="ta-empty">No vehicles yet.</p>';
+  }
+  const card = id ? cards.find((item) => item.vehicle_model_code === id) : cards[0];
   if (!card) {
-    return '<p class="ta-empty">Vehicle not found.</p>';
+    return renderDetailNotFound("車輛", "Vehicle", id, "./vehicles.html", "返回車輛清單", "Back to Vehicles");
   }
   return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>`;
 };
