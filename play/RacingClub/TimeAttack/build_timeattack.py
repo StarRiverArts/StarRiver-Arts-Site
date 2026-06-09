@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 
-SCHEMA_VERSION = "0.4.0"
+SCHEMA_VERSION = "0.5.0"
 ROUTE_FILE_MAP = {
     "overview": "summary.json",
     "tracks": "tracks.json",
@@ -297,6 +297,8 @@ def build_badged_row(
         "track_env": record.get("track_env") or "其他",
         "track_tags": normalize_tags(record.get("track_tags")),
         "peer_label": peer_label,
+        "verified": bool(record.get("verified")),
+        "proof_text": record.get("proof_text") or "",
         **badge_payload(badge_code),
     }
 
@@ -371,8 +373,9 @@ def load_normalized_source_data(
         key = route_key(row["track_world_code"], row["route_code"])
         lap_time_ms = parse_time_to_ms(row["lap_time_text"])
 
-        channel_label_zh = "Approved Record" if row["record_channel"] == "approved_record" else "Normal Time Attack"
-        channel_label_en = channel_label_zh
+        verified = str(row.get("verified") or "").strip().lower() in {"1", "true", "yes"}
+        channel_label_zh = "已驗證" if verified else "未驗證"
+        channel_label_en = "Verified" if verified else "Unverified"
         review_status = row["review_status"] or "pending"
 
         records.append(
@@ -403,8 +406,12 @@ def load_normalized_source_data(
                 "channel_label_zh": channel_label_zh,
                 "channel_label_en": channel_label_en,
                 "review_status": review_status,
-                "is_approved_board": row["record_channel"] == "approved_record" and review_status == "approved",
-                "is_normal_board": row["record_channel"] == "normal_time_attack" and review_status != "rejected",
+                "verified": verified,
+                "proof_text": row.get("proof_text") or "",
+                "verified_by": row.get("verified_by") or "",
+                "verified_at": row.get("verified_at") or "",
+                "is_approved_board": verified and review_status != "rejected",
+                "is_normal_board": (not verified) and review_status != "rejected",
                 "is_general_pool": review_status != "rejected",
             }
         )
@@ -538,10 +545,14 @@ def load_legacy_json_data(
                 "event_name": row.get("event_id") or "",
                 "event_type": "",
                 "season_name": "",
-                "channel_label_zh": "Approved Record",
-                "channel_label_en": "Approved Record",
+                "channel_label_zh": "已驗證" if review_status == "approved" else "未驗證",
+                "channel_label_en": "Verified" if review_status == "approved" else "Unverified",
+                "verified": review_status == "approved",
+                "proof_text": row.get("notes") or "",
+                "verified_by": "",
+                "verified_at": "",
                 "is_approved_board": review_status == "approved",
-                "is_normal_board": False,
+                "is_normal_board": review_status not in {"approved", "rejected"},
                 "is_general_pool": review_status != "rejected",
             }
         )
@@ -625,6 +636,7 @@ def load_sqlite_data(
         SELECT r.record_id, r.record_date, r.track_world_code, r.route_code,
                r.player_id, r.vehicle_variant_code, r.platform_code, r.system_code,
                r.lap_time_ms, r.lap_time_text, r.record_channel, r.review_status,
+               r.verified, r.proof_text, r.verified_by, r.verified_at,
                r.event_code, r.season_code, r.submission_note,
                t.track_display_name, t.world_name, t.world_url, t.track_author,
                t.system_name, t.track_tags,
@@ -645,6 +657,11 @@ def load_sqlite_data(
         rk = route_key(row["track_world_code"], row["route_code"])
         channel = row["record_channel"]
         review_status = row["review_status"]
+        verified = bool(row.get("verified"))
+        proof_text = row.get("proof_text") or ""
+        verified_by = row.get("verified_by") or ""
+        verified_at = row.get("verified_at") or ""
+        not_rejected = review_status != "rejected"
         event = events.get(row.get("event_code") or "")
         records.append(
             {
@@ -660,6 +677,10 @@ def load_sqlite_data(
                 "lap_time_text": row["lap_time_text"],
                 "record_channel": channel,
                 "review_status": review_status,
+                "verified": verified,
+                "proof_text": proof_text,
+                "verified_by": verified_by,
+                "verified_at": verified_at,
                 "event_code": row.get("event_code") or "",
                 "season_code": row.get("season_code") or "",
                 "submission_note": row.get("submission_note") or "",
@@ -683,11 +704,11 @@ def load_sqlite_data(
                 "event_name": event["event_name"] if event else "",
                 "event_type": event["event_type"] if event else "",
                 "season_name": event["season_name"] if event else (row.get("season_code") or ""),
-                "channel_label_zh": "Approved Record" if channel == "approved_record" else "Normal Time Attack",
-                "channel_label_en": "Approved Record" if channel == "approved_record" else "Normal Time Attack",
-                "is_approved_board": channel == "approved_record" and review_status == "approved",
-                "is_normal_board": channel == "normal_time_attack" and review_status != "rejected",
-                "is_general_pool": review_status != "rejected",
+                "channel_label_zh": "已驗證" if verified else "未驗證",
+                "channel_label_en": "Verified" if verified else "Unverified",
+                "is_approved_board": verified and not_rejected,
+                "is_normal_board": (not verified) and not_rejected,
+                "is_general_pool": not_rejected,
             }
         )
 
@@ -758,9 +779,9 @@ def build_manifest(source_label: str) -> dict[str, Any]:
         "build_state": "live",
         "source_label": source_label,
         "routes": ROUTE_FILE_MAP,
-        "channels": [
-            {"code": "approved_record", "label_zh": "Approved Record", "label_en": "Approved Record"},
-            {"code": "normal_time_attack", "label_zh": "Normal Time Attack", "label_en": "Normal Time Attack"},
+        "verification_states": [
+            {"code": "verified", "label_zh": "已驗證", "label_en": "Verified"},
+            {"code": "unverified", "label_zh": "未驗證", "label_en": "Unverified"},
         ],
     }
 
@@ -770,13 +791,9 @@ def compute_count_cards(
     lookup: dict[str, Any],
     extra_pending: int = 0,
 ) -> list[dict[str, Any]]:
-    approved_board = [record for record in records if record["is_approved_board"]]
-    pending_review = [
-        record
-        for record in records
-        if record["record_channel"] == "approved_record" and record["review_status"] == "pending"
-    ]
-    normal_board = [record for record in records if record["is_normal_board"]]
+    valid_pool = [record for record in records if record["is_general_pool"]]
+    verified_runs = [record for record in valid_pool if record["verified"]]
+    unverified_runs = [record for record in valid_pool if not record["verified"]]
 
     return [
         {
@@ -787,25 +804,25 @@ def compute_count_cards(
             "note_en": "All imported rows from the input sheet",
         },
         {
-            "label_zh": "Approved 上榜",
-            "label_en": "Approved Board",
-            "value": str(len(approved_board)),
-            "note_zh": "正式榜單可見紀錄",
-            "note_en": "Runs visible on the formal board",
+            "label_zh": "有效紀錄",
+            "label_en": "Valid Runs",
+            "value": str(len(valid_pool)),
+            "note_zh": "未被拒絕、可進排行榜的紀錄",
+            "note_en": "Non-rejected runs eligible for the leaderboards",
         },
         {
-            "label_zh": "待審核",
-            "label_en": "Pending Review",
-            "value": str(len(pending_review) + extra_pending),
-            "note_zh": "已送審但尚未完成人工確認",
-            "note_en": "Approved-record submissions still waiting for manual review",
+            "label_zh": "已驗證",
+            "label_en": "Verified",
+            "value": str(len(verified_runs)),
+            "note_zh": "已標記 verified 的紀錄",
+            "note_en": "Runs marked verified",
         },
         {
-            "label_zh": "一般計時",
-            "label_en": "Normal Board",
-            "value": str(len(normal_board)),
-            "note_zh": "一般 Time Attack 練習紀錄",
-            "note_en": "Community practice runs on the normal board",
+            "label_zh": "未驗證",
+            "label_en": "Unverified",
+            "value": str(len(unverified_runs) + extra_pending),
+            "note_zh": "尚未驗證的有效紀錄",
+            "note_en": "Valid runs that are not verified yet",
         },
         {
             "label_zh": "賽道世界",
@@ -857,48 +874,49 @@ def build_summary(
         "title_zh": "Time Attack 計時紀錄",
         "title_en": "Time Attack Records",
         "description_zh": (
-            "VR Racing Club 的計時頁面以單一輸入表為核心，拆出正式審核的 Approved Record、"
-            "一般練習用的 Normal Time Attack，以及玩家、車輛、賽道和活動分析。"
+            "VR Racing Club 的計時頁面以單一輸入表為核心。所有有效紀錄都能進排行榜，"
+            "其中標記 `verified` 的紀錄會額外顯示已驗證標記，並可附上 `proof_text` 證明，"
+            "另有玩家、車輛、賽道與活動分析。"
         ),
         "description_en": (
-            "VR Racing Club time-attack hub built around a single input sheet, split into the formal "
-            "Approved Record board, the regular Normal Time Attack board, and analysis views for tracks, "
-            "players, vehicles, events, and review."
+            "VR Racing Club time-attack hub built around a single input sheet. Every valid run enters "
+            "the leaderboards; runs marked `verified` also carry a verified mark plus an optional "
+            "`proof_text`, alongside analysis views for tracks, players, vehicles, and events."
         ),
         "build_state": "live",
         "sidebar_zh": [
-            "正式榜單只吃 `record_channel = approved_record` 且 `review_status = approved` 的紀錄。",
-            "一般計時榜只吃 `record_channel = normal_time_attack` 的社群練習成績。",
-            "個人頁與車輛頁可以吸收未審核但未被否決的紀錄，用來做趨勢與使用分析。",
+            "排行榜吃所有未被拒絕的有效紀錄（`is_general_pool`）。",
+            "`verified = true` 的紀錄會顯示已驗證標記，`proof_text` 提供證明說明或連結。",
+            "TR / CR / PR 為 builder 預先計算的榮耀標籤，前端只負責顯示。",
         ],
         "sidebar_en": [
-            "Formal boards only include `record_channel = approved_record` plus `review_status = approved`.",
-            "Normal boards include community practice runs under `record_channel = normal_time_attack`.",
-            "Player and vehicle analysis can still use unreviewed-but-not-rejected runs for trend tracking.",
+            "Leaderboards include every non-rejected valid run (`is_general_pool`).",
+            "Runs with `verified = true` show a verified mark, and `proof_text` carries the evidence note or link.",
+            "TR / CR / PR are builder-computed honor badges; the frontend only renders them.",
         ],
         "count_cards": compute_count_cards(records, lookup, extra_pending),
         "board_cards": [
             {
-                "label_zh": "正式榜單",
-                "label_en": "Formal Board",
-                "title_zh": "Approved Record",
-                "title_en": "Approved Record",
-                "description_zh": "只收錄通過人工審核的正式提交，用來承擔最嚴格的賽道紀錄頁與對外輸出。",
-                "description_en": "Only manually approved formal submissions appear here. This is the strict board for official track records and outward-facing exports.",
+                "label_zh": "排行榜",
+                "label_en": "Leaderboards",
+                "title_zh": "賽道計時榜",
+                "title_en": "Track Leaderboards",
+                "description_zh": "所有有效紀錄的賽道榜，提供全紀錄、車輛、玩家三種視角，並直接標示 TR / CR / PR。",
+                "description_en": "Track boards over every valid run, with full / vehicle / player views and direct TR / CR / PR badges.",
                 "href": "./tracks.html",
                 "href_label_zh": "看賽道榜單",
                 "href_label_en": "Open Tracks",
             },
             {
-                "label_zh": "社群練習",
-                "label_en": "Open Practice",
-                "title_zh": "Normal Time Attack",
-                "title_en": "Normal Time Attack",
-                "description_zh": "一般玩家練跑與社群活動使用的主榜，不要求正式見證條件，但仍保留時間分析價值。",
-                "description_en": "Main board for practice laps and community runs. It does not require formal witness rules but still feeds player and vehicle analysis.",
-                "href": "./tracks.html",
-                "href_label_zh": "看賽道路線",
-                "href_label_en": "Open Tracks",
+                "label_zh": "驗證",
+                "label_en": "Verification",
+                "title_zh": "已驗證 / 未驗證",
+                "title_en": "Verified / Unverified",
+                "description_zh": "標記 `verified` 的紀錄會顯示已驗證標記並可附 `proof_text` 證明，未驗證紀錄仍進排行榜與分析。",
+                "description_en": "Runs marked `verified` show a verified mark plus optional `proof_text`; unverified runs still feed the boards and analysis.",
+                "href": "./review.html",
+                "href_label_zh": "看驗證頁",
+                "href_label_en": "Open Verification",
             },
             {
                 "label_zh": "頁面拆分",
@@ -1268,7 +1286,7 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
                 "subtitle_en": player["team_name"] or "Independent Driver",
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(player_records))},
-                    {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
+                    {"label_zh": "已驗證", "label_en": "Verified Runs", "value": str(len(official_records))},
                     {"label_zh": "賽道最佳", "label_en": "Track Records", "value": str(badge_counts["TR"])},
                     {"label_zh": "車種最佳", "label_en": "Car Records", "value": str(badge_counts["CR"])},
                 ],
@@ -1309,12 +1327,12 @@ def build_player_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) ->
         "sidebar_zh": [
             "玩家唯一值使用 `player_id`，顯示名稱只是 lookup 對應。",
             "這裡的 PR 是該玩家在該路線的最快一筆；若同時滿足車輛或賽道路線最高，會被 CR / TR 覆蓋。",
-            "正式紀錄只計入已核准的 `Approved Record`，未被拒絕的其他有效紀錄仍可進個人頁。",
+            "「已驗證」只計入 `verified = true` 的紀錄，未驗證的有效紀錄仍會進個人頁。",
         ],
         "sidebar_en": [
             "Players are keyed by `player_id`; display names only come from lookup.",
             "PR is the player's fastest valid run on that route; it is overridden when the same run is also CR or TR.",
-            "Official counts only include approved formal submissions, while non-rejected runs still feed the player profile.",
+            "Verified counts only include `verified = true` runs, while unverified valid runs still feed the player profile.",
         ],
         "metric_cards": [
             {
@@ -1432,7 +1450,7 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "popularity_bucket_en": popularity["label_en"],
                 "stats": [
                     {"label_zh": "有效紀錄", "label_en": "Valid Runs", "value": str(len(model_records))},
-                    {"label_zh": "正式紀錄", "label_en": "Official Runs", "value": str(len(official_records))},
+                    {"label_zh": "已驗證", "label_en": "Verified Runs", "value": str(len(official_records))},
                     {"label_zh": "賽道最佳", "label_en": "Track Records", "value": str(badge_counts["TR"])},
                 ],
                 "badge_counts": {
@@ -1496,11 +1514,11 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "note_en": "Variant codes defined in lookup",
             },
             {
-                "label_zh": "正式紀錄",
-                "label_en": "Official Runs",
+                "label_zh": "已驗證",
+                "label_en": "Verified Runs",
                 "value": str(sum(int(card["stats"][1]["value"]) for card in vehicle_cards)),
-                "note_zh": "所有母型累積的正式榜單紀錄",
-                "note_en": "Official approved-board runs across all models",
+                "note_zh": "所有母型累積的已驗證紀錄",
+                "note_en": "Verified runs across all models",
             },
             {
                 "label_zh": "賽道最佳",
@@ -1564,7 +1582,7 @@ def build_event_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
                     {"label_zh": "綁定紀錄", "label_en": "Linked Runs", "value": str(len(event_records))},
                     {"label_zh": "參與玩家", "label_en": "Players", "value": str(len({record['player_id'] for record in event_general}))},
                     {"label_zh": "涵蓋路線", "label_en": "Routes", "value": str(len({record['route_key'] for record in event_general}))},
-                    {"label_zh": "正式提交", "label_en": "Formal Submissions", "value": str(len([record for record in event_records if record['record_channel'] == 'approved_record']))},
+                    {"label_zh": "已驗證", "label_en": "Verified", "value": str(len([record for record in event_records if record['verified']]))},
                 ],
                 "tags": [
                     f"狀態：{event['status']}",
@@ -1615,11 +1633,11 @@ def build_event_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
                 "note_en": "Runs that currently carry an event code",
             },
             {
-                "label_zh": "正式活動提交",
-                "label_en": "Formal Event Runs",
-                "value": str(len([record for record in records if record["event_code"] and record["record_channel"] == "approved_record"])),
-                "note_zh": "活動下的正式送審紀錄",
-                "note_en": "Formal approved-record submissions linked to an event",
+                "label_zh": "活動已驗證",
+                "label_en": "Verified Event Runs",
+                "value": str(len([record for record in records if record["event_code"] and record["verified"]])),
+                "note_zh": "活動下已驗證的紀錄",
+                "note_en": "Verified runs linked to an event",
             },
         ],
         "event_cards": event_cards,
@@ -1647,34 +1665,29 @@ def build_event_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
 
 
 def build_review_pages(records: list[dict[str, Any]], extra_review_cards: list[dict[str, Any]] | None = None) -> dict[str, Any]:
-    formal_records = [record for record in records if record["record_channel"] == "approved_record"]
-    approved_records = [record for record in formal_records if record["review_status"] == "approved"]
-    pending_records = [record for record in formal_records if record["review_status"] == "pending"]
-    rejected_records = [record for record in formal_records if record["review_status"] == "rejected"]
+    valid_records = [record for record in records if record["is_general_pool"]]
+    verified_records = [record for record in valid_records if record["verified"]]
+    unverified_records = [record for record in valid_records if not record["verified"]]
 
+    # Verification queue: valid-but-unverified runs, newest/fastest first.
     review_cards = []
     for record in sorted(
-        [*pending_records, *rejected_records],
-        key=lambda item: (item["review_status"] != "pending", item["record_date"], item["lap_time_ms"]),
+        unverified_records,
+        key=lambda item: (item["record_date"], -item["lap_time_ms"]),
         reverse=True,
-    ):
-        status_label = {
-            "pending": ("待審核", "Pending"),
-            "rejected": ("已退回", "Rejected"),
-            "approved": ("已通過", "Approved"),
-        }[record["review_status"]]
+    )[:60]:
         review_cards.append(
             {
-                "status_zh": status_label[0],
-                "status_en": status_label[1],
+                "status_zh": "未驗證",
+                "status_en": "Unverified",
                 "title_zh": record["route_label_zh"],
                 "title_en": record["route_label_en"],
                 "player_display_name": record["player_display_name"],
                 "vehicle_display_name": record["vehicle_variant_name"],
                 "lap_time_text": record["lap_time_text"],
                 "record_date": record["record_date"],
-                "event_name": record["event_name"] or "Independent submission",
-                "submission_note": record["submission_note"],
+                "event_name": record["event_name"] or "Independent run",
+                "submission_note": record["proof_text"] or record["submission_note"],
             }
         )
 
@@ -1682,89 +1695,86 @@ def build_review_pages(records: list[dict[str, Any]], extra_review_cards: list[d
     if extra_review_cards:
         review_cards.extend(extra_review_cards)
 
-    extra_pending_count = sum(1 for card in extra_review_cards if card["status_en"] in {"Pending", "Submitted", "Needs Info"})
-    extra_rejected_count = sum(1 for card in extra_review_cards if card["status_en"] == "Rejected")
-
     timeline = []
-    for record in sorted(approved_records, key=lambda item: item["record_date"], reverse=True)[:8]:
+    for record in sorted(verified_records, key=lambda item: (item["verified_at"] or item["record_date"]), reverse=True)[:8]:
         timeline.append(
             {
-                "date": record["record_date"],
-                "label_zh": "已核准紀錄",
-                "label_en": "Approved Run",
+                "date": record["verified_at"] or record["record_date"],
+                "label_zh": "已驗證紀錄",
+                "label_en": "Verified Run",
                 "title_zh": record["route_label_zh"],
                 "title_en": record["route_label_en"],
                 "meta_zh": f"{record['player_display_name']} / {record['vehicle_variant_name']} / {record['lap_time_text']}",
                 "meta_en": f"{record['player_display_name']} / {record['vehicle_variant_name']} / {record['lap_time_text']}",
-                "body_zh": record["submission_note"],
-                "body_en": record["submission_note"],
+                "body_zh": record["proof_text"] or record["submission_note"],
+                "body_en": record["proof_text"] or record["submission_note"],
             }
         )
 
     return {
-        "title_zh": "審核與正式榜單",
-        "title_en": "Review And Formal Board",
-        "description_zh": "審核頁負責區分正式榜單資格，並保留待審、退回與已核准紀錄的人工處理入口。",
-        "description_en": "The review page separates formal-board eligibility and keeps the manual processing surface for pending, rejected, and approved submissions.",
+        "title_zh": "驗證頁",
+        "title_en": "Verification",
+        "description_zh": "驗證頁集中呈現已驗證與未驗證紀錄。所有有效紀錄都進排行榜，驗證只是額外的可信度標記與證明（proof_text）。",
+        "description_en": "The verification page surfaces verified and unverified runs. Every valid run still enters the leaderboards; verification only adds a credibility mark plus proof_text evidence.",
         "sidebar_zh": [
-            "正式榜單只接受 `approved_record` 類型，且必須通過人工確認。",
-            "審核條件之後可以補上 FPS、見證人、錄影與規則版本等欄位。",
-            "被拒絕的正式提交不會再進個人頁與車輛頁的統計池。",
+            "`verified = true` 的紀錄會在各頁顯示已驗證標記。",
+            "`proof_text` 記錄證明方式或連結，未驗證紀錄仍可進排行榜與分析。",
+            "後續可再補見證人（verified_by）、驗證時間（verified_at）與更細的證明層級。",
         ],
         "sidebar_en": [
-            "Formal boards only accept `approved_record` entries and they must pass manual review.",
-            "Future review fields can include FPS, witness, footage, and rule-version requirements.",
-            "Rejected formal submissions are excluded from player and vehicle analysis pools.",
+            "Runs with `verified = true` show a verified mark across the views.",
+            "`proof_text` stores the evidence note or link; unverified runs still enter boards and analysis.",
+            "Witness (verified_by), verification time (verified_at), and finer proof levels can be added later.",
         ],
         "metric_cards": [
             {
-                "label_zh": "正式送審",
-                "label_en": "Formal Submissions",
-                "value": str(len(formal_records) + len(extra_review_cards)),
-                "note_zh": "所有走正式送審流程的紀錄",
-                "note_en": "All runs sent through the formal submission flow",
+                "label_zh": "有效紀錄",
+                "label_en": "Valid Runs",
+                "value": str(len(valid_records)),
+                "note_zh": "未被拒絕、可進排行榜的紀錄",
+                "note_en": "Non-rejected runs eligible for the leaderboards",
             },
             {
-                "label_zh": "已核准",
-                "label_en": "Approved",
-                "value": str(len(approved_records)),
-                "note_zh": "已進 Approved Record 榜單",
-                "note_en": "Already visible on the Approved Record board",
+                "label_zh": "已驗證",
+                "label_en": "Verified",
+                "value": str(len(verified_records)),
+                "note_zh": "已標記 verified 的紀錄",
+                "note_en": "Runs marked verified",
             },
             {
-                "label_zh": "待審核",
-                "label_en": "Pending",
-                "value": str(len(pending_records) + extra_pending_count),
-                "note_zh": "等待人工確認",
-                "note_en": "Waiting for manual review",
+                "label_zh": "未驗證",
+                "label_en": "Unverified",
+                "value": str(len(unverified_records) + len(extra_review_cards)),
+                "note_zh": "尚未驗證的有效紀錄",
+                "note_en": "Valid runs not verified yet",
             },
             {
-                "label_zh": "已退回",
-                "label_en": "Rejected",
-                "value": str(len(rejected_records) + extra_rejected_count),
-                "note_zh": "不符合正式榜單規格",
-                "note_en": "Rejected from the formal board flow",
+                "label_zh": "驗證率",
+                "label_en": "Verified Rate",
+                "value": (f"{round(100 * len(verified_records) / len(valid_records))}%" if valid_records else "-"),
+                "note_zh": "已驗證佔有效紀錄比例",
+                "note_en": "Share of valid runs that are verified",
             },
         ],
         "review_cards": review_cards,
         "timeline": timeline,
         "sections": [
             {
-                "label_zh": "審核規格",
-                "label_en": "Review Criteria",
-                "title_zh": "預留的人工審核項目",
-                "title_en": "Reserved Manual Review Fields",
-                "body_zh": "目前只先保留審核狀態，之後可以補上見證人、錄影連結、FPS、版本與備註欄位。",
-                "body_en": "Only the review status is stored for now, but witness, footage, FPS, build version, and extra notes can be added later.",
+                "label_zh": "驗證規格",
+                "label_en": "Verification Criteria",
+                "title_zh": "預留的驗證欄位",
+                "title_en": "Reserved Verification Fields",
+                "body_zh": "目前以 `verified` 布林與 `proof_text` 為主，之後可補見證人、錄影連結、FPS 與版本欄位。",
+                "body_en": "Verification currently uses the `verified` boolean plus `proof_text`; witness, footage, FPS, and build-version fields can be added later.",
                 "items_zh": [
-                    "FPS 或效能門檻",
-                    "見證人 / 裁定人",
-                    "錄影或原始證據連結",
+                    "證明說明 / 連結（proof_text）",
+                    "見證人 / 裁定人（verified_by）",
+                    "驗證時間（verified_at）",
                 ],
                 "items_en": [
-                    "FPS or performance thresholds",
-                    "Witness or steward fields",
-                    "Video or raw evidence links",
+                    "Proof note or link (proof_text)",
+                    "Witness or steward (verified_by)",
+                    "Verification timestamp (verified_at)",
                 ],
             }
         ],

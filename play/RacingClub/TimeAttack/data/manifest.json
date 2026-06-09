@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.4.0",
-  "generated_at": "2026-06-09T14:38:38Z",
+  "schema_version": "0.5.0",
+  "generated_at": "2026-06-09T17:45:13Z",
   "build_state": "live",
   "source_label": "StarRiverSite/StarRiver-Arts-Site/play/RacingClub/TimeAttack/ta_data.sqlite",
   "routes": {
@@ -13,16 +13,16 @@
     "info": "info.json",
     "review": "review.json"
   },
-  "channels": [
+  "verification_states": [
     {
-      "code": "approved_record",
-      "label_zh": "Approved Record",
-      "label_en": "Approved Record"
+      "code": "verified",
+      "label_zh": "已驗證",
+      "label_en": "Verified"
     },
     {
-      "code": "normal_time_attack",
-      "label_zh": "Normal Time Attack",
-      "label_en": "Normal Time Attack"
+      "code": "unverified",
+      "label_zh": "未驗證",
+      "label_en": "Unverified"
     }
   ]
 }

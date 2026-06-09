@@ -6,12 +6,12 @@
   "sidebar_zh": [
     "玩家唯一值使用 `player_id`，顯示名稱只是 lookup 對應。",
     "這裡的 PR 是該玩家在該路線的最快一筆；若同時滿足車輛或賽道路線最高，會被 CR / TR 覆蓋。",
-    "正式紀錄只計入已核准的 `Approved Record`，未被拒絕的其他有效紀錄仍可進個人頁。"
+    "「已驗證」只計入 `verified = true` 的紀錄，未驗證的有效紀錄仍會進個人頁。"
   ],
   "sidebar_en": [
     "Players are keyed by `player_id`; display names only come from lookup.",
     "PR is the player's fastest valid run on that route; it is overridden when the same run is also CR or TR.",
-    "Official counts only include approved formal submissions, while non-rejected runs still feed the player profile."
+    "Verified counts only include `verified = true` runs, while unverified valid runs still feed the player profile."
   ],
   "metric_cards": [
     {
@@ -54,11 +54,11 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "214"
+          "value": "215"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -116,7 +116,7 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 162
+          "value": 163
         },
         {
           "label": "技術",
@@ -149,6 +149,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -171,6 +173,8 @@
             "高速彎"
           ],
           "peer_label": "OscarMayerWeinermobile",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -193,6 +197,8 @@
             "髮夾彎"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -215,6 +221,8 @@
             "髮夾彎"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -237,6 +245,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -258,6 +268,8 @@
             "技術"
           ],
           "peer_label": "BMW CS",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -277,6 +289,8 @@
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "WIL94",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -300,6 +314,8 @@
             "地形起伏"
           ],
           "peer_label": "Pulsar",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -322,6 +338,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -344,6 +362,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -366,6 +386,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE6-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -388,6 +410,8 @@
             "城市"
           ],
           "peer_label": "mcl39(McLaren)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -410,6 +434,8 @@
             "上下山"
           ],
           "peer_label": "EVOVI/CP9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -432,6 +458,8 @@
             "技術"
           ],
           "peer_label": "sf25(Ferrari)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -456,6 +484,8 @@
             "耐力賽"
           ],
           "peer_label": "R35",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -477,6 +507,8 @@
             "高速"
           ],
           "peer_label": "sf25(Ferrari)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -499,6 +531,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -521,6 +555,8 @@
             "上下山"
           ],
           "peer_label": "EVOVI/CP9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -543,6 +579,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -565,6 +603,8 @@
             "髮夾彎"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -586,6 +626,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -607,6 +649,8 @@
             "高速"
           ],
           "peer_label": "S13",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -629,6 +673,8 @@
             "重機"
           ],
           "peer_label": "VR-1_KOUKI",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -651,6 +697,8 @@
             "低抓地"
           ],
           "peer_label": "EVO",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -673,6 +721,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -694,6 +744,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -716,6 +768,8 @@
             "髮夾彎"
           ],
           "peer_label": "EK9C (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -737,6 +791,8 @@
             "高速"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -760,6 +816,8 @@
             "雪地"
           ],
           "peer_label": "NA8C (Mx5 Roadster)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -781,6 +839,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -802,6 +862,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -824,6 +886,8 @@
             "髮夾彎"
           ],
           "peer_label": "SXE10 (Altezza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -846,6 +910,8 @@
             "上下山"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -867,6 +933,8 @@
             "高速"
           ],
           "peer_label": "EVOX/CZ4A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -889,6 +957,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -911,6 +981,8 @@
             "上下山"
           ],
           "peer_label": "EVOVI/CP9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -933,6 +1005,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -956,6 +1030,8 @@
             "髮夾彎"
           ],
           "peer_label": "EVOIV/CN9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -977,6 +1053,8 @@
             "高速"
           ],
           "peer_label": "ER34 (R34 23GT Turbo)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -999,6 +1077,8 @@
             "技術彎"
           ],
           "peer_label": "FC3S",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1021,6 +1101,8 @@
             "技術"
           ],
           "peer_label": "FL5 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1043,6 +1125,8 @@
             "上下山"
           ],
           "peer_label": "EVOVI/CP9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1066,6 +1150,8 @@
             "上下山"
           ],
           "peer_label": "EA11R (Cappuccino)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1089,6 +1175,8 @@
             "上下山"
           ],
           "peer_label": "GXPA16 (GR Yaris)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1111,6 +1199,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1135,6 +1225,8 @@
             "雪地"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1156,6 +1248,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1179,6 +1273,8 @@
             "髮夾彎"
           ],
           "peer_label": "Comfort",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1202,6 +1298,8 @@
             "上下山"
           ],
           "peer_label": "EA11R (Cappuccino)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1224,6 +1322,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7)(TT)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1247,6 +1347,8 @@
             "髮夾彎"
           ],
           "peer_label": "EVOIV/CN9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1269,6 +1371,8 @@
             "技術"
           ],
           "peer_label": "FL5 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1290,6 +1394,8 @@
             "高速"
           ],
           "peer_label": "R35",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1311,6 +1417,8 @@
             "高速"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1332,6 +1440,8 @@
             "高速"
           ],
           "peer_label": "R35N2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1354,6 +1464,8 @@
             "髮夾彎"
           ],
           "peer_label": "Highline TT",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1375,6 +1487,8 @@
             "技術"
           ],
           "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1397,6 +1511,8 @@
             "髮夾彎"
           ],
           "peer_label": "PachirokuGT-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1419,6 +1535,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE6-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1440,6 +1558,8 @@
             "高速"
           ],
           "peer_label": "SLS",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1461,6 +1581,8 @@
             "高速"
           ],
           "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1485,6 +1607,8 @@
             "無護欄"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -1509,6 +1633,8 @@
             "耐力賽"
           ],
           "peer_label": "R35",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1532,6 +1658,8 @@
             "上下山"
           ],
           "peer_label": "SXE10 (Altezza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -1794,7 +1922,7 @@
         {
           "route_key": "starsight_starriver_arts:DH",
           "route_label": "觀星山 / Downhill",
-          "run_count": 15,
+          "run_count": 16,
           "runs": [
             {
               "date": "2025-11-23",
@@ -1878,6 +2006,13 @@
               "lap_time_ms": 112500,
               "lap_time_text": "01:52.500",
               "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-09",
+              "lap_time_ms": 600000,
+              "lap_time_text": "10:00.000",
+              "vehicle": "EVO3",
               "is_pb": false
             },
             {
@@ -3122,8 +3257,8 @@
           "value": "42"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -3214,6 +3349,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -3236,6 +3373,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3258,6 +3397,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3280,6 +3421,8 @@
             "上下山"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3302,6 +3445,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7) V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3323,6 +3468,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3345,6 +3492,8 @@
             "髮夾彎"
           ],
           "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3366,6 +3515,8 @@
             "高速"
           ],
           "peer_label": "ER34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3388,6 +3539,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7)(ST)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3410,6 +3563,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3432,6 +3587,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3455,6 +3612,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3477,6 +3636,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3499,6 +3660,8 @@
             "技術"
           ],
           "peer_label": "AE86T2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3522,6 +3685,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3543,6 +3708,8 @@
             "高速"
           ],
           "peer_label": "991(911 GT3)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3566,6 +3733,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3590,6 +3759,8 @@
             "雪地"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3613,6 +3784,8 @@
             "髮夾彎"
           ],
           "peer_label": "Revuelto",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -3637,6 +3810,8 @@
             "無護欄"
           ],
           "peer_label": "SampleCar",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -3967,8 +4142,8 @@
           "value": "65"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -4059,6 +4234,8 @@
             "技術"
           ],
           "peer_label": "MCR R34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4081,6 +4258,8 @@
             "髮夾彎"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4103,6 +4282,8 @@
             "髮夾彎"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4125,6 +4306,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4147,6 +4330,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4170,6 +4355,8 @@
             "地形起伏"
           ],
           "peer_label": "CX-3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4192,6 +4379,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4214,6 +4403,8 @@
             "技術"
           ],
           "peer_label": "MCR R34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4236,6 +4427,8 @@
             "技術"
           ],
           "peer_label": "MCR R34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4258,6 +4451,8 @@
             "技術"
           ],
           "peer_label": "MCR R34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4279,6 +4474,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4300,6 +4497,8 @@
             "高速"
           ],
           "peer_label": "BMW M1",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4322,6 +4521,8 @@
             "髮夾彎"
           ],
           "peer_label": "NA6CE (Mx5 Roadster)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4343,6 +4544,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4364,6 +4567,8 @@
             "高速"
           ],
           "peer_label": "EVOX/CZ4A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4386,6 +4591,8 @@
             "髮夾彎"
           ],
           "peer_label": "NA6CE (Mx5 Roadster)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4407,6 +4614,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4428,6 +4637,8 @@
             "高速"
           ],
           "peer_label": "380SX",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4450,6 +4661,8 @@
             "技術彎"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4472,6 +4685,8 @@
             "髮夾彎"
           ],
           "peer_label": "NA2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4493,6 +4708,8 @@
             "高速"
           ],
           "peer_label": "BMW M1",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4516,6 +4733,8 @@
             "雪地"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4538,6 +4757,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4559,6 +4780,8 @@
             "高速"
           ],
           "peer_label": "380SX",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4581,6 +4804,8 @@
             "技術"
           ],
           "peer_label": "NA1 (NSX)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4602,6 +4827,8 @@
             "高速"
           ],
           "peer_label": "380SX",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4625,6 +4852,8 @@
             "上下山"
           ],
           "peer_label": "EA11R (Cappuccino)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4648,6 +4877,8 @@
             "雪地"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4671,6 +4902,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4692,6 +4925,8 @@
             "高速"
           ],
           "peer_label": "R35",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -4714,6 +4949,8 @@
             "髮夾彎"
           ],
           "peer_label": "SW20 (MR2)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4736,6 +4973,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4758,6 +4997,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4780,6 +5021,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4801,6 +5044,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4825,6 +5070,8 @@
             "雪地"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4847,6 +5094,8 @@
             "技術"
           ],
           "peer_label": "NA1 (NSX)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -4868,6 +5117,8 @@
             "高速"
           ],
           "peer_label": "R35N2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -4890,6 +5141,8 @@
             "髮夾彎"
           ],
           "peer_label": "NA1 (NSX)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5234,8 +5487,8 @@
           "value": "18"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -5325,6 +5578,8 @@
             "高速"
           ],
           "peer_label": "rb21(RedBull)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -5347,6 +5602,8 @@
             "技術"
           ],
           "peer_label": "rb21(RedBull)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5369,6 +5626,8 @@
             "技術"
           ],
           "peer_label": "rb21(RedBull)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5391,6 +5650,8 @@
             "髮夾彎"
           ],
           "peer_label": "NSX",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5413,6 +5674,8 @@
             "重機"
           ],
           "peer_label": "VRR250R",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5432,6 +5695,8 @@
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "MC21 Tuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5454,6 +5719,8 @@
             "髮夾彎"
           ],
           "peer_label": "Revolution VIII",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5476,6 +5743,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE88E-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5500,6 +5769,8 @@
             "耐力賽"
           ],
           "peer_label": "NA1 (NSX)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5641,8 +5912,8 @@
           "value": "31"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -5733,6 +6004,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -5755,6 +6028,8 @@
             "髮夾彎"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5776,6 +6051,8 @@
             "高速"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5797,6 +6074,8 @@
             "高速"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5818,6 +6097,8 @@
             "高速"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5839,6 +6120,8 @@
             "高速"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5860,6 +6143,8 @@
             "高速"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -5882,6 +6167,8 @@
             "上下山"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5904,6 +6191,8 @@
             "髮夾彎"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5927,6 +6216,8 @@
             "髮夾彎"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -5949,6 +6240,8 @@
             "技術"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -5971,6 +6264,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -5992,6 +6287,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6014,6 +6311,8 @@
             "髮夾彎"
           ],
           "peer_label": "EG6 (civic)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6035,6 +6334,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6239,8 +6540,8 @@
           "value": "30"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -6327,6 +6628,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6349,6 +6652,8 @@
             "技術"
           ],
           "peer_label": "sf25(Ferrari)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6371,6 +6676,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7) V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6392,6 +6699,8 @@
             "高速"
           ],
           "peer_label": "S13",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -6413,6 +6722,8 @@
             "高速"
           ],
           "peer_label": "S13",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6435,6 +6746,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7) V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -6456,6 +6769,8 @@
             "高速"
           ],
           "peer_label": "S15",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6477,6 +6792,8 @@
             "高速"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6498,6 +6815,8 @@
             "高速"
           ],
           "peer_label": "Z4",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6521,6 +6840,8 @@
             "髮夾彎"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6542,6 +6863,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6564,6 +6887,8 @@
             "技術"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6585,6 +6910,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6606,6 +6933,8 @@
             "高速"
           ],
           "peer_label": "R35N2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -6628,6 +6957,8 @@
             "技術"
           ],
           "peer_label": "NA1 (NSX)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6650,6 +6981,8 @@
             "髮夾彎"
           ],
           "peer_label": "Wonder-ATTACK-1",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -6673,6 +7006,8 @@
             "髮夾彎"
           ],
           "peer_label": "JA4 Tuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -6884,8 +7219,8 @@
           "value": "11"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -6975,6 +7310,8 @@
             "高速"
           ],
           "peer_label": "rb21(RedBull)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -6997,6 +7334,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7018,6 +7357,8 @@
             "技術"
           ],
           "peer_label": "R34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7040,6 +7381,8 @@
             "髮夾彎"
           ],
           "peer_label": "X7 RR",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7061,6 +7404,8 @@
             "技術"
           ],
           "peer_label": "X7 RR",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7181,8 +7526,8 @@
           "value": "9"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -7269,6 +7614,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7288,6 +7635,8 @@
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "DE3ACuM0",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7307,6 +7656,8 @@
           "track_env": "山道",
           "track_tags": [],
           "peer_label": "L880K Tuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7329,6 +7680,8 @@
             "髮夾彎"
           ],
           "peer_label": "GTR34-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7414,8 +7767,8 @@
           "value": "31"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -7506,6 +7859,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7529,6 +7884,8 @@
             "地形起伏"
           ],
           "peer_label": "22B",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -7551,6 +7908,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7573,6 +7932,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S-Aspec",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7595,6 +7956,8 @@
             "髮夾彎"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7616,6 +7979,8 @@
             "高速"
           ],
           "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7638,6 +8003,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7659,6 +8026,8 @@
             "高速"
           ],
           "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7682,6 +8051,8 @@
             "髮夾彎"
           ],
           "peer_label": "S30Z(Nissan Fairlady Z/Devil Z)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7704,6 +8075,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -7726,6 +8099,8 @@
             "髮夾彎"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7747,6 +8122,8 @@
             "高速"
           ],
           "peer_label": "GR86/ZN8",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7770,6 +8147,8 @@
             "上下山"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7791,6 +8170,8 @@
             "高速"
           ],
           "peer_label": "982(718Cayman)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7812,6 +8193,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6 V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -7836,6 +8219,8 @@
             "無護欄"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8047,8 +8432,8 @@
           "value": "31"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -8135,6 +8520,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8157,6 +8544,8 @@
             "髮夾彎"
           ],
           "peer_label": "SuptokaV80B-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -8180,6 +8569,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8202,6 +8593,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8224,6 +8617,8 @@
             "技術"
           ],
           "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -8245,6 +8640,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8268,6 +8665,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S SuperG",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -8528,8 +8927,8 @@
           "value": "4"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -8617,6 +9016,8 @@
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "MCL civic",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -8639,6 +9040,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -8663,6 +9066,8 @@
             "無護欄"
           ],
           "peer_label": "Bus",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -8706,8 +9111,8 @@
           "value": "6"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -8798,6 +9203,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -8820,6 +9227,8 @@
             "髮夾彎"
           ],
           "peer_label": "GtR34-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -8842,6 +9251,8 @@
             "低抓地"
           ],
           "peer_label": "TGX-D38",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8864,6 +9275,8 @@
             "隧道"
           ],
           "peer_label": "PinoBus",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -8914,8 +9327,8 @@
           "value": "4"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9002,6 +9415,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9024,6 +9439,8 @@
             "技術"
           ],
           "peer_label": "mcl39(McLaren)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9046,6 +9463,8 @@
             "城市"
           ],
           "peer_label": "mcl39(McLaren)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9068,6 +9487,8 @@
             "髮夾彎"
           ],
           "peer_label": "Emrydes",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -9089,8 +9510,8 @@
           "value": "6"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9181,6 +9602,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9203,6 +9626,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9225,6 +9650,8 @@
             "技術彎"
           ],
           "peer_label": "FORMULA CAR",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9296,8 +9723,8 @@
           "value": "5"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9380,6 +9807,8 @@
             "重機"
           ],
           "peer_label": "VRR250R",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9401,6 +9830,8 @@
             "高速"
           ],
           "peer_label": "CZ9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9458,8 +9889,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9538,6 +9969,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9560,6 +9993,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9603,8 +10038,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9676,6 +10111,8 @@
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "Alyo",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9698,6 +10135,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -9719,8 +10158,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9795,6 +10234,8 @@
             "技術"
           ],
           "peer_label": "FW47",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9838,8 +10279,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -9920,6 +10361,8 @@
             "無護欄"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -9941,8 +10384,8 @@
           "value": "25"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -10033,6 +10476,8 @@
             "上下山"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10055,6 +10500,8 @@
             "上下山"
           ],
           "peer_label": "EK9 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10077,6 +10524,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7) V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10098,6 +10547,8 @@
             "高速"
           ],
           "peer_label": "S14Q",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10119,6 +10570,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10142,6 +10595,8 @@
             "髮夾彎"
           ],
           "peer_label": "GR86/ZN8",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10165,6 +10620,8 @@
             "髮夾彎"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10187,6 +10644,8 @@
             "技術"
           ],
           "peer_label": "AE86T2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10209,6 +10668,8 @@
             "上下山"
           ],
           "peer_label": "BNR32 Gr.A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10231,6 +10692,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10252,6 +10715,8 @@
             "高速"
           ],
           "peer_label": "991(911 GT3)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10276,6 +10741,8 @@
             "雪地"
           ],
           "peer_label": "ST205 (Celica)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10487,8 +10954,8 @@
           "value": "6"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -10579,6 +11046,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10601,6 +11070,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S-Aspec",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10623,6 +11094,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3SAM-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10645,6 +11118,8 @@
             "低抓地"
           ],
           "peer_label": "TGX-D38",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10668,6 +11143,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S SuperG",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10711,8 +11188,8 @@
           "value": "16"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -10803,6 +11280,8 @@
             "隧道"
           ],
           "peer_label": "CoachKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10824,6 +11303,8 @@
             "高速"
           ],
           "peer_label": "380SX",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10846,6 +11327,8 @@
             "髮夾彎"
           ],
           "peer_label": "S14Q",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10868,6 +11351,8 @@
             "上下山"
           ],
           "peer_label": "BNR34",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10889,6 +11374,8 @@
             "高速"
           ],
           "peer_label": "NA6CE (Mx5 Roadster)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -10910,6 +11397,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10932,6 +11421,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10953,6 +11444,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -10976,6 +11469,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S (RX7)(TT)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11089,8 +11584,8 @@
           "value": "9"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -11180,6 +11675,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11202,6 +11699,8 @@
             "髮夾彎"
           ],
           "peer_label": "DB42 (GR Supra)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11223,6 +11722,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11245,6 +11746,8 @@
             "隧道"
           ],
           "peer_label": "PinoBus",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11267,6 +11770,8 @@
             "髮夾彎"
           ],
           "peer_label": "SW20 (MR2)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11290,6 +11795,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11311,6 +11818,8 @@
             "高速"
           ],
           "peer_label": "DB42 (GR Supra)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11361,8 +11870,8 @@
           "value": "19"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -11452,6 +11961,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11474,6 +11985,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11497,6 +12010,8 @@
             "髮夾彎"
           ],
           "peer_label": "GC8-F (Impreza)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11519,6 +12034,8 @@
             "上下山"
           ],
           "peer_label": "BNR32 Gr.A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11541,6 +12058,8 @@
             "技術"
           ],
           "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11562,6 +12081,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11745,8 +12266,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -11829,6 +12350,8 @@
             "髮夾彎"
           ],
           "peer_label": "S14-Drift",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11851,6 +12374,8 @@
             "低抓地"
           ],
           "peer_label": "GraveDigger",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -11872,8 +12397,8 @@
           "value": "12"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -11959,6 +12484,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -11981,6 +12508,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12004,6 +12533,8 @@
             "髮夾彎"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -12026,6 +12557,8 @@
             "髮夾彎"
           ],
           "peer_label": "Emrydes",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12132,8 +12665,8 @@
           "value": "7"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -12220,6 +12753,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12242,6 +12777,8 @@
             "髮夾彎"
           ],
           "peer_label": "GTR34-Drift",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12264,6 +12801,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE3-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -12356,8 +12895,8 @@
           "value": "6"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -12448,6 +12987,8 @@
             "上下山"
           ],
           "peer_label": "BNR32 Gr.A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12469,6 +13010,8 @@
             "高速"
           ],
           "peer_label": "GT86/ZN6",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12492,6 +13035,8 @@
             "髮夾彎"
           ],
           "peer_label": "HCR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -12563,8 +13108,8 @@
           "value": "7"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -12647,6 +13192,8 @@
             "髮夾彎"
           ],
           "peer_label": "N2X-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -12669,6 +13216,8 @@
             "髮夾彎"
           ],
           "peer_label": "GTR34-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12754,8 +13303,8 @@
           "value": "5"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -12842,6 +13391,8 @@
             "技術"
           ],
           "peer_label": "sf25(Ferrari)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -12864,6 +13415,8 @@
             "髮夾彎"
           ],
           "peer_label": "PachirokuGT-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -12921,8 +13474,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13009,6 +13562,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -13033,6 +13588,8 @@
             "耐力賽"
           ],
           "peer_label": "992(911 GT3)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13076,8 +13633,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13161,6 +13718,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T-V2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -13183,6 +13742,8 @@
             "技術"
           ],
           "peer_label": "FL5 (Civic Type-R)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13226,8 +13787,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13310,6 +13871,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE8-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -13333,6 +13896,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86 LightTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13376,8 +13941,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13460,6 +14025,8 @@
             "髮夾彎"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13484,6 +14051,8 @@
             "無護欄"
           ],
           "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -13505,8 +14074,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13581,6 +14150,8 @@
             "技術"
           ],
           "peer_label": "sf25(Ferrari)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13631,8 +14202,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13703,6 +14274,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13746,8 +14319,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13822,6 +14395,8 @@
             "技術"
           ],
           "peer_label": "amr25(AstonMartin)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13865,8 +14440,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -13941,6 +14516,8 @@
             "技術"
           ],
           "peer_label": "c45(KickSauber)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -13984,8 +14561,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14056,6 +14633,8 @@
             "城市"
           ],
           "peer_label": "w16(Mercedes)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14077,8 +14656,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14154,6 +14733,8 @@
             "地形起伏"
           ],
           "peer_label": "Pajero",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14175,8 +14756,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14247,6 +14828,8 @@
             "髮夾彎"
           ],
           "peer_label": "Comet Custom",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14268,8 +14851,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14340,6 +14923,8 @@
             "隧道"
           ],
           "peer_label": "Stinger",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14361,8 +14946,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14433,6 +15018,8 @@
             "技術"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14454,8 +15041,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14521,6 +15108,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -14542,8 +15131,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14622,6 +15211,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14644,6 +15235,8 @@
             "髮夾彎"
           ],
           "peer_label": "LE88E-Attack",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14665,8 +15258,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14749,6 +15342,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14773,6 +15368,8 @@
             "無護欄"
           ],
           "peer_label": "SampleCar",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14794,8 +15391,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14878,6 +15475,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14900,6 +15499,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -14921,8 +15522,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -14997,6 +15598,8 @@
             "上下山"
           ],
           "peer_label": "AE86T",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15018,6 +15621,8 @@
             "高速"
           ],
           "peer_label": "R35N3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15039,8 +15644,8 @@
           "value": "3"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15119,6 +15724,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15169,8 +15776,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15236,6 +15843,8 @@
             "高速"
           ],
           "peer_label": "R35N2",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15279,8 +15888,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15346,6 +15955,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15389,8 +16000,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15465,6 +16076,8 @@
             "技術"
           ],
           "peer_label": "mcl39(McLaren)",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15508,8 +16121,8 @@
           "value": "2"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15579,6 +16192,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15622,8 +16237,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15694,6 +16309,8 @@
             "隧道"
           ],
           "peer_label": "CoachKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15715,8 +16332,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15787,6 +16404,8 @@
             "隧道"
           ],
           "peer_label": "PinoBus",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15808,8 +16427,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15880,6 +16499,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15901,8 +16522,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -15973,6 +16594,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -15994,8 +16617,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16066,6 +16689,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16087,8 +16712,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16159,6 +16784,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16180,8 +16807,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16252,6 +16879,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16273,8 +16902,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16340,6 +16969,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16361,8 +16992,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16433,6 +17064,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16454,8 +17087,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16526,6 +17159,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16547,8 +17182,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16619,6 +17254,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16640,8 +17277,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16712,6 +17349,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16733,8 +17372,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16805,6 +17444,8 @@
             "隧道"
           ],
           "peer_label": "LapinTuned",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16826,8 +17467,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16898,6 +17539,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16919,8 +17562,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -16991,6 +17634,8 @@
             "隧道"
           ],
           "peer_label": "CoachKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17012,8 +17657,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17084,6 +17729,8 @@
             "隧道"
           ],
           "peer_label": "Macchiato",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17105,8 +17752,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17172,6 +17819,8 @@
             "高速"
           ],
           "peer_label": "SilEighty",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17193,8 +17842,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17260,6 +17909,8 @@
             "高速"
           ],
           "peer_label": "BNR32",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17281,8 +17932,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17348,6 +17999,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17369,8 +18022,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17441,6 +18094,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17462,8 +18117,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17534,6 +18189,8 @@
             "髮夾彎"
           ],
           "peer_label": "AdvancedKart",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17555,8 +18212,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17632,6 +18289,8 @@
             "髮夾彎"
           ],
           "peer_label": "FD3S SuperG",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17653,8 +18312,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17725,6 +18384,8 @@
             "隧道"
           ],
           "peer_label": "EVO3",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -17746,8 +18407,8 @@
           "value": "1"
         },
         {
-          "label_zh": "正式紀錄",
-          "label_en": "Official Runs",
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
           "value": "0"
         },
         {
@@ -17813,6 +18474,8 @@
             "高速"
           ],
           "peer_label": "EVOVII/CT9A",
+          "verified": false,
+          "proof_text": "",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",

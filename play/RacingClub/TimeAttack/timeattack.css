@@ -1442,6 +1442,14 @@ body.timeattack-page {
   gap: 6px 12px;
 }
 
+.ta-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--pt-sign-green, #1e6b3e);
+  font-weight: 700;
+}
+
 .ta-record-peer,
 .ta-profile-record-peer {
   min-width: 140px;
@@ -1720,4 +1728,92 @@ body.timeattack-page {
   .ta-profile-record-gap {
     min-width: 0;
   }
+}
+
+/* ---- Phase 1: tracks list + track detail ---- */
+.ta-track-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.ta-track-list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ta-track-list-head {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ta-track-list-head:hover .ta-track-board-title {
+  color: var(--ta-accent);
+}
+
+.ta-track-list-stat {
+  margin-top: 6px;
+  color: var(--ta-text-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.ta-route-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ta-route-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  border: 1px solid var(--ta-border);
+  border-radius: 999px;
+  background: var(--ta-card-soft);
+  color: var(--ta-text);
+  text-decoration: none;
+  font-size: 13px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ta-route-pill:hover {
+  border-color: var(--ta-accent);
+  background: var(--ta-card-strong);
+}
+
+.ta-route-pill-stat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ta-text-faint);
+}
+
+.ta-track-detail-head {
+  margin-bottom: 16px;
+}
+
+.ta-profile-list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ta-profile-list-card:hover .ta-track-board-title {
+  color: var(--ta-accent);
+}
+
+.ta-profile-list-card .ta-profile-subtitle {
+  margin: 0;
+}
+
+.ta-profile-badge-rail.is-compact {
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 4px 0 0;
 }

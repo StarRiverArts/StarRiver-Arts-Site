@@ -7,9 +7,17 @@ const TA_ROUTE_LABELS = {
     zh: "賽道",
     en: "Tracks",
   },
+  track: {
+    zh: "賽道詳情",
+    en: "Track Detail",
+  },
   players: {
     zh: "玩家",
     en: "Players",
+  },
+  player: {
+    zh: "玩家檔案",
+    en: "Driver File",
   },
   vehicles: {
     zh: "車輛",
@@ -396,6 +404,7 @@ const renderTrackLeaderboardTable = (rows, view) => {
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
+                        ${row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
                       </div>
                       ${renderRouteTagChips(row)}
                     </div>
@@ -504,6 +513,93 @@ const renderTrackBoards = (data) => {
       ${routeCards.join("")}
     </div>
   `;
+};
+
+// ---- Tracks list (one card per track world, links into track.html detail) ----
+const trackRunTotal = (board) =>
+  (board.routes || []).reduce((sum, route) => sum + (route.record_count || 0), 0);
+
+const renderTrackListCard = (board) => {
+  const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
+    .filter(Boolean)
+    .map((tag) => renderToneChip(tag, "meta"))
+    .join("");
+  const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
+  const id = encodeURIComponent(board.track_world_code);
+  const routeLinks = (board.routes || [])
+    .map(
+      (route) => `
+        <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}">
+          <span class="ta-route-pill-name">${escapeHtml(route.route_display_name)}</span>
+          <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
+        </a>
+      `,
+    )
+    .join("");
+
+  return `
+    <article class="ta-track-board ta-track-list-card">
+      <a class="ta-track-list-head" href="./track.html?id=${id}">
+        <div class="ta-label">${escapeHtml(board.world_name)}</div>
+        <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        <div class="ta-track-list-stat">
+          ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
+          ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
+        </div>
+      </a>
+      <div class="ta-track-chiprow">${metaChips}${techChips}</div>
+      <div class="ta-route-pill-row">${routeLinks}</div>
+    </article>
+  `;
+};
+
+const renderTrackList = (data) => {
+  const boards = data.boards || [];
+  if (!boards.length) {
+    return '<p class="ta-empty">No track worlds yet.</p>';
+  }
+  return `
+    ${renderTrackLegend()}
+    <div class="ta-track-list-grid">
+      ${boards.map(renderTrackListCard).join("")}
+    </div>
+  `;
+};
+
+// ---- Single track detail (reuses renderTrackBoards with a one-board subset) ----
+const getQueryParam = (key) => {
+  try {
+    return new URLSearchParams(window.location.search).get(key) || "";
+  } catch (error) {
+    return "";
+  }
+};
+
+const renderTrackDetail = (data, id, routeCode) => {
+  const boards = data.boards || [];
+  const board = boards.find((item) => item.track_world_code === id) || boards[0];
+  if (!board) {
+    return '<p class="ta-empty">Track not found.</p>';
+  }
+  // If a specific route is requested, narrow the board to that route.
+  let focusBoard = board;
+  if (routeCode) {
+    const route = (board.routes || []).find((item) => item.route_code === routeCode);
+    if (route) {
+      focusBoard = { ...board, routes: [route] };
+    }
+  }
+  const header = `
+    <article class="ta-track-board ta-track-detail-head">
+      <div class="ta-label">${escapeHtml(board.world_name)}</div>
+      <h2 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h2>
+      <div class="ta-track-list-stat">
+        ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
+        ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
+      </div>
+    </article>
+  `;
+  return header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 const attachBoardToggleListeners = () => {
@@ -913,6 +1009,7 @@ const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => 
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
+                        ${row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
                       </div>
                       ${renderRouteTagChips(row)}
                     </div>
@@ -966,6 +1063,22 @@ const renderProfileFeatureCard = (card, config) => {
   `;
 };
 
+const PLAYER_PROFILE_CONFIG = {
+  fileZh: "玩家檔案",
+  fileEn: "Driver File",
+  bannerZh: "個人橫幅預留",
+  bannerEn: "Personal Banner Slot",
+  usageZh: "常用車輛",
+  usageEn: "Vehicle Usage",
+  tagZh: "路線標籤",
+  tagEn: "Track Tags",
+  listZh: "個人最佳路線",
+  listEn: "Route Personal Bests",
+  peerZh: "使用車輛",
+  peerEn: "Car Used",
+  peerField: "vehicle_model_name",
+};
+
 const renderPlayerCards = (cards) => {
   if (!Array.isArray(cards) || cards.length === 0) {
     return '<p class="ta-empty">No player profiles yet.</p>';
@@ -973,27 +1086,59 @@ const renderPlayerCards = (cards) => {
 
   return `
     <div class="ta-profile-stack">
+      ${cards.map((card) => renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)).join("")}
+    </div>
+  `;
+};
+
+// ---- Phase 1: profile list card (shared by players + vehicles lists) ----
+const renderProfileListCard = (card, href, subtitleZh, subtitleEn) => {
+  const counts = card.badge_counts || {};
+  const badges = ["TR", "CR", "PR"]
+    .map(
+      (code) =>
+        `<span class="ta-profile-stamp is-${code.toLowerCase()}"><strong>${code}</strong><small>${Number(counts[code] || 0)}</small></span>`,
+    )
+    .join("");
+  const validRuns = (card.stats || []).find((stat) => stat.label_en === "Valid Runs");
+  return `
+    <a class="ta-track-board ta-profile-list-card" href="${escapeHtml(href)}">
+      <div class="ta-label">${renderBilingual(subtitleZh, subtitleEn)}</div>
+      <h3 class="ta-track-board-title">${escapeHtml(card.title || "")}</h3>
+      <p class="ta-profile-subtitle">${renderBilingual(card.subtitle_zh, card.subtitle_en)}</p>
+      <div class="ta-profile-badge-rail is-compact">${badges}</div>
+      ${
+        validRuns
+          ? `<div class="ta-track-list-stat">${escapeHtml(validRuns.value)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>`
+          : ""
+      }
+    </a>
+  `;
+};
+
+const renderPlayerList = (data) => {
+  const cards = data.player_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No player profiles yet.</p>';
+  }
+  return `
+    <div class="ta-track-list-grid">
       ${cards
         .map((card) =>
-          renderProfileFeatureCard(card, {
-            fileZh: "玩家檔案",
-            fileEn: "Driver File",
-            bannerZh: "個人橫幅預留",
-            bannerEn: "Personal Banner Slot",
-            usageZh: "常用車輛",
-            usageEn: "Vehicle Usage",
-            tagZh: "路線標籤",
-            tagEn: "Track Tags",
-            listZh: "個人最佳路線",
-            listEn: "Route Personal Bests",
-            peerZh: "使用車輛",
-            peerEn: "Car Used",
-            peerField: "vehicle_model_name",
-          }),
+          renderProfileListCard(card, `./player.html?id=${encodeURIComponent(card.player_id)}`, "玩家檔案", "Driver File"),
         )
         .join("")}
     </div>
   `;
+};
+
+const renderPlayerDetail = (data, id) => {
+  const cards = data.player_cards || [];
+  const card = cards.find((item) => item.player_id === id) || cards[0];
+  if (!card) {
+    return '<p class="ta-empty">Player not found.</p>';
+  }
+  return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
 };
 
 const renderVehicleCards = (cards) => {
@@ -1200,10 +1345,25 @@ const renderPageModules = (view, data) => {
   }
 
   if (view === "tracks") {
-    const boardsHtml = Array.isArray(data.boards) && data.boards.length
-      ? renderTrackBoards(data)
+    const listHtml = Array.isArray(data.boards) && data.boards.length
+      ? renderTrackList(data)
       : "";
-    return [renderPageSnapshot(data.metric_cards), boardsHtml].filter(Boolean).join("");
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "track") {
+    return renderTrackDetail(data, getQueryParam("id"), getQueryParam("route"));
+  }
+
+  if (view === "players") {
+    const listHtml = Array.isArray(data.player_cards) && data.player_cards.length
+      ? renderPlayerList(data)
+      : "";
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "player") {
+    return renderPlayerDetail(data, getQueryParam("id"));
   }
 
   const modules = [renderPageSnapshot(data.metric_cards)];
@@ -1244,8 +1404,10 @@ const setHtml = (selector, html) => {
 };
 
 const activateNav = (view) => {
+  // Detail views share their parent list nav entry (track→tracks, player→players).
+  const navView = { track: "tracks", player: "players" }[view] || view;
   document.querySelectorAll("[data-view-link]").forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.viewLink === view);
+    link.classList.toggle("is-active", link.dataset.viewLink === navView);
   });
 };
 
@@ -1264,8 +1426,11 @@ const initTimeAttack = async () => {
 
   try {
     const manifest = await loadJson("./data/manifest.json");
+    // Detail views are fed by the same list artifact (track→tracks, player→players).
+    const DETAIL_DATA_KEY = { track: "tracks", player: "players" };
+    const dataKey = DETAIL_DATA_KEY[view] || view;
     const summaryPromise = loadJson(`./data/${manifest.routes.overview}`);
-    const pagePromise = view === "overview" ? summaryPromise : loadJson(`./data/${manifest.routes[view]}`);
+    const pagePromise = view === "overview" ? summaryPromise : loadJson(`./data/${manifest.routes[dataKey]}`);
     const [summary, pageData] = await Promise.all([summaryPromise, pagePromise]);
 
     const pageTitle = pageData.title_zh || labels.zh;
@@ -1288,7 +1453,7 @@ const initTimeAttack = async () => {
     setTextContent("[data-sidebar-view-en]", labels.en);
 
     setHtml("[data-page-root]", renderPageModules(view, pageData));
-    if (view === "tracks") attachBoardToggleListeners();
+    if (view === "track") attachBoardToggleListeners();
     setHtml(
       "[data-sidebar-list]",
       `

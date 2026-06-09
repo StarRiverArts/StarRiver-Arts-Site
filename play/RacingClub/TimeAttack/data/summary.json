@@ -1,47 +1,47 @@
 {
   "title_zh": "Time Attack 計時紀錄",
   "title_en": "Time Attack Records",
-  "description_zh": "VR Racing Club 的計時頁面以單一輸入表為核心，拆出正式審核的 Approved Record、一般練習用的 Normal Time Attack，以及玩家、車輛、賽道和活動分析。",
-  "description_en": "VR Racing Club time-attack hub built around a single input sheet, split into the formal Approved Record board, the regular Normal Time Attack board, and analysis views for tracks, players, vehicles, events, and review.",
+  "description_zh": "VR Racing Club 的計時頁面以單一輸入表為核心。所有有效紀錄都能進排行榜，其中標記 `verified` 的紀錄會額外顯示已驗證標記，並可附上 `proof_text` 證明，另有玩家、車輛、賽道與活動分析。",
+  "description_en": "VR Racing Club time-attack hub built around a single input sheet. Every valid run enters the leaderboards; runs marked `verified` also carry a verified mark plus an optional `proof_text`, alongside analysis views for tracks, players, vehicles, and events.",
   "build_state": "live",
   "sidebar_zh": [
-    "正式榜單只吃 `record_channel = approved_record` 且 `review_status = approved` 的紀錄。",
-    "一般計時榜只吃 `record_channel = normal_time_attack` 的社群練習成績。",
-    "個人頁與車輛頁可以吸收未審核但未被否決的紀錄，用來做趨勢與使用分析。"
+    "排行榜吃所有未被拒絕的有效紀錄（`is_general_pool`）。",
+    "`verified = true` 的紀錄會顯示已驗證標記，`proof_text` 提供證明說明或連結。",
+    "TR / CR / PR 為 builder 預先計算的榮耀標籤，前端只負責顯示。"
   ],
   "sidebar_en": [
-    "Formal boards only include `record_channel = approved_record` plus `review_status = approved`.",
-    "Normal boards include community practice runs under `record_channel = normal_time_attack`.",
-    "Player and vehicle analysis can still use unreviewed-but-not-rejected runs for trend tracking."
+    "Leaderboards include every non-rejected valid run (`is_general_pool`).",
+    "Runs with `verified = true` show a verified mark, and `proof_text` carries the evidence note or link.",
+    "TR / CR / PR are builder-computed honor badges; the frontend only renders them."
   ],
   "count_cards": [
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "698",
+      "value": "699",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
-      "label_zh": "Approved 上榜",
-      "label_en": "Approved Board",
-      "value": "0",
-      "note_zh": "正式榜單可見紀錄",
-      "note_en": "Runs visible on the formal board"
+      "label_zh": "有效紀錄",
+      "label_en": "Valid Runs",
+      "value": "699",
+      "note_zh": "未被拒絕、可進排行榜的紀錄",
+      "note_en": "Non-rejected runs eligible for the leaderboards"
     },
     {
-      "label_zh": "待審核",
-      "label_en": "Pending Review",
+      "label_zh": "已驗證",
+      "label_en": "Verified",
       "value": "0",
-      "note_zh": "已送審但尚未完成人工確認",
-      "note_en": "Approved-record submissions still waiting for manual review"
+      "note_zh": "已標記 verified 的紀錄",
+      "note_en": "Runs marked verified"
     },
     {
-      "label_zh": "一般計時",
-      "label_en": "Normal Board",
-      "value": "698",
-      "note_zh": "一般 Time Attack 練習紀錄",
-      "note_en": "Community practice runs on the normal board"
+      "label_zh": "未驗證",
+      "label_en": "Unverified",
+      "value": "699",
+      "note_zh": "尚未驗證的有效紀錄",
+      "note_en": "Valid runs that are not verified yet"
     },
     {
       "label_zh": "賽道世界",
@@ -60,26 +60,26 @@
   ],
   "board_cards": [
     {
-      "label_zh": "正式榜單",
-      "label_en": "Formal Board",
-      "title_zh": "Approved Record",
-      "title_en": "Approved Record",
-      "description_zh": "只收錄通過人工審核的正式提交，用來承擔最嚴格的賽道紀錄頁與對外輸出。",
-      "description_en": "Only manually approved formal submissions appear here. This is the strict board for official track records and outward-facing exports.",
+      "label_zh": "排行榜",
+      "label_en": "Leaderboards",
+      "title_zh": "賽道計時榜",
+      "title_en": "Track Leaderboards",
+      "description_zh": "所有有效紀錄的賽道榜，提供全紀錄、車輛、玩家三種視角，並直接標示 TR / CR / PR。",
+      "description_en": "Track boards over every valid run, with full / vehicle / player views and direct TR / CR / PR badges.",
       "href": "./tracks.html",
       "href_label_zh": "看賽道榜單",
       "href_label_en": "Open Tracks"
     },
     {
-      "label_zh": "社群練習",
-      "label_en": "Open Practice",
-      "title_zh": "Normal Time Attack",
-      "title_en": "Normal Time Attack",
-      "description_zh": "一般玩家練跑與社群活動使用的主榜，不要求正式見證條件，但仍保留時間分析價值。",
-      "description_en": "Main board for practice laps and community runs. It does not require formal witness rules but still feeds player and vehicle analysis.",
-      "href": "./tracks.html",
-      "href_label_zh": "看賽道路線",
-      "href_label_en": "Open Tracks"
+      "label_zh": "驗證",
+      "label_en": "Verification",
+      "title_zh": "已驗證 / 未驗證",
+      "title_en": "Verified / Unverified",
+      "description_zh": "標記 `verified` 的紀錄會顯示已驗證標記並可附 `proof_text` 證明，未驗證紀錄仍進排行榜與分析。",
+      "description_en": "Runs marked `verified` show a verified mark plus optional `proof_text`; unverified runs still feed the boards and analysis.",
+      "href": "./review.html",
+      "href_label_zh": "看驗證頁",
+      "href_label_en": "Open Verification"
     },
     {
       "label_zh": "頁面拆分",
