@@ -23,6 +23,10 @@ const TA_ROUTE_LABELS = {
     zh: "車輛",
     en: "Vehicles",
   },
+  vehicle: {
+    zh: "車輛檔案",
+    en: "Car File",
+  },
   events: {
     zh: "活動",
     en: "Events",
@@ -1141,6 +1145,22 @@ const renderPlayerDetail = (data, id) => {
   return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
 };
 
+const VEHICLE_PROFILE_CONFIG = {
+  fileZh: "車輛檔案",
+  fileEn: "Car File",
+  bannerZh: "車輛橫幅預留",
+  bannerEn: "Car Banner Slot",
+  usageZh: "世界變體",
+  usageEn: "World Variants",
+  tagZh: "常見車手",
+  tagEn: "Frequent Drivers",
+  listZh: "車型最佳路線",
+  listEn: "Model Best Routes",
+  peerZh: "最快車手",
+  peerEn: "Fastest Driver",
+  peerField: "player_display_name",
+};
+
 const renderVehicleCards = (cards) => {
   if (!Array.isArray(cards) || cards.length === 0) {
     return '<p class="ta-empty">No vehicle profiles yet.</p>';
@@ -1174,23 +1194,7 @@ const renderVehicleCards = (cards) => {
               </div>
               <div class="ta-profile-stack">
                 ${group.cards
-                  .map((card) =>
-                    renderProfileFeatureCard(card, {
-                      fileZh: "車輛檔案",
-                      fileEn: "Car File",
-                      bannerZh: "車輛橫幅預留",
-                      bannerEn: "Car Banner Slot",
-                      usageZh: "世界變體",
-                      usageEn: "World Variants",
-                      tagZh: "常見車手",
-                      tagEn: "Frequent Drivers",
-                      listZh: "車型最佳路線",
-                      listEn: "Model Best Routes",
-                      peerZh: "最快車手",
-                      peerEn: "Fastest Driver",
-                      peerField: "player_display_name",
-                    }),
-                  )
+                  .map((card) => renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG))
                   .join("")}
               </div>
             </section>
@@ -1199,6 +1203,31 @@ const renderVehicleCards = (cards) => {
         .join("")}
     </div>
   `;
+};
+
+const renderVehicleList = (data) => {
+  const cards = data.vehicle_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No vehicle profiles yet.</p>';
+  }
+  return `
+    <div class="ta-track-list-grid">
+      ${cards
+        .map((card) =>
+          renderProfileListCard(card, `./vehicle.html?id=${encodeURIComponent(card.vehicle_model_code)}`, "車輛檔案", "Car File"),
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderVehicleDetail = (data, id) => {
+  const cards = data.vehicle_cards || [];
+  const card = cards.find((item) => item.vehicle_model_code === id) || cards[0];
+  if (!card) {
+    return '<p class="ta-empty">Vehicle not found.</p>';
+  }
+  return `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>`;
 };
 
 const renderEventCards = (cards) =>
@@ -1366,6 +1395,17 @@ const renderPageModules = (view, data) => {
     return renderPlayerDetail(data, getQueryParam("id"));
   }
 
+  if (view === "vehicles") {
+    const listHtml = Array.isArray(data.vehicle_cards) && data.vehicle_cards.length
+      ? renderVehicleList(data)
+      : "";
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "vehicle") {
+    return renderVehicleDetail(data, getQueryParam("id"));
+  }
+
   const modules = [renderPageSnapshot(data.metric_cards)];
   if (Array.isArray(data.player_cards) && data.player_cards.length) {
     modules.push(renderModule("個人頁", "Player Profiles", "玩家分析", "Player Analysis", renderPlayerCards(data.player_cards)));
@@ -1404,8 +1444,8 @@ const setHtml = (selector, html) => {
 };
 
 const activateNav = (view) => {
-  // Detail views share their parent list nav entry (track→tracks, player→players).
-  const navView = { track: "tracks", player: "players" }[view] || view;
+  // Detail views share their parent list nav entry (track→tracks, player→players, vehicle→vehicles).
+  const navView = { track: "tracks", player: "players", vehicle: "vehicles" }[view] || view;
   document.querySelectorAll("[data-view-link]").forEach((link) => {
     link.classList.toggle("is-active", link.dataset.viewLink === navView);
   });
@@ -1426,8 +1466,8 @@ const initTimeAttack = async () => {
 
   try {
     const manifest = await loadJson("./data/manifest.json");
-    // Detail views are fed by the same list artifact (track→tracks, player→players).
-    const DETAIL_DATA_KEY = { track: "tracks", player: "players" };
+    // Detail views are fed by the same list artifact (track→tracks, player→players, vehicle→vehicles).
+    const DETAIL_DATA_KEY = { track: "tracks", player: "players", vehicle: "vehicles" };
     const dataKey = DETAIL_DATA_KEY[view] || view;
     const summaryPromise = loadJson(`./data/${manifest.routes.overview}`);
     const pagePromise = view === "overview" ? summaryPromise : loadJson(`./data/${manifest.routes[dataKey]}`);
