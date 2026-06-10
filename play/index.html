@@ -6,268 +6,168 @@
   <title>Project T Play | 星河 StarRiver Arts</title>
   <link rel="icon" href="../assets/logos/starriver-primary.png">
   <link rel="stylesheet" href="../colors_and_type.css">
-  <link rel="stylesheet" href="project-t.css">
+  <link rel="stylesheet" href="play-landing.css">
 </head>
-<body class="project-t-page sr-brand-project-t sr-type sr-medium-web">
-  <div class="pt-shell">
-    <header class="pt-topbar">
-      <a class="pt-brand" href="../index.html">
-        <span class="pt-brand-badge">
-          <img src="../assets/logos/starriver-primary.png" alt="StarRiver Arts">
-        </span>
-        <span class="pt-brand-copy">
-          <span class="pt-brand-kicker">StarRiver Arts / Play</span>
-          <span class="pt-brand-name">Project T</span>
-        </span>
-      </a>
-      <nav class="pt-topbar-nav" aria-label="Section navigation">
-        <a class="pt-toplink" href="../index.html">
-          <span class="zh">返回主站</span>
-          <span class="en">Back to Hub</span>
+<body class="sr-brand-project-t sr-type">
+
+  <nav class="nav">
+    <a class="nav-home" href="../index.html">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="nav-brand">星河 STARRIVER ARTS</span>
+    </a>
+    <div class="nav-links">
+      <a href="./RacingClub/"><span class="zh">Racing Club</span><span class="en">Racing Club</span></a>
+      <a href="./RacingClub/TimeAttack/"><span class="zh">Time Attack</span><span class="en">Time Attack</span></a>
+    </div>
+    <button class="lang-btn" type="button" data-lang-toggle><span class="zh">EN</span><span class="en">中文</span></button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-ranges">
+      <div class="range r-far">
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,120 C150,80 280,140 420,90 C560,40 700,110 840,70 C980,40 1080,100 1200,80 L1200,200 Z"/></svg>
+      </div>
+      <div class="range r-blue">
+        <svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,160 L0,110 C180,70 320,120 480,80 C640,40 760,100 920,75 C1040,55 1120,95 1200,85 L1200,160 Z"/></svg>
+      </div>
+      <div class="range r-green">
+        <svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,150 L0,96 C120,118 260,62 410,88 C560,114 680,58 830,82 C980,106 1100,72 1200,92 L1200,150 Z"/></svg>
+      </div>
+      <div class="range r-near">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,70 C160,40 330,86 520,60 C710,34 860,80 1030,58 C1110,48 1170,62 1200,56 L1200,120 Z"/></svg>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-kicker">
+        <div class="hero-shields">
+          <div class="shield">9<div class="shield-label">Route</div></div>
+          <div class="shield is-blue">RC<div class="shield-label">Club</div></div>
+          <div class="shield is-gold">TA<div class="shield-label">Records</div></div>
+        </div>
+        <span class="zh">Project T / 玩家入口</span><span class="en">Project T / Player Entry</span>
+      </div>
+      <h1 class="hero-title">Project T Play</h1>
+      <p class="hero-sub zh">山道世界、俱樂部活動與 Time Attack 紀錄的入口，集中在這裡。</p>
+      <p class="hero-sub en">The entry for Project T worlds, club activity, and Time Attack records — all in one place.</p>
+      <div class="hero-actions">
+        <a class="cta" href="./RacingClub/"><span class="zh">進入 Racing Club</span><span class="en">Enter Racing Club</span></a>
+        <a class="ghost-link" href="./RacingClub/TimeAttack/">
+          <span class="zh">直接開啟 Time Attack</span><span class="en">Open Time Attack</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
         </a>
-        <a class="pt-toplink" href="./RacingClub/">
-          <span class="zh">Racing Club</span>
-          <span class="en">Racing Club</span>
-        </a>
-        <button class="pt-lang" type="button" data-lang-toggle>
-          <span class="zh">EN</span>
-          <span class="en">中文</span>
-        </button>
-      </nav>
-    </header>
-
-    <main class="pt-page">
-      <section class="pt-hero">
-        <div class="pt-hero-copy">
-          <div class="pt-kicker">
-            <span class="zh">02 · Project T / 玩家入口</span>
-            <span class="en">02 · Project T / Player Entry</span>
-          </div>
-          <h1 class="pt-title">Project T Play</h1>
-          <p class="pt-subtitle zh">
-            山道世界、俱樂部活動與 Time Attack 紀錄的入口集中在這裡。
-            現階段先沿用既有站點：從 <code class="sr-code">RacingClub</code> 進入，再分流到紀錄、玩家、車輛、活動與資訊頁。
-          </p>
-          <p class="pt-subtitle en">
-            This is the player-facing entry for Project T worlds, club activity, and Time Attack records.
-            The current site structure stays in place: enter through <code class="sr-code">RacingClub</code>,
-            then branch into records, player, vehicle, event, and info pages.
-          </p>
-          <div class="pt-hero-actions">
-            <a class="pt-cta" href="./RacingClub/">
-              <span class="zh">進入 Racing Club</span>
-              <span class="en">Enter Racing Club</span>
-            </a>
-            <a class="pt-ghostlink" href="./RacingClub/TimeAttack/">
-              <span class="zh">直接開啟 Time Attack</span>
-              <span class="en">Open Time Attack</span>
-            </a>
-          </div>
-        </div>
-
-        <aside class="pt-shields" aria-label="Project T markers">
-          <div class="pt-shield-row">
-            <div class="pt-shield">
-              <strong>9</strong>
-              <span>Route</span>
-            </div>
-            <div class="pt-shield is-blue">
-              <strong>RC</strong>
-              <span>Club</span>
-            </div>
-            <div class="pt-shield is-gold">
-              <strong>TA</strong>
-              <span>Records</span>
-            </div>
-          </div>
-          <div class="pt-note">
-            <div class="pt-note-label">
-              <span class="zh">目前上線</span>
-              <span class="en">Live Surface</span>
-            </div>
-            <p class="pt-note-body zh">
-              現有可用入口以 <code class="sr-code">RacingClub</code> 與 <code class="sr-code">TimeAttack</code> 為主。
-              世界索引、外部社群連結與賽季頁仍保留位置，但先不建立不存在的連結。
-            </p>
-            <p class="pt-note-body en">
-              The live path is centered on <code class="sr-code">RacingClub</code> and <code class="sr-code">TimeAttack</code>.
-              World indexes, community links, and season pages keep their reserved slots, but no dead links are introduced.
-            </p>
-          </div>
-        </aside>
-      </section>
-
-      <section class="pt-status-grid" aria-label="Play surface status">
-        <article class="pt-status-cell">
-          <div class="pt-status-num">01</div>
-          <h2 class="pt-status-title">
-            <span class="zh">俱樂部入口</span>
-            <span class="en">Club Entry</span>
-          </h2>
-          <p class="pt-status-desc zh">以現有 `RacingClub` 頁作為社群與紀錄分流的主入口。</p>
-          <p class="pt-status-desc en">The existing `RacingClub` page remains the primary community and records entry.</p>
-        </article>
-        <article class="pt-status-cell">
-          <div class="pt-status-num">02</div>
-          <h2 class="pt-status-title">
-            <span class="zh">紀錄站上線</span>
-            <span class="en">Records Live</span>
-          </h2>
-          <p class="pt-status-desc zh">Time Attack 已有賽道、玩家、車輛、活動、資訊與審核頁。</p>
-          <p class="pt-status-desc en">Time Attack is already live with tracks, players, vehicles, events, info, and review pages.</p>
-        </article>
-        <article class="pt-status-cell">
-          <div class="pt-status-num">03</div>
-          <h2 class="pt-status-title">
-            <span class="zh">世界與社群擴充</span>
-            <span class="en">Worlds & Social</span>
-          </h2>
-          <p class="pt-status-desc zh">世界列表、外部社群連結與賽季整理保留入口，等正式頁面存在再接上。</p>
-          <p class="pt-status-desc en">World indexes, external community links, and season summaries stay reserved until the target pages exist.</p>
-        </article>
-      </section>
-
-      <section class="pt-section">
-        <div class="pt-section-head">
-          <div>
-            <h2 class="pt-section-title">
-              <span class="zh">現有入口</span>
-              <span class="en">Current Entry Points</span>
-            </h2>
-            <p class="pt-section-note zh">全部連結都依照現站實際存在的頁面配置，不新增 prototype 才有的子分頁。</p>
-            <p class="pt-section-note en">Every link below maps to a real page in the current site; no prototype-only subpages are introduced.</p>
-          </div>
-        </div>
-        <div class="pt-card-grid">
-          <article class="pt-card">
-            <div class="pt-card-label">
-              <span class="zh">主要入口</span>
-              <span class="en">Primary Entry</span>
-            </div>
-            <h3 class="pt-card-title">
-              <span class="zh">Racing Club</span>
-              <span class="en">Racing Club</span>
-            </h3>
-            <p class="pt-card-text zh">
-              社群入口頁。從這裡進入俱樂部說明、Time Attack 紀錄站，以及之後保留的社群與媒體接口。
-            </p>
-            <p class="pt-card-text en">
-              The club-facing entry point. From here you branch into club context,
-              the Time Attack station, and the reserved social/media interfaces.
-            </p>
-            <a class="pt-card-link" href="./RacingClub/">
-              <span class="zh">開啟 Racing Club</span>
-              <span class="en">Open Racing Club</span>
-            </a>
-          </article>
-
-          <article class="pt-card">
-            <div class="pt-card-label">
-              <span class="zh">紀錄站</span>
-              <span class="en">Records</span>
-            </div>
-            <h3 class="pt-card-title">Time Attack</h3>
-            <p class="pt-card-text zh">
-              現有的多頁紀錄站，沿用目前網站的分頁架構，不改成設計 prototype 那種單頁切換式賽道子頁。
-            </p>
-            <p class="pt-card-text en">
-              The live multi-page records station, preserving the current site navigation
-              instead of switching to the prototype’s single-page track-subview model.
-            </p>
-            <a class="pt-card-link" href="./RacingClub/TimeAttack/">
-              <span class="zh">進入紀錄站</span>
-              <span class="en">Open Records</span>
-            </a>
-          </article>
-
-          <article class="pt-card">
-            <div class="pt-card-label">
-              <span class="zh">資料規劃</span>
-              <span class="en">Planning</span>
-            </div>
-            <h3 class="pt-card-title">
-              <span class="zh">Racing Club 規劃</span>
-              <span class="en">Racing Club Plan</span>
-            </h3>
-            <p class="pt-card-text zh">
-              目前站點與資料生成仍以 `規劃.md` 為基底，包括 lookup、builder、審核與輸出流程。
-            </p>
-            <p class="pt-card-text en">
-              The current site and builder flow still derive from `規劃.md`,
-              including lookups, review flow, and static output structure.
-            </p>
-            <a class="pt-card-link" href="./RacingClub/%E8%A6%8F%E5%8A%83.md">
-              <span class="zh">查看規劃</span>
-              <span class="en">Read Plan</span>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="pt-section">
-        <div class="pt-section-head">
-          <div>
-            <h2 class="pt-section-title">
-              <span class="zh">保留接口</span>
-              <span class="en">Reserved Interfaces</span>
-            </h2>
-            <p class="pt-section-note zh">這些模組只保留視覺位置，等到對應頁面或外部連結準備好再接上。</p>
-            <p class="pt-section-note en">These modules reserve the visual slots only; links can be attached once the target pages or social destinations exist.</p>
-          </div>
-        </div>
-        <div class="pt-mini-grid">
-          <article class="pt-mini-card">
-            <div class="pt-mini-label">
-              <span class="zh">世界</span>
-              <span class="en">Worlds</span>
-            </div>
-            <h3 class="pt-mini-title">
-              <span class="zh">山道世界索引</span>
-              <span class="en">World Index</span>
-            </h3>
-            <p class="pt-mini-text zh">待世界介紹頁存在後，再把各路線世界入口掛到這裡。</p>
-            <p class="pt-mini-text en">This slot stays reserved until the world-introduction pages actually exist.</p>
-          </article>
-          <article class="pt-mini-card">
-            <div class="pt-mini-label">
-              <span class="zh">賽季</span>
-              <span class="en">Seasons</span>
-            </div>
-            <h3 class="pt-mini-title">
-              <span class="zh">活動與賽季頁</span>
-              <span class="en">Events & Seasons</span>
-            </h3>
-            <p class="pt-mini-text zh">等活動頁和積分規則穩定後，再在這裡掛正式賽季入口。</p>
-            <p class="pt-mini-text en">Once event metadata and points rules stabilize, the official season entry can live here.</p>
-          </article>
-          <article class="pt-mini-card">
-            <div class="pt-mini-label">
-              <span class="zh">社群</span>
-              <span class="en">Community</span>
-            </div>
-            <h3 class="pt-mini-title">
-              <span class="zh">外部社群連結</span>
-              <span class="en">External Community</span>
-            </h3>
-            <p class="pt-mini-text zh">Discord、VRChat Group、媒體平台等外部入口，等正式連結確認後再開放。</p>
-            <p class="pt-mini-text en">Discord, VRChat Group, and media-platform links will stay closed until the official destinations are confirmed.</p>
-          </article>
-        </div>
-      </section>
-
-      <!--
-        Design-system refresh note:
-        /play uses the new visual shell, but links and page boundaries still follow the existing live site.
-        Do not import prototype-only track subpage switching into this landing page.
-      -->
-
-      <footer class="pt-footer">
-        <span>project t / play</span>
-        <span>existing-site navigation</span>
-        <span>design-system refresh</span>
-      </footer>
-    </main>
+      </div>
+    </div>
   </div>
+  <div class="hero-road"></div>
+
+  <!-- BODY -->
+  <div class="body-section">
+    <div class="wrap">
+      <p class="lead zh">數位體驗 · VRChat 世界 · 台灣地景還原</p>
+      <p class="lead en">Digital experiences · VRChat worlds · Taiwan landscape recreation</p>
+      <p class="lead-sub zh">現階段先沿用既有站點：從 <code class="sr-code">RacingClub</code> 進入，再分流到紀錄、玩家、車輛、活動與資訊頁。</p>
+      <p class="lead-sub en">The current structure stays in place: enter through <code class="sr-code">RacingClub</code>, then branch into records, player, vehicle, event, and info pages.</p>
+
+      <div class="status-grid">
+        <div class="status-cell">
+          <div class="status-num">01</div>
+          <div class="status-title zh">俱樂部入口</div><div class="status-title en">Club Entry</div>
+          <div class="status-desc zh">以現有 RacingClub 頁作為社群與紀錄分流的主入口。</div>
+          <div class="status-desc en">The existing RacingClub page remains the primary community and records entry.</div>
+        </div>
+        <div class="status-cell">
+          <div class="status-num">02</div>
+          <div class="status-title zh">紀錄站上線</div><div class="status-title en">Records Live</div>
+          <div class="status-desc zh">Time Attack 已有賽道、玩家、車輛、活動、資訊與審核頁。</div>
+          <div class="status-desc en">Time Attack is live with tracks, players, vehicles, events, info, and review pages.</div>
+        </div>
+        <div class="status-cell">
+          <div class="status-num">03</div>
+          <div class="status-title zh">世界與社群擴充</div><div class="status-title en">Worlds &amp; Social</div>
+          <div class="status-desc zh">世界列表、外部社群連結與賽季整理保留入口，等正式頁面存在再接上。</div>
+          <div class="status-desc en">World indexes, community links, and season summaries stay reserved until the target pages exist.</div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title"><span class="zh">現有入口</span><span class="en">Current Entry Points</span></h2>
+          <p class="section-note zh">下列連結都對應現站實際存在的頁面，不新增 prototype 才有的子分頁。</p>
+          <p class="section-note en">Every link below maps to a real page in the current site; no prototype-only subpages.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-label"><span class="zh">主要入口</span><span class="en">Primary Entry</span></div>
+            <h3 class="card-title">Racing Club</h3>
+            <p class="card-text zh">社群入口頁。從這裡進入俱樂部說明、Time Attack 紀錄站，以及後續保留的社群與媒體接口。</p>
+            <p class="card-text en">The club-facing entry. From here you branch into club context, the Time Attack station, and reserved social interfaces.</p>
+            <a class="card-link" href="./RacingClub/">
+              <span class="zh">開啟 Racing Club</span><span class="en">Open Racing Club</span>
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+            </a>
+          </article>
+          <article class="card">
+            <div class="card-label"><span class="zh">紀錄站</span><span class="en">Records</span></div>
+            <h3 class="card-title">Time Attack</h3>
+            <p class="card-text zh">現有的多頁紀錄站,沿用目前網站的分頁架構,賽道、玩家、車輛皆為清單到詳情。</p>
+            <p class="card-text en">The live multi-page records station — tracks, players, and vehicles each go list-to-detail.</p>
+            <a class="card-link" href="./RacingClub/TimeAttack/">
+              <span class="zh">進入紀錄站</span><span class="en">Open Records</span>
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+            </a>
+          </article>
+          <article class="card">
+            <div class="card-label"><span class="zh">資料規劃</span><span class="en">Planning</span></div>
+            <h3 class="card-title"><span class="zh">Racing Club 規劃</span><span class="en">Racing Club Plan</span></h3>
+            <p class="card-text zh">站點與資料生成以 規劃.md 為基底,包括 lookup、builder、審核與輸出流程。</p>
+            <p class="card-text en">The site and builder flow derive from 規劃.md — lookups, review flow, and static output.</p>
+            <a class="card-link" href="./RacingClub/%E8%A6%8F%E5%8A%83.md">
+              <span class="zh">查看規劃</span><span class="en">Read Plan</span>
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title"><span class="zh">保留接口</span><span class="en">Reserved Interfaces</span></h2>
+          <p class="section-note zh">這些模組只保留視覺位置,等對應頁面或外部連結準備好再接上。</p>
+          <p class="section-note en">These modules reserve the visual slots only; links attach once the target pages exist.</p>
+        </div>
+        <div class="mini-grid">
+          <article class="mini-card">
+            <div class="mini-label"><span class="zh">世界</span><span class="en">Worlds</span></div>
+            <h3 class="mini-title zh">山道世界索引</h3><h3 class="mini-title en">World Index</h3>
+            <p class="mini-text zh">待世界介紹頁存在後,再把各路線世界入口掛到這裡。</p>
+            <p class="mini-text en">Reserved until the world-introduction pages exist.</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-label"><span class="zh">賽季</span><span class="en">Seasons</span></div>
+            <h3 class="mini-title zh">活動與賽季頁</h3><h3 class="mini-title en">Events &amp; Seasons</h3>
+            <p class="mini-text zh">等活動頁和積分規則穩定後,再掛正式賽季入口。</p>
+            <p class="mini-text en">Once events and points rules stabilize, the official season entry can live here.</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-label"><span class="zh">社群</span><span class="en">Community</span></div>
+            <h3 class="mini-title zh">外部社群連結</h3><h3 class="mini-title en">External Community</h3>
+            <p class="mini-text zh">Discord、VRChat Group、媒體平台等外部入口,等正式連結確認後再開放。</p>
+            <p class="mini-text en">Discord, VRChat Group, and media links stay closed until confirmed.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="road-line"></div>
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span class="footer-name">星河 STARRIVER ARTS</span>
+      <span class="footer-copy">© 2026 · Project T · Play · <span class="zh">臺灣場景系列</span><span class="en">Taiwan Scene Series</span></span>
+    </div>
+  </footer>
+
   <script src="project-t.js"></script>
 </body>
 </html>
