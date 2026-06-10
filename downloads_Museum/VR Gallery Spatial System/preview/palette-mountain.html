@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Project T — 山道 Scenery" subtitle="遠山近山配色 · play.html 地景語境" viewport="1200x460" -->
+<html lang="zh-TW"><head><meta charset="utf-8">
+<title>Mountain Scenery Palette</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:22px 24px;background:#fff;font-family:var(--font-body);color:var(--fg-1);}
+  .head{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .h-kick{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--pt-sign-green);}
+  .h-title{font-family:var(--font-deck);font-weight:700;font-size:18px;letter-spacing:.01em;color:var(--fg-1);}
+  .h-note{font-family:var(--font-body);font-size:12.5px;line-height:1.5;color:var(--fg-3);max-width:780px;}
+
+  .layout{display:grid;grid-template-columns:340px 1fr;gap:18px;align-items:stretch;}
+
+  /* ---- rendered scene: pale sky → layered ranges → valley floor → road ---- */
+  .scene{position:relative;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--gray-200);min-height:250px;
+    background:linear-gradient(to bottom, var(--pt-sky) 0%, var(--pt-sky-lo) 42%, var(--pt-mtn-far) 100%);}
+  .scene svg{position:absolute;left:0;width:100%;display:block;}
+  .r-far{bottom:96px;opacity:.55;}
+  .r-blue{bottom:74px;opacity:.7;}
+  .r-green{bottom:52px;opacity:.92;}
+  .floor{position:absolute;left:0;right:0;bottom:30px;height:54px;
+    background:linear-gradient(to bottom, var(--pt-near-green) 0%, #294636 100%);}
+  .earth{position:absolute;left:0;right:0;bottom:18px;height:16px;
+    background:linear-gradient(to bottom, var(--pt-earth) 0%, var(--pt-earth-lo) 100%);}
+  .road{position:absolute;left:0;right:0;bottom:0;height:18px;background:var(--pt-road);}
+  .road::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;transform:translateY(-50%);
+    background:repeating-linear-gradient(90deg,var(--pt-line) 0 20px,transparent 20px 44px);opacity:.85;}
+  .scene-tag{position:absolute;top:10px;left:12px;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;
+    text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4);}
+
+  /* ---- swatch list ---- */
+  .swatches{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;}
+  .sw{display:flex;align-items:center;gap:11px;border:1px solid var(--gray-200);border-radius:var(--r-sm);padding:7px 9px;}
+  .chip{width:34px;height:34px;border-radius:4px;flex-shrink:0;border:1px solid rgba(0,0,0,.08);}
+  .sw-meta{display:flex;flex-direction:column;gap:1px;min-width:0;}
+  .sw-name{font-family:var(--font-deck);font-weight:600;font-size:12px;color:var(--fg-1);line-height:1.15;}
+  .sw-tok{font-family:var(--font-mono);font-size:9.5px;color:var(--fg-3);letter-spacing:.03em;}
+</style></head>
+<body>
+
+<div class="head">
+  <div class="h-kick">Project T · Landscape Scenery</div>
+  <div class="h-title">山道配色 — 遠山藍綠、近山深綠、土黃與柏油黑</div>
+  <div class="h-note">為 play.html 地景頁建立的一組低飽和、低彩度配色。淺藍天為背景，遠景以山藍／山綠的去飽和山脈鋪陳遠近層次，正式區（谷地）落在深綠—淺綠—土黃，道路示意以柏油黑。整體像一幅有霧氣的台灣山景。</div>
+</div>
+
+<div class="layout">
+
+  <div class="scene">
+    <div class="scene-tag">遠山 · 近山 · 谷地 · 柏油</div>
+    <svg class="r-far" viewBox="0 0 340 60" preserveAspectRatio="none" fill="var(--pt-mtn-far)"><path d="M0,60 L0,34 C42,16 80,40 120,22 C160,6 200,30 240,18 C280,8 312,28 340,22 L340,60 Z"/></svg>
+    <svg class="r-blue" viewBox="0 0 340 56" preserveAspectRatio="none" fill="var(--pt-mtn-blue)"><path d="M0,56 L0,32 C50,12 92,34 138,18 C184,4 214,28 262,20 C296,14 320,30 340,26 L340,56 Z"/></svg>
+    <svg class="r-green" viewBox="0 0 340 50" preserveAspectRatio="none" fill="var(--pt-mtn-green)"><path d="M0,50 L0,28 C56,8 96,30 150,16 C204,2 240,24 286,16 C312,11 330,24 340,22 L340,50 Z"/></svg>
+    <div class="floor"></div>
+    <div class="earth"></div>
+    <div class="road"></div>
+  </div>
+
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:var(--pt-sky)"></div><div class="sw-meta"><span class="sw-name">淺藍天 Haze Sky</span><span class="sw-tok">--pt-sky · #D7E4E2</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-sky-lo)"></div><div class="sw-meta"><span class="sw-name">天際下緣 Sky Low</span><span class="sw-tok">--pt-sky-lo · #C2D6D6</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-mtn-far)"></div><div class="sw-meta"><span class="sw-name">遠山 Far Range</span><span class="sw-tok">--pt-mtn-far · #8FA8AC</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-mtn-blue)"></div><div class="sw-meta"><span class="sw-name">山藍 Mtn Blue</span><span class="sw-tok">--pt-mtn-blue · #5E7E86</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-mtn-green)"></div><div class="sw-meta"><span class="sw-name">山綠 Mtn Green</span><span class="sw-tok">--pt-mtn-green · #4A6B52</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-near-green)"></div><div class="sw-meta"><span class="sw-name">近山深綠 Near Hill</span><span class="sw-tok">--pt-near-green · #2F4F3A</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-earth)"></div><div class="sw-meta"><span class="sw-name">土黃 Earth</span><span class="sw-tok">--pt-earth · #A88B5C</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-earth-lo)"></div><div class="sw-meta"><span class="sw-name">深土 Earth Low</span><span class="sw-tok">--pt-earth-lo · #7C6238</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-road)"></div><div class="sw-meta"><span class="sw-name">柏油黑 Asphalt</span><span class="sw-tok">--pt-road · #2A2A2B</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--pt-line)"></div><div class="sw-meta"><span class="sw-name">標線黃 Centre Line</span><span class="sw-tok">--pt-line · #F4E04D</span></div></div>
+  </div>
+
+</div>
+
+</body></html>

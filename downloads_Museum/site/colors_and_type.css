@@ -1,0 +1,206 @@
+/* ============================================================
+   VR Gallery Spatial System — design tokens
+   Spatial, material, type, and document-chrome variables.
+   All spatial dimensions are in cm. Doc UI uses px.
+   ============================================================ */
+
+/* ---------- Webfonts ----------
+   English primary: TASA Orbiter Deck (justfont, commercial).
+     → If a licensed copy is present at fonts/TASAOrbiterDeck-*.woff2 the
+       @font-face below picks it up. Otherwise Sora (Google Fonts) is the
+       open-source fallback with the closest geometric character.
+   Chinese primary: 思源黑體 Source Han Sans = Noto Sans TC on Google Fonts
+       (identical glyph data, OFL).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  src: local("TASA Orbiter Deck");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  src: local("TASA Orbiter Deck Medium");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TASA Orbiter Deck";
+  src: local("TASA Orbiter Deck Light");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Palette (the four spatial role colours) ---------- */
+  --col-env:    #689F38;   /* surrounding / nature */
+  --col-body:   #EEEEEE;   /* gallery body / architecture */
+  --col-cool:   #E8EAF6;   /* cool tone */
+  --col-warm:   #FFF8E1;   /* warm tone */
+
+  /* role tints — for plan / elevation fills at lower opacity */
+  --col-env-08:  #689F3814;
+  --col-env-20:  #689F3833;
+  --col-body-50: #EEEEEE80;
+  --col-cool-50: #E8EAF680;
+  --col-warm-50: #FFF8E180;
+
+  /* ---------- Material reference targets vs. simulated actuals ---------- */
+  /* matte limestone (body) */
+  --mat-limestone-target: #EEEEEE;
+  --mat-limestone-actual: #E4E2DD;   /* +3% warm shift under 5000K */
+  /* polished concrete (body) */
+  --mat-concrete-target:  #EEEEEE;
+  --mat-concrete-actual:  #D8D8D6;   /* darker, slight cool */
+  /* oak floor (warm) */
+  --mat-oak-target:       #FFF8E1;
+  --mat-oak-actual:       #E8D9B0;
+  /* marble (cool) */
+  --mat-marble-target:    #E8EAF6;
+  --mat-marble-actual:    #DEE0EA;
+  /* moss / lichen (env) */
+  --mat-moss-target:      #689F38;
+  --mat-moss-actual:      #5E8D34;
+
+  /* ---------- Document chrome (NOT for VR space — for these docs only) ---------- */
+  --paper:        #FAFAF7;
+  --paper-2:      #F2F1EB;
+  --ink:          #1A1A1A;
+  --ink-2:        #4A4A48;
+  --ink-3:        #8A8985;
+  --rule:         #E0DED7;
+  --rule-2:       #C9C7C0;
+
+  /* semantic states */
+  --ok:           #467B1E;
+  --bad:          #B33;
+  --warn:         #B47B2E;
+
+  /* dimension-line colour */
+  --dim:          #B47B2E;        /* drafting ochre */
+  --dim-soft:     #B47B2E40;
+
+  /* ---------- Type ---------- */
+  --font-tc:      "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-en:      "TASA Orbiter Deck", "Sora", "Noto Sans TC", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --t-display:    300 40px/1.1 var(--font-en);
+  --t-h1:         400 28px/1.2 var(--font-en);
+  --t-h2:         500 20px/1.3 var(--font-en);
+  --t-h3:         500 15px/1.35 var(--font-en);
+  --t-body:       400 14px/1.55 var(--font-en);
+  --t-small:      400 12px/1.5 var(--font-en);
+  --t-dim:        500 11px/1 var(--font-mono);
+  --t-label:      500 10px/1 var(--font-mono);
+
+  --letter-label: 0.08em;
+  --letter-dim:   0.02em;
+
+  /* ---------- Spatial grid (cm) ---------- */
+  --grid-cm:      10;        /* primitive grid module */
+  --avatar-h-cm:  130;       /* VR avatar total height */
+  --avatar-eye-cm:130;       /* assumed eye-height = total height per brief */
+
+  /* ---------- Curve radii (cm) — see curves card ---------- */
+  --r-xs: 5;     /* edge softening */
+  --r-s:  20;    /* plinth / display unit */
+  --r-m:  60;    /* alcove */
+  --r-l:  120;   /* room corner */
+  --r-xl: 240;   /* vault / hall transition */
+
+  /* ============================================================
+     VIRTUAL ART — light, particles, interactives, info
+     These augment the spatial system for art forms that don't
+     exist in a physical gallery.
+     ============================================================ */
+
+  /* Virtual emissive light tints — colour the artwork projects onto
+     surrounding body surfaces. Spill should never exceed 20% of the
+     wall's target value. */
+  --emit-warm:    #FFB36E;    /* candle, fire, sunset */
+  --emit-key:     #FFE7B5;    /* neutral glow */
+  --emit-cool:    #BFD3EF;    /* moon, screen, water */
+  --emit-env:     #9CC069;    /* forest, plant, bio-luminescent */
+  --emit-cyan:    #6FC6D6;    /* data, signal */
+  --emit-magenta: #C66FA8;    /* anomaly / accent — sparingly */
+
+  /* Intensity bands · candela equivalent expressed in the renderer */
+  --lum-whisper:  0.15;   /* barely perceptible — only in 5 lux ambient */
+  --lum-soft:     0.40;   /* readable as a glow, doesn't reshape the wall */
+  --lum-key:      1.00;   /* drives the local mood of the room */
+  --lum-loud:     2.50;   /* hero piece — one per room maximum */
+
+  /* Particle density (count per m³) */
+  --part-sparse:  20;
+  --part-medium:  120;
+  --part-dense:   600;
+  /* particle max size (cm) for VR comfort */
+  --part-max:     8;
+
+  /* Interactive reach (cm, from avatar center) */
+  --reach-grab:   55;     /* arm reach */
+  --reach-near:  120;     /* step + reach */
+  --reach-far:   300;     /* walk-to */
+
+  /* Float bands (cm from floor) for free objects */
+  --float-low:    40;     /* knee level — hand-grab inspection */
+  --float-eye:   130;     /* eye level — primary reads */
+  --float-high:  200;     /* over-head — sky / ambient pieces */
+
+  /* Information display target distances */
+  --info-near:    80;     /* labels — reach + read */
+  --info-mid:    180;     /* room-context panels */
+  --info-far:    400;     /* sky-text / wayfinding ambient */
+
+  /* ---------- Doc spacing (px) ---------- */
+  --pad: 24px;
+  --pad-s: 16px;
+  --pad-xs: 8px;
+}
+
+/* ---------- Semantic resets used inside cards & UI kit ---------- */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: var(--t-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 { font: var(--t-h1); margin: 0; }
+h2 { font: var(--t-h2); margin: 0; }
+h3 { font: var(--t-h3); margin: 0; letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-2); }
+p  { font: var(--t-body); margin: 0; }
+.dim   { font: var(--t-dim); letter-spacing: var(--letter-dim); color: var(--dim); }
+.label { font: var(--t-label); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-3); }
+.mono  { font-family: var(--font-mono); }
+
+/* tabular numerics */
+.num { font-variant-numeric: tabular-nums; }
+
+/* card scaffolding — matches Design System tab's 700×… cards */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: var(--pad);
+  width: 100%;
+  min-height: 100%;
+}
+.card__hd {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: var(--pad-s); margin-bottom: var(--pad-s);
+}
+.card__hd .label { color: var(--ink-3); }
+
+/* simple architectural rule */
+.rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+.rule-thick { height: 2px; background: var(--ink); border: 0; margin: 0; }

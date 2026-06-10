@@ -1,0 +1,241 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Non-rectangular spaces · 非方形空間</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .shapes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .shape { border: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .shape svg { display: block; width: 100%; background: var(--paper-2); aspect-ratio: 1.3; }
+  .shape__m { padding: 12px 14px; font-size: 11px; color: var(--ink-2); line-height: 1.55; }
+  .shape__m h4 { font: 500 14px/1.2 var(--font-en); margin: 0 0 2px 0; color: var(--ink); }
+  .shape__m .cn { font-family: var(--font-tc); font-size: 10.5px; color: var(--ink-3); margin-bottom: 8px; }
+  .shape__m .rec { display: grid; grid-template-columns: 56px 1fr; gap: 2px 8px; margin-top: 8px; font-size: 10.5px; }
+  .shape__m .rec dt { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+  .shape__m .rec dd { margin: 0; color: var(--ink); }
+  text { font-family: var(--font-mono); font-size: 9px; fill: var(--ink-3); }
+  .ink { fill: var(--ink); }
+  /* shared svg primitives */
+  .wall { fill: none; stroke: #1A1A1A; stroke-width: 2; }
+  .room { fill: #EEEEEE; fill-opacity: 0.4; }
+  .axis { fill: none; stroke: #B47B2E; stroke-width: 0.7; stroke-dasharray: 3 2; }
+  .resv { fill: #EEEEEE; stroke: #1A1A1A; stroke-width: 0.7; }
+  .light { fill: #FFE7B5; stroke: #1A1A1A; stroke-width: 0.4; }
+
+  .note {
+    margin-top: 18px; padding: 14px 18px;
+    border: 1px dashed var(--rule-2); background: var(--paper-2);
+    font-size: 12.5px; color: var(--ink-2); line-height: 1.6;
+  }
+  .note b { color: var(--ink); }
+  .note .cn { font-family: var(--font-tc); }
+  .note ol { margin: 8px 0 0; padding-left: 20px; }
+  .note ol li { margin-bottom: 4px; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Non-rectangular Spaces · 非方形空間</h3><div class="dim">strategy · 6 archetypes</div></div>
+
+  <div class="shapes">
+
+    <!-- L-shape -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <path class="room" d="M 30 30 L 160 30 L 160 90 L 190 90 L 190 150 L 30 150 Z"/>
+        <path class="wall" d="M 30 30 L 160 30 L 160 90 L 190 90 L 190 150 L 30 150 Z"/>
+        <!-- two axes -->
+        <path class="axis" d="M 36 60 L 154 60"/>
+        <path class="axis" d="M 100 96 L 100 144"/>
+        <!-- corner emphasis -->
+        <circle cx="160" cy="90" r="3" fill="none" stroke="#B47B2E" stroke-width="0.6"/>
+        <text x="138" y="84">PIVOT</text>
+        <!-- reserves -->
+        <rect class="resv" x="50" y="40" width="14" height="14"/>
+        <rect class="resv" x="90" y="40" width="14" height="14"/>
+        <rect class="resv" x="130" y="40" width="14" height="14"/>
+        <rect class="resv" x="78" y="115" width="14" height="14"/>
+        <rect class="resv" x="120" y="115" width="14" height="14"/>
+        <!-- lights -->
+        <circle class="light" cx="95" cy="64" r="3"/>
+        <circle class="light" cx="138" cy="130" r="3"/>
+      </svg>
+      <div class="shape__m">
+        <h4>L · 直角轉折</h4>
+        <div class="cn">兩軸線・轉折一次</div>
+        Treat as <b>two sub-galleries joined at the pivot</b>. Each leg has its own viewing axis. The corner itself is a beat — pause it with a single reserve or open vista.
+        <dl class="rec">
+          <dt>axis</dt><dd>one per leg</dd>
+          <dt>hero</dt><dd>at pivot (peripheral reveal)</dd>
+          <dt>light</dt><dd>independent rigs per leg</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- T-shape -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <path class="room" d="M 30 30 L 190 30 L 190 80 L 130 80 L 130 150 L 90 150 L 90 80 L 30 80 Z"/>
+        <path class="wall" d="M 30 30 L 190 30 L 190 80 L 130 80 L 130 150 L 90 150 L 90 80 L 30 80 Z"/>
+        <path class="axis" d="M 36 55 L 184 55"/>
+        <path class="axis" d="M 110 84 L 110 145"/>
+        <!-- hub marker -->
+        <circle cx="110" cy="55" r="3" fill="none" stroke="#B47B2E" stroke-width="0.6"/>
+        <text x="86" y="49">HUB</text>
+        <rect class="resv" x="50" y="38" width="14" height="14"/>
+        <rect class="resv" x="160" y="38" width="14" height="14"/>
+        <rect class="resv" x="100" y="100" width="20" height="20"/>
+        <circle class="light" cx="110" cy="55" r="3.5"/>
+      </svg>
+      <div class="shape__m">
+        <h4>T · 中央交會</h4>
+        <div class="cn">三向軸線・中央樞紐</div>
+        Three directions meet. The visitor <b>chooses</b> at the hub — design the hub itself as a moment, not a corridor. Hero piece almost always sits in the spur arm.
+        <dl class="rec">
+          <dt>axis</dt><dd>3 — one per arm</dd>
+          <dt>hero</dt><dd>end of spur arm</dd>
+          <dt>light</dt><dd>strong hub key + arm fills</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Hexagonal -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <path class="room" d="M 110 28 L 175 60 L 175 120 L 110 152 L 45 120 L 45 60 Z"/>
+        <path class="wall" d="M 110 28 L 175 60 L 175 120 L 110 152 L 45 120 L 45 60 Z"/>
+        <!-- 6 radial axes -->
+        <g class="axis">
+          <line x1="110" y1="90" x2="110" y2="38"/>
+          <line x1="110" y1="90" x2="165" y2="65"/>
+          <line x1="110" y1="90" x2="165" y2="115"/>
+          <line x1="110" y1="90" x2="110" y2="142"/>
+          <line x1="110" y1="90" x2="55" y2="115"/>
+          <line x1="110" y1="90" x2="55" y2="65"/>
+        </g>
+        <rect class="resv" x="103" y="33" width="14" height="14"/>
+        <rect class="resv" x="155" y="55" width="14" height="14"/>
+        <rect class="resv" x="155" y="110" width="14" height="14"/>
+        <rect class="resv" x="103" y="135" width="14" height="14"/>
+        <rect class="resv" x="51" y="110" width="14" height="14"/>
+        <rect class="resv" x="51" y="55" width="14" height="14"/>
+        <circle class="light" cx="110" cy="90" r="4"/>
+        <text x="116" y="93">HERO</text>
+      </svg>
+      <div class="shape__m">
+        <h4>Hex · 六角向心</h4>
+        <div class="cn">六向放射・中心收束</div>
+        Six walls, six panels. Centre is the <b>hero locus</b>. Visitor circles continuously — every panel sees every other across the room. Use for a single sculptural work in the middle.
+        <dl class="rec">
+          <dt>axis</dt><dd>radial · 6 spokes</dd>
+          <dt>hero</dt><dd>centre — visible 360°</dd>
+          <dt>light</dt><dd>pendant on centre + 6 wall sconces</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Oval / circular -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <ellipse class="room" cx="110" cy="90" rx="80" ry="56"/>
+        <ellipse class="wall" cx="110" cy="90" rx="80" ry="56"/>
+        <!-- perimeter axis -->
+        <ellipse class="axis" cx="110" cy="90" rx="62" ry="40" stroke-dasharray="2 3"/>
+        <!-- works distributed on inner ring -->
+        <rect class="resv" x="103" y="36" width="14" height="14"/>
+        <rect class="resv" x="165" y="80" width="14" height="14"/>
+        <rect class="resv" x="142" y="125" width="14" height="14"/>
+        <rect class="resv" x="74" y="125" width="14" height="14"/>
+        <rect class="resv" x="41" y="80" width="14" height="14"/>
+        <text x="100" y="94" class="ink">∞</text>
+      </svg>
+      <div class="shape__m">
+        <h4>Oval · 連續環</h4>
+        <div class="cn">無角・連續流線</div>
+        No corners means <b>no decision points</b>. Visitor keeps walking. Works on the perimeter, equally spaced. Use for sequential / serial works whose order is the point.
+        <dl class="rec">
+          <dt>axis</dt><dd>continuous loop</dd>
+          <dt>spacing</dt><dd>even arc-distance (90 cm chord)</dd>
+          <dt>light</dt><dd>cove ring at ceiling</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Curved partition (defining without enclosing) -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <rect class="room" x="30" y="30" width="160" height="120"/>
+        <rect class="wall" x="30" y="30" width="160" height="120"/>
+        <!-- curved partition R 60 cutting the room -->
+        <path d="M 30 90 Q 110 60 190 100" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+        <text x="40" y="74">R 240</text>
+        <!-- two zones implied -->
+        <path class="axis" d="M 50 50 L 170 50"/>
+        <path class="axis" d="M 50 130 L 170 130"/>
+        <rect class="resv" x="60" y="38" width="12" height="12"/>
+        <rect class="resv" x="120" y="38" width="12" height="12"/>
+        <rect class="resv" x="80" y="125" width="12" height="12"/>
+        <rect class="resv" x="140" y="125" width="12" height="12"/>
+        <circle class="light" cx="100" cy="55" r="3"/>
+        <circle class="light" cx="120" cy="130" r="3"/>
+      </svg>
+      <div class="shape__m">
+        <h4>Curved partition · 弧形隔間</h4>
+        <div class="cn">弧線分區・不封閉</div>
+        A single curved wall <b>defines</b> two zones without sealing them off. Sight-lines remain open above the curve. Use to imply intimacy without literal enclosure.
+        <dl class="rec">
+          <dt>axis</dt><dd>2 — one per zone</dd>
+          <dt>radius</dt><dd>R 120 / R 240</dd>
+          <dt>light</dt><dd>different CCT per zone</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Multi-room suite -->
+    <div class="shape">
+      <svg viewBox="0 0 220 170">
+        <!-- 3 rooms connected -->
+        <g>
+          <rect class="room" x="30" y="40" width="60" height="100"/>
+          <rect class="wall" x="30" y="40" width="60" height="100"/>
+          <rect class="room" x="100" y="30" width="50" height="120"/>
+          <rect class="wall" x="100" y="30" width="50" height="120"/>
+          <rect class="room" x="160" y="60" width="40" height="80"/>
+          <rect class="wall" x="160" y="60" width="40" height="80"/>
+        </g>
+        <!-- threshold cuts -->
+        <line x1="90" y1="80" x2="100" y2="80" stroke="#F2F1EB" stroke-width="3"/>
+        <line x1="90" y1="110" x2="100" y2="110" stroke="#F2F1EB" stroke-width="3"/>
+        <line x1="150" y1="90" x2="160" y2="90" stroke="#F2F1EB" stroke-width="3"/>
+        <line x1="150" y1="115" x2="160" y2="115" stroke="#F2F1EB" stroke-width="3"/>
+        <text x="40" y="34">R1</text>
+        <text x="116" y="24">R2 · hero</text>
+        <text x="170" y="54">R3</text>
+        <rect class="resv" x="48" y="78" width="12" height="12"/>
+        <rect class="resv" x="116" y="78" width="14" height="14"/>
+        <rect class="resv" x="172" y="92" width="12" height="12"/>
+      </svg>
+      <div class="shape__m">
+        <h4>Suite · 多室相連</h4>
+        <div class="cn">套間・節奏</div>
+        Multiple rooms <b>thresholded</b> by short doorways. Reads as <em>scenes</em>. Each room can declare its own lighting climate; the threshold is the cut.
+        <dl class="rec">
+          <dt>axis</dt><dd>per-room + master thread</dd>
+          <dt>rhythm</dt><dd>S → M / hero → S</dd>
+          <dt>light</dt><dd>distinct CCT per room</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <b>Universal rules for non-rectangular plans.</b>
+    <ol>
+      <li>Decompose into <b>axes</b> first, then walls. If you can't draw a single continuous visiting line through the plan, the plan is wrong.</li>
+      <li>Every <b>corner is a beat</b> — either a reveal, a pivot, or a hero locus. Never a dead corner.</li>
+      <li>Curves are <b>not just aesthetic</b> — a partition at R 120 / R 240 changes how the avatar's gaze sweeps the space, vs a hard 90° wall.</li>
+      <li>If using curved partitions: the wall <span class="cn">「不封閉」</span> rule — never enclose a space entirely with curves. Always leave one straight wall as the anchor.</li>
+      <li>Multi-room <b>thresholds</b> should be ≥ 80 cm wide (avatar shoulder + 50 cm comfort) and ≤ 200 cm — wider than 2 m reads as "no threshold" and breaks the scene-cut.</li>
+      <li>For occlusion, the planner uses every wall edge — non-rect rooms are just walls that happen to form a closed polygon. The shadow polygon math doesn't care.</li>
+    </ol>
+  </div>
+</div>
+</body></html>

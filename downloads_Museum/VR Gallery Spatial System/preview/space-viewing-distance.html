@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Viewing distance" subtitle="60 / 150 / 300 / 600 cm bands" viewport="700x400" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Viewing distance</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .legend { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 14px; font-size: 12px; }
+  .legend h4 { font: var(--t-h3); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-2); margin: 0 0 4px 0; }
+  .legend p { color: var(--ink-2); margin:0; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Viewing Distance · 觀看距離</h3><div class="dim">elevation · 1:30</div></div>
+  <svg viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet">
+    <!-- floor -->
+    <line x1="20" y1="200" x2="680" y2="200" stroke="#1A1A1A" stroke-width="2"/>
+    <!-- wall -->
+    <line x1="660" y1="40" x2="660" y2="200" stroke="#1A1A1A" stroke-width="2"/>
+
+    <!-- exhibit reserve at wall -->
+    <rect x="640" y="80" width="20" height="80" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <text x="600" y="76" class="ink">EXHIBIT</text>
+
+    <!-- avatar 1 — intimate 60cm -->
+    <g transform="translate(580,100)">
+      <line x1="0" y1="100" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1.2"/>
+      <circle cx="0" cy="-8" r="6" fill="none" stroke="#1A1A1A" stroke-width="1.2"/>
+    </g>
+    <line x1="582" y1="92" x2="640" y2="92" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+    <text x="585" y="86">60</text>
+
+    <!-- avatar 2 — viewing 150cm -->
+    <g transform="translate(500,100)">
+      <line x1="0" y1="100" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1.2"/>
+      <circle cx="0" cy="-8" r="6" fill="none" stroke="#1A1A1A" stroke-width="1.2"/>
+    </g>
+    <line x1="502" y1="92" x2="640" y2="92" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+    <text x="555" y="86">150</text>
+
+    <!-- avatar 3 — full work 300cm -->
+    <g transform="translate(380,100)">
+      <line x1="0" y1="100" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1.2"/>
+      <circle cx="0" cy="-8" r="6" fill="none" stroke="#1A1A1A" stroke-width="1.2"/>
+    </g>
+    <line x1="382" y1="92" x2="640" y2="92" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+    <text x="495" y="86">300</text>
+
+    <!-- avatar 4 — overview 600cm -->
+    <g transform="translate(140,100)">
+      <line x1="0" y1="100" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1.2"/>
+      <circle cx="0" cy="-8" r="6" fill="none" stroke="#1A1A1A" stroke-width="1.2"/>
+    </g>
+    <line x1="142" y1="92" x2="640" y2="92" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+    <text x="380" y="86">600</text>
+
+    <!-- eye datum (130cm = scaled to top of avatar body — body height in SVG = 100px representing 130cm; eye at y=92) -->
+    <line x1="20" y1="92" x2="680" y2="92" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="1 3"/>
+    <text x="22" y="88" class="ink">EYE · 130</text>
+  </svg>
+  <div class="legend">
+    <div><h4>60 cm Intimate</h4><p>Detail close-read. Use for small works, vitrines, calligraphy, prints under 30 cm.</p></div>
+    <div><h4>150 / 300 cm Standard</h4><p>Default viewing band. Most paintings, photos, sculptures up to 120 cm volume.</p></div>
+    <div><h4>600 cm + Overview</h4><p>Large installations, murals, room-scale works. Avatar reads the whole piece in one frame.</p></div>
+  </div>
+</div>
+</body></html>

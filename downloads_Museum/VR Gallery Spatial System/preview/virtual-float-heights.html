@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Floating object heights" subtitle="Low 40 · eye 130 · high 200 cm bands" viewport="700x480" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Floating object heights</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; font-size: 12px; color: var(--ink-2); }
+  .rows h4 { font: 500 13px/1 var(--font-en); margin: 0 0 4px 0; color: var(--ink); }
+  .rows .cn { font-family: var(--font-tc); font-size: 10.5px; color: var(--ink-3); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Float Heights · 漂浮物件高度</h3><div class="dim">elevation · 1:35 · centred on avatar eye 130</div></div>
+
+  <svg viewBox="0 0 700 280" preserveAspectRatio="xMidYMid meet">
+    <!-- scale 1cm = 0.83px. Avatar height 130cm = 108px. floor y=240. eye y = 240-108 = 132 -->
+    <!-- bands. low ~40cm = 33px above floor → y=207. eye 130 = y=132. high 200cm = 166px above floor → y=74. -->
+    <line x1="20" y1="240" x2="680" y2="240" stroke="#1A1A1A" stroke-width="2"/>
+
+    <!-- band fills -->
+    <rect x="20" y="180" width="660" height="60" fill="#FFF8E1" fill-opacity="0.6"/>
+    <rect x="20" y="100" width="660" height="80" fill="#E8EAF6" fill-opacity="0.7"/>
+    <rect x="20" y="20"  width="660" height="80" fill="#FFB36E" fill-opacity="0.18"/>
+
+    <!-- band centerlines -->
+    <line x1="20" y1="207" x2="680" y2="207" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+    <line x1="20" y1="132" x2="680" y2="132" stroke="#B47B2E" stroke-width="0.8" stroke-dasharray="4 3"/>
+    <line x1="20" y1="74"  x2="680" y2="74"  stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="3 2"/>
+
+    <!-- avatar -->
+    <g transform="translate(120,240)" stroke="#1A1A1A" stroke-width="1.2" fill="none">
+      <line x1="0" y1="0" x2="0" y2="-100"/>
+      <circle cx="0" cy="-108" r="8"/>
+      <line x1="-10" y1="-80" x2="10" y2="-80"/>
+    </g>
+    <text x="98" y="256" class="ink">130 cm</text>
+
+    <!-- floating objects in each band -->
+    <!-- LOW: hand-held grab item -->
+    <rect x="240" y="195" width="20" height="24" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <text x="266" y="212" class="ink">LOW · grab</text>
+    <!-- EYE: orbit pieces -->
+    <circle cx="380" cy="132" r="10" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <circle cx="420" cy="124" r="6" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <circle cx="455" cy="138" r="8" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <text x="475" y="135" class="ink">EYE · orbit</text>
+    <!-- HIGH: ambient/sky pieces -->
+    <rect x="540" y="50" width="36" height="20" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+    <text x="582" y="62" class="ink">HIGH · ambient</text>
+
+    <!-- labels -->
+    <text x="32" y="34" class="ink">HIGH · 高位</text>
+    <text x="612" y="34">200+ cm</text>
+    <text x="32" y="114" class="ink">EYE · 視線</text>
+    <text x="630" y="114">130 cm</text>
+    <text x="32" y="194" class="ink">LOW · 低位</text>
+    <text x="630" y="194">40 cm</text>
+    <text x="32" y="254" class="ink">FLOOR · 0</text>
+
+    <!-- dim from floor -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="690" y1="74"  x2="690" y2="240"/>
+      <line x1="686" y1="74"  x2="694" y2="74"/>
+      <line x1="686" y1="132" x2="694" y2="132"/>
+      <line x1="686" y1="207" x2="694" y2="207"/>
+      <line x1="686" y1="240" x2="694" y2="240"/>
+    </g>
+  </svg>
+
+  <div class="rows">
+    <div><h4>LOW · 40 cm</h4><div class="cn">低位・抓取檢視</div>Knee → waist. For pick-up-and-rotate inspection. Auto-returns to anchor on release.</div>
+    <div><h4>EYE · 130 cm</h4><div class="cn">眼位・主視線</div>Primary read. Orbiting / drifting works that the avatar contemplates without bending.</div>
+    <div><h4>HIGH · 200+ cm</h4><div class="cn">高位・氛圍</div>Sky / ambient pieces. Not directly interactable — visible above the avatar.</div>
+  </div>
+</div>
+</body></html>

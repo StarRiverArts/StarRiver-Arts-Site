@@ -1,0 +1,53 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Viewing angle</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .legend { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 14px; font-size: 12px; }
+  .legend h4 { font: var(--t-h3); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-2); margin: 0 0 4px 0; }
+  .legend p { color: var(--ink-2); margin:0; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Viewing Cone · 觀看角度</h3><div class="dim">eye-cone · ±15° / ±30° / ±60°</div></div>
+  <svg viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet">
+    <!-- floor + wall -->
+    <line x1="20" y1="210" x2="680" y2="210" stroke="#1A1A1A" stroke-width="2"/>
+    <!-- avatar at left -->
+    <g transform="translate(120,110)">
+      <line x1="0" y1="100" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1.2"/>
+      <circle cx="0" cy="-8" r="7" fill="none" stroke="#1A1A1A" stroke-width="1.2"/>
+    </g>
+    <!-- eye -->
+    <circle cx="120" cy="102" r="2" fill="#B47B2E"/>
+    <text x="60" y="100" class="ink">EYE · 130</text>
+
+    <!-- 60° cone (peripheral): outer -->
+    <path d="M120 102 L640 102 L640 102 L120 102 Z" fill="none"/>
+    <path d="M120 102 L640 30 L640 174 Z" fill="#FFF8E1" fill-opacity="0.7" stroke="#B47B2E" stroke-width="0.6"/>
+    <!-- 30° cone (comfort) -->
+    <path d="M120 102 L640 67 L640 137 Z" fill="#E8EAF6" fill-opacity="0.8" stroke="#B47B2E" stroke-width="0.6"/>
+    <!-- 15° cone (focus) -->
+    <path d="M120 102 L640 85 L640 119 Z" fill="#689F38" fill-opacity="0.25" stroke="#B47B2E" stroke-width="0.8"/>
+
+    <!-- horizon -->
+    <line x1="120" y1="102" x2="680" y2="102" stroke="#1A1A1A" stroke-width="0.6" stroke-dasharray="2 3"/>
+
+    <!-- labels -->
+    <text x="560" y="90" class="ink">±15° FOCUS</text>
+    <text x="560" y="63" class="ink">±30° COMFORT</text>
+    <text x="560" y="28" class="ink">±60° PERIPHERAL</text>
+
+    <!-- arc indicators near avatar -->
+    <path d="M150 102 A 30 30 0 0 0 148 90" fill="none" stroke="#B47B2E" stroke-width="0.6"/>
+    <text x="155" y="92">15°</text>
+  </svg>
+  <div class="legend">
+    <div><h4>±15° Focus</h4><p>Centroid of every exhibit must fall here when read from its specified distance. The work the visitor is meant to study.</p></div>
+    <div><h4>±30° Comfort</h4><p>Neighbouring works and contextual material. Visible without head turn — supports the focus piece.</p></div>
+    <div><h4>±60° Peripheral</h4><p>Wayfinding, architecture, the next room glimpsed. Never place a primary work here.</p></div>
+  </div>
+</div>
+</body></html>

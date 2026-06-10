@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Whitespace · structure</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .scale { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; font-size: 12px; }
+  .scale h4 { font: var(--t-label); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink); margin: 0 0 4px 0; }
+  .scale p { color: var(--ink-2); margin:0; }
+  .scale .mono { display:block; color: var(--dim); font-family: var(--font-mono); margin-top: 4px; font-size: 11px; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>留白 · Inter-Exhibit Spacing</h3><div class="dim">in 10 cm steps</div></div>
+  <svg viewBox="0 0 700 160" preserveAspectRatio="xMidYMid meet">
+    <!-- wall -->
+    <line x1="20" y1="20" x2="680" y2="20" stroke="#1A1A1A" stroke-width="2"/>
+    <line x1="20" y1="140" x2="680" y2="140" stroke="#1A1A1A" stroke-width="2"/>
+    <!-- four works at progressively larger spacing -->
+    <!-- a: 40cm spacing pair, b: 90cm, c: 180cm, d: 360cm -->
+    <g fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1">
+      <rect x="40" y="50" width="48" height="60"/>
+      <rect x="100" y="50" width="48" height="60"/>
+      <!-- spacing 40cm -->
+      <rect x="200" y="50" width="48" height="60"/>
+      <rect x="280" y="50" width="48" height="60"/>
+      <!-- spacing 90cm -->
+      <rect x="380" y="50" width="48" height="60"/>
+      <rect x="510" y="50" width="48" height="60"/>
+    </g>
+
+    <!-- dimensions -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="88" y1="124" x2="100" y2="124"/>
+      <line x1="88" y1="120" x2="88" y2="128"/>
+      <line x1="100" y1="120" x2="100" y2="128"/>
+    </g>
+    <text x="78" y="138">↤40</text>
+
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="248" y1="124" x2="280" y2="124"/>
+      <line x1="248" y1="120" x2="248" y2="128"/>
+      <line x1="280" y1="120" x2="280" y2="128"/>
+    </g>
+    <text x="252" y="138">↤90</text>
+
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="428" y1="124" x2="510" y2="124"/>
+      <line x1="428" y1="120" x2="428" y2="128"/>
+      <line x1="510" y1="120" x2="510" y2="128"/>
+    </g>
+    <text x="450" y="138">↤180</text>
+
+    <text x="42" y="42" class="ink">PAIR · 一組</text>
+    <text x="200" y="42" class="ink">COMFORT · 鬆</text>
+    <text x="380" y="42" class="ink">BREATH · 留白</text>
+  </svg>
+
+  <div class="scale">
+    <div><h4>40 cm Pair</h4><p>Works read as one unit. Diptychs, series, sequential narratives.<span class="mono">d ≥ 4 × grid</span></p></div>
+    <div><h4>90 cm Comfort</h4><p>Default. Avatar arm-reach + breath. Works read individually but in conversation.<span class="mono">d ≥ 9 × grid</span></p></div>
+    <div><h4>180 cm Breath</h4><p>The 留白 minimum. Works read alone. Visitor must walk between them.<span class="mono">d ≥ 18 × grid</span></p></div>
+    <div><h4>360 cm Silence</h4><p>One work owns a wall. Use sparingly — once per room maximum.<span class="mono">d ≥ 36 × grid</span></p></div>
+  </div>
+</div>
+</body></html>

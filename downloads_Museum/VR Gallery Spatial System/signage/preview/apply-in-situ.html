@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>In situ</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+
+  .scene { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border:1px solid var(--rule); background:#e7e6e0; }
+  .scene + .scene { margin-top:14px; }
+  .slot { position:absolute; inset:0; width:100%; height:100%; z-index:0; --slot-bg:#e7e6e0; }
+  .scene__tag { position:absolute; top:10px; left:12px; z-index:5; font:500 9.5px/1 var(--font-mono);
+                letter-spacing:0.06em; color:#fff; background:rgba(20,24,30,0.55); padding:5px 8px; text-transform:uppercase; }
+  .pin { position:absolute; z-index:4; }
+  .pin__n { font:500 8.5px/1 var(--font-mono); letter-spacing:0.05em; color:#fff;
+            background:rgba(20,24,30,0.6); padding:3px 6px; white-space:nowrap; }
+
+  /* exterior overlays */
+  .lockup { position:absolute; z-index:3; text-align:center; }
+  .lockup .cn { font-family:var(--font-tc); font-weight:600; font-size:30px; line-height:0.95; color:#FCFCFA;
+                text-shadow:1px 1px 0 #c9c7c0,2px 2px 0 #bdbbb4,3px 3px 6px rgba(40,55,80,0.5); }
+  .lockup .en { font:600 15px/1 var(--font-en); letter-spacing:0.04em; color:#FCFCFA; text-shadow:1px 1px 4px rgba(40,55,80,0.6); margin-top:3px; }
+
+  .skytext { position:absolute; z-index:3; text-align:center; }
+  .skytext .en { font:300 30px/0.95 var(--font-en); letter-spacing:0.04em; color:rgba(255,255,255,0.9); text-shadow:0 0 16px rgba(120,140,180,0.9),0 1px 3px rgba(40,55,80,0.5); }
+  .skytext .cn { font-family:var(--font-tc); font-weight:400; font-size:15px; color:rgba(255,255,255,0.82); text-shadow:0 1px 3px rgba(40,55,80,0.5); margin-top:2px; }
+
+  .emit { position:absolute; z-index:3; font-family:var(--font-tc); font-weight:500; font-size:26px; color:#FFF6E2;
+          text-shadow:0 0 8px var(--emit-key),0 0 22px var(--emit-warm),0 0 44px rgba(255,179,110,0.6); }
+
+  .blade { position:absolute; z-index:3; background:var(--you-here); color:#fff; padding:8px 6px; writing-mode:vertical-rl;
+           font-family:var(--font-tc); font-weight:500; font-size:14px; letter-spacing:0.1em; box-shadow:2px 2px 6px rgba(0,0,0,0.35); }
+
+  .cap { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+  .cap div { font-size:11.5px; line-height:1.5; color:var(--ink-2); }
+  .cap b { display:block; font:500 10px/1.3 var(--font-mono); letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase; margin-bottom:3px; }
+  .cap .cn { font-family:var(--font-tc); }
+
+  .hint { margin-top:12px; padding:11px 14px; border:1px dashed var(--rule-2); background:var(--paper-2);
+          font-size:11.5px; line-height:1.5; color:var(--ink-2); }
+  .hint b { color:var(--ink); } .hint .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>In situ · 實景套用</h3><div class="dim">your world</div></div>
+  <p class="intro">
+    Drop a screenshot of <b>your</b> VR world into each frame and place the system on top — one sign per tier, nothing more. The overlays below show indicative placement; nudge them to fit your space. <span class="cn">把你自己的 VR 世界截圖拖入每個框，再把系統疊上去——每階各一件、絕不多。下方疊層僅示意位置，依你的空間微調即可。</span>
+  </p>
+
+  <!-- EXTERIOR -->
+  <div class="scene">
+    <image-slot id="vgts-world-exterior" class="slot" shape="rect" placeholder="拖入你的世界・外觀  ·  Drop your world — exterior"></image-slot>
+    <div class="scene__tag">Exterior · 外觀</div>
+    <div class="lockup" style="top:28%; left:50%; transform:translateX(-50%);">
+      <div class="cn">虛空</div><div class="en">VOID GALLERY</div>
+    </div>
+    <div class="blade" style="bottom:14%; left:9%;">入口 →</div>
+    <div class="pin" style="top:30%; left:69%;"><span class="pin__n">Tier 1 · main lockup 60 cm</span></div>
+    <div class="pin" style="bottom:30%; left:9%;"><span class="pin__n">Tier 2 · blade</span></div>
+  </div>
+
+  <!-- INTERIOR -->
+  <div class="scene">
+    <image-slot id="vgts-world-interior" class="slot" shape="rect" placeholder="拖入你的世界・室內  ·  Drop your world — interior"></image-slot>
+    <div class="scene__tag">Interior · 室內</div>
+    <div class="skytext" style="top:12%; left:50%; transform:translateX(-50%);">
+      <div class="en">LIGHT HALL</div><div class="cn">光廊</div>
+    </div>
+    <div class="emit" style="top:55%; left:30%;">光</div>
+    <div class="pin" style="top:12%; left:64%;"><span class="pin__n">Tier 2 · far-ambient sky-text 400 cm</span></div>
+    <div class="pin" style="top:62%; left:30%;"><span class="pin__n">Tier 3 · emissive</span></div>
+  </div>
+
+  <div class="cap">
+    <div><b>Restraint · 克制</b><span class="cn">整個場景只出現四件標識——每一階各一。留白規則同樣適用於字。</span></div>
+    <div><b>Coherence · 一致</b><span class="cn">同一套字體（Orbiter Deck＋思源黑體）從建築尺度貫穿到展品尺度。</span></div>
+  </div>
+
+  <div class="hint"><b>How to use · 用法</b> <span class="cn">把你的世界截圖拖到上方任一框即可填入；雙擊可重新取景。疊層位置以 % 定義，可直接在原始碼微調以對齊你的空間。</span></div>
+</div>
+<script src="../image-slot.js"></script>
+</body></html>

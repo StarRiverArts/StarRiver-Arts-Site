@@ -1,0 +1,71 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Relief & mount</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .sub { font:500 11px/1 var(--font-mono); letter-spacing:0.12em; text-transform:uppercase;
+         color:var(--ink-3); margin:22px 0 14px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+  .sub:first-of-type { margin-top:2px; }
+
+  /* relief ladder */
+  .relief { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+  .rl { border:1px solid var(--rule); background:#EEECE6; padding:14px 12px 12px; display:flex; flex-direction:column; gap:10px; }
+  .rl__glyph { height:62px; display:grid; place-items:center; }
+  .rl__glyph span { font-family:var(--font-tc); font-weight:500; font-size:46px; line-height:1; color:#FCFCFA; }
+  .e0 span { color:#5b5b58; text-shadow:none; }
+  .e1 span { text-shadow:1px 1px 0 #d4d2cb, 2px 2px 3px rgba(26,26,26,0.18); }
+  .e2 span { text-shadow:1px 1px 0 #d4d2cb,2px 2px 0 #cac8c1,3px 3px 0 #c0beb7,4px 4px 6px rgba(26,26,26,0.22); }
+  .e3 span { text-shadow:1px 1px 0 #d4d2cb,2px 2px 0 #cac8c1,3px 3px 0 #c0beb7,4px 4px 0 #b8b6af,5px 5px 0 #b0aea7,6px 6px 0 #a8a6a0,7px 7px 9px rgba(26,26,26,0.26); }
+  .e4 span { text-shadow:1px 1px 0 #d4d2cb,2px 2px 0 #c8c6bf,3px 3px 0 #bebcb5,4px 4px 0 #b4b2ab,5px 5px 0 #aaa8a1,6px 6px 0 #a09e98,7px 7px 0 #98968f,8px 8px 0 #908e88,9px 9px 0 #88867f,11px 11px 13px rgba(26,26,26,0.30); }
+  .rl__cap { font:600 13px/1 var(--font-mono); color:var(--ink); font-variant-numeric:tabular-nums; }
+  .rl__name { font:500 9.5px/1 var(--font-mono); letter-spacing:0.05em; color:var(--ink-3); text-transform:uppercase; }
+  .rl__cn { font-family:var(--font-tc); font-size:11px; color:var(--ink-2); line-height:1.35; }
+
+  /* mount elevation */
+  .elev { position:relative; height:248px; border-left:1.5px solid var(--ink);
+          margin:6px 0 0 56px; }
+  .gline { position:absolute; left:0; right:0; height:1px; }
+  .gline .bar { position:absolute; left:0; right:30px; height:1px; background:var(--rule-2); }
+  .gline.eye .bar { background:var(--dim); height:1px; }
+  .gline .h { position:absolute; left:-56px; width:48px; text-align:right;
+              font:600 11px/1 var(--font-mono); color:var(--ink); font-variant-numeric:tabular-nums; transform:translateY(-50%); }
+  .gline .lab { position:absolute; right:0; transform:translateY(-50%);
+                font:500 10px/1 var(--font-mono); letter-spacing:0.03em; color:var(--ink-2); text-transform:uppercase; }
+  .gline .lab .cn { font-family:var(--font-tc); letter-spacing:0; color:var(--ink-3); margin-left:6px; }
+  .gline.eye .h, .gline.eye .lab { color:var(--dim); }
+  .floor { position:absolute; left:0; right:0; bottom:0; border-bottom:2px solid var(--ink); }
+  .floor::after { content:"FLOOR 0 cm 地面"; position:absolute; left:0; bottom:4px; font:500 9px/1 var(--font-mono); letter-spacing:0.06em; color:var(--ink-3); }
+  /* avatar tick */
+  .av { position:absolute; left:14px; bottom:0; width:14px; }
+  .av__h { position:absolute; bottom:0; left:6px; width:1.5px; background:var(--ink-2); height:115px; }
+  .av__head { position:absolute; bottom:103px; left:1px; width:13px; height:13px; border:1.5px solid var(--ink-2); border-radius:50%; }
+  .av__eye { position:absolute; bottom:115px; left:-2px; width:19px; height:1px; background:var(--dim); }
+  .av__lbl { position:absolute; bottom:118px; left:-4px; font:500 8px/1 var(--font-mono); color:var(--dim); white-space:nowrap; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Relief & mount · 浮凸與安裝</h3><div class="dim">depth · centroid height</div></div>
+
+  <div class="sub">Relief depth · 浮凸深度</div>
+  <div class="relief">
+    <div class="rl e0"><div class="rl__glyph"><span>光</span></div><div class="rl__cap">0.3</div><div class="rl__name">flush</div><div class="rl__cn">印刷／貼膜</div></div>
+    <div class="rl e1"><div class="rl__glyph"><span>光</span></div><div class="rl__cap">2 cm</div><div class="rl__name">cut</div><div class="rl__cn">切割壓克力</div></div>
+    <div class="rl e2"><div class="rl__glyph"><span>光</span></div><div class="rl__cap">6 cm</div><div class="rl__name">channel</div><div class="rl__cn">通道字・成為物件</div></div>
+    <div class="rl e3"><div class="rl__glyph"><span>光</span></div><div class="rl__cap">20 cm</div><div class="rl__name">volume</div><div class="rl__cn">量體・主招牌</div></div>
+    <div class="rl e4"><div class="rl__glyph"><span>光</span></div><div class="rl__cap">60 cm</div><div class="rl__name">sculpt</div><div class="rl__cn">可繞行的字</div></div>
+  </div>
+
+  <div class="sub">Mount height · 安裝高（以 130 cm avatar 視線為基準）</div>
+  <div class="elev">
+    <div class="gline" style="bottom:230px"><div class="bar"></div><div class="h">260</div><div class="lab">Main lockup <span class="cn">主招牌</span></div></div>
+    <div class="gline" style="bottom:190px"><div class="bar"></div><div class="h">215</div><div class="lab">Overhead direction <span class="cn">頭頂指引</span></div></div>
+    <div class="gline" style="bottom:142px"><div class="bar"></div><div class="h">160</div><div class="lab">Zone plate <span class="cn">分區牌</span></div></div>
+    <div class="gline eye" style="bottom:115px"><div class="bar"></div><div class="h">130</div><div class="lab">Directory · you-here <span class="cn">樓層・現在位置</span></div></div>
+    <div class="gline" style="bottom:84px"><div class="bar"></div><div class="h">95</div><div class="lab">Exhibit label <span class="cn">展品標籤</span></div></div>
+    <div class="floor"></div>
+    <div class="av">
+      <div class="av__h"></div><div class="av__head"></div>
+      <div class="av__eye"></div><div class="av__lbl">eye 130</div>
+    </div>
+  </div>
+</div>
+</body></html>

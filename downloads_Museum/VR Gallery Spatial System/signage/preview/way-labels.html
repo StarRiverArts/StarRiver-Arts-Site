@@ -1,0 +1,70 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Labels</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+  .intro code { font-family:var(--font-mono); font-size:12px; background:var(--paper-2); padding:1px 5px; }
+
+  .lr { display:grid; grid-template-columns:96px 1fr; gap:20px; align-items:start;
+        padding:18px 0; border-top:1px solid var(--rule); }
+  .lr:first-of-type { border-top:0; }
+  .range { display:flex; flex-direction:column; gap:5px; }
+  .range__d { font:600 15px/1 var(--font-mono); color:var(--dim); font-variant-numeric:tabular-nums; }
+  .range__n { font:500 9.5px/1.3 var(--font-mono); letter-spacing:0.05em; color:var(--ink-3); text-transform:uppercase; }
+  .range__cn { font-family:var(--font-tc); font-size:11px; color:var(--ink-2); }
+
+  /* near label — caption plate */
+  .near { border:1px solid var(--rule); background:#FCFCFA; padding:14px 16px; max-width:330px; }
+  .near__t { font-family:var(--font-tc); font-weight:500; font-size:18px; line-height:1.2; color:var(--ink); }
+  .near__te { font:400 12px/1.2 var(--font-en); color:var(--ink-2); margin-top:2px; font-style:italic; }
+  .near__meta { margin-top:9px; font-family:var(--font-tc); font-size:12px; line-height:1.5; color:var(--ink-2); }
+  .near__acc { margin-top:8px; font:500 9.5px/1 var(--font-mono); letter-spacing:0.04em; color:var(--ink-3); }
+
+  /* mid context panel */
+  .mid { border-left:2px solid var(--ink); padding:2px 0 2px 16px; max-width:420px; }
+  .mid__h { font-family:var(--font-tc); font-weight:500; font-size:14px; color:var(--ink); margin-bottom:6px; }
+  .mid__b { font-family:var(--font-tc); font-size:12.5px; line-height:1.7; color:var(--ink-2); }
+  .mid__b .en { font-family:var(--font-en); }
+
+  /* far ambient — sky-text */
+  .far { background:linear-gradient(180deg,#E9EDF5,#DFE4F0); border:1px solid var(--rule); padding:26px 20px; position:relative; overflow:hidden; }
+  .far__sky { font-family:var(--font-en); font-weight:300; font-size:46px; line-height:0.95; color:#5b6b86; opacity:0.45; letter-spacing:0.02em; }
+  .far__cn { font-family:var(--font-tc); font-weight:400; font-size:18px; color:#5b6b86; opacity:0.5; margin-top:4px; }
+  .far__tag { position:absolute; top:10px; right:14px; font:500 9px/1 var(--font-mono); letter-spacing:0.06em; color:#7a89a4; text-transform:uppercase; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Labels · 展品標籤</h3><div class="dim">Tier 2 · near / mid / far ranges</div></div>
+  <p class="intro">
+    Reading text maps onto the spatial system's three <b>information ranges</b>. Each range gets its own type weight, contrast, and persistence. <span class="cn">閱讀文字對應空間系統的三段資訊距離：<code>near 80 / mid 180 / far 400 cm</code>，各有字重、對比與顯示時機。</span>
+  </p>
+
+  <div class="lr">
+    <div class="range"><div class="range__d">80 cm</div><div class="range__n">Near label</div><div class="range__cn">作品標籤・湊近讀</div></div>
+    <div class="near">
+      <div class="near__t">無題（光的容積）</div>
+      <div class="near__te">Untitled (Volume of Light)</div>
+      <div class="near__meta">林虛白 Lin Hsu-pai · 2026<br/>複合媒材・發光體 Mixed media, emissive</div>
+      <div class="near__acc">VG-2026-014 · 藝術家捐贈</div>
+    </div>
+  </div>
+
+  <div class="lr">
+    <div class="range"><div class="range__d">180 cm</div><div class="range__n">Mid context</div><div class="range__cn">展區脈絡・停留讀</div></div>
+    <div class="mid">
+      <div class="mid__h">光廊 · Light Hall</div>
+      <div class="mid__b">本展區的作品皆以「光」為媒材。每件展品的發光溢散受控於空間系統的<span class="en"> emission budget</span>——投向本體牆的光不超過牆面目標值的 20%，使留白得以保留。</div>
+    </div>
+  </div>
+
+  <div class="lr">
+    <div class="range"><div class="range__d">400 cm</div><div class="range__n">Far ambient</div><div class="range__cn">天空字・恆常可見</div></div>
+    <div class="far">
+      <span class="far__tag">always-on · low opacity</span>
+      <div class="far__sky">LIGHT HALL</div>
+      <div class="far__cn">光廊</div>
+    </div>
+  </div>
+</div>
+</body></html>

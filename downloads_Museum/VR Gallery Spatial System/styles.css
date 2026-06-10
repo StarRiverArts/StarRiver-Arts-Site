@@ -1,0 +1,9 @@
+/* ============================================================
+   VR Gallery — root stylesheet
+   Single entry point for consumers. Pulls in the spatial design
+   tokens and the typographic / signage layer that sits on top.
+   Link THIS file and you get every token in both systems.
+   ============================================================ */
+
+@import url("./colors_and_type.css");
+@import url("./signage/signage_tokens.css");

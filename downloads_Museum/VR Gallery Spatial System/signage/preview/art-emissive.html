@@ -1,0 +1,77 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Emissive lettering</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+  .intro code { font-family:var(--font-mono); font-size:12px; background:var(--paper-2); padding:1px 5px; }
+
+  .hero { position:relative; height:236px; background:#1b2026; border:1px solid #000; overflow:hidden;
+          display:grid; place-items:center; }
+  /* the wall behind, showing controlled spill */
+  .hero__wall { position:absolute; inset:0;
+    background: radial-gradient(120px 120px at 50% 48%, rgba(255,231,181,0.22), rgba(255,231,181,0.05) 55%, transparent 72%); }
+  .hero__budget { position:absolute; left:18px; bottom:14px; font:500 10px/1.4 var(--font-mono); color:rgba(255,255,255,0.6); letter-spacing:0.03em; }
+  .hero__budget b { color:#FFE7B5; }
+  .eglyph { position:relative; font-family:var(--font-tc); font-weight:500; font-size:120px; line-height:1; color:#FFF6E2;
+            text-shadow:0 0 8px var(--letter-glow-key), 0 0 28px var(--letter-glow-warm), 0 0 64px rgba(255,179,110,0.6), 0 0 110px rgba(255,179,110,0.35); }
+
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px; }
+  .blk__h { font:500 10px/1 var(--font-mono); letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:11px; }
+
+  .glows { display:flex; gap:10px; }
+  .gl { flex:1; height:54px; border:1px solid var(--rule); display:grid; place-items:center; position:relative; }
+  .gl span { font-family:var(--font-tc); font-weight:500; font-size:24px; }
+  .gl--key  { background:#23282e; } .gl--key span  { color:#FFF6E2; text-shadow:0 0 12px var(--emit-key); }
+  .gl--cool { background:#23282e; } .gl--cool span { color:#EAF1FB; text-shadow:0 0 12px var(--emit-cool); }
+  .gl--warm { background:#23282e; } .gl--warm span { color:#FFEAD3; text-shadow:0 0 12px var(--emit-warm); }
+  .gl small { position:absolute; bottom:4px; font:500 8px/1 var(--font-mono); color:rgba(255,255,255,0.55); letter-spacing:0.04em; }
+
+  .bands { display:flex; flex-direction:column; gap:7px; }
+  .band { display:grid; grid-template-columns:64px 1fr 42px; align-items:center; gap:10px; }
+  .band__n { font:500 10px/1 var(--font-mono); color:var(--ink-2); text-transform:uppercase; }
+  .band__bar { height:10px; background:#1b2026; position:relative; overflow:hidden; }
+  .band__fill { position:absolute; inset:0 auto 0 0; background:linear-gradient(90deg,#FFB36E,#FFE7B5); }
+  .band__v { font:600 10px/1 var(--font-mono); color:var(--ink); text-align:right; font-variant-numeric:tabular-nums; }
+
+  .note { margin-top:16px; padding:12px 14px; border:1px dashed var(--rule-2); background:var(--paper-2); font-size:11.5px; line-height:1.5; color:var(--ink-2); }
+  .note b { color:var(--ink); } .note .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Emissive · 發光體</h3><div class="dim">Tier 3 · letter as light source</div></div>
+  <p class="intro">
+    The letter becomes a light source. Its glow is bound by the spatial system's <b>emission budget</b>: spill onto the body wall stays <code>≤ 20%</code> of the wall's target value, so the room keeps its whitespace. <span class="cn">字成為光源；溢光受發光預算約束——投向本體牆不超過目標值 20%，房間的留白得以保留。</span>
+  </p>
+
+  <div class="hero">
+    <div class="hero__wall"></div>
+    <div class="eglyph">光</div>
+    <div class="hero__budget">spill onto wall <b>18%</b> / 20% budget · intensity <b>key 1.00</b></div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="blk__h">Glow tints · 溢光色</div>
+      <div class="glows">
+        <div class="gl gl--key"><span>光</span><small>KEY</small></div>
+        <div class="gl gl--cool"><span>水</span><small>COOL</small></div>
+        <div class="gl gl--warm"><span>火</span><small>WARM</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="blk__h">Intensity bands · 強度</div>
+      <div class="bands">
+        <div class="band"><span class="band__n">whisper</span><div class="band__bar"><div class="band__fill" style="width:8%"></div></div><span class="band__v">0.15</span></div>
+        <div class="band"><span class="band__n">soft</span><div class="band__bar"><div class="band__fill" style="width:22%"></div></div><span class="band__v">0.40</span></div>
+        <div class="band"><span class="band__n">key</span><div class="band__bar"><div class="band__fill" style="width:55%"></div></div><span class="band__v">1.00</span></div>
+        <div class="band"><span class="band__n">loud</span><div class="band__bar"><div class="band__fill" style="width:100%"></div></div><span class="band__v">2.50</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>One loud letter per room.</b> A hero emissive word at <code>loud 2.50</code> drives the whole room's mood — never two. Everything else recedes to soft or whisper. <span class="cn">每室僅一個 loud 發光字主導氣氛，其餘退至 soft / whisper。</span>
+  </div>
+</div>
+</body></html>

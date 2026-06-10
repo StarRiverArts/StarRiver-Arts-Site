@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Light whitespace" subtitle="Pitch-black · silhouette · wash · gradient · + compatibility matrix" viewport="700x720" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Light whitespace · 光線留白</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .strats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .s { border: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .s__view { aspect-ratio: 2.3; position: relative; overflow: hidden; }
+  .s__view svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .s__m { padding: 12px 14px; font-size: 11.5px; color: var(--ink-2); line-height: 1.55; }
+  .s__m h4 { font: 500 14px/1.2 var(--font-en); margin: 0 0 2px 0; color: var(--ink); }
+  .s__m .cn { font-family: var(--font-tc); font-size: 10.5px; color: var(--ink-3); margin-bottom: 6px; }
+  .s__m b { color: var(--ink); }
+  .s__m .when { display:grid; grid-template-columns: 60px 1fr; gap: 2px 8px; margin-top: 8px; font-size: 11px; }
+  .s__m .when dt { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+  .s__m .when dd { margin: 0; color: var(--ink); }
+  .matrix { margin-top: 14px; display:grid; grid-template-columns: 110px repeat(4, 1fr); gap: 1px; background: var(--rule); border:1px solid var(--rule); font-size: 11px; }
+  .matrix > div { background: var(--paper); padding: 8px 10px; }
+  .matrix .h { background: var(--paper-2); font: var(--t-label); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-3); }
+  .matrix .ok::before { content: "✓ "; color: var(--ok); font-family: var(--font-mono); }
+  .matrix .no::before { content: "× "; color: var(--bad); font-family: var(--font-mono); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Light Whitespace · 藝術品周圍光線</h3><div class="dim">when to dim · when to wash</div></div>
+
+  <div class="strats">
+
+    <!-- A: Pitch black (theatrical hero) -->
+    <div class="s">
+      <div class="s__view">
+        <svg viewBox="0 0 280 110" preserveAspectRatio="none">
+          <rect width="280" height="110" fill="#0F0F0F"/>
+          <rect x="115" y="30" width="50" height="50" fill="#FFE7B5"/>
+          <ellipse cx="140" cy="55" rx="42" ry="30" fill="#FFE7B5" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="s__m">
+        <h4>A · Pitch-black surround</h4>
+        <div class="cn">全黑包圍・劇場聚光</div>
+        Surround drops to <b>≤ 0.5 lux</b>. Subject is the only light source visually. Avatar's pupils dilate; transitions to next room MUST include an adaptation buffer.
+        <dl class="when">
+          <dt>use</dt><dd>1 hero piece per gallery · video / lightbox / cubicle works</dd>
+          <dt>cap</dt><dd>≤ 1 room per visit</dd>
+          <dt>buffer</dt><dd>2 m dim antechamber before & after</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- B: Dim silhouette -->
+    <div class="s">
+      <div class="s__view">
+        <svg viewBox="0 0 280 110" preserveAspectRatio="none">
+          <rect width="280" height="110" fill="#2A2622"/>
+          <rect x="115" y="30" width="50" height="50" fill="#FFE7B5"/>
+          <ellipse cx="140" cy="55" rx="50" ry="35" fill="#FFE7B5" opacity="0.25"/>
+          <!-- silhouette objects -->
+          <rect x="30" y="65" width="14" height="20" fill="#1A1A1A"/>
+          <rect x="240" y="60" width="20" height="25" fill="#1A1A1A"/>
+        </svg>
+      </div>
+      <div class="s__m">
+        <h4>B · Dim silhouette</h4>
+        <div class="cn">微亮輪廓・神祕氣氛</div>
+        Surround at <b>2–8 lux</b>. Other works read as silhouettes — present but unfocused. The current work is unambiguous; the others lie in wait.
+        <dl class="when">
+          <dt>use</dt><dd>narrative galleries · sequential reveal · contemplative</dd>
+          <dt>cap</dt><dd>≤ 3 rooms per visit</dd>
+          <dt>contrast</dt><dd>subject 25–50× surround</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- C: Even wash (classic) -->
+    <div class="s">
+      <div class="s__view">
+        <svg viewBox="0 0 280 110" preserveAspectRatio="none">
+          <rect width="280" height="110" fill="#EEEEEE"/>
+          <rect x="115" y="30" width="50" height="50" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.6"/>
+          <ellipse cx="140" cy="55" rx="40" ry="28" fill="#FFE7B5" opacity="0.18"/>
+          <rect x="30" y="40" width="20" height="35" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.6"/>
+          <rect x="230" y="40" width="20" height="35" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.6"/>
+        </svg>
+      </div>
+      <div class="s__m">
+        <h4>C · Even wash</h4>
+        <div class="cn">均勻照明・全民共見</div>
+        Surround at <b>120–200 lux</b>. All works compete equally. Use when the COLLECTION is the point, not any single piece.
+        <dl class="when">
+          <dt>use</dt><dd>didactic rooms · group shows · study spaces</dd>
+          <dt>contrast</dt><dd>subject only 2–3× surround</dd>
+          <dt>never</dt><dd>after a pitch-black room — break the rhythm</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- D: Gradient transition -->
+    <div class="s">
+      <div class="s__view">
+        <svg viewBox="0 0 280 110" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad-d" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="#0F0F0F"/>
+              <stop offset="60%" stop-color="#4A453F"/>
+              <stop offset="100%" stop-color="#EEEEEE"/>
+            </linearGradient>
+          </defs>
+          <rect width="280" height="110" fill="url(#grad-d)"/>
+          <rect x="32" y="40" width="22" height="32" fill="#FFE7B5"/>
+          <rect x="115" y="30" width="50" height="50" fill="#FFE7B5"/>
+          <rect x="225" y="40" width="22" height="32" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.4"/>
+        </svg>
+      </div>
+      <div class="s__m">
+        <h4>D · Gradient transition</h4>
+        <div class="cn">漸層過渡・節奏轉換</div>
+        Long room with surround sliding from pitch-black to wash. Subjects sit at every brightness step — they share the room but live in different lighting climates.
+        <dl class="when">
+          <dt>use</dt><dd>transition halls · "from dusk to noon" curatorial themes</dd>
+          <dt>length</dt><dd>≥ 8 m to read as gradient, not as patchy lighting</dd>
+          <dt>steps</dt><dd>4 brightness zones max</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- compatibility / rhythm matrix -->
+  <div class="matrix">
+    <div class="h">strategy</div>
+    <div class="h">prev: pitch-black</div>
+    <div class="h">prev: silhouette</div>
+    <div class="h">prev: wash</div>
+    <div class="h">prev: gradient</div>
+
+    <div class="h">A · pitch-black</div>
+    <div class="no">avoid · monotony</div>
+    <div class="ok">good · deepening</div>
+    <div class="ok">strong · shock</div>
+    <div class="ok">natural end</div>
+
+    <div class="h">B · silhouette</div>
+    <div class="ok">good</div>
+    <div class="ok">good</div>
+    <div class="ok">good · cooling</div>
+    <div class="ok">good</div>
+
+    <div class="h">C · wash</div>
+    <div class="ok">strong · relief</div>
+    <div class="ok">good · awakening</div>
+    <div class="no">avoid · flat</div>
+    <div class="ok">natural end</div>
+
+    <div class="h">D · gradient</div>
+    <div class="ok">good · build</div>
+    <div class="ok">good</div>
+    <div class="ok">good · descent</div>
+    <div class="no">avoid · noisy</div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Curve radii" subtitle="R 5 / 20 / 60 / 120 / 240 cm" viewport="700x340" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Curves · radii</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .key { display:grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 14px; font-size: 11.5px; color: var(--ink-2); }
+  .key h4 { font: 500 13px/1 var(--font-en); margin: 0 0 4px 0; color: var(--ink); }
+  .key .cn { font-family: var(--font-tc); font-size:11px; color: var(--ink-3); display:block; margin-bottom: 4px; }
+  .key .mono { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); display:block; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Curves · 曲線半徑</h3><div class="dim">R · cm · 1:50</div></div>
+
+  <svg viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet">
+    <!-- baseline -->
+    <line x1="20" y1="170" x2="680" y2="170" stroke="#1A1A1A" stroke-width="1.5"/>
+
+    <!-- R5 — 5cm = 1px at 1:50, way too small; we display all curves at COMPARABLE scale, fitted -->
+    <!-- For visual comparison we map: r5=8px, r20=22px, r60=44px, r120=70px, r240=120px -->
+    <g fill="none" stroke="#1A1A1A" stroke-width="1.5">
+      <path d="M70 170 L70 162 A 8 8 0 0 1 78 154 L90 154"/>
+      <path d="M180 170 L180 148 A 22 22 0 0 1 202 126 L222 126"/>
+      <path d="M320 170 L320 126 A 44 44 0 0 1 364 82 L400 82"/>
+      <path d="M470 170 L470 100 A 70 70 0 0 1 540 30 L580 30"/>
+      <path d="M620 170 L620 50  A 120 120 0 0 1 740 -70" />
+    </g>
+
+    <!-- radius dots -->
+    <g fill="#B47B2E">
+      <circle cx="78" cy="162" r="1.5"/>
+      <circle cx="202" cy="148" r="1.5"/>
+      <circle cx="364" cy="126" r="1.5"/>
+      <circle cx="540" cy="100" r="1.5"/>
+      <circle cx="740" cy="50" r="1.5"/>
+    </g>
+
+    <text x="62" y="184" class="ink">R 5</text>
+    <text x="172" y="184" class="ink">R 20</text>
+    <text x="312" y="184" class="ink">R 60</text>
+    <text x="462" y="184" class="ink">R 120</text>
+    <text x="612" y="184" class="ink">R 240</text>
+
+    <!-- visual key — comparative -->
+    <text x="20" y="18" class="ink">DRAWN AT COMPARATIVE — NOT ACTUAL — SCALE</text>
+  </svg>
+
+  <div class="key">
+    <div><h4>R 5 cm</h4><span class="cn">邊角倒角</span>Edge softening. Plinth tops, vitrine corners, exhibit-label edges.<span class="mono">5 cm</span></div>
+    <div><h4>R 20 cm</h4><span class="cn">家具半徑</span>Display unit corners, bench radii, small partition ends.<span class="mono">20 cm</span></div>
+    <div><h4>R 60 cm</h4><span class="cn">小型壁龕</span>Alcoves for a single work. Partition turns within a room.<span class="mono">60 cm</span></div>
+    <div><h4>R 120 cm</h4><span class="cn">室內轉角</span>Room corners. Major partition radii. Viewer comfortable bend.<span class="mono">120 cm</span></div>
+    <div><h4>R 240 cm</h4><span class="cn">穹頂與走道</span>Vault transitions, atrium walls, room-to-hall continuity.<span class="mono">240 cm</span></div>
+  </div>
+</div>
+</body></html>

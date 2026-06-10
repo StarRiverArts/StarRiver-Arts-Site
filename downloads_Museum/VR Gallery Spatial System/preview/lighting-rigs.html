@@ -1,0 +1,139 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Multi-light rigs" subtitle="3-point · 4-point art · gallery wash · spot+ambient" viewport="700x580" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Multi-light rigs</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .rigs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .rig { border: 1px solid var(--rule); }
+  .rig svg { display: block; width: 100%; background: var(--paper-2); }
+  .rig__h { padding: 10px 14px 8px; border-bottom: 1px solid var(--rule); }
+  .rig__h h4 { font: 500 14px/1.2 var(--font-en); margin: 0; color: var(--ink); }
+  .rig__h .cn { font-family: var(--font-tc); font-size: 10.5px; color: var(--ink-3); margin-top: 2px; }
+  .rig__m { padding: 10px 14px 12px; font-size: 11px; color: var(--ink-2); line-height: 1.5; }
+  .rig__m b { color: var(--ink); }
+  .rig__pills { margin-top: 6px; }
+  .pill { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 10px; border: 1px solid var(--rule-2); color: var(--ink-2); margin: 0 4px 4px 0; }
+  text { font-family: var(--font-mono); font-size: 9px; fill: var(--ink-3); letter-spacing: 0.04em; }
+  .lampK { fill: #FFE7B5; }     /* key 5000K */
+  .lampW { fill: #FFD18A; }     /* warm fill */
+  .lampC { fill: #BFD3EF; }     /* cool fill */
+  .lampE { fill: #9CC069; }     /* env bounce */
+  .lampM { fill: #C66FA8; }     /* magenta accent */
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Multi-light Rigs · 多光源配置</h3><div class="dim">soft · artistic · low-cost</div></div>
+
+  <div class="rigs">
+
+    <!-- Rig A: 3-point soft (industry standard) -->
+    <div class="rig">
+      <div class="rig__h"><h4>A · Soft 3-point</h4><div class="cn">基本三點柔光</div></div>
+      <svg viewBox="0 0 320 180">
+        <!-- room plan top-down 6x4m -->
+        <rect x="40" y="30" width="240" height="120" fill="#EEEEEE" fill-opacity="0.45" stroke="#1A1A1A" stroke-width="1.2"/>
+        <!-- subject -->
+        <rect x="155" y="80" width="20" height="30" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <text x="155" y="74" class="ink">SUBJ</text>
+        <!-- key 45° front-left -->
+        <circle cx="80" cy="60" r="6" class="lampK" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="80" y1="60" x2="158" y2="90" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="64" y="54">KEY 5000K · 1.0</text>
+        <!-- fill 45° front-right -->
+        <circle cx="240" cy="60" r="5" class="lampW" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="240" y1="60" x2="172" y2="90" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="220" y="54">FILL 4000K · 0.4</text>
+        <!-- back -->
+        <circle cx="165" cy="135" r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="165" y1="135" x2="165" y2="115" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="146" y="148">BACK 5600K · 0.6</text>
+      </svg>
+      <div class="rig__m">
+        Classic key + fill + back. Subject sits centred with the key at 45° from the front. Use when you want a <b>read first</b>, no mood. Fill at 40% of key so shadows remain shaped.
+        <div class="rig__pills"><span class="pill">3 lights</span><span class="pill">no LV needed</span></div>
+      </div>
+    </div>
+
+    <!-- Rig B: 4-point art with rim and ambient bounce -->
+    <div class="rig">
+      <div class="rig__h"><h4>B · 4-point art</h4><div class="cn">四點藝術光</div></div>
+      <svg viewBox="0 0 320 180">
+        <rect x="40" y="30" width="240" height="120" fill="#EEEEEE" fill-opacity="0.45" stroke="#1A1A1A" stroke-width="1.2"/>
+        <rect x="155" y="80" width="20" height="30" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <text x="155" y="74" class="ink">SUBJ</text>
+        <!-- key 35° -->
+        <circle cx="70" cy="55" r="6" class="lampK" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="70" y1="55" x2="158" y2="90" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="56" y="48">KEY 5000K · 1.0</text>
+        <!-- fill cool -->
+        <circle cx="245" cy="70" r="5" class="lampC" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="245" y1="70" x2="172" y2="92" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="226" y="62">FILL 5600K · 0.35</text>
+        <!-- rim/back warm -->
+        <circle cx="240" cy="135" r="5" class="lampW" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="240" y1="135" x2="175" y2="110" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="216" y="148">RIM 3200K · 0.7</text>
+        <!-- ambient bounce env -->
+        <circle cx="80" cy="135" r="5" class="lampE" stroke="#1A1A1A" stroke-width="0.6"/>
+        <line x1="80" y1="135" x2="158" y2="105" stroke="#B47B2E" stroke-width="0.5" stroke-dasharray="2 2"/>
+        <text x="58" y="148">ENV bounce · 0.15</text>
+      </svg>
+      <div class="rig__m">
+        Key + cool fill + warm rim + env bounce. Cool/warm split shapes the subject across the frame. Rim picks out silhouette from background.
+        <div class="rig__pills"><span class="pill">4 lights</span><span class="pill">requires LV</span><span class="pill">art-first</span></div>
+      </div>
+    </div>
+
+    <!-- Rig C: Gallery wash -->
+    <div class="rig">
+      <div class="rig__h"><h4>C · Gallery wash</h4><div class="cn">畫廊均勻光</div></div>
+      <svg viewBox="0 0 320 180">
+        <rect x="40" y="30" width="240" height="120" fill="#EEEEEE" fill-opacity="0.45" stroke="#1A1A1A" stroke-width="1.2"/>
+        <!-- wall row of works -->
+        <rect x="55" y="35" width="20" height="16" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <rect x="100" y="35" width="20" height="16" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <rect x="145" y="35" width="20" height="16" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <rect x="190" y="35" width="20" height="16" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <rect x="235" y="35" width="20" height="16" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+        <!-- ceiling lights linear row -->
+        <circle cx="65" cy="75"  r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.4"/>
+        <circle cx="110" cy="75" r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.4"/>
+        <circle cx="155" cy="75" r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.4"/>
+        <circle cx="200" cy="75" r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.4"/>
+        <circle cx="245" cy="75" r="4" class="lampK" stroke="#1A1A1A" stroke-width="0.4"/>
+        <!-- ambient floor bounce -->
+        <rect x="40" y="120" width="240" height="30" fill="#FFE7B5" fill-opacity="0.18"/>
+        <text x="155" y="100" textAnchor="middle" style="text-anchor:middle" class="ink">WASH 5000K · 0.6</text>
+        <text x="155" y="138" textAnchor="middle" style="text-anchor:middle" class="ink">FLOOR BOUNCE 4000K · 0.2</text>
+      </svg>
+      <div class="rig__m">
+        Track of soft keys above the picture rail, evenly spaced at 200 cm intervals. Floor bounce gives 18% warm fill. Standard for didactic / educational rooms.
+        <div class="rig__pills"><span class="pill">5+ lights</span><span class="pill">baked</span><span class="pill">even read</span></div>
+      </div>
+    </div>
+
+    <!-- Rig D: Spotlight + dim ambient (museum drama) -->
+    <div class="rig">
+      <div class="rig__h"><h4>D · Spot + ambient</h4><div class="cn">聚光・低環境</div></div>
+      <svg viewBox="0 0 320 180">
+        <rect x="40" y="30" width="240" height="120" fill="#1A1A1A" fill-opacity="0.55" stroke="#1A1A1A" stroke-width="1.2"/>
+        <!-- subject highlit -->
+        <rect x="155" y="80" width="20" height="30" fill="#FFE7B5" stroke="#1A1A1A" stroke-width="1"/>
+        <ellipse cx="165" cy="95" rx="34" ry="20" fill="#FFE7B5" fill-opacity="0.35"/>
+        <text x="155" y="74" style="fill:#FAFAF7;">SUBJ</text>
+        <!-- spot -->
+        <circle cx="165" cy="48" r="5" class="lampK" stroke="#1A1A1A" stroke-width="0.6"/>
+        <path d="M165 48 L150 80 L180 80 Z" fill="#FFE7B5" fill-opacity="0.25"/>
+        <text x="142" y="42" style="fill:#FAFAF7;">SPOT 4000K · 1.5</text>
+        <!-- low ambient -->
+        <text x="60" y="145" style="fill:#FAFAF7;">AMBIENT 6500K · 0.10</text>
+      </svg>
+      <div class="rig__m">
+        One narrow spot per piece (20°–30° beam) + room ambient at 10% cool. Subject pops; the rest reads as silhouette. Use for hero pieces and dramatic single-work rooms.
+        <div class="rig__pills"><span class="pill">1+1 lights</span><span class="pill">VR Stage Lighting</span><span class="pill">hero</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body></html>

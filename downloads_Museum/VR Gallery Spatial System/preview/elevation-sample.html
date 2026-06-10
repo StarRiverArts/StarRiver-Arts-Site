@@ -1,0 +1,116 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Sample · elevation" subtitle="10 m wall · 立面圖 1:50" viewport="700x420" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Elevation view sample</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .legend { display:grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-2); }
+  .legend i { display:inline-block; width:10px; height:10px; vertical-align:-1px; margin-right:6px; border:1px solid var(--rule); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Sample · 立面圖 Elevation</h3><div class="dim">10 m wall · 1:50 · 5000K key</div></div>
+
+  <svg viewBox="0 0 700 340">
+    <!-- Wall 10m wide × 3.5m tall. Scale 1m = 55px. → 550 × 192. Floor at y=300, ceiling at y=108. Position room from x=50. -->
+    <!-- Scale: 1cm = 0.55px. Floor y=300. Eye y = 300 - 130*0.55 = 300 - 71.5 = 228.5 -->
+
+    <!-- ceiling -->
+    <line x1="50" y1="108" x2="600" y2="108" stroke="#1A1A1A" stroke-width="2"/>
+    <text x="55" y="100" class="ink">CEILING · 3500</text>
+    <!-- floor -->
+    <line x1="50" y1="300" x2="600" y2="300" stroke="#1A1A1A" stroke-width="2"/>
+    <text x="55" y="315" class="ink">FLOOR · 0</text>
+    <!-- end walls -->
+    <line x1="50" y1="108" x2="50" y2="300" stroke="#1A1A1A" stroke-width="1.5"/>
+    <line x1="600" y1="108" x2="600" y2="300" stroke="#1A1A1A" stroke-width="1.5"/>
+
+    <!-- background body fill (subtle) -->
+    <rect x="50" y="108" width="550" height="192" fill="#EEEEEE" fill-opacity="0.45"/>
+
+    <!-- light sources from ceiling -->
+    <g stroke="#1A1A1A" stroke-width="0.6">
+      <line x1="155" y1="108" x2="155" y2="118"/>
+      <line x1="155" y1="118" x2="148" y2="125"/>
+      <line x1="155" y1="118" x2="162" y2="125"/>
+      <circle cx="155" cy="118" r="3" fill="#FFE7B5" stroke="#1A1A1A"/>
+
+      <line x1="290" y1="108" x2="290" y2="118"/>
+      <line x1="290" y1="118" x2="283" y2="125"/>
+      <line x1="290" y1="118" x2="297" y2="125"/>
+      <circle cx="290" cy="118" r="3" fill="#FFE7B5" stroke="#1A1A1A"/>
+
+      <line x1="425" y1="108" x2="425" y2="118"/>
+      <line x1="425" y1="118" x2="418" y2="125"/>
+      <line x1="425" y1="118" x2="432" y2="125"/>
+      <circle cx="425" cy="118" r="3" fill="#FFE7B5" stroke="#1A1A1A"/>
+
+      <line x1="540" y1="108" x2="540" y2="118"/>
+      <line x1="540" y1="118" x2="533" y2="125"/>
+      <line x1="540" y1="118" x2="547" y2="125"/>
+      <circle cx="540" cy="118" r="3" fill="#FFE7B5" stroke="#1A1A1A"/>
+    </g>
+    <text x="395" y="104" class="ink">5000K · CRI 95</text>
+
+    <!-- exhibits on wall. Centroid at y = 228.5 -->
+    <!-- M (60×100 cm)  → 33×55 px. Centered on 228, top=200 bottom=255 -->
+    <rect x="130" y="200" width="33" height="55" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1.2"/>
+    <rect x="190" y="200" width="33" height="55" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="140" y="195" class="ink">M</text>
+    <text x="200" y="195" class="ink">M</text>
+
+    <!-- L (120×150 cm) → 66×82 -->
+    <rect x="310" y="187" width="66" height="82" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="324" y="183" class="ink">L · 120×150</text>
+
+    <!-- XL (240×240 cm) → 132×132 -->
+    <rect x="455" y="162" width="132" height="132" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="491" y="158" class="ink">XL · 240×240</text>
+
+    <!-- centroid datum -->
+    <line x1="50" y1="229" x2="600" y2="229" stroke="#B47B2E" stroke-width="0.6" stroke-dasharray="4 3"/>
+    <text x="55" y="225" class="ink">EYE · 130</text>
+
+    <!-- avatar -->
+    <g transform="translate(85,300)" stroke="#1A1A1A" stroke-width="1.2" fill="none">
+      <line x1="0" y1="0" x2="0" y2="-72"/>
+      <circle cx="0" cy="-77" r="6"/>
+      <line x1="-8" y1="-65" x2="8" y2="-65"/>
+    </g>
+    <text x="78" y="316" class="ink">130 cm</text>
+
+    <!-- dim: floor to ceiling -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="38" y1="108" x2="38" y2="300"/>
+      <line x1="34" y1="108" x2="42" y2="108"/>
+      <line x1="34" y1="300" x2="42" y2="300"/>
+    </g>
+    <text transform="translate(34,220) rotate(-90)" class="ink">3500</text>
+
+    <!-- dim: floor to eye -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="620" y1="229" x2="620" y2="300"/>
+      <line x1="616" y1="229" x2="624" y2="229"/>
+      <line x1="616" y1="300" x2="624" y2="300"/>
+    </g>
+    <text transform="translate(626,278)" class="ink">1300</text>
+
+    <!-- room length 10m -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="50" y1="328" x2="600" y2="328"/>
+      <line x1="50" y1="324" x2="50" y2="332"/>
+      <line x1="600" y1="324" x2="600" y2="332"/>
+    </g>
+    <text x="310" y="338" class="ink">10 000 mm</text>
+  </svg>
+
+  <div class="legend">
+    <div><i style="background:#EEEEEE"></i>BODY wall · matte limestone</div>
+    <div><i style="background:#FFE7B5"></i>5000K key + 4000K fill</div>
+    <div>EYE / CENTROID datum 1300 mm</div>
+    <div>Ceiling 3500 mm</div>
+  </div>
+</div>
+</body></html>

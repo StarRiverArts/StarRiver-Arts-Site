@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Whitespace · grouping</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .rules { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; font-size: 12.5px; color: var(--ink-2); }
+  .rules h4 { font: var(--t-label); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink); margin: 0 0 4px 0; }
+  .rules p { margin: 0; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Grouping · 群組與呼吸</h3><div class="dim">2-3-2 rhythm</div></div>
+  <svg viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet">
+    <line x1="20" y1="170" x2="680" y2="170" stroke="#1A1A1A" stroke-width="2"/>
+
+    <!-- group 1: pair -->
+    <g fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1">
+      <rect x="50" y="60" width="45" height="80"/>
+      <rect x="105" y="60" width="45" height="80"/>
+    </g>
+    <!-- breath 1 -->
+    <!-- group 2: triple -->
+    <g fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1">
+      <rect x="240" y="80" width="40" height="60"/>
+      <rect x="290" y="60" width="50" height="80"/>
+      <rect x="350" y="80" width="40" height="60"/>
+    </g>
+    <!-- breath 2 -->
+    <!-- group 3: pair -->
+    <g fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1">
+      <rect x="510" y="60" width="45" height="80"/>
+      <rect x="565" y="60" width="45" height="80"/>
+    </g>
+
+    <!-- inter-group breath dims -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="150" y1="156" x2="240" y2="156"/>
+      <line x1="150" y1="150" x2="150" y2="162"/>
+      <line x1="240" y1="150" x2="240" y2="162"/>
+    </g>
+    <text x="170" y="168">BREATH 180</text>
+
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="390" y1="156" x2="510" y2="156"/>
+      <line x1="390" y1="150" x2="390" y2="162"/>
+      <line x1="510" y1="150" x2="510" y2="162"/>
+    </g>
+    <text x="420" y="168">BREATH 240</text>
+
+    <text x="60" y="48" class="ink">GROUP A · pair</text>
+    <text x="266" y="48" class="ink">GROUP B · triplet</text>
+    <text x="520" y="48" class="ink">GROUP C · pair</text>
+  </svg>
+
+  <div class="rules">
+    <div><h4>Within a group</h4><p>40 cm pair-spacing maximum. Works read as one composition. Three works max per group.</p></div>
+    <div><h4>Between groups</h4><p>≥ 180 cm breath. Beat changes — a different idea, period, or material begins.</p></div>
+    <div><h4>Rhythm</h4><p>Aim for varied group sizes — 2-3-2 reads more musical than 2-2-2-2. Avoid all-pairs.</p></div>
+    <div><h4>The 留白 rule</h4><p>If a room has ≥ 12 works on one wall, you have skipped the breath rule. Cut works or split the wall with a partition.</p></div>
+  </div>
+</div>
+</body></html>

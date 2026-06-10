@@ -1,0 +1,63 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Mounting height</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .ink { fill: var(--ink); }
+  .legend { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; font-size: 12px; }
+  .legend h4 { font: var(--t-h3); letter-spacing: var(--letter-label); text-transform: uppercase; color: var(--ink-2); margin: 0 0 4px 0; }
+  .legend p { color: var(--ink-2); margin:0; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Mounting Height · 展品中心線</h3><div class="dim">centroid @ eye · 130 cm</div></div>
+  <svg viewBox="0 0 700 260" preserveAspectRatio="xMidYMid meet">
+    <!-- floor + wall -->
+    <line x1="20" y1="230" x2="680" y2="230" stroke="#1A1A1A" stroke-width="2"/>
+    <line x1="20" y1="20" x2="680" y2="20" stroke="#C9C7C0" stroke-width="0.5"/>
+
+    <!-- 4 wall plates with works of different heights, all centred on 130cm = y=110 -->
+    <!-- Scale: 200px = 200cm. Floor y=230, 130cm above = y=230-130 = 100 -->
+    <!-- small work 40cm tall: y=80 to y=120 -->
+    <g transform="translate(120,0)">
+      <rect x="-30" y="80" width="60" height="40" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+      <text x="-18" y="148" class="ink">40 cm</text>
+    </g>
+    <!-- medium 80cm tall: y=60 to y=140 -->
+    <g transform="translate(260,0)">
+      <rect x="-50" y="60" width="100" height="80" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+      <text x="-22" y="168" class="ink">80 cm</text>
+    </g>
+    <!-- large 140cm tall: y=30 to y=170 -->
+    <g transform="translate(420,0)">
+      <rect x="-70" y="30" width="140" height="140" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+      <text x="-26" y="198" class="ink">140 cm</text>
+    </g>
+    <!-- xl 180cm tall: y=10 to y=190 -->
+    <g transform="translate(600,0)">
+      <rect x="-50" y="10" width="100" height="180" fill="#EEEEEE" stroke="#1A1A1A" stroke-width="1"/>
+      <text x="-26" y="218" class="ink">180 cm</text>
+    </g>
+
+    <!-- centerline -->
+    <line x1="20" y1="100" x2="680" y2="100" stroke="#B47B2E" stroke-width="0.8" stroke-dasharray="4 3"/>
+    <text x="22" y="96" class="ink">CENTROID · 130 cm above floor</text>
+
+    <!-- floor label -->
+    <text x="22" y="244" class="ink">FLOOR · 0 cm</text>
+
+    <!-- dim arrows for first work -->
+    <g stroke="#B47B2E" stroke-width="0.6">
+      <line x1="65" y1="100" x2="65" y2="230"/>
+      <line x1="61" y1="100" x2="69" y2="100"/>
+      <line x1="61" y1="230" x2="69" y2="230"/>
+    </g>
+    <text x="40" y="170">130</text>
+  </svg>
+  <div class="legend">
+    <div><h4>Rule</h4><p>Centroid of the exhibit (geometric centre, not top edge) sits at avatar eye-height = 130 cm. Works of any size obey the same rule.</p></div>
+    <div><h4>Exception</h4><p>Floor-bound sculptures &gt; 180 cm or installations meant to loom over the viewer override the centroid rule — document the override on the piece.</p></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VR Gallery Spatial System</title>
+<link rel="stylesheet" href="colors_and_type.css"/>
+
+<!-- Bundle thumbnail (for offline splash if you super_inline this later) -->
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#EEEEEE"/>
+    <g transform="translate(30,30)" fill="none" stroke="#1A1A1A" stroke-width="2">
+      <circle cx="70" cy="70" r="60"/>
+      <line x1="10" y1="70" x2="130" y2="70" stroke-dasharray="3 3"/>
+      <line x1="70" y1="10" x2="70" y2="130" stroke-dasharray="3 3"/>
+    </g>
+    <text x="100" y="180" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1A1A1A" font-weight="500">VGSS</text>
+  </svg>
+</template>
+
+<style>
+  html, body { margin: 0; background: var(--paper); color: var(--ink); height: 100%; }
+  body { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+
+  /* ===== Sidebar ===== */
+  .nav {
+    border-right: 1px solid var(--rule);
+    background: var(--paper-2);
+    padding: 28px 0;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  }
+  .nav__brand { padding: 0 24px 20px; border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
+  .nav__id    { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.10em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 6px; }
+  .nav__t     { font: 500 18px/1.25 var(--font-en); margin: 0; }
+  .nav__cn    { font-family: var(--font-tc); font-weight: 400; font-size: 13px; color: var(--ink-2); margin-top: 3px; display: block; }
+
+  .nav__sec   { padding: 4px 0; }
+  .nav__h     {
+    padding: 14px 24px 6px;
+    font: 500 10px/1 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .nav__link  {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6px 24px; cursor: pointer;
+    font: 400 13.5px/1.4 var(--font-en); color: var(--ink-2);
+    text-decoration: none; border-left: 2px solid transparent;
+  }
+  .nav__link:hover { background: var(--paper); color: var(--ink); }
+  .nav__link.is-on { background: var(--paper); color: var(--ink); border-left-color: var(--ink); }
+  .nav__link .cn { font-family: var(--font-tc); font-size: 11.5px; color: var(--ink-3); margin-left: 8px; }
+  .nav__link.is-on .cn { color: var(--ink-2); }
+
+  /* ===== Main ===== */
+  .main { padding: 48px 64px 72px; max-width: 920px; }
+
+  .hero {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px; margin-bottom: 36px;
+  }
+  .hero__id { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 12px; }
+  .hero__t  { font: 300 48px/1 var(--font-en); letter-spacing: -0.01em; margin: 0; }
+  .hero__cn { font-family: var(--font-tc); font-weight: 400; font-size: 22px; color: var(--ink); margin-top: 8px; display: block; }
+
+  .sec { margin-bottom: 60px; scroll-margin-top: 24px; }
+  .sec__hd { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 20px; }
+  .sec__t  { font: 500 13px/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; }
+  .sec__c  { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+  .sec__intro { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin-bottom: 20px; max-width: 780px; }
+  .sec__intro .cn { font-family: var(--font-tc); }
+
+  /* Card frame for embedded preview iframes */
+  .card { margin-bottom: 24px; border: 1px solid var(--rule); background: var(--paper); }
+  .card__hd { display: flex; align-items: baseline; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+  .card__t  { font: 500 13px/1.3 var(--font-en); color: var(--ink); }
+  .card__d  { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); }
+  .card__open {
+    appearance: none; border: 1px solid var(--rule-2); background: var(--paper);
+    padding: 4px 10px; font: 500 10px/1 var(--font-mono); letter-spacing: 0.06em;
+    color: var(--ink-2); text-decoration: none; cursor: pointer;
+  }
+  .card__open:hover { color: var(--ink); border-color: var(--ink); }
+  .card__frame { width: 100%; border: 0; display: block; background: var(--paper); }
+
+  /* Tools section */
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .tool {
+    display: block; text-decoration: none; color: var(--ink);
+    border: 1px solid var(--ink); padding: 28px 32px;
+    background: var(--paper); transition: none;
+  }
+  .tool:hover { background: var(--ink); color: var(--paper); }
+  .tool__id { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.10em; color: inherit; opacity: 0.6; text-transform: uppercase; margin-bottom: 8px; }
+  .tool__t  { font: 500 22px/1.1 var(--font-en); margin-bottom: 4px; }
+  .tool__cn { font-family: var(--font-tc); font-size: 14px; opacity: 0.85; margin-bottom: 14px; display: block; }
+  .tool__d  { font-size: 12.5px; line-height: 1.55; opacity: 0.85; }
+  .tool__cta { margin-top: 18px; font: 500 11px/1 var(--font-mono); letter-spacing: 0.10em; text-transform: uppercase; }
+  .tool__cta::after { content: " →"; }
+
+  /* Overview embed */
+  .overview-frame { width: 100%; min-height: 1400px; border: 1px solid var(--rule); background: var(--paper); }
+
+  /* SKILL link */
+  .skill { padding: 18px 22px; border: 1px dashed var(--rule-2); background: var(--paper-2); font-size: 13px; line-height: 1.6; color: var(--ink-2); }
+  .skill b { color: var(--ink); }
+  .skill .cn { font-family: var(--font-tc); }
+  .skill code { font-family: var(--font-mono); font-size: 12px; background: var(--paper); padding: 1px 5px; }
+
+  /* ── Museum back-nav ── */
+  .museum-nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 24px;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono); font-size: 10.5px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+    grid-column: 1 / -1;
+  }
+  .museum-nav a { color: var(--ink-2); text-decoration: none; }
+  .museum-nav a:hover { color: var(--ink); }
+  .museum-nav .sep { opacity: 0.4; }
+  .museum-nav .credit { margin-left: auto; font-size: 9.5px; opacity: 0.55; }
+</style>
+</head>
+<body>
+
+<!-- ── Museum back-nav ── -->
+<div class="museum-nav">
+  <a href="../../../../index.html">StarRiver Arts</a>
+  <span class="sep">/</span>
+  <a href="../../../../museum/index.html">Museum</a>
+  <span class="sep">/</span>
+  <a href="../../../../museum/interactive/vr-gallery-spatial-system/">VR Gallery Spatial System</a>
+  <span class="credit">StarRiver Arts 主導視覺 · Designed with Claude</span>
+</div>
+
+<!-- =================== SIDEBAR =================== -->
+<aside class="nav">
+  <div class="nav__brand">
+    <div class="nav__id">VGSS · v0.2 · 2026-05</div>
+    <h1 class="nav__t">VR Gallery<br/>Spatial System</h1>
+    <span class="nav__cn">虛擬實境美術館空間設計準則</span>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Start</div>
+    <a class="nav__link" href="#overview">Overview <span class="cn">總覽</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Foundations</div>
+    <a class="nav__link" href="#colors">Colors <span class="cn">色彩</span></a>
+    <a class="nav__link" href="#type">Type <span class="cn">字體</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Materials & Light</div>
+    <a class="nav__link" href="#materials">Materials <span class="cn">材質</span></a>
+    <a class="nav__link" href="#lighting">Lighting <span class="cn">光源</span></a>
+    <a class="nav__link" href="#shaders">Shaders <span class="cn">渲染器</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Space</div>
+    <a class="nav__link" href="#ergonomics">Ergonomics <span class="cn">人因</span></a>
+    <a class="nav__link" href="#whitespace">Whitespace <span class="cn">留白</span></a>
+    <a class="nav__link" href="#curves">Curves <span class="cn">曲線</span></a>
+    <a class="nav__link" href="#exhibits">Exhibit reserves <span class="cn">展品量體</span></a>
+    <a class="nav__link" href="#rooms">Room shapes <span class="cn">房型</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Virtual Art</div>
+    <a class="nav__link" href="#virtual">Light & particles <span class="cn">光・粒子</span></a>
+    <a class="nav__link" href="#interactive">Interactives <span class="cn">互動</span></a>
+    <a class="nav__link" href="#info">Information <span class="cn">資訊</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Drawings</div>
+    <a class="nav__link" href="#samples">Plan & elevation <span class="cn">平・立面圖</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Tools</div>
+    <a class="nav__link" href="#tools">Planner & Predictor <span class="cn">工具</span></a>
+  </div>
+
+  <div class="nav__sec">
+    <div class="nav__h">Docs</div>
+    <a class="nav__link" href="#skill">SKILL.md</a>
+  </div>
+</aside>
+
+<!-- =================== MAIN =================== -->
+<main class="main">
+
+  <div class="hero">
+    <div class="hero__id">VGSS · 001 · OVERVIEW</div>
+    <h1 class="hero__t">VR Gallery Spatial System</h1>
+    <span class="hero__cn">虛擬實境美術館・空間設計準則 · 30 cards · 2 tools</span>
+  </div>
+
+  <!-- =========== OVERVIEW =========== -->
+  <section class="sec" id="overview">
+    <div class="sec__hd"><div class="sec__t">Overview · 總覽</div><div class="sec__c">README.html</div></div>
+    <p class="sec__intro">
+      A design system for the <b>spatial</b> design of VR museums and galleries — materials × light, ergonomics, whitespace, exhibit reserves, curves, virtual-art constructs, and a working plan-and-elevation planner. All rules calibrated for a 130 cm VR avatar with eye-height 130 cm.<br/><br/>
+      <span class="cn">所有規則以 <b>130 公分高 VR avatar</b>（視覺高度 130 公分）為基準。</span>
+    </p>
+    <iframe class="overview-frame" src="README.html" loading="lazy"></iframe>
+  </section>
+
+  <!-- =========== COLORS =========== -->
+  <section class="sec" id="colors">
+    <div class="sec__hd"><div class="sec__t">Colors · 色彩</div><div class="sec__c">4 cards</div></div>
+    <p class="sec__intro">Four spatial-role colours anchor the palette: <b>env (#689F38)</b> surrounding nature · <b>body (#EEEEEE)</b> gallery shell · <b>cool (#E8EAF6)</b> shaded rooms · <b>warm (#FFF8E1)</b> intimate rooms. Each is documented as a <em>target</em>; the materials × light card prescribes the perceived actual values.</p>
+    <div data-cards='[
+      {"p":"preview/colors-palette.html","t":"Palette","d":"4 spatial roles · CCT 5000K · CRI 95","h":360},
+      {"p":"preview/colors-roles.html","t":"Role semantics","d":"When each colour applies","h":360},
+      {"p":"preview/colors-target-actual.html","t":"Target → Actual","d":"Material × light colour shift","h":420},
+      {"p":"preview/colors-light-temp.html","t":"Light temperature","d":"2700K → 6500K scale","h":340}
+    ]'></div>
+  </section>
+
+  <!-- =========== TYPE =========== -->
+  <section class="sec" id="type">
+    <div class="sec__hd"><div class="sec__t">Type · 字體</div><div class="sec__c">1 card</div></div>
+    <p class="sec__intro"><b>TASA Orbiter Deck</b> for Latin & numerals (商業字型, fallback Sora). <b>思源黑體</b> (Noto Sans TC) for Chinese (OFL). <b>JetBrains Mono</b> for dimensions and tokens. Tabular numerals on every dimension.</p>
+    <div data-cards='[
+      {"p":"preview/type-specimen.html","t":"Type specimen","d":"TASA Orbiter Deck · 思源黑體 · JetBrains Mono","h":520}
+    ]'></div>
+  </section>
+
+  <!-- =========== MATERIALS =========== -->
+  <section class="sec" id="materials">
+    <div class="sec__hd"><div class="sec__t">Materials · 材質</div><div class="sec__c">3 cards</div></div>
+    <p class="sec__intro">Surfaces grouped by reflectance: <b>matte</b> (limestone / plaster / concrete / rammed earth) · <b>satin & glossy</b> (oak / marble / polished concrete / ink-stone) · plus a same-material × four lights comparison.</p>
+    <div data-cards='[
+      {"p":"preview/materials-matte.html","t":"Matte","d":"r ≥ 0.7","h":360},
+      {"p":"preview/materials-satin-glossy.html","t":"Satin & glossy","d":"r ≤ 0.4","h":360},
+      {"p":"preview/materials-x-light.html","t":"Material × light","d":"limestone matte under 4 lights","h":360}
+    ]'></div>
+  </section>
+
+  <!-- =========== LIGHTING =========== -->
+  <section class="sec" id="lighting">
+    <div class="sec__hd"><div class="sec__t">Lighting · 光源</div><div class="sec__c">3 cards</div></div>
+    <p class="sec__intro">Multi-light rigs (3-point / 4-point / gallery wash / spot + ambient), artistic non-real fill recipes, and the light <b>whitespace</b> strategy (pitch-black / silhouette / wash / gradient + transition compatibility matrix).</p>
+    <div data-cards='[
+      {"p":"preview/lighting-rigs.html","t":"Multi-light rigs","d":"4 standard configurations","h":620},
+      {"p":"preview/lighting-art-fills.html","t":"Artistic fills","d":"Dual-temp · env bounce · silhouette · magenta","h":640},
+      {"p":"preview/lighting-whitespace.html","t":"Light whitespace","d":"Surround strategies + compatibility matrix","h":760}
+    ]'></div>
+  </section>
+
+  <!-- =========== SHADERS =========== -->
+  <section class="sec" id="shaders">
+    <div class="sec__hd"><div class="sec__t">Shaders · 渲染器</div><div class="sec__c">1 card</div></div>
+    <p class="sec__intro">Default stack: <b>Mochie's Standard</b> for body architecture, <b>lilToon</b> for stylised works, <b>VRC Light Volumes</b> for world illumination, <b>VR Stage Lighting</b> for projected / volumetric.</p>
+    <div data-cards='[
+      {"p":"preview/shaders.html","t":"VRChat / Unity shaders","d":"7 shaders + default stack guidance","h":580}
+    ]'></div>
+  </section>
+
+  <!-- =========== ERGONOMICS =========== -->
+  <section class="sec" id="ergonomics">
+    <div class="sec__hd"><div class="sec__t">Ergonomics · 空間人因</div><div class="sec__c">4 cards</div></div>
+    <p class="sec__intro">Avatar baseline, viewing distance bands, viewing cone (±15° focus / ±30° comfort / ±60° peripheral), and mounting height (centroid @ 130 cm).</p>
+    <div data-cards='[
+      {"p":"preview/space-avatar.html","t":"130 cm avatar","d":"Eye = total = 130 cm","h":420},
+      {"p":"preview/space-viewing-distance.html","t":"Viewing distance","d":"60 / 150 / 300 / 600 cm bands","h":440},
+      {"p":"preview/space-viewing-angle.html","t":"Viewing cone","d":"±15° / ±30° / ±60°","h":440},
+      {"p":"preview/space-mounting-height.html","t":"Mounting height","d":"Centroid @ eye 130 cm","h":440}
+    ]'></div>
+  </section>
+
+  <!-- =========== WHITESPACE =========== -->
+  <section class="sec" id="whitespace">
+    <div class="sec__hd"><div class="sec__t">Whitespace · 留白</div><div class="sec__c">2 cards</div></div>
+    <p class="sec__intro">Inter-exhibit spacing (pair 40 / comfort 90 / breath 180 / silence 360 cm) and grouping rhythm (within-group ≤ 40 / between-group ≥ 180).</p>
+    <div data-cards='[
+      {"p":"preview/whitespace-spacing.html","t":"Inter-exhibit spacing","d":"4 bands · 留白 scale","h":400},
+      {"p":"preview/whitespace-grouping.html","t":"Grouping rhythm","d":"Pair / triplet · breath","h":400}
+    ]'></div>
+  </section>
+
+  <!-- =========== CURVES =========== -->
+  <section class="sec" id="curves">
+    <div class="sec__hd"><div class="sec__t">Curves · 曲線</div><div class="sec__c">1 card</div></div>
+    <p class="sec__intro">Five approved radii: <b>R 5</b> edge softening · <b>R 20</b> furniture · <b>R 60</b> alcove · <b>R 120</b> room corner · <b>R 240</b> vault.</p>
+    <div data-cards='[
+      {"p":"preview/curves-radii.html","t":"Curve radii","d":"R 5 / 20 / 60 / 120 / 240 cm","h":380}
+    ]'></div>
+  </section>
+
+  <!-- =========== EXHIBIT RESERVES =========== -->
+  <section class="sec" id="exhibits">
+    <div class="sec__hd"><div class="sec__t">Exhibit reserves · 展品量體</div><div class="sec__c">2 cards</div></div>
+    <p class="sec__intro">Four volume sizes — S (30×30×50) · M (60×60×100) · L (120×120×150) · XL (240×240×240) cm — for stress-testing layouts before art is placed.</p>
+    <div data-cards='[
+      {"p":"preview/exhibit-reserve-overview.html","t":"Reserves overview","d":"S / M / L / XL","h":360},
+      {"p":"preview/exhibit-reserve-validation.html","t":"Reserve M validation","d":"Plan + elevation worked example","h":500}
+    ]'></div>
+  </section>
+
+  <!-- =========== ROOM SHAPES =========== -->
+  <section class="sec" id="rooms">
+    <div class="sec__hd"><div class="sec__t">Room shapes · 房型</div><div class="sec__c">2 cards</div></div>
+    <p class="sec__intro">Non-rectangular archetypes (L · T · hex · oval · curved partition · multi-room suite) plus the dedicated <b>circular building</b> + two fan corridors + liminal strategy. <span class="cn">扇形展廊以「圓形外殼」為前提，由內部 partition 切出。</span></p>
+    <div data-cards='[
+      {"p":"preview/space-nonrect.html","t":"Non-rectangular spaces","d":"6 archetypes + universal rules","h":740},
+      {"p":"preview/space-fan-liminal.html","t":"Circular building · fans + liminal","d":"Two fan corridors carved from interior","h":920}
+    ]'></div>
+  </section>
+
+  <!-- =========== VIRTUAL ART =========== -->
+  <section class="sec" id="virtual">
+    <div class="sec__hd"><div class="sec__t">Virtual light & particles</div><div class="sec__c">3 cards</div></div>
+    <p class="sec__intro">VR-native emission taxonomy, the <b>emission budget</b> (spill ≤ 20% body wall), and the particles density × behaviour matrix with VR-comfort caps.</p>
+    <div data-cards='[
+      {"p":"preview/virtual-light-types.html","t":"Virtual light types","d":"Point · edge · volumetric · emissive · projected","h":400},
+      {"p":"preview/virtual-emission-budget.html","t":"Emission budget","d":"Spill caps + intensity bands","h":460},
+      {"p":"preview/virtual-particles.html","t":"Particles","d":"Density × behaviour · VR caps","h":500}
+    ]'></div>
+  </section>
+
+  <!-- =========== INTERACTIVES =========== -->
+  <section class="sec" id="interactive">
+    <div class="sec__hd"><div class="sec__t">Interactives · 互動</div><div class="sec__c">2 cards</div></div>
+    <p class="sec__intro">Reach zones (grab 55 / near 120 / far 300 cm) for objects the avatar can pick up, orbit, or nudge — and the float-height bands (low 40 / eye 130 / high 200 cm).</p>
+    <div data-cards='[
+      {"p":"preview/virtual-interact-zones.html","t":"Interactive reach zones","d":"Plan view · 3 bubbles around avatar","h":500},
+      {"p":"preview/virtual-float-heights.html","t":"Float heights","d":"Low / eye / high bands","h":500}
+    ]'></div>
+  </section>
+
+  <!-- =========== INFO =========== -->
+  <section class="sec" id="info">
+    <div class="sec__hd"><div class="sec__t">Information · 資訊浮層</div><div class="sec__c">1 card</div></div>
+    <p class="sec__intro">Three display ranges: near label (80 cm, on gaze) · mid context (180 cm, on dwell) · far ambient sky-text (400 cm, always visible).</p>
+    <div data-cards='[
+      {"p":"preview/virtual-info-display.html","t":"Information display","d":"Near / mid / far ranges","h":500}
+    ]'></div>
+  </section>
+
+  <!-- =========== SAMPLES =========== -->
+  <section class="sec" id="samples">
+    <div class="sec__hd"><div class="sec__t">Sample drawings · 平面・立面圖</div><div class="sec__c">2 cards</div></div>
+    <p class="sec__intro">Worked examples at 1:50 and 1:60: a 14 × 9 m linear-axis gallery (plan) and a 10 m wall section (elevation) showing the system at production scale.</p>
+    <div data-cards='[
+      {"p":"preview/plan-sample.html","t":"Plan sample","d":"14 × 9 m · linear axis · 1:60","h":560},
+      {"p":"preview/elevation-sample.html","t":"Elevation sample","d":"10 m wall · 1:50","h":440}
+    ]'></div>
+  </section>
+
+  <!-- =========== TOOLS =========== -->
+  <section class="sec" id="tools">
+    <div class="sec__hd"><div class="sec__t">Tools · 工具</div><div class="sec__c">2 self-contained apps</div></div>
+    <p class="sec__intro">Two single-file React apps. Open directly in any modern browser. Each is ~7 MB, fully offline-capable after first load.</p>
+    <div class="tools">
+      <a class="tool" href="tools/spatial-planner.html" target="_blank" rel="noopener">
+        <div class="tool__id">VGSS · 002</div>
+        <div class="tool__t">Spatial Planner</div>
+        <span class="tool__cn">空間規劃工具</span>
+        <div class="tool__d">Plan + elevation with reserves (S/M/L/XL), walls (solid · voile · glass) with occlusion, lights (8 mount types, draggable in both views) with shadow + single-bounce reflections, room shapes (rect · L · T · hex · oval · corridor · circle · half-fan), and validation panel. Scene auto-saves to localStorage; export/import as JSON.</div>
+        <div class="tool__cta">Open</div>
+      </a>
+      <a class="tool" href="tools/falloff-predictor.html" target="_blank" rel="noopener">
+        <div class="tool__id">VGSS · 003</div>
+        <div class="tool__t">Falloff Predictor</div>
+        <span class="tool__cn">光衰減預估</span>
+        <div class="tool__d">Predict illuminance, rendered colour, and ΔE drift before baking. Pick light × surface × falloff model (inverse-square · smooth · linear · constant), tune I₀ / range / distance / target lux. Step-by-step verdict with one-click apply: re-light vs re-material decisions made explicit.</div>
+        <div class="tool__cta">Open</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== SKILL =========== -->
+  <section class="sec" id="skill">
+    <div class="sec__hd"><div class="sec__t">SKILL.md · agent skill</div><div class="sec__c">For Claude Code / API use</div></div>
+    <p class="sec__intro"><span class="cn">如果你要在 Claude Code 或其他 agent 環境使用此系統，</span><code>SKILL.md</code> is the entry point. It declares the skill metadata (<code>name</code>, <code>description</code>, <code>user-invocable</code>) and tells the agent how to read this system when designing VR gallery spaces.</p>
+    <div class="skill">
+      Find <code>SKILL.md</code> at the root of the bundle. Drop the whole folder into a skills directory and the agent will load README.html / preview cards / colors_and_type.css as needed. <span class="cn">把整個資料夾放到 skills 目錄即可。</span><br/><br/>
+      <b>Key files for agents:</b><br/>
+      <code>README.html</code> — visual overview · <code>colors_and_type.css</code> — design tokens · <code>preview/*.html</code> — individual cards · <code>tools/*.html</code> — bundled apps.
+    </div>
+  </section>
+
+</main>
+
+<!-- =================== JS =================== -->
+<script>
+(function() {
+  // Convert every data-cards block into the actual card iframes.
+  document.querySelectorAll('[data-cards]').forEach(host => {
+    let items;
+    try { items = JSON.parse(host.dataset.cards); } catch (e) { return; }
+    host.innerHTML = items.map(it => `
+      <div class="card">
+        <div class="card__hd">
+          <div>
+            <div class="card__t">${it.t}</div>
+            <div class="card__d">${it.d}</div>
+          </div>
+          <a class="card__open" href="${it.p}" target="_blank" rel="noopener">open ↗</a>
+        </div>
+        <iframe class="card__frame" src="${it.p}" loading="lazy" style="height:${it.h}px"></iframe>
+      </div>
+    `).join('');
+  });
+
+  // Hash-based active nav
+  const links = Array.from(document.querySelectorAll('.nav__link'));
+  function syncActive() {
+    const hash = location.hash || '#overview';
+    links.forEach(l => l.classList.toggle('is-on', l.getAttribute('href') === hash));
+  }
+  window.addEventListener('hashchange', syncActive);
+  syncActive();
+
+  // Scroll-spy: update hash + active state as user scrolls
+  const sections = Array.from(document.querySelectorAll('.sec'));
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) {
+      const id = '#' + visible.target.id;
+      if (location.hash !== id) {
+        history.replaceState(null, '', id);
+        links.forEach(l => l.classList.toggle('is-on', l.getAttribute('href') === id));
+      }
+    }
+  }, { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.3, 0.7, 1] });
+  sections.forEach(s => observer.observe(s));
+})();
+</script>
+</body>
+</html>

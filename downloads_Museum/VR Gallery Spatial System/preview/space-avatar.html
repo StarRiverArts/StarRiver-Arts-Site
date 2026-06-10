@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="130 cm avatar" subtitle="VR avatar baseline · eye = total = 130 cm" viewport="700x380" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>130 cm avatar reference</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .stage { display:grid; grid-template-columns: 1fr 220px; gap: 24px; align-items:stretch; }
+  svg { display:block; width:100%; height:auto; background: var(--paper-2); }
+  .stage text { font-family: var(--font-mono); font-size: 10px; fill: var(--dim); letter-spacing: 0.04em; }
+  .stage .ink { fill: var(--ink); }
+  .stage .ink-2 { fill: var(--ink-2); }
+  .meta dt { font: var(--t-label); letter-spacing: var(--letter-label); color: var(--ink-3); margin-bottom: 2px; }
+  .meta dd { margin:0 0 12px 0; font: var(--t-body); }
+  .meta dd .mono { font-family: var(--font-mono); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>VR Avatar · 130 cm 基準</h3><div class="dim">eye = total · per brief</div></div>
+  <div class="stage">
+    <svg viewBox="0 0 320 280" preserveAspectRatio="xMidYMid meet">
+      <!-- ground -->
+      <line x1="20" y1="240" x2="300" y2="240" stroke="#1A1A1A" stroke-width="2"/>
+      <!-- grid (10 cm modules) -->
+      <g stroke="#C9C7C0" stroke-width="0.5">
+        <line x1="20" y1="40" x2="20" y2="240"/>
+        <line x1="20" y1="40" x2="300" y2="40"/>
+        <!-- 10cm horizontal marks: scale: 130cm → 200px. 1cm ≈ 1.54px. Show every 20cm -->
+        <line x1="16" y1="240" x2="20" y2="240"/>
+        <line x1="16" y1="209" x2="20" y2="209"/>
+        <line x1="16" y1="178" x2="20" y2="178"/>
+        <line x1="16" y1="148" x2="20" y2="148"/>
+        <line x1="16" y1="117" x2="20" y2="117"/>
+        <line x1="16" y1="86" x2="20" y2="86"/>
+        <line x1="16" y1="55" x2="20" y2="55"/>
+      </g>
+      <text x="8" y="243">0</text>
+      <text x="0" y="58">130</text>
+      <text x="0" y="89">110</text>
+      <text x="0" y="120">90</text>
+      <text x="0" y="151">60</text>
+      <text x="0" y="181">40</text>
+      <text x="0" y="212">20</text>
+
+      <!-- avatar body, total height 200px ≡ 130cm. head 28, torso, legs -->
+      <g stroke="#1A1A1A" stroke-width="1.5" fill="none">
+        <!-- head -->
+        <circle cx="150" cy="58" r="13"/>
+        <!-- neck -->
+        <line x1="150" y1="71" x2="150" y2="82"/>
+        <!-- shoulders -->
+        <line x1="128" y1="86" x2="172" y2="86"/>
+        <!-- torso -->
+        <path d="M128 86 L132 155 L168 155 L172 86" />
+        <!-- arms -->
+        <path d="M128 88 Q120 120 124 158"/>
+        <path d="M172 88 Q180 120 176 158"/>
+        <!-- hip -->
+        <line x1="132" y1="155" x2="168" y2="155"/>
+        <!-- legs -->
+        <line x1="142" y1="155" x2="142" y2="240"/>
+        <line x1="158" y1="155" x2="158" y2="240"/>
+      </g>
+
+      <!-- eye-height datum -->
+      <g>
+        <line x1="20" y1="55" x2="300" y2="55" stroke="#B47B2E" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <circle cx="150" cy="55" r="2" fill="#B47B2E"/>
+        <text x="240" y="51">EYE · 130 cm</text>
+      </g>
+
+      <!-- total height dim -->
+      <g stroke="#B47B2E" stroke-width="0.6">
+        <line x1="220" y1="55" x2="220" y2="240"/>
+        <line x1="216" y1="55" x2="224" y2="55"/>
+        <line x1="216" y1="240" x2="224" y2="240"/>
+      </g>
+      <text x="226" y="150">↕ 130 cm</text>
+
+      <!-- shoulder dim -->
+      <g stroke="#B47B2E" stroke-width="0.6">
+        <line x1="128" y1="262" x2="172" y2="262"/>
+        <line x1="128" y1="258" x2="128" y2="266"/>
+        <line x1="172" y1="258" x2="172" y2="266"/>
+      </g>
+      <text x="138" y="276">SHOULDER 30</text>
+    </svg>
+    <dl class="meta">
+      <dt>TOTAL HEIGHT</dt><dd><span class="mono">130 cm</span></dd>
+      <dt>EYE HEIGHT</dt><dd><span class="mono">130 cm</span> · per brief, eye = total</dd>
+      <dt>SHOULDER WIDTH</dt><dd><span class="mono">30 cm</span></dd>
+      <dt>ARM REACH</dt><dd><span class="mono">55 cm</span> forward</dd>
+      <dt>COMFORT BUBBLE</dt><dd><span class="mono">⌀ 80 cm</span></dd>
+    </dl>
+  </div>
+</div>
+</body></html>

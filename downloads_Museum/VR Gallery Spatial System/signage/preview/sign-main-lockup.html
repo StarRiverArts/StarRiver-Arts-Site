@@ -1,0 +1,83 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Main lockup</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+
+  /* limestone wall the lockup mounts on */
+  .wall {
+    position:relative; background:
+      linear-gradient(180deg, #F1EFE9 0%, #E9E7E0 100%);
+    border:1px solid var(--rule); padding:46px 40px 40px; overflow:hidden;
+  }
+  /* faint ashlar joints, architectural */
+  .wall::before { content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(90deg, rgba(26,26,26,0.05) 1px, transparent 1px),
+      linear-gradient(0deg,  rgba(26,26,26,0.04) 1px, transparent 1px);
+    background-size: 132px 100%, 100% 96px; opacity:0.6; }
+
+  .lockup { position:relative; }
+  /* volumetric white extruded letters — Design-Museum scale */
+  .vol {
+    font-family:var(--font-en); font-weight:600; color:#FCFCFA; line-height:0.88;
+    letter-spacing:-0.01em;
+    text-shadow:
+      1px 1px 0 #e4e2db, 2px 2px 0 #dad8d1, 3px 3px 0 #d0cec7,
+      4px 3px 0 #c8c6bf, 5px 4px 0 #c0beb7, 6px 5px 0 #b9b7b0,
+      7px 6px 1px #b2b0a9, 9px 8px 14px rgba(26,26,26,0.30);
+  }
+  .vol--cn { font-family:var(--font-tc); font-weight:500; font-size:70px; }
+  .vol--en { font-size:40px; margin-top:10px; }
+  .wordmark { position:relative; margin-top:16px; font:500 12px/1 var(--font-mono);
+              letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-2); }
+
+  .specrow { display:flex; gap:24px; margin-top:14px; flex-wrap:wrap; }
+  .spec { font:500 10.5px/1.4 var(--font-mono); letter-spacing:0.03em; color:var(--ink-3); text-transform:uppercase; }
+  .spec b { color:var(--ink); font-weight:600; }
+
+  .sub { font:500 11px/1 var(--font-mono); letter-spacing:0.12em; text-transform:uppercase;
+         color:var(--ink-3); margin:24px 0 12px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+
+  .alts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .alt { border:1px solid var(--rule); background:#EEECE6; padding:18px 14px; min-height:108px;
+         display:flex; flex-direction:column; justify-content:center; position:relative; }
+  .alt__tag { position:absolute; top:8px; left:10px; font:500 9px/1 var(--font-mono);
+              letter-spacing:0.06em; color:var(--ink-3); text-transform:uppercase; }
+  .alt .ext { color:#FCFCFA; text-shadow:1px 1px 0 #d8d6cf,2px 2px 0 #cccac3,3px 3px 5px rgba(26,26,26,0.25); }
+  .a-stack .cn { font-family:var(--font-tc); font-weight:500; font-size:30px; line-height:1; }
+  .a-stack .en { font:500 13px/1 var(--font-en); letter-spacing:0.04em; color:var(--ink-2); margin-top:6px; }
+  .a-line .cn  { font-family:var(--font-tc); font-weight:500; font-size:26px; }
+  .a-mono .ch  { font-family:var(--font-tc); font-weight:500; font-size:52px; line-height:0.9; }
+  .a-mono .en  { font:500 10px/1 var(--font-mono); letter-spacing:0.16em; color:var(--ink-2); margin-top:8px; text-transform:uppercase; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Main lockup · 主招牌</h3><div class="dim">Tier 1 · volumetric · mount 260 cm</div></div>
+  <p class="intro">
+    The building identity is one volumetric lockup — extruded white letters on the limestone body wall, lit by the gallery key so the relief throws a soft 30° shadow. <span class="cn">館體識別為單一立體 lockup：白色擠出字置於石灰岩本體牆，由展廳主光打出 30° 柔影。</span>
+  </p>
+
+  <div class="wall">
+    <div class="lockup">
+      <div class="vol vol--cn">虛空</div>
+      <div class="vol vol--en">VOID GALLERY</div>
+      <div class="wordmark">VR · EST. 2026 · 留白美術館</div>
+    </div>
+  </div>
+  <div class="specrow">
+    <span class="spec">cap-height <b>60 cm</b></span>
+    <span class="spec">relief <b>20 cm</b> (volume)</span>
+    <span class="spec">mount centroid <b>260 cm</b></span>
+    <span class="spec">material <b>matte limestone-white</b></span>
+  </div>
+
+  <div class="sub">Configurations · 配置變體</div>
+  <div class="alts">
+    <div class="alt a-stack"><span class="alt__tag">A · stacked</span><span class="ext cn">虛空</span><span class="en">VOID GALLERY</span></div>
+    <div class="alt a-line"><span class="alt__tag">B · single line</span><span class="ext cn">虛空 GALLERY</span></div>
+    <div class="alt a-mono"><span class="alt__tag">C · monogram</span><span class="ext ch">虛</span><span class="en">VOID GALLERY</span></div>
+  </div>
+</div>
+</body></html>

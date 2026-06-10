@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Materials · matte" subtitle="Limestone · plaster · concrete · rammed earth" viewport="700x320" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Materials · matte</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .mats { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .mat  { border: 1px solid var(--rule); }
+  .mat__swatch { aspect-ratio: 1.4; position:relative; overflow:hidden; }
+  .mat__swatch::after {
+    /* simulated raking light */
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(115deg, rgba(255,255,255,0.18), rgba(0,0,0,0.04) 40%, rgba(0,0,0,0.12) 100%);
+    mix-blend-mode: overlay;
+  }
+  .mat__swatch.tex::before {
+    content:""; position:absolute; inset:0; opacity:0.35;
+    background-image:
+      radial-gradient(rgba(0,0,0,0.20) 0.4px, transparent 0.6px),
+      radial-gradient(rgba(0,0,0,0.10) 0.5px, transparent 0.8px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  .mat__swatch.brush::before {
+    content:""; position:absolute; inset:0; opacity:0.20;
+    background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.18) 0 0.5px, transparent 0.5px 3px);
+  }
+  .mat__meta { padding: 10px 12px; font-size: 11.5px; }
+  .mat__meta .name { font: var(--t-h3); margin-bottom: 6px; text-transform:none; letter-spacing:0; color: var(--ink); }
+  .mat__meta .mono { color: var(--ink-3); font-size:10.5px; }
+  .ratio { display:flex; gap:6px; margin-top:8px; }
+  .ratio span { font-family: var(--font-mono); font-size: 10px; padding: 2px 4px; background: var(--paper-2); color: var(--ink-2); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Materials · 霧面 / 啞光</h3><div class="dim">albedo · roughness ≥ 0.7</div></div>
+  <div class="mats">
+    <div class="mat">
+      <div class="mat__swatch tex" style="background: var(--mat-limestone-actual)"></div>
+      <div class="mat__meta">
+        <div class="name">Limestone</div>
+        <div class="mono">石灰岩</div>
+        <div class="ratio"><span>r 0.85</span><span>s 0.02</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch" style="background: #DDDBD2"></div>
+      <div class="mat__meta">
+        <div class="name">Lime plaster</div>
+        <div class="mono">石灰抹面</div>
+        <div class="ratio"><span>r 0.92</span><span>s 0.01</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch tex" style="background: #D6D5D3"></div>
+      <div class="mat__meta">
+        <div class="name">Raw concrete</div>
+        <div class="mono">清水模板</div>
+        <div class="ratio"><span>r 0.80</span><span>s 0.05</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch brush" style="background: #C9C6BA"></div>
+      <div class="mat__meta">
+        <div class="name">Rammed earth</div>
+        <div class="mono">夯土</div>
+        <div class="ratio"><span>r 0.95</span><span>s 0.00</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

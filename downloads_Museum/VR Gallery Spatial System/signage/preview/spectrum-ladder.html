@@ -1,0 +1,111 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Upgrade spectrum</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .ladder { display:flex; flex-direction:column; }
+  .rung {
+    display:grid; grid-template-columns: 196px 1fr; gap: 22px; align-items:stretch;
+    padding: 20px 0; border-top: 1px solid var(--rule);
+  }
+  .rung:first-of-type { border-top: 0; }
+
+  /* the specimen stage on the left */
+  .demo { position:relative; height: 116px; display:grid; place-items:center; overflow:hidden; }
+  .demo--paper { background: var(--board-light); border:1px solid var(--rule); }
+  .demo--dark  { background: var(--board-dark);  border:1px solid #000; }
+  .glyph { font-family: var(--font-tc); font-weight:500; line-height:1; color: var(--ink); }
+
+  /* T0 flat */
+  .g0 { font-size: 76px; }
+  /* T1 extruded relief */
+  .g1 { font-size: 72px; color:#FBFBF9;
+        text-shadow: 1px 1px 0 #cfcdc6, 2px 2px 0 #c6c4bd, 3px 3px 0 #bdbbb4,
+                     4px 4px 0 #b4b2ab, 5px 5px 0 #aba9a2, 6px 6px 8px rgba(26,26,26,0.28); }
+  /* T2 environmental — laid into the room, perspective + overhead */
+  .g2wrap { perspective: 600px; }
+  .g2 { font-size: 70px; color:#3a3a38; transform: rotateX(52deg); transform-origin:center 80%;
+        text-shadow: 0 14px 16px rgba(26,26,26,0.22); }
+  .g2floor { position:absolute; inset:auto 0 0 0; height:46px;
+             background: linear-gradient(180deg, transparent, rgba(26,26,26,0.06)); }
+  /* T3 installation — emissive */
+  .g3 { font-size: 72px; color:#FFF6E2;
+        text-shadow: 0 0 6px var(--letter-glow-key), 0 0 22px var(--letter-glow-warm),
+                     0 0 48px rgba(255,179,110,0.55); }
+
+  .rung__body { display:flex; flex-direction:column; gap:8px; }
+  .rung__hd { display:flex; align-items:baseline; gap:12px; }
+  .rung__t  { font: 500 17px/1 var(--font-en); }
+  .rung__cn { font-family: var(--font-tc); font-size:14px; color:var(--ink-2); }
+  .rung__def { font-size:13px; line-height:1.5; color:var(--ink-2); }
+  .rung__def .cn { font-family: var(--font-tc); }
+  .rung__meta { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:2px; }
+  .pill {
+    font: 500 10px/1 var(--font-mono); letter-spacing:0.04em; color:var(--ink-3);
+    border:1px solid var(--rule); padding:5px 8px; text-transform:uppercase;
+  }
+  .pill b { color: var(--ink); font-weight:500; }
+  .pill--inh { border-style:dashed; border-color:var(--rule-2); }
+  .pill--inh .cn { font-family: var(--font-tc); text-transform:none; letter-spacing:0; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Spectrum · 升級階梯</h3><div class="dim">one word · four states</div></div>
+  <p style="font-size:13px;line-height:1.55;color:var(--ink-2);margin:0 0 4px;">
+    The same word climbs four states. Each rung leaves the page a little more and inherits one rule from the spatial system. <span style="font-family:var(--font-tc)">同一個字爬升四階，每一階離開平面更多一點，並繼承空間系統的一條規則。</span>
+  </p>
+
+  <div class="ladder">
+    <!-- TIER 0 -->
+    <div class="rung">
+      <div class="demo demo--paper"><span class="glyph g0">光</span></div>
+      <div class="rung__body">
+        <div class="rung__hd"><span class="tier"><span class="tier__no">0</span></span><span class="rung__t">Typeset</span><span class="rung__cn">排版</span></div>
+        <div class="rung__def">Flat on a surface, relief ≈ 0. The word does one job: be read. <span class="cn">貼在表面、近乎零浮凸。字只做一件事——被閱讀。</span></div>
+        <div class="rung__meta">
+          <span class="pill">relief <b>0.3 cm</b></span>
+          <span class="pill pill--inh">inherits <span class="cn">留白・字級</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 1 -->
+    <div class="rung">
+      <div class="demo demo--paper"><span class="glyph g1">光</span></div>
+      <div class="rung__body">
+        <div class="rung__hd"><span class="tier"><span class="tier__no">1</span></span><span class="rung__t">Relief</span><span class="rung__cn">立體招牌</span></div>
+        <div class="rung__def">Extruded off the wall. It casts a shadow, takes a material, becomes an object. <span class="cn">擠出牆面、投下陰影、擁有材質——成為物件。</span></div>
+        <div class="rung__meta">
+          <span class="pill">relief <b>2–20 cm</b></span>
+          <span class="pill pill--inh">inherits <span class="cn">材質×光・曲線</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="rung">
+      <div class="demo demo--paper g2wrap"><span class="glyph g2">光</span><div class="g2floor"></div></div>
+      <div class="rung__body">
+        <div class="rung__hd"><span class="tier"><span class="tier__no">2</span></span><span class="rung__t">Environmental</span><span class="rung__cn">環境標識</span></div>
+        <div class="rung__def">Leaves the wall to occupy the room — overhead, on the floor, freestanding. It orients the body. <span class="cn">離開牆面進入空間——懸於頭頂、落於地面、獨立站立，用來定位身體。</span></div>
+        <div class="rung__meta">
+          <span class="pill">mount <b>0 / 130 / 215 cm</b></span>
+          <span class="pill pill--inh">inherits <span class="cn">人因・視錐・浮高</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="rung">
+      <div class="demo demo--dark"><span class="glyph g3">光</span></div>
+      <div class="rung__body">
+        <div class="rung__hd"><span class="tier"><span class="tier__no">3</span></span><span class="rung__t">Installation</span><span class="rung__cn">裝置藝術</span></div>
+        <div class="rung__def">The word becomes the artwork — it emits light, hangs, projects, or is carved as void. It no longer labels the space; it <em>is</em> an exhibit. <span class="cn">字成為作品本身——發光、懸吊、投影或挖空。它不再標示空間，而是一件展品。</span></div>
+        <div class="rung__meta">
+          <span class="pill">emission ≤ <b>20% wall</b></span>
+          <span class="pill pill--inh">inherits <span class="cn">發光預算・粒子</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

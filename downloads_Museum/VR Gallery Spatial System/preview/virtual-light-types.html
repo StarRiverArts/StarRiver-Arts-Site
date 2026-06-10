@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Virtual light · types" subtitle="Point · edge · volumetric · emissive · projected" viewport="700x360" --><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Virtual light sources</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .lt { border:1px solid var(--rule); display:flex; flex-direction:column; }
+  .lt__draw { aspect-ratio: 1; position: relative; background: #1A1A1A; overflow:hidden; }
+  .lt__meta { padding: 10px 12px; font-size: 11px; }
+  .lt__meta h4 { font: 500 13px/1 var(--font-en); margin: 0 0 2px 0; color: var(--ink); }
+  .lt__meta .cn { font-family: var(--font-tc); font-size: 10px; color: var(--ink-3); }
+  .lt__meta p { color: var(--ink-2); margin: 6px 0 0 0; line-height: 1.45; }
+
+  /* point glow */
+  .pt { position:absolute; inset:0; }
+  .pt::after { content:""; position:absolute; left:50%; top:50%;
+    width: 140%; height: 140%;
+    background: radial-gradient(circle, var(--col) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+  }
+  /* edge */
+  .edge { position:absolute; inset: 35% 8%; }
+  .edge::before { content:""; position:absolute; inset:0; box-shadow: 0 0 12px 2px var(--col), 0 0 32px 6px var(--col); background: var(--col);}
+  /* god rays */
+  .rays { position:absolute; inset:0; }
+  .rays::before { content:""; position:absolute; top:0; left:30%; width:40%; height:100%;
+    background: linear-gradient(180deg, var(--col) 0%, transparent 80%);
+    filter: blur(4px); opacity: 0.85;
+  }
+  /* emissive surface */
+  .surf { position:absolute; inset:25% 18%; background: var(--col); box-shadow: 0 0 24px 4px var(--col); }
+  /* projected */
+  .proj { position:absolute; inset:0; }
+  .proj::after { content:""; position:absolute; left:50%; top:0;
+    width: 70%; height: 100%;
+    background: conic-gradient(from 90deg at 50% 100%, transparent 0deg, var(--col) 20deg, transparent 40deg);
+    transform: translateX(-50%);
+    filter: blur(2px);
+  }
+  .lt__draw text { font-family: var(--font-mono); font-size: 8px; fill: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Virtual Light · 虛擬光源類別</h3><div class="dim">emission types for VR art</div></div>
+
+  <div class="grid">
+
+    <div class="lt">
+      <div class="lt__draw" style="--col: var(--emit-warm)">
+        <div class="pt"></div>
+        <svg viewBox="0 0 100 100" style="position:absolute; inset:0;"><text x="6" y="92">POINT</text></svg>
+      </div>
+      <div class="lt__meta">
+        <h4>Point glow</h4>
+        <div class="cn">點光源・燭光</div>
+        <p>Round-falloff source. Floats or sits on surface. Hero pieces.</p>
+      </div>
+    </div>
+
+    <div class="lt">
+      <div class="lt__draw" style="--col: var(--emit-cool)">
+        <div class="edge"></div>
+        <svg viewBox="0 0 100 100" style="position:absolute; inset:0;"><text x="6" y="92">EDGE</text></svg>
+      </div>
+      <div class="lt__meta">
+        <h4>Edge / line</h4>
+        <div class="cn">線光・邊光</div>
+        <p>Glowing outline along a surface or volume edge. Defines shape, not space.</p>
+      </div>
+    </div>
+
+    <div class="lt">
+      <div class="lt__draw" style="--col: var(--emit-key)">
+        <div class="rays"></div>
+        <svg viewBox="0 0 100 100" style="position:absolute; inset:0;"><text x="6" y="92">VOLUMETRIC</text></svg>
+      </div>
+      <div class="lt__meta">
+        <h4>Volumetric / god-ray</h4>
+        <div class="cn">體積光・光束</div>
+        <p>Visible beam through a particle medium. Implies window, gap, beam-source.</p>
+      </div>
+    </div>
+
+    <div class="lt">
+      <div class="lt__draw" style="--col: var(--emit-env)">
+        <div class="surf"></div>
+        <svg viewBox="0 0 100 100" style="position:absolute; inset:0;"><text x="6" y="92">EMISSIVE</text></svg>
+      </div>
+      <div class="lt__meta">
+        <h4>Emissive surface</h4>
+        <div class="cn">面光・發光體</div>
+        <p>The artwork itself emits — a screen, panel, or glow-painted form.</p>
+      </div>
+    </div>
+
+    <div class="lt">
+      <div class="lt__draw" style="--col: var(--emit-magenta)">
+        <div class="proj"></div>
+        <svg viewBox="0 0 100 100" style="position:absolute; inset:0;"><text x="6" y="92">PROJECTED</text></svg>
+      </div>
+      <div class="lt__meta">
+        <h4>Projected</h4>
+        <div class="cn">投射光・投影</div>
+        <p>Cone or spot cast onto a body surface. Spill follows the wall material.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body></html>

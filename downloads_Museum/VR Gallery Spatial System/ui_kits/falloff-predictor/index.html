@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Falloff Predictor" name="Falloff Predictor" subtitle="Predict illuminance + drift before baking · 4 falloff models" viewport="1200x800" -->
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1200"/>
+<title>Falloff Predictor · 光衰減預估</title>
+<link rel="stylesheet" href="../../colors_and_type.css"/>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#EEEEEE"/>
+    <g transform="translate(40,40)">
+      <!-- light source -->
+      <circle cx="20" cy="60" r="8" fill="#FFE7B5" stroke="#1A1A1A" stroke-width="1.4"/>
+      <circle cx="20" cy="60" r="22" fill="#FFE7B5" fill-opacity="0.25"/>
+      <!-- falloff curve -->
+      <path d="M 20 60 Q 60 50 120 110" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 20 60 Q 70 80 120 110" fill="none" stroke="#B47B2E" stroke-width="1.2" stroke-dasharray="3 2"/>
+      <!-- surface swatch -->
+      <rect x="98" y="92" width="24" height="32" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="1.2"/>
+      <!-- axis arrows -->
+      <line x1="0" y1="120" x2="120" y2="120" stroke="#1A1A1A" stroke-width="1"/>
+      <line x1="0" y1="120" x2="0" y2="0" stroke="#1A1A1A" stroke-width="1"/>
+    </g>
+  </svg>
+</template>
+<style>
+  html, body { width: 1200px; margin: 0; background: var(--paper); color: var(--ink); }
+  .page { padding: 28px 36px 48px; }
+
+  .appbar {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 24px;
+  }
+  .appbar__id { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 6px; }
+  .appbar__t  { font: 300 36px/1 var(--font-en); letter-spacing: -0.01em; margin: 0; }
+  .appbar__cn { font-family: var(--font-tc); font-weight: 400; font-size: 22px; color: var(--ink-2); margin-left: 12px; }
+  .appbar__hint { font-size: 12.5px; color: var(--ink-2); max-width: 360px; text-align: right; line-height: 1.5; }
+
+  .grid { display: grid; grid-template-columns: 380px 1fr; gap: 24px; }
+  .card-box { border: 1px solid var(--rule); background: var(--paper); }
+  .card-box__hd { padding: 12px 16px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; }
+  .card-box__t  { font: 500 14px/1 var(--font-en); }
+  .card-box__d  { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+  .card-box__body { padding: 16px; }
+
+  /* controls */
+  .ctrl { margin-bottom: 18px; }
+  .ctrl:last-child { margin-bottom: 0; }
+  .ctrl__lbl {
+    font: 500 10px/1 var(--font-mono); letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px;
+    display: flex; justify-content: space-between;
+  }
+  .ctrl__lbl .val { color: var(--ink); font-size: 11px; }
+  .ctrl__row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pick {
+    appearance: none; -webkit-appearance: none;
+    border: 1px solid var(--rule-2); background: var(--paper);
+    padding: 6px 10px; cursor: pointer; flex: 1; min-width: 80px;
+    font: 400 11.5px/1 var(--font-en); color: var(--ink);
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  }
+  .pick:hover { border-color: var(--ink); }
+  .pick.is-on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .pick.is-on .pick__d { color: var(--rule); }
+  .pick__d { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-3); }
+  .pick--sw { padding: 4px 8px; }
+  .pick--sw .sw { width: 28px; height: 14px; border: 1px solid var(--rule-2); display: block; margin-bottom: 4px; }
+
+  input[type=range] {
+    width: 100%; accent-color: var(--ink);
+    -webkit-appearance: none; appearance: none;
+    height: 18px; background: transparent;
+  }
+  input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--ink-2); }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 12px; height: 12px; background: var(--ink); margin-top: -6px; cursor: ew-resize;
+  }
+  input[type=range]::-moz-range-track { height: 1px; background: var(--ink-2); }
+  input[type=range]::-moz-range-thumb { width: 12px; height: 12px; background: var(--ink); border: 0; cursor: ew-resize; }
+
+  /* outputs */
+  .outs { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+  .stage {
+    border: 1px solid var(--rule); aspect-ratio: 1.4; background: var(--paper-2);
+    display: flex; align-items: center; justify-content: center; position: relative;
+    overflow: hidden;
+  }
+  .stage__swatch { width: 70%; height: 60%; border: 1px solid var(--ink); transition: background 0.15s ease; }
+  .stage__lbl { position: absolute; top: 10px; left: 12px; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .stats > div { background: var(--paper); padding: 10px 12px; }
+  .stats .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+  .stats .v { font: 500 14px/1.1 var(--font-mono); color: var(--ink); }
+  .stats .v.bad { color: var(--bad); }
+  .stats .v.warn { color: var(--warn); }
+  .stats .v.ok  { color: var(--ok); }
+
+  .verdict {
+    margin-top: 16px; padding: 12px 16px; border: 1px solid var(--rule);
+    font-size: 13px; line-height: 1.5;
+  }
+  .verdict.ok   { border-color: var(--ok);   background: #F1F8EC; }
+  .verdict.warn { border-color: var(--warn); background: #FBF4E7; }
+  .verdict.bad  { border-color: var(--bad);  background: #FCEFEF; }
+  .verdict b { font-weight: 500; }
+  .verdict__hd { font: 500 13px/1.3 var(--font-en); margin-bottom: 10px; color: var(--ink); }
+  .verdict__steps { list-style: none; margin: 0; padding: 0; }
+  .step { display: grid; grid-template-columns: 60px 1fr auto; gap: 8px 12px; padding: 8px 0; border-top: 1px dashed var(--rule); align-items: start; }
+  .step:first-child { border-top: 0; padding-top: 4px; }
+  .step__n {
+    font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em;
+    color: var(--paper); background: var(--ink); padding: 3px 6px;
+    border-radius: 0; height: fit-content; text-align: center;
+  }
+  .step--light .step__n { background: #B47B2E; }
+  .step--matl  .step__n { background: #5B7B6A; }
+  .step--both  .step__n { background: #1A1A1A; }
+  .step--verify .step__n { background: #6FA8C6; }
+  .step--guard .step__n { background: var(--bad); }
+  .step--ok    .step__n { background: var(--ok); }
+  .step__t { font-size: 12.5px; color: var(--ink); margin-bottom: 2px; }
+  .step__h { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); line-height: 1.4; }
+  .step__apply {
+    appearance: none; -webkit-appearance: none;
+    border: 1px solid var(--ink); background: var(--paper);
+    color: var(--ink); padding: 6px 10px;
+    font: 500 11px/1 var(--font-mono); letter-spacing: 0.04em;
+    cursor: pointer; align-self: start;
+  }
+  .step__apply:hover { background: var(--ink); color: var(--paper); }
+
+  /* curve plot */
+  .plot { border: 1px solid var(--rule); height: 220px; background: var(--paper-2); position: relative; margin-top: 18px; }
+  .plot svg { display: block; width: 100%; height: 100%; }
+  .legend { display: flex; gap: 14px; margin-top: 8px; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-2); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="appbar">
+    <div>
+      <div class="appbar__id">VGSS · 003 · FALLOFF PREDICTOR</div>
+      <h1 class="appbar__t">Falloff Predictor <span class="appbar__cn">光衰減預估</span></h1>
+    </div>
+    <div class="appbar__hint">
+      Predict illuminance, drift, and verdict before baking. Drift &gt; ΔE 8 means re-light, not re-bake.
+    </div>
+  </div>
+
+  <div id="root"></div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

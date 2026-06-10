@@ -1,0 +1,93 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Directional</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+
+  /* primary overhead directional bar */
+  .bar {
+    display:flex; align-items:stretch; border:1px solid var(--rule);
+    background:var(--board-dark); color:var(--paper); overflow:hidden;
+  }
+  .bar__dest { flex:1; padding:20px 24px; display:flex; flex-direction:column; gap:12px; justify-content:center; }
+  .dest { display:flex; align-items:baseline; gap:12px; }
+  .dest__cn { font-family:var(--font-tc); font-weight:500; font-size:24px; line-height:1; }
+  .dest__en { font:400 14px/1 var(--font-en); color:rgba(255,255,255,0.7); letter-spacing:0.02em; }
+  .bar__arrow { width:128px; display:grid; place-items:center; border-left:1px solid rgba(255,255,255,0.14); }
+  .arrow { width:60px; height:60px; position:relative; }
+  .arrow::before { content:""; position:absolute; top:50%; left:6%; width:62%; height:5px; background:var(--paper); transform:translateY(-50%); }
+  .arrow::after { content:""; position:absolute; top:50%; right:8%; width:30px; height:30px;
+                  border-top:5px solid var(--paper); border-right:5px solid var(--paper); transform:translateY(-50%) rotate(45deg); }
+
+  .specrow { display:flex; gap:22px; margin:12px 0 0; flex-wrap:wrap; }
+  .spec { font:500 10.5px/1.4 var(--font-mono); letter-spacing:0.03em; color:var(--ink-3); text-transform:uppercase; }
+  .spec b { color:var(--ink); font-weight:600; }
+
+  .sub { font:500 11px/1 var(--font-mono); letter-spacing:0.12em; text-transform:uppercase;
+         color:var(--ink-3); margin:24px 0 12px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+
+  .alts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .alt { border:1px solid var(--rule); padding:0; min-height:150px; position:relative; overflow:hidden; }
+  .alt__tag { position:absolute; top:8px; left:10px; z-index:2; font:500 9px/1 var(--font-mono);
+              letter-spacing:0.06em; color:var(--ink-3); text-transform:uppercase; }
+
+  /* B · chevron-container (concrete reference) */
+  .b-chev { background:#E7E6E0; display:grid; place-items:center; }
+  .chevstack { position:relative; width:120px; height:118px; }
+  .chevstack .cnum { position:absolute; top:0; left:50%; transform:translateX(-50%); font:700 40px/1 var(--font-en); color:var(--ink); }
+  .chevdn { position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+            width:78px; height:40px; }
+  .chevdn::before, .chevdn::after { content:""; position:absolute; top:0; width:50%; height:1.5px; background:var(--ink-3); transform-origin:top; }
+  .chevdn::before { left:50%; transform:rotate(28deg); }
+  .chevdn::after  { right:50%; transform:rotate(-28deg); }
+  .chevtxt { position:absolute; top:46px; left:50%; transform:translateX(-50%); text-align:center;
+             font-family:var(--font-tc); font-weight:500; font-size:13px; color:var(--ink-2); white-space:nowrap; }
+
+  /* C · floor-painted arrow */
+  .c-floor { background:linear-gradient(180deg,#E4E3DD,#D7D6CF); display:grid; place-items:center; perspective:340px; }
+  .floorarrow { transform:rotateX(58deg); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .floorarrow .ftxt { font-family:var(--font-tc); font-weight:600; font-size:20px; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,0.2); letter-spacing:0.1em; }
+  .farr { width:0; height:0; border-left:26px solid transparent; border-right:26px solid transparent; border-top:34px solid #fff; filter:drop-shadow(0 2px 2px rgba(0,0,0,0.18)); }
+
+  /* D · freestanding blade */
+  .d-blade { background:#EEECE6; display:grid; place-items:center; }
+  .blade { background:var(--you-here); color:#fff; padding:14px 8px; writing-mode:vertical-rl;
+           font-family:var(--font-tc); font-weight:500; font-size:20px; letter-spacing:0.12em; box-shadow:3px 3px 8px rgba(0,0,0,0.2); }
+  .blade .en { font-family:var(--font-en); font-size:11px; letter-spacing:0.05em; opacity:0.85; }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Directional · 方向指引</h3><div class="dim">Tier 2 · overhead 215 cm</div></div>
+  <p class="intro">
+    Decision points get one overhead bar: destinations ranged left, a single arrow right. Never more than three destinations per face. <span class="cn">每個決策點一條頭頂指示帶：目的地靠左、單一箭頭靠右，每面最多三個目的地。</span>
+  </p>
+
+  <div class="bar">
+    <div class="bar__dest">
+      <div class="dest"><span class="dest__cn">中庭</span><span class="dest__en">Atrium</span></div>
+      <div class="dest"><span class="dest__cn">光廊</span><span class="dest__en">Light Hall</span></div>
+      <div class="dest"><span class="dest__cn">特展</span><span class="dest__en">Special Exhibition</span></div>
+    </div>
+    <div class="bar__arrow"><div class="arrow"></div></div>
+  </div>
+  <div class="specrow">
+    <span class="spec">cap-height <b>12 cm</b></span>
+    <span class="spec">mount <b>215 cm</b> overhead</span>
+    <span class="spec">max <b>3 destinations</b>/face</span>
+  </div>
+
+  <div class="sub">Alternate formats · 變體</div>
+  <div class="alts">
+    <div class="alt b-chev"><span class="alt__tag">B · chevron</span>
+      <div class="chevstack"><span class="cnum">1</span><div class="chevtxt">特展<br/>光廊</div><div class="chevdn"></div></div>
+    </div>
+    <div class="alt c-floor"><span class="alt__tag">C · floor</span>
+      <div class="floorarrow"><span class="ftxt">中庭</span><div class="farr"></div></div>
+    </div>
+    <div class="alt d-blade"><span class="alt__tag">D · blade</span>
+      <div class="blade">出口 <span class="en">EXIT</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

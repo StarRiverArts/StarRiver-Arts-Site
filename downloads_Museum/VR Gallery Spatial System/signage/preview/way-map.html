@@ -1,0 +1,111 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Map overview</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 14px; }
+  .intro .cn { font-family:var(--font-tc); }
+
+  .maprow { display:grid; grid-template-columns: 1fr 168px; gap:20px; align-items:start; }
+  .plan { border:1px solid var(--rule); background:var(--board-light); }
+  .plan svg { display:block; width:100%; height:auto; }
+
+  .zlabel { font-family:var(--font-en); font-weight:500; }
+  .znum { font:700 15px var(--font-en); fill:var(--ink); }
+  .zcn  { font-family:var(--font-tc); font-weight:500; font-size:13px; fill:var(--ink); }
+  .zen  { font:400 9px var(--font-en); fill:var(--ink-2); letter-spacing:0.04em; }
+  .atxt { font-family:var(--font-tc); font-weight:500; font-size:12px; fill:var(--ink-2); }
+  .nlab { font:500 9px var(--font-mono); fill:var(--ink-3); letter-spacing:0.08em; }
+
+  .key { display:flex; flex-direction:column; gap:10px; }
+  .key__h { font:500 10px/1 var(--font-mono); letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:2px; }
+  .kr { display:flex; align-items:center; gap:9px; font-size:12px; color:var(--ink); }
+  .kr .sw { width:16px; height:16px; border:1px solid var(--rule-2); flex:none; }
+  .kr .cn { font-family:var(--font-tc); }
+  .kr .en { color:var(--ink-3); font-family:var(--font-en); font-size:10px; margin-left:auto; }
+  .youkey { display:flex; align-items:center; gap:9px; font-size:12px; color:var(--ink); margin-top:4px; padding-top:10px; border-top:1px dashed var(--rule-2); }
+  .youkey .dot { width:13px; height:13px; border-radius:50%; background:var(--you-here); flex:none; }
+  .youkey .cn { font-family:var(--font-tc); }
+
+  .note { margin-top:14px; padding:12px 14px; border:1px dashed var(--rule-2); background:var(--paper-2); font-size:11.5px; line-height:1.5; color:var(--ink-2); }
+  .note b { color:var(--ink); } .note .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Map · 地圖總覽</h3><div class="dim">Tier 2 · plan @ you-are-here</div></div>
+  <p class="intro">
+    The total-overview map redraws the spatial system's <b>circular building</b> as a colour-coded plan — fan wings keyed to zone colour, atrium at centre, north up, and the single red <b>you-are-here</b> mark at the entrance throat. <span class="cn">總覽圖將空間系統的「圓形建築」重繪為色碼平面：扇形展翼依分區上色，中庭居中，正北朝上，入口處一枚紅色現在位置點。</span>
+  </p>
+
+  <div class="maprow">
+    <div class="plan">
+      <svg viewBox="0 0 560 470" xmlns="http://www.w3.org/2000/svg">
+        <!-- zone wings -->
+        <path d="M308.3,187.7 L331.2,57.7 A180 180 0 0 1 477.3,203.8 L347.3,226.7 A48 48 0 0 0 308.3,187.7 Z" fill="#8FA8D8" fill-opacity="0.32" stroke="#1A1A1A" stroke-width="1"/>
+        <path d="M347.3,243.3 L477.3,266.2 A180 180 0 0 1 361.6,404.1 L316.4,280.1 A48 48 0 0 0 347.3,243.3 Z" fill="#E0B85A" fill-opacity="0.34" stroke="#1A1A1A" stroke-width="1"/>
+        <path d="M283.6,280.1 L238.4,404.1 A180 180 0 0 1 122.7,266.2 L252.7,243.3 A48 48 0 0 0 283.6,280.1 Z" fill="#8A8985" fill-opacity="0.22" stroke="#1A1A1A" stroke-width="1"/>
+        <path d="M252.7,226.7 L122.7,203.8 A180 180 0 0 1 268.8,57.7 L291.7,187.7 A48 48 0 0 0 252.7,226.7 Z" fill="#689F38" fill-opacity="0.28" stroke="#1A1A1A" stroke-width="1"/>
+
+        <!-- building shell (heavy cut edge) -->
+        <circle cx="300" cy="235" r="180" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+        <!-- atrium -->
+        <circle cx="300" cy="235" r="48" fill="#FAFAF7" stroke="#1A1A1A" stroke-width="1.5"/>
+        <text x="300" y="231" text-anchor="middle" class="atxt">中庭</text>
+        <text x="300" y="246" text-anchor="middle" class="zen" style="fill:var(--ink-3)">ATRIUM</text>
+
+        <!-- zone labels -->
+        <text x="385" y="146" text-anchor="middle"><tspan class="znum">1</tspan></text>
+        <text x="385" y="164" text-anchor="middle" class="zcn">光廊</text>
+        <text x="385" y="177" text-anchor="middle" class="zen">LIGHT HALL</text>
+
+        <text x="392" y="306" text-anchor="middle"><tspan class="znum">2</tspan></text>
+        <text x="392" y="324" text-anchor="middle" class="zcn">典藏</text>
+        <text x="392" y="337" text-anchor="middle" class="zen">COLLECTION</text>
+
+        <text x="208" y="306" text-anchor="middle"><tspan class="znum">3</tspan></text>
+        <text x="208" y="324" text-anchor="middle" class="zcn">特展</text>
+        <text x="208" y="337" text-anchor="middle" class="zen">SPECIAL</text>
+
+        <text x="215" y="146" text-anchor="middle"><tspan class="znum">4</tspan></text>
+        <text x="215" y="164" text-anchor="middle" class="zcn">教育</text>
+        <text x="215" y="177" text-anchor="middle" class="zen">EDUCATION</text>
+
+        <!-- entrance throat at south -->
+        <path d="M238.4,404.1 L255,440 L345,440 L361.6,404.1" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+        <text x="300" y="456" text-anchor="middle" class="nlab">ENTRANCE 入口</text>
+
+        <!-- you-are-here -->
+        <circle cx="300" cy="418" r="7.5" fill="#D5462F"/>
+        <circle cx="300" cy="418" r="13" fill="none" stroke="#D5462F" stroke-width="1.2" opacity="0.5"/>
+
+        <!-- north arrow -->
+        <g transform="translate(46,52)">
+          <circle cx="0" cy="0" r="16" fill="none" stroke="#1A1A1A" stroke-width="1"/>
+          <path d="M0,-15 L5,4 L0,-2 L-5,4 Z" fill="#1A1A1A"/>
+          <text x="0" y="-22" text-anchor="middle" class="nlab">N</text>
+        </g>
+        <!-- scale bar -->
+        <g transform="translate(36,440)">
+          <line x1="0" y1="0" x2="80" y2="0" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="40" y1="-3" x2="40" y2="3" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="80" y1="-4" x2="80" y2="4" stroke="#1A1A1A" stroke-width="1"/>
+          <text x="0" y="14" class="nlab">0</text><text x="80" y="14" text-anchor="end" class="nlab">10 m</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key">
+      <div class="key__h">Zones · 分區</div>
+      <div class="kr"><span class="sw" style="background:#8FA8D8"></span><span class="cn">光廊</span><span class="en">cool</span></div>
+      <div class="kr"><span class="sw" style="background:#E0B85A"></span><span class="cn">典藏</span><span class="en">warm</span></div>
+      <div class="kr"><span class="sw" style="background:#A6A39A"></span><span class="cn">特展</span><span class="en">body</span></div>
+      <div class="kr"><span class="sw" style="background:#9DBE6B"></span><span class="cn">教育</span><span class="en">env</span></div>
+      <div class="youkey"><span class="dot"></span><span class="cn">現在位置<br/>You are here</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Material-as-cartography variant.</b> For lobby kiosks the same plan may be built physically — each wing rendered in its actual surface material (limestone, oak, marble, moss) so the map doubles as a material index. <span class="cn">大廳實體圖可將每翼以其真實材質製作，使地圖兼作材質索引。</span>
+  </div>
+</div>
+</body></html>

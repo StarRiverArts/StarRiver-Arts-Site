@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Materials · satin & glossy</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .mats { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .mat  { border: 1px solid var(--rule); }
+  .mat__swatch { aspect-ratio: 1.4; position:relative; overflow:hidden; }
+  .mat__swatch.satin::after {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 35%, rgba(0,0,0,0.06) 70%, rgba(255,255,255,0.20) 100%);
+  }
+  .mat__swatch.gloss::after {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0) 25%, rgba(0,0,0,0.10) 60%, rgba(255,255,255,0.55) 100%);
+  }
+  .mat__swatch.grain::before {
+    content:""; position:absolute; inset:0; opacity:0.30;
+    background-image: repeating-linear-gradient(8deg, rgba(60,30,0,0.22) 0 1px, transparent 1px 5px),
+                      repeating-linear-gradient(8deg, rgba(60,30,0,0.10) 0 0.3px, transparent 0.3px 11px);
+  }
+  .mat__meta { padding: 10px 12px; font-size: 11.5px; }
+  .mat__meta .name { font: var(--t-h3); margin-bottom: 6px; text-transform:none; letter-spacing:0; color: var(--ink); }
+  .mat__meta .mono { color: var(--ink-3); font-size:10.5px; }
+  .ratio { display:flex; gap:6px; margin-top:8px; }
+  .ratio span { font-family: var(--font-mono); font-size: 10px; padding: 2px 4px; background: var(--paper-2); color: var(--ink-2); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Materials · 緞面 / 鏡面</h3><div class="dim">r ≤ 0.4 · use sparingly</div></div>
+  <div class="mats">
+    <div class="mat">
+      <div class="mat__swatch satin grain" style="background: var(--mat-oak-actual)"></div>
+      <div class="mat__meta">
+        <div class="name">Oak (oiled)</div>
+        <div class="mono">橡木・上油</div>
+        <div class="ratio"><span>r 0.45</span><span>s 0.12</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch satin" style="background: var(--mat-marble-actual)"></div>
+      <div class="mat__meta">
+        <div class="name">Marble (honed)</div>
+        <div class="mono">大理石・霧面</div>
+        <div class="ratio"><span>r 0.30</span><span>s 0.20</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch gloss" style="background: #D4D2CC"></div>
+      <div class="mat__meta">
+        <div class="name">Polished concrete</div>
+        <div class="mono">磨光混凝土</div>
+        <div class="ratio"><span>r 0.15</span><span>s 0.35</span></div>
+      </div>
+    </div>
+    <div class="mat">
+      <div class="mat__swatch gloss" style="background: #2A2A2A"></div>
+      <div class="mat__meta">
+        <div class="name">Ink-stone black</div>
+        <div class="mono">硯墨黑</div>
+        <div class="ratio"><span>r 0.10</span><span>s 0.45</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+/* ============================================================
+   VR Gallery Typographic & Signage System (VGTS)
+   字體與標識設計準則 — design tokens
+
+   This system sits ON TOP of the VR Gallery Spatial System.
+   It inherits every spatial / colour / type token from
+   colors_and_type.css and adds only what signage needs:
+   signage type scale (in cm), letter relief depths, mount
+   heights, wayfinding colour-coding, and installation tokens.
+   ============================================================ */
+
+@import url("../colors_and_type.css");
+
+:root {
+  /* ============================================================
+     SIGNAGE TYPE SCALE — cap-height in cm, mapped to viewing
+     distance. Legibility rule: comfortable cap-height ≈ viewing
+     distance / 200; absolute minimum ≈ distance / 400.
+     All values land on the 10 cm spatial grid where built large.
+     ============================================================ */
+  --cap-mega:  60;   /* @kind spacing */ /* building main sign · read @ 1200 cm / 12 m */
+  --cap-xl:    24;   /* @kind spacing */ /* zone / hall plate   · read @  480 cm */
+  --cap-l:     12;   /* @kind spacing */ /* directional         · read @  240 cm */
+  --cap-m:      6;   /* @kind spacing */ /* room / door label   · read @  120 cm */
+  --cap-s:      3;   /* @kind spacing */ /* exhibit label       · read @   60 cm */
+  --cap-xs:   1.5;   /* @kind spacing */ /* caption / credit    · read @   30 cm */
+
+  /* ============================================================
+     LETTER RELIEF — physical depth of the letterform off its
+     ground plane (cm). This is the axis the spectrum climbs.
+     ============================================================ */
+  --relief-flush:  0.3;   /* @kind spacing */ /* printed / vinyl — near flush */
+  --relief-cut:    2;     /* @kind spacing */ /* cut acrylic, raised off wall */
+  --relief-channel:6;     /* @kind spacing */ /* channel letter, reads as object */
+  --relief-volume: 20;    /* @kind spacing */ /* volumetric block — Design-Museum scale */
+  --relief-sculpt: 60;    /* @kind spacing */ /* sculptural — a letter you walk around */
+
+  /* cast-shadow offset for raised lettering in elevation
+     drawings — matches the spatial system's 8% / 30° convention */
+  --sign-shadow: 0 0 0 transparent;
+  --sign-cast:   rgba(26,26,26,0.10);
+
+  /* ============================================================
+     MOUNT HEIGHTS — centroid height off floor (cm). Anchored to
+     the 130 cm avatar eye-line from the spatial system.
+     ============================================================ */
+  --mh-main:   260;   /* @kind spacing */ /* building lockup — above the glass line */
+  --mh-overhead:215;  /* @kind spacing */ /* directional, hung overhead, clears 130 eye */
+  --mh-plate:  160;   /* @kind spacing */ /* zone / room plate — top-of-head, easy gaze */
+  --mh-eye:    130;   /* @kind spacing */ /* directory / you-are-here — dead on eye-line */
+  --mh-label:   95;   /* @kind spacing */ /* exhibit label — reach + read (info-near band) */
+  --mh-ground:   0;   /* @kind spacing */ /* floor / ground guidance */
+
+  /* ============================================================
+     WAYFINDING COLOUR-CODING — the four spatial role colours,
+     re-tasked as zone keys (cf. Norwegian floor directory).
+     The body colour is the neutral chrome; the three accents key
+     zones. A single high-salience marker flags "you are here".
+     ============================================================ */
+  --zone-env:   var(--col-env);    /* gardens · outdoor · terrace */
+  --zone-cool:  #8FA8D8;           /* contemplative / north wings — deepened E8EAF6 for ink contrast */
+  --zone-warm:  #E0B85A;           /* intimate / south wings — deepened FFF8E1 for ink contrast */
+  --zone-body:  var(--ink-3);      /* circulation / neutral */
+
+  /* you-are-here marker — the one place a vivid mark is allowed */
+  --you-here:   #D5462F;           /* 現在位置 · single hottest mark in the system */
+
+  /* signage ground tones (the board / plinth a sign sits on) */
+  --board-light: #F4F3EE;          /* light board (matte limestone) */
+  --board-dark:  #1C1D1F;          /* dark board (ink directory) */
+
+  /* ============================================================
+     INSTALLATION TIER — letters that have become art.
+     Reuses --emit-* / --lum-* from the spatial system; adds the
+     geometry signage installations need.
+     ============================================================ */
+  --slat-pitch:  4;    /* @kind spacing */ /* cm — venetian-slat letter bar spacing (projection tier) */
+  --slat-thick:  0.6;  /* @kind spacing */ /* cm — slat thickness */
+  --void-depth:  8;    /* @kind spacing */ /* cm — recess depth for carved negative-form letters */
+  --rod-gauge:   0.4;  /* @kind spacing */ /* cm — suspension rod diameter */
+
+  /* glow colours for emissive lettering — already capped by the
+     spatial system's emission budget (spill ≤ 20% of body wall) */
+  --letter-glow-key:  var(--emit-key);
+  --letter-glow-cool: var(--emit-cool);
+  --letter-glow-warm: var(--emit-warm);
+
+  /* ============================================================
+     SIGNAGE TYPE ROLES (px, for these docs) — render letterforms
+     at doc scale. Latin = Orbiter Deck, CN = 思源黑體, tabular
+     numerals everywhere a number appears.
+     ============================================================ */
+  --sign-display: 600 64px/0.95 var(--font-en);   /* @kind font */ /* lockup specimen */
+  --sign-numeral: 700 96px/0.9  var(--font-en);   /* @kind font */ /* directory numerals */
+  --sign-plate:   500 30px/1.05 var(--font-en);   /* @kind font */ /* plate text */
+  --sign-way:     500 22px/1.1  var(--font-en);   /* @kind font */ /* directional text */
+}
+
+/* ---------- signage doc helpers ---------- */
+
+/* tier chip — the 0..3 ladder marker */
+.tier {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 500 10px/1 var(--font-mono); letter-spacing: 0.10em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.tier__no {
+  width: 18px; height: 18px; display: grid; place-items: center;
+  border: 1px solid var(--rule-2); color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* a "specimen stage" — neutral ground a letterform sits on */
+.stage {
+  position: relative; overflow: hidden;
+  background: var(--board-light);
+  border: 1px solid var(--rule);
+}
+.stage--dark { background: var(--board-dark); color: var(--paper); border-color: #000; }
+.stage--cool { background: linear-gradient(180deg, #EEF1F8, #E2E7F2); }
+
+/* tabular numerals */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* a tiny pictogram drawn as a line glyph (architectural convention) */
+.pict { width: 22px; height: 22px; display: inline-block; vertical-align: middle; }

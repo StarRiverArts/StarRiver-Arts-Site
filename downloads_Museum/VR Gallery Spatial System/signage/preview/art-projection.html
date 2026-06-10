@@ -1,0 +1,78 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Projection & slat</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+  .intro code { font-family:var(--font-mono); font-size:12px; background:var(--paper-2); padding:1px 5px; }
+
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+
+  /* slat / venetian-blind suspended letters */
+  .slatstage { position:relative; min-height:228px; border:1px solid var(--rule);
+    background:linear-gradient(180deg,#cfd9cb 0%,#bcc8b6 48%,#aab89f 100%); overflow:hidden; display:grid; place-items:center; }
+  /* suspension rods */
+  .rods { position:absolute; top:0; left:50%; transform:translateX(-50%); width:200px; height:56px;
+          background-image:repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 1px, transparent 1px 26px); }
+  .slatword { position:relative; font-family:var(--font-en); font-weight:700; font-size:74px; line-height:0.92; letter-spacing:0.01em;
+    color:transparent; -webkit-background-clip:text; background-clip:text;
+    background-image:repeating-linear-gradient(0deg, #FFFFFF 0px, #FFFFFF 5px, transparent 5px, transparent 9px);
+    filter:drop-shadow(0 2px 3px rgba(40,50,30,0.25)); text-align:center; }
+  .slatcn { position:relative; font-family:var(--font-tc); font-weight:500; font-size:30px; margin-top:8px;
+    color:transparent; -webkit-background-clip:text; background-clip:text;
+    background-image:repeating-linear-gradient(0deg, #FFFFFF 0px, #FFFFFF 4px, transparent 4px, transparent 7px); text-align:center; }
+  .slattag { position:absolute; bottom:12px; left:14px; font:500 9.5px/1.4 var(--font-mono); color:rgba(40,55,30,0.7); letter-spacing:0.03em; }
+
+  /* projected floor text that tracks the viewer */
+  .projstage { position:relative; min-height:228px; border:1px solid var(--rule);
+    background:radial-gradient(140% 90% at 50% 0%, #E8ECF3, #D2D8E4); overflow:hidden; }
+  .projfloor { position:absolute; inset:0; perspective:520px; display:grid; place-items:end center; padding-bottom:30px; }
+  .projtxt { transform:rotateX(62deg); transform-origin:center bottom; text-align:center;
+    font-family:var(--font-tc); font-weight:500; font-size:40px; line-height:1; color:rgba(91,107,134,0.0);
+    text-shadow:0 0 18px rgba(120,140,180,0.7); }
+  .projtxt .glow { color:#aeb9d0; text-shadow:0 0 10px rgba(150,170,210,0.9),0 0 26px rgba(150,170,210,0.55); }
+  .projbeam { position:absolute; top:-10px; left:50%; width:2px; height:120px; transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(180,195,225,0.9), transparent); }
+  .projsrc { position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:12px; height:12px; border-radius:50%;
+    background:#aeb9d0; box-shadow:0 0 12px rgba(150,170,210,0.9); }
+  .viewer { position:absolute; bottom:14px; right:18px; display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .viewer .vd { width:11px; height:11px; border-radius:50%; border:1.5px solid #5b6b86; }
+  .viewer .vl { font:500 8px/1 var(--font-mono); color:#5b6b86; }
+  .projtag { position:absolute; bottom:12px; left:14px; font:500 9.5px/1.4 var(--font-mono); color:#5b6b86; letter-spacing:0.03em; }
+
+  .cap { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:11px; }
+  .cap div { font-size:11.5px; line-height:1.5; color:var(--ink-2); }
+  .cap b { display:block; font:500 10px/1.3 var(--font-mono); letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase; margin-bottom:3px; }
+  .cap .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Projection · 投影／百葉</h3><div class="dim">Tier 3 · read-angle dependent</div></div>
+  <p class="intro">
+    Two ways the word dematerialises. <b>Slat letters</b> are built from suspended horizontal bars — solid head-on, dissolving as you pass. <b>Projected text</b> is cast onto floor or wall and re-aims toward the nearest viewer. <span class="cn">兩種「去物質化」：百葉字由懸吊橫桿組成，正面實、側面散；投影字打在地面或牆上，並朝最近的觀者重新對位。</span>
+  </p>
+
+  <div class="row">
+    <div class="slatstage">
+      <div class="rods"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="slatword">MUSE</div>
+        <div class="slatcn">入口</div>
+      </div>
+      <div class="slattag">slat pitch 4 cm · rod ⌀ 0.4 cm · suspended</div>
+    </div>
+
+    <div class="projstage">
+      <div class="projsrc"></div><div class="projbeam"></div>
+      <div class="projfloor"><div class="projtxt"><span class="glow">往中庭</span></div></div>
+      <div class="viewer"><div class="vd"></div><span class="vl">viewer</span></div>
+      <div class="projtag">cast on floor · re-aims to viewer</div>
+    </div>
+  </div>
+
+  <div class="cap">
+    <div><b>Slat · 百葉</b><span class="cn">字只在視錐 ±15° 內讀為完整字形，離軸即化為光柵——適合入口的儀式性招牌。</span></div>
+    <div><b>Projected · 投影</b><span class="cn">投影字隨人移動重新對位；亮度受發光預算約束，地面投影歸入 far ambient 範圍。</span></div>
+  </div>
+</div>
+</body></html>

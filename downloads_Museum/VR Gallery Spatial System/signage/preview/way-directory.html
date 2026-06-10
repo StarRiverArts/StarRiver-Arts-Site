@@ -1,0 +1,80 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Directory</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 16px; }
+  .intro .cn { font-family:var(--font-tc); }
+
+  .board { border:1px solid #000; background:var(--board-dark); color:var(--paper); }
+  .frow { display:grid; grid-template-columns:110px 1fr auto; align-items:center;
+          gap:20px; padding:16px 22px; border-top:1px solid rgba(255,255,255,0.12); }
+  .frow:first-child { border-top:0; }
+  .frow.is-here { background:var(--paper); color:var(--ink); }
+  .fnum { font:700 50px/0.8 var(--font-en); font-variant-numeric:tabular-nums; }
+  .fdest { display:flex; flex-direction:column; gap:3px; }
+  .fdest .d { font:400 14px/1.25 var(--font-en); }
+  .fdest .d .cn { font-family:var(--font-tc); color:rgba(255,255,255,0.62); margin-left:7px; }
+  .is-here .fdest .d .cn { color:var(--ink-3); }
+  .picts { display:flex; gap:12px; align-items:center; }
+  .picts svg { width:22px; height:22px; display:block; }
+  .picts svg { stroke:var(--paper); }
+  .is-here .picts svg { stroke:var(--ink); }
+  .here-tag { display:inline-flex; align-items:center; gap:6px; font:500 9.5px/1 var(--font-mono);
+              letter-spacing:0.08em; text-transform:uppercase; color:var(--you-here); margin-top:5px; }
+  .here-dot { width:9px; height:9px; border-radius:50%; background:var(--you-here); }
+
+  .legend { display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:16px; padding-top:14px; border-top:1px dashed var(--rule-2); }
+  .lg { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--ink-2); }
+  .lg svg { width:20px; height:20px; }
+  .lg svg { stroke:var(--ink-2); }
+  .lg .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Directory · 樓層總覽</h3><div class="dim">Tier 2 · numeral-led · mount 130 cm</div></div>
+  <p class="intro">
+    A single dark board, numeral-led, one row inverted to mark the current floor. Amenities read as line pictograms — never emoji. <span class="cn">單一深色板、數字主導，當前樓層整列反白；設施一律以線描 pictogram 表示，不用 emoji。</span>
+  </p>
+
+  <div class="board">
+    <div class="frow">
+      <div class="fnum">3</div>
+      <div class="fdest"><span class="d">Special Exhibition <span class="cn">特展</span></span><span class="d">Theatre <span class="cn">放映廳</span></span></div>
+      <div class="picts">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="2.5" stroke-width="1.5"/><path d="M9 22v-7H7l2-5h6l2 5h-2v7" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fnum">2</div>
+      <div class="fdest"><span class="d">Collection Galleries <span class="cn">典藏展廳</span></span><span class="d">Library <span class="cn">圖書室</span></span></div>
+      <div class="picts">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 6c-2-1.4-4-1.4-6 0v11c2-1.4 4-1.4 6 0m0-11c2-1.4 4-1.4 6 0v11c-2-1.4-4-1.4-6 0m0-11v11" stroke-width="1.5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="6" r="2.5" stroke-width="1.5"/><path d="M6 22v-7H4l2-5h6l2 5h-2v7" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+    <div class="frow is-here">
+      <div class="fnum">1</div>
+      <div class="fdest"><span class="d">Light Hall <span class="cn">光廊</span></span><span class="d">Information · Cloaking <span class="cn">服務・寄物</span></span>
+        <span class="here-tag"><span class="here-dot"></span>現在位置 You are here</span></div>
+      <div class="picts">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 11v5" stroke-width="1.5"/><circle cx="12" cy="8" r="0.6" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fnum">G</div>
+      <div class="fdest"><span class="d">Entrance · Atrium <span class="cn">入口・中庭</span></span><span class="d">Café · Restrooms <span class="cn">咖啡・洗手間</span></span></div>
+      <div class="picts">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 9h13v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" stroke-width="1.5"/><path d="M17 10h2.5a2 2 0 0 1 0 4H17" stroke-width="1.5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 21V8M9 21V8M5 8c0-2 1-4 2-4s2 2 2 4" stroke-width="1.5"/><circle cx="16" cy="5" r="2" stroke-width="1.5"/><path d="M13 21v-7l3-3 3 3v7M16 11v4" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 11v5" stroke-width="1.5"/><circle cx="12" cy="8" r="0.6" stroke-width="1.5"/></svg><span class="cn">服務台 Info</span></div>
+    <div class="lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h13v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" stroke-width="1.5"/><path d="M17 10h2.5a2 2 0 0 1 0 4H17" stroke-width="1.5"/></svg><span class="cn">咖啡 Café</span></div>
+    <div class="lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="2.5" stroke-width="1.5"/><path d="M9 22v-7H7l2-5h6l2 5h-2v7" stroke-width="1.5"/></svg><span class="cn">洗手間 WC</span></div>
+    <div class="lg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6c-2-1.4-4-1.4-6 0v11c2-1.4 4-1.4 6 0m0-11c2-1.4 4-1.4 6 0v11c-2-1.4-4-1.4-6 0m0-11v11" stroke-width="1.5"/></svg><span class="cn">圖書室 Library</span></div>
+  </div>
+</div>
+</body></html>

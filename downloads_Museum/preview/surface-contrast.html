@@ -1,0 +1,144 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Surface Contrast — On Dark" subtitle="深色底文字規則 · .sr-on-dark 反相語境" viewport="1200x620" -->
+<html lang="zh-TW"><head><meta charset="utf-8">
+<title>Surface Contrast</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:22px 24px;background:#fff;font-family:var(--font-body);color:var(--fg-1);}
+  .head{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+  .h-kick{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sr-amber);}
+  .h-title{font-family:var(--font-deck);font-weight:700;font-size:18px;letter-spacing:.01em;color:var(--fg-1);}
+  .h-note{font-family:var(--font-body);font-size:12.5px;line-height:1.5;color:var(--fg-3);max-width:760px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch;}
+  .panel{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--gray-200);display:flex;flex-direction:column;}
+  .panel-cap{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;display:flex;align-items:center;gap:8px;}
+  .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .dot.bad{background:var(--fg-danger);}
+  .dot.ok{background:var(--terra-forest);}
+  .panel-body{padding:18px 16px 20px;flex:1;}
+
+  /* The demo content uses ONLY semantic .sr-* classes + tokens,
+     so the contrast comes entirely from the context, not overrides. */
+  .demo h4{font-family:var(--font-deck);font-weight:700;font-size:19px;line-height:1.15;margin:0 0 6px;color:var(--fg-1);}
+  .demo .kick{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:10px;}
+  .demo p{font-family:var(--font-body);font-size:13px;line-height:1.55;color:var(--fg-2);margin:0 0 8px;}
+  .demo .meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3);}
+  .demo a{color:var(--fg-link);}
+  .demo .well{margin-top:12px;background:var(--bg-3);border:var(--border-hair);border-radius:var(--r-sm);padding:9px 11px;font-family:var(--font-mono);font-size:11px;color:var(--fg-2);}
+
+  /* panel 1 — light ground (baseline, correct by default) */
+  .light-ground{background:var(--sr-paper);}
+  /* panel 2 — dark ground, tokens NOT remapped → the bug.
+     text is ghosted just enough to perceive it EXISTS but can't be read */
+  .dark-broken{background:var(--sr-void);position:relative;}
+  .dark-broken h4{color:#201f23;}
+  .dark-broken p{color:#1d1c20;}
+  .dark-broken .meta{color:#1b1a1e;}
+  .dark-broken a{color:#1f2a2c;}
+  .dark-broken .well{background:#161618;border-color:rgba(255,255,255,.04);color:#1d1c20;}
+  .ghost-stamp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+  .ghost-stamp span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:#F4EFE4;background:rgba(232,138,46,.16);border:1px solid var(--sr-amber);border-radius:var(--r-sm);
+    padding:7px 14px;transform:rotate(-7deg);text-align:center;line-height:1.6;white-space:nowrap;backdrop-filter:blur(1px);}
+  /* panel 3 — dark ground + .sr-on-dark → fixed */
+  .dark-fixed{background:var(--sr-void);}
+
+  .map{margin-top:18px;border:1px solid var(--gray-200);border-radius:var(--r-md);overflow:hidden;}
+  .map-row{display:grid;grid-template-columns:150px 1fr 1fr;gap:0;border-top:1px solid var(--gray-200);font-family:var(--font-mono);font-size:10.5px;}
+  .map-row:first-child{border-top:none;background:var(--sr-chalk);}
+  .map-row > div{padding:8px 14px;display:flex;align-items:center;gap:8px;}
+  .map-row > div + div{border-left:1px solid var(--gray-200);}
+  .map-key{color:var(--fg-1);font-weight:600;letter-spacing:.04em;}
+  .map-h{color:var(--fg-3);letter-spacing:.12em;text-transform:uppercase;}
+  .sw{width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.12);flex-shrink:0;}
+  .map-val{color:var(--fg-2);}
+</style></head>
+<body>
+
+<div class="head">
+  <div class="h-kick">Colour · Surface Contrast</div>
+  <div class="h-title">深色底文字規則 — On a dark ground, text goes light</div>
+  <div class="h-note">所有語意 token（<b>--fg-1/2/3</b>、<b>--fg-link</b>）與 <b>.sr-*</b> 字級皆為奶油底校準的深色值。直接放上深色底會看不見。<b>.sr-on-dark</b> 反相語境會把同一組 token 整批換成淺色——無需逐元素改色。</div>
+</div>
+
+<div class="grid">
+
+  <!-- 1: light ground baseline -->
+  <div class="panel">
+    <div class="panel-cap"><span class="dot ok"></span>Light ground · 預設正確</div>
+    <div class="panel-body demo light-ground">
+      <div class="kick">Project · 2026</div>
+      <h4>StarSight Mt. 觀星山</h4>
+      <p>語意 token 在奶油底上原生即正確。深色文字、暖灰次級、藍色連結。</p>
+      <p class="meta">VRChat · Project T · <a href="#">View →</a></p>
+      <div class="well">--fg-1 on --bg-1</div>
+    </div>
+  </div>
+
+  <!-- 2: dark ground, no remap → the bug -->
+  <div class="panel">
+    <div class="panel-cap"><span class="dot bad"></span>Dark ground · 無語境（問題）</div>
+    <div class="panel-body demo dark-broken">
+      <div class="kick">Project · 2026</div>
+      <h4>StarSight Mt. 觀星山</h4>
+      <p>同樣的 class，深色底卻沒有換語境——深色文字壓在 void 上，幾乎讀不到。</p>
+      <p class="meta">VRChat · Project T · <a href="#">View →</a></p>
+      <div class="well">--fg-1 on void = 看不見</div>
+      <div class="ghost-stamp"><span>✗ 文字在此<br>深色壓深色 · 讀不到</span></div>
+    </div>
+  </div>
+
+  <!-- 3: dark ground + .sr-on-dark → fixed -->
+  <div class="panel">
+    <div class="panel-cap"><span class="dot ok"></span>Dark ground · .sr-on-dark（修正）</div>
+    <div class="panel-body demo dark-fixed sr-on-dark">
+      <div class="kick">Project · 2026</div>
+      <h4>StarSight Mt. 觀星山</h4>
+      <p>加上 <b>.sr-on-dark</b>，同一組 token 整批反相為淺色。連結轉為彗星青、wells 變亮、邊線轉低透明白。</p>
+      <p class="meta">VRChat · Project T · <a href="#">View →</a></p>
+      <div class="well">--fg-1 on --bg-1（已反相）</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="map">
+  <div class="map-row">
+    <div class="map-h">Token</div>
+    <div class="map-h">Light ground · 預設</div>
+    <div class="map-h">.sr-on-dark · 反相</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--fg-1</div>
+    <div class="map-val"><span class="sw" style="background:#14140E"></span>#14140E ink</div>
+    <div class="map-val"><span class="sw" style="background:#F4EFE4"></span>#F4EFE4 paper</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--fg-2</div>
+    <div class="map-val"><span class="sw" style="background:#3B3A35"></span>#3B3A35 gray-700</div>
+    <div class="map-val"><span class="sw" style="background:#CDC8BA"></span>#CDC8BA</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--fg-3</div>
+    <div class="map-val"><span class="sw" style="background:#8B887E"></span>#8B887E gray-500</div>
+    <div class="map-val"><span class="sw" style="background:#A29D90"></span>#A29D90</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--fg-link</div>
+    <div class="map-val"><span class="sw" style="background:#0072BC"></span>#0072BC signal</div>
+    <div class="map-val"><span class="sw" style="background:#B9E4E8"></span>#B9E4E8 comet</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--bg-3 (well)</div>
+    <div class="map-val"><span class="sw" style="background:#F8F5EC"></span>#F8F5EC chalk · sunken</div>
+    <div class="map-val"><span class="sw" style="background:#232327"></span>#232327 · raised</div>
+  </div>
+  <div class="map-row">
+    <div class="map-key">--fg-accent</div>
+    <div class="map-val"><span class="sw" style="background:#E88A2E"></span>#E88A2E amber</div>
+    <div class="map-val"><span class="sw" style="background:#E88A2E"></span>#E88A2E · 不變（光源）</div>
+  </div>
+</div>
+
+</body></html>

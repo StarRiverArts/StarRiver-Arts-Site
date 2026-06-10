@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Signage type scale</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .intro { font-size:13px; line-height:1.55; color:var(--ink-2); margin:0 0 18px; }
+  .intro .cn { font-family: var(--font-tc); }
+  .intro code { font-family:var(--font-mono); font-size:12px; background:var(--paper-2); padding:1px 5px; }
+
+  .row {
+    display:grid; grid-template-columns: 64px 1fr 150px; gap:18px; align-items:center;
+    padding:16px 0; border-top:1px solid var(--rule);
+  }
+  .row__use { display:flex; flex-direction:column; gap:3px; }
+  .row__use .label { color:var(--ink-3); }
+  .row__use .cn { font-family:var(--font-tc); font-size:11px; color:var(--ink-2); }
+
+  .row__spec { font-family:var(--font-en); color:var(--ink); line-height:0.95; white-space:nowrap; overflow:hidden; }
+  .s-mega { font-weight:600; font-size:54px; }
+  .s-xl   { font-weight:600; font-size:38px; }
+  .s-l    { font-weight:500; font-size:28px; }
+  .s-m    { font-weight:500; font-size:21px; }
+  .s-s    { font-weight:500; font-size:16px; }
+  .s-xs   { font-weight:400; font-size:13px; }
+  .row__spec .cn { font-family:var(--font-tc); }
+
+  .row__meta { text-align:right; }
+  .cap { font:600 15px/1 var(--font-mono); color:var(--ink); font-variant-numeric:tabular-nums; }
+  .cap b { color:var(--dim); font-weight:600; }
+  .dist { font:500 10.5px/1.4 var(--font-mono); color:var(--ink-3); letter-spacing:0.03em; margin-top:5px; text-transform:uppercase; }
+
+  .note { margin-top:18px; padding:14px 16px; border:1px dashed var(--rule-2); background:var(--paper-2);
+          font-size:12px; line-height:1.55; color:var(--ink-2); }
+  .note b { color:var(--ink); }
+  .note .cn { font-family:var(--font-tc); }
+  .note code { font-family:var(--font-mono); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Type scale · 招牌字級</h3><div class="dim">cap-height cm × viewing distance</div></div>
+  <p class="intro">
+    Signage type is sized by <b>cap-height in centimetres</b>, not pixels — then checked against viewing distance. Comfortable legibility holds when <code>cap ≈ distance ⁄ 200</code>; below <code>⁄ 400</code> the word fails. <span class="cn">招牌以「公分字高」定尺寸，再對照視距驗證。</span>
+  </p>
+
+  <div>
+    <div class="row">
+      <div class="row__use"><span class="label">Main</span><span class="cn">主招牌</span></div>
+      <div class="row__spec s-mega">虛空 MUSE</div>
+      <div class="row__meta"><div class="cap">cap <b>60</b> cm</div><div class="dist">read @ 1200 cm</div></div>
+    </div>
+    <div class="row">
+      <div class="row__use"><span class="label">Zone</span><span class="cn">分區牌</span></div>
+      <div class="row__spec s-xl">光廊 Light Hall</div>
+      <div class="row__meta"><div class="cap">cap <b>24</b> cm</div><div class="dist">read @ 480 cm</div></div>
+    </div>
+    <div class="row">
+      <div class="row__use"><span class="label">Direction</span><span class="cn">方向指引</span></div>
+      <div class="row__spec s-l">→ 往中庭 To Atrium</div>
+      <div class="row__meta"><div class="cap">cap <b>12</b> cm</div><div class="dist">read @ 240 cm</div></div>
+    </div>
+    <div class="row">
+      <div class="row__use"><span class="label">Room</span><span class="cn">房間牌</span></div>
+      <div class="row__spec s-m">儲藏室 Store 03</div>
+      <div class="row__meta"><div class="cap">cap <b>6</b> cm</div><div class="dist">read @ 120 cm</div></div>
+    </div>
+    <div class="row">
+      <div class="row__use"><span class="label">Label</span><span class="cn">展品標籤</span></div>
+      <div class="row__spec s-s">無題（光）·  2026 · 複合媒材</div>
+      <div class="row__meta"><div class="cap">cap <b>3</b> cm</div><div class="dist">read @ 60 cm</div></div>
+    </div>
+    <div class="row">
+      <div class="row__use"><span class="label">Caption</span><span class="cn">說明文</span></div>
+      <div class="row__spec s-xs">館藏編號 VG-2026-014 · 藝術家捐贈 · 不可觸碰</div>
+      <div class="row__meta"><div class="cap">cap <b>1.5</b> cm</div><div class="dist">read @ 30 cm</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>VR caveat.</b> The 130 cm avatar reads everything from a lower eye-line than a standing adult. Sizes above are at the avatar's comfortable distance; overhead signage (mount 215 cm) is set one step larger to hold the steeper view angle. <span class="cn">130 公分 avatar 視線較低，頭頂標識（安裝高 215 cm）字級上調一級以補償仰角。</span>
+  </div>
+</div>
+</body></html>

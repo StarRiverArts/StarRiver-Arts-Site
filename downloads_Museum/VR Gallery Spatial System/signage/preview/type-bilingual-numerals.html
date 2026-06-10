@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"/>
+<title>Bilingual & numerals</title>
+<link rel="stylesheet" href="../signage_tokens.css"/>
+<link rel="stylesheet" href="_card.css"/>
+<style>
+  .sub { font:500 11px/1 var(--font-mono); letter-spacing:0.12em; text-transform:uppercase;
+         color:var(--ink-3); margin:22px 0 12px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+  .sub:first-of-type { margin-top:4px; }
+
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lk { border:1px solid var(--rule); padding:16px 18px; background:var(--board-light); }
+  .lk__rule { font:500 10px/1 var(--font-mono); letter-spacing:0.06em; color:var(--dim); text-transform:uppercase; margin-bottom:12px; }
+  .lk__cn { font-family:var(--font-tc); font-weight:500; font-size:26px; line-height:1.05; color:var(--ink); }
+  .lk__en { font:500 15px/1.1 var(--font-en); color:var(--ink-2); margin-top:4px; letter-spacing:0.01em; }
+  .lk--enfirst .lk__en { font-size:24px; color:var(--ink); margin-top:0; }
+  .lk--enfirst .lk__cn { font-size:16px; font-weight:400; color:var(--ink-2); margin-top:4px; }
+  .lk__why { font-size:11px; line-height:1.45; color:var(--ink-3); margin-top:12px; font-family:var(--font-tc); }
+
+  .romanote { margin:14px 0 0; padding:12px 14px; border:1px dashed var(--rule-2); background:var(--paper-2);
+              font-size:11.5px; line-height:1.55; color:var(--ink-2); }
+  .romanote b { display:block; font:500 10px/1.3 var(--font-mono); letter-spacing:0.06em; color:var(--ink-3); text-transform:uppercase; margin-bottom:5px; }
+  .romanote .cn { font-family:var(--font-tc); }
+  .romanote .ex { font-family:var(--font-en); color:var(--ink); }
+  .romanote .no { color:var(--bad); text-decoration:line-through; }
+
+  .nums { display:flex; gap:0; border:1px solid var(--rule); background:var(--board-dark); }
+  .nfloor { flex:1; padding:18px 16px 16px; border-left:1px solid rgba(255,255,255,0.12); display:flex; flex-direction:column; gap:8px; }
+  .nfloor:first-child { border-left:0; }
+  .nfloor.is-here { background:var(--paper); }
+  .nnum { font:700 64px/0.82 var(--font-en); color:var(--paper); font-variant-numeric:tabular-nums; }
+  .is-here .nnum { color:var(--ink); }
+  .nname { font:400 11px/1.3 var(--font-en); color:rgba(255,255,255,0.72); }
+  .nname .cn { font-family:var(--font-tc); display:block; color:rgba(255,255,255,0.55); }
+  .is-here .nname { color:var(--ink-2); }
+  .is-here .nname .cn { color:var(--ink-3); }
+  .here-tag { display:inline-flex; align-items:center; gap:5px; font:500 9px/1 var(--font-mono);
+              letter-spacing:0.08em; text-transform:uppercase; color:var(--you-here); margin-top:auto; }
+  .here-dot { width:8px; height:8px; border-radius:50%; background:var(--you-here); }
+
+  .rulelist { display:grid; grid-template-columns:repeat(3,1fr); gap:10px 16px; margin-top:14px; }
+  .rl { font-size:11.5px; line-height:1.45; color:var(--ink-2); }
+  .rl b { display:block; font:500 10px/1.3 var(--font-mono); letter-spacing:0.04em; color:var(--ink-3);
+          text-transform:uppercase; margin-bottom:3px; }
+  .rl .cn { font-family:var(--font-tc); }
+</style></head><body>
+<div class="card frame">
+  <div class="card__hd"><h3>Bilingual & numerals · 雙語・數字</h3><div class="dim">lead language · tabular numerals</div></div>
+
+  <div class="sub">Lockup · 雙語鎖定</div>
+  <div class="pair">
+    <div class="lk">
+      <div class="lk__rule">CN leads · 文化詞</div>
+      <div class="lk__cn">留白展廳</div>
+      <div class="lk__en">Liu-pai Gallery</div>
+      <div class="lk__why">當詞彙是文化特定的（留白、立面、中庭），中文在上、羅馬為註。</div>
+    </div>
+    <div class="lk lk--enfirst">
+      <div class="lk__rule">EN leads · 國際詞</div>
+      <div class="lk__en">Cloakroom</div>
+      <div class="lk__cn">寄物處</div>
+      <div class="lk__why">當詞彙是技術／國際通用的（Cloakroom、Lift、WC），英文在上、中文為註。</div>
+    </div>
+  </div>
+
+  <div class="romanote">
+    <b>Romanization · 拼音標準</b>
+    <span class="cn">華語讀音一律使用<strong>威妥瑪拼音 (Wade–Giles)</strong>，例：留白 → <span class="ex">Liu-pai</span>、虛空 → <span class="ex">Hsü-k’ung</span>。台語讀音則用<strong>台羅拼音 (Tâi-lô)</strong>，例：留白 → <span class="ex">lâu-pe̍h</span>。不採用中國的漢語拼音（<span class="no">Liúbái</span>）。</span>
+  </div>
+
+  <div class="sub">Numeral-led directory · 數字主導</div>
+  <div class="nums">
+    <div class="nfloor"><div class="nnum">G</div><div class="nname">Entrance<span class="cn">入口・中庭</span></div></div>
+    <div class="nfloor is-here"><div class="nnum">1</div><div class="nname">Light Hall<span class="cn">光廊</span></div><span class="here-tag"><span class="here-dot"></span>現在位置</span></div>
+    <div class="nfloor"><div class="nnum">2</div><div class="nname">Collection<span class="cn">典藏</span></div></div>
+    <div class="nfloor"><div class="nnum">3</div><div class="nname">Special<span class="cn">特展</span></div></div>
+  </div>
+
+  <div class="rulelist">
+    <div class="rl"><b>Tabular</b><span class="cn">數字一律等寬（tabular），跨樓層垂直對齊。</span></div>
+    <div class="rl"><b>Weight</b><span class="cn">數字用 700，名稱用 400，反差建立層級。</span></div>
+    <div class="rl"><b>You-here</b><span class="cn">現在位置是全系統唯一允許的高彩度紅點。</span></div>
+  </div>
+</div>
+</body></html>
