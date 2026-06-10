@@ -169,9 +169,9 @@
   --fg-vrc:            #0B0B0B;
 
   /* ---- Border ---- */
-  --border-hair:       1px solid var(--gray-200);
-  --border-line:       1.5px solid var(--gray-300);
-  --border-strong:     2px solid var(--sr-graphite);
+  --border-hair:       1px solid var(--gray-200);    /* @kind other */
+  --border-line:       1.5px solid var(--gray-300);  /* @kind other */
+  --border-strong:     2px solid var(--sr-graphite); /* @kind other */
   --border-amber:      2px solid var(--sr-amber);
 
   /* ---- Radii ---- */
@@ -184,7 +184,7 @@
   --r-badge:           999px;  /* patches are always round */
 
   /* ---- Spacing ---- */
-  --s-0:               0;
+  --s-0:               0;    /* @kind spacing */
   --s-1:               4px;
   --s-2:               8px;
   --s-3:               12px;
@@ -203,13 +203,13 @@
                        0 8px 18px rgba(20,20,21,0.18);
 
   /* ---- Motion ---- */
-  --ease-standard:     cubic-bezier(.22,.61,.36,1);
-  --ease-in:           cubic-bezier(.55,.05,.67,.19);
-  --ease-out:          cubic-bezier(.22,.61,.36,1);
-  --dur-fast:          120ms;
-  --dur-base:          220ms;
-  --dur-slow:          420ms;
-  --orbit-dur:         14s;   /* the signature slow orbit loop */
+  --ease-standard:     cubic-bezier(.22,.61,.36,1);  /* @kind other */
+  --ease-in:           cubic-bezier(.55,.05,.67,.19); /* @kind other */
+  --ease-out:          cubic-bezier(.22,.61,.36,1);  /* @kind other */
+  --dur-fast:          120ms;  /* @kind other */
+  --dur-base:          220ms;  /* @kind other */
+  --dur-slow:          420ms;  /* @kind other */
+  --orbit-dur:         14s;  /* @kind other */  /* signature slow orbit loop */
 
   /* ---- Gradients / FX ---- */
   --sky-meteor:        linear-gradient(100deg,
@@ -257,15 +257,15 @@
   --fs-5xl:            64px;
   --fs-6xl:            84px;
 
-  --lh-tight:          1.08;
-  --lh-snug:           1.22;
-  --lh-base:           1.5;
-  --lh-loose:          1.7;
+  --lh-tight:          1.08;  /* @kind font */
+  --lh-snug:           1.22;  /* @kind font */
+  --lh-base:           1.5;   /* @kind font */
+  --lh-loose:          1.7;   /* @kind font */
 
-  --ls-display:        -0.02em;
-  --ls-caps:           0.08em;
-  --ls-caps-wide:      0.16em;
-  --ls-body:           0;
+  --ls-display:        -0.02em;  /* @kind font */
+  --ls-caps:           0.08em;   /* @kind font */
+  --ls-caps-wide:      0.16em;   /* @kind font */
+  --ls-body:           0;        /* @kind font */
 }
 
 /* -------- semantic element styles --------
@@ -371,10 +371,61 @@
   --pt-contour:       #5A5A5C;   /* contour grey */
   --pt-paper:         #F4F0E6;   /* map paper */
 
+  /* ---- Project T — landscape scenery palette (Play surfaces) ----
+     Recalibrated 2026-06: one step LIGHTER and LOWER chroma across
+     the board (可讀性 first — the old set was deep enough to fail as
+     background-behind-dark-text). 天青 sky / 山藍 ridge / 山綠 slope
+     remain the family anchors; dedicated INK tokens now carry text
+     duty so scenery colours never moonlight as type colours. */
+  --pt-sky:           #E3ECEA;   /* 天青 pale haze sky */
+  --pt-sky-lo:        #D4E1DF;   /* lower sky band */
+  --pt-mtn-far:       #AFC1C2;   /* far range — desaturated blue-grey */
+  --pt-mtn-mid:       #93A9A2;   /* mid range — muted blue-green */
+  --pt-mtn-blue:      #7E99A1;   /* 山藍 — cool distant ridge */
+  --pt-mtn-green:     #6E8B77;   /* 山綠 — nearer slope */
+  --pt-near-green:    #46624F;   /* deep near hill (accents, fills) */
+  --pt-earth:         #B29871;   /* 土黃 earth / dirt */
+  --pt-earth-lo:      #8A7350;   /* darker earth */
+  --pt-road:          #2A2A2B;   /* 柏油黑 asphalt */
+
+  /* text inks for the Play day surfaces — blue-green near-blacks.
+     Use THESE for type on sky/paper, never the scenery colours. */
+  --pt-ink:           #24332D;   /* primary text on light  (≥12:1 on sky) */
+  --pt-ink-2:         #45564E;   /* secondary */
+  --pt-ink-3:         #64756C;   /* tertiary / meta — smallest text */
+
+  /* ---- Project T — night set (Time Attack · Events · Records) ----
+     The SAME mountains after dark: deep green-blue grounds (not warm
+     brown-black), warm-white text, and 車燈黃 headlight yellow as the
+     signature accent. Every fg step clears WCAG AA on its ground. */
+  --pt-night:         #141B19;   /* page ground — mountain night */
+  --pt-night-2:       #111715;   /* page gradient low end */
+  --pt-night-panel:   #1C2421;   /* card / board panel */
+  --pt-night-raised:  #25302B;   /* raised well / hover */
+  --pt-night-fg:      #EFF2EC;   /* primary text   (~13:1 on panel) */
+  --pt-night-fg2:     #C3CCC3;   /* secondary      (~8:1) */
+  --pt-night-fg3:     #94A098;   /* labels / meta  (~4.9:1 — floor) */
+  --pt-night-hair:    rgba(255,255,255,.10);
+  --pt-night-line:    rgba(255,255,255,.17);
+  --pt-lamp:          #EFD95B;   /* 車燈黃 headlight — night accent text */
+  --pt-lamp-dim:      rgba(239,217,91,.12);  /* leader row tint */
+  --pt-night-green:   #43935F;   /* sign green, lifted for dark */
+  --pt-night-blue:    #5B8FC9;   /* sign blue, lifted for dark */
+
   /* ---- Racing Club (placeholder; later pass) ---- */
   --rc-flag:          #111111;
   --rc-flag-alt:      #FFFFFF;
   --rc-signal:        #E53935;
+
+  /* ---- Play timing-board type scale ----
+     Shared by Time Attack / Events / Records. Nothing on a board
+     may be set below --ta-fs-label. One scale, six steps. */
+  --ta-fs-label:      11px;   /* mono eyebrows, column heads, legends */
+  --ta-fs-meta:       12.5px; /* dates, fps, sub-lines, chips */
+  --ta-fs-body:       15px;   /* default cell / body text */
+  --ta-fs-name:       17px;   /* driver & track names in rows */
+  --ta-fs-time:       21px;   /* lap times in rows */
+  --ta-fs-hero:       clamp(46px, 5.5vw, 68px);  /* @kind font */  /* featured time */
 }
 
 /* =========================================================
@@ -402,7 +453,7 @@ body:not([class*="sr-brand-"]) {
   --brand-surface-alt:  var(--sr-bone);      /* cooler cream stacked */
   --brand-ring:         var(--sr-graphite);
   --brand-radius:       var(--r-sm);
-  --brand-tone:         "archival / studio-voice / 探討概念與理想";
+  --brand-tone:         "archival / studio-voice / 探討概念與理想"; /* @kind other */
 }
 
 /* ---- Project T —  ---- */
@@ -417,7 +468,7 @@ body:not([class*="sr-brand-"]) {
   --brand-surface-alt:  #FFFFFF;
   --brand-ring:         var(--pt-asphalt);
   --brand-radius:       2px;                    /* highway-sign flatness */
-  --brand-tone:         "地誌式 / 公路文件口吻 / 地名準確、編號在前";
+  --brand-tone:         "地誌式 / 公路文件口吻 / 地名準確、編號在前"; /* @kind other */
 }
 
 /* ---- Formosa Aerospace ---- */
@@ -432,7 +483,7 @@ body:not([class*="sr-brand-"]) {
   --brand-surface-alt:  var(--sr-bone);
   --brand-ring:         var(--sr-graphite);
   --brand-radius:       var(--r-sm);
-  --brand-tone:         "spec-sheet / Taiwan-localised NASA-JAXA / bilingual";
+  --brand-tone:         "spec-sheet / Taiwan-localised NASA-JAXA / bilingual"; /* @kind other */
 }
 
 /* ---- VR  (placeholder; queued) ---- */
@@ -447,7 +498,7 @@ body:not([class*="sr-brand-"]) {
   --brand-surface-alt:  var(--sr-bone);
   --brand-ring:         var(--rc-flag);
   --brand-radius:       var(--r-lg);
-  --brand-tone:         "clubhouse / 親近 / 邀請 / 好記住";
+  --brand-tone:         "clubhouse / 親近 / 邀請 / 好記住"; /* @kind other */
 }
 
 /* ---- VR  (queued; re-uses StarRiver chassis) ---- */
@@ -462,7 +513,7 @@ body:not([class*="sr-brand-"]) {
   --brand-surface-alt:  var(--sr-paper);
   --brand-ring:         var(--sr-graphite);
   --brand-radius:       0;                    /* gallery-square */
-  --brand-tone:         "curatorial / 專業 / 概念導向 (queued)";
+  --brand-tone:         "curatorial / 專業 / 概念導向 (queued)"; /* @kind other */
 }
 
 /* =========================================================
@@ -482,14 +533,14 @@ body:not([class*="sr-brand-"]) {
      borders and type weight both bumped one step. */
   --brand-surface:     var(--bg-vrc);
   --brand-fg:          var(--fg-vrc);
-  --border-hair:       1.5px solid var(--gray-300);
-  --border-line:       2px   solid var(--gray-400);
-  --border-strong:     3px   solid var(--sr-graphite);
+  --border-hair:       1.5px solid var(--gray-300);  /* @kind other */
+  --border-line:       2px   solid var(--gray-400);  /* @kind other */
+  --border-strong:     3px   solid var(--sr-graphite); /* @kind other */
   /* Disable animation tokens — most VR shaders can't play them,
      and what moves should be diegetic (in-world), not UI. */
-  --dur-fast:          0ms;
-  --dur-base:          0ms;
-  --dur-slow:          0ms;
+  --dur-fast:          0ms;  /* @kind other */
+  --dur-base:          0ms;  /* @kind other */
+  --dur-slow:          0ms;  /* @kind other */
 }
 
 /* ---- .sr-type — opt-in class that applies body-text defaults */
@@ -499,4 +550,72 @@ body:not([class*="sr-brand-"]) {
   background: var(--brand-surface, var(--bg-1));
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   DARK-SURFACE CONTEXT — .sr-on-dark  (alias .sr-inverse)
+   ---------------------------------------------------------
+   The whole token set above is tuned for the cream ground, so
+   every --fg-* and every .sr-* type class resolves to a DARK
+   colour. Drop those, unchanged, onto a dark background and the
+   text disappears. That was the source of the "dark page" display
+   problems — each dark surface (hero, footer, void-strip, planet
+   hub) had to re-light every element by hand, and the values
+   drifted page to page.
+
+   Fix: one opt-in context that REMAPS the semantic tokens to a
+   legible light-on-dark set. Add .sr-on-dark to any dark subtree
+   (hero, footer, card) and the same --fg-*, --bg-*, --border-* and
+   .sr-h1 / .sr-p / .sr-meta / .sr-code all flip automatically.
+   On dark, wells get LIGHTER (raised), borders go to low-alpha
+   white, links pick up the comet cyan, and amber stays — it reads
+   as a light source on void, which is its intended role here. ----- */
+.sr-on-dark,
+.sr-inverse {
+  /* foreground — warm paper steps, each light enough to clear void */
+  --fg-1:          #F4EFE4;                 /* primary — paper, brightened */
+  --fg-2:          #CDC8BA;                 /* secondary */
+  --fg-3:          #A29D90;                 /* tertiary / meta */
+  --fg-inverse:    var(--sr-ink);           /* now points back at the ink */
+  --fg-link:       var(--sr-comet);         /* pale cyan reads on dark */
+  --fg-link-hover: #D8F1F3;
+  --fg-accent:     var(--sr-amber);         /* amber = light source on void */
+  --fg-success:    var(--terra-leaf);       /* forest green is too dark here */
+  --fg-warn:       var(--sr-amber-hi);
+
+  /* background — wells RAISE (go lighter) on a dark ground */
+  --bg-1:          var(--sr-void);          /* the ground */
+  --bg-2:          #1A1A1D;                 /* stacked surface */
+  --bg-3:          #232327;                 /* inline well — raised, not sunken */
+  --bg-inverse:    var(--sr-paper);
+  --bg-ring:       #3A3A3C;
+
+  /* borders — hairlines become low-alpha white */
+  --border-hair:   1px solid rgba(255,255,255,.12);  /* @kind other */
+  --border-line:   1.5px solid rgba(255,255,255,.18); /* @kind other */
+  --border-strong: 2px solid rgba(255,255,255,.30);  /* @kind other */
+
+  /* brand-context mirrors */
+  --brand-surface:     var(--sr-void);
+  --brand-surface-alt: #1A1A1D;
+  --brand-fg:          #F4EFE4;
+
+  color: var(--fg-1);
+}
+/* code wells invert too — translucent white instead of cream bone */
+.sr-on-dark .sr-code,
+.sr-on-dark code.sr,
+.sr-on-dark.sr-type code,
+.sr-inverse .sr-code,
+.sr-inverse code.sr {
+  background: rgba(255,255,255,.09);
+  color: var(--fg-1);
+}
+/* convenience: also paint the ground + set body type in one class.
+   Use when you want the element itself to BE the dark surface
+   (hero band, footer). Pair with .sr-on-dark. */
+.sr-surface-dark {
+  background: var(--sr-void);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }

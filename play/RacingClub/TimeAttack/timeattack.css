@@ -1,41 +1,44 @@
 @charset "UTF-8";
 
-/* ── Play surface palette ────────────────────────────────────────
-   Neutral asphalt + comet cyan, aligned with the updated /play
-   design language while keeping the current multi-page IA intact.
+/* ── Play night palette ──────────────────────────────────────────
+   Re-pointed to the official design-system Play "night" set
+   (Time Attack · Events · Records): mountain-night green-black
+   grounds, warm-white text, and 車燈黃 headlight yellow accent.
+   The --ta-* names are kept as a thin alias layer so the existing
+   component CSS re-skins from one place. See colors_and_type.css.
    ───────────────────────────────────────────────────────────── */
 :root {
-  --ta-bg:          #1A1E26;
-  --ta-text:        #F4EFE4;
-  --ta-text-strong: #FFF9F0;
-  --ta-text-soft:   rgba(244, 239, 228, 0.68);
-  --ta-text-faint:  rgba(244, 239, 228, 0.50);
-  --ta-card:        rgba(11, 14, 18, 0.78);
-  --ta-card-soft:   rgba(255, 255, 255, 0.032);
-  --ta-card-strong: rgba(255, 255, 255, 0.068);
-  --ta-border:      rgba(255, 255, 255, 0.10);
-  --ta-border-strong: rgba(255, 255, 255, 0.16);
-  --ta-accent:      #B9E4E8;
-  --ta-accent-ink:  #17363A;
-  --ta-accent-warm: #F0A94C;
-  --ta-shadow:      0 20px 44px rgba(0, 0, 0, 0.24);
-  --ta-shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.16);
+  --ta-bg:          var(--pt-night);          /* #141B19 mountain night */
+  --ta-text:        var(--pt-night-fg);        /* #EFF2EC warm white */
+  --ta-text-strong: #FFFFFF;
+  --ta-text-soft:   var(--pt-night-fg2);       /* #C3CCC3 */
+  --ta-text-faint:  var(--pt-night-fg3);       /* #94A098 */
+  --ta-card:        var(--pt-night-panel);     /* #1C2421 board panel */
+  --ta-card-soft:   rgba(255, 255, 255, 0.03);
+  --ta-card-strong: var(--pt-night-raised);    /* #25302B raised well */
+  --ta-border:      var(--pt-night-hair);      /* rgba(255,255,255,.10) */
+  --ta-border-strong: var(--pt-night-line);    /* rgba(255,255,255,.17) */
+  --ta-accent:      var(--pt-lamp);            /* #EFD95B headlight yellow */
+  --ta-accent-ink:  var(--pt-night);           /* dark text on the lamp */
+  --ta-accent-warm: var(--pt-night-green);     /* #43935F sign green */
+  --ta-shadow:      0 20px 44px rgba(0, 0, 0, 0.34);
+  --ta-shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.22);
 }
 
 body.timeattack-page {
-  /* Force the shared near-black ink tokens to white/light-gray on the dark
-     green pages, so any base text inherited from colors_and_type.css is
-     readable. Scoped to .timeattack-page only — other pages are untouched. */
-  --fg-1: #ffffff;
-  --fg-2: rgba(255, 255, 255, 0.70);
-  --fg-3: rgba(255, 255, 255, 0.55);
-  --fg-web: #ffffff;
-  --fg-vrc: #ffffff;
-  --sr-ink: #ffffff;
+  /* Force the shared near-black ink tokens to the night warm-white set on the
+     dark mountain-night pages, so any base text inherited from
+     colors_and_type.css is readable. Scoped to .timeattack-page only. */
+  --fg-1: var(--pt-night-fg);
+  --fg-2: var(--pt-night-fg2);
+  --fg-3: var(--pt-night-fg3);
+  --fg-web: var(--pt-night-fg);
+  --fg-vrc: var(--pt-night-fg);
+  --sr-ink: var(--pt-night-fg);
   background:
-    radial-gradient(circle at 14% 0%, rgba(185, 228, 232, 0.13), transparent 28%),
-    radial-gradient(circle at 84% 4%, rgba(240, 169, 76, 0.08), transparent 20%),
-    linear-gradient(180deg, #242a34 0%, #1d2129 28%, #17191d 100%);
+    radial-gradient(circle at 14% 0%, var(--pt-lamp-dim), transparent 30%),
+    radial-gradient(circle at 86% 4%, rgba(91, 143, 201, 0.08), transparent 22%),
+    linear-gradient(180deg, var(--pt-night-panel) 0%, var(--pt-night) 32%, var(--pt-night-2) 100%);
   background-attachment: fixed;
   color: var(--ta-text);
 }
@@ -49,7 +52,7 @@ body.timeattack-page {
 .ta-topbar {
   align-items: center;
   backdrop-filter: blur(16px);
-  background: rgba(20, 22, 27, 0.82);
+  background: rgba(20, 27, 25, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   gap: 14px;
@@ -160,7 +163,7 @@ body.timeattack-page {
 .ta-timeline-item::before,
 .ta-track-board::before,
 .ta-detail-card::before {
-  background: linear-gradient(90deg, rgba(185, 228, 232, 0.92), rgba(240, 169, 76, 0.72));
+  background: linear-gradient(90deg, rgba(239, 217, 91, 0.92), rgba(67, 147, 95, 0.72));
   content: "";
   height: 3px;
   left: 0;
@@ -256,9 +259,9 @@ body.timeattack-page {
 }
 
 .ta-navlink.is-active {
-  background: rgba(185, 228, 232, 0.08);
+  background: rgba(239, 217, 91, 0.08);
   border-color: var(--ta-accent);
-  box-shadow: inset 0 -1px 0 rgba(185, 228, 232, 0.22);
+  box-shadow: inset 0 -1px 0 rgba(239, 217, 91, 0.22);
   color: #fff;
 }
 
@@ -426,8 +429,8 @@ body.timeattack-page {
 
 .ta-card-link {
   align-items: center;
-  background: rgba(185, 228, 232, 0.10);
-  border: 1px solid rgba(185, 228, 232, 0.22);
+  background: rgba(239, 217, 91, 0.10);
+  border: 1px solid rgba(239, 217, 91, 0.22);
   border-radius: 999px;
   color: #eaffff;
   display: inline-flex;
@@ -447,8 +450,8 @@ body.timeattack-page {
 }
 
 .ta-card-link:hover {
-  background: rgba(185, 228, 232, 0.16);
-  border-color: rgba(185, 228, 232, 0.34);
+  background: rgba(239, 217, 91, 0.16);
+  border-color: rgba(239, 217, 91, 0.34);
   transform: translateY(-1px);
 }
 
@@ -510,8 +513,8 @@ body.timeattack-page {
 }
 
 .ta-chip.ta-chip-meta {
-  background: rgba(185, 228, 232, 0.08);
-  border-color: rgba(185, 228, 232, 0.18);
+  background: rgba(239, 217, 91, 0.08);
+  border-color: rgba(239, 217, 91, 0.18);
   color: rgba(232, 251, 255, 0.94);
 }
 
@@ -970,7 +973,7 @@ body.timeattack-page {
 .ta-toggle-btn.is-active {
   background: var(--ta-accent);
   color: var(--ta-accent-ink);
-  box-shadow: 0 10px 20px rgba(185, 228, 232, 0.18);
+  box-shadow: 0 10px 20px rgba(239, 217, 91, 0.18);
 }
 
 /* Board view visibility */
@@ -1343,8 +1346,8 @@ body.timeattack-page {
 
 .ta-fastest-strip {
   align-items: center;
-  background: linear-gradient(90deg, rgba(185, 228, 232, 0.12), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(185, 228, 232, 0.18);
+  background: linear-gradient(90deg, rgba(239, 217, 91, 0.12), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(239, 217, 91, 0.18);
   border-radius: 14px;
   padding: 12px 14px;
 }
@@ -1409,7 +1412,7 @@ body.timeattack-page {
 }
 
 .ta-record-row.is-leader td {
-  background: rgba(185, 228, 232, 0.05);
+  background: rgba(239, 217, 91, 0.05);
 }
 
 .ta-record-rank,
@@ -1446,7 +1449,7 @@ body.timeattack-page {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  color: var(--pt-sign-green, #1e6b3e);
+  color: var(--pt-night-green, #43935F);
   font-weight: 700;
 }
 
@@ -1501,25 +1504,27 @@ body.timeattack-page {
   text-transform: uppercase;
 }
 
+/* Solid-fill honor badges, matching the design-system Play night set:
+   TR = 車燈黃 headlight (leader), CR = sign blue, PR = sign green. */
 .ta-record-badge.is-tr,
 .ta-profile-stamp.is-tr {
-  background: rgba(240, 169, 76, 0.16);
-  border-color: rgba(240, 169, 76, 0.36);
-  color: #ffd59a;
+  background: var(--pt-lamp);
+  border-color: var(--pt-lamp);
+  color: #1A1B12;
 }
 
 .ta-record-badge.is-cr,
 .ta-profile-stamp.is-cr {
-  background: rgba(126, 207, 218, 0.14);
-  border-color: rgba(126, 207, 218, 0.34);
-  color: #d4fbff;
+  background: var(--pt-night-blue);
+  border-color: var(--pt-night-blue);
+  color: #0E1A24;
 }
 
 .ta-record-badge.is-pr,
 .ta-profile-stamp.is-pr {
-  background: rgba(72, 187, 120, 0.14);
-  border-color: rgba(72, 187, 120, 0.34);
-  color: #c8ffd8;
+  background: var(--pt-night-green);
+  border-color: var(--pt-night-green);
+  color: #0B1A11;
 }
 
 .ta-record-badge.is-empty {
@@ -1598,7 +1603,7 @@ body.timeattack-page {
 }
 
 .ta-profile-feature::before {
-  background: linear-gradient(90deg, rgba(185, 228, 232, 0.92), rgba(240, 169, 76, 0.72));
+  background: linear-gradient(90deg, rgba(239, 217, 91, 0.92), rgba(67, 147, 95, 0.72));
   content: "";
   height: 3px;
   left: 0;
@@ -1608,7 +1613,7 @@ body.timeattack-page {
 }
 
 .ta-profile-marquee {
-  background: linear-gradient(135deg, rgba(185, 228, 232, 0.08), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(135deg, rgba(239, 217, 91, 0.08), rgba(255, 255, 255, 0.02));
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: grid;
   gap: 10px;
