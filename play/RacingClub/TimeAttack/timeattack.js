@@ -222,93 +222,6 @@ const renderChipList = (chips) => {
   `;
 };
 
-const renderCatalogCards = (cards) => {
-  if (!Array.isArray(cards) || cards.length === 0) {
-    return "";
-  }
-
-  return `
-    <div class="ta-catalog-grid">
-      ${cards
-        .map(
-          (card) => `
-            <article class="ta-catalog-card">
-              <div class="ta-label">
-                ${renderBilingual(card.label_zh, card.label_en)}
-              </div>
-              <h3 class="ta-section-title">
-                ${renderBilingual(card.title_zh, card.title_en)}
-              </h3>
-              <p class="ta-section-text">
-                ${renderBilingual(card.body_zh, card.body_en)}
-              </p>
-              <p class="ta-meta">
-                ${renderBilingual(card.meta_zh, card.meta_en)}
-              </p>
-              ${renderChipList(card.chips)}
-              ${renderCardLink(card.href, card.href_label_zh, card.href_label_en)}
-            </article>
-          `,
-        )
-        .join("")}
-    </div>
-  `;
-};
-
-const renderLbRows = (rows, nameKey, subKey) => {
-  if (!Array.isArray(rows) || rows.length === 0) {
-    return '<p class="ta-board-empty">No rows yet.</p>';
-  }
-  return rows
-    .map(
-      (row) => `
-        <div class="ta-lb-row">
-          <span class="ta-lb-rank">${escapeHtml(row.rank)}</span>
-          <span class="ta-lb-name">${escapeHtml(row[nameKey] || "")}</span>
-          <span class="ta-lb-sub">${escapeHtml(row[subKey] || "")}</span>
-          <span class="ta-lb-time">${escapeHtml(row.lap_time_text || "")}</span>
-        </div>
-      `,
-    )
-    .join("");
-};
-
-const renderBoardSection = (labelZh, labelEn, fastest, playerRows, vehicleRows) => `
-  <section class="ta-board-section">
-    <div class="ta-board-section-head">
-      <div class="ta-label">
-        ${renderBilingual(labelZh, labelEn)}
-      </div>
-      ${
-        fastest
-          ? `
-            <p class="ta-lb-fastest">
-              <span class="ta-lb-fastest-time">${escapeHtml(fastest.lap_time_text)}</span>
-              <span class="ta-lb-fastest-meta">${escapeHtml(fastest.racer_display_name)} / ${escapeHtml(
-                fastest.vehicle_display_name,
-              )}</span>
-            </p>
-          `
-          : '<p class="ta-board-empty">No board entry yet.</p>'
-      }
-    </div>
-    <div class="ta-lb-cols">
-      <div class="ta-lb-col">
-        <div class="ta-lb-col-head">
-          ${renderBilingual("玩家最佳", "Player Best")}
-        </div>
-        ${renderLbRows(playerRows, "player_display_name", "vehicle_model_name")}
-      </div>
-      <div class="ta-lb-col">
-        <div class="ta-lb-col-head">
-          ${renderBilingual("車輛最佳", "Vehicle Best")}
-        </div>
-        ${renderLbRows(vehicleRows, "vehicle_model_name", "player_display_name")}
-      </div>
-    </div>
-  </section>
-`;
-
 // ── Track board (leaderboard demo adaptation) ─────────────────────────────
 
 const badgeTone = (row) => (row.badge_tone || row.badge_code || "").toLowerCase() || "empty";
@@ -739,51 +652,6 @@ const renderTrackGroupRows = (groups, subKey) => {
             .join("")}
         </div>
       </div>`,
-    )
-    .join("");
-};
-
-// ── (kept for potential legacy use) ────────────────────────────────────────
-const renderTrackLeaderboards = (leaderboards) => {
-  if (!Array.isArray(leaderboards) || leaderboards.length === 0) {
-    return '<p class="ta-empty">No track boards yet.</p>';
-  }
-
-  return leaderboards
-    .map(
-      (board) => `
-        <article class="ta-lb-card">
-          <div class="ta-lb-card-head">
-            <div class="ta-label">
-              ${escapeHtml(board.variant_name || "")}
-            </div>
-            <h3 class="ta-lb-title">${escapeHtml(board.route_name || "")}</h3>
-            <p class="ta-section-text">
-              ${renderBilingual(board.route_note_zh, board.route_note_en)}
-            </p>
-            <div class="ta-chip-list">
-              <span class="ta-chip">${escapeHtml(board.world_name || "")}</span>
-              <span class="ta-chip">${escapeHtml(`Pending ${board.pending_submissions || 0}`)}</span>
-            </div>
-          </div>
-          <div class="ta-board-stack">
-            ${renderBoardSection(
-              "Approved Record",
-              "Approved Record",
-              board.approved_fastest,
-              board.approved_player_best,
-              board.approved_vehicle_best,
-            )}
-            ${renderBoardSection(
-              "Normal Time Attack",
-              "Normal Time Attack",
-              board.normal_fastest,
-              board.normal_player_best,
-              board.normal_vehicle_best,
-            )}
-          </div>
-        </article>
-      `,
     )
     .join("");
 };
@@ -1451,10 +1319,92 @@ const renderIndexTables = (indexes) => {
     .join("");
 };
 
+const renderHighlights = (items) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-highlight-grid">
+      ${items
+        .map(
+          (item) => `
+            <article class="ta-highlight-card">
+              <div class="ta-label">${renderBilingual(item.label_zh, item.label_en)}</div>
+              <div class="ta-highlight-name">${escapeHtml(item.name || "-")}</div>
+              <div class="ta-highlight-value">${escapeHtml(item.value || "")}</div>
+            </article>`,
+        )
+        .join("")}
+    </div>`;
+};
+
+const renderTrackJump = (options) => {
+  if (!Array.isArray(options) || options.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-jump">
+      <span class="ta-label">${renderBilingual("快速查賽道", "Jump to Track")}</span>
+      <select class="ta-jump-select" data-track-jump>
+        <option value="">${"— 選擇賽道 / Pick a track —"}</option>
+        ${options.map((o) => `<option value="${escapeHtml(o.code)}">${escapeHtml(o.name)}</option>`).join("")}
+      </select>
+    </div>`;
+};
+
+const renderRecentRuns = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-track-table-wrap">
+      <table class="ta-record-table">
+        <thead><tr>
+          <th>${renderBilingual("日期", "Date")}</th>
+          <th>${renderBilingual("賽道 / 路線", "Track / Route")}</th>
+          <th>${renderBilingual("車手", "Driver")}</th>
+          <th>${renderBilingual("車輛", "Vehicle")}</th>
+          <th>${renderBilingual("時間", "Time")}</th>
+          <th>${renderBilingual("標記", "Badge")}</th>
+        </tr></thead>
+        <tbody>
+          ${rows
+            .map(
+              (row) => `
+                <tr class="ta-record-row" data-plat="${escapeHtml(row.platform || "")}">
+                  <td class="ta-record-gap">${escapeHtml(row.record_date || "")}</td>
+                  <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
+                  <td>${escapeHtml(row.player_display_name || "")}</td>
+                  <td class="ta-record-peer">${escapeHtml(row.vehicle_model_name || "")}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}${row.verified ? ` <span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓</span>` : ""}</td>
+                  <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
+                </tr>`,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>`;
+};
+
+const attachOverviewListeners = () => {
+  const sel = document.querySelector("[data-track-jump]");
+  if (sel) {
+    sel.addEventListener("change", () => {
+      if (sel.value) window.location.href = "./track.html?id=" + encodeURIComponent(sel.value);
+    });
+  }
+};
+
 const renderOverview = (data) =>
-  // Core metrics and the data-model notes now live on the Info page; the
-  // overview is a clean landing that routes into the analysis views.
-  renderModule("頁面入口", "Page Entry", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards));
+  [
+    renderHighlights(data.highlights),
+    renderModule("傳送門", "Portals", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards) + renderTrackJump(data.track_options)),
+    Array.isArray(data.recent_runs) && data.recent_runs.length
+      ? renderModule("近期紀錄", "Recent Runs", "最新登錄", "Latest Entries", renderRecentRuns(data.recent_runs))
+      : "",
+  ]
+    .filter(Boolean)
+    .join("");
 
 const renderPageModules = (view, data) => {
   if (view === "overview") {
@@ -1466,12 +1416,7 @@ const renderPageModules = (view, data) => {
   }
 
   if (view === "info") {
-    return [
-      renderModule("分析摘要", "Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards)),
-      renderModule("資料流", "Data Flow", "資料模型", "Data Model", renderSectionCards(data.sections)),
-    ]
-      .filter(Boolean)
-      .join("");
+    return renderModule("分析摘要", "Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards));
   }
 
   if (view === "tracks") {
