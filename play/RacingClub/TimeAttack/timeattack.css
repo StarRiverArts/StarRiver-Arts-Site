@@ -1339,7 +1339,7 @@ body.timeattack-page {
 .ta-profile-record-gap {
   color: var(--ta-text-soft);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--ta-fs-meta);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1369,7 +1369,9 @@ body.timeattack-page {
   color: var(--ta-text-strong);
   font-family: var(--font-mono);
   font-size: clamp(20px, 2vw, 28px);
+  font-variant-numeric: tabular-nums;
   font-weight: 700;
+  letter-spacing: -0.01em;
   margin-left: auto;
   white-space: nowrap;
 }
@@ -1391,7 +1393,7 @@ body.timeattack-page {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--ta-text-faint);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--ta-fs-label);
   font-weight: 600;
   letter-spacing: 0.14em;
   padding: 10px 12px;
@@ -1402,6 +1404,7 @@ body.timeattack-page {
 .ta-record-table tbody td,
 .ta-profile-record-table tbody td {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: var(--ta-fs-body);
   padding: 12px;
   vertical-align: top;
 }
@@ -1419,7 +1422,8 @@ body.timeattack-page {
 .ta-profile-record-rank {
   color: var(--ta-text-faint);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--ta-fs-meta);
+  font-variant-numeric: tabular-nums;
   text-align: right;
   white-space: nowrap;
 }
@@ -1434,7 +1438,7 @@ body.timeattack-page {
   color: var(--ta-text-strong);
   display: block;
   font-family: var(--font-deck);
-  font-size: 16px;
+  font-size: var(--ta-fs-name);
   font-weight: 700;
   line-height: 1.08;
 }
@@ -1462,8 +1466,11 @@ body.timeattack-page {
 .ta-profile-record-time {
   color: var(--ta-text-strong);
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--ta-fs-time);
+  font-variant-numeric: tabular-nums;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   white-space: nowrap;
 }
 

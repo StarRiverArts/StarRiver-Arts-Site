@@ -1,21 +1,24 @@
 @charset "UTF-8";
 
+/* Play "day" surface palette — re-pointed to the official design-system
+   day scenery set (recalibrated 2026-06): pale sky, blue-green inks, and
+   highway sign-green as the structural accent. See colors_and_type.css. */
 :root {
-  --pt-play-sky: #d7e4e2;
-  --pt-play-ground: #f3eee3;
+  --pt-play-sky: var(--pt-sky);                /* #E3ECEA pale haze sky */
+  --pt-play-ground: var(--pt-paper);           /* #F4F0E6 map paper */
   --pt-play-bone: #e8e0d2;
-  --pt-play-ink: #1b1d1a;
-  --pt-play-ink-soft: rgba(27, 29, 26, 0.68);
-  --pt-play-ink-faint: rgba(27, 29, 26, 0.46);
+  --pt-play-ink: var(--pt-ink);                /* #24332D blue-green near-black */
+  --pt-play-ink-soft: var(--pt-ink-2);         /* #45564E */
+  --pt-play-ink-faint: var(--pt-ink-3);        /* #64756C */
   --pt-play-panel: rgba(255, 252, 245, 0.9);
   --pt-play-panel-strong: #fffdf7;
   --pt-play-border: rgba(42, 42, 43, 0.14);
-  --pt-play-cyan: #b9e4e8;
-  --pt-play-cyan-strong: #7ecfda;
-  --pt-play-cyan-ink: #203b3f;
-  --pt-play-night-top: #415968;
-  --pt-play-night-mid: #24332e;
-  --pt-play-night-low: #121411;
+  --pt-play-cyan: var(--pt-sign-green);        /* sign-green accent */
+  --pt-play-cyan-strong: var(--pt-near-green);
+  --pt-play-cyan-ink: #ffffff;
+  --pt-play-night-top: var(--pt-night-raised);
+  --pt-play-night-mid: var(--pt-night-panel);
+  --pt-play-night-low: var(--pt-night);
 }
 
 *,
@@ -37,7 +40,7 @@ html.lang-en .zh {
 
 body.project-t-page {
   background:
-    radial-gradient(circle at 14% 8%, rgba(185, 228, 232, 0.34), transparent 28%),
+    radial-gradient(circle at 14% 8%, rgba(30, 107, 62, 0.34), transparent 28%),
     radial-gradient(circle at 86% 10%, rgba(240, 169, 76, 0.12), transparent 24%),
     linear-gradient(180deg, var(--pt-play-sky) 0%, #ebe9df 32%, var(--pt-paper) 100%);
   color: var(--pt-play-ink);
@@ -197,7 +200,7 @@ a {
 
 .pt-hero {
   background:
-    radial-gradient(circle at 18% 18%, rgba(185, 228, 232, 0.18), transparent 24%),
+    radial-gradient(circle at 18% 18%, rgba(30, 107, 62, 0.18), transparent 24%),
     linear-gradient(180deg, var(--pt-play-night-top) 0%, var(--pt-play-night-mid) 48%, var(--pt-play-night-low) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 28px;
@@ -257,7 +260,7 @@ a {
 }
 
 .pt-kicker {
-  color: rgba(185, 228, 232, 0.84);
+  color: rgba(30, 107, 62, 0.84);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -294,8 +297,8 @@ a {
 .pt-cta,
 .pt-card-link,
 .pt-social-link {
-  background: rgba(185, 228, 232, 0.16);
-  border: 1px solid rgba(185, 228, 232, 0.34);
+  background: rgba(30, 107, 62, 0.16);
+  border: 1px solid rgba(30, 107, 62, 0.34);
   color: #e8fbff;
   padding: 11px 15px;
 }
@@ -303,8 +306,8 @@ a {
 .pt-cta:hover,
 .pt-card-link:hover,
 .pt-social-link:hover {
-  background: rgba(185, 228, 232, 0.26);
-  border-color: rgba(185, 228, 232, 0.56);
+  background: rgba(30, 107, 62, 0.26);
+  border-color: rgba(30, 107, 62, 0.56);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
   transform: translateY(-1px);
 }
@@ -385,7 +388,7 @@ a {
 }
 
 .pt-note-label {
-  color: rgba(185, 228, 232, 0.92);
+  color: rgba(30, 107, 62, 0.92);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
