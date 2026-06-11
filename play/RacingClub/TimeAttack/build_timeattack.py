@@ -951,7 +951,7 @@ def build_overview_extras(
             }
             for code in track_codes_with_runs
         ),
-        key=lambda option: option["name"],
+        key=lambda option: (option["name"], option["code"]),
     )
 
     return {
