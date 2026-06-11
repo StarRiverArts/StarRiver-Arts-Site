@@ -863,6 +863,104 @@ DATA_MODEL_SECTIONS = [
 ]
 
 
+def build_overview_extras(
+    records: list[dict[str, Any]],
+    lookup: dict[str, Any],
+) -> dict[str, Any]:
+    """Overview-only payload: leaderboard highlights, recent runs, track jump options.
+
+    The overview page (data-view="overview") renders these via renderOverview in
+    timeattack.js. Without them the home page shows only the portal cards and no
+    actual timing records.
+    """
+    general_pool = [record for record in records if record["is_general_pool"]]
+    route_badges = build_route_badge_index(general_pool)
+
+    tr_player_counter: Counter[str] = Counter()
+    cr_vehicle_counter: Counter[str] = Counter()
+    vehicle_run_counter: Counter[str] = Counter()
+    track_run_counter: Counter[str] = Counter()
+
+    for record in general_pool:
+        code = badge_code_for_record(record, route_badges)
+        if code == "TR":
+            tr_player_counter[record["player_display_name"]] += 1
+        elif code == "CR":
+            cr_vehicle_counter[record["vehicle_model_name"]] += 1
+        vehicle_run_counter[record["vehicle_model_name"]] += 1
+        track_run_counter[record["track_world_code"]] += 1
+
+    def _top(counter: Counter[str]) -> tuple[str | None, int]:
+        return counter.most_common(1)[0] if counter else (None, 0)
+
+    tr_player, tr_count = _top(tr_player_counter)
+    cr_vehicle, cr_count = _top(cr_vehicle_counter)
+    pop_vehicle, pop_vehicle_runs = _top(vehicle_run_counter)
+    pop_track_code, pop_track_runs = _top(track_run_counter)
+    pop_track_name = (
+        lookup["track_worlds"].get(pop_track_code, {}).get("track_display_name") or pop_track_code
+        if pop_track_code
+        else None
+    )
+
+    highlights: list[dict[str, Any]] = []
+    if tr_player:
+        highlights.append({"label_zh": "最多賽道紀錄", "label_en": "Most Track Records",
+                           "name": tr_player, "value": f"{tr_count} TR"})
+    if cr_vehicle:
+        highlights.append({"label_zh": "最多車輛紀錄", "label_en": "Most Car Records",
+                           "name": cr_vehicle, "value": f"{cr_count} CR"})
+    if pop_vehicle:
+        highlights.append({"label_zh": "最熱門車型", "label_en": "Most Used Car",
+                           "name": pop_vehicle, "value": f"{pop_vehicle_runs} 筆"})
+    if pop_track_name:
+        highlights.append({"label_zh": "最熱門賽道", "label_en": "Busiest Track",
+                           "name": pop_track_name, "value": f"{pop_track_runs} 筆"})
+
+    # Newest first; record_date is ISO YYYY-MM-DD so lexical sort is chronological.
+    recent_runs: list[dict[str, Any]] = []
+    for record in sorted(
+        general_pool,
+        key=lambda item: (item["record_date"], item["record_id"]),
+        reverse=True,
+    )[:8]:
+        code = badge_code_for_record(record, route_badges)
+        recent_runs.append(
+            {
+                "record_date": record["record_date"],
+                "track_world_code": record["track_world_code"],
+                "route_code": record["route_code"],
+                "route_label_zh": record["route_label_zh"],
+                "route_label_en": record["route_label_en"],
+                "player_display_name": record["player_display_name"],
+                "vehicle_model_name": record["vehicle_model_name"],
+                "lap_time_text": record["lap_time_text"],
+                "platform": record["platform_code"] or "unknown",
+                "verified": bool(record.get("verified")),
+                "proof_text": record.get("proof_text") or "",
+                **badge_payload(code),
+            }
+        )
+
+    track_codes_with_runs = {record["track_world_code"] for record in general_pool}
+    track_options = sorted(
+        (
+            {
+                "code": code,
+                "name": lookup["track_worlds"].get(code, {}).get("track_display_name") or code,
+            }
+            for code in track_codes_with_runs
+        ),
+        key=lambda option: option["name"],
+    )
+
+    return {
+        "highlights": highlights,
+        "recent_runs": recent_runs,
+        "track_options": track_options,
+    }
+
+
 def build_summary(
     records: list[dict[str, Any]],
     lookup: dict[str, Any],
@@ -871,6 +969,7 @@ def build_summary(
     extra_pending = len(extra_review_cards or [])
 
     return {
+        **build_overview_extras(records, lookup),
         "title_zh": "Time Attack 計時紀錄",
         "title_en": "Time Attack Records",
         "description_zh": (
