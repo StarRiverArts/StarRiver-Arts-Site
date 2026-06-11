@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "209",
+      "value": "210",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -1526,7 +1526,7 @@
           "vehicle_model_name": "LE6-Attack",
           "lap_time_ms": 308134,
           "lap_time_text": "05:08.134",
-          "delta_to_best_text": "+47.051",
+          "delta_to_best_text": "+59.123",
           "platform": "pc",
           "record_date": "2026-03-07",
           "track_env": "公路",
@@ -3268,7 +3268,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "42"
+          "value": "44"
         },
         {
           "label_zh": "已驗證",
@@ -3278,17 +3278,17 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "17"
+          "value": "18"
         },
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "1"
+          "value": "2"
         }
       ],
       "badge_counts": {
-        "TR": 17,
-        "CR": 1,
+        "TR": 18,
+        "CR": 2,
         "PR": 2
       },
       "tag_chips": [
@@ -3319,26 +3319,26 @@
           "value": 6
         },
         {
-          "label": "Karin 96",
-          "value": 2
+          "label": "GC8-Attack",
+          "value": 3
         },
         {
-          "label": "BNR32",
+          "label": "Karin 96",
           "value": 2
         }
       ],
       "tag_rows": [
         {
           "label": "高速",
-          "value": 36
+          "value": 38
+        },
+        {
+          "label": "髮夾彎",
+          "value": 23
         },
         {
           "label": "技術",
           "value": 22
-        },
-        {
-          "label": "髮夾彎",
-          "value": 21
         },
         {
           "label": "上下山",
@@ -3562,6 +3562,30 @@
         },
         {
           "rank": 10,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "Lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 195133,
+          "lap_time_text": "03:15.133",
+          "delta_to_best_text": "+60.012",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 11,
           "route_label_zh": "Tsukuba / Inbound",
           "route_label_en": "Tsukuba / Inbound",
           "player_display_name": "Lolidia",
@@ -3585,7 +3609,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "Tsukuba / Double Course",
           "route_label_en": "Tsukuba / Double Course",
           "player_display_name": "Lolidia",
@@ -3609,7 +3633,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 12,
+          "rank": 13,
           "route_label_zh": "秋名 / Downhill",
           "route_label_en": "Akina / Downhill",
           "player_display_name": "Lolidia",
@@ -3634,7 +3658,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 13,
+          "rank": 14,
           "route_label_zh": "伊呂波坂 / Downhill",
           "route_label_en": "Irohazaka / Downhill",
           "player_display_name": "Lolidia",
@@ -3658,7 +3682,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 14,
+          "rank": 15,
           "route_label_zh": "Tsubaki / Downhill",
           "route_label_en": "Tsubaki / Downhill",
           "player_display_name": "Lolidia",
@@ -3682,7 +3706,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "秋名無限 / Downhill",
           "route_label_en": "AkinaUN / Downhill",
           "player_display_name": "Lolidia",
@@ -3707,7 +3731,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "Odawara / Clockwise",
           "route_label_en": "Odawara / Clockwise",
           "player_display_name": "Lolidia",
@@ -3730,7 +3754,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 17,
+          "rank": 18,
           "route_label_zh": "秋名 / Uphill",
           "route_label_en": "Akina / Uphill",
           "player_display_name": "Lolidia",
@@ -3755,7 +3779,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 18,
+          "rank": 19,
           "route_label_zh": "秋名雪 / Downhill",
           "route_label_en": "Akina Snow / Downhill",
           "player_display_name": "Lolidia",
@@ -3781,7 +3805,31 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 19,
+          "rank": 20,
+          "route_label_zh": "Futatsukane / Counter-Clockwise",
+          "route_label_en": "Futatsukane / Counter-Clockwise",
+          "player_display_name": "Lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 249011,
+          "lap_time_text": "04:09.011",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 21,
           "route_label_zh": "HarunaG / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "Lolidia",
@@ -3806,7 +3854,7 @@
           "badge_tone": "pr"
         },
         {
-          "rank": 20,
+          "rank": 22,
           "route_label_zh": "九彎十八拐CVS / Downhill",
           "route_label_en": "PT:9T / Downhill",
           "player_display_name": "Lolidia",
@@ -5508,17 +5556,17 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "5"
+          "value": "4"
         },
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "3"
+          "value": "4"
         }
       ],
       "badge_counts": {
-        "TR": 5,
-        "CR": 3,
+        "TR": 4,
+        "CR": 4,
         "PR": 1
       },
       "tag_chips": [
@@ -5681,7 +5729,7 @@
           "lap_time_text": "02:29.514",
           "delta_to_best_text": "+5.714",
           "platform": "pcvr",
-          "record_date": "2026-06-8",
+          "record_date": "2026-06-08",
           "track_env": "其他",
           "track_tags": [],
           "peer_label": "MC21 Tuned",
@@ -5748,7 +5796,7 @@
           "vehicle_model_name": "LE88E-Attack",
           "lap_time_ms": 261083,
           "lap_time_text": "04:21.083",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+12.072",
           "platform": "pcvr",
           "record_date": "2026-04-24",
           "track_env": "公路",
@@ -5759,10 +5807,10 @@
           "peer_label": "LE88E-Attack",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "rank": 9,
@@ -5924,7 +5972,7 @@
               "is_pb": true
             },
             {
-              "date": "2026-06-8",
+              "date": "2026-06-08",
               "lap_time_ms": 149514,
               "lap_time_text": "02:29.514",
               "vehicle": "MC21 Tuned",
@@ -7300,7 +7348,7 @@
           "vehicle_model_name": "Wonder-ATTACK-1",
           "lap_time_ms": 277267,
           "lap_time_text": "04:37.267",
-          "delta_to_best_text": "+16.184",
+          "delta_to_best_text": "+28.256",
           "platform": "pcvr",
           "record_date": "2025-08-13",
           "track_env": "公路",
@@ -7726,7 +7774,7 @@
           "lap_time_text": "03:37.063",
           "delta_to_best_text": "+0.000",
           "platform": "pcvr",
-          "record_date": "2026-05-9",
+          "record_date": "2026-05-09",
           "track_env": "山道",
           "track_tags": [
             "技術"
@@ -7796,7 +7844,7 @@
               "is_pb": true
             },
             {
-              "date": "2026-05-9",
+              "date": "2026-05-09",
               "lap_time_ms": 217063,
               "lap_time_text": "03:37.063",
               "vehicle": "Revolution VIII",
@@ -12220,179 +12268,6 @@
       ]
     },
     {
-      "player_id": "plr_daisukilian",
-      "title": "daisukilian",
-      "team_name": "",
-      "subtitle_zh": "未分隊車手",
-      "subtitle_en": "Independent Driver",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "4"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        },
-        {
-          "label_zh": "車種最佳",
-          "label_en": "Car Records",
-          "value": "2"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 2,
-        "PR": 1
-      },
-      "tag_chips": [
-        {
-          "label": "未分隊",
-          "tone": "team"
-        },
-        {
-          "label": "主力車種 GC8-Attack",
-          "tone": "vehicle"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "路線標籤 髮夾彎",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "GC8-Attack",
-          "value": 3
-        },
-        {
-          "label": "MS2-Attack",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "髮夾彎",
-          "value": 4
-        },
-        {
-          "label": "技術",
-          "value": 2
-        },
-        {
-          "label": "高速",
-          "value": 2
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Ryuoukouzan / Downhill",
-          "route_label_en": "Ryuoukouzan / Downhill",
-          "player_display_name": "daisukilian",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 107875,
-          "lap_time_text": "01:47.875",
-          "delta_to_best_text": "+4.186",
-          "platform": "pcvr",
-          "record_date": "2026-05-13",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8-Attack",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "Kamidomarizaka / Uphill",
-          "route_label_en": "Kamidomarizaka / Uphill",
-          "player_display_name": "daisukilian",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 113958,
-          "lap_time_text": "01:53.958",
-          "delta_to_best_text": "+4.214",
-          "platform": "pcvr",
-          "record_date": "2026-06-07",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8-Attack",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "daisukilian",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 208527,
-          "lap_time_text": "03:28.527",
-          "delta_to_best_text": "+73.406",
-          "platform": "pcvr",
-          "record_date": "2026-03-1",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8-Attack",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "history": [
-        {
-          "route_key": "ryuoukouzan_calme:DH",
-          "route_label": "Ryuoukouzan / Downhill",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-05-13",
-              "lap_time_ms": 107875,
-              "lap_time_text": "01:47.875",
-              "vehicle": "GC8-Attack",
-              "is_pb": true
-            },
-            {
-              "date": "2026-05-13",
-              "lap_time_ms": 125027,
-              "lap_time_text": "02:05.027",
-              "vehicle": "MS2-Attack",
-              "is_pb": false
-            }
-          ]
-        }
-      ]
-    },
-    {
       "player_id": "plr_error",
       "title": "ERROR",
       "team_name": "",
@@ -13228,6 +13103,179 @@
               "lap_time_ms": 245400,
               "lap_time_text": "04:05.400",
               "vehicle": "AE86T",
+              "is_pb": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "player_id": "plr_daisukilian",
+      "title": "daisukilian",
+      "team_name": "",
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "4"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 2
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 GC8-Attack",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 髮夾彎",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8-Attack",
+          "value": 3
+        },
+        {
+          "label": "MS2-Attack",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "髮夾彎",
+          "value": 4
+        },
+        {
+          "label": "技術",
+          "value": 2
+        },
+        {
+          "label": "高速",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Ryuoukouzan / Downhill",
+          "route_label_en": "Ryuoukouzan / Downhill",
+          "player_display_name": "daisukilian",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 107875,
+          "lap_time_text": "01:47.875",
+          "delta_to_best_text": "+4.186",
+          "platform": "pcvr",
+          "record_date": "2026-05-13",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Kamidomarizaka / Uphill",
+          "route_label_en": "Kamidomarizaka / Uphill",
+          "player_display_name": "daisukilian",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 113958,
+          "lap_time_text": "01:53.958",
+          "delta_to_best_text": "+4.214",
+          "platform": "pcvr",
+          "record_date": "2026-06-07",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "daisukilian",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 208527,
+          "lap_time_text": "03:28.527",
+          "delta_to_best_text": "+73.406",
+          "platform": "pcvr",
+          "record_date": "2026-03-1",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        }
+      ],
+      "history": [
+        {
+          "route_key": "ryuoukouzan_calme:DH",
+          "route_label": "Ryuoukouzan / Downhill",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-05-13",
+              "lap_time_ms": 107875,
+              "lap_time_text": "01:47.875",
+              "vehicle": "GC8-Attack",
+              "is_pb": true
+            },
+            {
+              "date": "2026-05-13",
+              "lap_time_ms": 125027,
+              "lap_time_text": "02:05.027",
+              "vehicle": "MS2-Attack",
               "is_pb": false
             }
           ]
@@ -15365,7 +15413,7 @@
           "vehicle_model_name": "LE88E-Attack",
           "lap_time_ms": 280497,
           "lap_time_text": "04:40.497",
-          "delta_to_best_text": "+19.414",
+          "delta_to_best_text": "+31.486",
           "platform": "pcvr",
           "record_date": "2026-05-05",
           "track_env": "公路",
