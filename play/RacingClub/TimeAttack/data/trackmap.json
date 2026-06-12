@@ -1274,5 +1274,84 @@
   "warnings": [
     "kart_totuka_kaoru 的國家/地名只填了一半,先列入未定位",
     "summit_jintei 的國家/地名只填了一半,先列入未定位"
-  ]
+  ],
+  "category_style": {
+    "colors": {
+      "德國Germany|CVS": "hsl(0, 78%, 62%)",
+      "摩納哥Monaco|CVS": "hsl(60, 78%, 62%)",
+      "日本Japan|CVS": "hsl(120, 78%, 62%)",
+      "日本Japan|Sacc": "hsl(120, 28%, 64%)",
+      "日本Japan|Unknown": "hsl(120, 45%, 62%)",
+      "美國USA|CVS": "hsl(180, 78%, 62%)",
+      "臺灣Taiwan|CVS": "hsl(240, 78%, 62%)",
+      "英國UK|CVS": "hsl(300, 78%, 62%)"
+    },
+    "neutral": "hsl(150, 6%, 52%)",
+    "legend": [
+      {
+        "key": "德國Germany|CVS",
+        "color": "hsl(0, 78%, 62%)",
+        "country": "德國Germany",
+        "system": "CVS",
+        "label_zh": "德國·CVS",
+        "label_en": "Germany·CVS"
+      },
+      {
+        "key": "摩納哥Monaco|CVS",
+        "color": "hsl(60, 78%, 62%)",
+        "country": "摩納哥Monaco",
+        "system": "CVS",
+        "label_zh": "摩納哥·CVS",
+        "label_en": "Monaco·CVS"
+      },
+      {
+        "key": "日本Japan|CVS",
+        "color": "hsl(120, 78%, 62%)",
+        "country": "日本Japan",
+        "system": "CVS",
+        "label_zh": "日本·CVS",
+        "label_en": "Japan·CVS"
+      },
+      {
+        "key": "日本Japan|Sacc",
+        "color": "hsl(120, 28%, 64%)",
+        "country": "日本Japan",
+        "system": "Sacc",
+        "label_zh": "日本·Sacc",
+        "label_en": "Japan·Sacc"
+      },
+      {
+        "key": "日本Japan|Unknown",
+        "color": "hsl(120, 45%, 62%)",
+        "country": "日本Japan",
+        "system": "Unknown",
+        "label_zh": "日本·Unknown",
+        "label_en": "Japan·Unknown"
+      },
+      {
+        "key": "美國USA|CVS",
+        "color": "hsl(180, 78%, 62%)",
+        "country": "美國USA",
+        "system": "CVS",
+        "label_zh": "美國·CVS",
+        "label_en": "USA·CVS"
+      },
+      {
+        "key": "臺灣Taiwan|CVS",
+        "color": "hsl(240, 78%, 62%)",
+        "country": "臺灣Taiwan",
+        "system": "CVS",
+        "label_zh": "臺灣·CVS",
+        "label_en": "Taiwan·CVS"
+      },
+      {
+        "key": "英國UK|CVS",
+        "color": "hsl(300, 78%, 62%)",
+        "country": "英國UK",
+        "system": "CVS",
+        "label_zh": "英國·CVS",
+        "label_en": "UK·CVS"
+      }
+    ]
+  }
 }

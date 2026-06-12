@@ -974,10 +974,27 @@ def build_overview_extras(
         key=lambda option: (option["name"], option["code"]),
     )
 
+    # 熱門度頻率圖:賽道依跑次降序,各帶 (country, system) 供著色(與地圖頁同色)。
+    popularity_tracks = []
+    for code, count in track_run_counter.most_common():
+        tw = lookup["track_worlds"].get(code, {})
+        country = (tw.get("country") or "").strip()
+        system = (tw.get("system_name") or "").strip()
+        popularity_tracks.append({
+            "code": code,
+            "name": tw.get("track_display_name") or code,
+            "count": count,
+            "country": country,
+            "system": system,
+            "category_key": category_key(country, system),
+        })
+
     return {
         "highlights": highlights,
         "recent_runs": recent_runs,
         "track_options": track_options,
+        "popularity_chart": {"tracks": popularity_tracks},
+        "category_style": build_category_style(lookup),
     }
 
 
@@ -1590,6 +1607,9 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 "usage_rows": top_counter_items(variant_counter, limit=4),
                 "tag_rows": top_counter_items(driver_counter, limit=4),
                 "record_rows": record_rows,
+                # 頁尾分析:環境適性(此車跑在哪些環境)。涵蓋率由前端用
+                # record_rows 長度 + badge_counts 即時算,不另存。
+                "env_rows": top_counter_items(env_counter, limit=6),
             }
         )
 
@@ -1921,6 +1941,57 @@ def split_bilingual(value: str) -> tuple[str, str]:
     return value[:idx].strip(), value[idx:].strip()
 
 
+# 共用色彩規則(首頁頻率圖 + 地圖頁共用):
+#   色相 hue = 國家(現有國家集合上均分),彩度 saturation = 系統(CVS 高 / Sacc 低)。
+# builder 一次算好 (country, system) → 色碼,兩頁查同一份 colors,保證顏色對齊。
+CATEGORY_SYSTEM_STYLE = {
+    "CVS": (78, 62),    # 高彩度
+    "Sacc": (28, 64),   # 低彩度
+}
+CATEGORY_DEFAULT_STYLE = (45, 62)         # 其他系統
+CATEGORY_NEUTRAL = "hsl(150, 6%, 52%)"    # 未定位 / 無國家或系統
+
+
+def category_key(country: str, system: str) -> str:
+    return f"{(country or '').strip()}|{(system or '').strip()}"
+
+
+def build_category_style(lookup: dict[str, Any]) -> dict[str, Any]:
+    """色相=國家、彩度=系統(CVS 高/Sacc 低)的共用色碼表 + 圖例。
+
+    色相在現有國家集合上均分,規則化且可重現;只輸出實際存在的
+    (國家, 系統) 組合。首頁與地圖頁都帶這份,顏色必然一致。
+    """
+    track_worlds = lookup["track_worlds"].values()
+    countries = sorted({
+        (t.get("country") or "").strip()
+        for t in track_worlds
+        if (t.get("country") or "").strip()
+    })
+    n = max(len(countries), 1)
+    hues = {country: round(i * 360 / n) for i, country in enumerate(countries)}
+
+    combos = sorted({
+        ((t.get("country") or "").strip(), (t.get("system_name") or "").strip())
+        for t in track_worlds
+        if (t.get("country") or "").strip() and (t.get("system_name") or "").strip()
+    })
+
+    colors: dict[str, str] = {}
+    legend: list[dict[str, Any]] = []
+    for country, system in combos:
+        sat, light = CATEGORY_SYSTEM_STYLE.get(system, CATEGORY_DEFAULT_STYLE)
+        color = f"hsl({hues[country]}, {sat}%, {light}%)"
+        key = category_key(country, system)
+        colors[key] = color
+        czh, cen = split_bilingual(country)
+        legend.append({
+            "key": key, "color": color, "country": country, "system": system,
+            "label_zh": f"{czh}·{system}", "label_en": f"{cen}·{system}",
+        })
+    return {"colors": colors, "neutral": CATEGORY_NEUTRAL, "legend": legend}
+
+
 def trace_midpoint(trace: dict[str, Any]) -> tuple[float, float] | None:
     """Marker anchor for a traced track: midpoint of its longest LineString, as (lat, lng)."""
     best: list[Any] = []
@@ -2126,6 +2197,7 @@ def build_trackmap(
         "countries": countries,
         "unlocated": unlocated,
         "warnings": warnings,
+        "category_style": build_category_style(lookup),
     }
 
 

@@ -2190,3 +2190,207 @@ body.timeattack-page {
     height: 60vh;
   }
 }
+
+/* ── 頁尾分析圖表 ───────────────────────────────────────────────── */
+
+.ta-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-bottom: 12px;
+}
+
+.ta-chart-legend-item {
+  align-items: center;
+  color: var(--ta-text-soft);
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+}
+
+.ta-chart-swatch {
+  border-radius: 3px;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
+.ta-chart-bars {
+  display: grid;
+  gap: 6px;
+}
+
+.ta-chart-bar {
+  align-items: center;
+  border-radius: 8px;
+  color: inherit;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(90px, 168px) 1fr auto;
+  padding: 4px 6px;
+  text-decoration: none;
+}
+
+.ta-chart-bar.is-link:hover {
+  background: var(--ta-card-soft);
+}
+
+.ta-chart-bar-label {
+  color: var(--ta-text);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ta-chart-bar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.ta-chart-bar-fill {
+  border-radius: 999px;
+  display: block;
+  height: 100%;
+  min-width: 3px;
+}
+
+.ta-chart-bar-value {
+  color: var(--ta-text-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.ta-chart-bar-value small {
+  color: var(--ta-text-faint);
+  margin-left: 2px;
+}
+
+.ta-chart-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ta-chart-controls .ta-switch-select {
+  flex: 1 1 220px;
+}
+
+.ta-chart-sub {
+  color: var(--ta-text-soft);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin: 16px 0 8px;
+}
+
+/* 進步曲線 sparkline */
+.ta-spark {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.ta-spark-line {
+  stroke: var(--ta-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ta-spark-dot {
+  fill: var(--ta-card-strong);
+  stroke: var(--ta-text-faint);
+  stroke-width: 1.5;
+}
+
+.ta-spark-dot.is-pb {
+  fill: var(--ta-accent);
+  stroke: var(--ta-accent-ink);
+}
+
+.ta-spark-axis,
+.ta-strip-axis {
+  color: var(--ta-text-faint);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+/* 圈速分布 dot-strip */
+.ta-strip {
+  margin: 4px 0 10px;
+}
+
+.ta-strip-track {
+  background: linear-gradient(90deg, rgba(239, 217, 91, 0.22), rgba(255, 255, 255, 0.05));
+  border-radius: 999px;
+  height: 30px;
+  position: relative;
+}
+
+.ta-strip-dot {
+  background: var(--ta-text-soft);
+  border-radius: 999px;
+  height: 12px;
+  margin-left: -6px;
+  opacity: 0.85;
+  position: absolute;
+  top: 9px;
+  width: 12px;
+}
+
+.ta-strip-dot.is-best {
+  background: var(--ta-accent);
+  box-shadow: 0 0 0 3px rgba(239, 217, 91, 0.25);
+  opacity: 1;
+}
+
+.ta-strip-stats {
+  color: var(--ta-text-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 12px;
+}
+
+/* 路線涵蓋數字卡 */
+.ta-coverage {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ta-coverage-cell {
+  background: var(--ta-card-soft);
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.ta-coverage-num {
+  color: var(--ta-accent);
+  font-family: var(--font-deck);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.ta-coverage-lab {
+  color: var(--ta-text-faint);
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .ta-chart-bar {
+    grid-template-columns: minmax(72px, 110px) 1fr auto;
+  }
+}

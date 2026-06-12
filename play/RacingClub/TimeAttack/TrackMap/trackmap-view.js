@@ -128,14 +128,42 @@
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     }).addTo(map);
 
+    // 共用色彩(色相=國家、彩度=系統),色碼由 builder 算好,與首頁同色。
+    const style = data.category_style || { colors: {}, neutral: "#7a857e" };
+    const colorFor = (country, system) => {
+      const key = `${(country || "").trim()}|${(system || "").trim()}`;
+      return (style.colors && style.colors[key]) || style.neutral || "#7a857e";
+    };
+    const dominantSystem = (tracks) => {
+      const counts = {};
+      let best = "";
+      let bestN = 0;
+      (tracks || []).forEach((t) => {
+        const s = t.system_name || "";
+        counts[s] = (counts[s] || 0) + 1;
+        if (counts[s] > bestN) {
+          bestN = counts[s];
+          best = s;
+        }
+      });
+      return best;
+    };
+    const traceColorByCode = new Map();
+    locRefs.forEach(({ country, loc }) =>
+      (loc.tracks || []).forEach((t) =>
+        traceColorByCode.set(t.track_world_code, colorFor(country.name, t.system_name)),
+      ),
+    );
+
     const markers = new Map(); // locIndex -> L.Marker
     const group = L.featureGroup();
     locRefs.forEach((ref, locIndex) => {
       const { loc, country, region } = ref;
       if (!loc.has_point) return;
+      const markerColor = colorFor(country.name, dominantSystem(loc.tracks));
       const icon = L.divIcon({
         className: "ta-map-marker-wrap",
-        html: `<span class="ta-map-marker">${loc.tracks.length}</span>`,
+        html: `<span class="ta-map-marker" style="background:${markerColor}">${loc.tracks.length}</span>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14],
         popupAnchor: [0, -12],
@@ -169,7 +197,8 @@
           return res.json();
         })
         .then((geojson) => {
-          const layer = L.geoJSON(geojson, { style: TRACE_STYLE }).addTo(map);
+          const traceStyle = { ...TRACE_STYLE, color: traceColorByCode.get(code) || TRACE_STYLE.color };
+          const layer = L.geoJSON(geojson, { style: traceStyle }).addTo(map);
           traceLayers.set(code, layer);
           return layer;
         })

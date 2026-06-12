@@ -564,7 +564,11 @@ const renderTrackDetail = (data, id, routeCode) => {
       </div>
     </article>
   `;
-  return switcher + header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  const analysis = renderTrackAnalysis(board);
+  const analysisModule = analysis
+    ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
+    : "";
+  return switcher + header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms }) + analysisModule;
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
@@ -1105,7 +1109,11 @@ const renderPlayerDetail = (data, id) => {
     "切換玩家",
     "Switch Player",
   );
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>`;
+  const progression = renderPlayerProgression(card);
+  const progressionModule = progression
+    ? renderModule("進步曲線", "Progression", "圈速進步", "Lap-time Progression", progression)
+    : "";
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + progressionModule;
 };
 
 const VEHICLE_PROFILE_CONFIG = {
@@ -1200,7 +1208,11 @@ const renderVehicleDetail = (data, id) => {
     "切換車輛",
     "Switch Vehicle",
   );
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>`;
+  const analysis = renderVehicleAnalysis(card);
+  const analysisModule = analysis
+    ? renderModule("車輛取向", "Profile", "環境與涵蓋", "Environment & Coverage", analysis)
+    : "";
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + analysisModule;
 };
 
 const renderEventCards = (cards) =>
@@ -1399,12 +1411,220 @@ const attachOverviewListeners = () => {
   }
 };
 
+// ── 頁尾分析圖表(手刻 inline SVG / CSS,無外部圖表庫)──────────────
+// 共用色彩:色相=國家、彩度=系統(CVS 高/Sacc 低),色碼由 builder 算好
+// (category_style.colors),首頁頻率圖與地圖頁查同一份,顏色一致。
+const taCategoryColor = (style, country, system) => {
+  if (!style || !style.colors) return "#7a857e";
+  const key = `${(country || "").trim()}|${(system || "").trim()}`;
+  return style.colors[key] || style.neutral || "#7a857e";
+};
+
+const renderCategoryLegend = (legend) => {
+  if (!Array.isArray(legend) || !legend.length) return "";
+  return `
+    <div class="ta-chart-legend">
+      ${legend
+        .map(
+          (item) =>
+            `<span class="ta-chart-legend-item"><span class="ta-chart-swatch" style="background:${item.color}"></span>${renderBilingual(item.label_zh, item.label_en)}</span>`,
+        )
+        .join("")}
+    </div>`;
+};
+
+// rows: [{ label, value, color?, sub?, href? }]
+const renderBarChart = (rows) => {
+  if (!Array.isArray(rows) || !rows.length) {
+    return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  }
+  const max = Math.max(...rows.map((r) => Number(r.value) || 0), 1);
+  return `
+    <div class="ta-chart-bars">
+      ${rows
+        .map((r) => {
+          const pct = Math.max(2, Math.round(((Number(r.value) || 0) / max) * 100));
+          const inner = `
+            <span class="ta-chart-bar-label">${escapeHtml(r.label)}</span>
+            <span class="ta-chart-bar-track"><span class="ta-chart-bar-fill" style="width:${pct}%;background:${r.color || "var(--ta-accent)"}"></span></span>
+            <span class="ta-chart-bar-value">${escapeHtml(r.value)}${r.sub ? `<small>${escapeHtml(r.sub)}</small>` : ""}</span>`;
+          return r.href
+            ? `<a class="ta-chart-bar is-link" href="${escapeHtml(r.href)}">${inner}</a>`
+            : `<div class="ta-chart-bar">${inner}</div>`;
+        })
+        .join("")}
+    </div>`;
+};
+
+// 進步曲線:runs = [{date, lap_time_ms, lap_time_text, vehicle, is_pb}](已依時間排序)
+const renderSparkline = (runs) => {
+  const pts = (runs || []).filter((r) => typeof r.lap_time_ms === "number");
+  if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  const W = 640;
+  const H = 170;
+  const pad = 26;
+  const times = pts.map((r) => r.lap_time_ms);
+  const min = Math.min(...times);
+  const max = Math.max(...times);
+  const span = max - min || 1;
+  const x = (i) => pad + (W - 2 * pad) * (i / (pts.length - 1));
+  const y = (ms) => pad + (H - 2 * pad) * ((ms - min) / span); // 越快(min)越靠上
+  const linePath = pts
+    .map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(r.lap_time_ms).toFixed(1)}`)
+    .join(" ");
+  const dots = pts
+    .map(
+      (r, i) =>
+        `<circle cx="${x(i).toFixed(1)}" cy="${y(r.lap_time_ms).toFixed(1)}" r="${r.is_pb ? 4.5 : 3}" class="ta-spark-dot${r.is_pb ? " is-pb" : ""}"><title>${escapeHtml(r.date)} · ${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.vehicle)}${r.is_pb ? " · PB" : ""}</title></circle>`,
+    )
+    .join("");
+  return `
+    <svg class="ta-spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="progression">
+      <path class="ta-spark-line" d="${linePath}" fill="none"/>
+      ${dots}
+    </svg>
+    <div class="ta-spark-axis">
+      <span>${escapeHtml(pts[0].date)} · ${escapeHtml(pts[0].lap_time_text)}</span>
+      <span>${escapeHtml(pts[pts.length - 1].date)} · ${escapeHtml(pts[pts.length - 1].lap_time_text)}</span>
+    </div>`;
+};
+
+// 圈速分布 dot-strip:rows = 該路線的全部跑次(route_rows)
+const renderLaptimeStrip = (rows) => {
+  const pts = (rows || []).filter((r) => typeof r.lap_time_ms === "number");
+  if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  const times = pts.map((r) => r.lap_time_ms);
+  const min = Math.min(...times);
+  const max = Math.max(...times);
+  const span = max - min || 1;
+  const fastest = pts.find((r) => r.lap_time_ms === min);
+  const slowest = pts.reduce((a, b) => (a.lap_time_ms > b.lap_time_ms ? a : b));
+  const dots = pts
+    .map((r) => {
+      const left = ((r.lap_time_ms - min) / span) * 100;
+      return `<span class="ta-strip-dot${r.lap_time_ms === min ? " is-best" : ""}" style="left:${left.toFixed(1)}%" title="${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.player_display_name)} · ${escapeHtml(r.vehicle_model_name)}"></span>`;
+    })
+    .join("");
+  const drivers = new Set(pts.map((r) => r.player_display_name)).size;
+  const spreadPct = (span / min) * 100;
+  return `
+    <div class="ta-strip">
+      <div class="ta-strip-track">${dots}</div>
+      <div class="ta-strip-axis"><span>${escapeHtml(fastest.lap_time_text)}</span><span>${escapeHtml(slowest.lap_time_text)}</span></div>
+    </div>
+    <div class="ta-strip-stats">
+      <span>${pts.length} ${renderBilingual("筆", "runs")}</span>
+      <span>${drivers} ${renderBilingual("位車手", "drivers")}</span>
+      <span>${renderBilingual("差距", "spread")} ${spreadPct.toFixed(1)}%</span>
+    </div>`;
+};
+
+// 把 JSON 安全嵌進 <script type="application/json">(避免 </script> 提前關閉)
+const embedJsonData = (attr, payload) =>
+  `<script type="application/json" ${attr}>${JSON.stringify(payload).replace(/</g, "\\u003c")}</script>`;
+
+// 首頁:賽道熱門度頻率圖(依國家×系統著色,與地圖頁同色)
+const renderPopularityChart = (data) => {
+  const pc = data.popularity_chart;
+  if (!pc || !Array.isArray(pc.tracks) || !pc.tracks.length) return "";
+  const style = data.category_style;
+  const rows = pc.tracks.slice(0, 20).map((t) => ({
+    label: t.name,
+    value: t.count,
+    color: taCategoryColor(style, t.country, t.system),
+    href: `./track.html?id=${encodeURIComponent(t.code)}`,
+  }));
+  return renderCategoryLegend(style && style.legend) + renderBarChart(rows);
+};
+
+// 車手:進步曲線(路線下拉,一次畫一條,資料來自既有 history,不預先攤平)
+const renderPlayerProgression = (card) => {
+  const history = (card.history || []).filter((h) => (h.runs || []).length >= 2);
+  if (!history.length) return "";
+  const options = history
+    .map((h, i) => `<option value="${i}"${i === 0 ? " selected" : ""}>${escapeHtml(h.route_label)}（${h.runs.length}）</option>`)
+    .join("");
+  return `
+    <div class="ta-progression" data-progression>
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
+        <select class="ta-switch-select" data-progression-select>${options}</select>
+      </div>
+      <div data-progression-chart>${renderSparkline(history[0].runs)}</div>
+      ${embedJsonData("data-progression-data", history)}
+    </div>`;
+};
+
+// 賽道:圈速分布(路線下拉,一次畫一條)
+const renderTrackAnalysis = (board) => {
+  const routes = (board.routes || []).filter((r) => (r.route_rows || []).length >= 2);
+  if (!routes.length) return "";
+  routes.sort((a, b) => b.route_rows.length - a.route_rows.length);
+  const options = routes
+    .map((r, i) => `<option value="${i}"${i === 0 ? " selected" : ""}>${escapeHtml(r.route_display_name)}（${r.route_rows.length}）</option>`)
+    .join("");
+  return `
+    <div class="ta-laptime" data-laptime>
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
+        <select class="ta-switch-select" data-laptime-select>${options}</select>
+      </div>
+      <div data-laptime-chart>${renderLaptimeStrip(routes[0].route_rows)}</div>
+      ${embedJsonData("data-laptime-data", routes.map((r) => r.route_rows))}
+    </div>`;
+};
+
+// 車輛:環境適性 + 路線涵蓋
+const renderVehicleAnalysis = (card) => {
+  const env = (card.env_rows || []).map((e) => ({
+    label: e.label,
+    value: e.value,
+    color: "var(--ta-accent-warm)",
+  }));
+  const routeCount = (card.record_rows || []).length;
+  const tr = card.badge_counts ? card.badge_counts.TR : 0;
+  const cr = card.badge_counts ? card.badge_counts.CR : 0;
+  const coverage = `
+    <div class="ta-coverage">
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${routeCount}</span><span class="ta-coverage-lab">${renderBilingual("有紀錄路線", "Routes Run")}</span></div>
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${tr}</span><span class="ta-coverage-lab">${renderBilingual("賽道最佳 TR", "Track Records")}</span></div>
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${cr}</span><span class="ta-coverage-lab">${renderBilingual("車種最佳 CR", "Car Records")}</span></div>
+    </div>`;
+  if (!env.length) return coverage;
+  return `${coverage}<div class="ta-chart-sub">${renderBilingual("環境適性", "Environment Mix")}</div>${renderBarChart(env)}`;
+};
+
+// 委派:路線下拉切換 → 重繪該圖(資料已在嵌入的 JSON,一次只畫一張)
+const attachAnalysisInteractions = () => {
+  const root = document.querySelector("[data-page-root]");
+  if (!root || root.dataset.analysisBound === "1") return;
+  root.dataset.analysisBound = "1";
+  root.addEventListener("change", (e) => {
+    const progSel = e.target.closest("[data-progression-select]");
+    if (progSel) {
+      const wrap = progSel.closest("[data-progression]");
+      const hist = JSON.parse(wrap.querySelector("[data-progression-data]").textContent);
+      wrap.querySelector("[data-progression-chart]").innerHTML = renderSparkline((hist[Number(progSel.value)] || {}).runs);
+      return;
+    }
+    const lapSel = e.target.closest("[data-laptime-select]");
+    if (lapSel) {
+      const wrap = lapSel.closest("[data-laptime]");
+      const routeRows = JSON.parse(wrap.querySelector("[data-laptime-data]").textContent);
+      wrap.querySelector("[data-laptime-chart]").innerHTML = renderLaptimeStrip(routeRows[Number(lapSel.value)]);
+    }
+  });
+};
+
 const renderOverview = (data) =>
   [
     renderHighlights(data.highlights),
     renderModule("傳送門", "Portals", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards) + renderTrackJump(data.track_options)),
     Array.isArray(data.recent_runs) && data.recent_runs.length
       ? renderModule("近期紀錄", "Recent Runs", "最新登錄", "Latest Entries", renderRecentRuns(data.recent_runs))
+      : "",
+    data.popularity_chart && Array.isArray(data.popularity_chart.tracks) && data.popularity_chart.tracks.length
+      ? renderModule("熱門度", "Popularity", "賽道熱門度", "Track Popularity", renderPopularityChart(data))
       : "",
   ]
     .filter(Boolean)
@@ -1556,6 +1776,7 @@ const initTimeAttack = async () => {
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "track") attachBoardToggleListeners();
     if (view === "track" || view === "player" || view === "vehicle") attachDetailSwitchListeners();
+    if (view === "track" || view === "player") attachAnalysisInteractions();
     if (view === "trackmap" && typeof window.initTrackMap === "function") {
       window.initTrackMap(pageData, base);
     }
