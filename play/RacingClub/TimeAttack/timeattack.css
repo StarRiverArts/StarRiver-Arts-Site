@@ -2394,3 +2394,104 @@ body.timeattack-page {
     grid-template-columns: minmax(72px, 110px) 1fr auto;
   }
 }
+
+/* 進步曲線(基準線 + 垂線 + +秒) */
+.ta-prog {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.ta-prog-baseline {
+  stroke: var(--ta-accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  opacity: 0.85;
+}
+
+.ta-prog-drop {
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1;
+}
+
+.ta-prog-line {
+  stroke: var(--ta-text-soft);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.ta-prog-dot {
+  fill: var(--ta-card-strong);
+  stroke: var(--ta-text-faint);
+  stroke-width: 1.4;
+}
+
+.ta-prog-dot.is-best {
+  fill: var(--ta-accent);
+  stroke: var(--ta-accent-ink);
+}
+
+.ta-prog-glabel {
+  fill: var(--ta-text-soft);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.ta-prog-axis {
+  fill: var(--ta-text-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.ta-prog-caption {
+  color: var(--ta-text-faint);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* 圈速頻率密度直方圖 */
+.ta-hist {
+  align-items: stretch;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+  border-bottom: 1px solid var(--ta-border);
+  display: flex;
+  gap: 4px;
+  height: 150px;
+  padding: 4px 2px 0;
+}
+
+.ta-hist-col {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.ta-hist-bar {
+  flex: 0 0 auto;
+}
+
+.ta-hist-count {
+  color: var(--ta-text-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.ta-hist-bar {
+  background: linear-gradient(180deg, var(--ta-accent), rgba(239, 217, 91, 0.55));
+  border-radius: 4px 4px 0 0;
+  min-height: 2px;
+  width: 100%;
+}
+
+.ta-hist-axis {
+  color: var(--ta-text-faint);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  justify-content: space-between;
+  margin: 6px 0 10px;
+}

@@ -565,10 +565,11 @@ const renderTrackDetail = (data, id, routeCode) => {
     </article>
   `;
   const analysis = renderTrackAnalysis(board);
+  // 放在排行榜「之前」:熱門賽道的榜單可長達上萬 px,分析若擺頁尾會被埋到滾不到。
   const analysisModule = analysis
     ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
     : "";
-  return switcher + header + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms }) + analysisModule;
+  return switcher + header + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
@@ -1456,62 +1457,97 @@ const renderBarChart = (rows) => {
     </div>`;
 };
 
-// 進步曲線:runs = [{date, lap_time_ms, lap_time_text, vehicle, is_pb}](已依時間排序)
-const renderSparkline = (runs) => {
+const fmtLap = (ms) => {
+  const m = Math.floor(ms / 60000);
+  const s = ((ms % 60000) / 1000).toFixed(3).padStart(6, "0");
+  return `${m}:${s}`;
+};
+
+// 進步曲線:最快紀錄拉一條基準橫線,每個點對基準線做垂線並標 +幾秒;含時間軸(日期)與圈速差軸。
+// runs = [{date, lap_time_ms, lap_time_text, vehicle, is_pb}](已依時間排序)
+const renderProgression = (runs) => {
   const pts = (runs || []).filter((r) => typeof r.lap_time_ms === "number");
   if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
-  const W = 640;
-  const H = 170;
-  const pad = 26;
-  const times = pts.map((r) => r.lap_time_ms);
-  const min = Math.min(...times);
-  const max = Math.max(...times);
-  const span = max - min || 1;
-  const x = (i) => pad + (W - 2 * pad) * (i / (pts.length - 1));
-  const y = (ms) => pad + (H - 2 * pad) * ((ms - min) / span); // 越快(min)越靠上
-  const linePath = pts
-    .map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(r.lap_time_ms).toFixed(1)}`)
-    .join(" ");
+  const best = Math.min(...pts.map((r) => r.lap_time_ms));
+  const bestText = pts.find((r) => r.lap_time_ms === best).lap_time_text;
+  const gaps = pts.map((r) => (r.lap_time_ms - best) / 1000); // 秒
+  const maxGap = Math.max(...gaps, 0.001);
+  const W = 720;
+  const H = 260;
+  const mL = 44;
+  const mR = 14;
+  const mT = 24;
+  const mB = 30;
+  const plotW = W - mL - mR;
+  const plotH = H - mT - mB;
+  const x = (i) => mL + plotW * (pts.length === 1 ? 0.5 : i / (pts.length - 1));
+  const yBase = mT + plotH; // 基準線(gap=0)在底
+  const y = (g) => yBase - plotH * (g / maxGap);
+  const fmtGap = (g) => (g === 0 ? "最快" : `+${g.toFixed(g < 10 ? 2 : 1)}s`);
+
+  const drops = pts
+    .map((r, i) => `<line class="ta-prog-drop" x1="${x(i).toFixed(1)}" y1="${y(gaps[i]).toFixed(1)}" x2="${x(i).toFixed(1)}" y2="${yBase}"/>`)
+    .join("");
+  const linePath = pts.map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(gaps[i]).toFixed(1)}`).join(" ");
   const dots = pts
     .map(
       (r, i) =>
-        `<circle cx="${x(i).toFixed(1)}" cy="${y(r.lap_time_ms).toFixed(1)}" r="${r.is_pb ? 4.5 : 3}" class="ta-spark-dot${r.is_pb ? " is-pb" : ""}"><title>${escapeHtml(r.date)} · ${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.vehicle)}${r.is_pb ? " · PB" : ""}</title></circle>`,
+        `<circle class="ta-prog-dot${r.lap_time_ms === best ? " is-best" : ""}" cx="${x(i).toFixed(1)}" cy="${y(gaps[i]).toFixed(1)}" r="${r.lap_time_ms === best ? 4.5 : 3.2}"><title>${escapeHtml(r.date)} · ${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.vehicle)}</title></circle>`,
     )
     .join("");
+  // 每個點標 +幾秒;奇偶交錯避免重疊。
+  const glabels = pts
+    .map((r, i) => `<text class="ta-prog-glabel" x="${x(i).toFixed(1)}" y="${(y(gaps[i]) - (i % 2 ? 14 : 7)).toFixed(1)}" text-anchor="middle">${escapeHtml(fmtGap(gaps[i]))}</text>`)
+    .join("");
+  // X 軸(時間):頭、尾、(夠長時)中間各標日期。
+  const xticks = pts.length >= 5 ? [0, Math.floor((pts.length - 1) / 2), pts.length - 1] : [0, pts.length - 1];
+  const xlabels = xticks
+    .map((i) => `<text class="ta-prog-axis" x="${x(i).toFixed(1)}" y="${(yBase + 16).toFixed(1)}" text-anchor="middle">${escapeHtml(pts[i].date)}</text>`)
+    .join("");
+
   return `
-    <svg class="ta-spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="progression">
-      <path class="ta-spark-line" d="${linePath}" fill="none"/>
+    <svg class="ta-prog" viewBox="0 0 ${W} ${H}" role="img" aria-label="lap-time progression">
+      <line class="ta-prog-baseline" x1="${mL}" y1="${yBase}" x2="${W - mR}" y2="${yBase}"/>
+      <text class="ta-prog-axis" x="4" y="${(mT + 3).toFixed(1)}">+${maxGap.toFixed(maxGap < 10 ? 2 : 1)}s</text>
+      <text class="ta-prog-axis" x="4" y="${(yBase + 3).toFixed(1)}">0s</text>
+      ${drops}
+      <path class="ta-prog-line" d="${linePath}" fill="none"/>
       ${dots}
+      ${glabels}
+      ${xlabels}
     </svg>
-    <div class="ta-spark-axis">
-      <span>${escapeHtml(pts[0].date)} · ${escapeHtml(pts[0].lap_time_text)}</span>
-      <span>${escapeHtml(pts[pts.length - 1].date)} · ${escapeHtml(pts[pts.length - 1].lap_time_text)}</span>
-    </div>`;
+    <div class="ta-prog-caption">${renderBilingual("基準線 = 最快", "Baseline = best")} ${escapeHtml(bestText)}　·　${renderBilingual("縱軸：與最快的差距(秒)", "Y: gap to best (s)")}</div>`;
 };
 
-// 圈速分布 dot-strip:rows = 該路線的全部跑次(route_rows)
-const renderLaptimeStrip = (rows) => {
+// 圈速頻率密度直方圖:把該路線所有跑次的圈速分箱計數。rows = route_rows
+const renderLaptimeHistogram = (rows) => {
   const pts = (rows || []).filter((r) => typeof r.lap_time_ms === "number");
   if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
   const times = pts.map((r) => r.lap_time_ms);
   const min = Math.min(...times);
   const max = Math.max(...times);
   const span = max - min || 1;
-  const fastest = pts.find((r) => r.lap_time_ms === min);
-  const slowest = pts.reduce((a, b) => (a.lap_time_ms > b.lap_time_ms ? a : b));
-  const dots = pts
-    .map((r) => {
-      const left = ((r.lap_time_ms - min) / span) * 100;
-      return `<span class="ta-strip-dot${r.lap_time_ms === min ? " is-best" : ""}" style="left:${left.toFixed(1)}%" title="${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.player_display_name)} · ${escapeHtml(r.vehicle_model_name)}"></span>`;
+  const k = Math.min(8, Math.max(3, Math.round(Math.sqrt(pts.length))));
+  const bins = new Array(k).fill(0);
+  times.forEach((t) => {
+    let b = Math.floor(((t - min) / span) * k);
+    if (b >= k) b = k - 1;
+    bins[b] += 1;
+  });
+  const maxCount = Math.max(...bins, 1);
+  const cols = bins
+    .map((c, i) => {
+      const lo = min + (span * i) / k;
+      const hi = min + (span * (i + 1)) / k;
+      const h = Math.round((c / maxCount) * 100);
+      return `<div class="ta-hist-col" title="${escapeHtml(fmtLap(lo))}–${escapeHtml(fmtLap(hi))}: ${c}"><span class="ta-hist-count">${c || ""}</span><span class="ta-hist-bar" style="height:${h}%"></span></div>`;
     })
     .join("");
   const drivers = new Set(pts.map((r) => r.player_display_name)).size;
   const spreadPct = (span / min) * 100;
   return `
-    <div class="ta-strip">
-      <div class="ta-strip-track">${dots}</div>
-      <div class="ta-strip-axis"><span>${escapeHtml(fastest.lap_time_text)}</span><span>${escapeHtml(slowest.lap_time_text)}</span></div>
-    </div>
+    <div class="ta-hist">${cols}</div>
+    <div class="ta-hist-axis"><span>${escapeHtml(fmtLap(min))} ${renderBilingual("最快", "fastest")}</span><span>${escapeHtml(fmtLap(max))} ${renderBilingual("最慢", "slowest")}</span></div>
     <div class="ta-strip-stats">
       <span>${pts.length} ${renderBilingual("筆", "runs")}</span>
       <span>${drivers} ${renderBilingual("位車手", "drivers")}</span>
@@ -1550,7 +1586,7 @@ const renderPlayerProgression = (card) => {
         <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
         <select class="ta-switch-select" data-progression-select>${options}</select>
       </div>
-      <div data-progression-chart>${renderSparkline(history[0].runs)}</div>
+      <div data-progression-chart>${renderProgression(history[0].runs)}</div>
       ${embedJsonData("data-progression-data", history)}
     </div>`;
 };
@@ -1569,16 +1605,18 @@ const renderTrackAnalysis = (board) => {
         <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
         <select class="ta-switch-select" data-laptime-select>${options}</select>
       </div>
-      <div data-laptime-chart>${renderLaptimeStrip(routes[0].route_rows)}</div>
+      <div data-laptime-chart>${renderLaptimeHistogram(routes[0].route_rows)}</div>
       ${embedJsonData("data-laptime-data", routes.map((r) => r.route_rows))}
     </div>`;
 };
 
 // 車輛:環境適性 + 路線涵蓋
 const renderVehicleAnalysis = (card) => {
+  const envTotal = (card.env_rows || []).reduce((s, e) => s + (Number(e.value) || 0), 0) || 1;
   const env = (card.env_rows || []).map((e) => ({
     label: e.label,
     value: e.value,
+    sub: `${Math.round((e.value / envTotal) * 100)}%`,
     color: "var(--ta-accent-warm)",
   }));
   const routeCount = (card.record_rows || []).length;
@@ -1604,14 +1642,14 @@ const attachAnalysisInteractions = () => {
     if (progSel) {
       const wrap = progSel.closest("[data-progression]");
       const hist = JSON.parse(wrap.querySelector("[data-progression-data]").textContent);
-      wrap.querySelector("[data-progression-chart]").innerHTML = renderSparkline((hist[Number(progSel.value)] || {}).runs);
+      wrap.querySelector("[data-progression-chart]").innerHTML = renderProgression((hist[Number(progSel.value)] || {}).runs);
       return;
     }
     const lapSel = e.target.closest("[data-laptime-select]");
     if (lapSel) {
       const wrap = lapSel.closest("[data-laptime]");
       const routeRows = JSON.parse(wrap.querySelector("[data-laptime-data]").textContent);
-      wrap.querySelector("[data-laptime-chart]").innerHTML = renderLaptimeStrip(routeRows[Number(lapSel.value)]);
+      wrap.querySelector("[data-laptime-chart]").innerHTML = renderLaptimeHistogram(routeRows[Number(lapSel.value)]);
     }
   });
 };
