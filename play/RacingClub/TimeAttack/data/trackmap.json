@@ -31,7 +31,7 @@
     {
       "label_zh": "路線軌跡",
       "label_en": "Route Traces",
-      "value": "0",
+      "value": "1",
       "note_zh": "已畫整條線的賽道",
       "note_en": "Tracks with a full drawn route"
     },
@@ -45,77 +45,73 @@
   ],
   "countries": [
     {
-      "name": "德國Germany",
-      "name_zh": "德國",
-      "name_en": "Germany",
+      "name": "臺灣Taiwan",
+      "name_zh": "臺灣",
+      "name_en": "Taiwan",
       "regions": [
         {
-          "name": "萊茵蘭普法爾茨Rhineland-Pfalz",
-          "name_zh": "萊茵蘭普法爾茨",
-          "name_en": "Rhineland-Pfalz",
+          "name": "東部East",
+          "name_zh": "東部",
+          "name_en": "East",
           "localities": [
             {
-              "name": "紐柏林Nürburgring",
-              "name_zh": "紐柏林",
-              "name_en": "Nürburgring",
+              "name": "宜蘭Yilan",
+              "name_zh": "宜蘭",
+              "name_en": "Yilan",
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "nurburgring_aiden1408",
-                  "track_display_name": "Nurburgring",
-                  "world_name": "Nurburgring",
-                  "world_url": "",
+                  "track_world_code": "pt_9t_starriver_arts",
+                  "track_display_name": "九彎十八拐CVS",
+                  "world_name": "PT:9T",
+                  "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
                   "system_name": "CVS",
-                  "track_env": "賽道",
-                  "difficulty": "極困難",
-                  "route_count": 2,
-                  "record_count": 5,
-                  "has_trace": false,
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 10,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 24.858635,
+                  "trace_lng": 121.795063,
+                  "trace_file": "geo/pt_9t_starriver_arts.geojson"
                 }
               ],
-              "lat": 50.3356,
-              "lng": 6.9475,
+              "lat": 24.886,
+              "lng": 121.714,
               "point_source": "place"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "摩納哥Monaco",
-      "name_zh": "摩納哥",
-      "name_en": "Monaco",
-      "regions": [
+        },
         {
-          "name": "",
-          "name_zh": "",
-          "name_en": "",
+          "name": "虛構Fictional",
+          "name_zh": "虛構",
+          "name_en": "Fictional",
           "localities": [
             {
-              "name": "蒙地卡羅Monte Carlo",
-              "name_zh": "蒙地卡羅",
-              "name_en": "Monte Carlo",
+              "name": "俱樂部主場Club",
+              "name_zh": "俱樂部主場",
+              "name_en": "Club",
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "monaco_aiden1408",
-                  "track_display_name": "Monaco",
-                  "world_name": "Monaco",
-                  "world_url": "",
+                  "track_world_code": "starsight_starriver_arts",
+                  "track_display_name": "觀星山",
+                  "world_name": "StarSight",
+                  "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
                   "system_name": "CVS",
-                  "track_env": "賽道",
-                  "difficulty": "困難",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
                   "route_count": 1,
-                  "record_count": 6,
+                  "record_count": 61,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
                 }
               ],
-              "lat": 43.7347,
-              "lng": 7.4206,
+              "lat": 23.55,
+              "lng": 119.3,
               "point_source": "place"
             }
           ]
@@ -990,6 +986,84 @@
       ]
     },
     {
+      "name": "德國Germany",
+      "name_zh": "德國",
+      "name_en": "Germany",
+      "regions": [
+        {
+          "name": "萊茵蘭普法爾茨Rhineland-Pfalz",
+          "name_zh": "萊茵蘭普法爾茨",
+          "name_en": "Rhineland-Pfalz",
+          "localities": [
+            {
+              "name": "紐柏林Nürburgring",
+              "name_zh": "紐柏林",
+              "name_en": "Nürburgring",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "nurburgring_aiden1408",
+                  "track_display_name": "Nurburgring",
+                  "world_name": "Nurburgring",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "極困難",
+                  "route_count": 2,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 50.3356,
+              "lng": 6.9475,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "摩納哥Monaco",
+      "name_zh": "摩納哥",
+      "name_en": "Monaco",
+      "regions": [
+        {
+          "name": "",
+          "name_zh": "",
+          "name_en": "",
+          "localities": [
+            {
+              "name": "蒙地卡羅Monte Carlo",
+              "name_zh": "蒙地卡羅",
+              "name_en": "Monte Carlo",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "monaco_aiden1408",
+                  "track_display_name": "Monaco",
+                  "world_name": "Monaco",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 43.7347,
+              "lng": 7.4206,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "美國USA",
       "name_zh": "美國",
       "name_en": "USA",
@@ -1054,77 +1128,6 @@
               ],
               "lat": 35.3521,
               "lng": -80.6831,
-              "point_source": "place"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "臺灣Taiwan",
-      "name_zh": "臺灣",
-      "name_en": "Taiwan",
-      "regions": [
-        {
-          "name": "東部East",
-          "name_zh": "東部",
-          "name_en": "East",
-          "localities": [
-            {
-              "name": "宜蘭Yilan",
-              "name_zh": "宜蘭",
-              "name_en": "Yilan",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "pt_9t_starriver_arts",
-                  "track_display_name": "九彎十八拐CVS",
-                  "world_name": "PT:9T",
-                  "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "困難",
-                  "route_count": 1,
-                  "record_count": 10,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 24.886,
-              "lng": 121.714,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "虛構Fictional",
-          "name_zh": "虛構",
-          "name_en": "Fictional",
-          "localities": [
-            {
-              "name": "俱樂部主場Club",
-              "name_zh": "俱樂部主場",
-              "name_en": "Club",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "starsight_starriver_arts",
-                  "track_display_name": "觀星山",
-                  "world_name": "StarSight",
-                  "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "簡單",
-                  "route_count": 1,
-                  "record_count": 61,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 23.55,
-              "lng": 119.3,
               "point_source": "place"
             }
           ]

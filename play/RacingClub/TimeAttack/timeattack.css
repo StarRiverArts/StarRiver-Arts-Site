@@ -268,8 +268,8 @@ body.timeattack-page {
 .ta-layout {
   align-items: start;
   display: grid;
-  gap: 20px;
-  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
   margin-top: 12px;
 }
 
@@ -280,15 +280,35 @@ body.timeattack-page {
 }
 
 .ta-sidebar {
-  align-self: start;
-  position: sticky;
-  top: 154px;
+  align-self: stretch;
+  position: static;
 }
 
+/* 「目前頁面」由左側欄改成頂部一橫條小字提示;主區塊吃滿版。
+   下方覆寫把卡片攤平成細橫條,說明文字橫向排列。 */
 .ta-sidebar-card {
-  display: grid;
-  gap: 12px;
-  padding: 20px;
+  align-items: baseline;
+  box-shadow: none;
+  column-gap: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding: 9px 16px;
+}
+
+.ta-sidebar-card .ta-label {
+  flex: 0 0 auto;
+}
+
+.ta-sidebar-card h2 {
+  flex: 0 0 auto;
+  font-size: 13px;
+  margin: 0;
+}
+
+.ta-sidebar-card [data-sidebar-list] {
+  flex: 1 1 320px;
+  min-width: 0;
 }
 
 .ta-sidebar-card h2,
@@ -319,16 +339,30 @@ body.timeattack-page {
 }
 
 .ta-sidebar-card .ta-inline-list {
-  gap: 10px;
-  grid-template-columns: 1fr;
+  align-items: baseline;
+  column-gap: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  grid-template-columns: none;
 }
 
 .ta-sidebar-card .ta-inline-list li {
-  background: var(--ta-card-soft);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--ta-text-faint);
+  font-size: 12px;
+  line-height: 1.6;
   margin: 0;
-  padding: 12px 14px;
+  padding: 0;
+  position: relative;
+}
+
+.ta-sidebar-card .ta-inline-list li:not(:first-child)::before {
+  color: var(--ta-border-strong);
+  content: "·";
+  margin-right: 14px;
 }
 
 .ta-inline-list li,

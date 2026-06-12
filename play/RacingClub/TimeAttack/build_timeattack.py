@@ -2033,8 +2033,15 @@ def build_trackmap(
             warnings.append(
                 "geo_places 孤兒列(無賽道引用):" + " / ".join(filter(None, triple)))
 
+    # 國家排序:臺灣置頂、日本第二,其餘按名稱。
+    def country_sort_key(name: str) -> tuple:
+        for rank, token in enumerate(("Taiwan", "Japan")):
+            if token in name:
+                return (0, rank, "")
+        return (1, 0, name)
+
     countries = []
-    for country_name in sorted(grouped):
+    for country_name in sorted(grouped, key=country_sort_key):
         zh, en = split_bilingual(country_name)
         regions = []
         for region_name in sorted(grouped[country_name]):
