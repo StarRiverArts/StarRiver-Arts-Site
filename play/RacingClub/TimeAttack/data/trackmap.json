@@ -1,0 +1,1275 @@
+{
+  "title_zh": "賽道地圖",
+  "title_en": "Track Map",
+  "description_zh": "依 國家 → 區域 → 地名 下鑽的賽道地理視圖。有整條路線軌跡的賽道直接畫線,其餘以地名點位標示;虛構與未定位世界列在側欄清單。",
+  "description_en": "Geographic view of every track world: country → region → locality. Tracks with a drawn route render the full line; others fall back to a locality marker. Fictional or unlocated worlds stay in the sidebar list.",
+  "sidebar_zh": [
+    "顯示優先序:整條軌跡 → 地名點位 → 未定位清單。",
+    "點位掛在「地名」層:同一地點的多個賽道版本共用一顆標記。",
+    "資料在登錄工具「索引編輯 → 地理點位 / 路線軌跡」維護,重建 JSON 後生效。"
+  ],
+  "sidebar_en": [
+    "Display priority: full route trace, then locality marker, then the unlocated list.",
+    "Markers live at the locality level — track variants of the same place share one marker.",
+    "Edit geo data in the record tool (Index Edit → Geo Points / Route Traces), then rebuild JSON."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "已定位賽道",
+      "label_en": "Located Tracks",
+      "value": "48",
+      "note_zh": "已掛在地圖樹上的賽道世界",
+      "note_en": "Track worlds placed in the map tree"
+    },
+    {
+      "label_zh": "地點",
+      "label_en": "Places",
+      "value": "26",
+      "note_zh": "有座標可上圖的地名",
+      "note_en": "Localities with map coordinates"
+    },
+    {
+      "label_zh": "路線軌跡",
+      "label_en": "Route Traces",
+      "value": "0",
+      "note_zh": "已畫整條線的賽道",
+      "note_en": "Tracks with a full drawn route"
+    },
+    {
+      "label_zh": "未定位",
+      "label_en": "Unlocated",
+      "value": "5",
+      "note_zh": "虛構或尚未標地理位置的世界",
+      "note_en": "Fictional or not-yet-tagged worlds"
+    }
+  ],
+  "countries": [
+    {
+      "name": "德國Germany",
+      "name_zh": "德國",
+      "name_en": "Germany",
+      "regions": [
+        {
+          "name": "萊茵蘭普法爾茨Rhineland-Pfalz",
+          "name_zh": "萊茵蘭普法爾茨",
+          "name_en": "Rhineland-Pfalz",
+          "localities": [
+            {
+              "name": "紐柏林Nürburgring",
+              "name_zh": "紐柏林",
+              "name_en": "Nürburgring",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "nurburgring_aiden1408",
+                  "track_display_name": "Nurburgring",
+                  "world_name": "Nurburgring",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "極困難",
+                  "route_count": 2,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 50.3356,
+              "lng": 6.9475,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "摩納哥Monaco",
+      "name_zh": "摩納哥",
+      "name_en": "Monaco",
+      "regions": [
+        {
+          "name": "",
+          "name_zh": "",
+          "name_en": "",
+          "localities": [
+            {
+              "name": "蒙地卡羅Monte Carlo",
+              "name_zh": "蒙地卡羅",
+              "name_en": "Monte Carlo",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "monaco_aiden1408",
+                  "track_display_name": "Monaco",
+                  "world_name": "Monaco",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 43.7347,
+              "lng": 7.4206,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "日本Japan",
+      "name_zh": "日本",
+      "name_en": "Japan",
+      "regions": [
+        {
+          "name": "三重Mie",
+          "name_zh": "三重",
+          "name_en": "Mie",
+          "localities": [
+            {
+              "name": "鈴鹿Suzuka",
+              "name_zh": "鈴鹿",
+              "name_en": "Suzuka",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "suzuka",
+                  "track_display_name": "Suzuka",
+                  "world_name": "Suzuka",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 3,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.8431,
+              "lng": 136.541,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "兵庫Hyogo",
+          "name_zh": "兵庫",
+          "name_en": "Hyogo",
+          "localities": [
+            {
+              "name": "六甲山Rokko",
+              "name_zh": "六甲山",
+              "name_en": "Rokko",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "urarokkou",
+                  "track_display_name": "UraRokkou",
+                  "world_name": "UraRokkou",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "omote_rokkou_ron",
+                  "track_display_name": "omote_rokkou",
+                  "world_name": "omote_rokkou",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 7,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.778,
+              "lng": 135.264,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "埼玉Saitama",
+          "name_zh": "埼玉",
+          "name_en": "Saitama",
+          "localities": [
+            {
+              "name": "土坂Tsuchisaka",
+              "name_zh": "土坂",
+              "name_en": "Tsuchisaka",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "tsuchisaka_jintei",
+                  "track_display_name": "Tsuchisaka",
+                  "world_name": "Tsuchisaka",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 4,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "tsuchisaka_snow_jintei",
+                  "track_display_name": "Tsuchisaka Snow",
+                  "world_name": "Tsuchisaka Snow",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 3,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.04,
+              "lng": 138.93,
+              "point_source": "place"
+            },
+            {
+              "name": "定峰Sadamine",
+              "name_zh": "定峰",
+              "name_en": "Sadamine",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "sadamine_jintei",
+                  "track_display_name": "Sadamine",
+                  "world_name": "Sadamine",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 4,
+                  "record_count": 19,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.005,
+              "lng": 139.135,
+              "point_source": "place"
+            },
+            {
+              "name": "正丸Shomaru",
+              "name_zh": "正丸",
+              "name_en": "Shomaru",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "shomaru_jintei",
+                  "track_display_name": "Shomaru",
+                  "world_name": "Shomaru",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 3,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.967,
+              "lng": 139.176,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "愛知Aichi",
+          "name_zh": "愛知",
+          "name_en": "Aichi",
+          "localities": [
+            {
+              "name": "名古屋市Nagoya",
+              "name_zh": "名古屋市",
+              "name_en": "Nagoya",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "nagoya_jintei",
+                  "track_display_name": "Nagoya",
+                  "world_name": "Nagoya",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.17,
+              "lng": 136.91,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "栃木Tochigi",
+          "name_zh": "栃木",
+          "name_en": "Tochigi",
+          "localities": [
+            {
+              "name": "伊呂波坂Irohazaka",
+              "name_zh": "伊呂波坂",
+              "name_en": "Irohazaka",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "irohazaka_jintei",
+                  "track_display_name": "伊呂波坂",
+                  "world_name": "Irohazaka",
+                  "world_url": "https://vrchat.com/home/world/wrld_b52d7669-cf0d-4392-8900-c3e79d16ccbc",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 36,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.7316,
+              "lng": 139.521,
+              "point_source": "place"
+            },
+            {
+              "name": "八方ヶ原Happogahara",
+              "name_zh": "八方ヶ原",
+              "name_en": "Happogahara",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "happogahara_jintei",
+                  "track_display_name": "Happogahara",
+                  "world_name": "Happogahara",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.87,
+              "lng": 139.82,
+              "point_source": "place"
+            },
+            {
+              "name": "紅葉線Momiji Line",
+              "name_zh": "紅葉線",
+              "name_en": "Momiji Line",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "momiji_jintei",
+                  "track_display_name": "Momiji",
+                  "world_name": "Momiji",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "momiji_foxbg",
+                  "track_display_name": "Momiji",
+                  "world_name": "Momiji",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 10,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.93,
+              "lng": 139.8,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "神奈川縣Kanagawa",
+          "name_zh": "神奈川縣",
+          "name_en": "Kanagawa",
+          "localities": [
+            {
+              "name": "箱根Hakone",
+              "name_zh": "箱根",
+              "name_en": "Hakone",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "h_nanamagari_jintei",
+                  "track_display_name": "H-Nanamagari",
+                  "world_name": "H-Nanamagari",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 7,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "hakone_jintei",
+                  "track_display_name": "Hakone",
+                  "world_name": "Hakone",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "mt_hakone_jintei",
+                  "track_display_name": "Mt.Hakone",
+                  "world_name": "Mt.Hakone",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "mt_talkan_jintei",
+                  "track_display_name": "Mt.Talkan",
+                  "world_name": "Mt.Talkan",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nanamagari_jintei",
+                  "track_display_name": "Nanamagari",
+                  "world_name": "Nanamagari",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "odawara_jintei",
+                  "track_display_name": "Odawara",
+                  "world_name": "Odawara",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "賽道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 71,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "tsubaki_jintei",
+                  "track_display_name": "Tsubaki",
+                  "world_name": "Tsubaki",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 35,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.2323,
+              "lng": 139.1069,
+              "point_source": "place"
+            },
+            {
+              "name": "長尾Nagao",
+              "name_zh": "長尾",
+              "name_en": "Nagao",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "nagao_foxbg",
+                  "track_display_name": "Nagao",
+                  "world_name": "Nagao",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.27,
+              "lng": 138.999,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "福岡Fukuoka",
+          "name_zh": "福岡",
+          "name_en": "Fukuoka",
+          "localities": [
+            {
+              "name": "福岡市Fukuoka",
+              "name_zh": "福岡市",
+              "name_en": "Fukuoka",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "fukuoka_jintei",
+                  "track_display_name": "Fukuoka",
+                  "world_name": "Fukuoka",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 33.59,
+              "lng": 130.402,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "群馬Gunma",
+          "name_zh": "群馬",
+          "name_en": "Gunma",
+          "localities": [
+            {
+              "name": "妙義Myogi",
+              "name_zh": "妙義",
+              "name_en": "Myogi",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "myogi_asv_jintei",
+                  "track_display_name": "妙義(妙義ASV)",
+                  "world_name": "Myogi (ASV)",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 2,
+                  "record_count": 53,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "myogi_cc_jintei",
+                  "track_display_name": "妙義環線",
+                  "world_name": "Myogi(CC)",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 2,
+                  "record_count": 10,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.319,
+              "lng": 138.729,
+              "point_source": "place"
+            },
+            {
+              "name": "榛名Haruna",
+              "name_zh": "榛名",
+              "name_en": "Haruna",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "harunag",
+                  "track_display_name": "HarunaG",
+                  "world_name": "HarunaG",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 13,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "akina_jintei",
+                  "track_display_name": "秋名",
+                  "world_name": "Akina",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 61,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "lake_akina_jintei",
+                  "track_display_name": "秋名湖",
+                  "world_name": "Lake Akina",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 2,
+                  "record_count": 11,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "akinaun_jintei",
+                  "track_display_name": "秋名無限",
+                  "world_name": "AkinaUN",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "極困難",
+                  "route_count": 1,
+                  "record_count": 11,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "akina_snow_jintei",
+                  "track_display_name": "秋名雪",
+                  "world_name": "Akina Snow",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.4744,
+              "lng": 138.8487,
+              "point_source": "place"
+            },
+            {
+              "name": "碓冰Usui",
+              "name_zh": "碓冰",
+              "name_en": "Usui",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "usui_v1_jintei",
+                  "track_display_name": "Usui V1",
+                  "world_name": "Usui V1",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 7,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "usui_v2_jintei",
+                  "track_display_name": "Usui V2",
+                  "world_name": "Usui V2",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 2,
+                  "record_count": 9,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "usuidaa_k_a_u_b_e_r_u",
+                  "track_display_name": "碓冰DAA",
+                  "world_name": "UsuiDAA",
+                  "world_url": "https://vrchat.com/home/world/wrld_0c982147-aa72-485a-8e56-139dfdfc30c6/info",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.3417,
+              "lng": 138.632,
+              "point_source": "place"
+            },
+            {
+              "name": "群サイGunsai",
+              "name_zh": "群サイ",
+              "name_en": "Gunsai",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "gunsai_jintei",
+                  "track_display_name": "Gunsai",
+                  "world_name": "Gunsai",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "gunsaicp_jintei",
+                  "track_display_name": "GunsaiCP",
+                  "world_name": "GunsaiCP",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.595,
+              "lng": 138.846,
+              "point_source": "place"
+            },
+            {
+              "name": "赤城Akagi",
+              "name_zh": "赤城",
+              "name_en": "Akagi",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "akagi_jintei",
+                  "track_display_name": "Akagi",
+                  "world_name": "Akagi",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 2,
+                  "record_count": 10,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.5603,
+              "lng": 139.1931,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "茨城Ibaraki",
+          "name_zh": "茨城",
+          "name_en": "Ibaraki",
+          "localities": [
+            {
+              "name": "筑波山Tsukuba",
+              "name_zh": "筑波山",
+              "name_en": "Tsukuba",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "tsukuba_jintei",
+                  "track_display_name": "Tsukuba",
+                  "world_name": "Tsukuba",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 5,
+                  "record_count": 72,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "tsukuba_snow_jintei",
+                  "track_display_name": "Tsukuba Snow",
+                  "world_name": "Tsukuba Snow",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.2254,
+              "lng": 140.1063,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "虛構Fictional",
+          "name_zh": "虛構",
+          "name_en": "Fictional",
+          "localities": [
+            {
+              "name": "神留坂Kamidomarizaka",
+              "name_zh": "神留坂",
+              "name_en": "Kamidomarizaka",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "kamidomarizaka_calme",
+                  "track_display_name": "Kamidomarizaka",
+                  "world_name": "Kamidomarizaka",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 24,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "竜溝山Ryuoukouzan",
+              "name_zh": "竜溝山",
+              "name_en": "Ryuoukouzan",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "ryuoukouzan_calme",
+                  "track_display_name": "Ryuoukouzan",
+                  "world_name": "Ryuoukouzan",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 21,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "筑和山Chikuyasan",
+              "name_zh": "筑和山",
+              "name_en": "Chikuyasan",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "chikuyasan_hi50u",
+                  "track_display_name": "Chikuyasan",
+                  "world_name": "Chikuyasan",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "雙鏡湖Futatsukane",
+              "name_zh": "雙鏡湖",
+              "name_en": "Futatsukane",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "futatsukane",
+                  "track_display_name": "Futatsukane",
+                  "world_name": "Futatsukane",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "公路",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 9,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美國USA",
+      "name_zh": "美國",
+      "name_en": "USA",
+      "regions": [
+        {
+          "name": "內華達Nevada",
+          "name_zh": "內華達",
+          "name_en": "Nevada",
+          "localities": [
+            {
+              "name": "拉斯維加斯Las Vegas",
+              "name_zh": "拉斯維加斯",
+              "name_en": "Las Vegas",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "lasvegas_aiden1408",
+                  "track_display_name": "LasVegas",
+                  "world_name": "LasVegas",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.2724,
+              "lng": -115.0136,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "北卡羅來納North Carolina",
+          "name_zh": "北卡羅來納",
+          "name_en": "North Carolina",
+          "localities": [
+            {
+              "name": "夏洛特Charlotte",
+              "name_zh": "夏洛特",
+              "name_en": "Charlotte",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "charlotte_nascvr",
+                  "track_display_name": "Charlotte",
+                  "world_name": "Charlotte",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.3521,
+              "lng": -80.6831,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "臺灣Taiwan",
+      "name_zh": "臺灣",
+      "name_en": "Taiwan",
+      "regions": [
+        {
+          "name": "東部East",
+          "name_zh": "東部",
+          "name_en": "East",
+          "localities": [
+            {
+              "name": "宜蘭Yilan",
+              "name_zh": "宜蘭",
+              "name_en": "Yilan",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "pt_9t_starriver_arts",
+                  "track_display_name": "九彎十八拐CVS",
+                  "world_name": "PT:9T",
+                  "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 10,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.886,
+              "lng": 121.714,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "虛構Fictional",
+          "name_zh": "虛構",
+          "name_en": "Fictional",
+          "localities": [
+            {
+              "name": "俱樂部主場Club",
+              "name_zh": "俱樂部主場",
+              "name_en": "Club",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "starsight_starriver_arts",
+                  "track_display_name": "觀星山",
+                  "world_name": "StarSight",
+                  "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 61,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 23.55,
+              "lng": 119.3,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "英國UK",
+      "name_zh": "英國",
+      "name_en": "UK",
+      "regions": [
+        {
+          "name": "英格蘭England",
+          "name_zh": "英格蘭",
+          "name_en": "England",
+          "localities": [
+            {
+              "name": "法爾斯通Falstone",
+              "name_zh": "法爾斯通",
+              "name_en": "Falstone",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "falstone_rally",
+                  "track_display_name": "Falstone Rally",
+                  "world_name": "Falstone Rally",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "拉力",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 55.181,
+              "lng": -2.434,
+              "point_source": "place"
+            },
+            {
+              "name": "銀石Silverstone",
+              "name_zh": "銀石",
+              "name_en": "Silverstone",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "silverstone_aiden1408",
+                  "track_display_name": "Silverstone",
+                  "world_name": "Silverstone",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 31,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 52.0786,
+              "lng": -1.0169,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unlocated": [
+    {
+      "track_world_code": "kart_totuka_kaoru",
+      "track_display_name": "@Kart",
+      "world_name": "@Kart",
+      "world_url": "",
+      "system_name": "CVS",
+      "track_env": "卡丁車",
+      "difficulty": "簡單",
+      "route_count": 1,
+      "record_count": 18,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "f1_circuit_fuffyferret",
+      "track_display_name": "F1 Circuit",
+      "world_name": "F1 Circuit",
+      "world_url": "",
+      "system_name": "CVS",
+      "track_env": "賽道",
+      "difficulty": "中等",
+      "route_count": 1,
+      "record_count": 2,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "summit_jintei",
+      "track_display_name": "Summit",
+      "world_name": "Summit",
+      "world_url": "",
+      "system_name": "Sacc",
+      "track_env": "山道",
+      "difficulty": "困難",
+      "route_count": 1,
+      "record_count": 5,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "vr660_kai_kai",
+      "track_display_name": "VR660",
+      "world_name": "VR660",
+      "world_url": "",
+      "system_name": "CVS",
+      "track_env": "",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 1,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "vestoril",
+      "track_display_name": "Vestoril",
+      "world_name": "Vestoril",
+      "world_url": "",
+      "system_name": "CVS",
+      "track_env": "",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 2,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    }
+  ],
+  "warnings": [
+    "kart_totuka_kaoru 的國家/地名只填了一半,先列入未定位",
+    "summit_jintei 的國家/地名只填了一半,先列入未定位"
+  ]
+}

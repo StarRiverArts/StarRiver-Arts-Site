@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Track Map | Time Attack | VR Racing Club | StarRiver Arts</title>
+  <link rel="icon" href="../../../../assets/logos/starriver-primary.png">
+  <link rel="stylesheet" href="../../../../colors_and_type.css">
+  <link rel="stylesheet" href="../../../project-t.css">
+  <link rel="stylesheet" href="../timeattack.css">
+  <link rel="stylesheet" href="../assets/vendor/leaflet/leaflet.css">
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "x5w0rbr4n3");
+</script>
+</head>
+<body class="project-t-page timeattack-page sr-brand-project-t sr-type sr-medium-web" data-view="trackmap" data-base="../">
+  <div class="ta-shell">
+    <header class="ta-topbar">
+      <a class="pt-brand" href="../../../../index.html">
+        <span class="pt-brand-badge">
+          <img src="../../../../assets/logos/starriver-primary.png" alt="StarRiver Arts">
+        </span>
+        <span class="pt-brand-copy">
+          <span class="pt-brand-kicker">RacingClub / TimeAttack</span>
+          <span class="pt-brand-name">VR Racing Club</span>
+        </span>
+      </a>
+      <nav class="ta-topbar-nav" aria-label="Back navigation">
+        <a class="pt-toplink" href="../../">
+          <span class="zh">返回 Racing Club</span>
+          <span class="en">Back to Racing Club</span>
+        </a>
+        <a class="pt-toplink" href="../../../">
+          <span class="zh">返回 Project T</span>
+          <span class="en">Back to Project T</span>
+        </a>
+        <button class="pt-lang" type="button" data-lang-toggle>
+          <span class="zh">EN</span>
+          <span class="en">中文</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="ta-page">
+      <section class="ta-hero">
+        <div class="ta-headline">
+          <div class="pt-kicker">
+            <span class="zh">Racing Club / Time Attack</span>
+            <span class="en">Racing Club / Time Attack</span>
+          </div>
+          <h1 class="ta-title">
+            <span class="zh" data-page-title-zh>賽道地圖</span>
+            <span class="en" data-page-title-en>Track Map</span>
+          </h1>
+          <p class="ta-desc zh" data-page-desc-zh>讀取賽道地理視圖中。</p>
+          <p class="ta-desc en" data-page-desc-en>Loading the geographic track view.</p>
+        </div>
+        <aside class="ta-hero-side">
+          <div class="ta-callout">
+            <div class="ta-label">
+              <span class="zh">顯示優先序</span>
+              <span class="en">Display Priority</span>
+            </div>
+            <p class="ta-meta">
+              <span class="zh">整條路線軌跡 → 地名點位 → 未定位清單。點位掛在地名層，同地多版本共用一顆標記。</span>
+              <span class="en">Full route trace → locality marker → unlocated list. Markers live at the locality level, shared by every variant of the same place.</span>
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <nav class="ta-localnav" aria-label="Time Attack navigation">
+        <a class="ta-navlink" href="../" data-view-link="overview"><span class="zh">總覽</span><span class="en">Overview</span></a>
+        <a class="ta-navlink" href="../tracks.html" data-view-link="tracks"><span class="zh">賽道</span><span class="en">Tracks</span></a>
+        <a class="ta-navlink" href="../players.html" data-view-link="players"><span class="zh">玩家</span><span class="en">Players</span></a>
+        <a class="ta-navlink" href="../vehicles.html" data-view-link="vehicles"><span class="zh">車輛</span><span class="en">Vehicles</span></a>
+        <a class="ta-navlink" href="../events.html" data-view-link="events"><span class="zh">活動</span><span class="en">Events</span></a>
+        <a class="ta-navlink" href="./" data-view-link="trackmap"><span class="zh">地圖</span><span class="en">Map</span></a>
+        <a class="ta-navlink" href="../catalog.html" data-view-link="catalog"><span class="zh">索引</span><span class="en">Index</span></a>
+        <a class="ta-navlink" href="../info.html" data-view-link="info"><span class="zh">資訊</span><span class="en">Info</span></a>
+      </nav>
+
+      <div class="ta-layout">
+        <aside class="ta-sidebar">
+          <section class="ta-sidebar-card">
+            <div class="ta-label"><span class="zh">目前頁面</span><span class="en">Current View</span></div>
+            <h2><span class="zh" data-sidebar-view-zh>賽道地圖</span><span class="en" data-sidebar-view-en>Track Map</span></h2>
+            <div data-sidebar-list class="ta-empty">Loading notes.</div>
+          </section>
+        </aside>
+
+        <section class="ta-main">
+          <div data-page-root class="ta-empty">Loading page modules.</div>
+        </section>
+      </div>
+
+      <footer class="ta-footer">
+        <span>trackmap</span>
+        <span>earth → country → region → locality</span>
+        <span>json-fed page</span>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../project-t.js"></script>
+  <script src="../assets/vendor/leaflet/leaflet.js"></script>
+  <script src="./trackmap-view.js"></script>
+  <script src="../timeattack.js"></script>
+</body>
+</html>
