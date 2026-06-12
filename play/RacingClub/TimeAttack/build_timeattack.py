@@ -20,6 +20,7 @@ ROUTE_FILE_MAP = {
     "catalog": "catalog.json",
     "info": "info.json",
     "review": "review.json",
+    "trackmap": "trackmap.json",
 }
 WORKSPACE_ROOT = Path(__file__).resolve().parents[5]
 LEGACY_RECORDS_CANDIDATE = WORKSPACE_ROOT / "VR_RacingClubTW" / "time_attack_tool" / "out_manual_check" / "records.json"
@@ -712,6 +713,23 @@ def load_sqlite_data(
             }
         )
 
+    # TrackMap geo layers. Older DBs may not have these tables yet (Phase A
+    # ships before the editor migration) — treat a missing table as empty.
+    try:
+        geo_places = {
+            (row["country"], row["region"], row["locality"]): dict(row)
+            for row in conn.execute("SELECT * FROM geo_places")
+        }
+    except sqlite3.OperationalError:
+        geo_places = {}
+    try:
+        geo_traces = {
+            row["track_world_code"]: row["trace_geojson"]
+            for row in conn.execute("SELECT * FROM geo_traces")
+        }
+    except sqlite3.OperationalError:
+        geo_traces = {}
+
     conn.close()
     lookup = {
         "track_worlds": track_worlds,
@@ -720,6 +738,8 @@ def load_sqlite_data(
         "vehicle_variants": vehicle_variants,
         "vehicle_models": vehicle_models,
         "events": events,
+        "geo_places": geo_places,
+        "geo_traces": geo_traces,
     }
     return records, lookup, {"review_cards": []}
 
@@ -1238,6 +1258,9 @@ def build_track_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -> 
             "track_shape": track.get("track_shape") or "",
             "track_distance": track.get("track_distance") or "",
             "difficulty": track.get("difficulty") or "",
+            "country": track.get("country") or "",
+            "region": track.get("region") or "",
+            "locality": track.get("locality") or "",
             "tech_tags": tech_tags,
             "routes": route_boards,
         })
@@ -1880,6 +1903,225 @@ def build_review_pages(records: list[dict[str, Any]], extra_review_cards: list[d
     }
 
 
+TRACKMAP_GEO_DIR = "geo"
+TRACKMAP_POSTER_DIR = Path(__file__).resolve().parent / "assets" / "trackmap"
+TRACKMAP_POSTER_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def split_bilingual(value: str) -> tuple[str, str]:
+    """'日本Japan' -> ('日本', 'Japan'); pure-ASCII value -> (value, value)."""
+    value = (value or "").strip()
+    if not value:
+        return "", ""
+    idx = 0
+    while idx < len(value) and ord(value[idx]) > 127:
+        idx += 1
+    if idx == 0 or idx == len(value):
+        return value, value
+    return value[:idx].strip(), value[idx:].strip()
+
+
+def trace_midpoint(trace: dict[str, Any]) -> tuple[float, float] | None:
+    """Marker anchor for a traced track: midpoint of its longest LineString, as (lat, lng)."""
+    best: list[Any] = []
+    for feature in trace.get("features") or []:
+        geometry = (feature or {}).get("geometry") or {}
+        if geometry.get("type") == "LineString":
+            lines = [geometry.get("coordinates") or []]
+        elif geometry.get("type") == "MultiLineString":
+            lines = geometry.get("coordinates") or []
+        else:
+            continue
+        for line in lines:
+            if len(line) > len(best):
+                best = line
+    if len(best) < 2:
+        return None
+    lng, lat = best[len(best) // 2][:2]
+    return float(lat), float(lng)
+
+
+def build_trackmap(
+    records: list[dict[str, Any]], lookup: dict[str, Any], output_dir: Path,
+) -> dict[str, Any]:
+    """country → region → locality → tracks 樹 + 點位/軌跡。
+
+    顯示優先序:軌跡(整條線)→ 地名點位 → 未定位清單。
+    同時把每條軌跡輸出成 data/geo/<code>.geojson 供前端懶載,並清掉孤兒檔。
+    """
+    general_pool = [record for record in records if record["is_general_pool"]]
+    run_counts = Counter(record["track_world_code"] for record in general_pool)
+    route_counts: dict[str, set] = defaultdict(set)
+    for record in general_pool:
+        route_counts[record["track_world_code"]].add(record["route_key"])
+
+    geo_places: dict[tuple, dict[str, Any]] = lookup.get("geo_places") or {}
+    warnings: list[str] = []
+
+    traces: dict[str, dict[str, Any]] = {}
+    for code, raw in (lookup.get("geo_traces") or {}).items():
+        if code not in lookup["track_worlds"]:
+            warnings.append(f"geo_traces 孤兒列:{code} 不在 track_worlds")
+            continue
+        try:
+            traces[code] = json.loads(raw)
+        except (json.JSONDecodeError, TypeError):
+            warnings.append(f"geo_traces 解析失敗:{code}")
+
+    geo_dir = output_dir / TRACKMAP_GEO_DIR
+    geo_dir.mkdir(parents=True, exist_ok=True)
+    for stale in geo_dir.glob("*.geojson"):
+        if stale.stem not in traces:
+            stale.unlink()
+    for code, parsed in traces.items():
+        (geo_dir / f"{code}.geojson").write_text(
+            json.dumps(parsed, ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+
+    posters: dict[str, str] = {}
+    if TRACKMAP_POSTER_DIR.exists():
+        for poster in sorted(TRACKMAP_POSTER_DIR.iterdir()):
+            if poster.suffix.lower() in TRACKMAP_POSTER_EXTS:
+                posters.setdefault(poster.stem, poster.suffix.lower().lstrip("."))
+
+    def track_card(track: dict[str, Any]) -> dict[str, Any]:
+        code = track["track_world_code"]
+        card = {
+            "track_world_code": code,
+            "track_display_name": track["track_display_name"],
+            "world_name": track.get("world_name") or "",
+            "world_url": track.get("world_url") or "",
+            "system_name": track.get("system_name") or "",
+            "track_env": track.get("track_env") or "",
+            "difficulty": track.get("difficulty") or "",
+            "route_count": len(route_counts.get(code, ())),
+            "record_count": run_counts.get(code, 0),
+            "has_trace": code in traces,
+            "has_poster": code in posters,
+            "poster_ext": posters.get(code),
+        }
+        if code in traces:
+            midpoint = trace_midpoint(traces[code])
+            if midpoint:
+                card["trace_lat"], card["trace_lng"] = midpoint
+            card["trace_file"] = f"{TRACKMAP_GEO_DIR}/{code}.geojson"
+        return card
+
+    # 分組:country → region → locality
+    grouped: dict[str, dict[str, dict[tuple, list[dict[str, Any]]]]] = {}
+    unlocated: list[dict[str, Any]] = []
+    used_triples: set[tuple] = set()
+    for code, track in sorted(
+        lookup["track_worlds"].items(),
+        key=lambda item: item[1]["track_display_name"],
+    ):
+        country = (track.get("country") or "").strip()
+        region = (track.get("region") or "").strip()
+        locality = (track.get("locality") or "").strip()
+        if not country or not locality:
+            if country or locality:
+                warnings.append(f"{code} 的國家/地名只填了一半,先列入未定位")
+            unlocated.append(track_card(track))
+            continue
+        used_triples.add((country, region, locality))
+        grouped.setdefault(country, {}).setdefault(region, {}).setdefault(
+            (country, region, locality), []).append(track_card(track))
+
+    for triple in geo_places:
+        if triple not in used_triples:
+            warnings.append(
+                "geo_places 孤兒列(無賽道引用):" + " / ".join(filter(None, triple)))
+
+    countries = []
+    for country_name in sorted(grouped):
+        zh, en = split_bilingual(country_name)
+        regions = []
+        for region_name in sorted(grouped[country_name]):
+            rzh, ren = split_bilingual(region_name)
+            localities = []
+            for triple, cards in sorted(
+                grouped[country_name][region_name].items(), key=lambda item: item[0][2],
+            ):
+                lzh, len_ = split_bilingual(triple[2])
+                place = geo_places.get(triple) or {}
+                lat, lng = place.get("latitude"), place.get("longitude")
+                point_source = "place"
+                if lat is None or lng is None:
+                    # 點位 fallback:地名沒填座標時,借用成員軌跡的中點。
+                    lat = lng = None
+                    point_source = ""
+                    for card in cards:
+                        if "trace_lat" in card:
+                            lat, lng = card["trace_lat"], card["trace_lng"]
+                            point_source = "trace"
+                            break
+                locality_node = {
+                    "name": triple[2], "name_zh": lzh, "name_en": len_,
+                    "has_point": lat is not None and lng is not None,
+                    "tracks": cards,
+                }
+                if locality_node["has_point"]:
+                    locality_node["lat"] = lat
+                    locality_node["lng"] = lng
+                    locality_node["point_source"] = point_source
+                localities.append(locality_node)
+            regions.append({
+                "name": region_name, "name_zh": rzh, "name_en": ren,
+                "localities": localities,
+            })
+        countries.append({
+            "name": country_name, "name_zh": zh, "name_en": en,
+            "regions": regions,
+        })
+
+    located_tracks = sum(
+        len(loc["tracks"])
+        for country in countries for region in country["regions"]
+        for loc in region["localities"]
+    )
+    pointed_places = sum(
+        1 for country in countries for region in country["regions"]
+        for loc in region["localities"] if loc["has_point"]
+    )
+    for warning in warnings:
+        print(f"[trackmap] WARNING: {warning}")
+
+    return {
+        "title_zh": "賽道地圖",
+        "title_en": "Track Map",
+        "description_zh": "依 國家 → 區域 → 地名 下鑽的賽道地理視圖。有整條路線軌跡的賽道直接畫線,其餘以地名點位標示;虛構與未定位世界列在側欄清單。",
+        "description_en": "Geographic view of every track world: country → region → locality. Tracks with a drawn route render the full line; others fall back to a locality marker. Fictional or unlocated worlds stay in the sidebar list.",
+        "sidebar_zh": [
+            "顯示優先序:整條軌跡 → 地名點位 → 未定位清單。",
+            "點位掛在「地名」層:同一地點的多個賽道版本共用一顆標記。",
+            "資料在登錄工具「索引編輯 → 地理點位 / 路線軌跡」維護,重建 JSON 後生效。",
+        ],
+        "sidebar_en": [
+            "Display priority: full route trace, then locality marker, then the unlocated list.",
+            "Markers live at the locality level — track variants of the same place share one marker.",
+            "Edit geo data in the record tool (Index Edit → Geo Points / Route Traces), then rebuild JSON.",
+        ],
+        "metric_cards": [
+            {"label_zh": "已定位賽道", "label_en": "Located Tracks",
+             "value": str(located_tracks),
+             "note_zh": "已掛在地圖樹上的賽道世界", "note_en": "Track worlds placed in the map tree"},
+            {"label_zh": "地點", "label_en": "Places",
+             "value": str(pointed_places),
+             "note_zh": "有座標可上圖的地名", "note_en": "Localities with map coordinates"},
+            {"label_zh": "路線軌跡", "label_en": "Route Traces",
+             "value": str(len(traces)),
+             "note_zh": "已畫整條線的賽道", "note_en": "Tracks with a full drawn route"},
+            {"label_zh": "未定位", "label_en": "Unlocated",
+             "value": str(len(unlocated)),
+             "note_zh": "虛構或尚未標地理位置的世界", "note_en": "Fictional or not-yet-tagged worlds"},
+        ],
+        "countries": countries,
+        "unlocated": unlocated,
+        "warnings": warnings,
+    }
+
+
 def build_all(args: argparse.Namespace) -> None:
     _, records, lookup, extras, source_label = resolve_source(args)
     compute_delta_text(records)
@@ -1893,6 +2135,7 @@ def build_all(args: argparse.Namespace) -> None:
     catalog = build_catalog_pages(records, lookup)
     info = build_info_page(records, lookup, source_label, extras.get("review_cards"))
     review = build_review_pages(records, extras.get("review_cards"))
+    trackmap = build_trackmap(records, lookup, args.output_dir)
 
     write_json(args.output_dir / ROUTE_FILE_MAP["overview"], summary)
     write_json(args.output_dir / ROUTE_FILE_MAP["tracks"], tracks)
@@ -1902,6 +2145,7 @@ def build_all(args: argparse.Namespace) -> None:
     write_json(args.output_dir / ROUTE_FILE_MAP["catalog"], catalog)
     write_json(args.output_dir / ROUTE_FILE_MAP["info"], info)
     write_json(args.output_dir / ROUTE_FILE_MAP["review"], review)
+    write_json(args.output_dir / ROUTE_FILE_MAP["trackmap"], trackmap)
     write_json(args.output_dir / "manifest.json", manifest)
 
 

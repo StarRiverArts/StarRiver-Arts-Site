@@ -1892,3 +1892,267 @@ body.timeattack-page {
   outline: none;
   border-color: var(--ta-accent);
 }
+
+/* ── TrackMap（賽道地圖）───────────────────────────────────────── */
+
+.ta-trackmap-layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  align-items: start;
+}
+
+.ta-trackmap-nomap .ta-trackmap-layout {
+  grid-template-columns: 1fr;
+}
+
+.ta-trackmap-nomap .ta-tm-mapcol {
+  display: none;
+}
+
+.ta-tm-side {
+  background: var(--ta-card);
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  padding: 14px;
+  max-height: min(72vh, 680px);
+  overflow-y: auto;
+}
+
+.ta-tm-country > summary,
+.ta-tm-region > summary,
+.ta-tm-loc > summary {
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.ta-tm-country > summary::-webkit-details-marker,
+.ta-tm-region > summary::-webkit-details-marker,
+.ta-tm-loc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ta-tm-country > summary:hover,
+.ta-tm-region > summary:hover,
+.ta-tm-loc > summary:hover {
+  background: var(--ta-card-soft);
+}
+
+.ta-tm-country > summary {
+  color: var(--ta-text-strong);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ta-tm-region {
+  margin-left: 10px;
+}
+
+.ta-tm-region > summary {
+  color: var(--ta-text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ta-tm-loc {
+  margin-left: 20px;
+  border-left: 1px solid var(--ta-border);
+  padding-left: 8px;
+}
+
+.ta-tm-loc > summary {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ta-tm-loc-name {
+  flex: 1;
+}
+
+.ta-tm-count {
+  background: var(--ta-card-strong);
+  border-radius: 999px;
+  color: var(--ta-text-soft);
+  font-size: 11px;
+  min-width: 22px;
+  padding: 1px 7px;
+  text-align: center;
+}
+
+.ta-tm-nopoint {
+  color: var(--ta-text-faint);
+  font-size: 11px;
+}
+
+.ta-tm-tracks {
+  list-style: none;
+  margin: 4px 0 8px;
+  padding: 0;
+}
+
+.ta-tm-track {
+  border-bottom: 1px dashed var(--ta-border);
+  padding: 8px 4px;
+}
+
+.ta-tm-track:last-child {
+  border-bottom: none;
+}
+
+.ta-tm-track-head {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.ta-tm-track-name {
+  color: var(--ta-text-strong);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ta-tm-tag {
+  background: rgba(239, 217, 91, 0.16);
+  border: 1px solid rgba(239, 217, 91, 0.5);
+  border-radius: 999px;
+  color: var(--ta-accent);
+  font-size: 10px;
+  padding: 1px 8px;
+}
+
+.ta-tm-track-meta {
+  color: var(--ta-text-faint);
+  font-size: 11px;
+  margin: 3px 0 6px;
+}
+
+.ta-tm-track-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ta-tm-btn {
+  background: var(--ta-card-strong);
+  border: 1px solid var(--ta-border);
+  border-radius: 6px;
+  color: var(--ta-text);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 9px;
+  text-decoration: none;
+}
+
+.ta-tm-btn:hover {
+  border-color: var(--ta-accent);
+  color: var(--ta-accent);
+}
+
+.ta-tm-btn-trace {
+  border-color: rgba(239, 217, 91, 0.5);
+}
+
+.ta-tm-unlocated {
+  background: var(--ta-card);
+  border: 1px dashed var(--ta-border-strong);
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 12px 14px;
+}
+
+.ta-tm-unlocated h3 {
+  color: var(--ta-text-soft);
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+.ta-tm-mapcol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ta-tm-breadcrumb {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ta-tm-crumb {
+  color: var(--ta-text-soft);
+  font-size: 12px;
+}
+
+.ta-tm-crumb-sep {
+  color: var(--ta-text-faint);
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+#ta-map {
+  background: var(--ta-bg);
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  box-shadow: var(--ta-shadow-soft);
+  height: min(70vh, 640px);
+  width: 100%;
+  z-index: 1;
+}
+
+.ta-map-marker {
+  align-items: center;
+  background: var(--ta-accent);
+  border: 2px solid rgba(20, 27, 25, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  color: var(--ta-accent-ink);
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.ta-tm-leaflet-popup .leaflet-popup-content-wrapper {
+  background: var(--ta-card);
+  border: 1px solid var(--ta-border-strong);
+  border-radius: 10px;
+  color: var(--ta-text);
+}
+
+.ta-tm-leaflet-popup .leaflet-popup-tip {
+  background: var(--ta-card);
+}
+
+.ta-tm-popup h3 {
+  color: var(--ta-text-strong);
+  font-size: 14px;
+  margin: 0 0 2px;
+}
+
+.ta-tm-popup-path {
+  color: var(--ta-text-faint);
+  font-size: 11px;
+  margin: 0 0 6px;
+}
+
+@media (max-width: 860px) {
+  .ta-trackmap-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ta-tm-side {
+    max-height: none;
+  }
+
+  #ta-map {
+    height: 60vh;
+  }
+}

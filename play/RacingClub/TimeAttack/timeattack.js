@@ -43,6 +43,10 @@ const TA_ROUTE_LABELS = {
     zh: "審核",
     en: "Review",
   },
+  trackmap: {
+    zh: "賽道地圖",
+    en: "Track Map",
+  },
 };
 
 const ENABLE_HISTORY_CHARTS = false;
@@ -1430,6 +1434,14 @@ const renderPageModules = (view, data) => {
     return renderTrackDetail(data, getQueryParam("id"), getQueryParam("route"));
   }
 
+  if (view === "trackmap") {
+    // Map/tree rendering lives in TrackMap/trackmap-view.js (initTrackMap),
+    // invoked after this shell lands in the DOM.
+    return [renderPageSnapshot(data.metric_cards), '<div data-trackmap-root class="ta-empty">Loading map view.</div>']
+      .filter(Boolean)
+      .join("");
+  }
+
   if (view === "players") {
     const listHtml = Array.isArray(data.player_cards) && data.player_cards.length
       ? renderPlayerList(data)
@@ -1507,16 +1519,19 @@ const loadJson = async (url) => {
 
 const initTimeAttack = async () => {
   const view = document.body.dataset.view || "overview";
+  // Pages living one directory deeper (TrackMap/) set data-base="../" so the
+  // shared data/ fetches still resolve; default "./" keeps every flat page as-is.
+  const base = document.body.dataset.base || "./";
   const labels = TA_ROUTE_LABELS[view] || TA_ROUTE_LABELS.overview;
   activateNav(view);
 
   try {
-    const manifest = await loadJson("./data/manifest.json");
+    const manifest = await loadJson(`${base}data/manifest.json`);
     // Detail views are fed by the same list artifact (track→tracks, player→players, vehicle→vehicles).
     const DETAIL_DATA_KEY = { track: "tracks", player: "players", vehicle: "vehicles" };
     const dataKey = DETAIL_DATA_KEY[view] || view;
-    const summaryPromise = loadJson(`./data/${manifest.routes.overview}`);
-    const pagePromise = view === "overview" ? summaryPromise : loadJson(`./data/${manifest.routes[dataKey]}`);
+    const summaryPromise = loadJson(`${base}data/${manifest.routes.overview}`);
+    const pagePromise = view === "overview" ? summaryPromise : loadJson(`${base}data/${manifest.routes[dataKey]}`);
     const [summary, pageData] = await Promise.all([summaryPromise, pagePromise]);
 
     const pageTitle = pageData.title_zh || labels.zh;
@@ -1541,6 +1556,9 @@ const initTimeAttack = async () => {
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "track") attachBoardToggleListeners();
     if (view === "track" || view === "player" || view === "vehicle") attachDetailSwitchListeners();
+    if (view === "trackmap" && typeof window.initTrackMap === "function") {
+      window.initTrackMap(pageData, base);
+    }
     setHtml(
       "[data-sidebar-list]",
       `
