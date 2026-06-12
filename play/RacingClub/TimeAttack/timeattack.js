@@ -68,6 +68,12 @@ const renderBilingual = (zh, en) => `
   <span class="en">${escapeHtml(en || "")}</span>
 `;
 
+// 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
+const taPlayerHref = (row) => (row && row.player_id ? `./player.html?id=${encodeURIComponent(row.player_id)}` : "");
+const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}` : "");
+const taEntityLink = (name, href) =>
+  href ? `<a class="ta-entity-link" href="${href}">${escapeHtml(name || "")}</a>` : escapeHtml(name || "");
+
 const renderCardLink = (href, labelZh, labelEn) => {
   if (!href) {
     return "";
@@ -313,15 +319,19 @@ const renderTrackLeaderboardTable = (rows, view) => {
           ${rows
             .map((row) => {
               const primary =
-                view === "vehicle" ? row.vehicle_model_name || "" : row.player_display_name || "";
+                view === "vehicle"
+                  ? taEntityLink(row.vehicle_model_name, taVehicleHref(row))
+                  : taEntityLink(row.player_display_name, taPlayerHref(row));
               const peer =
-                view === "vehicle" ? row.player_display_name || "" : row.vehicle_model_name || "";
+                view === "vehicle"
+                  ? taEntityLink(row.player_display_name, taPlayerHref(row))
+                  : taEntityLink(row.vehicle_model_name, taVehicleHref(row));
               return `
                 <tr class="ta-record-row${row.rank === 1 ? " is-leader" : ""}" data-plat="${escapeHtml(row.platform || "")}">
                   <td class="ta-record-rank">${escapeHtml(row.rank)}</td>
                   <td>
                     <div class="ta-record-primary">
-                      <strong>${escapeHtml(primary)}</strong>
+                      <strong>${primary}</strong>
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
@@ -330,7 +340,7 @@ const renderTrackLeaderboardTable = (rows, view) => {
                       ${renderRouteTagChips(row)}
                     </div>
                   </td>
-                  <td class="ta-record-peer">${escapeHtml(peer)}</td>
+                  <td class="ta-record-peer">${peer}</td>
                   <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
                   <td class="ta-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
                   <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
@@ -358,8 +368,8 @@ const renderTrackRouteCard = (board, route) => {
           <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("目前最快", "Fastest Now")}</span></span>
         </div>
         <div class="ta-fastest-main">
-          <strong>${escapeHtml(fastest.player_display_name || "")}</strong>
-          <span>${escapeHtml(fastest.vehicle_model_name || "")}</span>
+          <strong>${taEntityLink(fastest.player_display_name, taPlayerHref(fastest))}</strong>
+          <span>${taEntityLink(fastest.vehicle_model_name, taVehicleHref(fastest))}</span>
         </div>
         <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
       </div>
@@ -976,7 +986,11 @@ const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => 
                       ${renderRouteTagChips(row)}
                     </div>
                   </td>
-                  <td class="ta-profile-record-peer">${escapeHtml(row[peerField] || "")}</td>
+                  <td class="ta-profile-record-peer">${
+                    peerField === "player_display_name"
+                      ? taEntityLink(row.player_display_name, taPlayerHref(row))
+                      : taEntityLink(row.vehicle_model_name, taVehicleHref(row))
+                  }</td>
                   <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
                   <td class="ta-profile-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
                   <td class="ta-profile-record-badge">${renderRecordBadge(row)}</td>
@@ -1391,8 +1405,8 @@ const renderRecentRuns = (rows) => {
                 <tr class="ta-record-row" data-plat="${escapeHtml(row.platform || "")}">
                   <td class="ta-record-gap">${escapeHtml(row.record_date || "")}</td>
                   <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
-                  <td>${escapeHtml(row.player_display_name || "")}</td>
-                  <td class="ta-record-peer">${escapeHtml(row.vehicle_model_name || "")}</td>
+                  <td>${taEntityLink(row.player_display_name, taPlayerHref(row))}</td>
+                  <td class="ta-record-peer">${taEntityLink(row.vehicle_model_name, taVehicleHref(row))}</td>
                   <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}${row.verified ? ` <span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓</span>` : ""}</td>
                   <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
                 </tr>`,
