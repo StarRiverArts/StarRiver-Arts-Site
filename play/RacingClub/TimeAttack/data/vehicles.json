@@ -4560,6 +4560,183 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_gc8_attack",
+      "title": "GC8-Attack",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "10"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "2"
+        }
+      ],
+      "badge_counts": {
+        "TR": 2,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "熱門車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 Lolidia",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8-Attack",
+          "value": 10
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Lolidia",
+          "value": 3
+        },
+        {
+          "label": "daisukilian",
+          "value": 3
+        },
+        {
+          "label": "夜者",
+          "value": 1
+        },
+        {
+          "label": "菲娜 希琉絲",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Ryuoukouzan / Downhill",
+          "route_label_en": "Ryuoukouzan / Downhill",
+          "player_display_name": "Lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 103689,
+          "lap_time_text": "01:43.689",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-03-30",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Kamidomarizaka / Uphill",
+          "route_label_en": "Kamidomarizaka / Uphill",
+          "player_display_name": "daisukilian",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 113958,
+          "lap_time_text": "01:53.958",
+          "delta_to_best_text": "+4.214",
+          "platform": "pcvr",
+          "record_date": "2026-06-07",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "daisukilian",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "Lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 195133,
+          "lap_time_text": "03:15.133",
+          "delta_to_best_text": "+60.012",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 4,
+          "route_label_zh": "Futatsukane / Counter-Clockwise",
+          "route_label_en": "Futatsukane / Counter-Clockwise",
+          "player_display_name": "Lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 249011,
+          "lap_time_text": "04:09.011",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_gt86_zn6_v2",
       "title": "GT86/ZN6 V2",
       "vehicle_class": "Sports Car",
@@ -4683,183 +4860,6 @@
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
           "badge_tone": "cr"
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_gc8_attack",
-      "title": "GC8-Attack",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "AWD",
-      "popularity_bucket_key": "active",
-      "popularity_bucket_zh": "活躍車種",
-      "popularity_bucket_en": "Active Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "9"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "2"
-        }
-      ],
-      "badge_counts": {
-        "TR": 2,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "活躍車種",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 AWD",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 Lolidia",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "GC8-Attack",
-          "value": 9
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "Lolidia",
-          "value": 3
-        },
-        {
-          "label": "daisukilian",
-          "value": 3
-        },
-        {
-          "label": "夜者",
-          "value": 1
-        },
-        {
-          "label": "菲娜 希琉絲",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Ryuoukouzan / Downhill",
-          "route_label_en": "Ryuoukouzan / Downhill",
-          "player_display_name": "Lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 103689,
-          "lap_time_text": "01:43.689",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-03-30",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "Kamidomarizaka / Uphill",
-          "route_label_en": "Kamidomarizaka / Uphill",
-          "player_display_name": "daisukilian",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 113958,
-          "lap_time_text": "01:53.958",
-          "delta_to_best_text": "+4.214",
-          "platform": "pcvr",
-          "record_date": "2026-06-07",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "daisukilian",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "Lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 195133,
-          "lap_time_text": "03:15.133",
-          "delta_to_best_text": "+60.012",
-          "platform": "pcvr",
-          "record_date": "2026-06-11",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 4,
-          "route_label_zh": "Futatsukane / Counter-Clockwise",
-          "route_label_en": "Futatsukane / Counter-Clockwise",
-          "player_display_name": "Lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "lap_time_ms": 249011,
-          "lap_time_text": "04:09.011",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-06-11",
-          "track_env": "公路",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
         }
       ]
     },

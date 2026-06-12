@@ -5992,7 +5992,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "11"
+          "value": "12"
         },
         {
           "label_zh": "已驗證",
@@ -6007,13 +6007,13 @@
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "2"
+          "value": "1"
         }
       ],
       "badge_counts": {
         "TR": 4,
-        "CR": 2,
-        "PR": 0
+        "CR": 1,
+        "PR": 1
       },
       "tag_chips": [
         {
@@ -6054,19 +6054,19 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 5
+          "value": 6
         },
         {
           "label": "隧道",
           "value": 2
         },
         {
-          "label": "上下山",
+          "label": "髮夾彎",
           "value": 2
         },
         {
-          "label": "髮夾彎",
-          "value": 1
+          "label": "上下山",
+          "value": 2
         }
       ],
       "record_rows": [
@@ -6141,24 +6141,24 @@
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "CannedCarbon",
-          "vehicle_model_name": "GTR34-Attack",
-          "lap_time_ms": 201787,
-          "lap_time_text": "03:21.787",
-          "delta_to_best_text": "+66.666",
+          "vehicle_model_name": "GC8-Attack",
+          "lap_time_ms": 196973,
+          "lap_time_text": "03:16.973",
+          "delta_to_best_text": "+61.852",
           "platform": "pc",
-          "record_date": "2026-06-06",
+          "record_date": "2026-06-12",
           "track_env": "山道",
           "track_tags": [
             "高速",
             "髮夾彎"
           ],
-          "peer_label": "GTR34-Attack",
+          "peer_label": "GC8-Attack",
           "verified": false,
           "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
         },
         {
           "rank": 5,
@@ -6270,6 +6270,27 @@
               "lap_time_text": "01:28.827",
               "vehicle": "Macchiato",
               "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "kamidomarizaka_calme:DH",
+          "route_label": "Kamidomarizaka / Downhill",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-06-06",
+              "lap_time_ms": 201787,
+              "lap_time_text": "03:21.787",
+              "vehicle": "GTR34-Attack",
+              "is_pb": true
+            },
+            {
+              "date": "2026-06-12",
+              "lap_time_ms": 196973,
+              "lap_time_text": "03:16.973",
+              "vehicle": "GC8-Attack",
+              "is_pb": true
             }
           ]
         }
