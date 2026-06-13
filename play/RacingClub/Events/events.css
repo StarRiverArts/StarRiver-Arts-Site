@@ -111,7 +111,8 @@
 .ev-series-head h3 { color: var(--ta-text-strong); font-size: 16px; margin: 0; }
 .ev-series-progress { color: var(--ta-accent); font-family: var(--font-mono); font-size: 13px; }
 .ev-series-line { color: var(--ta-text-soft); font-size: 13px; }
-.ev-series-standings { color: var(--ta-text-faint); display: grid; font-size: 12px; gap: 2px; margin: 4px 0; }
+.ev-series-standings { color: var(--ta-text-faint); display: grid; font-size: 12px; gap: 8px; margin: 6px 0; }
+.ev-series-honor { align-items: center; display: flex; gap: 10px; }
 .ev-series-card .ta-tm-btn { justify-self: start; margin-top: 4px; }
 
 /* event detail */
@@ -121,6 +122,108 @@
 .ev-meta-k { color: var(--ta-text-faint); font-size: 11px; }
 .ev-match { margin-bottom: 16px; }
 .ev-match-head { color: var(--ta-text-soft); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.ev-honor-shell { display: grid; gap: 10px; margin-top: 16px; }
+.ev-honor-strip { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.ev-honor-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.18));
+  border: 1px solid var(--ta-border);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: grid;
+  gap: 10px;
+  min-height: 124px;
+  padding: 14px;
+}
+.ev-honor-card.is-rank-1 { border-color: rgba(241, 194, 80, 0.75); }
+.ev-honor-card.is-rank-2 { border-color: rgba(178, 190, 205, 0.72); }
+.ev-honor-card.is-rank-3 { border-color: rgba(181, 120, 79, 0.72); }
+.ev-honor-card.is-rank-4 { border-color: rgba(86, 167, 186, 0.58); }
+.ev-honor-name { color: var(--ta-text-strong); font-size: 16px; font-weight: 800; }
+.ev-honor-name .ta-entity-link { color: inherit; }
+.ev-honor-meta { color: var(--ta-text-soft); font-size: 12px; }
+.ev-honor-badge {
+  --honor-border: rgba(135, 151, 170, 0.5);
+  --honor-ink: #d9e5f7;
+  --honor-bg: rgba(83, 95, 117, 0.24);
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), var(--honor-bg));
+  border: 1px solid var(--honor-border);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: var(--honor-ink);
+  display: inline-flex;
+  gap: 10px;
+  padding: 6px 12px 6px 8px;
+  width: fit-content;
+}
+.ev-honor-badge.is-rank-1 {
+  --honor-border: rgba(241, 194, 80, 0.78);
+  --honor-ink: #ffd36b;
+  --honor-bg: rgba(129, 93, 22, 0.34);
+}
+.ev-honor-badge.is-rank-2 {
+  --honor-border: rgba(188, 199, 214, 0.75);
+  --honor-ink: #e0e7f1;
+  --honor-bg: rgba(84, 94, 109, 0.34);
+}
+.ev-honor-badge.is-rank-3 {
+  --honor-border: rgba(186, 121, 78, 0.78);
+  --honor-ink: #f0b287;
+  --honor-bg: rgba(105, 56, 28, 0.34);
+}
+.ev-honor-badge.is-rank-4 {
+  --honor-border: rgba(86, 167, 186, 0.72);
+  --honor-ink: #89d6ea;
+  --honor-bg: rgba(23, 74, 89, 0.34);
+}
+.ev-honor-badge.is-compact {
+  font-size: 11px;
+  gap: 8px;
+  min-width: 112px;
+  padding: 4px 10px 4px 6px;
+}
+.ev-honor-mark {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 16px;
+  height: 28px;
+  justify-content: center;
+  line-height: 1;
+  width: 28px;
+}
+.ev-honor-copy { display: grid; gap: 1px; }
+.ev-honor-title {
+  color: inherit;
+  display: grid;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.ev-honor-rank {
+  color: rgba(255, 255, 255, 0.68);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ev-rank-cell { min-width: 118px; }
+.ev-rank-number {
+  color: var(--ta-text-soft);
+  display: inline-block;
+  font-family: var(--font-mono);
+  min-width: 24px;
+}
+.ev-place-row.is-rank-1 { background: rgba(241, 194, 80, 0.12); }
+.ev-place-row.is-rank-2 { background: rgba(188, 199, 214, 0.09); }
+.ev-place-row.is-rank-3 { background: rgba(186, 121, 78, 0.1); }
+.ev-place-row.is-rank-4 { background: rgba(86, 167, 186, 0.08); }
 
 /* quick links */
 .ev-quick { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -129,6 +232,8 @@
   .ev-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ev-cal-row { grid-template-columns: 72px 1fr; }
   .ev-cal-meta { display: none; }
+  .ev-honor-strip { grid-template-columns: 1fr; }
+  .ev-rank-cell { min-width: 94px; }
 }
 
 /* entity detail stat chips */

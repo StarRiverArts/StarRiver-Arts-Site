@@ -46,6 +46,74 @@
   const statusChip = (e) => `<span class="ev-chip ev-status-${esc(e.status)}">${bi(e.status_label_zh, e.status_label_en)}</span>`;
   const pointsChip = (e) => e.is_points_event ? `<span class="ev-chip ev-chip-points">${bi("積分", "Points")}</span>` : "";
   const playerLink = (id, name) => id ? `<a class="ta-entity-link" href="./players.html?id=${encodeURIComponent(id)}">${esc(name || id)}</a>` : esc(name || "");
+  const HONOR_SPECS = {
+    1: { icon: "♛", zh: "冠軍", en: "Champion" },
+    2: { icon: "✦", zh: "亞軍", en: "Runner-up" },
+    3: { icon: "▲", zh: "季軍", en: "Third Place" },
+    4: { icon: "◆", zh: "殿軍", en: "Fourth Place" },
+  };
+  const honorSpec = (rank) => HONOR_SPECS[Number(rank)] || null;
+  const honorBadge = (rank, { compact = false } = {}) => {
+    const spec = honorSpec(rank);
+    if (!spec) return "";
+    const title = `${spec.zh} / ${spec.en}`;
+    return `
+      <span class="ev-honor-badge is-rank-${rank}${compact ? " is-compact" : ""}" title="${esc(title)}">
+        <span class="ev-honor-mark">${spec.icon}</span>
+        <span class="ev-honor-copy">
+          <strong class="ev-honor-title">${bi(spec.zh, spec.en)}</strong>
+          ${compact ? `<small class="ev-honor-rank">#${rank}</small>` : `<small class="ev-honor-rank">TOP ${rank}</small>`}
+        </span>
+      </span>`;
+  };
+  const rankDisplay = (rank, { honors = false } = {}) => {
+    if (honors && honorSpec(rank)) {
+      return honorBadge(rank, { compact: true });
+    }
+    return `<span class="ev-rank-number">${esc(rank ?? "-")}</span>`;
+  };
+  const rankedRows = (rows) =>
+    (rows || [])
+      .filter((row) => Number.isFinite(Number(row.position)) && Number(row.position) > 0)
+      .slice()
+      .sort((a, b) => Number(a.position) - Number(b.position));
+  const pickHonorMatch = (matches) =>
+    (matches || [])
+      .filter((m) => Array.isArray(m.results) && m.results.some((r) => r.status === "classified"))
+      .sort((a, b) => {
+        const score = (m) => {
+          if (m.round === "最終名次") return 0;
+          if (m.round === "qualifying") return 1;
+          if (m.type === "time_attack") return 2;
+          return 9;
+        };
+        return score(a) - score(b) || rankedRows(b.results).length - rankedRows(a.results).length;
+      })[0] || null;
+  const renderHonorStrip = (matches) => {
+    const featured = pickHonorMatch(matches);
+    if (!featured) return "";
+    const rows = rankedRows(featured.results).filter((row) => Number(row.position) >= 1 && Number(row.position) <= 4);
+    if (!rows.length) return "";
+    const isTA = featured.type === "time_attack";
+    return `
+      <div class="ev-honor-strip">
+        ${rows
+          .map((row) => {
+            const meta = [
+              row.vehicle_name || "",
+              isTA ? row.time_text || "" : row.status === "win" ? "W" : row.status === "loss" ? "L" : "",
+              row.points ? `${row.points} pts` : "",
+            ].filter(Boolean).join(" · ");
+            return `
+              <article class="ev-honor-card is-rank-${row.position}">
+                ${honorBadge(row.position)}
+                <div class="ev-honor-name">${playerLink(row.player_id, row.player_name)}</div>
+                <div class="ev-honor-meta">${esc(meta || "-")}</div>
+              </article>`;
+          })
+          .join("")}
+      </div>`;
+  };
 
   // ── overview ──
   const renderOverview = (d) => {
@@ -70,7 +138,11 @@
         <div class="ev-series-progress">${bi("已完成", "Done")} ${s.progress_done} / ${s.progress_total} ${bi("場", "events")}</div>
         ${s.next_event ? `<div class="ev-series-line">${bi("下一場", "Next")}: <a class="ta-entity-link" href="${esc(s.next_event.href)}">${esc(s.next_event.title)}</a> · ${esc(s.next_event.date)}</div>` : ""}
         ${s.last_event ? `<div class="ev-series-line">${bi("最近結果", "Latest")}: <a class="ta-entity-link" href="${esc(s.last_event.href)}">${esc(s.last_event.title)}</a>${s.last_event.winner_name ? " · " + esc(s.last_event.winner_name) : ""}</div>` : ""}
-        ${(s.standings_top || []).length ? `<div class="ev-series-standings">${s.standings_top.map((p, i) => `<span>${i + 1}. ${esc(p.name)} — ${p.points} pts</span>`).join("")}</div>` : ""}
+        ${(s.standings_top || []).length
+          ? `<div class="ev-series-standings">${s.standings_top
+              .map((p) => `<span class="ev-series-honor">${rankDisplay(p.rank, { honors: true })}<span>${esc(p.name)} — ${p.points} pts</span></span>`)
+              .join("")}</div>`
+          : ""}
         <a class="ta-tm-btn" href="${esc(s.href)}">${bi("查看系列賽", "Open Series")}</a>
       </article>`).join("");
 
@@ -128,6 +200,7 @@
     const e = (events.events || []).find((x) => x.event_id === id) || (events.events || [])[0];
     if (!e) return `<p class="ta-empty">${bi("找不到活動", "Event not found")}</p>`;
     const evMatches = (matches.matches || []).filter((m) => m.event_id === e.event_id);
+    const honorStrip = renderHonorStrip(evMatches);
 
     const head = `
       <article class="ta-content-card">
@@ -143,13 +216,14 @@
           <div><span class="ev-meta-k">${bi("賽制", "Format")}</span><span>${bi(e.type_label_zh, e.type_label_en)}</span></div>
         </div>
         ${e.rules_zh ? `<p class="ta-section-text"><span class="ev-meta-k">${bi("規則", "Rules")}</span> ${bi(e.rules_zh, e.rules_en)}</p>` : ""}
+        ${honorStrip ? `<div class="ev-honor-shell"><div class="ta-label">${bi("榮譽席次", "Honor Finishers")}</div>${honorStrip}</div>` : ""}
       </article>`;
 
     const matchBlocks = evMatches.map((m) => {
       const isTA = m.type === "time_attack";
       const rows = (m.results || []).map((r) => `
-        <tr>
-          <td class="ta-record-rank">${r.position ?? "-"}</td>
+        <tr class="${(isTA || r.status === "classified") && honorSpec(r.position) ? `ev-place-row is-rank-${r.position}` : ""}">
+          <td class="ta-record-rank ev-rank-cell">${rankDisplay(r.position, { honors: (isTA || r.status === "classified") })}</td>
           <td>${playerLink(r.player_id, r.player_name)}${r.team_name ? `<span class="ev-row-sub"> · ${esc(r.team_name)}</span>` : ""}</td>
           <td>${esc(r.vehicle_name || "")}</td>
           <td class="ta-record-time">${isTA ? esc(r.time_text) : (r.status === "win" ? bi("勝", "W") : bi("敗", "L"))}</td>
@@ -198,7 +272,7 @@
       <table class="ta-record-table"><thead><tr>
         <th>#</th><th>${isTeam ? bi("車隊", "Team") : bi("車手", "Driver")}</th>${isTeam ? "" : `<th>${bi("車隊", "Team")}</th>`}<th>${bi("積分", "Points")}</th>
       </tr></thead><tbody>${rows.map((r) => `
-        <tr><td class="ta-record-rank">${r.rank}</td>
+        <tr class="${honorSpec(r.rank) ? `ev-place-row is-rank-${r.rank}` : ""}"><td class="ta-record-rank ev-rank-cell">${rankDisplay(r.rank, { honors: true })}</td>
           <td>${isTeam ? esc(r.name) : playerLink(r.player_id, r.name)}</td>
           ${isTeam ? "" : `<td>${esc(r.team_name || "")}</td>`}
           <td class="ta-record-time">${r.points}</td></tr>`).join("")}</tbody></table>`;
