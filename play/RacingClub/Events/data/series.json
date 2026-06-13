@@ -1,0 +1,133 @@
+{
+  "title_zh": "系列賽 / 賽季",
+  "title_en": "Series / Seasons",
+  "series": [
+    {
+      "series_id": "vrrctw_s2",
+      "display_name": "VRRCTW 第二賽季",
+      "display_name_en": "VRRCTW Season 2",
+      "type": "season",
+      "status": "active",
+      "scope_zh": "僅包含第二賽季指定的積分賽事,不代表所有社群活動。",
+      "scope_en": "Only the designated points events of Season 2 — not every community activity.",
+      "points_rule_zh": "計時賽依名次給分(25/18/15/12/10/8/6/4/2/1);淘汰賽依晉級輪次給分。",
+      "points_rule_en": "Time-attack awards by finishing position (25/18/15/...); brackets award by round reached.",
+      "tags": [
+        "vrrctw",
+        "zh",
+        "official",
+        "season-2"
+      ],
+      "event_ids": [
+        "vrrctw_s2_r01",
+        "vrrctw_s2_r02",
+        "vrrctw_s2_r03"
+      ],
+      "events": [
+        {
+          "event_id": "vrrctw_s2_r01",
+          "title": "VRRCTW 第二賽季 Round 1",
+          "title_en": "VRRCTW S2 Round 1",
+          "date": "2026-05-17",
+          "status": "finished",
+          "status_label_zh": "已結束",
+          "status_label_en": "Finished",
+          "type_label_zh": "計時賽",
+          "type_label_en": "Time Attack",
+          "winner_name": "Lolidia",
+          "href": "./event.html?id=vrrctw_s2_r01"
+        },
+        {
+          "event_id": "vrrctw_s2_r02",
+          "title": "VRRCTW 第二賽季 Round 2",
+          "title_en": "VRRCTW S2 Round 2",
+          "date": "2026-05-31",
+          "status": "finished",
+          "status_label_zh": "已結束",
+          "status_label_en": "Finished",
+          "type_label_zh": "單淘汰賽",
+          "type_label_en": "Single Elimination",
+          "winner_name": "Lolidia",
+          "href": "./event.html?id=vrrctw_s2_r02"
+        },
+        {
+          "event_id": "vrrctw_s2_r03",
+          "title": "VRRCTW 第二賽季 Round 3",
+          "title_en": "VRRCTW S2 Round 3",
+          "date": "2026-07-12",
+          "status": "scheduled",
+          "status_label_zh": "排定中",
+          "status_label_en": "Scheduled",
+          "type_label_zh": "計時賽",
+          "type_label_en": "Time Attack",
+          "winner_name": "",
+          "href": "./event.html?id=vrrctw_s2_r03"
+        }
+      ],
+      "progress_done": 2,
+      "progress_total": 3,
+      "next_event": {
+        "title": "VRRCTW 第二賽季 Round 3",
+        "date": "2026-07-12",
+        "href": "./event.html?id=vrrctw_s2_r03"
+      },
+      "last_event": {
+        "title": "VRRCTW 第二賽季 Round 2",
+        "date": "2026-05-31",
+        "winner_name": "Lolidia",
+        "href": "./event.html?id=vrrctw_s2_r02"
+      },
+      "standings": {
+        "players": [
+          {
+            "rank": 1,
+            "player_id": "plr_lolidia",
+            "name": "Lolidia",
+            "team_id": "team_akagi",
+            "team_name": "Akagi RedSuns",
+            "points": 50
+          },
+          {
+            "rank": 2,
+            "player_id": "plr_ren",
+            "name": "Ren",
+            "team_id": "team_myogi",
+            "team_name": "Myogi NightKids",
+            "points": 36
+          },
+          {
+            "rank": 3,
+            "player_id": "plr_star",
+            "name": "StarRiver Arts",
+            "team_id": "team_myogi",
+            "team_name": "Myogi NightKids",
+            "points": 15
+          },
+          {
+            "rank": 4,
+            "player_id": "plr_haruka",
+            "name": "Haruka",
+            "team_id": "team_akagi",
+            "team_name": "Akagi RedSuns",
+            "points": 12
+          }
+        ],
+        "teams": [
+          {
+            "rank": 1,
+            "team_id": "team_akagi",
+            "name": "Akagi RedSuns",
+            "points": 62
+          },
+          {
+            "rank": 2,
+            "team_id": "team_myogi",
+            "name": "Myogi NightKids",
+            "points": 51
+          }
+        ]
+      },
+      "href": "./series.html?id=vrrctw_s2"
+    }
+  ]
+}

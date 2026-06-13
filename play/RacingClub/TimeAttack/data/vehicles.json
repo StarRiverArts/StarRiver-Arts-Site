@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "140",
+      "value": "141",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "150",
+      "value": "151",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -58,7 +58,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "50"
+          "value": "51"
         },
         {
           "label_zh": "已驗證",
@@ -101,7 +101,7 @@
       "usage_rows": [
         {
           "label": "AE86 Trueno",
-          "value": 50
+          "value": 51
         }
       ],
       "tag_rows": [
@@ -469,7 +469,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 50
+          "value": 51
         }
       ]
     },
@@ -487,7 +487,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "28"
+          "value": "29"
         },
         {
           "label_zh": "已驗證",
@@ -534,7 +534,7 @@
         },
         {
           "label": "EVOIII/CE9A",
-          "value": 10
+          "value": 11
         },
         {
           "label": "EVO",
@@ -696,7 +696,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 27
+          "value": 28
         },
         {
           "label": "拉力",
@@ -4263,7 +4263,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "12"
+          "value": "13"
         },
         {
           "label_zh": "已驗證",
@@ -4306,13 +4306,13 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)(TT)",
-          "value": 12
+          "value": 13
         }
       ],
       "tag_rows": [
         {
           "label": "StarRiver Arts",
-          "value": 5
+          "value": 6
         },
         {
           "label": "菲娜 希琉絲",
@@ -4463,7 +4463,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 12
+          "value": 13
         }
       ]
     },
@@ -4628,6 +4628,201 @@
         {
           "label": "賽道",
           "value": 12
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_gc8_attack",
+      "title": "GC8-Attack",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "11"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "2"
+        }
+      ],
+      "badge_counts": {
+        "TR": 2,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "熱門車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 Lolidia",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8-Attack",
+          "value": 11
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Lolidia",
+          "value": 3
+        },
+        {
+          "label": "daisukilian",
+          "value": 3
+        },
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        },
+        {
+          "label": "夜者",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Ryuoukouzan / Downhill",
+          "route_label_en": "Ryuoukouzan / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "vehicle_model_code": "veh_gc8_attack",
+          "lap_time_ms": 103689,
+          "lap_time_text": "01:43.689",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-03-30",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Kamidomarizaka / Uphill",
+          "route_label_en": "Kamidomarizaka / Uphill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8-Attack",
+          "vehicle_model_code": "veh_gc8_attack",
+          "lap_time_ms": 113958,
+          "lap_time_text": "01:53.958",
+          "delta_to_best_text": "+4.214",
+          "platform": "pcvr",
+          "record_date": "2026-06-07",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "daisukilian",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "vehicle_model_code": "veh_gc8_attack",
+          "lap_time_ms": 195133,
+          "lap_time_text": "03:15.133",
+          "delta_to_best_text": "+60.012",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 4,
+          "route_label_zh": "Futatsukane / Counter-Clockwise",
+          "route_label_en": "Futatsukane / Counter-Clockwise",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "GC8-Attack",
+          "vehicle_model_code": "veh_gc8_attack",
+          "lap_time_ms": 249011,
+          "lap_time_text": "04:09.011",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-06-11",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 10
+        },
+        {
+          "label": "公路",
+          "value": 1
         }
       ]
     },
@@ -4944,201 +5139,6 @@
         {
           "label": "山道",
           "value": 11
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_gc8_attack",
-      "title": "GC8-Attack",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "AWD",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "10"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "2"
-        }
-      ],
-      "badge_counts": {
-        "TR": 2,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "熱門車種",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 AWD",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 Lolidia",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "GC8-Attack",
-          "value": 10
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "Lolidia",
-          "value": 3
-        },
-        {
-          "label": "daisukilian",
-          "value": 3
-        },
-        {
-          "label": "夜者",
-          "value": 1
-        },
-        {
-          "label": "菲娜 希琉絲",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Ryuoukouzan / Downhill",
-          "route_label_en": "Ryuoukouzan / Downhill",
-          "player_display_name": "Lolidia",
-          "player_id": "plr_lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "vehicle_model_code": "veh_gc8_attack",
-          "lap_time_ms": 103689,
-          "lap_time_text": "01:43.689",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-03-30",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "Kamidomarizaka / Uphill",
-          "route_label_en": "Kamidomarizaka / Uphill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "GC8-Attack",
-          "vehicle_model_code": "veh_gc8_attack",
-          "lap_time_ms": 113958,
-          "lap_time_text": "01:53.958",
-          "delta_to_best_text": "+4.214",
-          "platform": "pcvr",
-          "record_date": "2026-06-07",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "daisukilian",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "Lolidia",
-          "player_id": "plr_lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "vehicle_model_code": "veh_gc8_attack",
-          "lap_time_ms": 195133,
-          "lap_time_text": "03:15.133",
-          "delta_to_best_text": "+60.012",
-          "platform": "pcvr",
-          "record_date": "2026-06-11",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 4,
-          "route_label_zh": "Futatsukane / Counter-Clockwise",
-          "route_label_en": "Futatsukane / Counter-Clockwise",
-          "player_display_name": "Lolidia",
-          "player_id": "plr_lolidia",
-          "vehicle_model_name": "GC8-Attack",
-          "vehicle_model_code": "veh_gc8_attack",
-          "lap_time_ms": 249011,
-          "lap_time_text": "04:09.011",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-06-11",
-          "track_env": "公路",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 9
-        },
-        {
-          "label": "公路",
-          "value": 1
         }
       ]
     },
@@ -6079,6 +6079,160 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_sxe10_altezza",
+      "title": "SXE10 (Altezza)",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "active",
+      "popularity_bucket_zh": "活躍車種",
+      "popularity_bucket_en": "Active Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "7"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "活躍車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "SXE10 (Altezza)",
+          "value": 7
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 7
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Sadamine / OC Downhill",
+          "route_label_en": "Sadamine / OC Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "SXE10 (Altezza)",
+          "vehicle_model_code": "veh_sxe10_altezza",
+          "lap_time_ms": 177600,
+          "lap_time_text": "02:57.600",
+          "delta_to_best_text": "+22.633",
+          "platform": "pc",
+          "record_date": "2025-06-10",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Sadamine / Full Course Downhill",
+          "route_label_en": "Sadamine / Full Course Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "SXE10 (Altezza)",
+          "vehicle_model_code": "veh_sxe10_altezza",
+          "lap_time_ms": 218533,
+          "lap_time_text": "03:38.533",
+          "delta_to_best_text": "+24.200",
+          "platform": "pc",
+          "record_date": "2025-10-26",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Shomaru / Double Course",
+          "route_label_en": "Shomaru / Double Course",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "SXE10 (Altezza)",
+          "vehicle_model_code": "veh_sxe10_altezza",
+          "lap_time_ms": 541155,
+          "lap_time_text": "09:01.155",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2025-08-03",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "狹窄",
+            "上下山"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 7
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_gr86_zn8",
       "title": "GR86/ZN8",
       "vehicle_class": "Sports Car",
@@ -6210,160 +6364,6 @@
         {
           "label": "山道",
           "value": 7
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_sxe10_altezza",
-      "title": "SXE10 (Altezza)",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "FR",
-      "popularity_bucket_key": "active",
-      "popularity_bucket_zh": "活躍車種",
-      "popularity_bucket_en": "Active Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "6"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "活躍車種",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 StarRiver Arts",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "SXE10 (Altezza)",
-          "value": 6
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "StarRiver Arts",
-          "value": 6
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Sadamine / OC Downhill",
-          "route_label_en": "Sadamine / OC Downhill",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "SXE10 (Altezza)",
-          "vehicle_model_code": "veh_sxe10_altezza",
-          "lap_time_ms": 177600,
-          "lap_time_text": "02:57.600",
-          "delta_to_best_text": "+22.633",
-          "platform": "pc",
-          "record_date": "2025-06-10",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "Sadamine / Full Course Downhill",
-          "route_label_en": "Sadamine / Full Course Downhill",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "SXE10 (Altezza)",
-          "vehicle_model_code": "veh_sxe10_altezza",
-          "lap_time_ms": 218533,
-          "lap_time_text": "03:38.533",
-          "delta_to_best_text": "+24.200",
-          "platform": "pc",
-          "record_date": "2025-10-26",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "Shomaru / Double Course",
-          "route_label_en": "Shomaru / Double Course",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "SXE10 (Altezza)",
-          "vehicle_model_code": "veh_sxe10_altezza",
-          "lap_time_ms": 541155,
-          "lap_time_text": "09:01.155",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2025-08-03",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "狹窄",
-            "上下山"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 6
         }
       ]
     },
@@ -16590,6 +16590,107 @@
       "env_rows": [
         {
           "label": "拉力",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_guangbus_drivetuned",
+      "title": "GuangBus_DriveTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 wasdwa",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GuangBus_DriveTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "wasdwa",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "wasdwa",
+          "player_id": "plr_wasdwa",
+          "vehicle_model_name": "GuangBus_DriveTuned",
+          "vehicle_model_code": "veh_guangbus_drivetuned",
+          "lap_time_ms": 326833,
+          "lap_time_text": "05:26.833",
+          "delta_to_best_text": "+240.900",
+          "platform": "quest",
+          "record_date": "2026-06-13",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "wasdwa",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
           "value": 1
         }
       ]

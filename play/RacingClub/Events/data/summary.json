@@ -1,0 +1,144 @@
+{
+  "title_zh": "活動總覽",
+  "title_en": "Events Overview",
+  "description_zh": "Racing Club 所有活動、賽事與戰績的入口。系列賽(賽季)只是其中一種活動集合,不是所有活動的上位。",
+  "description_en": "Entry point for every Racing Club activity, match, and record. Series (seasons) only group the points events — they are not above all activities.",
+  "sidebar_zh": [
+    "Events 收錄所有活動:計時賽、單淘汰賽、休閒車聚等。",
+    "只有 series_id 不為空且為積分賽事,才會進入賽季積分榜。",
+    "戰績重點在勝負/名次/賽制;開放計時紀錄請看 TimeAttack。"
+  ],
+  "sidebar_en": [
+    "Events lists every activity: time attacks, knockouts, casual meets.",
+    "Only points events with a series_id feed the season standings.",
+    "Standings focus on wins/placement/format; open lap records live in TimeAttack."
+  ],
+  "metric_cards": [
+    {
+      "label_zh": "活動總數",
+      "label_en": "Events",
+      "value": "4",
+      "note_zh": "所有已排定與已完成活動",
+      "note_en": "All scheduled and finished activities"
+    },
+    {
+      "label_zh": "已完成",
+      "label_en": "Finished",
+      "value": "2",
+      "note_zh": "已結束並有結果的活動",
+      "note_en": "Activities with final results"
+    },
+    {
+      "label_zh": "進行中系列賽",
+      "label_en": "Active Series",
+      "value": "1",
+      "note_zh": "目前進行中的賽季/系列賽",
+      "note_en": "Seasons/series currently running"
+    },
+    {
+      "label_zh": "即將舉辦",
+      "label_en": "Upcoming",
+      "value": "2",
+      "note_zh": "已排定尚未舉辦的活動",
+      "note_en": "Scheduled, not yet held"
+    }
+  ],
+  "recent_results": [
+    {
+      "event_id": "vrrctw_s2_r02",
+      "title": "VRRCTW 第二賽季 Round 2",
+      "title_en": "VRRCTW S2 Round 2",
+      "date": "2026-05-31",
+      "type_label_zh": "單淘汰賽",
+      "type_label_en": "Single Elimination",
+      "summary_zh": "Lolidia 奪冠",
+      "summary_en": "Lolidia won",
+      "href": "./event.html?id=vrrctw_s2_r02"
+    },
+    {
+      "event_id": "vrrctw_s2_r01",
+      "title": "VRRCTW 第二賽季 Round 1",
+      "title_en": "VRRCTW S2 Round 1",
+      "date": "2026-05-17",
+      "type_label_zh": "計時賽",
+      "type_label_en": "Time Attack",
+      "summary_zh": "Lolidia 奪冠",
+      "summary_en": "Lolidia won",
+      "href": "./event.html?id=vrrctw_s2_r01"
+    }
+  ],
+  "upcoming_events": [
+    {
+      "event_id": "vrrctw_weekly_0628",
+      "title": "週末休閒車聚",
+      "title_en": "Weekend Casual Meet",
+      "date": "2026-06-28",
+      "start_time": "2026-06-28T21:00:00+08:00",
+      "host": "VRRCTW",
+      "type_label_zh": "休閒車聚",
+      "type_label_en": "Casual Meet",
+      "is_points_event": false,
+      "href": "./event.html?id=vrrctw_weekly_0628"
+    },
+    {
+      "event_id": "vrrctw_s2_r03",
+      "title": "VRRCTW 第二賽季 Round 3",
+      "title_en": "VRRCTW S2 Round 3",
+      "date": "2026-07-12",
+      "start_time": "2026-07-12T21:00:00+08:00",
+      "host": "VRRCTW",
+      "type_label_zh": "計時賽",
+      "type_label_en": "Time Attack",
+      "is_points_event": true,
+      "href": "./event.html?id=vrrctw_s2_r03"
+    }
+  ],
+  "active_series": [
+    {
+      "series_id": "vrrctw_s2",
+      "display_name": "VRRCTW 第二賽季",
+      "display_name_en": "VRRCTW Season 2",
+      "status": "active",
+      "progress_done": 2,
+      "progress_total": 3,
+      "next_event": {
+        "title": "VRRCTW 第二賽季 Round 3",
+        "date": "2026-07-12",
+        "href": "./event.html?id=vrrctw_s2_r03"
+      },
+      "last_event": {
+        "title": "VRRCTW 第二賽季 Round 2",
+        "date": "2026-05-31",
+        "winner_name": "Lolidia",
+        "href": "./event.html?id=vrrctw_s2_r02"
+      },
+      "standings_top": [
+        {
+          "rank": 1,
+          "player_id": "plr_lolidia",
+          "name": "Lolidia",
+          "team_id": "team_akagi",
+          "team_name": "Akagi RedSuns",
+          "points": 50
+        },
+        {
+          "rank": 2,
+          "player_id": "plr_ren",
+          "name": "Ren",
+          "team_id": "team_myogi",
+          "team_name": "Myogi NightKids",
+          "points": 36
+        },
+        {
+          "rank": 3,
+          "player_id": "plr_star",
+          "name": "StarRiver Arts",
+          "team_id": "team_myogi",
+          "team_name": "Myogi NightKids",
+          "points": 15
+        }
+      ],
+      "href": "./series.html?id=vrrctw_s2"
+    }
+  ]
+}
