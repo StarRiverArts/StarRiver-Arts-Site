@@ -56,6 +56,10 @@
 .ev-row-main { display: grid; gap: 2px; }
 .ev-row-main strong { color: var(--ta-text-strong); font-size: 14px; }
 .ev-row-sub { color: var(--ta-text-faint); font-size: 12px; }
+.ev-table-stack { display: grid; gap: 2px; min-width: 0; }
+.ev-table-title { color: var(--ta-text-strong); font-size: 13px; font-weight: 700; }
+.ev-table-title .ta-entity-link { color: inherit; }
+.ev-table-sub { color: var(--ta-text-faint); font-size: 12px; }
 
 /* chips */
 .ev-chip {

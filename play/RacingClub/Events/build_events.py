@@ -384,20 +384,22 @@ def main() -> None:
         for tid in tr_events
     ], key=lambda x: (-x["events"], x["name"]))
 
-    v_use = Counter(); v_win = Counter(); v_best: dict[str, int] = {}; v_players: dict[str, set] = defaultdict(set)
+    v_use = Counter(); v_duel = Counter(); v_win = Counter(); v_best: dict[str, int] = {}; v_players: dict[str, set] = defaultdict(set)
     for r in enriched_results:
         vid = r.get("vehicle_id")
         if not vid:
             continue
         v_use[vid] += 1
+        if r.get("status") in {"win", "loss"}:
+            v_duel[vid] += 1
         if r.get("status") == "win":
             v_win[vid] += 1
         v_players[vid].add(r["player_id"])
         if r.get("time_ms") and (vid not in v_best or r["time_ms"] < v_best[vid]):
             v_best[vid] = r["time_ms"]
     vehicles_stats = sorted([
-        {"vehicle_id": vid, "name": vehicle_name(vid), "uses": v_use[vid], "wins": v_win[vid],
-         "win_rate": win_rate(v_win[vid], v_use[vid] - v_win[vid]),
+        {"vehicle_id": vid, "name": vehicle_name(vid), "uses": v_use[vid], "duels": v_duel[vid], "wins": v_win[vid],
+         "win_rate": win_rate(v_win[vid], v_duel[vid] - v_win[vid]),
          "best_time_text": fmt_lap(v_best.get(vid)),
          "drivers": [player_name(p) for p in sorted(v_players[vid])],
          "href": f"./vehicles.html?id={vid}",

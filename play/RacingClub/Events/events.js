@@ -121,7 +121,7 @@
         count: (results || []).filter((row) => Number(row.position) === rank).length,
       }))
       .filter((row) => row.count > 0);
-  const renderHonorSummary = (results, labelZh = "前四名履歷", labelEn = "Top 4 Finishes") => {
+  const renderHonorSummary = (results, labelZh = "單場前四名", labelEn = "Top 4 Match Finishes") => {
     const tallies = topFourCounts(results);
     if (!tallies.length) return "";
     return `
@@ -314,7 +314,7 @@
     players: { key: "players", cols: [["name", "車手", "Driver", "link"], ["team_name", "車隊", "Team"], ["events", "參賽", "Events"], ["wins", "勝", "Wins"], ["win_rate", "勝率", "Win%"], ["points", "積分", "Pts"], ["top_vehicle", "常用車", "Top Car"]] },
     teams: { key: "teams", cols: [["name", "車隊", "Team"], ["member_count", "成員", "Members"], ["events", "參賽", "Events"], ["wins", "勝", "Wins"], ["points", "積分", "Pts"]] },
     tracks: { key: "tracks", cols: [["name", "賽道", "Track", "ta"], ["events", "賽事", "Events"], ["matches", "場次", "Matches"], ["best_time_text", "最快活動成績", "Best"]] },
-    vehicles: { key: "vehicles", cols: [["name", "車輛", "Vehicle", "ta"], ["uses", "使用", "Uses"], ["wins", "勝", "Wins"], ["win_rate", "勝率", "Win%"], ["best_time_text", "最快", "Best"]] },
+    vehicles: { key: "vehicles", cols: [["name", "車輛", "Vehicle", "ta"], ["uses", "總出場", "Entries"], ["duels", "對戰", "Duels"], ["wins", "對戰勝", "Duel Wins"], ["win_rate", "對戰勝率", "Duel Win%"], ["best_time_text", "最佳計時", "Best Lap"]] },
   };
   const ID_FIELD = { players: "player_id", teams: "team_id", tracks: "track_id", vehicles: "vehicle_id" };
   const selfLink = (view, id, name) =>
@@ -337,31 +337,88 @@
     }).join("")}</tr>`).join("");
     const note = view === "players" || view === "teams"
       ? `<p class="ta-section-text">${bi("積分僅計入系列賽積分賽事;開放計時紀錄請看 TimeAttack。", "Points come from series points-events only; open lap records live in TimeAttack.")}</p>`
-      : `<p class="ta-section-text">${bi("此處為活動內成績;完整開放計時榜請看 TimeAttack。", "Activity results only; full open boards live in TimeAttack.")}</p>`;
+      : view === "vehicles"
+        ? `<p class="ta-section-text">${bi("車輛統計以單場出場與對戰計算;點進車輛頁可查看每一場次。", "Vehicle stats are match-based entries and duel results; open a vehicle page to inspect each match.")}</p>`
+        : `<p class="ta-section-text">${bi("此處為活動內成績;完整開放計時榜請看 TimeAttack。", "Activity results only; full open boards live in TimeAttack.")}</p>`;
     return note + `<div class="ta-track-table-wrap"><table class="ta-record-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   };
 
   const statChip = (zh, en, val) => `<span class="ev-stat-chip"><b>${esc(val)}</b> ${bi(zh, en)}</span>`;
   const eventIndex = (loaded) => Object.fromEntries(((loaded.events && loaded.events.events) || []).map((e) => [e.event_id, e]));
+  const matchIndex = (loaded) => {
+    const byId = {};
+    const groups = new Map();
+    const eventSeq = new Map();
+    ((loaded.matches && loaded.matches.matches) || []).forEach((m) => {
+      const eventOrder = (eventSeq.get(m.event_id) || 0) + 1;
+      eventSeq.set(m.event_id, eventOrder);
+      byId[m.match_id] = { ...m, event_order: eventOrder };
+      const groupKey = `${m.event_id}::${m.round_label_zh || m.round || m.type || ""}`;
+      if (!groups.has(groupKey)) groups.set(groupKey, []);
+      groups.get(groupKey).push(m.match_id);
+    });
+    groups.forEach((ids) => ids.forEach((id, idx) => {
+      if (!byId[id]) return;
+      byId[id].round_order = idx + 1;
+      byId[id].round_total = ids.length;
+    }));
+    return byId;
+  };
+  const sortEntityResults = (results, evIdx, matchIdx) => (results || []).slice().sort((a, b) => {
+    const dateCmp = ((evIdx[b.event_id] || {}).date || "").localeCompare((evIdx[a.event_id] || {}).date || "");
+    if (dateCmp) return dateCmp;
+    const eventCmp = ((matchIdx[a.match_id] || {}).event_order || 999) - ((matchIdx[b.match_id] || {}).event_order || 999);
+    if (eventCmp) return eventCmp;
+    return Number(a.position || 999) - Number(b.position || 999);
+  });
+  const eventLinkCell = (ev, fallbackId) => {
+    const title = ev.href
+      ? `<a class="ta-entity-link" href="${esc(ev.href)}">${bi(ev.title || fallbackId, ev.title_en || ev.title || fallbackId)}</a>`
+      : bi(ev.title || fallbackId, ev.title_en || ev.title || fallbackId);
+    return `<div class="ev-table-stack"><div class="ev-table-title">${title}</div>${ev.date ? `<div class="ev-table-sub">${esc(ev.date)}</div>` : ""}</div>`;
+  };
+  const matchRoundHtml = (m) => {
+    if (!m) return "";
+    if (m.round_label_zh) return bi(m.round_label_zh, m.round_label_en || m.round_label_zh);
+    return esc(m.round || m.type || m.match_id || "");
+  };
+  const matchLinkCell = (m) => {
+    if (!m) return `<span class="ev-table-sub">${bi("缺少場次資料", "Missing match metadata")}</span>`;
+    const meta = [];
+    if ((m.round_total || 0) > 1) meta.push(bi(`第${m.round_order}戰`, `Match ${m.round_order}`));
+    if (m.track_name) meta.push(esc(m.track_name));
+    return `<div class="ev-table-stack"><div class="ev-table-title">${matchRoundHtml(m)}</div>${meta.length ? `<div class="ev-table-sub">${meta.join(" · ")}</div>` : ""}</div>`;
+  };
 
-  // 玩家在各活動的成績表(計時=時間;對抗=勝/敗)
-  const playerResultsTable = (results, evIdx, { honors = false } = {}) => {
+  const entityResultsTable = (results, evIdx, matchIdx, { honors = false, entity = "player" } = {}) => {
     if (!results.length) return `<p class="ta-empty">${bi("尚無戰績", "No results")}</p>`;
-    const rows = results.map((r) => {
+    const rows = sortEntityResults(results, evIdx, matchIdx).map((r) => {
       const ev = evIdx[r.event_id] || {};
-      const res = ev.event_type === "single_elimination"
+      const match = matchIdx[r.match_id] || {};
+      const res = match.type !== "time_attack"
         ? (r.status === "win" ? bi("勝", "W") : r.status === "loss" ? bi("敗", "L") : "-")
         : (r.time_text || "-");
       const isHonor = honors && honorSpec(r.position);
+      const entityCell = entity === "vehicle"
+        ? playerLink(r.player_id, r.player_name)
+        : entity === "team"
+          ? `${playerLink(r.player_id, r.player_name)}${r.vehicle_name ? `<span class="ev-row-sub"> · ${esc(r.vehicle_name)}</span>` : ""}`
+          : esc(r.vehicle_name || "");
       return `<tr class="${isHonor ? `ev-place-row is-rank-${r.position}` : ""}">
-        <td>${ev.href ? `<a class="ta-entity-link" href="${esc(ev.href)}">${bi(ev.title || r.event_id, ev.title_en || "")}</a>` : esc(r.event_id)}</td>
-        <td>${esc(r.vehicle_name || "")}</td>
+        <td>${eventLinkCell(ev, r.event_id)}</td>
+        <td>${matchLinkCell(match)}</td>
+        <td>${entityCell}</td>
         <td class="ta-record-rank ev-rank-cell">${rankDisplay(r.position, { honors })}</td>
         <td class="ta-record-time">${res}</td>
         <td>${r.points ? r.points + " pts" : ""}</td></tr>`;
     }).join("");
+    const subjectHead = entity === "vehicle"
+      ? bi("車手", "Driver")
+      : entity === "team"
+        ? bi("車手 / 車輛", "Driver / Car")
+        : bi("車輛", "Vehicle");
     return `<div class="ta-track-table-wrap"><table class="ta-record-table"><thead><tr>
-      <th>${bi("活動", "Event")}</th><th>${bi("車輛", "Vehicle")}</th><th>#</th>
+      <th>${bi("活動", "Event")}</th><th>${bi("場次", "Match")}</th><th>${subjectHead}</th><th>#</th>
       <th>${bi("成績", "Result")}</th><th>${bi("積分", "Pts")}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   };
 
@@ -369,10 +426,10 @@
     const p = ((loaded.players && loaded.players.players) || []).find((x) => x.player_id === id);
     if (!p) return notFound("players");
     const evIdx = eventIndex(loaded);
+    const matchIdx = matchIndex(loaded);
     const results = ((loaded.results && loaded.results.results) || [])
-      .filter((r) => r.player_id === id)
-      .sort((a, b) => ((evIdx[b.event_id] || {}).date || "").localeCompare((evIdx[a.event_id] || {}).date || ""));
-    const honorSummary = renderHonorSummary(results, "活動前四名", "Top 4 Event Finishes");
+      .filter((r) => r.player_id === id);
+    const honorSummary = renderHonorSummary(results, "單場前四名", "Top 4 Match Finishes");
     const head = `<article class="ta-content-card">
       ${backLink("players", "返回玩家清單", "Back to Drivers")}
       <h2 class="ev-event-title">${esc(p.name)}</h2>
@@ -381,13 +438,14 @@
       <div class="ev-stat-chips">${statChip("參賽", "Events", p.events)}${statChip("勝", "Wins", p.wins)}${statChip("敗", "Losses", p.losses)}${statChip("勝率", "Win%", p.win_rate)}${statChip("積分", "Points", p.points)}${statChip("常用車", "Top Car", p.top_vehicle || "-")}</div>
       ${honorSummary}
     </article>`;
-    return head + module("戰績", "Results", "活動成績", "Event Results", playerResultsTable(results, evIdx, { honors: true }));
+    return head + module("戰績", "Results", "單場紀錄", "Match Results", entityResultsTable(results, evIdx, matchIdx, { honors: true, entity: "player" }));
   };
 
   const renderTeamDetail = (loaded, id) => {
     const t = ((loaded.teams && loaded.teams.teams) || []).find((x) => x.team_id === id);
     if (!t) return notFound("teams");
     const evIdx = eventIndex(loaded);
+    const matchIdx = matchIndex(loaded);
     const results = ((loaded.results && loaded.results.results) || []).filter((r) => r.team_id === id);
     const members = (t.members || []).map((m) => esc(m)).join("、") || "-";
     const head = `<article class="ta-content-card">
@@ -396,7 +454,7 @@
       <div class="ev-stat-chips">${statChip("成員", "Members", t.member_count)}${statChip("參賽", "Events", t.events)}${statChip("勝", "Wins", t.wins)}${statChip("積分", "Points", t.points)}</div>
       <p class="ta-section-text"><span class="ev-meta-k">${bi("成員", "Members")}</span> ${members}</p>
     </article>`;
-    return head + module("戰績", "Results", "車隊成績", "Team Results", playerResultsTable(results, evIdx));
+    return head + module("戰績", "Results", "單場紀錄", "Match Results", entityResultsTable(results, evIdx, matchIdx, { honors: true, entity: "team" }));
   };
 
   const renderTrackDetail = (loaded, id) => {
@@ -427,19 +485,19 @@
     const v = ((loaded.vehicles && loaded.vehicles.vehicles) || []).find((x) => x.vehicle_id === id);
     if (!v) return notFound("vehicles");
     const evIdx = eventIndex(loaded);
+    const matchIdx = matchIndex(loaded);
     const results = ((loaded.results && loaded.results.results) || [])
-      .filter((r) => r.vehicle_id === id)
-      .sort((a, b) => ((evIdx[b.event_id] || {}).date || "").localeCompare((evIdx[a.event_id] || {}).date || ""));
-    const honorSummary = renderHonorSummary(results, "這台車的前四名", "Top 4 Finishes with This Car");
+      .filter((r) => r.vehicle_id === id);
+    const honorSummary = renderHonorSummary(results, "這台車的單場前四名", "Top 4 Match Finishes with This Car");
     const head = `<article class="ta-content-card">
       ${backLink("vehicles", "返回車輛清單", "Back to Vehicles")}
       <h2 class="ev-event-title">${esc(v.name)}</h2>
       <div class="ev-cal-chips"><a class="ev-chip ev-chip-link" href="../TimeAttack/vehicle.html?id=${encodeURIComponent(id)}">TimeAttack ${bi("車輛檔案", "Profile")}</a></div>
-      <div class="ev-stat-chips">${statChip("使用", "Uses", v.uses)}${statChip("勝", "Wins", v.wins)}${statChip("勝率", "Win%", v.win_rate)}${statChip("最快", "Best", v.best_time_text)}</div>
+      <div class="ev-stat-chips">${statChip("總出場", "Entries", v.uses)}${statChip("對戰", "Duels", v.duels ?? "-")}${statChip("對戰勝", "Duel Wins", v.wins)}${statChip("對戰勝率", "Duel Win%", v.win_rate)}${statChip("最佳計時", "Best Lap", v.best_time_text)}</div>
       <p class="ta-section-text"><span class="ev-meta-k">${bi("使用車手", "Drivers")}</span> ${(v.drivers || []).map(esc).join("、") || "-"}</p>
       ${honorSummary}
     </article>`;
-    return head + module("戰績", "Results", "車輛成績", "Vehicle Results", playerResultsTable(results, evIdx, { honors: true }));
+    return head + module("戰績", "Results", "單場紀錄", "Match Results", entityResultsTable(results, evIdx, matchIdx, { honors: true, entity: "vehicle" }));
   };
 
   const renderStats = (view, loaded) => {
@@ -458,10 +516,10 @@
     calendar: ["events.json"],
     event: ["events.json", "matches.json", "results.json"],
     series: ["series.json"],
-    players: ["players_stats.json", "results.json", "events.json"],
-    teams: ["teams_stats.json", "results.json", "events.json"],
+    players: ["players_stats.json", "results.json", "events.json", "matches.json"],
+    teams: ["teams_stats.json", "results.json", "events.json", "matches.json"],
     tracks: ["tracks_stats.json", "matches.json", "events.json"],
-    vehicles: ["vehicles_stats.json", "results.json", "events.json"],
+    vehicles: ["vehicles_stats.json", "results.json", "events.json", "matches.json"],
   };
   const LABELS = {
     overview: ["活動總覽", "Events Overview"], calendar: ["賽事日曆", "Event Calendar"],
