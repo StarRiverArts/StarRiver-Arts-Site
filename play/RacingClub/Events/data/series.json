@@ -20,7 +20,10 @@
       ],
       "event_ids": [
         "vrrctw_s1_myogi",
-        "vrrctw_s1_akina"
+        "vrrctw_s1_akina",
+        "vrrctw_s1_tsukuba_0802",
+        "vrrctw_s1_odawara_0913",
+        "vrrctw_s1_tsubaki_oct"
       ],
       "events": [
         {
@@ -48,58 +51,97 @@
           "type_label_en": "Single Elimination",
           "winner_name": "『Sigma』",
           "href": "./event.html?id=vrrctw_s1_akina"
+        },
+        {
+          "event_id": "vrrctw_s1_tsukuba_0802",
+          "title": "第一賽季 八月 筑波錦標賽",
+          "title_en": "S1 August Tsukuba Championship",
+          "date": "2025-08-02",
+          "status": "finished",
+          "status_label_zh": "已結束",
+          "status_label_en": "Finished",
+          "type_label_zh": "單淘汰賽",
+          "type_label_en": "Single Elimination",
+          "winner_name": "ikuhopen",
+          "href": "./event.html?id=vrrctw_s1_tsukuba_0802"
+        },
+        {
+          "event_id": "vrrctw_s1_odawara_0913",
+          "title": "第一賽季 九月 小田原錦標賽",
+          "title_en": "S1 September Odawara Championship",
+          "date": "2025-09-13",
+          "status": "finished",
+          "status_label_zh": "已結束",
+          "status_label_en": "Finished",
+          "type_label_zh": "雙淘汰賽",
+          "type_label_en": "Double Elimination",
+          "winner_name": "菲娜 希琉絲",
+          "href": "./event.html?id=vrrctw_s1_odawara_0913"
+        },
+        {
+          "event_id": "vrrctw_s1_tsubaki_oct",
+          "title": "第一賽季 十月 椿線錦標賽",
+          "title_en": "S1 October Tsubaki Championship",
+          "date": "2025-10",
+          "status": "finished",
+          "status_label_zh": "已結束",
+          "status_label_en": "Finished",
+          "type_label_zh": "雙淘汰賽",
+          "type_label_en": "Double Elimination",
+          "winner_name": "ikuhopen",
+          "href": "./event.html?id=vrrctw_s1_tsubaki_oct"
         }
       ],
-      "progress_done": 2,
-      "progress_total": 2,
+      "progress_done": 5,
+      "progress_total": 5,
       "next_event": null,
       "last_event": {
-        "title": "第一賽季 七月 秋名錦標賽",
-        "date": "2025-07-06",
-        "winner_name": "『Sigma』",
-        "href": "./event.html?id=vrrctw_s1_akina"
+        "title": "第一賽季 十月 椿線錦標賽",
+        "date": "2025-10",
+        "winner_name": "ikuhopen",
+        "href": "./event.html?id=vrrctw_s1_tsubaki_oct"
       },
       "standings": {
         "players": [
           {
             "rank": 1,
+            "player_id": "plr_ikuhopen",
+            "name": "ikuhopen",
+            "team_id": "",
+            "team_name": "",
+            "points": 18
+          },
+          {
+            "rank": 2,
             "player_id": "plr_kinokono_tenka",
             "name": "Kinokono_Tenka",
+            "team_id": "",
+            "team_name": "",
+            "points": 13
+          },
+          {
+            "rank": 3,
+            "player_id": "plr_034",
+            "name": "菲娜 希琉絲",
+            "team_id": "",
+            "team_name": "",
+            "points": 9
+          },
+          {
+            "rank": 4,
+            "player_id": "plr_yune",
+            "name": "Yune",
             "team_id": "",
             "team_name": "",
             "points": 8
           },
           {
-            "rank": 2,
-            "player_id": "plr_rushia_angel",
-            "name": "Rushia Angel",
-            "team_id": "",
-            "team_name": "",
-            "points": 5
-          },
-          {
-            "rank": 3,
-            "player_id": "plr_ikuhopen",
-            "name": "ikuhopen",
-            "team_id": "",
-            "team_name": "",
-            "points": 5
-          },
-          {
-            "rank": 4,
-            "player_id": "plr_sigma",
-            "name": "『Sigma』",
-            "team_id": "",
-            "team_name": "",
-            "points": 5
-          },
-          {
             "rank": 5,
-            "player_id": "plr_yune",
-            "name": "Yune",
+            "player_id": "plr_starriver_arts",
+            "name": "StarRiver Arts",
             "team_id": "",
             "team_name": "",
-            "points": 4
+            "points": 7
           },
           {
             "rank": 6,
@@ -107,34 +149,66 @@
             "name": "LinWu_05",
             "team_id": "",
             "team_name": "",
-            "points": 2
+            "points": 6
           },
           {
             "rank": 7,
-            "player_id": "plr_starriver_arts",
-            "name": "StarRiver Arts",
-            "team_id": "",
-            "team_name": "",
-            "points": 2
-          },
-          {
-            "rank": 8,
             "player_id": "plr_lolidia",
             "name": "Lolidia",
             "team_id": "",
             "team_name": "",
-            "points": 2
+            "points": 6
+          },
+          {
+            "rank": 8,
+            "player_id": "plr_rushia_angel",
+            "name": "Rushia Angel",
+            "team_id": "",
+            "team_name": "",
+            "points": 5
           },
           {
             "rank": 9,
+            "player_id": "plr_sigma",
+            "name": "『Sigma』",
+            "team_id": "",
+            "team_name": "",
+            "points": 5
+          },
+          {
+            "rank": 10,
             "player_id": "plr_003",
             "name": "アビドサスヒカリ",
             "team_id": "",
             "team_name": "",
-            "points": 1
+            "points": 2
           },
           {
-            "rank": 10,
+            "rank": 11,
+            "player_id": "plr_zihchin",
+            "name": "ZihChin",
+            "team_id": "",
+            "team_name": "",
+            "points": 2
+          },
+          {
+            "rank": 12,
+            "player_id": "plr_hh_811f",
+            "name": "Hh(再tm敢动我号你完犊子811f)",
+            "team_id": "",
+            "team_name": "",
+            "points": 2
+          },
+          {
+            "rank": 13,
+            "player_id": "plr_023",
+            "name": "江柚凝",
+            "team_id": "",
+            "team_name": "",
+            "points": 2
+          },
+          {
+            "rank": 14,
             "player_id": "plr_019",
             "name": "咪咪處刑人大木",
             "team_id": "",
@@ -142,7 +216,23 @@
             "points": 1
           },
           {
-            "rank": 11,
+            "rank": 15,
+            "player_id": "plr_sakanakokokoko",
+            "name": "Sakanakokokoko",
+            "team_id": "",
+            "team_name": "",
+            "points": 1
+          },
+          {
+            "rank": 16,
+            "player_id": "plr_mrvalentine",
+            "name": "MrValentine",
+            "team_id": "",
+            "team_name": "",
+            "points": 1
+          },
+          {
+            "rank": 17,
             "player_id": "plr_rafi_88_fan",
             "name": "Rafi_88_Fan",
             "team_id": "",

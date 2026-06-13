@@ -45,6 +45,7 @@ ROUTE_FILE_MAP = {
 EVENT_TYPE_LABELS = {
     "time_attack": ("計時賽", "Time Attack"),
     "single_elimination": ("單淘汰賽", "Single Elimination"),
+    "double_elimination": ("雙淘汰賽", "Double Elimination"),
     "casual_meet": ("休閒車聚", "Casual Meet"),
     "exhibition": ("表演賽", "Exhibition"),
 }
