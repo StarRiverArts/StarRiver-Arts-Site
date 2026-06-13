@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "141",
+      "value": "144",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "151",
+      "value": "154",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "賽道最佳",
       "label_en": "Track Records",
-      "value": "82",
+      "value": "85",
       "note_zh": "車型紀錄中，同時也是整條路線最快的筆數",
       "note_en": "Runs that are both a model best and the fastest overall route record"
     }
@@ -1719,6 +1719,355 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_bnr32",
+      "title": "R32(BNR32)",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "4WD,FR",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "19"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "5"
+        }
+      ],
+      "badge_counts": {
+        "TR": 5,
+        "CR": 5,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "熱門車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 4WD,FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "BNR32",
+          "value": 19
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 6
+        },
+        {
+          "label": "LinWu_05",
+          "value": 6
+        },
+        {
+          "label": "Lolidia",
+          "value": 2
+        },
+        {
+          "label": "拾貳 c101",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "H-Nanamagari / Downhill",
+          "route_label_en": "H-Nanamagari / Downhill",
+          "player_display_name": "LinWu_05",
+          "player_id": "plr_linwu_05",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 73538,
+          "lap_time_text": "01:13.538",
+          "delta_to_best_text": "+2.253",
+          "platform": "pc",
+          "record_date": "2025-06-08",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "LinWu_05",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "H-Nanamagari / Uphill",
+          "route_label_en": "H-Nanamagari / Uphill",
+          "player_display_name": "LinWu_05",
+          "player_id": "plr_linwu_05",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 76890,
+          "lap_time_text": "01:16.890",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2025-06-08",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "LinWu_05",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "妙義(妙義ASV) / Downhill",
+          "route_label_en": "Myogi (ASV) / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 187689,
+          "lap_time_text": "03:07.689",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2025-06-17",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 4,
+          "route_label_zh": "妙義環線 / Counter-Clockwise",
+          "route_label_en": "Myogi(CC) / Counter-Clockwise",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 207017,
+          "lap_time_text": "03:27.017",
+          "delta_to_best_text": "+10.193",
+          "platform": "pc",
+          "record_date": "2025-06-11",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 5,
+          "route_label_zh": "妙義環線 / Clockwise",
+          "route_label_en": "Myogi(CC) / Clockwise",
+          "player_display_name": "LinWu_05",
+          "player_id": "plr_linwu_05",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 209950,
+          "lap_time_text": "03:29.950",
+          "delta_to_best_text": "+14.229",
+          "platform": "pc",
+          "record_date": "2025-06-03",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "LinWu_05",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 6,
+          "route_label_zh": "Hakone / Downhill",
+          "route_label_en": "Hakone / Downhill",
+          "player_display_name": "LinWu_05",
+          "player_id": "plr_linwu_05",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 217333,
+          "lap_time_text": "03:37.333",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2025-11-17",
+          "track_env": "高速公路",
+          "track_tags": [
+            "技術彎",
+            "高速"
+          ],
+          "peer_label": "LinWu_05",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 7,
+          "route_label_zh": "秋名 / Downhill",
+          "route_label_en": "Akina / Downhill",
+          "player_display_name": "Rushia Angel",
+          "player_id": "plr_rushia_angel",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 221430,
+          "lap_time_text": "03:41.430",
+          "delta_to_best_text": "+14.618",
+          "platform": "pc",
+          "record_date": "2025-07-06",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "Rushia Angel",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 8,
+          "route_label_zh": "Tsukuba / Outbound",
+          "route_label_en": "Tsukuba / Outbound",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 230017,
+          "lap_time_text": "03:50.017",
+          "delta_to_best_text": "+17.844",
+          "platform": "pc",
+          "record_date": "2025-11-07",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "上下山"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 9,
+          "route_label_zh": "C1 Runner / OUTER",
+          "route_label_en": "C1 Runner / OUTER",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 248453,
+          "lap_time_text": "04:08.453",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "高速公路",
+          "track_tags": [
+            "城市",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 10,
+          "route_label_zh": "C1 Runner / INNER",
+          "route_label_en": "C1 Runner / INNER",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "R32(BNR32)",
+          "vehicle_model_code": "veh_bnr32",
+          "lap_time_ms": 272481,
+          "lap_time_text": "04:32.481",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "高速公路",
+          "track_tags": [
+            "城市",
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 15
+        },
+        {
+          "label": "高速公路",
+          "value": 4
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_ek9_civic_type_r",
       "title": "EK9 (Civic Type-R)",
       "vehicle_class": "Sports Car",
@@ -2364,6 +2713,327 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_fd3s_rx7",
+      "title": "FD3S (RX7)",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "17"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 8,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "熱門車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "FD3S (RX7)",
+          "value": 17
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 8
+        },
+        {
+          "label": "アビドサスヒカリ",
+          "value": 4
+        },
+        {
+          "label": "Yune",
+          "value": 3
+        },
+        {
+          "label": "菲娜 希琉絲",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "妙義(妙義ASV) / Downhill",
+          "route_label_en": "Myogi (ASV) / Downhill",
+          "player_display_name": "Yune",
+          "player_id": "plr_yune",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 198017,
+          "lap_time_text": "03:18.017",
+          "delta_to_best_text": "+10.328",
+          "platform": "pc",
+          "record_date": "2025-06-08",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "Yune",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Usui V1 / Clockwise",
+          "route_label_en": "Usui V1 / Clockwise",
+          "player_display_name": "アビドサスヒカリ",
+          "player_id": "plr_003",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 217205,
+          "lap_time_text": "03:37.205",
+          "delta_to_best_text": "+25.684",
+          "platform": "pc",
+          "record_date": "2025-05-25",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "アビドサスヒカリ",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Nanamagari / Downhill",
+          "route_label_en": "Nanamagari / Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 219817,
+          "lap_time_text": "03:39.817",
+          "delta_to_best_text": "+12.150",
+          "platform": "pc",
+          "record_date": "2025-06-09",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 4,
+          "route_label_zh": "Tsubaki / Downhill",
+          "route_label_en": "Tsubaki / Downhill",
+          "player_display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 220750,
+          "lap_time_text": "03:40.750",
+          "delta_to_best_text": "+8.450",
+          "platform": "pc",
+          "record_date": "2025-09-28",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速"
+          ],
+          "peer_label": "菲娜 希琉絲",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 5,
+          "route_label_zh": "Tsukuba / Double Course",
+          "route_label_en": "Tsukuba / Double Course",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 221306,
+          "lap_time_text": "03:41.306",
+          "delta_to_best_text": "+15.640",
+          "platform": "pc",
+          "record_date": "2026-06-10",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "上下山"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 6,
+          "route_label_zh": "秋名湖 / Clockwise",
+          "route_label_en": "Lake Akina / Clockwise",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 246017,
+          "lap_time_text": "04:06.017",
+          "delta_to_best_text": "+45.156",
+          "platform": "pc",
+          "record_date": "2025-08-04",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 7,
+          "route_label_zh": "伊呂波坂 / Downhill",
+          "route_label_en": "Irohazaka / Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 290550,
+          "lap_time_text": "04:50.550",
+          "delta_to_best_text": "+78.817",
+          "platform": "pc",
+          "record_date": "2025-08-17",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 8,
+          "route_label_zh": "Mt.Hakone / Inbound",
+          "route_label_en": "Mt.Hakone / Inbound",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 343900,
+          "lap_time_text": "05:43.900",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2025-08-18",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 9,
+          "route_label_zh": "C1 Runner / OUTER",
+          "route_label_en": "C1 Runner / OUTER",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 361688,
+          "lap_time_text": "06:01.688",
+          "delta_to_best_text": "+113.235",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "高速公路",
+          "track_tags": [
+            "城市",
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 16
+        },
+        {
+          "label": "高速公路",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_sileighty",
       "title": "SilEighty",
       "vehicle_class": "Sports Car",
@@ -2878,303 +3548,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_bnr32",
-      "title": "R32(BNR32)",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "4WD,FR",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "16"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "3"
-        }
-      ],
-      "badge_counts": {
-        "TR": 3,
-        "CR": 5,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "熱門車種",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 4WD,FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 LinWu_05",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "BNR32",
-          "value": 16
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "LinWu_05",
-          "value": 6
-        },
-        {
-          "label": "StarRiver Arts",
-          "value": 4
-        },
-        {
-          "label": "Lolidia",
-          "value": 2
-        },
-        {
-          "label": "拾貳 c101",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "H-Nanamagari / Downhill",
-          "route_label_en": "H-Nanamagari / Downhill",
-          "player_display_name": "LinWu_05",
-          "player_id": "plr_linwu_05",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 73538,
-          "lap_time_text": "01:13.538",
-          "delta_to_best_text": "+2.253",
-          "platform": "pc",
-          "record_date": "2025-06-08",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "LinWu_05",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "H-Nanamagari / Uphill",
-          "route_label_en": "H-Nanamagari / Uphill",
-          "player_display_name": "LinWu_05",
-          "player_id": "plr_linwu_05",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 76890,
-          "lap_time_text": "01:16.890",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2025-06-08",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "LinWu_05",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "妙義(妙義ASV) / Downhill",
-          "route_label_en": "Myogi (ASV) / Downhill",
-          "player_display_name": "Lolidia",
-          "player_id": "plr_lolidia",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 187689,
-          "lap_time_text": "03:07.689",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2025-06-17",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "Lolidia",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 4,
-          "route_label_zh": "妙義環線 / Counter-Clockwise",
-          "route_label_en": "Myogi(CC) / Counter-Clockwise",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 207017,
-          "lap_time_text": "03:27.017",
-          "delta_to_best_text": "+10.193",
-          "platform": "pc",
-          "record_date": "2025-06-11",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 5,
-          "route_label_zh": "妙義環線 / Clockwise",
-          "route_label_en": "Myogi(CC) / Clockwise",
-          "player_display_name": "LinWu_05",
-          "player_id": "plr_linwu_05",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 209950,
-          "lap_time_text": "03:29.950",
-          "delta_to_best_text": "+14.229",
-          "platform": "pc",
-          "record_date": "2025-06-03",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "LinWu_05",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 6,
-          "route_label_zh": "Hakone / Downhill",
-          "route_label_en": "Hakone / Downhill",
-          "player_display_name": "LinWu_05",
-          "player_id": "plr_linwu_05",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 217333,
-          "lap_time_text": "03:37.333",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2025-11-17",
-          "track_env": "高速公路",
-          "track_tags": [
-            "技術彎",
-            "高速"
-          ],
-          "peer_label": "LinWu_05",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 7,
-          "route_label_zh": "秋名 / Downhill",
-          "route_label_en": "Akina / Downhill",
-          "player_display_name": "Rushia Angel",
-          "player_id": "plr_rushia_angel",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 221430,
-          "lap_time_text": "03:41.430",
-          "delta_to_best_text": "+14.618",
-          "platform": "pc",
-          "record_date": "2025-07-06",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "Rushia Angel",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 8,
-          "route_label_zh": "Tsukuba / Outbound",
-          "route_label_en": "Tsukuba / Outbound",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "R32(BNR32)",
-          "vehicle_model_code": "veh_bnr32",
-          "lap_time_ms": 230017,
-          "lap_time_text": "03:50.017",
-          "delta_to_best_text": "+17.844",
-          "platform": "pc",
-          "record_date": "2025-11-07",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "上下山"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 15
-        },
-        {
-          "label": "高速公路",
-          "value": 1
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_nsx",
       "title": "NSX",
       "vehicle_class": "Sports Car",
@@ -3428,297 +3801,6 @@
         {
           "label": "公路",
           "value": 1
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_fd3s_rx7",
-      "title": "FD3S (RX7)",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "FR",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "16"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 7,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "熱門車種",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 StarRiver Arts",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "FD3S (RX7)",
-          "value": 16
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "StarRiver Arts",
-          "value": 7
-        },
-        {
-          "label": "アビドサスヒカリ",
-          "value": 4
-        },
-        {
-          "label": "Yune",
-          "value": 3
-        },
-        {
-          "label": "菲娜 希琉絲",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "妙義(妙義ASV) / Downhill",
-          "route_label_en": "Myogi (ASV) / Downhill",
-          "player_display_name": "Yune",
-          "player_id": "plr_yune",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 198017,
-          "lap_time_text": "03:18.017",
-          "delta_to_best_text": "+10.328",
-          "platform": "pc",
-          "record_date": "2025-06-08",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "Yune",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "Usui V1 / Clockwise",
-          "route_label_en": "Usui V1 / Clockwise",
-          "player_display_name": "アビドサスヒカリ",
-          "player_id": "plr_003",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 217205,
-          "lap_time_text": "03:37.205",
-          "delta_to_best_text": "+25.684",
-          "platform": "pc",
-          "record_date": "2025-05-25",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "アビドサスヒカリ",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "Nanamagari / Downhill",
-          "route_label_en": "Nanamagari / Downhill",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 219817,
-          "lap_time_text": "03:39.817",
-          "delta_to_best_text": "+12.150",
-          "platform": "pc",
-          "record_date": "2025-06-09",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 4,
-          "route_label_zh": "Tsubaki / Downhill",
-          "route_label_en": "Tsubaki / Downhill",
-          "player_display_name": "菲娜 希琉絲",
-          "player_id": "plr_034",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 220750,
-          "lap_time_text": "03:40.750",
-          "delta_to_best_text": "+8.450",
-          "platform": "pc",
-          "record_date": "2025-09-28",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速"
-          ],
-          "peer_label": "菲娜 希琉絲",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 5,
-          "route_label_zh": "Tsukuba / Double Course",
-          "route_label_en": "Tsukuba / Double Course",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 221306,
-          "lap_time_text": "03:41.306",
-          "delta_to_best_text": "+15.640",
-          "platform": "pc",
-          "record_date": "2026-06-10",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "上下山"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 6,
-          "route_label_zh": "秋名湖 / Clockwise",
-          "route_label_en": "Lake Akina / Clockwise",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 246017,
-          "lap_time_text": "04:06.017",
-          "delta_to_best_text": "+45.156",
-          "platform": "pc",
-          "record_date": "2025-08-04",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 7,
-          "route_label_zh": "伊呂波坂 / Downhill",
-          "route_label_en": "Irohazaka / Downhill",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 290550,
-          "lap_time_text": "04:50.550",
-          "delta_to_best_text": "+78.817",
-          "platform": "pc",
-          "record_date": "2025-08-17",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 8,
-          "route_label_zh": "Mt.Hakone / Inbound",
-          "route_label_en": "Mt.Hakone / Inbound",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "FD3S (RX7)",
-          "vehicle_model_code": "veh_fd3s_rx7",
-          "lap_time_ms": 343900,
-          "lap_time_text": "05:43.900",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2025-08-18",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 16
         }
       ]
     },
@@ -7550,12 +7632,12 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "4"
+          "value": "3"
         }
       ],
       "badge_counts": {
-        "TR": 4,
-        "CR": 0,
+        "TR": 3,
+        "CR": 1,
         "PR": 0
       },
       "tag_chips": [
@@ -7681,7 +7763,7 @@
           "vehicle_model_code": "veh_mcr_r34",
           "lap_time_ms": 196956,
           "lap_time_text": "03:16.956",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+33.526",
           "platform": "pc",
           "record_date": "2025-06-11",
           "track_env": "山道",
@@ -7692,10 +7774,10 @@
           "peer_label": "LinWu_05",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         }
       ],
       "env_rows": [
@@ -13475,6 +13557,107 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_assist_m4",
+      "title": "Assist M4",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 0,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Assist M4",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Gunsai / Full Course",
+          "route_label_en": "Gunsai / Full Course",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Assist M4",
+          "vehicle_model_code": "veh_assist_m4",
+          "lap_time_ms": 163430,
+          "lap_time_text": "02:43.430",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_cz9a",
       "title": "CZ9A",
       "vehicle_class": "Sports Car",
@@ -14572,6 +14755,108 @@
       "env_rows": [
         {
           "label": "賽道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_rct",
+      "title": "RCT",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 0,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 高速公路",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "RCT",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
+          "route_label_en": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "RCT",
+          "vehicle_model_code": "veh_rct",
+          "lap_time_ms": 273389,
+          "lap_time_text": "04:33.389",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "高速公路",
+          "track_tags": [
+            "城市",
+            "高速",
+            "高速彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "高速公路",
           "value": 1
         }
       ]
@@ -17194,6 +17479,108 @@
       "env_rows": [
         {
           "label": "公路",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_m3",
+      "title": "M3",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 高速公路",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "M3",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
+          "route_label_en": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "M3",
+          "vehicle_model_code": "veh_m3",
+          "lap_time_ms": 300000,
+          "lap_time_text": "05:00.000",
+          "delta_to_best_text": "+26.611",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "高速公路",
+          "track_tags": [
+            "城市",
+            "高速",
+            "高速彎"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "高速公路",
           "value": 1
         }
       ]

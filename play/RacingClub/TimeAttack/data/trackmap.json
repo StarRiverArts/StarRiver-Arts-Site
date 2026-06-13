@@ -17,7 +17,7 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "48",
+      "value": "50",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
@@ -326,6 +326,49 @@
               "lat": 35.17,
               "lng": 136.91,
               "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "東京Tokyo",
+          "name_zh": "東京",
+          "name_en": "Tokyo",
+          "localities": [
+            {
+              "name": "東京Tokyo",
+              "name_zh": "東京",
+              "name_en": "Tokyo",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "c1_runner",
+                  "track_display_name": "C1 Runner",
+                  "world_name": "C1 Runner",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "fukutoshin_expressway",
+                  "track_display_name": "Fukutoshin Expressway",
+                  "world_name": "Fukutoshin Expressway",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "高速公路",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
             }
           ]
         },
@@ -812,7 +855,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 2,
+                  "record_count": 3,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
