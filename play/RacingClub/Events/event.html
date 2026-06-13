@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Event | Events | VR Racing Club | StarRiver Arts</title>
+  <meta name="description" content="Shared event detail shell for VR Racing Club activities, with event summaries, match results, rankings, and related Time Attack records.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/Events/event.html">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="StarRiver Arts">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VR Racing Club Event Detail | StarRiver Arts">
+  <meta property="og:description" content="Event summaries, match results, rankings, and related Time Attack records for VR Racing Club activities.">
+  <meta property="og:url" content="https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/Events/event.html">
+  <meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/assets/logos/starriver-primary.png">
+  <meta property="og:image:alt" content="StarRiver Arts VR Racing Club event detail">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VR Racing Club Event Detail | StarRiver Arts">
+  <meta name="twitter:description" content="Event summaries, match results, rankings, and related Time Attack records for VR Racing Club activities.">
+  <meta name="twitter:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/assets/logos/starriver-primary.png">
   <link rel="icon" href="../../../assets/logos/starriver-primary.png">
   <link rel="stylesheet" href="../../../colors_and_type.css">
   <link rel="stylesheet" href="../../project-t.css">
@@ -65,11 +80,31 @@
         <aside class="ta-sidebar">
           <section class="ta-sidebar-card">
             <div class="ta-label"><span class="zh">說明</span><span class="en">Notes</span></div>
-            <div data-sidebar-list class="ta-empty">Loading notes.</div>
+            <div data-sidebar-list>
+              <ul class="ta-inline-list">
+                <li><span class="zh">這頁是共用 detail shell，會依 query 參數載入不同活動。</span><span class="en">This is a shared detail shell that loads different events by query string.</span></li>
+                <li><span class="zh">目前分享預覽先提供站級標題與縮圖，不做活動專屬 Open Graph。</span><span class="en">Social previews currently use site-level metadata rather than event-specific Open Graph.</span></li>
+              </ul>
+            </div>
           </section>
         </aside>
         <section class="ta-main">
-          <div data-page-root class="ta-empty">Loading page modules.</div>
+          <div data-page-root>
+            <article class="ta-content-card">
+              <div class="ta-content-head">
+                <div class="ta-headline-group">
+                  <div class="ta-label"><span class="zh">靜態摘要</span><span class="en">Static Summary</span></div>
+                  <h2><span class="zh">賽事詳情共用頁</span><span class="en">Shared Event Detail Page</span></h2>
+                </div>
+              </div>
+              <p class="ta-section-text"><span class="zh">這個頁面會顯示單一活動的時間、賽道、榮譽名次、單場結果與相關 Time Attack 紀錄。由於目前仍是共用 HTML 殼層，活動內容會在載入後依 `?id=` 參數從 JSON 讀入。</span><span class="en">This page shows the timing, track, honor finishers, match results, and related Time Attack records for one activity. Because it is still a shared HTML shell, the final event content loads from JSON based on the `?id=` query parameter.</span></p>
+              <ul class="ta-inline-list">
+                <li><a class="ta-entity-link" href="./calendar.html">Browse Events</a></li>
+                <li><a class="ta-entity-link" href="./series.html">Series Standings</a></li>
+                <li><a class="ta-entity-link" href="../TimeAttack/">Time Attack</a></li>
+              </ul>
+            </article>
+          </div>
         </section>
       </div>
 
