@@ -123,7 +123,9 @@
 .ev-match { margin-bottom: 16px; }
 .ev-match-head { color: var(--ta-text-soft); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
 .ev-honor-shell { display: grid; gap: 10px; margin-top: 16px; }
+.ev-honor-shell-compact { margin-top: 12px; }
 .ev-honor-strip { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.ev-honor-tally-strip { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
 .ev-honor-card {
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 38%),
@@ -140,6 +142,35 @@
 .ev-honor-card.is-rank-2 { border-color: rgba(178, 190, 205, 0.72); }
 .ev-honor-card.is-rank-3 { border-color: rgba(181, 120, 79, 0.72); }
 .ev-honor-card.is-rank-4 { border-color: rgba(86, 167, 186, 0.58); }
+.ev-honor-tally {
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.16));
+  border: 1px solid var(--ta-border);
+  border-radius: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 10px 12px;
+}
+.ev-honor-tally.is-rank-1 { border-color: rgba(241, 194, 80, 0.75); }
+.ev-honor-tally.is-rank-2 { border-color: rgba(178, 190, 205, 0.72); }
+.ev-honor-tally.is-rank-3 { border-color: rgba(181, 120, 79, 0.72); }
+.ev-honor-tally.is-rank-4 { border-color: rgba(86, 167, 186, 0.58); }
+.ev-honor-tally-count { display: grid; gap: 2px; justify-items: end; text-align: right; }
+.ev-honor-tally-count strong {
+  color: var(--ta-text-strong);
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+}
+.ev-honor-tally-count span {
+  color: var(--ta-text-faint);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
 .ev-honor-name { color: var(--ta-text-strong); font-size: 16px; font-weight: 800; }
 .ev-honor-name .ta-entity-link { color: inherit; }
 .ev-honor-meta { color: var(--ta-text-soft); font-size: 12px; }
@@ -233,6 +264,7 @@
   .ev-cal-row { grid-template-columns: 72px 1fr; }
   .ev-cal-meta { display: none; }
   .ev-honor-strip { grid-template-columns: 1fr; }
+  .ev-honor-tally-strip { grid-template-columns: 1fr; }
   .ev-rank-cell { min-width: 94px; }
 }
 

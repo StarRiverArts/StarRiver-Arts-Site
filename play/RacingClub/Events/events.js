@@ -114,6 +114,33 @@
           .join("")}
       </div>`;
   };
+  const topFourCounts = (results) =>
+    [1, 2, 3, 4]
+      .map((rank) => ({
+        rank,
+        count: (results || []).filter((row) => Number(row.position) === rank).length,
+      }))
+      .filter((row) => row.count > 0);
+  const renderHonorSummary = (results, labelZh = "前四名履歷", labelEn = "Top 4 Finishes") => {
+    const tallies = topFourCounts(results);
+    if (!tallies.length) return "";
+    return `
+      <div class="ev-honor-shell ev-honor-shell-compact">
+        <div class="ta-label">${bi(labelZh, labelEn)}</div>
+        <div class="ev-honor-tally-strip">
+          ${tallies
+            .map((row) => `
+              <article class="ev-honor-tally is-rank-${row.rank}">
+                ${honorBadge(row.rank, { compact: true })}
+                <div class="ev-honor-tally-count">
+                  <strong>${row.count}</strong>
+                  <span>${bi("次得名", "finishes")}</span>
+                </div>
+              </article>`)
+            .join("")}
+        </div>
+      </div>`;
+  };
 
   // ── overview ──
   const renderOverview = (d) => {
@@ -318,17 +345,18 @@
   const eventIndex = (loaded) => Object.fromEntries(((loaded.events && loaded.events.events) || []).map((e) => [e.event_id, e]));
 
   // 玩家在各活動的成績表(計時=時間;對抗=勝/敗)
-  const playerResultsTable = (results, evIdx) => {
+  const playerResultsTable = (results, evIdx, { honors = false } = {}) => {
     if (!results.length) return `<p class="ta-empty">${bi("尚無戰績", "No results")}</p>`;
     const rows = results.map((r) => {
       const ev = evIdx[r.event_id] || {};
       const res = ev.event_type === "single_elimination"
         ? (r.status === "win" ? bi("勝", "W") : r.status === "loss" ? bi("敗", "L") : "-")
         : (r.time_text || "-");
-      return `<tr>
+      const isHonor = honors && honorSpec(r.position);
+      return `<tr class="${isHonor ? `ev-place-row is-rank-${r.position}` : ""}">
         <td>${ev.href ? `<a class="ta-entity-link" href="${esc(ev.href)}">${bi(ev.title || r.event_id, ev.title_en || "")}</a>` : esc(r.event_id)}</td>
         <td>${esc(r.vehicle_name || "")}</td>
-        <td class="ta-record-rank">${r.position ?? "-"}</td>
+        <td class="ta-record-rank ev-rank-cell">${rankDisplay(r.position, { honors })}</td>
         <td class="ta-record-time">${res}</td>
         <td>${r.points ? r.points + " pts" : ""}</td></tr>`;
     }).join("");
@@ -344,14 +372,16 @@
     const results = ((loaded.results && loaded.results.results) || [])
       .filter((r) => r.player_id === id)
       .sort((a, b) => ((evIdx[b.event_id] || {}).date || "").localeCompare((evIdx[a.event_id] || {}).date || ""));
+    const honorSummary = renderHonorSummary(results, "活動前四名", "Top 4 Event Finishes");
     const head = `<article class="ta-content-card">
       ${backLink("players", "返回玩家清單", "Back to Drivers")}
       <h2 class="ev-event-title">${esc(p.name)}</h2>
       <div class="ev-cal-chips">${p.team_name ? `<a class="ev-chip ev-chip-link" href="./teams.html?id=${encodeURIComponent(p.team_id)}">${esc(p.team_name)}</a>` : ""}
         <a class="ev-chip ev-chip-link" href="../TimeAttack/player.html?id=${encodeURIComponent(id)}">TimeAttack ${bi("計時檔案", "Profile")}</a></div>
       <div class="ev-stat-chips">${statChip("參賽", "Events", p.events)}${statChip("勝", "Wins", p.wins)}${statChip("敗", "Losses", p.losses)}${statChip("勝率", "Win%", p.win_rate)}${statChip("積分", "Points", p.points)}${statChip("常用車", "Top Car", p.top_vehicle || "-")}</div>
+      ${honorSummary}
     </article>`;
-    return head + module("戰績", "Results", "活動成績", "Event Results", playerResultsTable(results, evIdx));
+    return head + module("戰績", "Results", "活動成績", "Event Results", playerResultsTable(results, evIdx, { honors: true }));
   };
 
   const renderTeamDetail = (loaded, id) => {
@@ -397,15 +427,19 @@
     const v = ((loaded.vehicles && loaded.vehicles.vehicles) || []).find((x) => x.vehicle_id === id);
     if (!v) return notFound("vehicles");
     const evIdx = eventIndex(loaded);
-    const results = ((loaded.results && loaded.results.results) || []).filter((r) => r.vehicle_id === id);
+    const results = ((loaded.results && loaded.results.results) || [])
+      .filter((r) => r.vehicle_id === id)
+      .sort((a, b) => ((evIdx[b.event_id] || {}).date || "").localeCompare((evIdx[a.event_id] || {}).date || ""));
+    const honorSummary = renderHonorSummary(results, "這台車的前四名", "Top 4 Finishes with This Car");
     const head = `<article class="ta-content-card">
       ${backLink("vehicles", "返回車輛清單", "Back to Vehicles")}
       <h2 class="ev-event-title">${esc(v.name)}</h2>
       <div class="ev-cal-chips"><a class="ev-chip ev-chip-link" href="../TimeAttack/vehicle.html?id=${encodeURIComponent(id)}">TimeAttack ${bi("車輛檔案", "Profile")}</a></div>
       <div class="ev-stat-chips">${statChip("使用", "Uses", v.uses)}${statChip("勝", "Wins", v.wins)}${statChip("勝率", "Win%", v.win_rate)}${statChip("最快", "Best", v.best_time_text)}</div>
       <p class="ta-section-text"><span class="ev-meta-k">${bi("使用車手", "Drivers")}</span> ${(v.drivers || []).map(esc).join("、") || "-"}</p>
+      ${honorSummary}
     </article>`;
-    return head + module("戰績", "Results", "車輛成績", "Vehicle Results", playerResultsTable(results, evIdx));
+    return head + module("戰績", "Results", "車輛成績", "Vehicle Results", playerResultsTable(results, evIdx, { honors: true }));
   };
 
   const renderStats = (view, loaded) => {
