@@ -1,22 +1,11 @@
 {
-  "_note": "顯示名稱對照。id 與 TimeAttack 共用(player_id / track_world_code / vehicle_model_code / team),Events 戰績與 TimeAttack 紀錄可互相連結。先用範例資料,填真實賽事時請對齊 TimeAttack 既有 id。",
+  "_note": "Events override / 補充。名稱主來源是 TimeAttack(players/vehicles/tracks 直接吃 TimeAttack 資料);這裡只放 TimeAttack 還沒有的補充項。",
   "players": {
-    "plr_lolidia": { "name": "Lolidia", "team_id": "team_akagi" },
-    "plr_ren": { "name": "Ren", "team_id": "team_myogi" },
-    "plr_star": { "name": "StarRiver Arts", "team_id": "team_myogi" },
-    "plr_haruka": { "name": "Haruka", "team_id": "team_akagi" }
+    "plr_rafi_88_fan": {
+      "name": "Rafi_88_Fan"
+    }
   },
-  "teams": {
-    "team_akagi": { "name": "Akagi RedSuns", "name_en": "Akagi RedSuns" },
-    "team_myogi": { "name": "Myogi NightKids", "name_en": "Myogi NightKids" }
-  },
-  "tracks": {
-    "tsukuba_jintei": { "name": "Tsukuba", "name_en": "Tsukuba" },
-    "akina_jintei": { "name": "秋名", "name_en": "Akina" }
-  },
-  "vehicles": {
-    "veh_ae86t": { "name": "AE86 Trueno" },
-    "veh_fd3s": { "name": "FD3S RX-7" },
-    "veh_s13": { "name": "S13 Silvia" }
-  }
+  "teams": {},
+  "tracks": {},
+  "vehicles": {}
 }

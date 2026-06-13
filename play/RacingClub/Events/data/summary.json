@@ -17,14 +17,14 @@
     {
       "label_zh": "活動總數",
       "label_en": "Events",
-      "value": "4",
+      "value": "3",
       "note_zh": "所有已排定與已完成活動",
       "note_en": "All scheduled and finished activities"
     },
     {
       "label_zh": "已完成",
       "label_en": "Finished",
-      "value": "2",
+      "value": "3",
       "note_zh": "已結束並有結果的活動",
       "note_en": "Activities with final results"
     },
@@ -38,107 +38,89 @@
     {
       "label_zh": "即將舉辦",
       "label_en": "Upcoming",
-      "value": "2",
+      "value": "0",
       "note_zh": "已排定尚未舉辦的活動",
       "note_en": "Scheduled, not yet held"
     }
   ],
   "recent_results": [
     {
-      "event_id": "vrrctw_s2_r02",
-      "title": "VRRCTW 第二賽季 Round 2",
-      "title_en": "VRRCTW S2 Round 2",
-      "date": "2026-05-31",
+      "event_id": "vrrctw_s1_akina",
+      "title": "第一賽季 七月 秋名錦標賽",
+      "title_en": "S1 July Akina Championship",
+      "date": "2025-07-06",
       "type_label_zh": "單淘汰賽",
       "type_label_en": "Single Elimination",
-      "summary_zh": "Lolidia 奪冠",
-      "summary_en": "Lolidia won",
-      "href": "./event.html?id=vrrctw_s2_r02"
+      "summary_zh": "『Sigma』 奪冠",
+      "summary_en": "『Sigma』 won",
+      "href": "./event.html?id=vrrctw_s1_akina"
     },
     {
-      "event_id": "vrrctw_s2_r01",
-      "title": "VRRCTW 第二賽季 Round 1",
-      "title_en": "VRRCTW S2 Round 1",
-      "date": "2026-05-17",
-      "type_label_zh": "計時賽",
-      "type_label_en": "Time Attack",
-      "summary_zh": "Lolidia 奪冠",
-      "summary_en": "Lolidia won",
-      "href": "./event.html?id=vrrctw_s2_r01"
-    }
-  ],
-  "upcoming_events": [
+      "event_id": "vrrctw_s1_myogi",
+      "title": "第一賽季 第一場 妙義錦標賽",
+      "title_en": "S1 R1 Myogi Championship",
+      "date": "2025-06-08",
+      "type_label_zh": "單淘汰賽",
+      "type_label_en": "Single Elimination",
+      "summary_zh": "Kinokono_Tenka 奪冠",
+      "summary_en": "Kinokono_Tenka won",
+      "href": "./event.html?id=vrrctw_s1_myogi"
+    },
     {
-      "event_id": "vrrctw_weekly_0628",
-      "title": "週末休閒車聚",
-      "title_en": "Weekend Casual Meet",
-      "date": "2026-06-28",
-      "start_time": "2026-06-28T21:00:00+08:00",
-      "host": "VRRCTW",
+      "event_id": "vrrctw_casual_0531",
+      "title": "休閒對戰 LinWu vs StarRiver",
+      "title_en": "Casual Battle: LinWu vs StarRiver",
+      "date": "2025-05-31",
       "type_label_zh": "休閒車聚",
       "type_label_en": "Casual Meet",
-      "is_points_event": false,
-      "href": "./event.html?id=vrrctw_weekly_0628"
-    },
-    {
-      "event_id": "vrrctw_s2_r03",
-      "title": "VRRCTW 第二賽季 Round 3",
-      "title_en": "VRRCTW S2 Round 3",
-      "date": "2026-07-12",
-      "start_time": "2026-07-12T21:00:00+08:00",
-      "host": "VRRCTW",
-      "type_label_zh": "計時賽",
-      "type_label_en": "Time Attack",
-      "is_points_event": true,
-      "href": "./event.html?id=vrrctw_s2_r03"
+      "summary_zh": "已結束",
+      "summary_en": "Finished",
+      "href": "./event.html?id=vrrctw_casual_0531"
     }
   ],
+  "upcoming_events": [],
   "active_series": [
     {
-      "series_id": "vrrctw_s2",
-      "display_name": "VRRCTW 第二賽季",
-      "display_name_en": "VRRCTW Season 2",
+      "series_id": "vrrctw_s1",
+      "display_name": "VRRCTW 第一賽季",
+      "display_name_en": "VRRCTW Season 1",
       "status": "active",
       "progress_done": 2,
-      "progress_total": 3,
-      "next_event": {
-        "title": "VRRCTW 第二賽季 Round 3",
-        "date": "2026-07-12",
-        "href": "./event.html?id=vrrctw_s2_r03"
-      },
+      "progress_total": 2,
+      "next_event": null,
       "last_event": {
-        "title": "VRRCTW 第二賽季 Round 2",
-        "date": "2026-05-31",
-        "winner_name": "Lolidia",
-        "href": "./event.html?id=vrrctw_s2_r02"
+        "title": "第一賽季 七月 秋名錦標賽",
+        "date": "2025-07-06",
+        "winner_name": "『Sigma』",
+        "href": "./event.html?id=vrrctw_s1_akina"
       },
       "standings_top": [
         {
           "rank": 1,
-          "player_id": "plr_lolidia",
-          "name": "Lolidia",
-          "team_id": "team_akagi",
-          "team_name": "Akagi RedSuns",
-          "points": 50
+          "player_id": "plr_kinokono_tenka",
+          "name": "Kinokono_Tenka",
+          "team_id": "",
+          "team_name": "",
+          "points": 8
         },
         {
           "rank": 2,
-          "player_id": "plr_ren",
-          "name": "Ren",
-          "team_id": "team_myogi",
-          "team_name": "Myogi NightKids",
-          "points": 36
+          "player_id": "plr_rushia_angel",
+          "name": "Rushia Angel",
+          "team_id": "",
+          "team_name": "",
+          "points": 5
         },
         {
           "rank": 3,
-          "player_id": "plr_star",
-          "name": "StarRiver Arts",
-          "team_id": "team_myogi",
-          "team_name": "Myogi NightKids",
-          "points": 15
+          "player_id": "plr_ikuhopen",
+          "name": "ikuhopen",
+          "team_id": "",
+          "team_name": "",
+          "points": 5
         }
       ],
-      "href": "./series.html?id=vrrctw_s2"
+      "href": "./series.html?id=vrrctw_s1"
     }
   ]
 }

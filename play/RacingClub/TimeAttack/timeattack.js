@@ -74,6 +74,10 @@ const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?
 const taEntityLink = (name, href) =>
   href ? `<a class="ta-entity-link" href="${href}">${escapeHtml(name || "")}</a>` : escapeHtml(name || "");
 
+// 平行連結到 Events 活動戰績(TimeAttack 在 ../Events/ 同層)。
+const renderEventsXlink = (page, id) =>
+  id ? `<div class="ta-events-xlink"><a class="ta-tm-btn" href="../Events/${page}?id=${encodeURIComponent(id)}">${renderBilingual("在 Events 查看活動戰績", "View event records in Events")}</a></div>` : "";
+
 const renderCardLink = (href, labelZh, labelEn) => {
   if (!href) {
     return "";
@@ -579,7 +583,7 @@ const renderTrackDetail = (data, id, routeCode) => {
   const analysisModule = analysis
     ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
     : "";
-  return switcher + header + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  return switcher + renderEventsXlink("tracks.html", board.track_world_code) + header + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
@@ -1128,7 +1132,7 @@ const renderPlayerDetail = (data, id) => {
   const progressionModule = progression
     ? renderModule("進步曲線", "Progression", "圈速進步", "Lap-time Progression", progression)
     : "";
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + progressionModule;
+  return switcher + renderEventsXlink("players.html", card.player_id) + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + progressionModule;
 };
 
 const VEHICLE_PROFILE_CONFIG = {
@@ -1227,7 +1231,7 @@ const renderVehicleDetail = (data, id) => {
   const analysisModule = analysis
     ? renderModule("車輛取向", "Profile", "環境與涵蓋", "Environment & Coverage", analysis)
     : "";
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + analysisModule;
+  return switcher + renderEventsXlink("vehicles.html", card.vehicle_model_code) + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + analysisModule;
 };
 
 const renderEventCards = (cards) =>

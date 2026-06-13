@@ -14,11 +14,15 @@ ever read this output. No database, no external network.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+# 公開站基底(bot_feed 的連結用);換網域時改這裡。
+SITE_BASE = "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/Events/"
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "source"
@@ -51,7 +55,9 @@ STATUS_LABELS = {
     "cancelled": ("取消", "Cancelled"),
 }
 ROUND_LABELS = {
+    "qualifying": ("資格賽 / 排位", "Qualifying"),
     "final": ("決賽", "Final"),
+    "third_place": ("季軍戰", "3rd-place"),
     "semi_final": ("準決賽", "Semi-final"),
     "quarter_final": ("八強", "Quarter-final"),
     "ro16": ("十六強", "Round of 16"),
@@ -97,12 +103,28 @@ def round_label(code: str) -> tuple[str, str]:
     return ROUND_LABELS.get(code, (code or "", code or ""))
 
 
+def _ta_index(filename: str, card_key: str, id_key: str, name_key: str) -> dict[str, str]:
+    """讀 TimeAttack 已發布的 JSON,取 id→顯示名。找不到就回空(graceful)。"""
+    path = ROOT.parent / "TimeAttack" / "data" / filename
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return {c[id_key]: c[name_key] for c in data.get(card_key, []) if c.get(id_key)}
+
+
 def main() -> None:
     meta = load("meta.json")
+    # meta.json 只放 override / TimeAttack 還沒有的補充;名稱主來源是 TimeAttack。
     players_meta = meta.get("players", {})
     teams_meta = meta.get("teams", {})
     tracks_meta = meta.get("tracks", {})
     vehicles_meta = meta.get("vehicles", {})
+
+    # 單一真相:玩家 / 車輛 / 賽道名稱直接吃 TimeAttack 已發布資料。
+    ta_players = _ta_index("players.json", "player_cards", "player_id", "title")
+    ta_vehicles = _ta_index("vehicles.json", "vehicle_cards", "vehicle_model_code", "title")
+    ta_tracks = _ta_index("tracks.json", "boards", "track_world_code", "track_display_name")
 
     series_list = load("series.json")
     events = load("events.json")
@@ -110,18 +132,32 @@ def main() -> None:
     results = load("results.json")
 
     def player_name(pid: str) -> str:
-        return (players_meta.get(pid) or {}).get("name") or pid
+        return (players_meta.get(pid) or {}).get("name") or ta_players.get(pid) or pid
 
     def team_name(tid: str) -> str:
         return (teams_meta.get(tid) or {}).get("name") or tid
 
     def track_name(tid: str) -> str:
-        return (tracks_meta.get(tid) or {}).get("name") or tid
+        return (tracks_meta.get(tid) or {}).get("name") or ta_tracks.get(tid) or tid
 
     def vehicle_name(vid: str) -> str:
-        return (vehicles_meta.get(vid) or {}).get("name") or vid
+        return (vehicles_meta.get(vid) or {}).get("name") or ta_vehicles.get(vid) or vid
 
     events_by_id = {e["event_id"]: e for e in events}
+
+    # 防呆:略過參照到不存在賽事的 match(與其 result),避免編輯刪改後留下孤兒。
+    orphan_matches = [m for m in matches if m.get("event_id") not in events_by_id]
+    for m in orphan_matches:
+        print(f"[events] WARNING: match {m.get('match_id')} 的 event_id "
+              f"{m.get('event_id')} 不存在,略過")
+    matches = [m for m in matches if m.get("event_id") in events_by_id]
+    valid_match_ids = {m["match_id"] for m in matches}
+    orphan_results = [r for r in results if r.get("match_id") not in valid_match_ids]
+    for r in orphan_results:
+        print(f"[events] WARNING: result {r.get('result_id')} 的 match_id "
+              f"{r.get('match_id')} 不存在,略過")
+    results = [r for r in results if r.get("match_id") in valid_match_ids]
+
     matches_by_event: dict[str, list] = defaultdict(list)
     for m in matches:
         matches_by_event[m["event_id"]].append(m)
@@ -174,24 +210,28 @@ def main() -> None:
                     order.append(pid)
         return order
 
-    def event_winner(eid: str) -> dict[str, Any]:
-        # final match winner, else position-1 of the richest match
+    def event_winner(eid: str, event_type: str) -> dict[str, Any]:
+        # 休閒對戰沒有單一冠軍;只有錦標賽/淘汰賽取決賽勝者。
+        if event_type == "casual_meet":
+            return {}
         ms = em_by_event.get(eid, [])
         final = next((m for m in ms if m.get("round") == "final"), None)
-        target = final or (max(ms, key=lambda m: len(m["results"])) if ms else None)
-        if not target:
-            return {}
-        if target.get("winner_id"):
-            return {"player_id": target["winner_id"], "name": player_name(target["winner_id"])}
-        top = next((r for r in target["results"] if r.get("position") == 1), None)
-        return {"player_id": top["player_id"], "name": top["player_name"]} if top else {}
+        if final and final.get("winner_id"):
+            return {"player_id": final["winner_id"], "name": player_name(final["winner_id"])}
+        # 否則:資格賽(qualifying)名次第一者
+        qual = next((m for m in ms if m.get("type") == "time_attack"), None)
+        if qual:
+            top = next((r for r in qual["results"] if r.get("position") == 1), None)
+            if top:
+                return {"player_id": top["player_id"], "name": top["player_name"]}
+        return {}
 
     enriched_events = []
     for e in events:
         eid = e["event_id"]
         tl_zh, tl_en = type_label(e.get("event_type", ""))
         sl_zh, sl_en = status_label(e.get("status", ""))
-        winner = event_winner(eid)
+        winner = event_winner(eid, e.get("event_type", ""))
         parts = event_participants(eid)
         series = next((s for s in series_list if s["series_id"] == e.get("series_id")), None)
         enriched_events.append({
@@ -270,11 +310,13 @@ def main() -> None:
     for r in enriched_results:
         pid = r["player_id"]
         p_part[pid].add(r["event_id"])
-        if r.get("status") == "win" or r.get("position") == 1:
+        # 勝負只看對戰結果(status);資格賽(classified)的名次不算對戰勝。
+        if r.get("status") == "win":
             p_win[pid] += 1
         if r.get("status") == "loss":
             p_loss[pid] += 1
-        if (r.get("position") or 99) <= 3:
+        # 頒獎台:資格賽/錦標賽的最終名次(classified)前三。
+        if r.get("status") == "classified" and (r.get("position") or 99) <= 3:
             p_podium[pid] += 1
         p_pts[pid] += r.get("points") or 0
         if r.get("vehicle_id"):
@@ -306,7 +348,7 @@ def main() -> None:
             continue
         t_events[tid].add(r["event_id"])
         t_pts[tid] += r.get("points") or 0
-        if r.get("status") == "win" or r.get("position") == 1:
+        if r.get("status") == "win":
             t_win[tid] += 1
         t_members[tid].add(r["player_id"])
     teams_stats = sorted([
@@ -347,7 +389,7 @@ def main() -> None:
         if not vid:
             continue
         v_use[vid] += 1
-        if r.get("status") == "win" or r.get("position") == 1:
+        if r.get("status") == "win":
             v_win[vid] += 1
         v_players[vid].add(r["player_id"])
         if r.get("time_ms") and (vid not in v_best or r["time_ms"] < v_best[vid]):
@@ -423,9 +465,49 @@ def main() -> None:
         "active_series": series_cards,
     }
 
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    # ── bot_feed.json:Discord bot 的唯一入口(本輪只產生靜態檔,不部署 bot)──
+    announcements: list[dict[str, Any]] = []
+    for e in finished:
+        announcements.append({
+            "id": f"ann_{e['event_id']}_result", "type": "event_result",
+            "title_zh": f"{e['title']} 結果出爐", "title_en": f"{e.get('title_en') or e['title']} results",
+            "message_zh": (f"{e['winner_name']} 奪冠。" if e["winner_name"] else "活動結束。"),
+            "message_en": (f"{e['winner_name']} won." if e["winner_name"] else "Event finished."),
+            "url": SITE_BASE + "event.html?id=" + e["event_id"],
+            "created_at": e.get("end_time") or e.get("start_time") or "",
+        })
+    for e in upcoming:
+        announcements.append({
+            "id": f"ann_{e['event_id']}_scheduled", "type": "event_scheduled",
+            "title_zh": f"即將舉辦:{e['title']}", "title_en": f"Upcoming: {e.get('title_en') or e['title']}",
+            "message_zh": f"{e['date']} · {e['type_label_zh']}" + ("· 積分賽" if e.get("is_points_event") else ""),
+            "message_en": f"{e['date']} · {e['type_label_en']}" + (" · points" if e.get("is_points_event") else ""),
+            "url": SITE_BASE + "event.html?id=" + e["event_id"],
+            "created_at": e.get("start_time") or "",
+        })
+    pins: dict[str, Any] = {}
+    for s in active_series:
+        top = s["standings"]["players"][:8]
+        pins["season_standings"] = {
+            "title": f"{s['display_name']} 積分榜",
+            "lines": [f"{p['rank']}. {p['name']} — {p['points']} pts" for p in top] or ["(尚無積分)"],
+        }
+        break
+    pins["next_events"] = {
+        "title": "近期活動",
+        "lines": [f"{e['date']} {e['title']}" for e in upcoming[:5]] or ["(暫無排定)"],
+    }
+    digest = hashlib.sha1(
+        json.dumps({"a": announcements, "p": pins}, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()[:12]
+    bot_feed = {"generated_at": generated_at, "digest": digest,
+                "announcements": announcements, "pins": pins}
+
     manifest = {
         "schema_version": SCHEMA_VERSION,
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": generated_at,
         "build_state": "seed",
         "source_label": "play/RacingClub/Events/source/*.json",
         "routes": ROUTE_FILE_MAP,
@@ -447,6 +529,7 @@ def main() -> None:
     write_json("teams_stats.json", {"title_zh": "車隊戰績", "title_en": "Team Records", "teams": teams_stats})
     write_json("tracks_stats.json", {"title_zh": "賽道戰績", "title_en": "Track Records", "tracks": tracks_stats})
     write_json("vehicles_stats.json", {"title_zh": "車輛戰績", "title_en": "Vehicle Records", "vehicles": vehicles_stats})
+    write_json("bot_feed.json", bot_feed)
 
     print(f"events={len(enriched_events)} matches={len(enriched_matches)} results={len(enriched_results)} "
           f"series={len(enriched_series)} players={len(players_stats)} teams={len(teams_stats)}")
