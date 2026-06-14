@@ -2179,14 +2179,11 @@ body.timeattack-page {
 }
 
 .ta-trace-path-halo {
-  stroke: rgba(255, 255, 255, 0.28) !important;
-  stroke-opacity: 0.28 !important;
-  stroke-width: 10px !important;
+  filter: saturate(0.92);
 }
 
 .ta-trace-path-core {
-  stroke-opacity: 0.98 !important;
-  stroke-width: 4px !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.08));
 }
 
 .ta-map-marker {

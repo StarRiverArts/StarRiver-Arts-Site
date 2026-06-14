@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import re
 import sqlite3
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -731,6 +733,13 @@ def load_sqlite_data(
         }
     except sqlite3.OperationalError:
         geo_traces = {}
+    try:
+        geo_region_overlays = {
+            ((row["country"] or "").strip(), (row["region"] or "").strip()): row["overlay_geojson"]
+            for row in conn.execute("SELECT * FROM geo_region_overlays")
+        }
+    except sqlite3.OperationalError:
+        geo_region_overlays = {}
 
     conn.close()
     lookup = {
@@ -742,6 +751,7 @@ def load_sqlite_data(
         "events": events,
         "geo_places": geo_places,
         "geo_traces": geo_traces,
+        "geo_region_overlays": geo_region_overlays,
     }
     return records, lookup, {"review_cards": []}
 
@@ -1928,6 +1938,8 @@ def build_review_pages(records: list[dict[str, Any]], extra_review_cards: list[d
 
 
 TRACKMAP_GEO_DIR = "geo"
+TRACKMAP_REGION_OVERLAY_SUBDIR = "regions"
+TRACKMAP_REGION_OVERLAY_DIR = f"{TRACKMAP_GEO_DIR}/{TRACKMAP_REGION_OVERLAY_SUBDIR}"
 TRACKMAP_POSTER_DIR = Path(__file__).resolve().parent / "assets" / "trackmap"
 TRACKMAP_POSTER_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
@@ -1943,6 +1955,21 @@ def split_bilingual(value: str) -> tuple[str, str]:
     if idx == 0 or idx == len(value):
         return value, value
     return value[:idx].strip(), value[idx:].strip()
+
+
+def slug_fragment(value: str) -> str:
+    """Stable ASCII slug fragment for file names derived from bilingual labels."""
+    _, english = split_bilingual(value)
+    base = english or (value or "").strip()
+    slug = re.sub(r"[^0-9A-Za-z]+", "-", base).strip("-").lower()
+    if slug:
+        return slug
+    digest = hashlib.sha1((value or "_").encode("utf-8")).hexdigest()[:10]
+    return f"r{digest}"
+
+
+def region_overlay_code(country: str, region: str) -> str:
+    return f"{slug_fragment(country)}__{slug_fragment(region)}"
 
 
 # 共用色彩規則(首頁頻率圖 + 地圖頁共用):
@@ -1996,24 +2023,118 @@ def build_category_style(lookup: dict[str, Any]) -> dict[str, Any]:
     return {"colors": colors, "neutral": CATEGORY_NEUTRAL, "legend": legend}
 
 
-def trace_midpoint(trace: dict[str, Any]) -> tuple[float, float] | None:
-    """Marker anchor for a traced track: midpoint of its longest LineString, as (lat, lng)."""
-    best: list[Any] = []
+TRACE_CONNECTOR_ROLES = {"connector", "shared", "link", "approach"}
+
+
+def trace_feature_lines(
+    trace: dict[str, Any], *, prefer_focus: bool = False
+) -> list[list[Any]]:
+    lines: list[list[Any]] = []
+    fallback: list[list[Any]] = []
     for feature in trace.get("features") or []:
         geometry = (feature or {}).get("geometry") or {}
+        props = (feature or {}).get("properties") or {}
+        role = str(props.get("ta_role") or props.get("role") or "").strip().lower()
+        focus_flag = props.get("ta_focus")
+        is_connector = role in TRACE_CONNECTOR_ROLES
+        use_for_focus = focus_flag is not False and not is_connector
         if geometry.get("type") == "LineString":
-            lines = [geometry.get("coordinates") or []]
+            current = [geometry.get("coordinates") or []]
         elif geometry.get("type") == "MultiLineString":
-            lines = geometry.get("coordinates") or []
+            current = geometry.get("coordinates") or []
         else:
             continue
-        for line in lines:
-            if len(line) > len(best):
-                best = line
+        fallback.extend(current)
+        if not prefer_focus or use_for_focus:
+            lines.extend(current)
+    return lines or fallback
+
+
+def trace_midpoint(trace: dict[str, Any]) -> tuple[float, float] | None:
+    """Marker anchor for a traced track: midpoint of its longest focus line, as (lat, lng)."""
+    best: list[Any] = []
+    for line in trace_feature_lines(trace, prefer_focus=True):
+        if len(line) > len(best):
+            best = line
     if len(best) < 2:
         return None
     lng, lat = best[len(best) // 2][:2]
     return float(lat), float(lng)
+
+
+def trace_bounds_payload(
+    trace: dict[str, Any], *, prefer_focus: bool = False,
+) -> list[list[float]] | None:
+    min_lat = min_lng = float("inf")
+    max_lat = max_lng = float("-inf")
+    found = False
+    for line in trace_feature_lines(trace, prefer_focus=prefer_focus):
+        for point in line:
+            if not isinstance(point, (list, tuple)) or len(point) < 2:
+                continue
+            lng, lat = point[:2]
+            try:
+                lat_f = float(lat)
+                lng_f = float(lng)
+            except (TypeError, ValueError):
+                continue
+            min_lat = min(min_lat, lat_f)
+            max_lat = max(max_lat, lat_f)
+            min_lng = min(min_lng, lng_f)
+            max_lng = max(max_lng, lng_f)
+            found = True
+    if not found:
+        return None
+    return [[min_lat, min_lng], [max_lat, max_lng]]
+
+
+def normalize_region_overlay_feature(
+    feature: dict[str, Any], *, default_role: str = "main",
+) -> dict[str, Any] | None:
+    geometry = (feature or {}).get("geometry") or {}
+    if geometry.get("type") not in {"LineString", "MultiLineString"}:
+        return None
+    props = (feature or {}).get("properties") or {}
+    role = str(props.get("ta_role") or props.get("role") or "").strip().lower() or default_role
+    normalized_props: dict[str, Any] = {"ta_role": role, "ta_focus": False}
+    for src, dest in (
+        ("ta_opacity", "ta_opacity"),
+        ("opacity", "ta_opacity"),
+        ("ta_weight", "ta_weight"),
+        ("weight", "ta_weight"),
+        ("ta_dash", "ta_dash"),
+        ("dash", "ta_dash"),
+        ("dashArray", "ta_dash"),
+    ):
+        value = props.get(src)
+        if value is not None and value != "" and dest not in normalized_props:
+            normalized_props[dest] = value
+    return {"type": "Feature", "properties": normalized_props, "geometry": geometry}
+
+
+def build_auto_region_overlay(
+    cards: list[dict[str, Any]], traces: dict[str, dict[str, Any]],
+) -> dict[str, Any] | None:
+    features: list[dict[str, Any]] = []
+    seen_geometries: set[str] = set()
+    for card in cards:
+        trace = traces.get(card.get("track_world_code") or "")
+        if not trace:
+            continue
+        for feature in trace.get("features") or []:
+            normalized = normalize_region_overlay_feature(feature)
+            if not normalized:
+                continue
+            geometry_key = json.dumps(
+                normalized["geometry"], ensure_ascii=False, separators=(",", ":"),
+            )
+            if geometry_key in seen_geometries:
+                continue
+            seen_geometries.add(geometry_key)
+            features.append(normalized)
+    if not features:
+        return None
+    return {"type": "FeatureCollection", "features": features}
 
 
 def build_trackmap(
@@ -2042,6 +2163,22 @@ def build_trackmap(
             traces[code] = json.loads(raw)
         except (json.JSONDecodeError, TypeError):
             warnings.append(f"geo_traces 解析失敗:{code}")
+
+    parsed_region_overlays: dict[tuple[str, str], dict[str, Any]] = {}
+    for key, raw in (lookup.get("geo_region_overlays") or {}).items():
+        country_key = (key[0] or "").strip()
+        region_key = (key[1] or "").strip()
+        if not country_key or not region_key:
+            warnings.append(
+                "geo_region_overlays key missing country / region:" + " / ".join(
+                    filter(None, (country_key, region_key)),
+                ),
+            )
+            continue
+        try:
+            parsed_region_overlays[(country_key, region_key)] = json.loads(raw)
+        except (json.JSONDecodeError, TypeError):
+            warnings.append(f"geo_region_overlays decode failed: {country_key} / {region_key}")
 
     geo_dir = output_dir / TRACKMAP_GEO_DIR
     geo_dir.mkdir(parents=True, exist_ok=True)
@@ -2115,16 +2252,23 @@ def build_trackmap(
                 return (0, rank, "")
         return (1, 0, name)
 
+    region_overlay_files: dict[str, dict[str, Any]] = {}
+    used_region_keys: set[tuple[str, str]] = set()
     countries = []
     for country_name in sorted(grouped, key=country_sort_key):
         zh, en = split_bilingual(country_name)
         regions = []
         for region_name in sorted(grouped[country_name]):
+            if region_name:
+                used_region_keys.add((country_name, region_name))
             rzh, ren = split_bilingual(region_name)
             localities = []
+            traced_locality_count = 0
             for triple, cards in sorted(
                 grouped[country_name][region_name].items(), key=lambda item: item[0][2],
             ):
+                if any(card.get("has_trace") for card in cards):
+                    traced_locality_count += 1
                 lzh, len_ = split_bilingual(triple[2])
                 place = geo_places.get(triple) or {}
                 lat, lng = place.get("latitude"), place.get("longitude")
@@ -2148,14 +2292,56 @@ def build_trackmap(
                     locality_node["lng"] = lng
                     locality_node["point_source"] = point_source
                 localities.append(locality_node)
-            regions.append({
+            region_node = {
                 "name": region_name, "name_zh": rzh, "name_en": ren,
                 "localities": localities,
-            })
+            }
+            region_cards = [card for cards in grouped[country_name][region_name].values() for card in cards]
+            traced_cards = [card for card in region_cards if card.get("has_trace")]
+            overlay_payload = parsed_region_overlays.get((country_name, region_name))
+            auto_overlay_enabled = traced_locality_count >= 2 or len(traced_cards) >= 4
+            overlay_source = ""
+            if overlay_payload:
+                overlay_source = "manual"
+            elif region_name and auto_overlay_enabled:
+                overlay_payload = build_auto_region_overlay(region_cards, traces)
+                if overlay_payload:
+                    overlay_source = "auto"
+            if overlay_payload and region_name:
+                overlay_code = region_overlay_code(country_name, region_name)
+                region_overlay_files[overlay_code] = overlay_payload
+                region_node["has_overlay"] = True
+                region_node["overlay_file"] = (
+                    f"{TRACKMAP_REGION_OVERLAY_DIR}/{overlay_code}.geojson"
+                )
+                region_node["overlay_source"] = overlay_source or "manual"
+                overlay_bounds = (
+                    trace_bounds_payload(overlay_payload, prefer_focus=True)
+                    or trace_bounds_payload(overlay_payload)
+                )
+                if overlay_bounds:
+                    region_node["overlay_bounds"] = overlay_bounds
+            regions.append(region_node)
         countries.append({
             "name": country_name, "name_zh": zh, "name_en": en,
             "regions": regions,
         })
+
+    region_geo_dir = geo_dir / TRACKMAP_REGION_OVERLAY_SUBDIR
+    region_geo_dir.mkdir(parents=True, exist_ok=True)
+    for stale in region_geo_dir.glob("*.geojson"):
+        if stale.stem not in region_overlay_files:
+            stale.unlink()
+    for code, parsed in region_overlay_files.items():
+        (region_geo_dir / f"{code}.geojson").write_text(
+            json.dumps(parsed, ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+    for country_key, region_key in sorted(parsed_region_overlays):
+        if (country_key, region_key) not in used_region_keys:
+            warnings.append(
+                f"geo_region_overlays references unknown region: {country_key} / {region_key}",
+            )
 
     located_tracks = sum(
         len(loc["tracks"])

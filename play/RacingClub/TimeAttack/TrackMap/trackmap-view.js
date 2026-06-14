@@ -11,6 +11,8 @@
 
   const ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ESCAPES[c]);
+  const AUTO_REGION_OVERLAY_MIN_ZOOM = 6;
+  const AUTO_REGION_OVERLAY_PAD = 0.24;
   const AUTO_TRACE_MIN_ZOOM = 8;
   const AUTO_TRACE_PAD = 0.18;
 
@@ -22,7 +24,10 @@
 
   const TRACE_STYLE = { color: "#EFD95B", weight: 4, opacity: 0.96, lineCap: "round", lineJoin: "round" };
   const TRACE_HALO_STYLE = { color: "#fff", weight: 10, opacity: 0.26, lineCap: "round", lineJoin: "round" };
+  const TRACE_CONNECTOR_COLOR = "hsl(158, 18%, 80%)";
+  const TRACE_OVERLAY_COLOR = "hsl(158, 16%, 84%)";
   const TRACE_DASH_PATTERNS = ["14 10", "5 12", "18 8 4 8", "3 10"];
+  const TRACE_CONNECTOR_ROLES = new Set(["connector", "shared", "link", "approach"]);
   const hashText = (value) => {
     let hash = 0;
     const text = String(value || "");
@@ -34,10 +39,119 @@
   const traceVisualFor = (code, baseColor, neutralColor) => {
     const seed = hashText(code);
     return {
-      color: baseColor && baseColor !== neutralColor
+      mainColor: baseColor && baseColor !== neutralColor
         ? baseColor
         : `hsl(${seed % 360}, 84%, 64%)`,
+      connectorColor: TRACE_CONNECTOR_COLOR,
       dashArray: TRACE_DASH_PATTERNS[seed % TRACE_DASH_PATTERNS.length],
+      overlay: false,
+    };
+  };
+  const regionOverlayVisualFor = () => ({
+    mainColor: TRACE_OVERLAY_COLOR,
+    connectorColor: TRACE_CONNECTOR_COLOR,
+    dashArray: "",
+    overlay: true,
+  });
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  const traceProps = (feature) => {
+    const props = feature && typeof feature === "object" ? feature.properties : null;
+    return props && typeof props === "object" ? props : {};
+  };
+  const traceRole = (feature) =>
+    String(traceProps(feature).ta_role || traceProps(feature).role || "").trim().toLowerCase();
+  const isConnectorFeature = (feature) => TRACE_CONNECTOR_ROLES.has(traceRole(feature));
+  const traceFocusEnabled = (feature) => {
+    const props = traceProps(feature);
+    return props.ta_focus !== false && props.focus !== false && !isConnectorFeature(feature);
+  };
+  const traceFeatureLines = (trace, { focusOnly = false } = {}) => {
+    const preferred = [];
+    const fallback = [];
+    (trace && trace.features ? trace.features : []).forEach((feature) => {
+      const geometry = feature && feature.geometry ? feature.geometry : {};
+      let lines = [];
+      if (geometry.type === "LineString") {
+        lines = [geometry.coordinates || []];
+      } else if (geometry.type === "MultiLineString") {
+        lines = geometry.coordinates || [];
+      }
+      if (!lines.length) return;
+      fallback.push(...lines);
+      if (!focusOnly || traceFocusEnabled(feature)) preferred.push(...lines);
+    });
+    return preferred.length ? preferred : fallback;
+  };
+  const traceBoundsFromGeoJSON = (trace, { focusOnly = false } = {}) => {
+    const bounds = L.latLngBounds([]);
+    traceFeatureLines(trace, { focusOnly }).forEach((line) => {
+      (line || []).forEach((point) => {
+        if (!Array.isArray(point) || point.length < 2) return;
+        bounds.extend([point[1], point[0]]);
+      });
+    });
+    return bounds.isValid() ? bounds : null;
+  };
+  const boundsFromPayload = (payload) => {
+    if (!Array.isArray(payload) || payload.length !== 2) return null;
+    const [southWest, northEast] = payload;
+    if (!Array.isArray(southWest) || !Array.isArray(northEast)) return null;
+    const [south, west] = southWest;
+    const [north, east] = northEast;
+    if (![south, west, north, east].every(Number.isFinite)) return null;
+    const bounds = L.latLngBounds([[south, west], [north, east]]);
+    return bounds.isValid() ? bounds : null;
+  };
+  const regionKeyFor = (country, region) =>
+    `${(country && country.name) || country || ""}||${(region && region.name) || region || ""}`;
+  const traceStyleValue = (props, keys, fallback) => {
+    for (const key of keys) {
+      if (props[key] == null || props[key] === "") continue;
+      return props[key];
+    }
+    return fallback;
+  };
+  const traceStyleForFeature = (feature, visual, kind, selected = false) => {
+    const props = traceProps(feature);
+    const connector = isConnectorFeature(feature);
+    const overlay = !!(visual && visual.overlay);
+    const opacityRaw = traceStyleValue(props, ["ta_opacity", "opacity"], null);
+    const weightRaw = traceStyleValue(props, ["ta_weight", "weight"], null);
+    const dashRaw = traceStyleValue(props, ["ta_dash", "dash", "dashArray"], "");
+    const opacity = opacityRaw == null ? null : clamp(Number(opacityRaw), 0, 1);
+    const weight = weightRaw == null ? null : clamp(Number(weightRaw), 0.2, 24);
+    const dashArray = String(dashRaw || "").trim();
+    const defaultMainOpacity = overlay ? 0.88 : TRACE_STYLE.opacity;
+    const defaultMainWeight = overlay ? 3.8 : TRACE_STYLE.weight;
+    const mainColor = visual && visual.mainColor ? visual.mainColor : TRACE_STYLE.color;
+    const connectorColor =
+      visual && visual.connectorColor ? visual.connectorColor : TRACE_CONNECTOR_COLOR;
+    const mainDashArray = visual && visual.dashArray ? visual.dashArray : "";
+    if (kind === "halo") {
+      const haloOpacity = connector
+        ? (opacity == null ? 0.08 : Math.min(opacity * 0.32, 0.16))
+        : (selected && !overlay ? 0.42 : (overlay ? 0.16 : TRACE_HALO_STYLE.opacity));
+      const haloWeight = connector
+        ? Math.max((weight == null ? 2.6 : weight) + 1.1, 1.4)
+        : (selected && !overlay ? 14 : Math.max((weight == null ? defaultMainWeight : weight) + 2, 2));
+      return {
+        ...TRACE_HALO_STYLE,
+        color: selected && !connector && !overlay ? mainColor : TRACE_HALO_STYLE.color,
+        dashArray: selected && !connector && !overlay ? "" : (dashArray || (connector ? "6 12" : mainDashArray)),
+        opacity: haloOpacity,
+        weight: haloWeight,
+      };
+    }
+    return {
+      ...TRACE_STYLE,
+      color: selected && !connector && !overlay ? "#FFF6A8" : (connector ? connectorColor : mainColor),
+      dashArray: selected && !connector && !overlay ? "" : (dashArray || (connector ? "6 12" : mainDashArray)),
+      opacity: connector
+        ? (opacity == null ? 0.3 : opacity)
+        : (selected && !overlay ? 1 : (opacity == null ? defaultMainOpacity : opacity)),
+      weight: connector
+        ? (weight == null ? (overlay ? 2.8 : 2.4) : weight)
+        : (selected && !overlay ? 7 : (weight == null ? defaultMainWeight : weight)),
     };
   };
 
@@ -147,8 +261,18 @@
         trackRefs.set(track.track_world_code, { ...ref, track, locIndex });
       });
     });
+    const regionRefs = [];
+    (data.countries || []).forEach((country) => {
+      (country.regions || []).forEach((region) => {
+        if (!region || !region.overlay_file) return;
+        regionRefs.push({ key: regionKeyFor(country, region), country, region });
+      });
+    });
 
     const map = L.map("ta-map", { worldCopyJump: true }).setView([23.5, 121], 3);
+    const overlayPane = map.createPane("taRegionOverlayPane");
+    overlayPane.style.zIndex = "430";
+    overlayPane.style.pointerEvents = "none";
     const tracePane = map.createPane("taTracePane");
     tracePane.style.zIndex = "450";
     tracePane.style.pointerEvents = "none";
@@ -224,6 +348,17 @@
     }
 
     // ── 軌跡懶載與快取 ──
+    const regionOverlayGroup = L.layerGroup().addTo(map);
+    const regionOverlayLayers = new Map(); // regionKey -> L.FeatureGroup
+    const regionOverlayBoundsByKey = new Map(); // regionKey -> L.LatLngBounds
+    const regionOverlayPending = new Map(); // regionKey -> Promise
+    const visibleRegionOverlayKeys = new Set();
+    let autoWantedRegionOverlayKeys = new Set();
+    regionRefs.forEach((ref) => {
+      const bounds = boundsFromPayload(ref.region.overlay_bounds);
+      if (bounds) regionOverlayBoundsByKey.set(ref.key, bounds);
+    });
+
     const traceGroup = L.layerGroup().addTo(map);
     const traceLayers = new Map(); // code -> L.FeatureGroup
     const traceBoundsByCode = new Map(); // code -> L.LatLngBounds
@@ -231,6 +366,59 @@
     const visibleTraceCodes = new Set();
     let selectedTrackCode = "";
     let autoWantedTraceCodes = new Set();
+    const loadRegionOverlay = (regionKey, file) => {
+      if (regionOverlayLayers.has(regionKey)) return Promise.resolve(regionOverlayLayers.get(regionKey));
+      if (regionOverlayPending.has(regionKey)) return regionOverlayPending.get(regionKey);
+      const promise = fetch(`${base}data/${file}`)
+        .then((res) => {
+          if (!res.ok) throw new Error(`region overlay ${regionKey}: ${res.status}`);
+          return res.json();
+        })
+        .then((geojson) => {
+          const visual = regionOverlayVisualFor();
+          const halo = L.geoJSON(geojson, {
+            pane: "taRegionOverlayPane",
+            interactive: false,
+            className: "ta-trace-path ta-trace-path-halo ta-region-overlay-path",
+            style: (feature) => traceStyleForFeature(feature, visual, "halo", false),
+          });
+          const core = L.geoJSON(geojson, {
+            pane: "taRegionOverlayPane",
+            interactive: false,
+            className: "ta-trace-path ta-trace-path-core ta-region-overlay-path",
+            style: (feature) => traceStyleForFeature(feature, visual, "core", false),
+          });
+          const layer = L.featureGroup([halo, core]);
+          layer._taHalo = halo;
+          layer._taCore = core;
+          layer._taVisual = visual;
+          layer._taGeoJSON = geojson;
+          layer._taFocusBounds = traceBoundsFromGeoJSON(geojson) || layer.getBounds();
+          regionOverlayLayers.set(regionKey, layer);
+          regionOverlayBoundsByKey.set(regionKey, layer._taFocusBounds || layer.getBounds());
+          return layer;
+        })
+        .catch((err) => {
+          console.warn(err);
+          regionOverlayPending.delete(regionKey);
+          return null;
+        });
+      regionOverlayPending.set(regionKey, promise);
+      return promise;
+    };
+    const showRegionOverlay = (regionKey, file, { force = false } = {}) =>
+      loadRegionOverlay(regionKey, file).then((layer) => {
+        if (!layer) return null;
+        if (!force && !autoWantedRegionOverlayKeys.has(regionKey)) return null;
+        if (!regionOverlayGroup.hasLayer(layer)) regionOverlayGroup.addLayer(layer);
+        visibleRegionOverlayKeys.add(regionKey);
+        return layer;
+      });
+    const hideRegionOverlay = (regionKey) => {
+      const layer = regionOverlayLayers.get(regionKey);
+      if (layer && regionOverlayGroup.hasLayer(layer)) regionOverlayGroup.removeLayer(layer);
+      visibleRegionOverlayKeys.delete(regionKey);
+    };
     const loadTrace = (code, file) => {
       if (traceLayers.has(code)) return Promise.resolve(traceLayers.get(code));
       if (tracePending.has(code)) return tracePending.get(code);
@@ -240,25 +428,27 @@
           return res.json();
         })
         .then((geojson) => {
-          const visual = traceVisualByCode.get(code) || { color: TRACE_STYLE.color, dashArray: "" };
+          const visual = traceVisualByCode.get(code) || traceVisualFor(code, TRACE_STYLE.color, "");
           const halo = L.geoJSON(geojson, {
             pane: "taTracePane",
             interactive: false,
             className: "ta-trace-path ta-trace-path-halo",
-            style: { ...TRACE_HALO_STYLE, dashArray: visual.dashArray },
+            style: (feature) => traceStyleForFeature(feature, visual, "halo", false),
           });
           const core = L.geoJSON(geojson, {
             pane: "taTracePane",
             interactive: false,
             className: "ta-trace-path ta-trace-path-core",
-            style: { ...TRACE_STYLE, color: visual.color, dashArray: visual.dashArray },
+            style: (feature) => traceStyleForFeature(feature, visual, "core", false),
           });
           const layer = L.featureGroup([halo, core]);
           layer._taHalo = halo;
           layer._taCore = core;
           layer._taVisual = visual;
+          layer._taGeoJSON = geojson;
+          layer._taFocusBounds = traceBoundsFromGeoJSON(geojson, { focusOnly: true }) || layer.getBounds();
           traceLayers.set(code, layer);
-          traceBoundsByCode.set(code, layer.getBounds());
+          traceBoundsByCode.set(code, layer._taFocusBounds || layer.getBounds());
           return layer;
         })
         .catch((err) => {
@@ -285,21 +475,9 @@
     const applyTraceSelection = (code, isSelected) => {
       const layer = traceLayers.get(code);
       if (!layer || !layer._taHalo || !layer._taCore) return;
-      const visual = layer._taVisual || { color: TRACE_STYLE.color, dashArray: "" };
-      layer._taHalo.setStyle({
-        ...TRACE_HALO_STYLE,
-        color: isSelected ? visual.color : TRACE_HALO_STYLE.color,
-        dashArray: isSelected ? "" : visual.dashArray,
-        opacity: isSelected ? 0.42 : TRACE_HALO_STYLE.opacity,
-        weight: isSelected ? 14 : TRACE_HALO_STYLE.weight,
-      });
-      layer._taCore.setStyle({
-        ...TRACE_STYLE,
-        color: isSelected ? "#FFF6A8" : visual.color,
-        dashArray: isSelected ? "" : visual.dashArray,
-        opacity: 1,
-        weight: isSelected ? 7 : TRACE_STYLE.weight,
-      });
+      const visual = layer._taVisual || traceVisualFor(code, TRACE_STYLE.color, "");
+      layer._taHalo.setStyle((feature) => traceStyleForFeature(feature, visual, "halo", isSelected));
+      layer._taCore.setStyle((feature) => traceStyleForFeature(feature, visual, "core", isSelected));
       if (isSelected && traceGroup.hasLayer(layer)) layer.bringToFront();
     };
     const syncSelectedTrackUi = () => {
@@ -332,9 +510,42 @@
         applyTraceSelection(selectedTrackCode, true);
       }
     };
-    const shouldAutoShowTrace = (track, loc, bounds, zoom) => {
+    const shouldAutoShowRegionOverlay = (ref, bounds, zoom) => {
+      if (!ref || !ref.region || !ref.region.overlay_file) return false;
+      if (zoom < AUTO_REGION_OVERLAY_MIN_ZOOM) return false;
+      const cachedBounds = regionOverlayBoundsByKey.get(ref.key);
+      if (cachedBounds && cachedBounds.isValid()) {
+        return bounds.intersects(cachedBounds);
+      }
+      return (ref.region.localities || []).some((loc) => (
+        loc
+        && loc.has_point
+        && Number.isFinite(loc.lat)
+        && Number.isFinite(loc.lng)
+        && bounds.contains(L.latLng(loc.lat, loc.lng))
+      ));
+    };
+    const refreshVisibleRegionOverlays = () => {
+      const bounds = map.getBounds().pad(AUTO_REGION_OVERLAY_PAD);
+      const zoom = map.getZoom();
+      const wanted = new Set();
+      regionRefs.forEach((ref) => {
+        if (!shouldAutoShowRegionOverlay(ref, bounds, zoom)) return;
+        wanted.add(ref.key);
+        showRegionOverlay(ref.key, ref.region.overlay_file);
+      });
+      autoWantedRegionOverlayKeys = wanted;
+      [...visibleRegionOverlayKeys].forEach((regionKey) => {
+        if (!wanted.has(regionKey)) hideRegionOverlay(regionKey);
+      });
+    };
+    const shouldAutoShowTrace = (ref, track, loc, bounds, zoom) => {
       if (!track || !track.has_trace || !track.trace_file) return false;
       if (zoom < AUTO_TRACE_MIN_ZOOM) return false;
+      if (ref && ref.region && ref.region.overlay_file) {
+        const regionKey = regionKeyFor(ref.country, ref.region);
+        if (autoWantedRegionOverlayKeys.has(regionKey)) return false;
+      }
       const cachedBounds = traceBoundsByCode.get(track.track_world_code);
       if (cachedBounds && cachedBounds.isValid()) {
         return bounds.intersects(cachedBounds);
@@ -353,9 +564,10 @@
       const bounds = map.getBounds().pad(AUTO_TRACE_PAD);
       const zoom = map.getZoom();
       const wanted = new Set();
-      locRefs.forEach(({ loc }) => {
+      locRefs.forEach((ref) => {
+        const { loc } = ref;
         (loc.tracks || []).forEach((track) => {
-          if (!shouldAutoShowTrace(track, loc, bounds, zoom)) return;
+          if (!shouldAutoShowTrace(ref, track, loc, bounds, zoom)) return;
           wanted.add(track.track_world_code);
           showTrace(track.track_world_code, track.trace_file);
         });
@@ -393,6 +605,14 @@
       const node = e.popup.getElement();
       if (!node) return;
       syncSelectedTrackUi();
+      if (marker && marker._taRef && marker._taRef.region && marker._taRef.region.overlay_file) {
+        showRegionOverlay(
+          regionKeyFor(marker._taRef.country, marker._taRef.region),
+          marker._taRef.region.overlay_file,
+          { force: true },
+        );
+        return;
+      }
       // popup 內每條有軌跡的賽道:開啟即懶載畫線。
       node.querySelectorAll("[data-trace-code]").forEach((item) => {
         showTrace(item.dataset.traceCode, item.dataset.traceFile, { force: true });
@@ -409,7 +629,7 @@
         showTrace(code, ref.track.trace_file, { force: true }).then((layer) => {
           if (!layer) return;
           applyTraceSelection(code, true);
-          if (fit) map.fitBounds(layer.getBounds().pad(0.3));
+          if (fit) map.fitBounds((layer._taFocusBounds || layer.getBounds()).pad(0.3));
         });
         return;
       }
@@ -452,6 +672,7 @@
         map.closePopup();
         setSelectedTrack("");
         setCrumbs(null);
+        refreshVisibleRegionOverlays();
         refreshVisibleTraces();
       }
     });
@@ -472,7 +693,11 @@
         selectTrackCode(trackItem.dataset.trackCode, { fit: true });
       }
     });
-    map.on("moveend zoomend", refreshVisibleTraces);
+    map.on("moveend zoomend", () => {
+      refreshVisibleRegionOverlays();
+      refreshVisibleTraces();
+    });
+    refreshVisibleRegionOverlays();
     refreshVisibleTraces();
   };
 })();
