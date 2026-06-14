@@ -31,14 +31,14 @@
     {
       "label_zh": "TR 數量",
       "label_en": "Track Records",
-      "value": "85",
+      "value": "86",
       "note_zh": "一般有效池內已確立的賽道路線最快數",
       "note_en": "Route-level fastest runs established in the valid pool"
     },
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "212",
+      "value": "214",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -5910,7 +5910,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "17"
+          "value": "20"
         },
         {
           "label_zh": "已驗證",
@@ -5920,7 +5920,7 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "7"
+          "value": "8"
         },
         {
           "label_zh": "車種最佳",
@@ -5929,7 +5929,7 @@
         }
       ],
       "badge_counts": {
-        "TR": 7,
+        "TR": 8,
         "CR": 1,
         "PR": 3
       },
@@ -5972,7 +5972,7 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 9
+          "value": 12
         },
         {
           "label": "髮夾彎",
@@ -5983,8 +5983,8 @@
           "value": 3
         },
         {
-          "label": "隧道",
-          "value": 2
+          "label": "技術彎",
+          "value": 3
         }
       ],
       "record_rows": [
@@ -6042,6 +6042,32 @@
         },
         {
           "rank": 3,
+          "route_label_zh": "F1 Circuit / Clockwise",
+          "route_label_en": "F1 Circuit / Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "FORMULA CAR",
+          "vehicle_model_code": "veh_formula_car",
+          "lap_time_ms": 123200,
+          "lap_time_text": "02:03.200",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速",
+            "技術彎"
+          ],
+          "peer_label": "FORMULA CAR",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 4,
           "route_label_zh": "omote_rokkou / Downhill",
           "route_label_en": "omote_rokkou / Downhill",
           "player_display_name": "CannedCarbon",
@@ -6064,7 +6090,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "route_label_zh": "Gunsai / Full Course",
           "route_label_en": "Gunsai / Full Course",
           "player_display_name": "CannedCarbon",
@@ -6090,7 +6116,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 5,
+          "rank": 6,
           "route_label_zh": "UraRokkou / Downhill",
           "route_label_en": "UraRokkou / Downhill",
           "player_display_name": "CannedCarbon",
@@ -6113,7 +6139,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 6,
+          "rank": 7,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "CannedCarbon",
@@ -6139,7 +6165,7 @@
           "badge_tone": "pr"
         },
         {
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "Sadamine / Full Course Downhill",
           "route_label_en": "Sadamine / Full Course Downhill",
           "player_display_name": "CannedCarbon",
@@ -6165,7 +6191,7 @@
           "badge_tone": "pr"
         },
         {
-          "rank": 8,
+          "rank": 9,
           "route_label_zh": "Tsukuba / Outbound",
           "route_label_en": "Tsukuba / Outbound",
           "player_display_name": "CannedCarbon",
@@ -6191,7 +6217,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 9,
+          "rank": 10,
           "route_label_zh": "Tsukuba / Double Course",
           "route_label_en": "Tsukuba / Double Course",
           "player_display_name": "CannedCarbon",
@@ -6217,7 +6243,7 @@
           "badge_tone": "cr"
         },
         {
-          "rank": 10,
+          "rank": 11,
           "route_label_zh": "C1 Runner / OUTER",
           "route_label_en": "C1 Runner / OUTER",
           "player_display_name": "CannedCarbon",
@@ -6243,7 +6269,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "route_label_en": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "player_display_name": "CannedCarbon",
@@ -6309,6 +6335,34 @@
               "lap_time_ms": 169360,
               "lap_time_text": "02:49.360",
               "vehicle": "KDH201V HighLift",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "f1_circuit_fuffyferret:CW",
+          "route_label": "F1 Circuit / Clockwise",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-06-14",
+              "lap_time_ms": 123200,
+              "lap_time_text": "02:03.200",
+              "vehicle": "FORMULA CAR",
+              "is_pb": true
+            },
+            {
+              "date": "2026-06-14",
+              "lap_time_ms": 143894,
+              "lap_time_text": "02:23.894",
+              "vehicle": "Haza City",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-14",
+              "lap_time_ms": 189533,
+              "lap_time_text": "03:09.533",
+              "vehicle": "Semi Truck",
               "is_pb": false
             }
           ]
