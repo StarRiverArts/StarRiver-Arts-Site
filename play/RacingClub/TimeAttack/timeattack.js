@@ -341,7 +341,6 @@ const renderTrackLeaderboardTable = (rows, view) => {
                         <span>${escapeHtml(row.record_date || "")}</span>
                         ${row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
                       </div>
-                      ${renderRouteTagChips(row)}
                     </div>
                   </td>
                   <td class="ta-record-peer">${peer}</td>
