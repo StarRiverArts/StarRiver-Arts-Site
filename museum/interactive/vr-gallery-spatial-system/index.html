@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VR Gallery Spatial System — Museum · StarRiver Arts</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#f0ebe2;color:#282829;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+a{color:inherit;text-decoration:none}
+
+/* ── Museum nav ── */
+.museum-nav{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;gap:10px;
+  padding:9px 24px;
+  background:rgba(240,235,226,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(40,40,41,.08);
+  font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500)
+}
+.museum-nav a{color:var(--gray-600);transition:color 150ms}
+.museum-nav a:hover{color:#282829}
+.museum-nav .sep{opacity:.35}
+.museum-nav .lang-btn{
+  margin-left:auto;padding:4px 9px;
+  background:none;border:1px solid rgba(40,40,41,.15);
+  border-radius:999px;font-family:inherit;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-500);cursor:pointer
+}
+.museum-nav .lang-btn:hover{color:#282829;border-color:rgba(40,40,41,.28)}
+
+/* ── Exhibit header ── */
+.exhibit-header{
+  padding:36px 28px 28px 28px;
+  border-bottom:1px solid rgba(40,40,41,.08);
+  max-width:100%;
+}
+.exhibit-kicker{
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:10px
+}
+.exhibit-title{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(36px,5vw,66px);
+  line-height:.9;letter-spacing:-.04em;
+  color:#282829;margin-bottom:10px
+}
+.exhibit-sub{
+  font-family:var(--font-deck);font-weight:400;
+  font-size:17px;color:var(--gray-600);margin-bottom:10px
+}
+.exhibit-meta{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-400);margin-top:14px
+}
+.exhibit-tag{
+  border:1px solid rgba(40,40,41,.1);
+  border-radius:999px;padding:4px 9px;
+  color:var(--gray-500)
+}
+
+/* ── Exhibit body: left nav + right gallery ── */
+.exhibit-body{
+  display:flex;
+  align-items:flex-start;
+}
+
+/* Left sticky nav */
+.cat-nav{
+  width:188px;
+  flex-shrink:0;
+  position:sticky;
+  top:44px; /* museum-nav height */
+  height:calc(100vh - 44px);
+  overflow-y:auto;
+  background:#e9e3d9;
+  border-right:1px solid rgba(40,40,41,.07);
+  padding:16px 0 48px;
+  scrollbar-width:thin;
+}
+.cat-nav-sec{
+  font-family:var(--font-mono);font-size:8.5px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gray-400);padding:14px 16px 5px
+}
+.cat-nav a{
+  display:flex;align-items:baseline;gap:0;
+  padding:5px 14px 5px 12px;
+  font-size:11.5px;color:var(--gray-600);
+  border-left:2px solid transparent;
+  transition:color 130ms,background 130ms
+}
+.cat-nav a:hover{background:rgba(40,40,41,.04);color:#282829}
+.cat-nav a.is-active{
+  background:rgba(40,40,41,.06);color:#282829;
+  border-left-color:#282829;font-weight:500
+}
+.cat-nav .n{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--gray-400);margin-right:6px;flex-shrink:0
+}
+.cat-nav .cn{
+  font-family:var(--font-body);font-size:10px;
+  color:var(--gray-400);margin-left:4px
+}
+.cat-nav-divider{
+  height:1px;background:rgba(40,40,41,.08);
+  margin:10px 14px
+}
+.cat-nav .ext-link{
+  font-size:10.5px;color:var(--gray-500);
+  border-left-color:transparent!important
+}
+
+/* Right gallery */
+.card-gallery{
+  flex:1;min-width:0;
+  padding:0 24px 80px;
+}
+
+/* Section divider */
+.sec-div{
+  margin:32px 0 16px;
+  padding-bottom:11px;
+  border-bottom:2px solid rgba(40,40,41,.12);
+  display:flex;align-items:baseline;gap:12px;
+  scroll-margin-top:54px;
+}
+.sec-div .num{
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-400)
+}
+.sec-div h2{
+  font-family:var(--font-deck);font-weight:700;
+  font-size:14px;color:#282829
+}
+.sec-div .cn{
+  font-family:var(--font-body);font-size:12px;
+  color:var(--gray-500);margin-left:6px
+}
+
+/* Category section */
+.cat{margin-bottom:32px;scroll-margin-top:54px}
+.cat-hd{
+  display:flex;align-items:baseline;gap:8px;
+  margin-bottom:7px;
+}
+.cat-hd .n{
+  font-family:var(--font-mono);font-size:9.5px;
+  letter-spacing:.14em;color:var(--gray-400)
+}
+.cat-hd h3{
+  font-family:var(--font-deck);font-weight:600;
+  font-size:13.5px;color:#282829;flex:1
+}
+.cat-hd .cn{
+  font-family:var(--font-body);font-size:11px;
+  color:var(--gray-500)
+}
+.cat-hd .count{
+  font-family:var(--font-mono);font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-400)
+}
+.cat-desc{
+  font-size:12.5px;line-height:1.65;
+  color:var(--gray-600);max-width:680px;
+  margin-bottom:12px
+}
+
+/* Spec card grid */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cards.single{grid-template-columns:1fr}
+.cards.triple{grid-template-columns:1fr 1fr 1fr}
+
+.spec{
+  border:1px solid rgba(40,40,41,.09);
+  border-radius:10px;overflow:hidden;
+  background:#fafaf7;
+  display:flex;flex-direction:column;
+}
+.spec-hd{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding:7px 11px 6px;
+  border-bottom:1px solid rgba(40,40,41,.07);
+  background:rgba(255,255,255,.65);
+  flex-shrink:0;
+}
+.spec-hd .name{
+  font-family:var(--font-deck);font-size:11.5px;
+  font-weight:500;color:#282829;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  flex:1;margin-right:8px
+}
+.spec-hd .name .cn{
+  font-family:var(--font-body);font-size:10.5px;
+  color:var(--gray-500);margin-left:4px
+}
+.spec-hd .group{
+  font-family:var(--font-mono);font-size:8.5px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-400);flex-shrink:0
+}
+.spec iframe{
+  display:block;width:100%;border:0;flex:1;
+  background:#fafaf7
+}
+
+/* Signage doc embed */
+.doc-embed{
+  border:1px solid rgba(40,40,41,.09);
+  border-radius:10px;overflow:hidden;
+  background:#fafaf7;
+}
+.doc-embed iframe{display:block;width:100%;border:0}
+
+/* Footer */
+.gallery-footer{
+  margin-top:40px;padding:20px 0 0;
+  border-top:1px solid rgba(40,40,41,.08);
+  display:flex;justify-content:space-between;
+  align-items:flex-end;flex-wrap:wrap;gap:12px;
+  font-family:var(--font-mono);font-size:9.5px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gray-400)
+}
+.gallery-footer .credit{text-align:right;line-height:1.8}
+.gallery-footer .credit .main{color:#282829;font-weight:500}
+
+@media(max-width:900px){
+  .cat-nav{display:none}
+  .cards,.cards.triple{grid-template-columns:1fr}
+  .card-gallery{padding:0 16px 60px}
+  .exhibit-header{padding:24px 16px 20px}
+}
+</style>
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "x5w0rbr4n3");
+</script>
+</head>
+<body>
+
+<!-- ── Museum nav ── -->
+<div class="museum-nav">
+  <a href="../../../index.html">StarRiver Arts</a>
+  <span class="sep">/</span>
+  <a href="../../index.html">Museum</a>
+  <span class="sep">/</span>
+  <a href="../design-system-visualize/">Interactive</a>
+  <span class="sep">/</span>
+  <span>VR Gallery Spatial System</span>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中文</span></button>
+</div>
+
+<!-- ── Exhibit header ── -->
+<header class="exhibit-header">
+  <div class="exhibit-kicker">Museum · Digital Exhibit</div>
+  <h1 class="exhibit-title">VR Gallery Spatial System</h1>
+  <div class="exhibit-sub zh">虛擬實境美術館・空間與文字標識設計系統</div>
+  <div class="exhibit-sub en">Spatial & Signage Design System for VR Gallery Environments</div>
+  <div class="exhibit-meta">
+    <span class="exhibit-tag">31 Specification Cards</span>
+    <span class="exhibit-tag">Signage System</span>
+    <span class="exhibit-tag">VRChat · Unity · WebXR</span>
+    <span class="exhibit-tag">2025–2026</span>
+    <span class="exhibit-tag" style="margin-left:auto">StarRiver Arts 主導視覺 · Designed with Claude</span>
+  </div>
+</header>
+
+<!-- ── Exhibit body ── -->
+<div class="exhibit-body">
+
+  <!-- Left sticky nav -->
+  <nav class="cat-nav" id="catNav">
+    <div class="cat-nav-sec">I · Spatial System</div>
+    <a href="#cat-colour"><span class="n">01</span>Colour<span class="zh cn">色彩</span></a>
+    <a href="#cat-materials"><span class="n">02</span>Materials<span class="zh cn">材質</span></a>
+    <a href="#cat-ergonomics"><span class="n">03</span>Ergonomics<span class="zh cn">空間人因</span></a>
+    <a href="#cat-whitespace"><span class="n">04</span>Whitespace<span class="zh cn">留白</span></a>
+    <a href="#cat-reserves"><span class="n">05</span>Reserves<span class="zh cn">預留量體</span></a>
+    <a href="#cat-curves"><span class="n">06</span>Curves<span class="zh cn">曲線幾何</span></a>
+    <a href="#cat-plans"><span class="n">07</span>Plans &amp; Elev.<span class="zh cn">平立面</span></a>
+    <a href="#cat-lighting"><span class="n">08</span>Lighting<span class="zh cn">光源</span></a>
+    <a href="#cat-virtual"><span class="n">09</span>Virtual Effects<span class="zh cn">虛擬效果</span></a>
+    <div class="cat-nav-divider"></div>
+    <div class="cat-nav-sec">II · Typography</div>
+    <a href="#cat-type"><span class="n">10</span>Typography<span class="zh cn">字排</span></a>
+    <a href="#cat-signage"><span class="n">11</span>Signage System<span class="zh cn">標識系統</span></a>
+    <div class="cat-nav-divider"></div>
+    <a href="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/site/" target="_blank" class="ext-link"><span class="n">↗</span>Full System</a>
+  </nav>
+
+  <!-- Right scrollable gallery -->
+  <div class="card-gallery">
+
+    <!-- ═══ SECTION I ═══ -->
+    <div class="sec-div" id="sec-spatial">
+      <span class="num">I</span>
+      <h2>Spatial Design System<span class="zh cn">空間設計系統</span></h2>
+    </div>
+
+    <!-- 01 Colour -->
+    <div class="cat" id="cat-colour">
+      <div class="cat-hd"><span class="n">01</span><h3>Colour<span class="zh cn">色彩角色</span></h3><span class="count">4 cards</span></div>
+      <p class="cat-desc zh">四個空間角色色作為材質校正的目標錨點。在 5000K 廊燈下，材質實際算出的色會偏暖偏暗——這套規範記錄偏差量並給出修正建議。</p>
+      <p class="cat-desc en">Four spatial role colours serve as correction targets. Under gallery key-light at 5000K, surfaces render warmer and darker — the system documents the drift and prescribes the fix.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Palette · Roles<span class="zh cn">四角色色票</span></span><span class="group">Colors</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/colors-palette.html" height="360" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Role Semantics<span class="zh cn">角色語意</span></span><span class="group">Colors</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/colors-roles.html" height="320" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Target → Actual<span class="zh cn">目標 vs 實際</span></span><span class="group">Colors</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/colors-target-actual.html" height="380" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Light Temperature<span class="zh cn">光源色溫</span></span><span class="group">Colors</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/colors-light-temp.html" height="320" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Materials -->
+    <div class="cat" id="cat-materials">
+      <div class="cat-hd"><span class="n">02</span><h3>Materials<span class="zh cn">材質</span></h3><span class="count">4 cards</span></div>
+      <p class="cat-desc zh">四種表面類型（霧面、緞面、亮面、紋理）× 三種光源角度的實際呈現。著色器建議列在最後一張卡。</p>
+      <p class="cat-desc en">Four surface types (matte, satin, glossy, textured) × three light angles. Shader recommendations in the final card.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Materials · Matte<span class="zh cn">霧面</span></span><span class="group">Materials</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/materials-matte.html" height="320" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Satin &amp; Glossy<span class="zh cn">緞面・亮面</span></span><span class="group">Materials</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/materials-satin-glossy.html" height="320" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Material × Light<span class="zh cn">材質 × 光源</span></span><span class="group">Materials</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/materials-x-light.html" height="320" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Shaders · Recommendations<span class="zh cn">著色器建議</span></span><span class="group">Materials</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/shaders.html" height="540" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Spatial Ergonomics -->
+    <div class="cat" id="cat-ergonomics">
+      <div class="cat-hd"><span class="n">03</span><h3>Spatial Ergonomics<span class="zh cn">空間人因</span></h3><span class="count">6 cards</span></div>
+      <p class="cat-desc zh">以 130 cm VR avatar 為幾何基準，推算視距、視角、安裝高度與非矩形空間的最小淨寬。</p>
+      <p class="cat-desc en">All spatial rules derive from the 130 cm avatar. Viewing distance, viewing cone, mounting height, and minimum clear widths for non-rectangular spaces.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">130 cm Avatar<span class="zh cn">Avatar 基準</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-avatar.html" height="380" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Viewing Distance<span class="zh cn">視距</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-viewing-distance.html" height="400" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Viewing Cone<span class="zh cn">視錐</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-viewing-angle.html" height="400" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Mounting Height<span class="zh cn">安裝高度</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-mounting-height.html" height="400" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="cards" style="margin-top:8px">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Fan Corridors + Liminal<span class="zh cn">扇形走廊・邊界空間</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-fan-liminal.html" height="880" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Non-Rectangular Spaces<span class="zh cn">非矩形空間</span></span><span class="group">Spatial</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/space-nonrect.html" height="720" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Whitespace -->
+    <div class="cat" id="cat-whitespace">
+      <div class="cat-hd"><span class="n">04</span><h3>Whitespace as Structure<span class="zh cn">留白即結構</span></h3><span class="count">2 cards</span></div>
+      <p class="cat-desc zh">中文「留白」作為可量測的展覽設計原則：展品間距規則與物件群組節奏。</p>
+      <p class="cat-desc en">The Chinese principle of liú bái — negative space as active structure — translated into measurable inter-exhibit spacing and grouping rhythm rules.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Inter-Exhibit Spacing<span class="zh cn">展品間距</span></span><span class="group">Spacing</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/whitespace-spacing.html" height="360" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Grouping Rhythm<span class="zh cn">群組節奏</span></span><span class="group">Spacing</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/whitespace-grouping.html" height="360" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Exhibit Reserves -->
+    <div class="cat" id="cat-reserves">
+      <div class="cat-hd"><span class="n">05</span><h3>Exhibit Reserve Volumes<span class="zh cn">展品預留量體</span></h3><span class="count">2 cards</span></div>
+      <p class="cat-desc zh">S / M / L / XL 四個預留量體用於排版壓力測試——先放量體、通過視錐驗證後，再置入真實資產。</p>
+      <p class="cat-desc en">Four reserve sizes for layout stress-testing — place volumes, pass the view-cone check, then swap in the real asset. Never skip the validation step.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Reserves Overview<span class="zh cn">S/M/L/XL 總覽</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/exhibit-reserve-overview.html" height="320" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Reserve Validation<span class="zh cn">視錐驗證</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/exhibit-reserve-validation.html" height="460" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Curve Geometry -->
+    <div class="cat" id="cat-curves">
+      <div class="cat-hd"><span class="n">06</span><h3>Curve Geometry<span class="zh cn">曲線幾何</span></h3><span class="count">1 card</span></div>
+      <p class="cat-desc zh">五個核可曲線半徑（5 / 20 / 60 / 120 / 240 cm），適用於壁龕、弧形隔板、基座角和拱頂轉接。不在此集合內的半徑須個案審核。</p>
+      <p class="cat-desc en">Five approved radii for alcoves, rounded partitions, plinth corners, and vault transitions. Any radius outside this set requires case review.</p>
+      <div class="cards single">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Curve Radii · Approved Set<span class="zh cn">核可曲線半徑</span></span><span class="group">Spacing</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/curves-radii.html" height="340" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 Plans & Elevations -->
+    <div class="cat" id="cat-plans">
+      <div class="cat-hd"><span class="n">07</span><h3>Plans &amp; Elevations<span class="zh cn">平面圖・立面圖</span></h3><span class="count">2 cards</span></div>
+      <p class="cat-desc zh">展場配置的平面圖與立面圖範例，展示系統代號、reserve 量體、視錐標示與尺寸標記的標準繪圖語言。</p>
+      <p class="cat-desc en">Sample plan and elevation views showing the system's drafting language — reserve markers, view cones, dimension witness lines, and datum points.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Plan View Sample<span class="zh cn">平面圖範例</span></span><span class="group">Brand</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/plan-sample.html" height="540" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Elevation Sample<span class="zh cn">立面圖範例</span></span><span class="group">Brand</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/elevation-sample.html" height="420" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08 Lighting -->
+    <div class="cat" id="cat-lighting">
+      <div class="cat-hd"><span class="n">08</span><h3>Lighting<span class="zh cn">光源系統</span></h3><span class="count">3 cards</span></div>
+      <p class="cat-desc zh">多光源組合的配置方案、藝術品補光規則，以及光源與留白的交互關係——光如何參與或打破空間的靜默。</p>
+      <p class="cat-desc en">Multi-light rig configurations, art-fill rules, and the relationship between light and spatial whitespace — when light reinforces silence and when it breaks it.</p>
+      <div class="cards single">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Multi-Light Rigs<span class="zh cn">多燈組合</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/lighting-rigs.html" height="580" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Artistic Fills<span class="zh cn">藝術品補光</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/lighting-art-fills.html" height="600" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Light &amp; Whitespace<span class="zh cn">光與留白</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/lighting-whitespace.html" height="720" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09 Virtual Effects -->
+    <div class="cat" id="cat-virtual">
+      <div class="cat-hd"><span class="n">09</span><h3>Virtual Effects<span class="zh cn">虛擬效果</span></h3><span class="count">6 cards</span></div>
+      <p class="cat-desc zh">VR 原生的發光類型、粒子密度行為矩陣、互動物件抓取區、浮空高度帶，以及三段資訊顯示距離——構成虛擬展品的動態語言。</p>
+      <p class="cat-desc en">VR-native emission types, particle density × behaviour matrix, interactive grab zones, float height bands, and three-range information display rules — the dynamic language of virtual exhibits.</p>
+      <div class="cards">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Virtual Light · Types<span class="zh cn">虛擬光源類型</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-light-types.html" height="360" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Emission Budget<span class="zh cn">發光量上限</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-emission-budget.html" height="440" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Particles · Density × Behaviour<span class="zh cn">粒子密度行為</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-particles.html" height="480" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Interactive Zones · Plan<span class="zh cn">互動區・平面圖</span></span><span class="group">Spacing</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-interact-zones.html" height="480" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Floating Object Heights<span class="zh cn">浮空物件高度帶</span></span><span class="group">Spacing</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-float-heights.html" height="480" loading="lazy"></iframe>
+        </div>
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Information Display<span class="zh cn">資訊浮層</span></span><span class="group">Components</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/virtual-info-display.html" height="480" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION II ═══ -->
+    <div class="sec-div" id="sec-type">
+      <span class="num">II</span>
+      <h2>Typography &amp; Signage System<span class="zh cn">文字與標識設計系統</span></h2>
+    </div>
+
+    <!-- 10 Typography -->
+    <div class="cat" id="cat-type">
+      <div class="cat-hd"><span class="n">10</span><h3>Typography<span class="zh cn">字體排印</span></h3><span class="count">1 card</span></div>
+      <p class="cat-desc zh">以建築製圖語言為原型的字型體系：TASA Orbiter Deck（英文）、思源黑體（中文）、JetBrains Mono（尺寸標記）。六個字級從 Display 40px 到 Dimensional 11px。</p>
+      <p class="cat-desc en">Typographic system modelled on architectural drafting: TASA Orbiter Deck (Latin), Noto Sans TC (Chinese), JetBrains Mono (dimensional notation). Six levels from Display 40px to Dimensional 11px.</p>
+      <div class="cards single">
+        <div class="spec">
+          <div class="spec-hd"><span class="name">Type Specimen<span class="zh cn">字級樣本</span></span><span class="group">Type</span></div>
+          <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/preview/type-specimen.html" height="480" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 Signage System -->
+    <div class="cat" id="cat-signage">
+      <div class="cat-hd"><span class="n">11</span><h3>Signage System<span class="zh cn">標識系統</span></h3><span class="count">Full documentation</span></div>
+      <p class="cat-desc zh">標識系統繼承空間系統的全部 token，並在此基礎上定義：字級（cm，實體標牌）、浮凸深度、安裝高度（四階），以及五個尋路色碼（含唯一高彩「現在位置」#D5462F）。</p>
+      <p class="cat-desc en">Inherits all spatial tokens and adds: plate typography in cm, emboss depth, four mounting-height tiers, and five wayfinding colour codes — including the only vivid mark, You Are Here #D5462F.</p>
+      <div class="doc-embed">
+        <iframe src="../../../downloads_Museum/VR%20Gallery%20Spatial%20System/signage/index.html" height="920" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Gallery footer -->
+    <footer class="gallery-footer">
+      <div>
+        <div>museum / interactive / vr-gallery-spatial-system</div>
+        <div style="margin-top:3px">31 specification cards · signage system · 2025–2026</div>
+      </div>
+      <div class="credit">
+        <div class="main">StarRiver Arts 主導視覺</div>
+        <div class="zh">以 Claude 協作完成設計</div>
+        <div class="en">Designed in collaboration with Claude</div>
+      </div>
+    </footer>
+
+  </div><!-- /card-gallery -->
+</div><!-- /exhibit-body -->
+
+<script>
+(function(){
+  // Lang toggle
+  var h=document.documentElement,b=document.getElementById('langBtn');
+  var s=localStorage.getItem('sr-lang')||'zh';
+  function set(v){h.className='lang-'+v;h.lang=v==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',v)}
+  set(s);
+  b.addEventListener('click',function(){set(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+
+  // Scroll-spy: highlight active nav link
+  var navLinks=[].slice.call(document.querySelectorAll('.cat-nav a[href^="#"]'));
+  var targets=navLinks.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  function onScroll(){
+    var top=window.scrollY+80;
+    var active=null;
+    targets.forEach(function(t){if(t.offsetTop<=top)active=t});
+    navLinks.forEach(function(a){
+      a.classList.toggle('is-active',active&&a.getAttribute('href')==='#'+active.id)
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

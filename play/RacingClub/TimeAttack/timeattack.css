@@ -2139,6 +2139,22 @@ body.timeattack-page {
   z-index: 1;
 }
 
+.ta-trace-path {
+  fill: none !important;
+  vector-effect: non-scaling-stroke;
+}
+
+.ta-trace-path-halo {
+  stroke: rgba(255, 255, 255, 0.28) !important;
+  stroke-opacity: 0.28 !important;
+  stroke-width: 10px !important;
+}
+
+.ta-trace-path-core {
+  stroke-opacity: 0.98 !important;
+  stroke-width: 4px !important;
+}
+
 .ta-map-marker {
   align-items: center;
   background: var(--ta-accent);

@@ -143,6 +143,9 @@
     }
 
     const map = L.map("ta-map", { worldCopyJump: true }).setView([23.5, 121], 3);
+    const tracePane = map.createPane("taTracePane");
+    tracePane.style.zIndex = "450";
+    tracePane.style.pointerEvents = "none";
     L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
       subdomains: "abcd",
       maxZoom: 19,
@@ -232,9 +235,15 @@
         .then((geojson) => {
           const visual = traceVisualByCode.get(code) || { color: TRACE_STYLE.color, dashArray: "" };
           const halo = L.geoJSON(geojson, {
+            pane: "taTracePane",
+            interactive: false,
+            className: "ta-trace-path ta-trace-path-halo",
             style: { ...TRACE_HALO_STYLE, dashArray: visual.dashArray },
           });
           const core = L.geoJSON(geojson, {
+            pane: "taTracePane",
+            interactive: false,
+            className: "ta-trace-path ta-trace-path-core",
             style: { ...TRACE_STYLE, color: visual.color, dashArray: visual.dashArray },
           });
           const layer = L.featureGroup([halo, core]);
