@@ -2,7 +2,8 @@
  *
  * Loaded only by TrackMap/index.html; timeattack.js calls window.initTrackMap
  * after the page shell renders. Display priority per track:
- *   full route trace (lazy-loaded GeoJSON) → locality marker → unlocated list.
+ *   full route trace (auto-shown for the visible area at closer zoom, lazy-loaded
+ *   from GeoJSON) → locality marker → unlocated list.
  * If Leaflet fails to load, the tree alone remains a complete fallback.
  */
 (() => {
@@ -10,6 +11,8 @@
 
   const ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
   const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ESCAPES[c]);
+  const AUTO_TRACE_MIN_ZOOM = 8;
+  const AUTO_TRACE_PAD = 0.18;
 
   const bi = (zh, en) => {
     const z = esc(zh || en || "");
@@ -186,8 +189,11 @@
     }
 
     // ── 軌跡懶載與快取 ──
+    const traceGroup = L.layerGroup().addTo(map);
     const traceLayers = new Map(); // code -> L.GeoJSON
     const tracePending = new Map(); // code -> Promise
+    const visibleTraceCodes = new Set();
+    let autoWantedTraceCodes = new Set();
     const loadTrace = (code, file) => {
       if (traceLayers.has(code)) return Promise.resolve(traceLayers.get(code));
       if (tracePending.has(code)) return tracePending.get(code);
@@ -198,7 +204,7 @@
         })
         .then((geojson) => {
           const traceStyle = { ...TRACE_STYLE, color: traceColorByCode.get(code) || TRACE_STYLE.color };
-          const layer = L.geoJSON(geojson, { style: traceStyle }).addTo(map);
+          const layer = L.geoJSON(geojson, { style: traceStyle });
           traceLayers.set(code, layer);
           return layer;
         })
@@ -209,6 +215,43 @@
         });
       tracePending.set(code, promise);
       return promise;
+    };
+    const showTrace = (code, file, { force = false } = {}) =>
+      loadTrace(code, file).then((layer) => {
+        if (!layer) return null;
+        if (!force && !autoWantedTraceCodes.has(code)) return null;
+        if (!traceGroup.hasLayer(layer)) traceGroup.addLayer(layer);
+        visibleTraceCodes.add(code);
+        return layer;
+      });
+    const hideTrace = (code) => {
+      const layer = traceLayers.get(code);
+      if (layer && traceGroup.hasLayer(layer)) traceGroup.removeLayer(layer);
+      visibleTraceCodes.delete(code);
+    };
+    const shouldAutoShowTrace = (track, bounds, zoom) => {
+      if (!track || !track.has_trace || !track.trace_file) return false;
+      if (zoom < AUTO_TRACE_MIN_ZOOM) return false;
+      const lat = Number.isFinite(track.trace_lat) ? track.trace_lat : null;
+      const lng = Number.isFinite(track.trace_lng) ? track.trace_lng : null;
+      if (lat == null || lng == null) return false;
+      return bounds.contains(L.latLng(lat, lng));
+    };
+    const refreshVisibleTraces = () => {
+      const bounds = map.getBounds().pad(AUTO_TRACE_PAD);
+      const zoom = map.getZoom();
+      const wanted = new Set();
+      locRefs.forEach(({ loc }) => {
+        (loc.tracks || []).forEach((track) => {
+          if (!shouldAutoShowTrace(track, bounds, zoom)) return;
+          wanted.add(track.track_world_code);
+          showTrace(track.track_world_code, track.trace_file);
+        });
+      });
+      autoWantedTraceCodes = wanted;
+      [...visibleTraceCodes].forEach((code) => {
+        if (!wanted.has(code)) hideTrace(code);
+      });
     };
 
     const crumbs = root.querySelector("[data-map-crumbs]");
@@ -231,11 +274,16 @@
       if (!node) return;
       // popup 內每條有軌跡的賽道:開啟即懶載畫線。
       node.querySelectorAll("[data-trace-code]").forEach((item) => {
-        loadTrace(item.dataset.traceCode, item.dataset.traceFile);
+        showTrace(item.dataset.traceCode, item.dataset.traceFile, { force: true });
       });
     });
 
     // ── 互動委派:聚焦軌跡 / 樹→地圖 / 重設 ──
+    const focusTraceCode = (code, file) => {
+      showTrace(code, file, { force: true }).then((layer) => {
+        if (layer) map.fitBounds(layer.getBounds().pad(0.3));
+      });
+    };
     root.addEventListener("click", (e) => {
       const focusTrace = e.target.closest("[data-trace-focus]");
       if (focusTrace) {
@@ -243,9 +291,7 @@
         const item = root.querySelector(`[data-trace-code="${CSS.escape(code)}"]`)
           || document.querySelector(`[data-trace-code="${CSS.escape(code)}"]`);
         const file = item ? item.dataset.traceFile : `geo/${code}.geojson`;
-        loadTrace(code, file).then((layer) => {
-          if (layer) map.fitBounds(layer.getBounds().pad(0.3));
-        });
+        focusTraceCode(code, file);
         return;
       }
       const focusLoc = e.target.closest("[data-loc-focus]");
@@ -272,9 +318,9 @@
       const code = focusTrace.dataset.traceFocus;
       const item = document.querySelector(`[data-trace-code="${CSS.escape(code)}"]`);
       const file = item ? item.dataset.traceFile : `geo/${code}.geojson`;
-      loadTrace(code, file).then((layer) => {
-        if (layer) map.fitBounds(layer.getBounds().pad(0.3));
-      });
+      focusTraceCode(code, file);
     });
+    map.on("moveend zoomend", refreshVisibleTraces);
+    refreshVisibleTraces();
   };
 })();
