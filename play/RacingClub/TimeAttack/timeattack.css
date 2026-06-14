@@ -2029,8 +2029,28 @@ body.timeattack-page {
 }
 
 .ta-tm-track {
+  border-radius: 10px;
   border-bottom: 1px dashed var(--ta-border);
+  cursor: pointer;
   padding: 8px 4px;
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+.ta-tm-track:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ta-tm-track.is-selected {
+  background:
+    linear-gradient(135deg, rgba(239, 217, 91, 0.2), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.02);
+  border-color: rgba(239, 217, 91, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(239, 217, 91, 0.45), 0 10px 24px rgba(0, 0, 0, 0.2);
+  transform: translateX(2px);
 }
 
 .ta-tm-track:last-child {
@@ -2049,6 +2069,10 @@ body.timeattack-page {
   font-weight: 600;
 }
 
+.ta-tm-track.is-selected .ta-tm-track-name {
+  color: #fff7bf;
+}
+
 .ta-tm-tag {
   background: rgba(239, 217, 91, 0.16);
   border: 1px solid rgba(239, 217, 91, 0.5);
@@ -2058,10 +2082,20 @@ body.timeattack-page {
   padding: 1px 8px;
 }
 
+.ta-tm-track.is-selected .ta-tm-tag {
+  background: rgba(255, 246, 168, 0.22);
+  border-color: rgba(255, 246, 168, 0.72);
+  color: #fff7bf;
+}
+
 .ta-tm-track-meta {
   color: var(--ta-text-faint);
   font-size: 11px;
   margin: 3px 0 6px;
+}
+
+.ta-tm-track.is-selected .ta-tm-track-meta {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .ta-tm-track-actions {

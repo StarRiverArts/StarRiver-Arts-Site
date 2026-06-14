@@ -141,6 +141,12 @@
       root.classList.add("ta-trackmap-nomap");
       return;
     }
+    const trackRefs = new Map();
+    locRefs.forEach((ref, locIndex) => {
+      (ref.loc.tracks || []).forEach((track) => {
+        trackRefs.set(track.track_world_code, { ...ref, track, locIndex });
+      });
+    });
 
     const map = L.map("ta-map", { worldCopyJump: true }).setView([23.5, 121], 3);
     const tracePane = map.createPane("taTracePane");
@@ -223,6 +229,7 @@
     const traceBoundsByCode = new Map(); // code -> L.LatLngBounds
     const tracePending = new Map(); // code -> Promise
     const visibleTraceCodes = new Set();
+    let selectedTrackCode = "";
     let autoWantedTraceCodes = new Set();
     const loadTrace = (code, file) => {
       if (traceLayers.has(code)) return Promise.resolve(traceLayers.get(code));
@@ -247,6 +254,9 @@
             style: { ...TRACE_STYLE, color: visual.color, dashArray: visual.dashArray },
           });
           const layer = L.featureGroup([halo, core]);
+          layer._taHalo = halo;
+          layer._taCore = core;
+          layer._taVisual = visual;
           traceLayers.set(code, layer);
           traceBoundsByCode.set(code, layer.getBounds());
           return layer;
@@ -271,6 +281,56 @@
       const layer = traceLayers.get(code);
       if (layer && traceGroup.hasLayer(layer)) traceGroup.removeLayer(layer);
       visibleTraceCodes.delete(code);
+    };
+    const applyTraceSelection = (code, isSelected) => {
+      const layer = traceLayers.get(code);
+      if (!layer || !layer._taHalo || !layer._taCore) return;
+      const visual = layer._taVisual || { color: TRACE_STYLE.color, dashArray: "" };
+      layer._taHalo.setStyle({
+        ...TRACE_HALO_STYLE,
+        color: isSelected ? visual.color : TRACE_HALO_STYLE.color,
+        dashArray: isSelected ? "" : visual.dashArray,
+        opacity: isSelected ? 0.42 : TRACE_HALO_STYLE.opacity,
+        weight: isSelected ? 14 : TRACE_HALO_STYLE.weight,
+      });
+      layer._taCore.setStyle({
+        ...TRACE_STYLE,
+        color: isSelected ? "#FFF6A8" : visual.color,
+        dashArray: isSelected ? "" : visual.dashArray,
+        opacity: 1,
+        weight: isSelected ? 7 : TRACE_STYLE.weight,
+      });
+      if (isSelected && traceGroup.hasLayer(layer)) layer.bringToFront();
+    };
+    const syncSelectedTrackUi = () => {
+      root.querySelectorAll(".ta-tm-track.is-selected").forEach((node) => node.classList.remove("is-selected"));
+      if (!selectedTrackCode) return;
+      root.querySelectorAll(`[data-track-code="${CSS.escape(selectedTrackCode)}"]`)
+        .forEach((node) => node.classList.add("is-selected"));
+    };
+    const openTrackDetails = (code) => {
+      const node = root.querySelector(`.ta-tm-side [data-track-code="${CSS.escape(code)}"]`);
+      if (!node) return;
+      let parent = node.parentElement;
+      while (parent) {
+        if (parent.tagName === "DETAILS") parent.open = true;
+        parent = parent.parentElement;
+      }
+      node.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    };
+    const setSelectedTrack = (code) => {
+      if (selectedTrackCode === code) {
+        syncSelectedTrackUi();
+        if (code) applyTraceSelection(code, true);
+        return;
+      }
+      if (selectedTrackCode) applyTraceSelection(selectedTrackCode, false);
+      selectedTrackCode = code || "";
+      syncSelectedTrackUi();
+      if (selectedTrackCode) {
+        openTrackDetails(selectedTrackCode);
+        applyTraceSelection(selectedTrackCode, true);
+      }
     };
     const shouldAutoShowTrace = (track, loc, bounds, zoom) => {
       if (!track || !track.has_trace || !track.trace_file) return false;
@@ -300,6 +360,14 @@
           showTrace(track.track_world_code, track.trace_file);
         });
       });
+      if (selectedTrackCode) {
+        const selectedRef = trackRefs.get(selectedTrackCode);
+        if (selectedRef && selectedRef.track.has_trace && selectedRef.track.trace_file) {
+          wanted.add(selectedTrackCode);
+          showTrace(selectedTrackCode, selectedRef.track.trace_file, { force: true })
+            .then(() => applyTraceSelection(selectedTrackCode, true));
+        }
+      }
       autoWantedTraceCodes = wanted;
       [...visibleTraceCodes].forEach((code) => {
         if (!wanted.has(code)) hideTrace(code);
@@ -324,6 +392,7 @@
       if (marker && marker._taRef) setCrumbs(marker._taRef);
       const node = e.popup.getElement();
       if (!node) return;
+      syncSelectedTrackUi();
       // popup 內每條有軌跡的賽道:開啟即懶載畫線。
       node.querySelectorAll("[data-trace-code]").forEach((item) => {
         showTrace(item.dataset.traceCode, item.dataset.traceFile, { force: true });
@@ -331,10 +400,26 @@
     });
 
     // ── 互動委派:聚焦軌跡 / 樹→地圖 / 重設 ──
+    const selectTrackCode = (code, { fit = true } = {}) => {
+      const ref = trackRefs.get(code);
+      if (!ref) return;
+      setSelectedTrack(code);
+      setCrumbs(ref);
+      if (ref.track.has_trace && ref.track.trace_file) {
+        showTrace(code, ref.track.trace_file, { force: true }).then((layer) => {
+          if (!layer) return;
+          applyTraceSelection(code, true);
+          if (fit) map.fitBounds(layer.getBounds().pad(0.3));
+        });
+        return;
+      }
+      const marker = markers.get(ref.locIndex);
+      if (marker && fit) map.setView(marker.getLatLng(), Math.max(map.getZoom(), 11));
+    };
     const focusTraceCode = (code, file) => {
-      showTrace(code, file, { force: true }).then((layer) => {
-        if (layer) map.fitBounds(layer.getBounds().pad(0.3));
-      });
+      const ref = trackRefs.get(code);
+      if (ref && ref.track.trace_file && ref.track.trace_file !== file) ref.track.trace_file = file;
+      selectTrackCode(code, { fit: true });
     };
     root.addEventListener("click", (e) => {
       const focusTrace = e.target.closest("[data-trace-focus]");
@@ -344,6 +429,12 @@
           || document.querySelector(`[data-trace-code="${CSS.escape(code)}"]`);
         const file = item ? item.dataset.traceFile : `geo/${code}.geojson`;
         focusTraceCode(code, file);
+        return;
+      }
+      const trackItem = e.target.closest("[data-track-code]");
+      if (trackItem && !e.target.closest("a, button")) {
+        e.preventDefault();
+        selectTrackCode(trackItem.dataset.trackCode, { fit: true });
         return;
       }
       const focusLoc = e.target.closest("[data-loc-focus]");
@@ -359,18 +450,27 @@
       if (e.target.closest("[data-map-reset]")) {
         if (group.getLayers().length) map.fitBounds(group.getBounds().pad(0.2));
         map.closePopup();
+        setSelectedTrack("");
         setCrumbs(null);
+        refreshVisibleTraces();
       }
     });
 
     // Leaflet popup 的點擊不冒泡到 root,獨立掛一次委派。
     map.getContainer().addEventListener("click", (e) => {
       const focusTrace = e.target.closest("[data-trace-focus]");
-      if (!focusTrace) return;
-      const code = focusTrace.dataset.traceFocus;
-      const item = document.querySelector(`[data-trace-code="${CSS.escape(code)}"]`);
-      const file = item ? item.dataset.traceFile : `geo/${code}.geojson`;
-      focusTraceCode(code, file);
+      if (focusTrace) {
+        const code = focusTrace.dataset.traceFocus;
+        const item = document.querySelector(`[data-trace-code="${CSS.escape(code)}"]`);
+        const file = item ? item.dataset.traceFile : `geo/${code}.geojson`;
+        focusTraceCode(code, file);
+        return;
+      }
+      const trackItem = e.target.closest("[data-track-code]");
+      if (trackItem && !e.target.closest("a, button")) {
+        e.preventDefault();
+        selectTrackCode(trackItem.dataset.trackCode, { fit: true });
+      }
     });
     map.on("moveend zoomend", refreshVisibleTraces);
     refreshVisibleTraces();
