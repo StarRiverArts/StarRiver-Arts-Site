@@ -20,7 +20,26 @@
     return `<span class="zh">${z}</span><span class="en">${e}</span>`;
   };
 
-  const TRACE_STYLE = { color: "#EFD95B", weight: 3, opacity: 0.9 };
+  const TRACE_STYLE = { color: "#EFD95B", weight: 4, opacity: 0.96, lineCap: "round", lineJoin: "round" };
+  const TRACE_HALO_STYLE = { color: "#fff", weight: 10, opacity: 0.26, lineCap: "round", lineJoin: "round" };
+  const TRACE_DASH_PATTERNS = ["14 10", "5 12", "18 8 4 8", "3 10"];
+  const hashText = (value) => {
+    let hash = 0;
+    const text = String(value || "");
+    for (let i = 0; i < text.length; i += 1) {
+      hash = ((hash * 33) + text.charCodeAt(i)) >>> 0;
+    }
+    return hash;
+  };
+  const traceVisualFor = (code, baseColor, neutralColor) => {
+    const seed = hashText(code);
+    return {
+      color: baseColor && baseColor !== neutralColor
+        ? baseColor
+        : `hsl(${seed % 360}, 84%, 64%)`,
+      dashArray: TRACE_DASH_PATTERNS[seed % TRACE_DASH_PATTERNS.length],
+    };
+  };
 
   const renderTrackRow = (track, base) => {
     const worldBtn = track.world_url
@@ -151,10 +170,17 @@
       });
       return best;
     };
-    const traceColorByCode = new Map();
+    const traceVisualByCode = new Map();
     locRefs.forEach(({ country, loc }) =>
       (loc.tracks || []).forEach((t) =>
-        traceColorByCode.set(t.track_world_code, colorFor(country.name, t.system_name)),
+        traceVisualByCode.set(
+          t.track_world_code,
+          traceVisualFor(
+            t.track_world_code,
+            colorFor(country.name, t.system_name),
+            style.neutral,
+          ),
+        ),
       ),
     );
 
@@ -190,7 +216,8 @@
 
     // ── 軌跡懶載與快取 ──
     const traceGroup = L.layerGroup().addTo(map);
-    const traceLayers = new Map(); // code -> L.GeoJSON
+    const traceLayers = new Map(); // code -> L.FeatureGroup
+    const traceBoundsByCode = new Map(); // code -> L.LatLngBounds
     const tracePending = new Map(); // code -> Promise
     const visibleTraceCodes = new Set();
     let autoWantedTraceCodes = new Set();
@@ -203,9 +230,16 @@
           return res.json();
         })
         .then((geojson) => {
-          const traceStyle = { ...TRACE_STYLE, color: traceColorByCode.get(code) || TRACE_STYLE.color };
-          const layer = L.geoJSON(geojson, { style: traceStyle });
+          const visual = traceVisualByCode.get(code) || { color: TRACE_STYLE.color, dashArray: "" };
+          const halo = L.geoJSON(geojson, {
+            style: { ...TRACE_HALO_STYLE, dashArray: visual.dashArray },
+          });
+          const core = L.geoJSON(geojson, {
+            style: { ...TRACE_STYLE, color: visual.color, dashArray: visual.dashArray },
+          });
+          const layer = L.featureGroup([halo, core]);
           traceLayers.set(code, layer);
+          traceBoundsByCode.set(code, layer.getBounds());
           return layer;
         })
         .catch((err) => {
@@ -229,11 +263,20 @@
       if (layer && traceGroup.hasLayer(layer)) traceGroup.removeLayer(layer);
       visibleTraceCodes.delete(code);
     };
-    const shouldAutoShowTrace = (track, bounds, zoom) => {
+    const shouldAutoShowTrace = (track, loc, bounds, zoom) => {
       if (!track || !track.has_trace || !track.trace_file) return false;
       if (zoom < AUTO_TRACE_MIN_ZOOM) return false;
-      const lat = Number.isFinite(track.trace_lat) ? track.trace_lat : null;
-      const lng = Number.isFinite(track.trace_lng) ? track.trace_lng : null;
+      const cachedBounds = traceBoundsByCode.get(track.track_world_code);
+      if (cachedBounds && cachedBounds.isValid()) {
+        return bounds.intersects(cachedBounds);
+      }
+      const locLat = loc && Number.isFinite(loc.lat) ? loc.lat : null;
+      const locLng = loc && Number.isFinite(loc.lng) ? loc.lng : null;
+      if (locLat != null && locLng != null && bounds.contains(L.latLng(locLat, locLng))) {
+        return true;
+      }
+      const lat = Number.isFinite(track.trace_lat) ? track.trace_lat : locLat;
+      const lng = Number.isFinite(track.trace_lng) ? track.trace_lng : locLng;
       if (lat == null || lng == null) return false;
       return bounds.contains(L.latLng(lat, lng));
     };
@@ -243,7 +286,7 @@
       const wanted = new Set();
       locRefs.forEach(({ loc }) => {
         (loc.tracks || []).forEach((track) => {
-          if (!shouldAutoShowTrace(track, bounds, zoom)) return;
+          if (!shouldAutoShowTrace(track, loc, bounds, zoom)) return;
           wanted.add(track.track_world_code);
           showTrace(track.track_world_code, track.trace_file);
         });
