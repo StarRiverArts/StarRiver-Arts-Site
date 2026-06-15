@@ -1230,7 +1230,11 @@ const renderVehicleDetail = (data, id) => {
   const analysisModule = analysis
     ? renderModule("車輛取向", "Profile", "環境與涵蓋", "Environment & Coverage", analysis)
     : "";
-  return switcher + renderEventsXlink("vehicles.html", card.vehicle_model_code) + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + analysisModule;
+  const variants = renderVehicleVariants(card);
+  const variantModule = variants
+    ? renderModule("變體", "Variants", "同母型變體成績", "Variants Of This Model", variants)
+    : "";
+  return switcher + renderEventsXlink("vehicles.html", card.vehicle_model_code) + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + variantModule + analysisModule;
 };
 
 const renderEventCards = (cards) =>
@@ -1649,6 +1653,25 @@ const renderVehicleAnalysis = (card) => {
   return `${coverage}<div class="ta-chart-sub">${renderBilingual("環境適性", "Environment Mix")}</div>${renderBarChart(env)}`;
 };
 
+// 同母型多變體:下拉切換「全部 / 某變體」的最佳路線榜(資料來自 card.variants)。
+const renderVehicleVariants = (card) => {
+  const variants = card.variants || [];
+  if (variants.length < 2) return "";
+  const allRows = card.record_rows || [];
+  const totalRuns = variants.reduce((s, v) => s + (v.record_count || 0), 0);
+  const opts = `<option value="__all__">全部變體（${allRows.length} 路線 / ${totalRuns} 筆)</option>`
+    + variants.map((v, i) => `<option value="${i}">${escapeHtml(v.variant_name)}（${v.record_count} 筆 / ${v.record_rows.length} 路線)</option>`).join("");
+  return `
+    <div class="ta-variant" data-variant>
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇變體", "Variant")}</span>
+        <select class="ta-switch-select" data-variant-select>${opts}</select>
+      </div>
+      <div data-variant-table>${renderProfileRecordTable(allRows, "最快車手", "Fastest Driver", "player_display_name")}</div>
+      ${embedJsonData("data-variant-data", { all: allRows, variants: variants.map((v) => v.record_rows) })}
+    </div>`;
+};
+
 // 委派:路線下拉切換 → 重繪該圖(資料已在嵌入的 JSON,一次只畫一張)
 const attachAnalysisInteractions = () => {
   const root = document.querySelector("[data-page-root]");
@@ -1667,6 +1690,14 @@ const attachAnalysisInteractions = () => {
       const wrap = lapSel.closest("[data-laptime]");
       const routeRows = JSON.parse(wrap.querySelector("[data-laptime-data]").textContent);
       wrap.querySelector("[data-laptime-chart]").innerHTML = renderLaptimeHistogram(routeRows[Number(lapSel.value)]);
+      return;
+    }
+    const varSel = e.target.closest("[data-variant-select]");
+    if (varSel) {
+      const wrap = varSel.closest("[data-variant]");
+      const vdata = JSON.parse(wrap.querySelector("[data-variant-data]").textContent);
+      const rows = varSel.value === "__all__" ? vdata.all : (vdata.variants[Number(varSel.value)] || []);
+      wrap.querySelector("[data-variant-table]").innerHTML = renderProfileRecordTable(rows, "最快車手", "Fastest Driver", "player_display_name");
     }
   });
 };
@@ -1831,7 +1862,7 @@ const initTimeAttack = async () => {
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "track") attachBoardToggleListeners();
     if (view === "track" || view === "player" || view === "vehicle") attachDetailSwitchListeners();
-    if (view === "track" || view === "player") attachAnalysisInteractions();
+    if (view === "track" || view === "player" || view === "vehicle") attachAnalysisInteractions();
     if (view === "trackmap" && typeof window.initTrackMap === "function") {
       window.initTrackMap(pageData, base);
     }

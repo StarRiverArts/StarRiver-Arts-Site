@@ -632,10 +632,17 @@ def load_sqlite_data(
                 "vehicle_class": row["vehicle_class"],
                 "vehicle_tags": set(),
                 "variant_names": [],
+                "manufacturer": "",
+                "country": "",
+                "year": "",
             },
         )
         model["variant_names"].append(row["vehicle_variant_name"])
         model["vehicle_tags"].update(parse_list(row.get("vehicle_tags") or ""))
+        # 車廠 / 國籍 / 年份:取該車型第一個非空值(同車型應一致)。
+        for key in ("manufacturer", "country", "year"):
+            if not model[key] and (row.get(key) or "").strip():
+                model[key] = row[key].strip()
 
     sql = """
         SELECT r.record_id, r.record_date, r.track_world_code, r.route_code,
@@ -1583,6 +1590,28 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 )
             )
 
+        # 同母型不同變體:各自的最佳路線榜,供車輛頁「變體選單」切換(預設看全部)。
+        variant_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+        for record in model_records:
+            variant_groups[record["vehicle_variant_code"]].append(record)
+        variants_payload: list[dict[str, Any]] = []
+        if len(variant_groups) > 1:
+            for vcode, vrecords in variant_groups.items():
+                vbest = sort_records(list(best_by(vrecords, "route_key").values()))
+                vrows = [
+                    build_badged_row(
+                        {**rec, "track_env": lookup["track_worlds"].get(rec["track_world_code"], {}).get("track_env") or "其他"},
+                        route_badges, rank=i, peer_label=rec["player_display_name"])
+                    for i, rec in enumerate(vbest, start=1)
+                ]
+                variants_payload.append({
+                    "variant_code": vcode,
+                    "variant_name": vrecords[0]["vehicle_variant_name"],
+                    "record_count": len(vrecords),
+                    "record_rows": vrows,
+                })
+            variants_payload.sort(key=lambda v: -v["record_count"])
+
         # drivetrain from the first variant (1:1 mapping currently)
         first_variant = lookup["vehicle_variants"].get(
             model_records[0]["vehicle_variant_code"] if model_records else model_code, {}
@@ -1590,13 +1619,25 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
         drivetrain = first_variant.get("drivetrain") or ""
         popularity = popularity_bucket(len(model_records))
 
+        # 車廠 / 國籍 / 年份 + 特殊標記(賽事款/拉力款/渦輪改裝)。
+        maker = model.get("manufacturer") or ""
+        country = model.get("country") or ""
+        year = model.get("year") or ""
+        origin = " · ".join(p for p in (maker, country, year) if p)
+        subtitle = " · ".join(p for p in (model["vehicle_class"], origin) if p)
+        special_marks = [t for t in ("賽事款", "拉力款", "渦輪改裝") if t in model["vehicle_tags"]]
+
         vehicle_cards.append(
             {
                 "vehicle_model_code": model_code,
                 "title": model["vehicle_model_name"],
                 "vehicle_class": model["vehicle_class"],
-                "subtitle_zh": model["vehicle_class"],
-                "subtitle_en": model["vehicle_class"],
+                "subtitle_zh": subtitle,
+                "subtitle_en": subtitle,
+                "manufacturer": maker,
+                "country": country,
+                "year": year,
+                "special_marks": special_marks,
                 "drivetrain": drivetrain,
                 "popularity_bucket_key": popularity["key"],
                 "popularity_bucket_zh": popularity["label_zh"],
@@ -1612,7 +1653,8 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                     "PR": badge_counts["PR"],
                 },
                 "tag_chips": [
-                    {"label": popularity["label_zh"], "tone": "team"},
+                    *([{"label": origin, "tone": "team"}] if origin else [{"label": popularity["label_zh"], "tone": "team"}]),
+                    *[{"label": mark, "tone": "skill"} for mark in special_marks],
                     {"label": model["vehicle_class"], "tone": "vehicle"},
                     {"label": f"驅動型式 {drivetrain or '-'}", "tone": "meta"},
                     {"label": f"偏好環境 {favorite_label(env_counter)}", "tone": "env"},
@@ -1624,6 +1666,8 @@ def build_vehicle_pages(records: list[dict[str, Any]], lookup: dict[str, Any]) -
                 # 頁尾分析:環境適性(此車跑在哪些環境)。涵蓋率由前端用
                 # record_rows 長度 + badge_counts 即時算,不另存。
                 "env_rows": top_counter_items(env_counter, limit=6),
+                # 同母型多變體時的各變體最佳路線榜(>1 才有);前端做變體選單。
+                "variants": variants_payload,
             }
         )
 
