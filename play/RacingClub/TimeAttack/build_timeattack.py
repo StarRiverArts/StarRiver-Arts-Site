@@ -2435,6 +2435,91 @@ def build_trackmap(
     }
 
 
+TA_SITE_BASE = "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack"
+
+
+def build_bot_updates(records: list[dict[str, Any]], lookup: dict[str, Any], output_dir: Path) -> dict[str, Any]:
+    """Builder = 變更偵測器。比對上一版快照,輸出 Discord bot 用的資料契約:
+       data/bot/{record_updates,bot_feed,publish_marker}.json + snapshot_cache.json(builder 旁,本地)。
+
+    本版只偵測 track_record(每條路線最快有效紀錄;有效池 = is_general_pool,與網站榜單一致)。
+    第一次建立(無前快照)只記基準、不產生公告,避免一次洗版。
+    """
+    bot_dir = output_dir / "bot"
+    bot_dir.mkdir(parents=True, exist_ok=True)
+    cache_path = output_dir.parent / "snapshot_cache.json"  # 不在 data/(不被服務),gitignore
+
+    general_pool = [r for r in records if r["is_general_pool"]]
+    best = best_by(general_pool, "route_key")
+
+    def snap(rec: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "record_id": rec["record_id"],
+            "player_id": rec["player_id"], "player_name": rec["player_display_name"],
+            "vehicle_model_code": rec["vehicle_model_code"], "vehicle_name": rec["vehicle_model_name"],
+            "time_ms": rec["lap_time_ms"], "time_text": rec["lap_time_text"],
+            "track_world_code": rec["track_world_code"], "track_name": rec["track_display_name"],
+            "route_code": rec["route_code"], "route_label": rec["route_label_zh"],
+        }
+
+    current = {rk: snap(rec) for rk, rec in best.items()}
+
+    try:
+        prior = json.loads(cache_path.read_text(encoding="utf-8")).get("track_records", {})
+    except (OSError, json.JSONDecodeError):
+        prior = {}
+    first_build = not prior
+
+    build_id = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    def delta_text(ms: int) -> str:
+        return f"{ms / 1000:+.3f}"
+
+    cur_fields = ("player_id", "player_name", "vehicle_model_code", "vehicle_name", "time_ms", "time_text")
+    updates: list[dict[str, Any]] = []
+    if not first_build:
+        for rk, cur in current.items():
+            prev = prior.get(rk)
+            if prev is None:
+                continue  # 新路線首次有紀錄,不公告
+            if cur["time_ms"] < prev["time_ms"]:  # 變快 = 破賽道紀錄
+                delta = cur["time_ms"] - prev["time_ms"]
+                updates.append({
+                    "update_id": f"tr_{rk}_{cur['record_id']}".replace(":", "_"),
+                    "update_type": "track_record",
+                    "track_id": cur["track_world_code"], "track_name": cur["track_name"],
+                    "route_code": cur["route_code"], "route_label": cur["route_label"],
+                    "board": "track", "platform": "all",
+                    "previous": {k: prev.get(k) for k in cur_fields},
+                    "current": {**{k: cur[k] for k in cur_fields}, "proof_url": ""},
+                    "delta_ms": delta, "delta_text": delta_text(delta),
+                    "page_url": f"{TA_SITE_BASE}/track.html?id={cur['track_world_code']}&route={cur['route_code']}",
+                    "screenshot": {"command": "track-record", "track": cur["track_world_code"],
+                                   "route": cur["route_code"], "board": "track", "platform": "all"},
+                    "created_at": generated_at,
+                })
+
+    write_json(bot_dir / "record_updates.json",
+               {"schema_version": 1, "generated_at": generated_at, "build_id": build_id, "updates": updates})
+    write_json(bot_dir / "bot_feed.json", {
+        "schema_version": 1, "generated_at": generated_at, "build_id": build_id,
+        "site_base_url": TA_SITE_BASE,
+        "latest_update_file": "./record_updates.json",
+        "update_count": len(updates),
+    })
+    write_json(bot_dir / "publish_marker.json", {
+        "build_id": build_id, "published_at": None, "ready_for_discord": False,
+        "_note": "push 上站後由發布步驟把 ready_for_discord 設 true;bot 只在 build_id 相符且 ready 時公告。",
+    })
+    cache_path.write_text(
+        json.dumps({"build_id": build_id, "track_records": current}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
+    print(f"[bot] build_id={build_id} track_record updates={len(updates)}"
+          f"{' (baseline, no announce)' if first_build else ''}")
+    return {"build_id": build_id, "updates": updates}
+
+
 def build_all(args: argparse.Namespace) -> None:
     _, records, lookup, extras, source_label = resolve_source(args)
     compute_delta_text(records)
@@ -2449,6 +2534,7 @@ def build_all(args: argparse.Namespace) -> None:
     info = build_info_page(records, lookup, source_label, extras.get("review_cards"))
     review = build_review_pages(records, extras.get("review_cards"))
     trackmap = build_trackmap(records, lookup, args.output_dir)
+    build_bot_updates(records, lookup, args.output_dir)
 
     write_json(args.output_dir / ROUTE_FILE_MAP["overview"], summary)
     write_json(args.output_dir / ROUTE_FILE_MAP["tracks"], tracks)
