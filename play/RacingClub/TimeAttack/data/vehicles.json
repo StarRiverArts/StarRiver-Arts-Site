@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "146",
+      "value": "158",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "156",
+      "value": "168",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -6450,6 +6450,139 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_revuelto",
+      "title": "Revuelto",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "active",
+      "popularity_bucket_zh": "活躍車種",
+      "popularity_bucket_en": "Active Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "活躍車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 菲娜 希琉絲",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Revuelto",
+          "value": 6
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "菲娜 希琉絲",
+          "value": 3
+        },
+        {
+          "label": "Lolidia",
+          "value": 2
+        },
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "Revuelto",
+          "vehicle_model_code": "veh_revuelto",
+          "lap_time_ms": 105132,
+          "lap_time_text": "01:45.132",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "HarunaG / Downhill",
+          "route_label_en": "HarunaG / Downhill",
+          "player_display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "vehicle_model_name": "Revuelto",
+          "vehicle_model_code": "veh_revuelto",
+          "lap_time_ms": 261708,
+          "lap_time_text": "04:21.708",
+          "delta_to_best_text": "+0.200",
+          "platform": "pcvr",
+          "record_date": "2026-03-21",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "菲娜 希琉絲",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 6
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_fl5_civic_type_r",
       "title": "FL5 (Civic Type-R)",
       "vehicle_class": "Sports Car",
@@ -8249,6 +8382,139 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_fd3s_superg",
+      "title": "FD3S (RX7) SuperG",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FR",
+      "popularity_bucket_key": "active",
+      "popularity_bucket_zh": "活躍車種",
+      "popularity_bucket_en": "Active Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "4"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "活躍車種",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 菲娜 希琉絲",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "FD3S SuperG",
+          "value": 4
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "菲娜 希琉絲",
+          "value": 2
+        },
+        {
+          "label": "Yang路人",
+          "value": 1
+        },
+        {
+          "label": "突擊的狗熊A",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "vehicle_model_name": "FD3S (RX7) SuperG",
+          "vehicle_model_code": "veh_fd3s_superg",
+          "lap_time_ms": 173658,
+          "lap_time_text": "02:53.658",
+          "delta_to_best_text": "+68.526",
+          "platform": "pcvr",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "菲娜 希琉絲",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "HarunaG / Downhill",
+          "route_label_en": "HarunaG / Downhill",
+          "player_display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "vehicle_model_name": "FD3S (RX7) SuperG",
+          "vehicle_model_code": "veh_fd3s_superg",
+          "lap_time_ms": 261508,
+          "lap_time_text": "04:21.508",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-03-21",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "菲娜 希琉絲",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 4
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_vrr250r",
       "title": "VRR250R",
       "vehicle_class": "Sports Car",
@@ -9993,116 +10259,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_fd3s_superg",
-      "title": "FD3S (RX7) SuperG",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "FR",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "3"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 0,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "少量紀錄",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 菲娜 希琉絲",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "FD3S SuperG",
-          "value": 3
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "菲娜 希琉絲",
-          "value": 1
-        },
-        {
-          "label": "Yang路人",
-          "value": 1
-        },
-        {
-          "label": "突擊的狗熊A",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "HarunaG / Downhill",
-          "route_label_en": "HarunaG / Downhill",
-          "player_display_name": "菲娜 希琉絲",
-          "player_id": "plr_034",
-          "vehicle_model_name": "FD3S (RX7) SuperG",
-          "vehicle_model_code": "veh_fd3s_superg",
-          "lap_time_ms": 261508,
-          "lap_time_text": "04:21.508",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-03-21",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "菲娜 希琉絲",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 3
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_982_718cayman",
       "title": "982(718Cayman)",
       "vehicle_class": "Sports Car",
@@ -10590,112 +10746,6 @@
             "髮夾彎"
           ],
           "peer_label": "Yang路人",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_revuelto",
-      "title": "Revuelto",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "FR",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "3"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "少量紀錄",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 菲娜 希琉絲",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "Revuelto",
-          "value": 3
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "菲娜 希琉絲",
-          "value": 2
-        },
-        {
-          "label": "Lolidia",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "HarunaG / Downhill",
-          "route_label_en": "HarunaG / Downhill",
-          "player_display_name": "菲娜 希琉絲",
-          "player_id": "plr_034",
-          "vehicle_model_name": "Revuelto",
-          "vehicle_model_code": "veh_revuelto",
-          "lap_time_ms": 261708,
-          "lap_time_text": "04:21.708",
-          "delta_to_best_text": "+0.200",
-          "platform": "pcvr",
-          "record_date": "2026-03-21",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "菲娜 希琉絲",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
@@ -11514,6 +11564,131 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_dc2_lighttuned",
+      "title": "DC2 LightTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FF",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 其他",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "DC2 LightTuned",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "omote_rokkou / Downhill",
+          "route_label_en": "omote_rokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC2 LightTuned",
+          "vehicle_model_code": "veh_dc2_lighttuned",
+          "lap_time_ms": 151053,
+          "lap_time_text": "02:31.053",
+          "delta_to_best_text": "+7.253",
+          "platform": "pcvr",
+          "record_date": "2026-05-26",
+          "track_env": "其他",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC2 LightTuned",
+          "vehicle_model_code": "veh_dc2_lighttuned",
+          "lap_time_ms": 170507,
+          "lap_time_text": "02:50.507",
+          "delta_to_best_text": "+65.375",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "其他",
+          "value": 1
+        },
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_fc3s_rx7",
       "title": "FC3S (RX7)",
       "vehicle_class": "Sports Car",
@@ -11908,6 +12083,131 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_kdh201v_highlift",
+      "title": "KDH201V HighLift",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 其他",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "KDH201V HighLift",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "omote_rokkou / Downhill",
+          "route_label_en": "omote_rokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "KDH201V HighLift",
+          "vehicle_model_code": "veh_kdh201v_highlift",
+          "lap_time_ms": 169360,
+          "lap_time_text": "02:49.360",
+          "delta_to_best_text": "+25.560",
+          "platform": "pcvr",
+          "record_date": "2026-05-26",
+          "track_env": "其他",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "KDH201V HighLift",
+          "vehicle_model_code": "veh_kdh201v_highlift",
+          "lap_time_ms": 182960,
+          "lap_time_text": "03:02.960",
+          "delta_to_best_text": "+77.828",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "其他",
+          "value": 1
+        },
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_n2x_attack",
       "title": "N2X-Attack",
       "vehicle_class": "Sports Car",
@@ -12225,6 +12525,104 @@
             "髮夾彎"
           ],
           "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_dc2_turbotuned",
+      "title": "DC2 TurboTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FF",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "DC2 TurboTuned",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC2 TurboTuned",
+          "vehicle_model_code": "veh_dc2_turbotuned",
+          "lap_time_ms": 167586,
+          "lap_time_text": "02:47.586",
+          "delta_to_best_text": "+62.454",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
@@ -12857,6 +13255,108 @@
       "env_rows": [
         {
           "label": "其他",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_na2_alpine",
+      "title": "NA2 ALPINE",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FF",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 菲娜 希琉絲",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "NA2 ALPINE",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "菲娜 希琉絲",
+          "value": 1
+        },
+        {
+          "label": "Lolidia",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "NA2 ALPINE",
+          "vehicle_model_code": "veh_na2_alpine",
+          "lap_time_ms": 159160,
+          "lap_time_text": "02:39.160",
+          "delta_to_best_text": "+54.028",
+          "platform": "pcvr",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Lolidia",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
           "value": 2
         }
       ]
@@ -14391,104 +14891,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_l880k_tuned",
-      "title": "L880K Tuned",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "drivetrain": "",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 0,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "少量紀錄",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 -",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "L880K Tuned",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "UraRokkou / Downhill",
-          "route_label_en": "UraRokkou / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L880K Tuned",
-          "vehicle_model_code": "veh_l880k_tuned",
-          "lap_time_ms": 167440,
-          "lap_time_text": "02:47.440",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-06-06",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_mcl_civic",
       "title": "MCL civic",
       "vehicle_class": "Sports Car",
@@ -15905,6 +16307,104 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_cp9acuws",
+      "title": "CP9ACuWS",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "CP9ACuWS",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "CP9ACuWS",
+          "vehicle_model_code": "veh_cp9acuws",
+          "lap_time_ms": 166360,
+          "lap_time_text": "02:46.360",
+          "delta_to_best_text": "+61.228",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_cx_3",
       "title": "CX-3",
       "vehicle_class": "Sports Car",
@@ -16108,8 +16608,8 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_dc2_lighttuned",
-      "title": "DC2 LightTuned",
+      "vehicle_model_code": "veh_dc5_tuned",
+      "title": "DC5 Tuned",
       "vehicle_class": "Sports Car",
       "subtitle_zh": "Sports Car",
       "subtitle_en": "Sports Car",
@@ -16153,7 +16653,7 @@
           "tone": "meta"
         },
         {
-          "label": "偏好環境 其他",
+          "label": "偏好環境 山道",
           "tone": "env"
         },
         {
@@ -16163,7 +16663,7 @@
       ],
       "usage_rows": [
         {
-          "label": "DC2 LightTuned",
+          "label": "DC5 Tuned",
           "value": 1
         }
       ],
@@ -16176,18 +16676,18 @@
       "record_rows": [
         {
           "rank": 1,
-          "route_label_zh": "omote_rokkou / Downhill",
-          "route_label_en": "omote_rokkou / Downhill",
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
           "player_display_name": "CannedCarbon",
           "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "DC2 LightTuned",
-          "vehicle_model_code": "veh_dc2_lighttuned",
-          "lap_time_ms": 151053,
-          "lap_time_text": "02:31.053",
-          "delta_to_best_text": "+7.253",
-          "platform": "pcvr",
-          "record_date": "2026-05-26",
-          "track_env": "其他",
+          "vehicle_model_name": "DC5 Tuned",
+          "vehicle_model_code": "veh_dc5_tuned",
+          "lap_time_ms": 163507,
+          "lap_time_text": "02:43.507",
+          "delta_to_best_text": "+58.375",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
           "track_tags": [],
           "peer_label": "CannedCarbon",
           "verified": false,
@@ -16200,7 +16700,7 @@
       ],
       "env_rows": [
         {
-          "label": "其他",
+          "label": "山道",
           "value": 1
         }
       ]
@@ -16302,6 +16802,202 @@
       "env_rows": [
         {
           "label": "公路",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_de3acumo",
+      "title": "DE3ACuMO",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "DE3ACuMO",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DE3ACuMO",
+          "vehicle_model_code": "veh_de3acumo",
+          "lap_time_ms": 168280,
+          "lap_time_text": "02:48.280",
+          "delta_to_best_text": "+63.148",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_ek9_lighttuned",
+      "title": "EK9 LightTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FF",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 菲娜 希琉絲",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EK9 LightTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "菲娜 希琉絲",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "vehicle_model_name": "EK9 LightTuned",
+          "vehicle_model_code": "veh_ek9_lighttuned",
+          "lap_time_ms": 190550,
+          "lap_time_text": "03:10.550",
+          "delta_to_best_text": "+85.418",
+          "platform": "pcvr",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "菲娜 希琉絲",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
           "value": 1
         }
       ]
@@ -16609,6 +17305,104 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_gc8_anti_lagtuned",
+      "title": "GC8 Anti-LagTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8 Anti-LagTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "GC8 Anti-LagTuned",
+          "vehicle_model_code": "veh_gc8_anti_lagtuned",
+          "lap_time_ms": 165360,
+          "lap_time_text": "02:45.360",
+          "delta_to_best_text": "+60.228",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_gc8_g_impreza",
       "title": "GC8-G (Impreza)",
       "vehicle_class": "Sports Car",
@@ -16793,6 +17587,104 @@
             "技術"
           ],
           "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_grand_tuned",
+      "title": "Grand Tuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Grand Tuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Grand Tuned",
+          "vehicle_model_code": "veh_grand_tuned",
+          "lap_time_ms": 169840,
+          "lap_time_text": "02:49.840",
+          "delta_to_best_text": "+64.708",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
@@ -17315,8 +18207,106 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_kdh201v_highlift",
-      "title": "KDH201V HighLift",
+      "vehicle_model_code": "veh_l800k_tuned",
+      "title": "L800K Tuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "FF",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "L800K Tuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "L800K Tuned",
+          "vehicle_model_code": "veh_l800k_tuned",
+          "lap_time_ms": 167507,
+          "lap_time_text": "02:47.507",
+          "delta_to_best_text": "+62.375",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_l880k_tuned",
+      "title": "L880K Tuned",
       "vehicle_class": "Sports Car",
       "subtitle_zh": "Sports Car",
       "subtitle_en": "Sports Car",
@@ -17360,7 +18350,7 @@
           "tone": "meta"
         },
         {
-          "label": "偏好環境 其他",
+          "label": "偏好環境 山道",
           "tone": "env"
         },
         {
@@ -17370,7 +18360,7 @@
       ],
       "usage_rows": [
         {
-          "label": "KDH201V HighLift",
+          "label": "L880K Tuned",
           "value": 1
         }
       ],
@@ -17383,18 +18373,18 @@
       "record_rows": [
         {
           "rank": 1,
-          "route_label_zh": "omote_rokkou / Downhill",
-          "route_label_en": "omote_rokkou / Downhill",
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
           "player_display_name": "CannedCarbon",
           "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "KDH201V HighLift",
-          "vehicle_model_code": "veh_kdh201v_highlift",
-          "lap_time_ms": 169360,
-          "lap_time_text": "02:49.360",
-          "delta_to_best_text": "+25.560",
-          "platform": "pcvr",
-          "record_date": "2026-05-26",
-          "track_env": "其他",
+          "vehicle_model_name": "L880K Tuned",
+          "vehicle_model_code": "veh_l880k_tuned",
+          "lap_time_ms": 167440,
+          "lap_time_text": "02:47.440",
+          "delta_to_best_text": "+62.308",
+          "platform": "pc",
+          "record_date": "2026-06-06",
+          "track_env": "山道",
           "track_tags": [],
           "peer_label": "CannedCarbon",
           "verified": false,
@@ -17407,7 +18397,7 @@
       ],
       "env_rows": [
         {
-          "label": "其他",
+          "label": "山道",
           "value": 1
         }
       ]
@@ -17610,6 +18600,104 @@
       "env_rows": [
         {
           "label": "公路",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_m12",
+      "title": "M12",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "M12",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "M12",
+          "vehicle_model_code": "veh_m12",
+          "lap_time_ms": 179440,
+          "lap_time_text": "02:59.440",
+          "delta_to_best_text": "+74.308",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
           "value": 1
         }
       ]
@@ -17903,6 +18991,104 @@
             "髮夾彎"
           ],
           "peer_label": "LinWu_05",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_na2_lighttuned",
+      "title": "NA2  LightTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "MR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 MR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "NA2  LightTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "NA2  LightTuned",
+          "vehicle_model_code": "veh_na2_lighttuned",
+          "lap_time_ms": 166800,
+          "lap_time_text": "02:46.800",
+          "delta_to_best_text": "+61.668",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
@@ -19315,6 +20501,104 @@
             "高速"
           ],
           "peer_label": "Redfrogss",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_zzw30_tuned",
+      "title": "ZZW30 Tuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "drivetrain": "MR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 MR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "ZZW30 Tuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "UraRokkou / Downhill",
+          "route_label_en": "UraRokkou / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "ZZW30 Tuned",
+          "vehicle_model_code": "veh_zzw30_tuned",
+          "lap_time_ms": 171240,
+          "lap_time_text": "02:51.240",
+          "delta_to_best_text": "+66.108",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
