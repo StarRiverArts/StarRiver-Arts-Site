@@ -427,6 +427,9 @@ const renderTrackListCard = (board) => {
     .map((tag) => renderToneChip(tag, "meta"))
     .join("");
   const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
+  const systemChip = board.system_name
+    ? `<span class="ta-tag-chip is-system">${escapeHtml(board.system_name)}</span>`
+    : "";
   const id = encodeURIComponent(board.track_world_code);
   const routeLinks = (board.routes || [])
     .map(
@@ -444,12 +447,13 @@ const renderTrackListCard = (board) => {
       <a class="ta-track-list-head" href="./track.html?id=${id}">
         <div class="ta-label">${escapeHtml(board.world_name)}</div>
         <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        ${board.track_author ? `<div class="ta-track-list-author">${escapeHtml(board.track_author)}</div>` : ""}
         <div class="ta-track-list-stat">
           ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
           ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
         </div>
       </a>
-      <div class="ta-track-chiprow">${metaChips}${techChips}</div>
+      <div class="ta-track-chiprow">${systemChip}${metaChips}${techChips}</div>
       <div class="ta-route-pill-row">${routeLinks}</div>
     </article>
   `;

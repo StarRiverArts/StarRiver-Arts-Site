@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "214",
+      "value": "215",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -1723,7 +1723,7 @@
           "vehicle_model_code": "veh_le6_attack",
           "lap_time_ms": 308134,
           "lap_time_text": "05:08.134",
-          "delta_to_best_text": "+59.123",
+          "delta_to_best_text": "+61.427",
           "platform": "pc",
           "record_date": "2026-03-07",
           "track_env": "公路",
@@ -3520,17 +3520,17 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "18"
+          "value": "17"
         },
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "3"
+          "value": "4"
         }
       ],
       "badge_counts": {
-        "TR": 18,
-        "CR": 3,
+        "TR": 17,
+        "CR": 4,
         "PR": 2
       },
       "tag_chips": [
@@ -4117,7 +4117,7 @@
           "vehicle_model_code": "veh_gc8_impreza",
           "lap_time_ms": 249011,
           "lap_time_text": "04:09.011",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+2.304",
           "platform": "pcvr",
           "record_date": "2026-06-11",
           "track_env": "公路",
@@ -4128,10 +4128,10 @@
           "peer_label": "GC8 (Impreza)",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "rank": 22,
@@ -5954,7 +5954,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "34"
+          "value": "37"
         },
         {
           "label_zh": "已驗證",
@@ -5964,7 +5964,7 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "8"
+          "value": "9"
         },
         {
           "label_zh": "車種最佳",
@@ -5973,9 +5973,9 @@
         }
       ],
       "badge_counts": {
-        "TR": 8,
+        "TR": 9,
         "CR": 1,
-        "PR": 3
+        "PR": 4
       },
       "tag_chips": [
         {
@@ -6016,11 +6016,11 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 12
+          "value": 15
         },
         {
           "label": "髮夾彎",
-          "value": 4
+          "value": 5
         },
         {
           "label": "技術",
@@ -6288,6 +6288,57 @@
         },
         {
           "rank": 11,
+          "route_label_zh": "Odawara / Clockwise",
+          "route_label_en": "Odawara / Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "991(911 GT3)",
+          "vehicle_model_code": "veh_991_911_gt3",
+          "lap_time_ms": 235387,
+          "lap_time_text": "03:55.387",
+          "delta_to_best_text": "+9.853",
+          "platform": "pc",
+          "record_date": "2026-06-16",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "991(911 GT3)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "rank": 12,
+          "route_label_zh": "Futatsukane / Counter-Clockwise",
+          "route_label_en": "Futatsukane / Counter-Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "BNR32TG-Attack",
+          "vehicle_model_code": "veh_bnr32tg_attack",
+          "lap_time_ms": 246707,
+          "lap_time_text": "04:06.707",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-16",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "BNR32TG-Attack",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 13,
           "route_label_zh": "C1 Runner / OUTER",
           "route_label_en": "C1 Runner / OUTER",
           "player_display_name": "CannedCarbon",
@@ -6313,7 +6364,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 12,
+          "rank": 14,
           "route_label_zh": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "route_label_en": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "player_display_name": "CannedCarbon",
@@ -6561,6 +6612,27 @@
               "lap_time_ms": 196973,
               "lap_time_text": "03:16.973",
               "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "odawara_jintei:CW",
+          "route_label": "Odawara / Clockwise",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-06-16",
+              "lap_time_ms": 240413,
+              "lap_time_text": "04:00.413",
+              "vehicle": "GT86/ZN6",
+              "is_pb": true
+            },
+            {
+              "date": "2026-06-16",
+              "lap_time_ms": 235387,
+              "lap_time_text": "03:55.387",
+              "vehicle": "991(911 GT3)",
               "is_pb": true
             }
           ]
@@ -6843,7 +6915,7 @@
           "vehicle_model_code": "veh_le88e_attack",
           "lap_time_ms": 261083,
           "lap_time_text": "04:21.083",
-          "delta_to_best_text": "+12.072",
+          "delta_to_best_text": "+14.376",
           "platform": "pcvr",
           "record_date": "2026-04-24",
           "track_env": "公路",
@@ -8166,7 +8238,7 @@
           "vehicle_model_code": "veh_wonder_attack_1",
           "lap_time_ms": 277267,
           "lap_time_text": "04:37.267",
-          "delta_to_best_text": "+28.256",
+          "delta_to_best_text": "+30.560",
           "platform": "pcvr",
           "record_date": "2025-08-13",
           "track_env": "公路",
@@ -16595,7 +16667,7 @@
           "vehicle_model_code": "veh_le88e_attack",
           "lap_time_ms": 280497,
           "lap_time_text": "04:40.497",
-          "delta_to_best_text": "+31.486",
+          "delta_to_best_text": "+33.790",
           "platform": "pcvr",
           "record_date": "2026-05-05",
           "track_env": "公路",

@@ -21,11 +21,68 @@
     {
       "label_zh": "最熱門賽道",
       "label_en": "Busiest Track",
-      "name": "Tsukuba",
-      "value": "72 筆"
+      "name": "Odawara",
+      "value": "73 筆"
     }
   ],
   "recent_runs": [
+    {
+      "record_date": "2026-06-16",
+      "track_world_code": "odawara_jintei",
+      "route_code": "CW",
+      "route_label_zh": "Odawara / Clockwise",
+      "route_label_en": "Odawara / Clockwise",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "991(911 GT3)",
+      "vehicle_model_code": "veh_991_911_gt3",
+      "lap_time_text": "03:55.387",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "PR",
+      "badge_label_zh": "個人紀錄",
+      "badge_label_en": "Personal Record",
+      "badge_tone": "pr"
+    },
+    {
+      "record_date": "2026-06-16",
+      "track_world_code": "odawara_jintei",
+      "route_code": "CW",
+      "route_label_zh": "Odawara / Clockwise",
+      "route_label_en": "Odawara / Clockwise",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "GT86/ZN6",
+      "vehicle_model_code": "veh_gt86_zn6",
+      "lap_time_text": "04:00.413",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "",
+      "badge_label_zh": "",
+      "badge_label_en": "",
+      "badge_tone": ""
+    },
+    {
+      "record_date": "2026-06-16",
+      "track_world_code": "futatsukane",
+      "route_code": "CC",
+      "route_label_zh": "Futatsukane / Counter-Clockwise",
+      "route_label_en": "Futatsukane / Counter-Clockwise",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "BNR32TG-Attack",
+      "vehicle_model_code": "veh_bnr32tg_attack",
+      "lap_time_text": "04:06.707",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
     {
       "record_date": "2026-06-14",
       "track_world_code": "urarokkou",
@@ -114,63 +171,6 @@
       "vehicle_model_code": "veh_fd3s_rx7",
       "lap_time_text": "02:53.658",
       "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "菲娜 希琉絲",
-      "player_id": "plr_034",
-      "vehicle_model_name": "EK9 (Civic Type-R)",
-      "vehicle_model_code": "veh_ek9_civic_type_r",
-      "lap_time_text": "03:10.550",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "CannedCarbon",
-      "player_id": "plr_cannedcarbon",
-      "vehicle_model_name": "KDH201V HighLift",
-      "vehicle_model_code": "veh_kdh201v_highlift",
-      "lap_time_text": "03:02.960",
-      "platform": "pc",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "CannedCarbon",
-      "player_id": "plr_cannedcarbon",
-      "vehicle_model_name": "M12",
-      "vehicle_model_code": "veh_m12",
-      "lap_time_text": "02:59.440",
-      "platform": "pc",
       "verified": false,
       "proof_text": "",
       "badge_code": "CR",
@@ -404,17 +404,17 @@
   "popularity_chart": {
     "tracks": [
       {
-        "code": "tsukuba_jintei",
-        "name": "Tsukuba",
-        "count": 72,
+        "code": "odawara_jintei",
+        "name": "Odawara",
+        "count": 73,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
       },
       {
-        "code": "odawara_jintei",
-        "name": "Odawara",
-        "count": 71,
+        "code": "tsukuba_jintei",
+        "name": "Tsukuba",
+        "count": 72,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
@@ -564,20 +564,20 @@
         "category_key": "臺灣Taiwan|CVS"
       },
       {
+        "code": "futatsukane",
+        "name": "Futatsukane",
+        "count": 10,
+        "country": "日本Japan",
+        "system": "CVS",
+        "category_key": "日本Japan|CVS"
+      },
+      {
         "code": "usui_v2_jintei",
         "name": "Usui V2",
         "count": 9,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
-      },
-      {
-        "code": "futatsukane",
-        "name": "Futatsukane",
-        "count": 9,
-        "country": "日本Japan",
-        "system": "CVS",
-        "category_key": "日本Japan|CVS"
       },
       {
         "code": "h_nanamagari_jintei",
@@ -943,14 +943,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "746",
+      "value": "749",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "746",
+      "value": "749",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -964,7 +964,7 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "746",
+      "value": "749",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
@@ -978,7 +978,7 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "122",
+      "value": "123",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

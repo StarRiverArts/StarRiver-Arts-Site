@@ -1608,6 +1608,13 @@ body.timeattack-page {
   color: #cbffdd;
 }
 
+.ta-tag-chip.is-system {
+  background: rgba(126, 207, 218, 0.12);
+  border: 1px solid rgba(126, 207, 218, 0.28);
+  color: rgb(126, 207, 218);
+  font-weight: 600;
+}
+
 .ta-tag-chip.is-skill {
   background: rgba(160, 122, 255, 0.14);
   border: 1px solid rgba(160, 122, 255, 0.28);
@@ -1836,6 +1843,16 @@ body.timeattack-page {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--ta-text-faint);
+}
+
+.ta-track-list-author {
+  color: var(--ta-accent);
+  font-family: var(--font-deck);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 3px 0 2px;
+  opacity: 0.9;
 }
 
 .ta-track-detail-head {
