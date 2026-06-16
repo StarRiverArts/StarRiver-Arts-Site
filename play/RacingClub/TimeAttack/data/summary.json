@@ -27,6 +27,44 @@
   ],
   "recent_runs": [
     {
+      "record_date": "2026-06-17",
+      "track_world_code": "starsight_starriver_arts",
+      "route_code": "DH",
+      "route_label_zh": "觀星山 / Downhill",
+      "route_label_en": "StarSight / Downhill",
+      "player_display_name": "StarRiver Arts",
+      "player_id": "plr_starriver_arts",
+      "vehicle_model_name": "PeiTaiBus_DriftTuned",
+      "vehicle_model_code": "veh_peitaibus_drifttuned",
+      "lap_time_text": "02:57.367",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "CR",
+      "badge_label_zh": "車輛紀錄",
+      "badge_label_en": "Car Record",
+      "badge_tone": "cr"
+    },
+    {
+      "record_date": "2026-06-17",
+      "track_world_code": "starsight_starriver_arts",
+      "route_code": "DH",
+      "route_label_zh": "觀星山 / Downhill",
+      "route_label_en": "StarSight / Downhill",
+      "player_display_name": "StarRiver Arts",
+      "player_id": "plr_starriver_arts",
+      "vehicle_model_name": "GuangBus_DriveTuned",
+      "vehicle_model_code": "veh_guangbus_drivetuned",
+      "lap_time_text": "02:33.700",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "CR",
+      "badge_label_zh": "車輛紀錄",
+      "badge_label_en": "Car Record",
+      "badge_tone": "cr"
+    },
+    {
       "record_date": "2026-06-16",
       "track_world_code": "odawara_jintei",
       "route_code": "CW",
@@ -139,44 +177,6 @@
       "badge_label_zh": "個人紀錄",
       "badge_label_en": "Personal Record",
       "badge_tone": "pr"
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "菲娜 希琉絲",
-      "player_id": "plr_034",
-      "vehicle_model_name": "NA2 ALPINE",
-      "vehicle_model_code": "veh_na2_alpine",
-      "lap_time_text": "02:43.767",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "",
-      "badge_label_zh": "",
-      "badge_label_en": "",
-      "badge_tone": ""
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "菲娜 希琉絲",
-      "player_id": "plr_034",
-      "vehicle_model_name": "FD3S (RX7)",
-      "vehicle_model_code": "veh_fd3s_rx7",
-      "lap_time_text": "02:53.658",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
     }
   ],
   "track_options": [
@@ -422,7 +422,7 @@
       {
         "code": "starsight_starriver_arts",
         "name": "觀星山",
-        "count": 63,
+        "count": 65,
         "country": "臺灣Taiwan",
         "system": "CVS",
         "category_key": "臺灣Taiwan|CVS"
@@ -943,14 +943,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "749",
+      "value": "751",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "749",
+      "value": "751",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -964,7 +964,7 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "749",
+      "value": "751",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
@@ -978,7 +978,7 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "123",
+      "value": "124",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

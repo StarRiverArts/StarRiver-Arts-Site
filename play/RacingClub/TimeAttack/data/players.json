@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "215",
+      "value": "216",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -54,7 +54,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "223"
+          "value": "225"
         },
         {
           "label_zh": "已驗證",
@@ -116,7 +116,7 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 169
+          "value": 171
         },
         {
           "label": "技術",
@@ -2008,6 +2008,139 @@
           ]
         },
         {
+          "route_key": "starsight_starriver_arts:DH",
+          "route_label": "觀星山 / Downhill",
+          "run_count": 18,
+          "runs": [
+            {
+              "date": "2025-11-23",
+              "lap_time_ms": 119433,
+              "lap_time_text": "01:59.433",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": true
+            },
+            {
+              "date": "2025-11-23",
+              "lap_time_ms": 107917,
+              "lap_time_text": "01:47.917",
+              "vehicle": "LapinTuned",
+              "is_pb": true
+            },
+            {
+              "date": "2025-11-23",
+              "lap_time_ms": 115400,
+              "lap_time_text": "01:55.400",
+              "vehicle": "Macchiato",
+              "is_pb": false
+            },
+            {
+              "date": "2025-11-23",
+              "lap_time_ms": 123583,
+              "lap_time_text": "02:03.583",
+              "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2025-11-23",
+              "lap_time_ms": 125167,
+              "lap_time_text": "02:05.167",
+              "vehicle": "CoachKart",
+              "is_pb": false
+            },
+            {
+              "date": "2025-11-27",
+              "lap_time_ms": 102050,
+              "lap_time_text": "01:42.050",
+              "vehicle": "Macchiato",
+              "is_pb": true
+            },
+            {
+              "date": "2025-12-04",
+              "lap_time_ms": 116861,
+              "lap_time_text": "01:56.861",
+              "vehicle": "Macchiato",
+              "is_pb": false
+            },
+            {
+              "date": "2025-12-04",
+              "lap_time_ms": 157533,
+              "lap_time_text": "02:37.533",
+              "vehicle": "CoachKart",
+              "is_pb": false
+            },
+            {
+              "date": "2025-12-08",
+              "lap_time_ms": 93283,
+              "lap_time_text": "01:33.283",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": true
+            },
+            {
+              "date": "2025-12-08",
+              "lap_time_ms": 125850,
+              "lap_time_text": "02:05.850",
+              "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-03-25",
+              "lap_time_ms": 117133,
+              "lap_time_text": "01:57.133",
+              "vehicle": "Macchiato",
+              "is_pb": false
+            },
+            {
+              "date": "2026-03-25",
+              "lap_time_ms": 112500,
+              "lap_time_text": "01:52.500",
+              "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-09",
+              "lap_time_ms": 600000,
+              "lap_time_text": "10:00.000",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-09",
+              "lap_time_ms": 600000,
+              "lap_time_text": "10:00.000",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-09",
+              "lap_time_ms": 600000,
+              "lap_time_text": "10:00.000",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-09",
+              "lap_time_ms": 600000,
+              "lap_time_text": "10:00.000",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-17",
+              "lap_time_ms": 153700,
+              "lap_time_text": "02:33.700",
+              "vehicle": "GuangBus_DriveTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-06-17",
+              "lap_time_ms": 177367,
+              "lap_time_text": "02:57.367",
+              "vehicle": "PeiTaiBus_DriftTuned",
+              "is_pb": false
+            }
+          ]
+        },
+        {
           "route_key": "odawara_jintei:CW",
           "route_label": "Odawara / Clockwise",
           "run_count": 16,
@@ -2123,125 +2256,6 @@
               "lap_time_text": "04:10.533",
               "vehicle": "GT86/ZN6",
               "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "starsight_starriver_arts:DH",
-          "route_label": "觀星山 / Downhill",
-          "run_count": 16,
-          "runs": [
-            {
-              "date": "2025-11-23",
-              "lap_time_ms": 119433,
-              "lap_time_text": "01:59.433",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": true
-            },
-            {
-              "date": "2025-11-23",
-              "lap_time_ms": 107917,
-              "lap_time_text": "01:47.917",
-              "vehicle": "LapinTuned",
-              "is_pb": true
-            },
-            {
-              "date": "2025-11-23",
-              "lap_time_ms": 115400,
-              "lap_time_text": "01:55.400",
-              "vehicle": "Macchiato",
-              "is_pb": false
-            },
-            {
-              "date": "2025-11-23",
-              "lap_time_ms": 123583,
-              "lap_time_text": "02:03.583",
-              "vehicle": "LapinTuned",
-              "is_pb": false
-            },
-            {
-              "date": "2025-11-23",
-              "lap_time_ms": 125167,
-              "lap_time_text": "02:05.167",
-              "vehicle": "CoachKart",
-              "is_pb": false
-            },
-            {
-              "date": "2025-11-27",
-              "lap_time_ms": 102050,
-              "lap_time_text": "01:42.050",
-              "vehicle": "Macchiato",
-              "is_pb": true
-            },
-            {
-              "date": "2025-12-04",
-              "lap_time_ms": 116861,
-              "lap_time_text": "01:56.861",
-              "vehicle": "Macchiato",
-              "is_pb": false
-            },
-            {
-              "date": "2025-12-04",
-              "lap_time_ms": 157533,
-              "lap_time_text": "02:37.533",
-              "vehicle": "CoachKart",
-              "is_pb": false
-            },
-            {
-              "date": "2025-12-08",
-              "lap_time_ms": 93283,
-              "lap_time_text": "01:33.283",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": true
-            },
-            {
-              "date": "2025-12-08",
-              "lap_time_ms": 125850,
-              "lap_time_text": "02:05.850",
-              "vehicle": "LapinTuned",
-              "is_pb": false
-            },
-            {
-              "date": "2026-03-25",
-              "lap_time_ms": 117133,
-              "lap_time_text": "01:57.133",
-              "vehicle": "Macchiato",
-              "is_pb": false
-            },
-            {
-              "date": "2026-03-25",
-              "lap_time_ms": 112500,
-              "lap_time_text": "01:52.500",
-              "vehicle": "LapinTuned",
-              "is_pb": false
-            },
-            {
-              "date": "2026-06-09",
-              "lap_time_ms": 600000,
-              "lap_time_text": "10:00.000",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
-            },
-            {
-              "date": "2026-06-09",
-              "lap_time_ms": 600000,
-              "lap_time_text": "10:00.000",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
-            },
-            {
-              "date": "2026-06-09",
-              "lap_time_ms": 600000,
-              "lap_time_text": "10:00.000",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
-            },
-            {
-              "date": "2026-06-09",
-              "lap_time_ms": 600000,
-              "lap_time_text": "10:00.000",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
             }
           ]
         },

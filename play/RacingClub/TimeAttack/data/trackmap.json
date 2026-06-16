@@ -24,14 +24,14 @@
     {
       "label_zh": "地點",
       "label_en": "Places",
-      "value": "26",
+      "value": "27",
       "note_zh": "有座標可上圖的地名",
       "note_en": "Localities with map coordinates"
     },
     {
       "label_zh": "路線軌跡",
       "label_en": "Route Traces",
-      "value": "8",
+      "value": "18",
       "note_zh": "已畫整條線的賽道",
       "note_en": "Tracks with a full drawn route"
     },
@@ -117,7 +117,7 @@
                   "track_env": "山道",
                   "difficulty": "簡單",
                   "route_count": 1,
-                  "record_count": 63,
+                  "record_count": 65,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -331,9 +331,12 @@
                   "difficulty": "中等",
                   "route_count": 1,
                   "record_count": 1,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 35.1674966,
+                  "trace_lng": 136.8898773,
+                  "trace_file": "geo/nagoya_jintei.geojson"
                 }
               ],
               "lat": 35.17,
@@ -351,7 +354,7 @@
               "name": "東京Tokyo",
               "name_zh": "東京",
               "name_en": "Tokyo",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "c1_runner",
@@ -363,9 +366,12 @@
                   "difficulty": "中等",
                   "route_count": 2,
                   "record_count": 4,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 35.6889588,
+                  "trace_lng": 139.7457791,
+                  "trace_file": "geo/c1_runner.geojson"
                 },
                 {
                   "track_world_code": "fukutoshin_expressway",
@@ -377,11 +383,17 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 2,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 35.6511883,
+                  "trace_lng": 139.686734,
+                  "trace_file": "geo/fukutoshin_expressway.geojson"
                 }
-              ]
+              ],
+              "lat": 35.6889588,
+              "lng": 139.7457791,
+              "point_source": "trace"
             }
           ]
         },
@@ -406,9 +418,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 36,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.7459842,
+                  "trace_lng": 139.5124913,
+                  "trace_file": "geo/irohazaka_jintei.geojson"
                 }
               ],
               "lat": 36.7316,
@@ -748,9 +763,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 13,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.4973755,
+                  "trace_lng": 138.9043382,
+                  "trace_file": "geo/harunag.geojson"
                 },
                 {
                   "track_world_code": "akina_jintei",
@@ -762,9 +780,12 @@
                   "difficulty": "中等",
                   "route_count": 2,
                   "record_count": 61,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.4973755,
+                  "trace_lng": 138.9043382,
+                  "trace_file": "geo/akina_jintei.geojson"
                 },
                 {
                   "track_world_code": "lake_akina_jintei",
@@ -776,9 +797,12 @@
                   "difficulty": "簡單",
                   "route_count": 2,
                   "record_count": 11,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.4677945,
+                  "trace_lng": 138.8714043,
+                  "trace_file": "geo/lake_akina_jintei.geojson"
                 },
                 {
                   "track_world_code": "akinaun_jintei",
@@ -790,9 +814,12 @@
                   "difficulty": "極困難",
                   "route_count": 1,
                   "record_count": 11,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.4973755,
+                  "trace_lng": 138.9043382,
+                  "trace_file": "geo/akinaun_jintei.geojson"
                 },
                 {
                   "track_world_code": "akina_snow_jintei",
@@ -804,9 +831,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 5,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.4973755,
+                  "trace_lng": 138.9043382,
+                  "trace_file": "geo/akina_snow_jintei.geojson"
                 }
               ],
               "lat": 36.4744,
@@ -930,6 +960,19 @@
               "lng": 139.1931,
               "point_source": "place"
             }
+          ],
+          "has_overlay": true,
+          "overlay_file": "geo/regions/japan__gunma.geojson",
+          "overlay_source": "auto",
+          "overlay_bounds": [
+            [
+              36.4677945,
+              138.860041
+            ],
+            [
+              36.5013656,
+              138.9154437
+            ]
           ]
         },
         {
@@ -1140,9 +1183,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 6,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 43.7405113,
+                  "trace_lng": 7.4292718,
+                  "trace_file": "geo/monaco_aiden1408.geojson"
                 }
               ],
               "lat": 43.7347,

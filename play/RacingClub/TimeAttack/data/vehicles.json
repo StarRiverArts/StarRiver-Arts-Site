@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "123",
+      "value": "124",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "169",
+      "value": "170",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -16552,6 +16552,116 @@
       "variants": []
     },
     {
+      "vehicle_model_code": "veh_guangbus_drivetuned",
+      "title": "GuangBus_DriveTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 wasdwa",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GuangBus_DriveTuned",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "wasdwa",
+          "value": 1
+        },
+        {
+          "label": "StarRiver Arts",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "GuangBus_DriveTuned",
+          "vehicle_model_code": "veh_guangbus_drivetuned",
+          "lap_time_ms": 153700,
+          "lap_time_text": "02:33.700",
+          "delta_to_best_text": "+67.767",
+          "platform": "pc",
+          "record_date": "2026-06-17",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 2
+        }
+      ],
+      "variants": []
+    },
+    {
       "vehicle_model_code": "veh_ja4_tuned",
       "title": "JA4 Tuned",
       "vehicle_class": "Sports Car",
@@ -20531,112 +20641,6 @@
       "variants": []
     },
     {
-      "vehicle_model_code": "veh_guangbus_drivetuned",
-      "title": "GuangBus_DriveTuned",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car",
-      "subtitle_en": "Sports Car",
-      "manufacturer": "",
-      "country": "",
-      "year": "",
-      "special_marks": [],
-      "drivetrain": "",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "少量紀錄",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 -",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 wasdwa",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "GuangBus_DriveTuned",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "wasdwa",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "觀星山 / Downhill",
-          "route_label_en": "StarSight / Downhill",
-          "player_display_name": "wasdwa",
-          "player_id": "plr_wasdwa",
-          "vehicle_model_name": "GuangBus_DriveTuned",
-          "vehicle_model_code": "veh_guangbus_drivetuned",
-          "lap_time_ms": 326833,
-          "lap_time_text": "05:26.833",
-          "delta_to_best_text": "+240.900",
-          "platform": "quest",
-          "record_date": "2026-06-13",
-          "track_env": "山道",
-          "track_tags": [
-            "隧道",
-            "高速"
-          ],
-          "peer_label": "wasdwa",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ],
-      "variants": []
-    },
-    {
       "vehicle_model_code": "veh_haza_city",
       "title": "Haza City",
       "vehicle_class": "Sports Car",
@@ -21804,6 +21808,112 @@
             "高速"
           ],
           "peer_label": "Chisey",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ],
+      "variants": []
+    },
+    {
+      "vehicle_model_code": "veh_peitaibus_drifttuned",
+      "title": "PeiTaiBus_DriftTuned",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "PeiTaiBus_DriftTuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "PeiTaiBus_DriftTuned",
+          "vehicle_model_code": "veh_peitaibus_drifttuned",
+          "lap_time_ms": 177367,
+          "lap_time_text": "02:57.367",
+          "delta_to_best_text": "+91.434",
+          "platform": "pc",
+          "record_date": "2026-06-17",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
