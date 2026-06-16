@@ -8,7 +8,7 @@
 
   const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ESC[c]);
-  const bi = (zh, en) => `<span class="zh">${esc(zh || en || "")}</span><span class="en">${esc(en || zh || "")}</span>`;
+  const bi = (zh, en, jp, kr, es, eo) => `<span class="zh">${esc(zh||en||"")}</span><span class="en">${esc(en||zh||"")}</span><span class="jp">${esc(jp||en||"")}</span><span class="kr">${esc(kr||en||"")}</span><span class="es">${esc(es||en||"")}</span><span class="eo">${esc(eo||en||"")}</span>`;
   const qp = (k) => new URLSearchParams(location.search).get(k);
 
   const loadJson = async (url) => {
@@ -47,10 +47,10 @@
   const pointsChip = (e) => e.is_points_event ? `<span class="ev-chip ev-chip-points">${bi("積分", "Points")}</span>` : "";
   const playerLink = (id, name) => id ? `<a class="ta-entity-link" href="./players.html?id=${encodeURIComponent(id)}">${esc(name || id)}</a>` : esc(name || "");
   const HONOR_SPECS = {
-    1: { icon: "♛", zh: "冠軍", en: "Champion" },
-    2: { icon: "✦", zh: "亞軍", en: "Runner-up" },
-    3: { icon: "▲", zh: "季軍", en: "Third Place" },
-    4: { icon: "◆", zh: "殿軍", en: "Fourth Place" },
+    1: { icon: "♛", zh: "冠軍", en: "Champion",   jp: "優勝",     kr: "우승",    es: "Campeón",     eo: "Ĉampiono" },
+    2: { icon: "✦", zh: "亞軍", en: "Runner-up",  jp: "準優勝",   kr: "준우승",  es: "Subcampeón",  eo: "Vicĉampiono" },
+    3: { icon: "▲", zh: "季軍", en: "Third Place", jp: "3位",     kr: "3위",     es: "Tercer Lugar", eo: "Tria Loko" },
+    4: { icon: "◆", zh: "殿軍", en: "Fourth Place", jp: "4位",    kr: "4위",     es: "Cuarto Lugar", eo: "Kvara Loko" },
   };
   const honorSpec = (rank) => HONOR_SPECS[Number(rank)] || null;
   const honorBadge = (rank, { compact = false } = {}) => {
@@ -61,7 +61,7 @@
       <span class="ev-honor-badge is-rank-${rank}${compact ? " is-compact" : ""}" title="${esc(title)}">
         <span class="ev-honor-mark">${spec.icon}</span>
         <span class="ev-honor-copy">
-          <strong class="ev-honor-title">${bi(spec.zh, spec.en)}</strong>
+          <strong class="ev-honor-title">${bi(spec.zh, spec.en, spec.jp, spec.kr, spec.es, spec.eo)}</strong>
           ${compact ? `<small class="ev-honor-rank">#${rank}</small>` : `<small class="ev-honor-rank">TOP ${rank}</small>`}
         </span>
       </span>`;

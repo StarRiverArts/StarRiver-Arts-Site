@@ -11,8 +11,12 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--sr-paper);color:var(--sr-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
-html.lang-zh .en{display:none}
-html.lang-en .zh{display:none}
+html.lang-zh :is(.en,.jp,.kr,.es,.eo){display:none}
+html.lang-en :is(.zh,.jp,.kr,.es,.eo){display:none}
+html.lang-jp :is(.zh,.en,.kr,.es,.eo){display:none}
+html.lang-kr :is(.zh,.en,.jp,.es,.eo){display:none}
+html.lang-es :is(.zh,.en,.jp,.kr,.eo){display:none}
+html.lang-eo :is(.zh,.en,.jp,.kr,.es){display:none}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;height:60px;background:var(--sr-paper);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 48px}
@@ -24,7 +28,7 @@ nav{position:sticky;top:0;z-index:100;height:60px;background:var(--sr-paper);bor
 .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);padding:0 14px;height:60px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color 200ms,border-color 200ms}
 .nav-links a:hover{color:var(--sr-ink)}
 .nav-links a.active{color:var(--sr-ink);border-bottom-color:var(--sr-amber)}
-.lang-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms}
+.lang-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms;-webkit-appearance:none;appearance:none}
 .lang-btn:hover{color:var(--sr-ink);border-color:var(--gray-400)}
 
 /* LAYOUT */
@@ -125,26 +129,37 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
     <span class="nav-brand">星河 STARRIVER ARTS</span>
   </a>
   <div class="nav-links">
-    <a href="studio.html" class="active"><span class="zh">工作室</span><span class="en">Studio</span></a>
-    <a href="play/"><span class="zh">體驗</span><span class="en">Play</span></a>
+    <a href="studio.html" class="active"><span class="zh">工作室</span><span class="en">Studio</span><span class="jp">スタジオ</span><span class="kr">스튜디오</span><span class="es">Estudio</span><span class="eo">Studio</span></a>
+    <a href="play/"><span class="zh">體驗</span><span class="en">Play</span><span class="jp">体験</span><span class="kr">체험</span><span class="es">Jugar</span><span class="eo">Ludi</span></a>
   </div>
-  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中</span></button>
+  <select class="lang-btn" id="langBtn" aria-label="Language">
+    <option value="zh">中文</option>
+    <option value="en">EN</option>
+    <option value="jp">日本語</option>
+    <option value="kr">한국어</option>
+    <option value="es">ES</option>
+    <option value="eo">EO</option>
+  </select>
 </nav>
 
 <div class="wrap">
 
   <div class="intro">
-    <div class="intro-kicker"><span class="zh">數位體驗創作者 · 台灣</span><span class="en">Digital Artist · Taiwan</span></div>
+    <div class="intro-kicker"><span class="zh">數位體驗創作者 · 台灣</span><span class="en">Digital Artist · Taiwan</span><span class="jp">デジタルアーティスト · 台湾</span><span class="kr">디지털 아티스트 · 대만</span><span class="es">Artista Digital · Taiwán</span><span class="eo">Cifera Artisto · Tajvano</span></div>
     <h1 class="intro-title">星河 StarRiver Arts</h1>
     <p class="intro-sub zh">VR 環境設計、台灣地景數位孿生、沉浸式展覽空間。</p>
     <p class="intro-sub zh">以景觀空間語言，探索地誌保存與知識傳播。</p>
     <p class="intro-sub en">VR environment design, Taiwan landscape digital twins, and immersive exhibition spaces. Using spatial language to explore preservation and science communication.</p>
+    <p class="intro-sub jp">VR 環境設計、台湾地景のデジタルツイン、没入型展覧空間。空間言語を用いて、地誌保存と知識伝達を探求する。</p>
+    <p class="intro-sub kr">VR 환경 디자인, 대만 경관 디지털 트윈, 몰입형 전시 공간. 공간 언어로 지리적 보존과 지식 전달을 탐구한다.</p>
+    <p class="intro-sub es">Diseño de entornos VR, gemelos digitales del paisaje taiwanés y espacios de exposición inmersivos. Explorando la preservación geodocumental y la comunicación del conocimiento a través del lenguaje espacial.</p>
+    <p class="intro-sub eo">VR-medio-dezajno, Tajvana pejzaĝa cifera ĝemelo, kaj mergitaj ekspozicio-spacoj. Uzante spacan lingvon por esplori geodeziajn konservon kaj scion-komunikadon.</p>
     <div class="intro-rule"></div>
   </div>
 
   <!-- 01 PROJECTS -->
   <section id="projects">
-    <div class="sec-kicker"><span class="zh">01 · 作品</span><span class="en">01 · Projects</span></div>
+    <div class="sec-kicker"><span class="zh">01 · 作品</span><span class="en">01 · Projects</span><span class="jp">01 · 作品</span><span class="kr">01 · 작품</span><span class="es">01 · Proyectos</span><span class="eo">01 · Verkoj</span></div>
     <div class="projects-grid">
 
       <!-- Beyond Gravity -->
@@ -154,8 +169,12 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
           <div class="project-title">Beyond Gravity</div>
           <div class="project-desc zh">天鉤太空站科普展示世界。VRChat Space Jam 3 參賽作品。耗時兩周。</div>
           <div class="project-desc en">Skyhook space station science exhibition. Solo two-week build for VRChat Space Jam 3.</div>
+          <div class="project-desc jp">スカイフック宇宙ステーション科学展示。VRChat Space Jam 3のソロ2週間ビルド。</div>
+          <div class="project-desc kr">스카이훅 우주 정거장 과학 전시회. VRChat Space Jam 3 솔로 2주 제작.</div>
+          <div class="project-desc es">Exposición científica de la estación espacial Skyhook. Construido en solitario en dos semanas para VRChat Space Jam 3.</div>
+          <div class="project-desc eo">Scienco-ekspozicio de la Skyhook-kosmostacio. Sola du-semajna konstruo por VRChat Space Jam 3.</div>
           <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Sci-Fi Scene</span></div>
-          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><span class="kr">작품 보기</span><span class="es">Ver proyecto</span><span class="eo">Vidi verkon</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
@@ -166,8 +185,12 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
           <div class="project-title">StarSight Mt. 觀星山</div>
           <div class="project-desc zh">完整虛構台灣山道，包含賽道與個人展示空間。一個月獨立完成。</div>
           <div class="project-desc en">Fully playable fictional Taiwan mountain road with racing mechanics and personal exhibition space. Solo, one month.</div>
+          <div class="project-desc jp">完全プレイ可能な架空の台湾山道。レースメカニクスと個人展示空間を含む。1ヶ月間ソロ制作。</div>
+          <div class="project-desc kr">레이싱 메커니즘과 개인 전시 공간이 포함된 완전히 플레이 가능한 가상 대만 산길. 솔로, 1개월.</div>
+          <div class="project-desc es">Carretera de montaña taiwanesa ficticia completamente jugable con mecánicas de carreras y espacio de exposición personal. Solo, un mes.</div>
+          <div class="project-desc eo">Plene luda fikcia Tajvana montara vojo kun vetlud-mekanikaj kaj persona ekspozicio-spaco. Sola, unu monato.</div>
           <div class="project-meta"><span class="tag">2025</span><span class="tag">VRChat</span><span class="tag">Project T</span></div>
-          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><span class="kr">작품 보기</span><span class="es">Ver proyecto</span><span class="eo">Vidi verkon</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
@@ -175,11 +198,15 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
       <a class="project-card" href="projects/free-trajectory.html">
         <div class="project-thumb"><img src="projects/free-trajectory/thumb.png" alt="FreeTrajectory"></div>
         <div class="project-body">
-          <div class="project-title"><span class="zh">致遊軌跡LR</span><span class="en">FreeTrajectory</span></div>
+          <div class="project-title"><span class="zh">致遊軌跡LR</span><span class="en">FreeTrajectory</span><span class="jp">FreeTrajectory</span><span class="kr">FreeTrajectory</span><span class="es">FreeTrajectory</span><span class="eo">FreeTrajectory</span></div>
           <div class="project-desc zh">景觀跨域整合，VR 現場展示，走入設計之中。</div>
           <div class="project-desc en">Landscape recreation mixed with VR exhibition. Walk through the design.</div>
+          <div class="project-desc jp">景観の異分野融合、VR現場展示、設計の中を歩く。</div>
+          <div class="project-desc kr">조경 간학문적 통합, VR 현장 전시, 디자인 속으로 걷기.</div>
+          <div class="project-desc es">Integración paisajística interdisciplinar, exhibición VR en vivo. Camina a través del diseño.</div>
+          <div class="project-desc eo">Pejzaĝa transdisciplina integriĝo, VR-liva ekspozicio. Promenadu tra la dezajno.</div>
           <div class="project-meta"><span class="tag">2024</span><span class="tag">Landscape Recreation</span><span class="tag">Real-life Exhibition</span></div>
-          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><span class="kr">작품 보기</span><span class="es">Ver proyecto</span><span class="eo">Vidi verkon</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
@@ -187,11 +214,15 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
       <a class="project-card" href="projects/9turns.html">
         <div class="project-thumb"><img src="projects/9turns/thumb.png" alt="9 Turns"></div>
         <div class="project-body">
-          <div class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — 9 Turns</span></div>
+          <div class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — 9 Turns</span><span class="jp">Project T — 九彎十八拐</span><span class="kr">Project T — 9 Turns</span><span class="es">Project T — 9 Turns</span><span class="eo">Project T — 9 Turns</span></div>
           <div class="project-desc zh">台 9 丙線石牌公園-頭城段數位場景。在虛擬體驗中駕駛車輛。</div>
           <div class="project-desc en">Digital scene of Highway 9C, Shibei Park to Toucheng. Drive through the route in VR.</div>
+          <div class="project-desc jp">台湾省道9号乙線、石牌公園-頭城区間のデジタルシーン。VRでルートを走行。</div>
+          <div class="project-desc kr">9번 국도 병선, 석패 공원~터우청 구간 디지털 씬. VR에서 경로 주행.</div>
+          <div class="project-desc es">Escena digital de la Carretera 9C, del Parque Shibei a Toucheng. Conduce la ruta en VR.</div>
+          <div class="project-desc eo">Cifera sceno de la Ŝtatvojo 9C, Shibei Parko al Toucheng. Veturadu la vojon en VR.</div>
           <div class="project-meta"><span class="tag">2023</span><span class="tag">VRChat</span><span class="tag">Project T</span></div>
-          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
+          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><span class="kr">작품 보기</span><span class="es">Ver proyecto</span><span class="eo">Vidi verkon</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
 
@@ -199,35 +230,47 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
       <a class="project-card" href="projects/wuling.html">
         <div class="project-thumb"><img src="projects/wuling/thumb.png" alt="Project T — 武嶺"></div>
         <div class="project-body">
-          <div class="project-title"><span class="zh">Project T — 武嶺</span><span class="en">Project T — Wuling</span></div>
+          <div class="project-title"><span class="zh">Project T — 武嶺</span><span class="en">Project T — Wuling</span><span class="jp">Project T — 武嶺</span><span class="kr">Project T — Wuling</span><span class="es">Project T — Wuling</span><span class="eo">Project T — Wuling</span></div>
           <div class="project-desc zh">台 14 甲線武嶺段數位孿生。台灣公路最高點，海拔 3275m（進行中）。</div>
           <div class="project-desc en">Digital twin of Wuling Pass, Highway 14A. Taiwan's highest road point at 3,275 m (in progress).</div>
-          <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Project T</span><span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span></span></div>
-          <div class="project-link" style="opacity:.38;pointer-events:none"><span class="zh">上線後開放</span><span class="en">Available on release</span></div>
+          <div class="project-desc jp">台湾省道14号甲線、武嶺区間のデジタルツイン。台湾最高地点の道路、標高3,275m（制作中）。</div>
+          <div class="project-desc kr">국도 14A, 우링 구간 디지털 트윈. 대만 최고 도로 지점, 해발 3,275m (제작 중).</div>
+          <div class="project-desc es">Gemelo digital del Puerto de Wuling, Carretera 14A. El punto de carretera más alto de Taiwán, a 3,275 m (en progreso).</div>
+          <div class="project-desc eo">Cifera ĝemelo de Wuling-Pasejo, Ŝtatvojo 14A. La plej alta voja punkto de Tajvano je 3,275 m (en progreso).</div>
+          <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Project T</span><span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span><span class="jp">制作中</span><span class="kr">제작 중</span><span class="es">En curso</span><span class="eo">Farota</span></span></div>
+          <div class="project-link" style="opacity:.38;pointer-events:none"><span class="zh">上線後開放</span><span class="en">Available on release</span><span class="jp">リリース後に公開</span><span class="kr">출시 후 공개</span><span class="es">Disponible al lanzar</span><span class="eo">Havebla post eldono</span></div>
         </div>
       </a>
 
-      <!-- Museum WIP -->
+      <!-- Museum Planned -->
       <div class="project-card no-link">
         <div class="project-thumb">
           <div class="thumb-ph" style="flex-direction:column;gap:10px">
             <span style="font-size:28px;opacity:.2">◎</span>
-            <span class="zh">規劃中</span><span class="en">Planned</span>
+            <span class="zh">規劃中</span><span class="en">Planned</span><span class="jp">計画中</span><span class="kr">계획 중</span><span class="es">Planificado</span><span class="eo">Planata</span>
           </div>
         </div>
         <div class="project-body">
-          <div class="project-title"><span class="zh">Project Museum</span><span class="en">Project Museum</span></div>
+          <div class="project-title"><span class="zh">Project Museum</span><span class="en">Project Museum</span><span class="jp">Project Museum</span><span class="kr">Project Museum</span><span class="es">Project Museum</span><span class="eo">Project Museum</span></div>
           <div class="project-desc zh">景觀建築設計實例，虛擬策展空間。長期計畫。</div>
           <div class="project-desc en">Landscape architectural design example, virtual exhibition space. Long-term project.</div>
-          <div class="project-meta"><span class="tag">2027</span><span class="tag">VRChat</span><span class="tag soon"><span class="zh">規劃中</span><span class="en">Planned</span></span></div>
+          <div class="project-desc jp">景観建築デザインの実例、仮想展覧空間。長期プロジェクト。</div>
+          <div class="project-desc kr">조경 건축 설계 사례, 가상 전시 공간. 장기 프로젝트.</div>
+          <div class="project-desc es">Ejemplo de diseño paisajístico arquitectónico, espacio de exposición virtual. Proyecto a largo plazo.</div>
+          <div class="project-desc eo">Pejzaĝa arkitektura dezajno-ekzemplo, virtuala ekspozicio-spaco. Longtempas projekto.</div>
+          <div class="project-meta"><span class="tag">2027</span><span class="tag">VRChat</span><span class="tag soon"><span class="zh">規劃中</span><span class="en">Planned</span><span class="jp">計画中</span><span class="kr">계획 중</span><span class="es">Planificado</span><span class="eo">Planata</span></span></div>
         </div>
       </div>
 
       <!-- Mentions -->
       <div class="project-mention">
-        <div class="mention-meta"><span class="zh">其他作品</span><span class="en">Other works</span></div>
+        <div class="mention-meta"><span class="zh">其他作品</span><span class="en">Other works</span><span class="jp">その他の作品</span><span class="kr">기타 작품</span><span class="es">Otras obras</span><span class="eo">Aliaj verkoj</span></div>
         <div class="mention-text zh">星門廣場（VR 展覽空間，2024）· 樞紐計畫（VRChat 社群空間協作，2025–）· 多個 VRChat 社群空間（2023–2024）</div>
         <div class="mention-text en">Nexus Project (VRChat community collaboration, 2025–) · Multiple VRChat community spaces (2023–2024)</div>
+        <div class="mention-text jp">樞紐計畫（VRChat コミュニティ空間協作、2025–） · 複数のVRChat コミュニティ空間（2023–2024）</div>
+        <div class="mention-text kr">추축 계획(VRChat 커뮤니티 공간 협업, 2025–) · 다수의 VRChat 커뮤니티 공간(2023–2024)</div>
+        <div class="mention-text es">Proyecto Nexo (colaboración de espacio comunitario VRChat, 2025–) · Múltiples espacios comunitarios VRChat (2023–2024)</div>
+        <div class="mention-text eo">Centr-Projekto (VRChat komunuma spac-kunlaboro, 2025–) · Multaj VRChat komunumaj spacoj (2023–2024)</div>
       </div>
 
     </div>
@@ -235,77 +278,149 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 
   <!-- 02 IDENTITY -->
   <section id="identity">
-    <div class="sec-kicker"><span class="zh">02 · 關於</span><span class="en">02 · Identity</span></div>
+    <div class="sec-kicker"><span class="zh">02 · 關於</span><span class="en">02 · Identity</span><span class="jp">02 · 概要</span><span class="kr">02 · 소개</span><span class="es">02 · Identidad</span><span class="eo">02 · Identeco</span></div>
     <div class="identity-block">
       <div class="identity-name">StarRiver Arts</div>
       <div class="identity-role zh">3D / VR 環境設計師</div>
       <div class="identity-role en">3D / VR Environment Designer</div>
+      <div class="identity-role jp">3D / VR 環境デザイナー</div>
+      <div class="identity-role kr">3D / VR 환경 디자이너</div>
+      <div class="identity-role es">Diseñador de Entornos 3D / VR</div>
+      <div class="identity-role eo">3D / VR-Medio-Dezajnisto</div>
       <div class="identity-body">
         <p class="zh">以 VRChat 為主要媒介，製作地景數位孿生、沉浸式展覽空間與互動社群世界。作品關注台灣本土地景的保存與再現，以及科學概念在空間中的轉譯。</p>
         <p class="en">Working primarily in VRChat to build landscape digital twins, immersive exhibition spaces, and interactive community worlds. Projects focus on preserving and re-presenting Taiwanese landscapes, and translating scientific concepts into spatial experience.</p>
+        <p class="jp">VRChatを主なメディアとして、地景デジタルツイン、没入型展覧空間、インタラクティブなコミュニティワールドを制作。台湾の地景の保存と再現、および科学概念の空間的転換に注目。</p>
+        <p class="kr">VRChat을 주요 매체로 경관 디지털 트윈, 몰입형 전시 공간, 인터랙티브 커뮤니티 월드를 제작. 대만 경관 보존과 재현, 과학 개념의 공간적 전환에 주목.</p>
+        <p class="es">Trabajando principalmente en VRChat para construir gemelos digitales de paisajes, espacios de exposición inmersivos y mundos comunitarios interactivos. Los proyectos se centran en preservar y re-presentar los paisajes taiwaneses, y en traducir conceptos científicos en experiencia espacial.</p>
+        <p class="eo">Laborante ĉefe en VRChat por konstrui pejzaĝajn ciferajn ĝemelojn, mergitajn ekspozicio-spacojn kaj interagajn komunumajn mondojn. Projektoj fokusiĝas pri konservado kaj re-prezentado de Tajvanaj pejzaĝoj, kaj pri tradukado de sciencaj konceptoj en spacan sperton.</p>
       </div>
       <div class="identity-current zh">目前正在建構模組化 VR 世界系統與台灣山道還原系列</div>
       <div class="identity-current en">Currently building modular VR world systems and the Taiwan mountain-road series</div>
+      <div class="identity-current jp">現在、モジュール式VRワールドシステムと台湾山道復元シリーズを制作中</div>
+      <div class="identity-current kr">현재 모듈형 VR 월드 시스템과 대만 산길 복원 시리즈 제작 중</div>
+      <div class="identity-current es">Actualmente construyendo sistemas de mundo VR modulares y la serie de carreteras de montaña taiwanesas</div>
+      <div class="identity-current eo">Nuntempe konstruante modulajn VR-mondsistemojn kaj la Tajvana montara-vojo-serio</div>
     </div>
   </section>
 
   <!-- 03 CAPABILITIES -->
   <section id="capabilities">
-    <div class="sec-kicker"><span class="zh">03 · 能力</span><span class="en">03 · Capabilities</span></div>
+    <div class="sec-kicker"><span class="zh">03 · 能力</span><span class="en">03 · Capabilities</span><span class="jp">03 · 能力</span><span class="kr">03 · 역량</span><span class="es">03 · Capacidades</span><span class="eo">03 · Kapabloj</span></div>
     <div class="cap-grid">
       <div class="cap-cell">
         <div class="cap-title zh">VRChat 世界開發</div>
         <div class="cap-title en">VRChat World Development</div>
+        <div class="cap-title jp">VRChat ワールド開発</div>
+        <div class="cap-title kr">VRChat 월드 개발</div>
+        <div class="cap-title es">Desarrollo de Mundos VRChat</div>
+        <div class="cap-title eo">VRChat-Mondo-Disvolviĝo</div>
         <div class="cap-desc zh">Unity + VRChat SDK。遊戲機制、物理互動、展覽空間設計，端對端獨立完成。</div>
         <div class="cap-desc en">Unity + VRChat SDK. Game mechanics, physics interaction, exhibition spaces — end-to-end solo.</div>
+        <div class="cap-desc jp">Unity + VRChat SDK。ゲームメカニクス、物理インタラクション、展覧空間設計 — エンドツーエンドのソロ。</div>
+        <div class="cap-desc kr">Unity + VRChat SDK. 게임 메커니즘, 물리 인터랙션, 전시 공간 디자인 — 엔드투엔드 솔로.</div>
+        <div class="cap-desc es">Unity + VRChat SDK. Mecánicas de juego, interacción física, espacios de exposición — todo en solitario de principio a fin.</div>
+        <div class="cap-desc eo">Unity + VRChat SDK. Ludmekanikaj, fizikaj interagoj, ekspozicio-spacoj — kompleta solo.</div>
       </div>
       <div class="cap-cell">
         <div class="cap-title zh">地景數位孿生</div>
         <div class="cap-title en">Landscape Digital Twin</div>
+        <div class="cap-title jp">地景デジタルツイン</div>
+        <div class="cap-title kr">경관 디지털 트윈</div>
+        <div class="cap-title es">Gemelo Digital de Paisaje</div>
+        <div class="cap-title eo">Pejzaĝa Cifera Ĝemelo</div>
         <div class="cap-desc zh">台灣地景的數位重建。實景資料為基礎，配合藝術化處理成為可走入的虛擬空間。</div>
         <div class="cap-desc en">Digital reconstruction of Taiwan landscapes — real-site data combined with artistic treatment to create walkable virtual spaces.</div>
+        <div class="cap-desc jp">台湾地景のデジタル再建。実地データをベースに芸術的処理を加え、歩けるバーチャル空間へ。</div>
+        <div class="cap-desc kr">대만 경관의 디지털 재건. 실제 현장 데이터를 기반으로 예술적 처리를 더해 걸어 다닐 수 있는 가상 공간 제작.</div>
+        <div class="cap-desc es">Reconstrucción digital de paisajes taiwaneses — datos reales del sitio combinados con tratamiento artístico para crear espacios virtuales transitables.</div>
+        <div class="cap-desc eo">Cifera rekonstruo de Tajvanaj pejzaĝoj — reala loka datumaro kombinita kun arta traktado por krei traireblan virtualan spacon.</div>
       </div>
       <div class="cap-cell">
         <div class="cap-title zh">沉浸式展覽設計</div>
         <div class="cap-title en">Immersive Exhibition Design</div>
+        <div class="cap-title jp">没入型展覧設計</div>
+        <div class="cap-title kr">몰입형 전시 디자인</div>
+        <div class="cap-title es">Diseño de Exposición Inmersiva</div>
+        <div class="cap-title eo">Mergita Ekspozicio-Dezajno</div>
         <div class="cap-desc zh">VR 展覽空間的策劃與實作，涵蓋空間敘事、動線設計與多媒體呈現。</div>
         <div class="cap-desc en">Planning and implementing VR exhibition spaces — spatial narrative, visitor flow, multimedia presentation.</div>
+        <div class="cap-desc jp">VR展覧空間の企画と実装 — 空間ナラティブ、動線設計、マルチメディア展示。</div>
+        <div class="cap-desc kr">VR 전시 공간의 기획과 구현 — 공간 내러티브, 관람 동선 설계, 멀티미디어 발표.</div>
+        <div class="cap-desc es">Planificación e implementación de espacios de exposición VR — narrativa espacial, flujo de visitantes, presentación multimedia.</div>
+        <div class="cap-desc eo">Planado kaj efektivigo de VR-ekspozicio-spacoj — spaca narato, vizitanta fluo, multmedia prezentado.</div>
       </div>
       <div class="cap-cell">
         <div class="cap-title zh">科普內容設計</div>
         <div class="cap-title en">Science Communication</div>
+        <div class="cap-title jp">科学コミュニケーション</div>
+        <div class="cap-title kr">과학 커뮤니케이션</div>
+        <div class="cap-title es">Comunicación Científica</div>
+        <div class="cap-title eo">Scienc-Komunikado</div>
         <div class="cap-desc zh">以互動展示形式傳遞技術與科學概念，雙語（繁中／英文）呈現。</div>
         <div class="cap-desc en">Communicating technical and scientific concepts through interactive exhibition formats. Bilingual zh-TW / EN.</div>
+        <div class="cap-desc jp">インタラクティブな展示形式で技術・科学概念を伝達。繁体字中国語/英語のバイリンガル。</div>
+        <div class="cap-desc kr">인터랙티브 전시 형식으로 기술 및 과학 개념 전달. 번체 중국어/영어 이중 언어.</div>
+        <div class="cap-desc es">Comunicación de conceptos técnicos y científicos a través de formatos de exposición interactivos. Bilingüe zh-TW / EN.</div>
+        <div class="cap-desc eo">Komunikado de teknikaj kaj sciencaj konceptoj tra interagaj ekspozicio-formatoj. Dulingva zh-TW / EN.</div>
       </div>
       <div class="cap-cell">
         <div class="cap-title zh">賽道與遊戲機制</div>
-        <div class="cap-title en">Racing & Game Mechanics</div>
+        <div class="cap-title en">Racing &amp; Game Mechanics</div>
+        <div class="cap-title jp">レース＆ゲームメカニクス</div>
+        <div class="cap-title kr">레이싱 &amp; 게임 메커니즘</div>
+        <div class="cap-title es">Mecánicas de Carrera y Juego</div>
+        <div class="cap-title eo">Vetlud- kaj Ludmekanikaj</div>
         <div class="cap-desc zh">VRChat 賽車場地設計、計時系統與玩家體驗優化。</div>
         <div class="cap-desc en">VRChat race track design, timing systems, and player experience optimisation.</div>
+        <div class="cap-desc jp">VRChatレーストラック設計、タイミングシステム、プレイヤー体験の最適化。</div>
+        <div class="cap-desc kr">VRChat 레이스 트랙 디자인, 타이밍 시스템, 플레이어 경험 최적화.</div>
+        <div class="cap-desc es">Diseño de circuitos de carreras en VRChat, sistemas de cronometraje y optimización de la experiencia del jugador.</div>
+        <div class="cap-desc eo">VRChat vetludo-trako-dezajno, tempada sistemoj, kaj ludant-sperta optimumigo.</div>
       </div>
       <div class="cap-cell">
         <div class="cap-title zh">社群空間設計</div>
         <div class="cap-title en">Community Space Design</div>
+        <div class="cap-title jp">コミュニティ空間設計</div>
+        <div class="cap-title kr">커뮤니티 공간 디자인</div>
+        <div class="cap-title es">Diseño de Espacio Comunitario</div>
+        <div class="cap-title eo">Komunuma Spac-Dezajno</div>
         <div class="cap-desc zh">以社群需求為核心的 VR 空間設計，兼顧聚會功能與長期維護。</div>
         <div class="cap-desc en">VR space design centred on community needs — balancing gathering function with maintainability.</div>
+        <div class="cap-desc jp">コミュニティニーズを中心とした VR 空間設計 — 集会機能とメンテナビリティのバランス。</div>
+        <div class="cap-desc kr">커뮤니티 요구를 중심으로 한 VR 공간 디자인 — 모임 기능과 유지 관리성의 균형.</div>
+        <div class="cap-desc es">Diseño de espacios VR centrado en las necesidades de la comunidad — equilibrando la función de reunión con la mantenibilidad.</div>
+        <div class="cap-desc eo">VR-spaca dezajno centrita ĉirkaŭ komunumaj bezonoj — balancante kunven-funkcion kun prizorgado.</div>
       </div>
     </div>
   </section>
 
   <!-- 04 CONTACT -->
   <section id="contact">
-    <div class="sec-kicker"><span class="zh">04 · 聯絡</span><span class="en">04 · Contact</span></div>
+    <div class="sec-kicker"><span class="zh">04 · 聯絡</span><span class="en">04 · Contact</span><span class="jp">04 · 連絡</span><span class="kr">04 · 연락처</span><span class="es">04 · Contacto</span><span class="eo">04 · Kontakto</span></div>
     <p class="contact-note zh">委託、合作邀約或任何詢問，歡迎聯絡。</p>
     <p class="contact-note en">Available for commissions, collaborations, and enquiries.</p>
+    <p class="contact-note jp">委託、コラボレーションのご依頼やお問い合わせはお気軽にどうぞ。</p>
+    <p class="contact-note kr">의뢰, 협업 제안 또는 문의 사항이 있으시면 연락 주세요.</p>
+    <p class="contact-note es">Disponible para encargos, colaboraciones y consultas.</p>
+    <p class="contact-note eo">Havebla por komisioj, kunlaboroj kaj demandoj.</p>
     <div class="contact-items">
       <div class="contact-item">
         <div class="contact-label zh">電子郵件</div>
         <div class="contact-label en">Email</div>
+        <div class="contact-label jp">メール</div>
+        <div class="contact-label kr">이메일</div>
+        <div class="contact-label es">Correo</div>
+        <div class="contact-label eo">Retpoŝto</div>
         <div class="contact-val"><a href="mailto:StarRiverAnythings@gmail.com">StarRiverAnythings@gmail.com</a></div>
       </div>
       <div class="contact-item">
         <div class="contact-label zh">電話</div>
         <div class="contact-label en">Phone</div>
+        <div class="contact-label jp">電話</div>
+        <div class="contact-label kr">전화</div>
+        <div class="contact-label es">Teléfono</div>
+        <div class="contact-label eo">Telefono</div>
         <div class="contact-val"><a href="tel:+886963440412">0963-440-412</a></div>
       </div>
     </div>
@@ -322,17 +437,25 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
           <div class="footer-name">星河 STARRIVER ARTS</div>
           <div class="footer-sub zh">台灣數位藝術創作者</div>
           <div class="footer-sub en">Digital Artist · Taiwan</div>
+          <div class="footer-sub jp">デジタルアーティスト · 台湾</div>
+          <div class="footer-sub kr">디지털 아티스트 · 대만</div>
+          <div class="footer-sub es">Artista Digital · Taiwán</div>
+          <div class="footer-sub eo">Cifera Artisto · Tajvano</div>
         </div>
       </div>
       <div class="footer-nav">
-        <a href="studio.html"><span class="zh">工作室</span><span class="en">Studio</span></a>
-        <a href="play/"><span class="zh">體驗</span><span class="en">Play</span></a>
+        <a href="studio.html"><span class="zh">工作室</span><span class="en">Studio</span><span class="jp">スタジオ</span><span class="kr">스튜디오</span><span class="es">Estudio</span><span class="eo">Studio</span></a>
+        <a href="play/"><span class="zh">體驗</span><span class="en">Play</span><span class="jp">体験</span><span class="kr">체험</span><span class="es">Jugar</span><span class="eo">Ludi</span></a>
       </div>
     </div>
     <div class="footer-copy">
       <span>© 2026 星河 StarRiver Arts</span>
       <span class="zh">觀測 · 思考 · 再構築</span>
       <span class="en">Preservation · Accessibility · Development</span>
+      <span class="jp">観測 · 思考 · 再構築</span>
+      <span class="kr">관측 · 사고 · 재구축</span>
+      <span class="es">Observación · Reflexión · Reconstrucción</span>
+      <span class="eo">Observado · Pensado · Rekonstruo</span>
     </div>
   </div>
 </footer>
@@ -340,9 +463,13 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 <script>
 (function(){
   var h=document.documentElement,b=document.getElementById('langBtn');
+  var LANGS=['zh','en','jp','kr','es','eo'];
+  var HTMLLANG={zh:'zh-TW',en:'en',jp:'ja',kr:'ko',es:'es',eo:'eo'};
   var s=localStorage.getItem('sr-lang')||'zh';
-  function l(v){h.className='lang-'+v;h.lang=v==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',v)}
-  l(s);b.addEventListener('click',function(){l(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+  if(LANGS.indexOf(s)===-1)s='zh';
+  function l(v){h.className='lang-'+v;h.lang=HTMLLANG[v]||v;localStorage.setItem('sr-lang',v);if(b)b.value=v}
+  l(s);
+  b.addEventListener('change',function(){l(b.value)});
 })();
 </script>
 </body>

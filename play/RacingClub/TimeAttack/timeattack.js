@@ -1,52 +1,16 @@
 const TA_ROUTE_LABELS = {
-  overview: {
-    zh: "總覽",
-    en: "Overview",
-  },
-  tracks: {
-    zh: "賽道",
-    en: "Tracks",
-  },
-  track: {
-    zh: "賽道詳情",
-    en: "Track Detail",
-  },
-  players: {
-    zh: "玩家",
-    en: "Players",
-  },
-  player: {
-    zh: "玩家檔案",
-    en: "Driver File",
-  },
-  vehicles: {
-    zh: "車輛",
-    en: "Vehicles",
-  },
-  vehicle: {
-    zh: "車輛檔案",
-    en: "Car File",
-  },
-  events: {
-    zh: "活動",
-    en: "Events",
-  },
-  catalog: {
-    zh: "索引",
-    en: "Index",
-  },
-  info: {
-    zh: "資訊",
-    en: "Info",
-  },
-  review: {
-    zh: "審核",
-    en: "Review",
-  },
-  trackmap: {
-    zh: "賽道地圖",
-    en: "Track Map",
-  },
+  overview: { zh: "總覽",     en: "Overview",     jp: "概覧",          kr: "개요",      es: "Resumen",          eo: "Superrigardo" },
+  tracks:   { zh: "賽道",     en: "Tracks",       jp: "コース",         kr: "코스",      es: "Pistas",           eo: "Trakoj"       },
+  track:    { zh: "賽道詳情", en: "Track Detail", jp: "コース詳細",     kr: "코스 상세", es: "Detalle de Pista", eo: "Traka Detalo" },
+  players:  { zh: "玩家",     en: "Players",      jp: "プレイヤー",     kr: "플레이어",  es: "Jugadores",        eo: "Ludantoj"     },
+  player:   { zh: "玩家檔案", en: "Driver File",  jp: "プレイヤーファイル", kr: "선수 파일", es: "Archivo de Piloto", eo: "Pilota Dosiero" },
+  vehicles: { zh: "車輛",     en: "Vehicles",     jp: "車両",           kr: "차량",      es: "Vehículos",        eo: "Veturiloj"    },
+  vehicle:  { zh: "車輛檔案", en: "Car File",     jp: "車両ファイル",   kr: "차량 파일", es: "Archivo de Auto",  eo: "Aŭta Dosiero" },
+  events:   { zh: "活動",     en: "Events",       jp: "イベント",       kr: "이벤트",    es: "Eventos",          eo: "Eventoj"      },
+  catalog:  { zh: "索引",     en: "Index",        jp: "索引",           kr: "목록",      es: "Índice",           eo: "Indekso"      },
+  info:     { zh: "資訊",     en: "Info",         jp: "情報",           kr: "정보",      es: "Información",      eo: "Informo"      },
+  review:   { zh: "審核",     en: "Review",       jp: "レビュー",       kr: "검토",      es: "Revisión",         eo: "Revizio"      },
+  trackmap: { zh: "賽道地圖", en: "Track Map",    jp: "コースマップ",   kr: "코스 지도", es: "Mapa de Pistas",   eo: "Traka Mapo"   },
 };
 
 const ENABLE_HISTORY_CHARTS = false;
@@ -63,9 +27,13 @@ const escapeHtml = (value) =>
     return map[char];
   });
 
-const renderBilingual = (zh, en) => `
+const renderBilingual = (zh, en, jp, kr, es, eo) => `
   <span class="zh">${escapeHtml(zh || "")}</span>
   <span class="en">${escapeHtml(en || "")}</span>
+  <span class="jp">${escapeHtml(jp || en || "")}</span>
+  <span class="kr">${escapeHtml(kr || en || "")}</span>
+  <span class="es">${escapeHtml(es || en || "")}</span>
+  <span class="eo">${escapeHtml(eo || en || "")}</span>
 `;
 
 // 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
@@ -76,7 +44,7 @@ const taEntityLink = (name, href) =>
 
 // 平行連結到 Events 活動戰績(TimeAttack 在 ../Events/ 同層)。
 const renderEventsXlink = (page, id) =>
-  id ? `<div class="ta-events-xlink"><a class="ta-tm-btn" href="../Events/${page}?id=${encodeURIComponent(id)}">${renderBilingual("在 Events 查看活動戰績", "View event records in Events")}</a></div>` : "";
+  id ? `<div class="ta-events-xlink"><a class="ta-tm-btn" href="../Events/${page}?id=${encodeURIComponent(id)}">${renderBilingual("在 Events 查看活動戰績", "View event records in Events", "Events で戦績を見る", "Events에서 기록 보기", "Ver registros en Events", "Vidi rekordojn en Events")}</a></div>` : "";
 
 const renderCardLink = (href, labelZh, labelEn) => {
   if (!href) {
@@ -567,14 +535,36 @@ const renderTrackDetail = (data, id, routeCode) => {
     "切換賽道",
     "Switch Track",
   );
+  // Collect distinct platforms from all route rows on this board.
+  const boardPlatforms = [...new Set(
+    (board.routes || []).flatMap((r) => (r.route_rows || []).map((row) => row.platform || ""))
+  )].filter(Boolean).sort();
+  const platformChips = boardPlatforms.map((p) => renderToneChip(p.toUpperCase(), "meta")).join("");
+  const worldLinkBtn = board.world_url
+    ? `<a class="ta-world-link-btn" href="${escapeHtml(board.world_url)}" target="_blank" rel="noopener noreferrer">
+        <span class="zh">前往世界 ↗</span><span class="en">Visit World ↗</span>
+        <span class="jp">ワールドへ ↗</span><span class="kr">월드 방문 ↗</span>
+        <span class="es">Visitar Mundo ↗</span><span class="eo">Viziti Mondon ↗</span>
+      </a>`
+    : "";
   const header = `
     <article class="ta-track-board ta-track-detail-head">
       <div class="ta-label">${escapeHtml(board.world_name)}</div>
       <h2 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h2>
+      ${board.track_author ? `
+        <div class="ta-track-author-row">
+          <span class="ta-track-author-label">${renderBilingual("作者", "Author")}</span>
+          <strong class="ta-track-author-name">${escapeHtml(board.track_author)}</strong>
+        </div>` : ""}
+      <div class="ta-track-detail-meta-row">
+        ${board.system_name ? `<span class="ta-tag-chip is-meta">${escapeHtml(board.system_name)}</span>` : ""}
+        ${platformChips}
+      </div>
       <div class="ta-track-list-stat">
         ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
         ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
       </div>
+      ${worldLinkBtn}
     </article>
   `;
   const analysis = renderTrackAnalysis(board);

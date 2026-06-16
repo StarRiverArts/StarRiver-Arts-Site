@@ -1,22 +1,31 @@
 (() => {
-  const html = document.documentElement;
-  const button = document.querySelector("[data-lang-toggle]");
-  const storageKey = "sr-lang";
+  const LANGS = [
+    { code: 'zh', label: '中文',   htmlLang: 'zh-TW' },
+    { code: 'en', label: 'EN',     htmlLang: 'en'    },
+    { code: 'jp', label: '日本語', htmlLang: 'ja'    },
+    { code: 'kr', label: '한국어', htmlLang: 'ko'    },
+    { code: 'es', label: 'ES',     htmlLang: 'es'    },
+    { code: 'eo', label: 'EO',     htmlLang: 'eo'    },
+  ];
+  const CODES = LANGS.map(l => l.code);
+  const KEY   = 'sr-lang';
+  const html  = document.documentElement;
 
-  const applyLang = (lang) => {
-    const next = lang === "en" ? "en" : "zh";
-    html.lang = next === "zh" ? "zh-TW" : "en";
-    html.classList.remove("lang-zh", "lang-en");
-    html.classList.add(`lang-${next}`);
-    window.localStorage.setItem(storageKey, next);
+  const applyLang = (code) => {
+    const l = LANGS.find(x => x.code === code) || LANGS[0];
+    CODES.forEach(c => html.classList.remove('lang-' + c));
+    html.classList.add('lang-' + l.code);
+    html.lang = l.htmlLang;
+    localStorage.setItem(KEY, l.code);
+    document.querySelectorAll('[data-lang-select]').forEach(el => { el.value = l.code; });
   };
 
-  applyLang(window.localStorage.getItem(storageKey) || "zh");
+  const saved = localStorage.getItem(KEY);
+  applyLang(CODES.includes(saved) ? saved : 'zh');
 
-  if (button) {
-    button.addEventListener("click", () => {
-      const current = window.localStorage.getItem(storageKey) || "zh";
-      applyLang(current === "zh" ? "en" : "zh");
-    });
-  }
+  document.addEventListener('change', (e) => {
+    if (e.target && e.target.matches('[data-lang-select]')) {
+      applyLang(e.target.value);
+    }
+  });
 })();

@@ -1842,6 +1842,61 @@ body.timeattack-page {
   margin-bottom: 16px;
 }
 
+.ta-track-author-row {
+  align-items: baseline;
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 6px;
+}
+
+.ta-track-author-label {
+  color: var(--ta-text-soft);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--ta-fs-meta);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ta-track-author-name {
+  color: var(--ta-accent);
+  font-family: var(--font-deck);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ta-track-detail-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.ta-world-link-btn {
+  align-items: center;
+  background: rgba(239, 217, 91, 0.1);
+  border: 1px solid rgba(239, 217, 91, 0.35);
+  border-radius: 8px;
+  color: var(--ta-accent);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-deck);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+  padding: 9px 18px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.ta-world-link-btn:hover {
+  background: rgba(239, 217, 91, 0.2);
+  border-color: rgba(239, 217, 91, 0.6);
+  box-shadow: 0 4px 14px rgba(239, 217, 91, 0.15);
+}
+
 .ta-profile-list-card {
   display: flex;
   flex-direction: column;
