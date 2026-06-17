@@ -31,7 +31,7 @@
     {
       "label_zh": "路線軌跡",
       "label_en": "Route Traces",
-      "value": "18",
+      "value": "29",
       "note_zh": "已畫整條線的賽道",
       "note_en": "Tracks with a full drawn route"
     },
@@ -157,9 +157,12 @@
                   "difficulty": "中等",
                   "route_count": 1,
                   "record_count": 3,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 34.8454072,
+                  "trace_lng": 136.5380898,
+                  "trace_file": "geo/suzuka.geojson"
                 }
               ],
               "lat": 34.8431,
@@ -446,9 +449,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 1,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.9259398,
+                  "trace_lng": 139.8175212,
+                  "trace_file": "geo/happogahara_jintei.geojson"
                 }
               ],
               "lat": 36.87,
@@ -471,9 +477,12 @@
                   "difficulty": "中等",
                   "route_count": 2,
                   "record_count": 2,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.8801696,
+                  "trace_lng": 139.7240262,
+                  "trace_file": "geo/momiji_jintei.geojson"
                 },
                 {
                   "track_world_code": "momiji_foxbg",
@@ -485,15 +494,31 @@
                   "difficulty": "中等",
                   "route_count": 1,
                   "record_count": 10,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.8801696,
+                  "trace_lng": 139.7240262,
+                  "trace_file": "geo/momiji_foxbg.geojson"
                 }
               ],
               "lat": 36.93,
               "lng": 139.8,
               "point_source": "place"
             }
+          ],
+          "has_overlay": true,
+          "overlay_file": "geo/regions/japan__tochigi.geojson",
+          "overlay_source": "auto",
+          "overlay_bounds": [
+            [
+              36.7395639,
+              139.5023509
+            ],
+            [
+              36.9383873,
+              139.8281014
+            ]
           ]
         },
         {
@@ -692,9 +717,12 @@
                   "difficulty": "中等",
                   "route_count": 1,
                   "record_count": 4,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 33.6001686,
+                  "trace_lng": 130.3855985,
+                  "trace_file": "geo/fukuoka_jintei.geojson"
                 }
               ],
               "lat": 33.59,
@@ -912,9 +940,12 @@
                   "difficulty": "困難",
                   "route_count": 2,
                   "record_count": 3,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.7135275,
+                  "trace_lng": 138.9379797,
+                  "trace_file": "geo/gunsai_jintei.geojson"
                 },
                 {
                   "track_world_code": "gunsaicp_jintei",
@@ -926,9 +957,12 @@
                   "difficulty": "困難",
                   "route_count": 2,
                   "record_count": 2,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.7135275,
+                  "trace_lng": 138.9379797,
+                  "trace_file": "geo/gunsaicp_jintei.geojson"
                 }
               ],
               "lat": 36.595,
@@ -951,9 +985,12 @@
                   "difficulty": "簡單",
                   "route_count": 2,
                   "record_count": 10,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.535646,
+                  "trace_lng": 139.1681299,
+                  "trace_file": "geo/akagi_jintei.geojson"
                 }
               ],
               "lat": 36.5603,
@@ -970,8 +1007,8 @@
               138.860041
             ],
             [
-              36.5013656,
-              138.9154437
+              36.7193533,
+              139.1795203
             ]
           ]
         },
@@ -996,9 +1033,12 @@
                   "difficulty": "困難",
                   "route_count": 5,
                   "record_count": 72,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.1710149,
+                  "trace_lng": 140.1714194,
+                  "trace_file": "geo/tsukuba_jintei.geojson"
                 },
                 {
                   "track_world_code": "tsukuba_snow_jintei",
@@ -1010,9 +1050,12 @@
                   "difficulty": "困難",
                   "route_count": 2,
                   "record_count": 2,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.1710149,
+                  "trace_lng": 140.1714194,
+                  "trace_file": "geo/tsukuba_snow_jintei.geojson"
                 }
               ],
               "lat": 36.2254,
@@ -1225,9 +1268,12 @@
                   "difficulty": "困難",
                   "route_count": 1,
                   "record_count": 4,
-                  "has_trace": false,
+                  "has_trace": true,
                   "has_poster": false,
-                  "poster_ext": null
+                  "poster_ext": null,
+                  "trace_lat": 36.1105095,
+                  "trace_lng": -115.1631935,
+                  "trace_file": "geo/lasvegas_aiden1408.geojson"
                 }
               ],
               "lat": 36.2724,
