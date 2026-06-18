@@ -27,6 +27,44 @@
   ],
   "recent_runs": [
     {
+      "record_date": "2026-06-18",
+      "track_world_code": "falstone_rally",
+      "route_code": "FORWARD",
+      "route_label_zh": "Falstone Rally / FORWARD",
+      "route_label_en": "Falstone Rally / FORWARD",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "Escudo",
+      "vehicle_model_code": "veh_escudo",
+      "lap_time_text": "03:24.431",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
+    {
+      "record_date": "2026-06-18",
+      "track_world_code": "rally_snowland",
+      "route_code": "SHORT COURSE",
+      "route_label_zh": "Rally Snowland / SHORT COURSE",
+      "route_label_en": "Rally Snowland / SHORT COURSE",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "story",
+      "vehicle_model_code": "veh_story",
+      "lap_time_text": "03:06.413",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
+    {
       "record_date": "2026-06-17",
       "track_world_code": "starsight_starriver_arts",
       "route_code": "DH",
@@ -139,44 +177,6 @@
       "badge_label_zh": "",
       "badge_label_en": "",
       "badge_tone": ""
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "Lolidia",
-      "player_id": "plr_lolidia",
-      "vehicle_model_name": "NA2 ALPINE",
-      "vehicle_model_code": "veh_na2_alpine",
-      "lap_time_text": "02:39.160",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-06-14",
-      "track_world_code": "urarokkou",
-      "route_code": "DH",
-      "route_label_zh": "UraRokkou / Downhill",
-      "route_label_en": "UraRokkou / Downhill",
-      "player_display_name": "菲娜 希琉絲",
-      "player_id": "plr_034",
-      "vehicle_model_name": "Revuelto",
-      "vehicle_model_code": "veh_revuelto",
-      "lap_time_text": "02:41.350",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "PR",
-      "badge_label_zh": "個人紀錄",
-      "badge_label_en": "Personal Record",
-      "badge_tone": "pr"
     }
   ],
   "track_options": [
@@ -291,6 +291,10 @@
     {
       "code": "odawara_jintei",
       "name": "Odawara"
+    },
+    {
+      "code": "rally_snowland",
+      "name": "Rally Snowland"
     },
     {
       "code": "ryuoukouzan_calme",
@@ -676,6 +680,14 @@
         "category_key": "|CVS"
       },
       {
+        "code": "falstone_rally",
+        "name": "Falstone Rally",
+        "count": 5,
+        "country": "英國UK",
+        "system": "CVS",
+        "category_key": "英國UK|CVS"
+      },
+      {
         "code": "fukuoka_jintei",
         "name": "Fukuoka",
         "count": 4,
@@ -714,14 +726,6 @@
         "country": "日本Japan",
         "system": "CVS",
         "category_key": "日本Japan|CVS"
-      },
-      {
-        "code": "falstone_rally",
-        "name": "Falstone Rally",
-        "count": 4,
-        "country": "英國UK",
-        "system": "CVS",
-        "category_key": "英國UK|CVS"
       },
       {
         "code": "c1_runner",
@@ -842,19 +846,28 @@
         "country": "",
         "system": "CVS",
         "category_key": "|CVS"
+      },
+      {
+        "code": "rally_snowland",
+        "name": "Rally Snowland",
+        "count": 1,
+        "country": "",
+        "system": "Unknown",
+        "category_key": "|Unknown"
       }
     ]
   },
   "category_style": {
     "colors": {
       "德國Germany|CVS": "hsl(0, 78%, 62%)",
-      "摩納哥Monaco|CVS": "hsl(60, 78%, 62%)",
-      "日本Japan|CVS": "hsl(120, 78%, 62%)",
-      "日本Japan|Sacc": "hsl(120, 28%, 64%)",
-      "日本Japan|Unknown": "hsl(120, 45%, 62%)",
-      "美國USA|CVS": "hsl(180, 78%, 62%)",
-      "臺灣Taiwan|CVS": "hsl(240, 78%, 62%)",
-      "英國UK|CVS": "hsl(300, 78%, 62%)"
+      "摩納哥Monaco|CVS": "hsl(51, 78%, 62%)",
+      "日本|Unknown": "hsl(103, 45%, 62%)",
+      "日本Japan|CVS": "hsl(154, 78%, 62%)",
+      "日本Japan|Sacc": "hsl(154, 28%, 64%)",
+      "日本Japan|Unknown": "hsl(154, 45%, 62%)",
+      "美國USA|CVS": "hsl(206, 78%, 62%)",
+      "臺灣Taiwan|CVS": "hsl(257, 78%, 62%)",
+      "英國UK|CVS": "hsl(309, 78%, 62%)"
     },
     "neutral": "hsl(150, 6%, 52%)",
     "legend": [
@@ -868,15 +881,23 @@
       },
       {
         "key": "摩納哥Monaco|CVS",
-        "color": "hsl(60, 78%, 62%)",
+        "color": "hsl(51, 78%, 62%)",
         "country": "摩納哥Monaco",
         "system": "CVS",
         "label_zh": "摩納哥·CVS",
         "label_en": "Monaco·CVS"
       },
       {
+        "key": "日本|Unknown",
+        "color": "hsl(103, 45%, 62%)",
+        "country": "日本",
+        "system": "Unknown",
+        "label_zh": "日本·Unknown",
+        "label_en": "日本·Unknown"
+      },
+      {
         "key": "日本Japan|CVS",
-        "color": "hsl(120, 78%, 62%)",
+        "color": "hsl(154, 78%, 62%)",
         "country": "日本Japan",
         "system": "CVS",
         "label_zh": "日本·CVS",
@@ -884,7 +905,7 @@
       },
       {
         "key": "日本Japan|Sacc",
-        "color": "hsl(120, 28%, 64%)",
+        "color": "hsl(154, 28%, 64%)",
         "country": "日本Japan",
         "system": "Sacc",
         "label_zh": "日本·Sacc",
@@ -892,7 +913,7 @@
       },
       {
         "key": "日本Japan|Unknown",
-        "color": "hsl(120, 45%, 62%)",
+        "color": "hsl(154, 45%, 62%)",
         "country": "日本Japan",
         "system": "Unknown",
         "label_zh": "日本·Unknown",
@@ -900,7 +921,7 @@
       },
       {
         "key": "美國USA|CVS",
-        "color": "hsl(180, 78%, 62%)",
+        "color": "hsl(206, 78%, 62%)",
         "country": "美國USA",
         "system": "CVS",
         "label_zh": "美國·CVS",
@@ -908,7 +929,7 @@
       },
       {
         "key": "臺灣Taiwan|CVS",
-        "color": "hsl(240, 78%, 62%)",
+        "color": "hsl(257, 78%, 62%)",
         "country": "臺灣Taiwan",
         "system": "CVS",
         "label_zh": "臺灣·CVS",
@@ -916,7 +937,7 @@
       },
       {
         "key": "英國UK|CVS",
-        "color": "hsl(300, 78%, 62%)",
+        "color": "hsl(309, 78%, 62%)",
         "country": "英國UK",
         "system": "CVS",
         "label_zh": "英國·CVS",
@@ -943,14 +964,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "751",
+      "value": "753",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "751",
+      "value": "753",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -964,21 +985,21 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "751",
+      "value": "753",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
     {
       "label_zh": "賽道世界",
       "label_en": "Track Worlds",
-      "value": "55",
+      "value": "57",
       "note_zh": "以世界為準的賽道識別",
       "note_en": "World-level track identities"
     },
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "124",
+      "value": "128",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

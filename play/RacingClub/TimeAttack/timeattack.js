@@ -473,6 +473,84 @@ const renderTrackList = (data) => {
 };
 
 // ---- Single track detail (reuses renderTrackBoards with a one-board subset) ----
+const PROJECT_T_HUB = window.PROJECT_T_HUB_DATA || { worlds: [], articles: [] };
+
+const getProjectTWorldProfile = (trackWorldCode) =>
+  (PROJECT_T_HUB.worlds || []).find(
+    (world) => Array.isArray(world.track_world_codes) && world.track_world_codes.includes(trackWorldCode),
+  ) || null;
+
+const getProjectTArticleProfile = (articleId) =>
+  (PROJECT_T_HUB.articles || []).find((article) => article.article_id === articleId) || null;
+
+const renderProjectTLinksModule = (board) => {
+  const cards = [];
+  const world = getProjectTWorldProfile(board.track_world_code);
+
+  if (world && world.page_live && world.slug) {
+    cards.push({
+      label_zh: "世界介紹",
+      label_en: "World Intro",
+      title_zh: world.title_zh || board.track_display_name,
+      title_en: world.title_en || board.track_display_name,
+      description_zh:
+        world.summary_zh || "回到 Worlds 看這個場景的背景、路線定位與 VRChat 世界入口。",
+      description_en:
+        world.summary_en || "Open the world page for scene context, route positioning, and the VRChat entry.",
+      href: `../../worlds/${world.slug}.html`,
+      href_label_zh: "查看世界頁",
+      href_label_en: "Open World Page",
+    });
+  }
+
+  if (world) {
+    const article = (world.articles || [])
+      .map(getProjectTArticleProfile)
+      .find((entry) => entry && entry.page_live && entry.slug);
+    if (article) {
+      cards.push({
+        label_zh: "相關文章",
+        label_en: "Related Article",
+        title_zh: article.title_zh || "賽道解析",
+        title_en: article.title_en || "Course Guide",
+        description_zh:
+          article.summary_zh || "把路線性格、跑法重點與敘事補充獨立成文章層，不讓紀錄頁承擔全部說明。",
+        description_en:
+          article.summary_en || "Keep route character, driving notes, and narrative analysis in the article layer instead of overloading the leaderboard.",
+        href: `../../articles/${article.slug}.html`,
+        href_label_zh: "閱讀文章",
+        href_label_en: "Read Article",
+      });
+    }
+  }
+
+  if (board.track_world_code) {
+    cards.push({
+      label_zh: "相關活動",
+      label_en: "Related Events",
+      title_zh: `${board.track_display_name} 活動戰績`,
+      title_en: `${board.track_display_name} event records`,
+      description_zh: "到 Events 層查看這條路線的賽事結果、活動統計與系列賽連結。",
+      description_en: "Open the Events layer for race results, track-side stats, and series connections for this route.",
+      href: `../Events/tracks.html?id=${encodeURIComponent(board.track_world_code)}`,
+      href_label_zh: "在 Events 查看",
+      href_label_en: "View in Events",
+    });
+  }
+
+  if (!cards.length) {
+    return "";
+  }
+
+  return renderModule(
+    "世界 / 文章 / 活動",
+    "World / Article / Events",
+    "Project T 回連",
+    "Project T Cross-links",
+    renderBoardCards(cards),
+  );
+};
+
 const getQueryParam = (key) => {
   try {
     return new URLSearchParams(window.location.search).get(key) || "";
@@ -576,7 +654,8 @@ const renderTrackDetail = (data, id, routeCode) => {
   const analysisModule = analysis
     ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
     : "";
-  return switcher + renderEventsXlink("tracks.html", board.track_world_code) + header + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  const projectTLinksModule = renderProjectTLinksModule(board);
+  return switcher + header + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
