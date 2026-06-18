@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Design System Visualize | Museum | StarRiver Arts</title>
+<title>Gallery Study Modules | Museum | StarRiver Arts</title>
 <link rel="stylesheet" href="../../../colors_and_type.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -65,7 +65,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;pa
 <nav>
   <a class="nav-home" href="../../../index.html">StarRiver Arts</a>
   <div class="nav-links">
-    <a class="nav-link" href="../../"><span class="zh">返回 Museum</span><span class="en">Back to Museum</span></a>
+    <a class="nav-link" href="../../web-exhibitions.html"><span class="zh">返回網頁展覽</span><span class="en">Back to Web Exhibitions</span></a>
     <a class="nav-link" href="../../../index.html"><span class="zh">返回主站</span><span class="en">Back to Hub</span></a>
   </div>
   <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中文</span></button>
@@ -74,75 +74,78 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;pa
 <main class="shell">
   <section class="hero">
     <div class="hero-copy">
-      <div class="kicker"><span class="zh">Museum / Interactive / Design System Visualize</span><span class="en">Museum / Interactive / Design System Visualize</span></div>
-      <h1 class="title">Design System Visualize</h1>
-      <p class="desc zh">這一頁承接 VR Gallery Spatial System 的兩個工具頁。它們保持為 standalone HTML，不包進 iframe，也不需要額外 build step。</p>
-      <p class="desc en">This page hosts the two VR Gallery Spatial System tool pages. They remain standalone HTML tools with no iframe embedding and no extra build step.</p>
+      <div class="kicker"><span class="zh">Museum / Web Exhibitions / Interactive Modules</span><span class="en">Museum / Web Exhibitions / Interactive Modules</span></div>
+      <h1 class="title"><span class="zh">展場研究模組</span><span class="en">Gallery Study Modules</span></h1>
+      <p class="desc zh">這一頁整理與 VR Gallery Spatial System 相關的兩個互動模組，讓觀眾從空間配置與光線變化兩個角度理解虛擬展場的觀看經驗。</p>
+      <p class="desc en">This page gathers two interactive modules related to VR Gallery Spatial System, helping visitors understand virtual gallery viewing through spatial layout and changes in light.</p>
       <div class="hero-rule"></div>
     </div>
     <aside class="hero-note">
-      <div class="tool-label"><span class="zh">頁面狀態</span><span class="en">Page State</span></div>
-      <p class="note-copy zh">兩個工具都可直接打開。場景資料保存在瀏覽器端，適合在規劃、校正與策展前期反覆使用。</p>
-      <p class="note-copy en">Both tools open directly in the browser. Scene data stays on the client side, suitable for repeated planning, calibration, and pre-production use.</p>
+      <div class="tool-label"><span class="zh">觀看方式</span><span class="en">Viewing Mode</span></div>
+      <p class="note-copy zh">兩個模組都可直接在瀏覽器中觀看。它們目前作為網頁展覽中的互動內容，適合用來理解展場尺度、觀看距離與照明條件。</p>
+      <p class="note-copy en">Both modules can be viewed directly in the browser. They currently function as interactive material within the web exhibitions, useful for understanding scale, viewing distance, and lighting conditions.</p>
       <div class="note-list">
-        <div class="note-item">standalone html</div>
-        <div class="note-item">browser localstorage</div>
-        <div class="note-item">no install after publish</div>
+        <div class="note-item">web exhibition modules</div>
+        <div class="note-item">scale and lighting studies</div>
+        <div class="note-item">browser-based viewing</div>
       </div>
     </aside>
   </section>
 
   <section class="tool-grid">
     <article class="tool-card">
-      <div class="tool-label"><span class="zh">工具一</span><span class="en">Tool 01</span></div>
-      <h2 class="tool-title"><span class="zh">Spatial Planner</span><span class="en">Spatial Planner</span></h2>
-      <p class="tool-text zh">平面與立面同步的展場配置工具，可放置 reserve、牆面與燈具，並用於檢查視角、照明覆蓋與清空距離。</p>
-      <p class="tool-text en">Plan-plus-elevation gallery layout tool for placing reserves, walls, and lights, with checks for view cone, coverage, and clearance.</p>
+      <div class="tool-label"><span class="zh">模組一</span><span class="en">Module 01</span></div>
+      <h2 class="tool-title"><span class="zh">展場空間規劃器</span><span class="en">Gallery Spatial Planner</span></h2>
+      <p class="tool-text zh">平面與立面同步的展場配置模組，可用來理解牆面位置、預留量體、觀看方向與通行淨空之間的關係。</p>
+      <p class="tool-text en">A plan-and-elevation gallery layout module for understanding the relationship between wall placement, reserve volumes, viewing direction, and circulation clearance.</p>
       <div class="tool-meta">
         <span class="tag">layout</span>
         <span class="tag">lighting</span>
         <span class="tag">validation</span>
       </div>
       <a class="tool-link" href="./spatial-planner.html">
-        <span class="zh">打開工具</span><span class="en">Open Tool</span>
+        <span class="zh">打開模組</span><span class="en">Open Module</span>
         <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
       </a>
     </article>
 
     <article class="tool-card">
-      <div class="tool-label"><span class="zh">工具二</span><span class="en">Tool 02</span></div>
-      <h2 class="tool-title"><span class="zh">Falloff Predictor</span><span class="en">Falloff Predictor</span></h2>
-      <p class="tool-text zh">用來預估不同光衰減模型與材質顏色下的呈現效果，快速比較照度、色偏與修正建議。</p>
-      <p class="tool-text en">Predicts render outcomes across falloff models and surface colours, comparing lux, colour drift, and recommended adjustments.</p>
+      <div class="tool-label"><span class="zh">模組二</span><span class="en">Module 02</span></div>
+      <h2 class="tool-title"><span class="zh">光線衰減視覺化工具</span><span class="en">Light Falloff Viewer</span></h2>
+      <p class="tool-text zh">用來理解不同光衰減模型、表面顏色與距離如何影響展場中的照度、色偏與觀看感受。</p>
+      <p class="tool-text en">A module for understanding how falloff models, surface colours, and distance shape illumination, colour drift, and the feeling of viewing in a gallery.</p>
       <div class="tool-meta">
         <span class="tag">falloff</span>
         <span class="tag">colour drift</span>
         <span class="tag">lux target</span>
       </div>
       <a class="tool-link" href="./falloff-predictor.html">
-        <span class="zh">打開工具</span><span class="en">Open Tool</span>
+        <span class="zh">打開模組</span><span class="en">Open Module</span>
         <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
       </a>
     </article>
 
     <article class="tool-card">
-      <div class="tool-label"><span class="zh">發布方式</span><span class="en">Publication Model</span></div>
-      <h2 class="tool-title"><span class="zh">Standalone Pages</span><span class="en">Standalone Pages</span></h2>
-      <p class="tool-text zh">這裡不做嵌入式包裝。每個工具都是可單獨分享、可直接開啟的公開頁面，之後只要替換對應 HTML 即可更新。</p>
-      <p class="tool-text en">No embedded wrapper here. Each tool is a shareable standalone public page; updates only require replacing the corresponding HTML file.</p>
+      <div class="tool-label"><span class="zh">頁面說明</span><span class="en">Page Context</span></div>
+      <h2 class="tool-title"><span class="zh">網頁展覽中的互動內容</span><span class="en">Interactive content within web exhibitions</span></h2>
+      <p class="tool-text zh">這些模組不是 Museum 首頁本體，而是附屬於網頁展覽的觀看材料。更完整的展覽背景與策展方向，會由 Museum 的展覽資訊與策展頁面補足。</p>
+      <p class="tool-text en">These modules are not the museum homepage itself, but viewing material attached to the web exhibitions. Fuller exhibition context and curatorial framing will be carried by the museum's exhibition and curatorial pages.</p>
       <div class="tool-meta">
-        <span class="tag">direct publish</span>
-        <span class="tag">no iframe</span>
-        <span class="tag">static deployment</span>
+        <span class="tag">web exhibition</span>
+        <span class="tag">interactive study</span>
+        <span class="tag">visitor-facing</span>
       </div>
-      <div class="tool-passive"><span class="zh">目前模式</span><span class="en">Current Mode</span></div>
+      <a class="tool-link" href="../../web-exhibitions.html">
+        <span class="zh">返回網頁展覽</span><span class="en">Back to Web Exhibitions</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
     </article>
   </section>
 
   <footer class="footer">
-    <span>museum / interactive / design-system-visualize</span>
-    <span>spatial planner + falloff predictor</span>
-    <span>standalone pages</span>
+    <span>museum / web-exhibitions / study-modules</span>
+    <span>gallery planner + light falloff viewer</span>
+    <span>interactive viewing</span>
   </footer>
 </main>
 
