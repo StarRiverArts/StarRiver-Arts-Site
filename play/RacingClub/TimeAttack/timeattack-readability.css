@@ -7,14 +7,12 @@
    does the light-touch review fixes — no structure, no behaviour:
      1. lifts the two faintest text tokens one step (global contrast)
      2. nudges the genuinely tiny 9–11px labels up 1–2px
+     3. STATION-LOCAL sr-fluid — large-screen type scaling that
+        works WITHOUT ds-additions.css (the station never loads it,
+        so the bare `sr-fluid` class would otherwise be a no-op).
    Grounded in the real selectors + tokens in timeattack.css.
-   Load AFTER timeattack.css.
+   Load AFTER timeattack.css; add `sr-fluid` to <html>.
    ============================================================ */
-
-/* 0 · large-screen fluid root — the station does NOT load ds-additions.css,
-   so html.sr-fluid would otherwise be inert here. Define it locally so the
-   station scales with the rest of the site (16px laptop → 21px big screen). */
-html.sr-fluid { font-size: clamp(16px, 0.95rem + 0.3vw, 21px); -webkit-text-size-adjust: 100%; }
 
 /* 1 · global contrast — lift the faint/soft tokens one step.
    Fixes every faint label/row at once (was #94A098 / #C3CCC3 on
@@ -46,3 +44,18 @@ html.sr-fluid { font-size: clamp(16px, 0.95rem + 0.3vw, 21px); -webkit-text-size
 @media (max-width: 720px) {
   .ta-navlink            { font-size: 11px; }   /* was 10px */
 }
+
+/* 3 · STATION-LOCAL sr-fluid -------------------------------------
+   The fluid hook used by the other surfaces lives in ds-additions.css,
+   which Time Attack does NOT load — so we redeclare it here. A fluid
+   root lets rem-based sizes grow on large screens, and the hero /
+   section titles get explicit clamps on the station's real classes.
+   No-op below ~1280px; only widens type on big displays. */
+html.sr-fluid {
+  font-size: clamp(16px, 0.95rem + 0.3vw, 21px);
+  -webkit-text-size-adjust: 100%;
+}
+html.sr-fluid .ta-title   { font-size: clamp(2.6rem, 1.8rem + 3.4vw, 5rem); line-height: 0.94; }
+html.sr-fluid .ta-desc    { font-size: clamp(16px, 1rem + 0.2vw, 19px); }
+html.sr-fluid .ta-section-title,
+html.sr-fluid .ta-board-title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem); }
