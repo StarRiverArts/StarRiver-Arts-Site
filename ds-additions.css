@@ -1,0 +1,242 @@
+@charset "UTF-8";
+/* ============================================================
+   StarRiver Arts — Design System ADDITIONS
+   ------------------------------------------------------------
+   Drop-in companion to colors_and_type.css. Adds the pieces the
+   2026-06 visual review asked for:
+     1. Large-screen readability (fluid root + responsive container)
+     2. Button system (clear affordance, >=46px target)
+     3. Record badges + legend (TR / CR / PR — colour + TEXT)
+   Everything is grounded in existing --sr-* / --pt-* tokens.
+   Load AFTER colors_and_type.css:
+     <link rel="stylesheet" href="colors_and_type.css">
+     <link rel="stylesheet" href="ds-additions.css">
+   ============================================================ */
+
+/* ───────────────────────────────────────────────────────────
+   1 · LARGE-SCREEN READABILITY
+   Fixed px type looked tiny on 27"+/4K screens because the body
+   was px-locked and the container capped. Fix: a fluid root so
+   rem-based type scales with the viewport, plus a container that
+   steps WIDER on big screens. Opt in by adding `sr-fluid` to
+   <html> and wrapping content in `.sr-container`.
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --sr-container: 1200px;       /* base reading width  */
+  --sr-container-wide: 1480px;  /* >=1700px screens     */
+  --sr-container-xl: 1600px;    /* >=2200px screens     */
+}
+
+html.sr-fluid {
+  /* 16px on laptops → up to 21px on large desktops.
+     rem-based sizes below inherit this growth automatically. */
+  font-size: clamp(16px, 0.95rem + 0.3vw, 21px);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* rem-based echoes of the px scale — use on fluid pages so heads
+   and body grow together on big screens. (The px --fs-* tokens in
+   colors_and_type.css stay valid for fixed layouts.) */
+html.sr-fluid {
+  --fs-body-fluid: 1rem;          /* ~16–21px */
+  --fs-lead-fluid: 1.22rem;       /* ~19–26px */
+  --fs-h3-fluid:   clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  --fs-h2-fluid:   clamp(1.8rem, 1.4rem + 1.6vw, 2.8rem);
+  --fs-h1-fluid:   clamp(2.6rem, 1.8rem + 3.4vw, 5rem);
+}
+
+/* When sr-fluid is on, the DS type scale (which is fixed px in
+   colors_and_type.css) becomes fluid — this is what stops headings
+   and body text looking tiny on large screens. Specificity beats
+   the base `.sr-type h1` etc. */
+html.sr-fluid .sr-type h1, html.sr-fluid .sr-h1 { font-size: var(--fs-h1-fluid); }
+html.sr-fluid .sr-type h2, html.sr-fluid .sr-h2 { font-size: var(--fs-h2-fluid); }
+html.sr-fluid .sr-type h3, html.sr-fluid .sr-h3 { font-size: var(--fs-h3-fluid); }
+html.sr-fluid .sr-type p,  html.sr-fluid .sr-p  { font-size: var(--fs-body-fluid); line-height: var(--lh-base); }
+html.sr-fluid .sr-type .sr-lead { font-size: var(--fs-lead-fluid); }
+
+.sr-container {
+  width: 100%;
+  max-width: var(--sr-container);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+@media (min-width: 1700px) { :root { --sr-container: var(--sr-container-wide); } }
+@media (min-width: 2200px) { :root { --sr-container: var(--sr-container-xl); } }
+
+/* keep prose line-length humane even when the container is wide */
+.sr-measure { max-width: 68ch; }
+.sr-measure-tight { max-width: 52ch; }
+
+/* ───────────────────────────────────────────────────────────
+   2 · BUTTON SYSTEM
+   Every clickable affordance gets fill OR border + an arrow, a
+   >=46px target and a hover lift — no more buttons that read as
+   plain text. Colour comes from the brand context: set
+   --brand-accent / --brand-accent-ink (the sr-brand-* classes
+   already do) or use a modifier.
+   ─────────────────────────────────────────────────────────── */
+.sr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 46px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: var(--brand-radius, var(--r-sm));
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform var(--dur-base) var(--ease-standard),
+              filter var(--dur-base), background-color var(--dur-base);
+}
+.sr-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.sr-btn:active { transform: translateY(0); }
+.sr-btn:focus-visible { outline: 2px solid var(--sr-amber); outline-offset: 2px; }
+.sr-btn svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+.sr-btn--primary {
+  background: var(--brand-accent, var(--sr-amber));
+  color: var(--brand-accent-ink, #1c1304);
+}
+.sr-btn--secondary {
+  background: rgba(127, 127, 127, 0.06);
+  border: 1.5px solid currentColor;
+  color: var(--fg-1);
+}
+.sr-on-dark .sr-btn--secondary,
+.sr-inverse .sr-btn--secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #f4efe4;
+}
+/* ghost = the old "looks like text" link, but now clearly a link:
+   mono caps + arrow + underline that thickens on hover */
+.sr-btn--ghost {
+  min-height: auto;
+  padding: 6px 2px;
+  border-radius: 0;
+  background: none;
+  color: var(--brand-accent, var(--sr-amber));
+  border-bottom: 1px solid currentColor;
+}
+.sr-btn--ghost:hover { transform: none; filter: none; border-bottom-width: 2px; }
+
+.sr-btn--sm { min-height: 40px; padding: 10px 16px; font-size: 11px; }
+.sr-btn--block { width: 100%; }
+
+/* ───────────────────────────────────────────────────────────
+   3 · RECORD BADGES + LEGEND
+   Honour marks always pair a COLOUR with a TEXT code (TR/CR/PR)
+   and ship with a legend, so colour-blind readers are covered.
+   Solid fills match the Play night set.
+   ─────────────────────────────────────────────────────────── */
+.sr-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6em;
+  padding: 0.34em 0.7em;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.82em;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.sr-badge--tr { background: var(--pt-lamp);        color: #1A1B12; } /* Track Record    */
+.sr-badge--cr { background: var(--pt-night-blue);  color: #0E1A24; } /* Class Record    */
+.sr-badge--pr { background: var(--pt-night-green); color: #0B1A11; } /* Personal Record */
+.sr-badge--none {
+  background: transparent;
+  border: 1px dashed currentColor;
+  color: var(--pt-night-fg3, #94A098);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.sr-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+.sr-legend-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pt-night-fg3, #94A098);
+}
+.sr-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--fg-2);
+}
+.sr-on-dark .sr-legend-item,
+.sr-inverse .sr-legend-item { color: var(--pt-night-fg2, #C3CCC3); }
+
+/* route-feature tag chips — colour + text label, never colour alone */
+.sr-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 11px;
+  border: 1px solid;
+}
+.sr-tag--tech  { background: rgba(126,207,218,.12); border-color: rgba(126,207,218,.30); color: #1b6b76; }
+.sr-tag--speed { background: rgba(245,101,101,.14); border-color: rgba(245,101,101,.30); color: #9c2f2f; }
+.sr-tag--mixed { background: rgba(160,122,255,.14); border-color: rgba(160,122,255,.30); color: #5a3fa0; }
+.sr-tag--env   { background: rgba(72,187,120,.14);  border-color: rgba(72,187,120,.30);  color: #2a7a4a; }
+.sr-on-dark .sr-tag--tech,  .sr-inverse .sr-tag--tech  { color: #bdf0f7; }
+.sr-on-dark .sr-tag--speed, .sr-inverse .sr-tag--speed { color: #ffd0d0; }
+.sr-on-dark .sr-tag--mixed, .sr-inverse .sr-tag--mixed { color: #e3d5ff; }
+.sr-on-dark .sr-tag--env,   .sr-inverse .sr-tag--env   { color: #cbffdd; }
+
+/* ───────────────────────────────────────────────────────────
+   4 · MINIMAL PLACEHOLDER
+   Replaces the verbose "reserved interface" annotation cards.
+   One line: a dot + "建置中 · Coming soon". Holds the slot
+   without pretending to be done.
+   ─────────────────────────────────────────────────────────── */
+.sr-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1px dashed var(--gray-400, #b8b3a4);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--bg-2, #EAE4D6) 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.sr-placeholder::before {
+  content: "";
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sr-amber);
+  flex-shrink: 0;
+}
+.sr-on-dark .sr-placeholder,
+.sr-inverse .sr-placeholder {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+}

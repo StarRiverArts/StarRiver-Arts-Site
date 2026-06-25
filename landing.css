@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* ============================================================
+   StarRiver Arts — Landing (Option A · clear three-card)
+   ------------------------------------------------------------
+   Dark starfield brand chrome with HIGH-contrast type and clearly
+   clickable cards. Replaces the inline <style> in index.html.
+   Load order:
+     <link rel="stylesheet" href="colors_and_type.css">
+     <link rel="stylesheet" href="ds-additions.css">
+     <link rel="stylesheet" href="landing.css">
+   Body: <body class="sr-brand-starriver sr-type sr-on-dark">
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: clamp(16px, 0.95rem + 0.3vw, 21px); }   /* fluid root */
+body {
+  font-family: var(--font-body);
+  background: #0A0910;
+  color: #f4efe4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* language visibility (unchanged from the site convention) */
+html.lang-zh :is(.en,.jp,.kr,.es,.eo) { display: none; }
+html.lang-en :is(.zh,.jp,.kr,.es,.eo) { display: none; }
+html.lang-jp :is(.zh,.en,.kr,.es,.eo) { display: none; }
+html.lang-kr :is(.zh,.en,.jp,.es,.eo) { display: none; }
+html.lang-es :is(.zh,.en,.jp,.kr,.eo) { display: none; }
+html.lang-eo :is(.zh,.en,.jp,.kr,.es) { display: none; }
+
+/* ─── background: nebula + starfield (z-index:-1 — never over UI) ─ */
+.sr-sky {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 62% at 72% 26%, rgba(150,40,152,.34), transparent 60%),
+    radial-gradient(ellipse 72% 60% at 16% 80%, rgba(50,24,124,.32), transparent 55%),
+    radial-gradient(ellipse 58% 50% at 62% 94%, rgba(150,20,44,.16), transparent 52%),
+    #0A0910;
+}
+.sr-sky::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.5) .7px, transparent .8px),
+    radial-gradient(circle, rgba(255,255,255,.32) .6px, transparent .7px);
+  background-size: 46px 46px, 71px 64px;
+  background-position: 0 0, 23px 31px;
+  opacity: .5;
+}
+
+/* ─── header ─── */
+.lp-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 20px clamp(20px, 4vw, 40px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.lp-logo {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid var(--sr-amber);
+  display: grid; place-items: center; overflow: hidden; flex-shrink: 0;
+}
+.lp-logo img { width: 38px; height: 38px; object-fit: contain; border-radius: 50%; }
+.lp-wordmark {
+  font-family: var(--font-deck); font-weight: 700; font-size: 1.05rem;
+  letter-spacing: .04em; color: #f4efe4;
+}
+.lp-lang {
+  margin-left: auto;
+  -webkit-appearance: none; appearance: none;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em;
+  color: #cfc9ba; background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.26); border-radius: 3px;
+  padding: 9px 30px 9px 13px; cursor: pointer; min-height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23cfc9ba' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 11px center;
+}
+.lp-lang:hover { border-color: rgba(255,255,255,.42); color: #f4efe4; }
+
+/* ─── intro ─── */
+.lp-intro {
+  max-width: var(--sr-container, 1200px); margin-inline: auto;
+  padding: clamp(32px, 6vh, 56px) clamp(20px, 4vw, 44px) 0;
+}
+.lp-kicker {
+  font-family: var(--font-mono); font-weight: 700; font-size: 13px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sr-amber); margin-bottom: 14px;
+}
+.lp-title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(40px, 1.8rem + 3.4vw, 64px);
+  line-height: .98; letter-spacing: -.025em;
+  color: #f6f1e6; margin-bottom: 12px;
+}
+.lp-sub {
+  font-family: var(--font-body); font-size: clamp(16px, 1rem + .2vw, 19px);
+  line-height: 1.5; color: #c9c3b4; max-width: 38ch;
+}
+
+/* ─── cards ─── */
+.lp-cards {
+  max-width: var(--sr-container, 1200px); margin-inline: auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  padding: clamp(28px, 5vh, 40px) clamp(20px, 4vw, 44px) clamp(40px, 7vh, 64px);
+}
+.lp-card {
+  display: flex; flex-direction: column;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.13);
+  border-top: 3px solid var(--card-accent, var(--sr-amber));
+  border-radius: 10px;
+  padding: 26px 24px;
+  transition: background var(--dur-base), transform var(--dur-base) var(--ease-standard), border-color var(--dur-base);
+}
+.lp-card:hover { background: rgba(255,255,255,.07); transform: translateY(-3px); }
+.lp-card-idx {
+  font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+  letter-spacing: .18em; color: #8e887b; margin-bottom: 18px;
+}
+.lp-card-title {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.7rem;
+  line-height: 1; color: var(--card-title, #ede4cc); margin-bottom: 6px;
+}
+.lp-card-zh {
+  font-family: var(--font-body); font-weight: 600; font-size: 1rem;
+  color: var(--card-zh, #cdbf9f); margin-bottom: 12px;
+}
+.lp-card-desc {
+  font-family: var(--font-body); font-size: .94rem; line-height: 1.6;
+  color: #b6b1a3; margin-bottom: 22px; flex: 1;
+}
+.lp-card .sr-btn { align-self: flex-start; }
+
+/* per-column accent */
+.lp-card--studio { --card-accent: var(--sr-amber); --card-title:#ede4cc; --card-zh:#cdbf9f; }
+.lp-card--play   { --card-accent: #52a578;        --card-title:#bfe0cd; --card-zh:#9fccb2; }
+.lp-card--museum { --card-accent: #cdd0d6;        --card-title:#e3e3e7; --card-zh:#c6c7cd; }
+.lp-card--studio .sr-btn--primary { background: var(--sr-amber); color:#1c1304; }
+.lp-card--play   .sr-btn--primary { background:#52a578; color:#06180f; }
+.lp-card--museum .sr-btn--primary { background:#cdd0d6; color:#14141a; }
+
+/* ─── responsive ─── */
+@media (max-width: 860px) {
+  .lp-cards { grid-template-columns: 1fr; gap: 14px; }
+  .lp-card { padding: 20px 20px; }
+  .lp-card-desc { display: none; }            /* keep mobile cards tight; title + button stay */
+  .lp-card-head { display:flex; align-items:center; justify-content:space-between; }
+}

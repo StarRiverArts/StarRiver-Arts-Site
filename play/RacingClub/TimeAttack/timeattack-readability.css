@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* ============================================================
+   Time Attack STATION — readability override  (minimal)
+   ------------------------------------------------------------
+   The station (timeattack.css) is ALREADY night, with TR/CR/PR
+   badges, search/filter and the Leaflet TrackMap. This file only
+   does the light-touch review fixes — no structure, no behaviour:
+     1. lifts the two faintest text tokens one step (global contrast)
+     2. nudges the genuinely tiny 9–11px labels up 1–2px
+   Grounded in the real selectors + tokens in timeattack.css.
+   Load AFTER timeattack.css.
+   ============================================================ */
+
+/* 1 · global contrast — lift the faint/soft tokens one step.
+   Fixes every faint label/row at once (was #94A098 / #C3CCC3 on
+   the #141B19 night ground). */
+.timeattack-page {
+  --ta-text-faint: #AEB7AF;   /* was #94A098 */
+  --ta-text-soft:  #D2D9D2;   /* was #C3CCC3 */
+}
+
+/* a few ranks hard-code rgba white — lift those too */
+.ta-lb-rank,
+.ta-row-rank { color: rgba(255, 255, 255, 0.62) !important; }  /* was .44–.45 */
+
+/* 2 · tiny-label bumps (real selectors from timeattack.css) */
+.ta-row-plat,
+.ta-mini-plat            { font-size: 10px; }   /* was 9px  */
+.ta-row-rank,
+.ta-row-sub,
+.ta-lb-rank,
+.ta-tm-nopoint,
+.ta-tm-track-meta        { font-size: 12px; }   /* was 11px */
+.ta-lb-sub               { font-size: 13px; }   /* was 12px */
+.ta-sidebar-card h2,
+.ta-tm-track-name,
+.ta-tm-unlocated h3      { font-size: 14px; }   /* was 13px */
+.ta-tm-crumb,
+.ta-tm-crumb-sep         { font-size: 13px; }   /* was 12px */
+.ta-navlink              { font-size: 12px; }   /* was ~11px */
+@media (max-width: 720px) {
+  .ta-navlink            { font-size: 11px; }   /* was 10px */
+}

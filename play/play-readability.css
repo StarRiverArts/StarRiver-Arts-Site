@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* ============================================================
+   Project T Play — readability override  (light, minimal)
+   ------------------------------------------------------------
+   For the LIGHT reading surfaces built on play-landing.css
+   (play hub, worlds, articles). Stays the day map-paper register
+   (the racing branch is the only one that goes night). Only the
+   two review items that still apply on cream:
+     · small type  → bumps sub-16px labels and body
+     · large screens → fluid headings (needs html.sr-fluid)
+   Contrast is already fine on paper; one muted grey is darkened.
+   Load AFTER play-landing.css.
+   ============================================================ */
+
+/* nav + chrome small type */
+.nav-links a            { font-size: 12px; }
+.nav-home, .nav-brand   { font-size: 12px; }
+
+/* hero + valley copy */
+.sr-type .hero-sub      { font-size: clamp(17px, 1rem + .35vw, 21px); line-height: 1.6; }
+.sr-type .lead-sub      { font-size: 17px; }
+.sr-type .section-note  { font-size: 15.5px; color: var(--pt-ink-2); }
+
+/* status + entry cards */
+.status-num             { font-size: 12px; }
+.sr-type .status-title  { font-size: 19px; }
+.sr-type .status-desc   { font-size: 15px; }
+.card-label             { font-size: 11.5px; }
+.sr-type .card-text     { font-size: 15px; line-height: 1.6; }
+.card-link              { font-size: 11.5px; }
+
+/* reserved-slot mini cards — darken the muted note one step */
+.mini-label             { font-size: 11px; }
+.sr-type .mini-title    { font-size: 17px; }
+.sr-type .mini-text     { font-size: 14px; color: var(--pt-ink-2); }
+
+/* large-screen fluid headings (opt-in via html.sr-fluid) */
+html.sr-fluid                        { font-size: clamp(16px, .95rem + .3vw, 21px); }
+html.sr-fluid .sr-type .hero-title   { font-size: clamp(52px, 1.8rem + 4vw, 100px); }
+html.sr-fluid .sr-type .section-title { font-size: clamp(26px, 1.4rem + 1.6vw, 38px); }
+html.sr-fluid .sr-type .card-title   { font-size: clamp(22px, 1.2rem + 1vw, 30px); }

@@ -1,178 +1,13 @@
 <!doctype html>
-<html lang="zh-TW" class="lang-zh">
+<html lang="zh-TW" class="lang-zh sr-fluid">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>星河 StarRiver Arts</title>
 <link rel="icon" href="assets/logos/starriver-primary.png">
 <link rel="stylesheet" href="colors_and_type.css">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden}
-body{font-family:var(--font-body);background:#060508;color:#f3eee3;-webkit-font-smoothing:antialiased}
-html.lang-zh :is(.en,.jp,.kr,.es,.eo){display:none}
-html.lang-en :is(.zh,.jp,.kr,.es,.eo){display:none}
-html.lang-jp :is(.zh,.en,.kr,.es,.eo){display:none}
-html.lang-kr :is(.zh,.en,.jp,.es,.eo){display:none}
-html.lang-es :is(.zh,.en,.jp,.kr,.eo){display:none}
-html.lang-eo :is(.zh,.en,.jp,.kr,.es){display:none}
-.page{display:flex;flex-direction:column;height:100vh;position:relative;z-index:1}
-
-/* NEBULA */
-.nebula{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 72% 36%, rgba(140,22,175,0.42) 0%, transparent 52%),
-    radial-gradient(ellipse at 84% 58%, rgba(195,28,105,0.30) 0%, transparent 38%),
-    radial-gradient(ellipse at 18% 68%, rgba(55,16,140,0.24) 0%, transparent 48%),
-    radial-gradient(ellipse at 62% 78%, rgba(160,15,35,0.20) 0%, transparent 30%),
-    radial-gradient(ellipse at 38% 22%, rgba(85,12,125,0.16) 0%, transparent 45%);
-}
-#sc{position:fixed;inset:0;z-index:0;pointer-events:none}
-
-/* HEADER */
-header{
-  height:76px;flex-shrink:0;
-  display:flex;align-items:center;padding:0 36px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:relative;z-index:20;
-  background:rgba(6,5,8,.55);
-  -webkit-backdrop-filter:blur(8px);
-  backdrop-filter:blur(8px);
-}
-.hb{display:flex;align-items:center;gap:14px;margin-right:auto}
-.hlogo{
-  width:48px;height:48px;border-radius:50%;
-  border:2px solid var(--sr-amber);overflow:hidden;flex-shrink:0;
-}
-.hlogo img{width:42px;height:42px;object-fit:contain;border-radius:50%}
-.hw{font-family:var(--font-deck);font-weight:700;font-size:22px;letter-spacing:.04em;color:rgba(243,238,227,.92)}
-.lb{
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(243,238,227,.5);background:rgba(6,5,8,.4);
-  border:1px solid rgba(255,255,255,.18);border-radius:2px;
-  padding:4px 10px;cursor:pointer;
-  transition:color 250ms,border-color 250ms;
-  -webkit-appearance:none;appearance:none;
-}
-.lb:hover{color:rgba(243,238,227,.9);border-color:rgba(255,255,255,.35)}
-
-/* COLUMNS */
-.columns{flex:1;display:flex;overflow:hidden;position:relative;z-index:1}
-.col{
-  flex:1;position:relative;overflow:hidden;cursor:pointer;
-  transition:flex 650ms cubic-bezier(.22,.61,.36,1);
-  border-right:1px solid rgba(255,255,255,.05);
-  display:flex;flex-direction:column;
-}
-.col:last-child{border-right:none}
-.col-0{background:rgba(20,15,8,.45)}
-.col-1{background:rgba(8,18,12,.45)}
-.col-2{background:rgba(12,12,18,.45)}
-.columns:has(.col:hover) .col{flex:.58}
-.columns:has(.col:hover) .col:hover{flex:2.3}
-.columns:has(.col:hover) .col:not(:hover){background:rgba(6,5,8,.62)}
-.col::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 350ms}
-.col:hover::after{opacity:1}
-.col-0::after{background:var(--sr-amber)}
-.col-1::after{background:#a8d8c4}
-.col-2::after{background:#d8d8de}
-
-/* NUMBERS — brighter */
-.col-num{
-  position:absolute;bottom:-0.08em;right:-0.02em;
-  font-family:var(--font-display);font-weight:900;
-  font-size:min(22vw,24vh);line-height:1;letter-spacing:-.04em;
-  pointer-events:none;-webkit-user-select:none;user-select:none;
-  transition:opacity 500ms,transform 500ms cubic-bezier(.22,.61,.36,1);
-}
-.col-0 .col-num{color:rgba(232,138,46,.14)}
-.col-1 .col-num{color:rgba(168,216,196,.12)}
-.col-2 .col-num{color:rgba(220,220,220,.11)}
-.col:hover .col-num{opacity:.55;transform:scale(1.05) translateY(-1%)}
-
-/* CONTENT */
-.col-inner{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;
-  padding:32px 28px 36px;
-}
-.col-kicker{
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(243,238,227,.22);margin-bottom:auto;
-  transition:opacity 350ms;
-}
-.col:hover .col-kicker{opacity:.5}
-
-/* Title — nowrap prevents "T" from dropping */
-.col-title{
-  font-family:var(--font-display);font-weight:900;
-  font-size:clamp(44px,5vw,80px);
-  line-height:.92;letter-spacing:-.03em;
-  margin-bottom:8px;
-  white-space:nowrap;overflow:hidden;
-  transition:transform 500ms cubic-bezier(.22,.61,.36,1);
-}
-.col-0 .col-title{color:#ede4cc}
-.col-1 .col-title{color:#b8d8c4}
-.col-2 .col-title{color:#dcdcde}
-.col:hover .col-title{transform:translateY(-5px)}
-
-.col-sub{
-  font-family:var(--font-body);font-size:17px;letter-spacing:.04em;
-  margin-top:2px;opacity:.38;transition:opacity 350ms;
-}
-.col-0 .col-sub{color:#ede4cc}
-.col-1 .col-sub{color:#b8d8c4}
-.col-2 .col-sub{color:#dcdcde}
-.col:hover .col-sub{opacity:.65}
-
-.col-desc{
-  font-family:var(--font-body);font-size:14px;line-height:1.55;
-  max-width:230px;margin-top:10px;color:rgba(243,238,227,.42);
-  opacity:0;transform:translateY(8px);
-  transition:opacity 320ms 70ms,transform 320ms 70ms cubic-bezier(.22,.61,.36,1);
-}
-.col:hover .col-desc{opacity:1;transform:translateY(0)}
-
-.col-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  padding:10px 18px;border-radius:2px;margin-top:16px;width:fit-content;
-  opacity:0;transform:translateY(10px);text-decoration:none;
-  transition:opacity 280ms 130ms,transform 280ms 130ms cubic-bezier(.22,.61,.36,1),background 180ms;
-}
-.col:hover .col-btn{opacity:1;transform:translateY(0)}
-.col-btn.disabled{opacity:.28;cursor:default;pointer-events:none}
-.col-0 .col-btn{background:rgba(232,138,46,.18);color:#ede4cc;border:1px solid rgba(232,138,46,.35)}
-.col-0 .col-btn:hover{background:rgba(232,138,46,.32)}
-.col-1 .col-btn{background:rgba(70,155,100,.20);color:#b8d8c4;border:1px solid rgba(100,185,130,.28)}
-.col-1 .col-btn:hover{background:rgba(70,155,100,.36)}
-.col-2 .col-btn{background:rgba(210,210,218,.12);color:#dcdcde;border:1px solid rgba(210,210,218,.20)}
-.col-2 .col-btn:hover{background:rgba(210,210,218,.24)}
-.col-btn svg{width:10px;height:10px;flex-shrink:0}
-.col-btn.disabled{cursor:default;pointer-events:none;opacity:.25}
-
-/* CLICK OVERLAY */
-.tov{position:fixed;inset:0;z-index:100;pointer-events:none;background:#060508;opacity:0;transition:opacity 480ms}
-.tov.on{pointer-events:all;opacity:1}
-
-/* MOBILE */
-@media(max-width:680px){
-  html,body{overflow:auto}
-  .columns{flex-direction:column;height:auto}
-  .col{flex:none!important;height:33vh;min-height:170px;background:rgba(10,8,14,.55)!important}
-  .col-inner{padding:20px 20px 24px}
-  .col-title{font-size:clamp(40px,10vw,60px)}
-  .col-sub{opacity:.55!important}
-  .col-desc,.col-btn{opacity:1!important;transform:none!important}
-  .col-btn.disabled{opacity:.35!important}
-  header{padding:0 20px;height:62px}
-  .hw{font-size:18px}
-  .hlogo{width:38px;height:38px}
-  .hlogo img{width:32px;height:32px}
-}
-</style>
+<link rel="stylesheet" href="ds-additions.css">
+<link rel="stylesheet" href="landing.css">
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -181,19 +16,14 @@ header{
 })(window, document, "clarity", "script", "x5w0rbr4n3");
 </script>
 </head>
-<body>
+<body class="sr-brand-starriver sr-type sr-on-dark">
 
-<div class="nebula" aria-hidden="true"></div>
-<canvas id="sc" aria-hidden="true"></canvas>
-<div class="tov" id="tov"></div>
+<div class="sr-sky" aria-hidden="true"></div>
 
-<div class="page">
-<header>
-  <div class="hb">
-    <div class="hlogo"><img src="assets/logos/starriver-primary.png" alt="StarRiver Arts"></div>
-    <span class="hw">星河 STARRIVER ARTS</span>
-  </div>
-  <select class="lb" id="lbtn" aria-label="Language">
+<header class="lp-header">
+  <span class="lp-logo"><img src="assets/logos/starriver-primary.png" alt="StarRiver Arts"></span>
+  <span class="lp-wordmark">星河 STARRIVER ARTS</span>
+  <select class="lp-lang" id="lang" aria-label="Language">
     <option value="zh">中文</option>
     <option value="en">EN</option>
     <option value="jp">日本語</option>
@@ -203,114 +33,72 @@ header{
   </select>
 </header>
 
-<div class="columns" id="cw">
+<section class="lp-intro">
+  <div class="lp-kicker">三個入口 · Three ways in</div>
+  <h1 class="lp-title">
+    <span class="zh">選擇你的入口</span><span class="en">Choose your way in</span><span class="jp">入口を選ぶ</span><span class="kr">입구를 선택하세요</span><span class="es">Elige tu entrada</span><span class="eo">Elektu vian enirejon</span>
+  </h1>
+  <p class="lp-sub">
+    <span class="zh">作品工作室、Project T 的 VR 山道世界，以及長期經營的 VR 美術館。</span><span class="en">A works studio, Project T's VR mountain-road worlds, and a long-running VR museum.</span><span class="jp">作品スタジオ、Project T の VR 山道ワールド、そして長期運営の VR 美術館。</span><span class="kr">작품 스튜디오, Project T 의 VR 산길 세계, 그리고 장기 운영 VR 미술관.</span><span class="es">Un estudio de obras, los mundos VR de montaña de Project T y un museo VR de larga trayectoria.</span><span class="eo">Verka studio, la VR-montvojaj mondoj de Project T, kaj longdaŭra VR-muzeo.</span>
+  </p>
+</section>
+
+<div class="lp-cards">
 
   <!-- Studio -->
-  <div class="col col-0">
-    <div class="col-num" aria-hidden="true">01</div>
-    <div class="col-inner">
-      <div class="col-kicker">01 · Studio</div>
-      <div style="flex:1"></div>
-      <div class="col-title">Studio</div>
-      <div class="col-sub"><span class="zh">專案作品</span><span class="en">Works</span><span class="jp">作品</span><span class="kr">작품</span><span class="es">Obras</span><span class="eo">Verkoj</span></div>
-      <div class="col-desc"><span class="zh">精選作品與能力展示</span><span class="en">Selected works and capabilities</span><span class="jp">厳選作品と能力紹介</span><span class="kr">선별된 작품과 역량</span><span class="es">Obras seleccionadas y capacidades</span><span class="eo">Elektitaj verkoj kaj kapabloj</span></div>
-      <a class="col-btn" href="studio.html"><span class="zh">進入</span><span class="en">Enter</span><span class="jp">入る</span><span class="kr">입장</span><span class="es">Entrar</span><span class="eo">Eniri</span>
-        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-      </a>
-    </div>
-  </div>
+  <article class="lp-card lp-card--studio">
+    <div class="lp-card-idx">01 — STUDIO</div>
+    <h2 class="lp-card-title">Studio</h2>
+    <div class="lp-card-zh"><span class="zh">專案作品</span><span class="en">Works</span><span class="jp">作品</span><span class="kr">작품</span><span class="es">Obras</span><span class="eo">Verkoj</span></div>
+    <p class="lp-card-desc"><span class="zh">精選作品與能力展示，個人品牌的專業作品集。</span><span class="en">Selected works and capabilities — the personal-brand portfolio.</span><span class="jp">厳選作品と能力紹介、個人ブランドのポートフォリオ。</span><span class="kr">선별된 작품과 역량, 개인 브랜드 포트폴리오.</span><span class="es">Obras seleccionadas y capacidades, el portafolio de marca personal.</span><span class="eo">Elektitaj verkoj kaj kapabloj — la person-marka paperujo.</span></p>
+    <a class="sr-btn sr-btn--primary" href="studio.html">
+      <span class="zh">進入 Studio</span><span class="en">Enter Studio</span><span class="jp">Studio へ</span><span class="kr">Studio 입장</span><span class="es">Entrar a Studio</span><span class="eo">Eniri Studio</span>
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+    </a>
+  </article>
 
   <!-- Project T -->
-  <div class="col col-1">
-    <div class="col-num" aria-hidden="true">02</div>
-    <div class="col-inner">
-      <div class="col-kicker">02 · Play</div>
-      <div style="flex:1"></div>
-      <div class="col-title">Project T</div>
-      <div class="col-sub"><span class="zh">VR 數位體驗</span><span class="en">VR Experience</span><span class="jp">VR 体験</span><span class="kr">VR 체험</span><span class="es">Experiencia VR</span><span class="eo">VR-Sperto</span></div>
-      <div class="col-desc"><span class="zh">VR 環境設計，台灣地景</span><span class="en">VR environments and Taiwan landscapes</span><span class="jp">VR 環境と台湾の景観</span><span class="kr">VR 환경과 대만 경관</span><span class="es">Entornos VR y paisajes de Taiwán</span><span class="eo">VR-medioj kaj Tajvana pejzaĝo</span></div>
-      <a class="col-btn" href="play/"><span class="zh">進入</span><span class="en">Enter</span><span class="jp">入る</span><span class="kr">입장</span><span class="es">Entrar</span><span class="eo">Eniri</span>
-        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-      </a>
-    </div>
-  </div>
+  <article class="lp-card lp-card--play">
+    <div class="lp-card-idx">02 — PLAY</div>
+    <h2 class="lp-card-title">Project T</h2>
+    <div class="lp-card-zh"><span class="zh">VR 數位體驗</span><span class="en">VR Experience</span><span class="jp">VR 体験</span><span class="kr">VR 체험</span><span class="es">Experiencia VR</span><span class="eo">VR-Sperto</span></div>
+    <p class="lp-card-desc"><span class="zh">VR 環境設計與台灣地景，含 Racing Club 與 Time Attack 紀錄。</span><span class="en">VR environments and Taiwan landscapes, with Racing Club and Time Attack records.</span><span class="jp">VR 環境と台湾の景観、Racing Club と Time Attack 記録。</span><span class="kr">VR 환경과 대만 경관, Racing Club 과 Time Attack 기록.</span><span class="es">Entornos VR y paisajes de Taiwán, con Racing Club y récords de Time Attack.</span><span class="eo">VR-medioj kaj Tajvana pejzaĝo, kun Racing Club kaj Time Attack-rekordoj.</span></p>
+    <a class="sr-btn sr-btn--primary" href="play/">
+      <span class="zh">進入 Project T</span><span class="en">Enter Project T</span><span class="jp">Project T へ</span><span class="kr">Project T 입장</span><span class="es">Entrar a Project T</span><span class="eo">Eniri Project T</span>
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+    </a>
+  </article>
 
   <!-- Museum -->
-  <div class="col col-2">
-    <div class="col-num" aria-hidden="true">03</div>
-    <div class="col-inner">
-      <div class="col-kicker">03 · Museum</div>
-      <div style="flex:1"></div>
-      <div class="col-title">Museum</div>
-      <div class="col-sub"><span class="zh">美術館</span><span class="en">Museum</span><span class="jp">美術館</span><span class="kr">미술관</span><span class="es">Museo</span><span class="eo">Muzeo</span></div>
-      <div class="col-desc"><span class="zh">互動工具、展覽與概念作品</span><span class="en">Interactive tools, exhibitions, and conceptual works</span><span class="jp">インタラクティブツール、展覧会、概念作品</span><span class="kr">인터랙티브 도구, 전시회, 개념 작품</span><span class="es">Herramientas interactivas, exposiciones y obras conceptuales</span><span class="eo">Interagaj iloj, ekspozicioj kaj konceptaj verkoj</span></div>
-      <a class="col-btn" href="museum/"><span class="zh">進入</span><span class="en">Enter</span><span class="jp">入る</span><span class="kr">입장</span><span class="es">Entrar</span><span class="eo">Eniri</span>
-        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-      </a>
-    </div>
-  </div>
+  <article class="lp-card lp-card--museum">
+    <div class="lp-card-idx">03 — MUSEUM</div>
+    <h2 class="lp-card-title">Museum</h2>
+    <div class="lp-card-zh"><span class="zh">美術館</span><span class="en">Museum</span><span class="jp">美術館</span><span class="kr">미술관</span><span class="es">Museo</span><span class="eo">Muzeo</span></div>
+    <p class="lp-card-desc"><span class="zh">互動工具、展覽與概念作品，旗下長期 VR 展館計畫。</span><span class="en">Interactive tools, exhibitions, and conceptual works — the long-term VR gallery.</span><span class="jp">インタラクティブツール、展覧会、概念作品 — 長期 VR 展館計画。</span><span class="kr">인터랙티브 도구, 전시, 개념 작품 — 장기 VR 갤러리.</span><span class="es">Herramientas interactivas, exposiciones y obras conceptuales — la galería VR a largo plazo.</span><span class="eo">Interagaj iloj, ekspozicioj kaj konceptaj verkoj — la longtempa VR-galerio.</span></p>
+    <a class="sr-btn sr-btn--primary" href="museum/">
+      <span class="zh">進入 Museum</span><span class="en">Enter Museum</span><span class="jp">Museum へ</span><span class="kr">Museum 입장</span><span class="es">Entrar a Museum</span><span class="eo">Eniri Museum</span>
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+    </a>
+  </article>
 
-</div>
 </div>
 
 <script>
-(function(){
-'use strict';
-/* Language */
-var ht=document.documentElement,lb=document.getElementById('lbtn');
-var LANGS=['zh','en','jp','kr','es','eo'];
-var HTMLLANG={zh:'zh-TW',en:'en',jp:'ja',kr:'ko',es:'es',eo:'eo'};
-var sl=localStorage.getItem('sr-lang')||'zh';
-if(LANGS.indexOf(sl)===-1)sl='zh';
-function setL(l){ht.className='lang-'+l;ht.lang=HTMLLANG[l]||l;localStorage.setItem('sr-lang',l);if(lb)lb.value=l}
-setL(sl);
-lb.addEventListener('change',function(){setL(lb.value)});
-
-/* Canvas stars — lightweight single draw */
-var cv=document.getElementById('sc');
-function drawStars(){
-  cv.width=window.innerWidth;cv.height=window.innerHeight;
-  var ctx=cv.getContext('2d');
-  var n=Math.floor(cv.width*cv.height/5000);
-  for(var i=0;i<n;i++){
-    var x=Math.random()*cv.width,y=Math.random()*cv.height;
-    var r=Math.random()<.7?.5:(Math.random()<.5?.9:1.4);
-    var a=Math.random()*.55+.08;
-    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
-    ctx.fillStyle='rgba(255,255,255,'+a.toFixed(2)+')';ctx.fill();
+(function () {
+  "use strict";
+  var ht = document.documentElement, sel = document.getElementById("lang");
+  var LANGS = ["zh","en","jp","kr","es","eo"];
+  var HTMLLANG = { zh:"zh-TW", en:"en", jp:"ja", kr:"ko", es:"es", eo:"eo" };
+  var saved = localStorage.getItem("sr-lang") || "zh";
+  if (LANGS.indexOf(saved) === -1) saved = "zh";
+  function setLang(l) {
+    ht.className = ht.className.replace(/\blang-\w+\b/g, "").trim() + " lang-" + l;
+    ht.lang = HTMLLANG[l] || l;
+    localStorage.setItem("sr-lang", l);
+    if (sel) sel.value = l;
   }
-}
-drawStars();
-var st=document.createElement('style');
-st.textContent='@keyframes cvp{0%,100%{opacity:.78}50%{opacity:.96}}#sc{animation:cvp 7s ease-in-out infinite}';
-document.head.appendChild(st);
-var rt;
-window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawStars,200)},{passive:true});
-
-/* Click transition */
-var tov=document.getElementById('tov');
-document.querySelectorAll('.col-btn:not(.disabled)').forEach(function(btn){
-  btn.addEventListener('click',function(e){
-    e.preventDefault();
-    var href=btn.getAttribute('href');
-    if(!href)return;
-    tov.classList.add('on');
-    setTimeout(function(){window.location.href=href},500);
-  });
-});
-
-/* :has() fallback */
-if(!CSS.supports('selector(:has(a))')){
-  var cols=document.querySelectorAll('.col');
-  cols.forEach(function(col,i){
-    col.addEventListener('mouseenter',function(){
-      cols.forEach(function(c,j){c.style.flex=j===i?'2.3':'.58'});
-    });
-    col.addEventListener('mouseleave',function(){
-      cols.forEach(function(c){c.style.flex='1'});
-    });
-  });
-}
+  setLang(saved);
+  if (sel) sel.addEventListener("change", function () { setLang(sel.value); });
 })();
 </script>
 </body>
