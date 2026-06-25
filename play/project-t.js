@@ -3,9 +3,6 @@
     { code: 'zh', label: '中文',   htmlLang: 'zh-TW' },
     { code: 'en', label: 'EN',     htmlLang: 'en'    },
     { code: 'jp', label: '日本語', htmlLang: 'ja'    },
-    { code: 'kr', label: '한국어', htmlLang: 'ko'    },
-    { code: 'es', label: 'ES',     htmlLang: 'es'    },
-    { code: 'eo', label: 'EO',     htmlLang: 'eo'    },
   ];
   const CODES = LANGS.map(l => l.code);
   const KEY   = 'sr-lang';

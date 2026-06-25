@@ -1,16 +1,16 @@
 const TA_ROUTE_LABELS = {
-  overview: { zh: "總覽",     en: "Overview",     jp: "概覧",          kr: "개요",      es: "Resumen",          eo: "Superrigardo" },
-  tracks:   { zh: "賽道",     en: "Tracks",       jp: "コース",         kr: "코스",      es: "Pistas",           eo: "Trakoj"       },
-  track:    { zh: "賽道詳情", en: "Track Detail", jp: "コース詳細",     kr: "코스 상세", es: "Detalle de Pista", eo: "Traka Detalo" },
-  players:  { zh: "玩家",     en: "Players",      jp: "プレイヤー",     kr: "플레이어",  es: "Jugadores",        eo: "Ludantoj"     },
-  player:   { zh: "玩家檔案", en: "Driver File",  jp: "プレイヤーファイル", kr: "선수 파일", es: "Archivo de Piloto", eo: "Pilota Dosiero" },
-  vehicles: { zh: "車輛",     en: "Vehicles",     jp: "車両",           kr: "차량",      es: "Vehículos",        eo: "Veturiloj"    },
-  vehicle:  { zh: "車輛檔案", en: "Car File",     jp: "車両ファイル",   kr: "차량 파일", es: "Archivo de Auto",  eo: "Aŭta Dosiero" },
-  events:   { zh: "活動",     en: "Events",       jp: "イベント",       kr: "이벤트",    es: "Eventos",          eo: "Eventoj"      },
-  catalog:  { zh: "索引",     en: "Index",        jp: "索引",           kr: "목록",      es: "Índice",           eo: "Indekso"      },
-  info:     { zh: "資訊",     en: "Info",         jp: "情報",           kr: "정보",      es: "Información",      eo: "Informo"      },
-  review:   { zh: "審核",     en: "Review",       jp: "レビュー",       kr: "검토",      es: "Revisión",         eo: "Revizio"      },
-  trackmap: { zh: "賽道地圖", en: "Track Map",    jp: "コースマップ",   kr: "코스 지도", es: "Mapa de Pistas",   eo: "Traka Mapo"   },
+  overview: { zh: "總覽",     en: "Overview",     jp: "概覧"         },
+  tracks:   { zh: "賽道",     en: "Tracks",       jp: "コース"       },
+  track:    { zh: "賽道詳情", en: "Track Detail", jp: "コース詳細"   },
+  players:  { zh: "玩家",     en: "Players",      jp: "プレイヤー"   },
+  player:   { zh: "玩家檔案", en: "Driver File",  jp: "プレイヤーファイル" },
+  vehicles: { zh: "車輛",     en: "Vehicles",     jp: "車両"         },
+  vehicle:  { zh: "車輛檔案", en: "Car File",     jp: "車両ファイル" },
+  events:   { zh: "活動",     en: "Events",       jp: "イベント"     },
+  catalog:  { zh: "索引",     en: "Index",        jp: "索引"         },
+  info:     { zh: "資訊",     en: "Info",         jp: "情報"         },
+  review:   { zh: "審核",     en: "Review",       jp: "レビュー"     },
+  trackmap: { zh: "賽道地圖", en: "Track Map",    jp: "コースマップ" },
 };
 
 const ENABLE_HISTORY_CHARTS = false;
@@ -27,13 +27,10 @@ const escapeHtml = (value) =>
     return map[char];
   });
 
-const renderBilingual = (zh, en, jp, kr, es, eo) => `
+const renderBilingual = (zh, en, jp) => `
   <span class="zh">${escapeHtml(zh || "")}</span>
   <span class="en">${escapeHtml(en || "")}</span>
   <span class="jp">${escapeHtml(jp || en || "")}</span>
-  <span class="kr">${escapeHtml(kr || en || "")}</span>
-  <span class="es">${escapeHtml(es || en || "")}</span>
-  <span class="eo">${escapeHtml(eo || en || "")}</span>
 `;
 
 // 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
@@ -625,8 +622,7 @@ const renderTrackDetail = (data, id, routeCode) => {
   const worldLinkBtn = board.world_url
     ? `<a class="ta-world-link-btn" href="${escapeHtml(board.world_url)}" target="_blank" rel="noopener noreferrer">
         <span class="zh">前往世界 ↗</span><span class="en">Visit World ↗</span>
-        <span class="jp">ワールドへ ↗</span><span class="kr">월드 방문 ↗</span>
-        <span class="es">Visitar Mundo ↗</span><span class="eo">Viziti Mondon ↗</span>
+        <span class="jp">ワールドへ ↗</span>
       </a>`
     : "";
   const header = `

@@ -33,12 +33,9 @@ body {
   min-height: 100%;
 }
 
-html.lang-zh :is(.en,.jp,.kr,.es,.eo),
-html.lang-en :is(.zh,.jp,.kr,.es,.eo),
-html.lang-jp :is(.zh,.en,.kr,.es,.eo),
-html.lang-kr :is(.zh,.en,.jp,.es,.eo),
-html.lang-es :is(.zh,.en,.jp,.kr,.eo),
-html.lang-eo :is(.zh,.en,.jp,.kr,.es) {
+html.lang-zh :is(.en,.jp),
+html.lang-en :is(.zh,.jp),
+html.lang-jp :is(.zh,.en) {
   display: none;
 }
 
