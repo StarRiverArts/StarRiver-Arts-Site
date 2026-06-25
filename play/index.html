@@ -8,6 +8,20 @@
   <link rel="stylesheet" href="../colors_and_type.css">
   <link rel="stylesheet" href="play-landing.css">
   <link rel="stylesheet" href="play-readability.css">
+  <style>
+    /* coming-soon card state — non-interactive placeholder */
+    .card-is-soon { opacity: .72; }
+    .card-soon {
+      display: inline-flex; align-items: center; gap: .5em;
+      font-family: var(--font-mono, monospace);
+      font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--fg-3, #8e887b); cursor: default; user-select: none;
+    }
+    .card-soon::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--sr-amber, #d8a24a); flex-shrink: 0;
+    }
+  </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -24,10 +38,7 @@
       <span class="nav-brand">星河 STARRIVER ARTS</span>
     </a>
     <div class="nav-links">
-      <a href="./worlds/"><span class="zh">Worlds</span><span class="en lang-fallback">Worlds</span></a>
-      <a href="./RacingClub/"><span class="zh">Racing Club</span><span class="en">Racing Club</span></a>
       <a href="./RacingClub/TimeAttack/"><span class="zh">Time Attack</span><span class="en">Time Attack</span></a>
-      <a href="./articles/"><span class="zh">Articles</span><span class="en lang-fallback">Articles</span></a>
     </div>
     <select class="lang-btn" data-lang-select aria-label="Language">
       <option value="zh">中文</option>
@@ -63,21 +74,18 @@
           <div class="shield is-gold">TA<div class="shield-label">Records</div></div>
           <div class="shield">AR<div class="shield-label">Articles</div></div>
         </div>
-        <span class="zh">Project T / 世界、社群、紀錄、專欄入口</span><span class="en">Project T / Worlds, Club, Records, Articles</span><span class="jp">Project T / ワールド・クラブ・記録・記事</span><span class="kr">Project T / 세계 · 클럽 · 기록 · 아티클</span><span class="es">Project T / Mundos, Club, Récords, Artículos</span><span class="eo">Project T / Mondoj, Klubo, Rekordoj, Artikoloj</span>
+        <span class="zh">Project T / 山道世界內容系統入口</span><span class="en">Project T / Mountain-road content hub</span><span class="jp">Project T / 山道コンテンツの入口</span><span class="kr">Project T / 산길 콘텐츠 허브</span><span class="es">Project T / Centro de contenido</span><span class="eo">Project T / Enhava centro</span>
       </div>
       <h1 class="hero-title">Project T Play</h1>
-      <p class="hero-sub zh">Project T 山道世界內容系統的總入口。從世界介紹、俱樂部活動、Time Attack 紀錄到專欄內容，都從這裡開始。</p>
-      <p class="hero-sub en">The hub for the full Project T mountain-road content system: world intros, club activity, Time Attack records, and editorial writing.</p>
-      <p class="hero-sub jp">Project T 山道コンテンツ全体の入口。ワールド紹介、クラブ活動、Time Attack 記録、記事をここからたどります。</p>
-      <p class="hero-sub kr">Project T 산길 콘텐츠 시스템의 허브입니다. 세계 소개, 클럽 활동, Time Attack 기록, 아티클을 여기서 시작합니다.</p>
-      <p class="hero-sub es">El centro del sistema de contenido de Project T: introducciones de mundos, actividad del club, récords de Time Attack y artículos.</p>
-      <p class="hero-sub eo">La centro de la enhava sistemo de Project T: mondprezentoj, kluba agado, Time Attack-rekordoj, kaj artikoloj.</p>
+      <p class="hero-sub zh">Project T 山道世界內容系統的總入口。目前 Time Attack 紀錄站已上線,其餘區塊建置中。</p>
+      <p class="hero-sub en">The hub for the Project T mountain-road content system. The Time Attack records station is live; other sections are coming soon.</p>
+      <p class="hero-sub jp">Project T 山道コンテンツの入口。現在は Time Attack 記録ステーションが稼働中、他のセクションは準備中です。</p>
+      <p class="hero-sub kr">Project T 산길 콘텐츠 시스템의 허브입니다. 현재 Time Attack 기록 스테이션이 운영 중이며 다른 섹션은 준비 중입니다.</p>
+      <p class="hero-sub es">El centro del sistema de contenido de Project T. La estación de récords Time Attack está activa; las demás secciones llegarán pronto.</p>
+      <p class="hero-sub eo">La centro de la enhava sistemo de Project T. La Time Attack-rekorda stacio aktivas; aliaj sekcioj baldaŭ venos.</p>
       <div class="hero-actions">
-        <a class="cta" href="./worlds/"><span class="zh">開啟 Worlds</span><span class="en lang-fallback">Open Worlds</span><span class="jp">Worlds を開く</span><span class="kr">Worlds 열기</span><span class="es">Abrir Worlds</span><span class="eo">Malfermi Worlds</span></a>
-        <a class="cta" href="./RacingClub/"><span class="zh">進入 Racing Club</span><span class="en">Enter Racing Club</span><span class="jp">Racing Club へ</span><span class="kr">Racing Club 입장</span><span class="es">Entrar a Racing Club</span><span class="eo">Eniri Racing Club</span></a>
-        <a class="ghost-link" href="./RacingClub/TimeAttack/">
-          <span class="zh">直接開啟 Time Attack</span><span class="en">Open Time Attack</span><span class="jp">Time Attack を開く</span><span class="kr">Time Attack 열기</span><span class="es">Abrir Time Attack</span><span class="eo">Malfermi Time Attack</span>
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        <a class="cta" href="./RacingClub/TimeAttack/">
+          <span class="zh">開啟 Time Attack</span><span class="en">Open Time Attack</span><span class="jp">Time Attack を開く</span><span class="kr">Time Attack 열기</span><span class="es">Abrir Time Attack</span><span class="eo">Malfermi Time Attack</span>
         </a>
       </div>
     </div>
@@ -92,171 +100,47 @@
       <p class="lead jp">デジタル体験 · VRChat ワールド · 台湾の景観再現</p>
       <p class="lead kr">디지털 체험 · VRChat 세계 · 대만 경관 재현</p>
       <p class="lead es">Experiencias digitales · Mundos VRChat · Recreación de paisajes de Taiwán</p>
-      <p class="lead eo">Ciferecaj spertoj · VRChat mondoj · Rekroo de Tajvana pejzaĝo</p>
-      <p class="lead-sub zh">Play 不再只是紀錄站入口，而是 Project T 的內容中樞。世界介紹負責理解場景，Racing Club 負責社群與活動，Time Attack 負責可信紀錄，Articles 負責敘事與分析。</p>
-      <p class="lead-sub en">Play is no longer only a records doorway. It is now the Project T content hub: worlds explain the scene, Racing Club handles community and events, Time Attack handles trustworthy records, and Articles hold the narrative layer.</p>
-      <p class="lead-sub jp">Play は単なる記録入口ではなく、Project T 全体のハブです。ワールド紹介、クラブ運営、Time Attack 記録、記事の役割をここで分けます。</p>
-      <p class="lead-sub kr">Play 는 더 이상 기록 입구만이 아닙니다. 세계 소개, 클럽 운영, Time Attack 기록, 아티클을 분리하는 Project T 허브입니다.</p>
-      <p class="lead-sub es">Play ya no es solo una puerta de récords. Ahora es el centro de Project T: mundos, club, Time Attack y artículos cumplen roles distintos pero conectados.</p>
-      <p class="lead-sub eo">Play ne plu estas nur eniro al rekordoj. Ĝi estas la centro de Project T, kie mondoj, klubo, Time Attack kaj artikoloj havas apartajn sed ligitajn rolojn.</p>
-
-      <div class="status-grid">
-        <div class="status-cell">
-          <div class="status-num">01</div>
-          <div class="status-title zh">Worlds 層已上線</div><div class="status-title en">Worlds Layer Live</div><div class="status-title jp">Worlds 層が稼働中</div><div class="status-title kr">Worlds 레이어 운영 중</div><div class="status-title es">Capa Worlds Activa</div><div class="status-title eo">Worlds Tavolo Aktiva</div>
-          <div class="status-desc zh">世界索引與第一個世界頁已建立，先從九彎十八拐開始，把世界說明和紀錄入口分開。</div>
-          <div class="status-desc en">The world index and first world page are live, starting with 9 Turns and separating scene context from record tables.</div>
-          <div class="status-desc jp">ワールド索引と最初の世界ページが稼働中。まず九彎十八拐から始め、紹介と記録を分離します。</div>
-          <div class="status-desc kr">월드 인덱스와 첫 세계 페이지가 운영 중이며, 9 Turns 부터 세계 설명과 기록 테이블을 분리합니다.</div>
-          <div class="status-desc es">El índice de mundos y la primera página de mundo ya están activos, comenzando con 9 Turns.</div>
-          <div class="status-desc eo">La monda indekso kaj la unua mondpaĝo jam aktivas, komencante per 9 Turns.</div>
-        </div>
-        <div class="status-cell">
-          <div class="status-num">02</div>
-          <div class="status-title zh">紀錄與活動維持 live</div><div class="status-title en">Records &amp; Events Stay Live</div><div class="status-title jp">記録とイベントは継続稼働</div><div class="status-title kr">기록과 이벤트는 계속 운영</div><div class="status-title es">Récords y Eventos Siguen Activos</div><div class="status-title eo">Rekordoj kaj Eventoj Restas Aktivaj</div>
-          <div class="status-desc zh">Racing Club、Time Attack、Events 延續既有站點，不重寫資料流，只補上從世界與文章回連的入口。</div>
-          <div class="status-desc en">Racing Club, Time Attack, and Events remain the live surfaces; this MVP adds cross-links without rebuilding the data flow.</div>
-          <div class="status-desc jp">Racing Club・Time Attack・Events は既存面を維持し、今回は相互リンクを補強します。</div>
-          <div class="status-desc kr">Racing Club, Time Attack, Events 는 기존 면을 유지하고 이번에는 상호 링크만 보강합니다.</div>
-          <div class="status-desc es">Racing Club, Time Attack y Events siguen activos; este MVP añade enlaces cruzados sin rehacer el flujo de datos.</div>
-          <div class="status-desc eo">Racing Club, Time Attack kaj Events restas aktivaj; ĉi tiu MVP aldonas kruc-ligilojn sen refari la datumfluon.</div>
-        </div>
-        <div class="status-cell">
-          <div class="status-num">03</div>
-          <div class="status-title zh">Articles 層啟動</div><div class="status-title en">Articles Layer Started</div><div class="status-title jp">Articles 層を開始</div><div class="status-title kr">Articles 레이어 시작</div><div class="status-title es">Capa de Artículos Iniciada</div><div class="status-title eo">Artikola Tavolo Komencita</div>
-          <div class="status-desc zh">Articles index 與第一篇賽道解析已上線，正式規則仍留在 Racing Club / Time Attack，不讓文章取代資料頁。</div>
-          <div class="status-desc en">The Articles index and first course guide are live, while formal rules remain in Racing Club / Time Attack.</div>
-          <div class="status-desc jp">Articles index と最初のコースガイドが稼働中。正式ルールは Racing Club / Time Attack に残します。</div>
-          <div class="status-desc kr">Articles index 와 첫 코스 가이드가 운영 중이며, 공식 규칙은 Racing Club / Time Attack 에 남겨 둡니다.</div>
-          <div class="status-desc es">El índice de artículos y la primera guía ya están activos, pero las reglas formales siguen en Racing Club / Time Attack.</div>
-          <div class="status-desc eo">La artikola indekso kaj la unua kursa gvidilo aktivas, sed formalaj reguloj restas ĉe Racing Club / Time Attack.</div>
-        </div>
-      </div>
+      <p class="lead eo">Ciferecaj spertoj · VRChat mondoj · Rekreo de Tajvana pejzaĝo</p>
 
       <section class="section">
         <div class="section-head">
-          <h2 class="section-title"><span class="zh">四大入口</span><span class="en">Four Main Entries</span><span class="jp">4つの入口</span><span class="kr">네 개의 입구</span><span class="es">Cuatro Entradas</span><span class="eo">Kvar Ĉefaj Enirejoj</span></h2>
-          <p class="section-note zh">每個入口都只連到已存在的實頁。Worlds、Racing Club、Time Attack、Articles 各自負責不同職責，但彼此能互相回連。</p>
-          <p class="section-note en">Each entry links only to live pages. Worlds, Racing Club, Time Attack, and Articles each keep their own role while cross-linking where useful.</p>
-          <p class="section-note jp">各入口は実在するページだけにリンクします。Worlds・Racing Club・Time Attack・Articles は役割を分けて相互連携します。</p>
-          <p class="section-note kr">각 입구는 실제 존재하는 페이지에만 연결됩니다. Worlds, Racing Club, Time Attack, Articles 는 역할을 나눠 상호 연결됩니다.</p>
-          <p class="section-note es">Cada entrada enlaza solo a páginas reales. Worlds, Racing Club, Time Attack y Articles mantienen roles separados pero conectados.</p>
-          <p class="section-note eo">Ĉiu enirejo ligas nur al ekzistantaj paĝoj. Worlds, Racing Club, Time Attack, kaj Articles konservas apartajn rolojn sed interligiĝas.</p>
+          <h2 class="section-title"><span class="zh">內容入口</span><span class="en">Sections</span><span class="jp">セクション</span><span class="kr">섹션</span><span class="es">Secciones</span><span class="eo">Sekcioj</span></h2>
+          <p class="section-note zh">Time Attack 紀錄站已上線。Worlds、Racing Club 與 Articles 仍在建置中,稍後開放。</p>
+          <p class="section-note en">The Time Attack station is live. Worlds, Racing Club, and Articles are still being built and will open later.</p>
+          <p class="section-note jp">Time Attack ステーションは稼働中。Worlds・Racing Club・Articles は準備中です。</p>
+          <p class="section-note kr">Time Attack 스테이션은 운영 중입니다. Worlds, Racing Club, Articles 는 준비 중입니다.</p>
+          <p class="section-note es">La estación Time Attack está activa. Worlds, Racing Club y Articles aún se están construyendo.</p>
+          <p class="section-note eo">La Time Attack-stacio aktivas. Worlds, Racing Club kaj Articles ankoraŭ konstruiĝas.</p>
         </div>
         <div class="card-grid">
-          <article class="card">
+          <article class="card card-is-soon">
             <div class="card-label"><span class="zh">世界介紹</span><span class="en">Worlds</span><span class="jp">ワールド紹介</span><span class="kr">세계 소개</span><span class="es">Mundos</span><span class="eo">Mondoj</span></div>
             <h3 class="card-title">Project T Worlds</h3>
-            <p class="card-text zh">從世界列表理解每個山道場景的定位、狀態與路線入口。第一版先上線世界索引與九彎十八拐詳情頁。</p>
-            <p class="card-text en">Use the world layer to understand each mountain-road scene, its status, and its route entry points. MVP starts with the index and 9 Turns.</p>
-            <p class="card-text jp">山道ワールドの位置づけ、状態、ルート入口を世界層で確認します。MVP は索引と九彎十八拐から開始。</p>
-            <p class="card-text kr">각 산길 세계의 위치, 상태, 루트 입구를 이 레이어에서 확인합니다. MVP 는 인덱스와 9 Turns 부터 시작합니다.</p>
-            <p class="card-text es">Usa la capa de mundos para entender cada escena, su estado y sus rutas. El MVP comienza con el índice y 9 Turns.</p>
-            <p class="card-text eo">Uzu la mondan tavolon por kompreni ĉiun montvojan scenon, ĝian staton kaj ĝiajn itinerojn. La MVP komenciĝas per la indekso kaj 9 Turns.</p>
-            <a class="card-link" href="./worlds/">
-              <span class="zh">開啟 Worlds</span><span class="en">Open Worlds</span><span class="jp">Worlds を開く</span><span class="kr">Worlds 열기</span><span class="es">Abrir Worlds</span><span class="eo">Malfermi Worlds</span>
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-            </a>
+            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span><span class="kr">준비 중</span><span class="es">Próximamente</span><span class="eo">Baldaŭ</span></span>
           </article>
-          <article class="card">
-            <div class="card-label"><span class="zh">主要入口</span><span class="en">Primary Entry</span><span class="jp">メイン入口</span><span class="kr">주요 입구</span><span class="es">Entrada Principal</span><span class="eo">Ĉefa Eniro</span></div>
+          <article class="card card-is-soon">
+            <div class="card-label"><span class="zh">賽車社群</span><span class="en">Racing Club</span><span class="jp">クラブ</span><span class="kr">클럽</span><span class="es">Club</span><span class="eo">Klubo</span></div>
             <h3 class="card-title">Racing Club</h3>
-            <p class="card-text zh">社群入口頁。從這裡進入俱樂部說明、Time Attack 紀錄站，以及後續保留的社群與媒體接口。</p>
-            <p class="card-text en">The club-facing entry. From here you branch into club context, the Time Attack station, and reserved social interfaces.</p>
-            <p class="card-text jp">クラブ入口ページ。クラブ説明・Time Attack 記録・予約済みソーシャルに分岐します。</p>
-            <p class="card-text kr">클럽 입구 페이지。클럽 설명, Time Attack 기록, 예약된 소셜 인터페이스로 이동합니다。</p>
-            <p class="card-text es">La entrada del club. Desde aquí accedes al contexto del club, la estación Time Attack y las interfaces reservadas.</p>
-            <p class="card-text eo">La eniro de la klubo. De ĉi tie vi branĉas al kunteksto, Time Attack-stacio kaj rezervitaj interfacoj.</p>
-            <a class="card-link" href="./RacingClub/">
-              <span class="zh">開啟 Racing Club</span><span class="en">Open Racing Club</span><span class="jp">Racing Club を開く</span><span class="kr">Racing Club 열기</span><span class="es">Abrir Racing Club</span><span class="eo">Malfermi Racing Club</span>
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-            </a>
+            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span><span class="kr">준비 중</span><span class="es">Próximamente</span><span class="eo">Baldaŭ</span></span>
           </article>
           <article class="card">
             <div class="card-label"><span class="zh">紀錄站</span><span class="en">Records</span><span class="jp">記録ページ</span><span class="kr">기록 페이지</span><span class="es">Récords</span><span class="eo">Rekordoj</span></div>
             <h3 class="card-title">Time Attack</h3>
-            <p class="card-text zh">現有的多頁紀錄站,沿用目前網站的分頁架構,賽道、玩家、車輛皆為清單到詳情。</p>
+            <p class="card-text zh">多頁紀錄站,賽道、玩家、車輛皆為清單到詳情。</p>
             <p class="card-text en">The live multi-page records station — tracks, players, and vehicles each go list-to-detail.</p>
-            <p class="card-text jp">稼働中の複数ページ記録ステーション — コース・選手・車両それぞれ一覧から詳細へ。</p>
-            <p class="card-text kr">운영 중인 다중 페이지 기록 스테이션 — 코스, 선수, 차량 각각 목록에서 상세로。</p>
-            <p class="card-text es">La estación de récords multip-página activa — pistas, jugadores y vehículos de lista a detalle.</p>
-            <p class="card-text eo">La aktiva plurpaĝa rekorda stacio — trakoj, ludantoj kaj veturiloj de listo al detalo.</p>
+            <p class="card-text jp">複数ページの記録ステーション — コース・選手・車両それぞれ一覧から詳細へ。</p>
+            <p class="card-text kr">다중 페이지 기록 스테이션 — 코스, 선수, 차량 각각 목록에서 상세로.</p>
+            <p class="card-text es">La estación de récords multipágina — pistas, jugadores y vehículos de lista a detalle.</p>
+            <p class="card-text eo">La plurpaĝa rekorda stacio — trakoj, ludantoj kaj veturiloj de listo al detalo.</p>
             <a class="card-link" href="./RacingClub/TimeAttack/">
               <span class="zh">進入紀錄站</span><span class="en">Open Records</span><span class="jp">記録ページを開く</span><span class="kr">기록 열기</span><span class="es">Abrir Récords</span><span class="eo">Malfermi Rekordojn</span>
               <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
             </a>
           </article>
-          <article class="card">
-            <div class="card-label"><span class="zh">專欄層</span><span class="en">Articles</span><span class="jp">記事層</span><span class="kr">아티클 레이어</span><span class="es">Artículos</span><span class="eo">Artikoloj</span></div>
+          <article class="card card-is-soon">
+            <div class="card-label"><span class="zh">專欄層</span><span class="en">Articles</span><span class="jp">記事層</span><span class="kr">아티클</span><span class="es">Artículos</span><span class="eo">Artikoloj</span></div>
             <h3 class="card-title">Project T Articles</h3>
-            <p class="card-text zh">世界筆記、賽道解析、活動回顧與製作紀錄集中在這裡。第一篇先從九彎十八拐賽道解析開始。</p>
-            <p class="card-text en">World notes, course guides, event recaps, and devlogs collect here. The first live piece is the 9 Turns course guide.</p>
-            <p class="card-text jp">ワールドノート、コースガイド、イベント回顧、開発記録をここに集約します。最初の記事は九彎十八拐の解析です。</p>
-            <p class="card-text kr">월드 노트, 코스 가이드, 이벤트 회고, 제작 기록을 이곳에 모읍니다. 첫 글은 9 Turns 코스 가이드입니다.</p>
-            <p class="card-text es">Aquí se reúnen notas de mundo, guías de curso, recapitulaciones y devlogs. El primer artículo es la guía de 9 Turns.</p>
-            <p class="card-text eo">Mondnotoj, kursaj gvidiloj, eventaj resumoj kaj evoluaj taglibroj kolektiĝas ĉi tie. La unua aktiva teksto estas la 9 Turns-gvidilo.</p>
-            <a class="card-link" href="./articles/">
-              <span class="zh">開啟 Articles</span><span class="en">Open Articles</span><span class="jp">Articles を開く</span><span class="kr">Articles 열기</span><span class="es">Abrir Articles</span><span class="eo">Malfermi Articles</span>
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-            </a>
-          </article>
-          <article class="card">
-            <div class="card-label"><span class="zh">資料規劃</span><span class="en">Planning</span><span class="jp">データ計画</span><span class="kr">데이터 계획</span><span class="es">Planificación</span><span class="eo">Planado</span></div>
-            <h3 class="card-title"><span class="zh">Racing Club 規劃</span><span class="en">Racing Club Plan</span><span class="jp">Racing Club 計画</span><span class="kr">Racing Club 계획</span><span class="es">Plan de Racing Club</span><span class="eo">Racing Club Plano</span></h3>
-            <p class="card-text zh">站點與資料生成以 規劃.md 為基底，包括 lookup、builder、審核與輸出流程。</p>
-            <p class="card-text en">The site and builder flow derive from 規劃.md — lookups, review flow, and static output.</p>
-            <p class="card-text jp">サイトとビルダーフローは 規劃.md をベースに — ルックアップ、審査、静的出力。</p>
-            <p class="card-text kr">사이트와 빌더 흐름은 規劃.md 기반 — 룩업, 검토 흐름, 정적 출력。</p>
-            <p class="card-text es">El sitio y el flujo de construcción derivan de 規劃.md — búsquedas, revisión y salida estática.</p>
-            <p class="card-text eo">La retejo kaj konstrua fluo derivas de 規劃.md — serĉoj, reviza fluo kaj statika eligo.</p>
-            <a class="card-link" href="./RacingClub/%E8%A6%8F%E5%8A%83.md">
-              <span class="zh">查看規劃</span><span class="en">Read Plan</span><span class="jp">計画を読む</span><span class="kr">계획 읽기</span><span class="es">Leer Plan</span><span class="eo">Legi Planon</span>
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title"><span class="zh">保留接口</span><span class="en">Reserved Interfaces</span><span class="jp">予約済みスロット</span><span class="kr">예약된 슬롯</span><span class="es">Interfaces Reservadas</span><span class="eo">Rezervitaj Interfacoj</span></h2>
-          <p class="section-note zh">這些層仍然保留位置，但不假裝已完成。等真正有內容或正式外部入口，再接回這個系統。</p>
-          <p class="section-note en">These layers keep their place without pretending to be done. They attach once real content or official external endpoints exist.</p>
-          <p class="section-note jp">これらの層は場所だけ確保し、未完成のものを完成済みとは見せません。</p>
-          <p class="section-note kr">이 레이어들은 자리만 확보하고 아직 완성된 것처럼 보이게 하지 않습니다.</p>
-          <p class="section-note es">Estas capas mantienen su lugar sin fingir estar terminadas.</p>
-          <p class="section-note eo">Ĉi tiuj tavoloj konservas sian lokon sen ŝajnigi sin finitaj.</p>
-        </div>
-        <div class="mini-grid">
-          <article class="mini-card">
-            <div class="mini-label"><span class="zh">Media</span><span class="en">Media</span><span class="jp">メディア</span><span class="kr">미디어</span><span class="es">Medios</span><span class="eo">Amaskomunikiloj</span></div>
-            <h3 class="mini-title zh">Gallery / 宣傳素材</h3><h3 class="mini-title en">Gallery / Promos</h3><h3 class="mini-title jp">ギャラリー / 素材</h3><h3 class="mini-title kr">갤러리 / 프로모</h3><h3 class="mini-title es">Galería / Promos</h3><h3 class="mini-title eo">Galerio / Reklamoj</h3>
-            <p class="mini-text zh">截圖、影片、宣傳圖卡先保留位置，等媒體整理流程穩定再掛正式頁面。</p>
-            <p class="mini-text en">Screenshots, clips, and promo assets stay queued until the media workflow is ready.</p>
-            <p class="mini-text jp">スクリーンショットや映像、販促素材はワークフローが整ってから追加します。</p>
-            <p class="mini-text kr">스크린샷, 영상, 프로모 자산은 미디어 워크플로가 준비되면 추가합니다.</p>
-            <p class="mini-text es">Capturas, clips y piezas promocionales quedan en cola hasta que el flujo de medios esté listo.</p>
-            <p class="mini-text eo">Ekrankopioj, klipoj kaj reklamaĵoj restas atendante ĝis la media laborfluo pretos.</p>
-          </article>
-          <article class="mini-card">
-            <div class="mini-label"><span class="zh">賽季</span><span class="en">Seasons</span><span class="jp">シーズン</span><span class="kr">시즌</span><span class="es">Temporadas</span><span class="eo">Sezonoj</span></div>
-            <h3 class="mini-title zh">活動與賽季頁</h3><h3 class="mini-title en">Events &amp; Seasons</h3><h3 class="mini-title jp">イベントとシーズン</h3><h3 class="mini-title kr">이벤트와 시즌</h3><h3 class="mini-title es">Eventos y Temporadas</h3><h3 class="mini-title eo">Eventoj kaj Sezonoj</h3>
-            <p class="mini-text zh">等活動頁和積分規則穩定後,再掛正式賽季入口。</p>
-            <p class="mini-text en">Once events and points rules stabilize, the official season entry can live here.</p>
-            <p class="mini-text jp">イベントページと積分ルールが安定したら正式なシーズン入口を設けます。</p>
-            <p class="mini-text kr">이벤트 페이지와 점수 규칙이 안정되면 공식 시즌 입구를 연결합니다。</p>
-            <p class="mini-text es">Una vez que los eventos y las reglas de puntos se estabilicen, la entrada de temporada estará aquí.</p>
-            <p class="mini-text eo">Kiam eventoj kaj punktaj reguloj stabiliĝos, la oficiala sezona eniro estos ĉi tie.</p>
-          </article>
-          <article class="mini-card">
-            <div class="mini-label"><span class="zh">社群</span><span class="en">Community</span><span class="jp">コミュニティ</span><span class="kr">커뮤니티</span><span class="es">Comunidad</span><span class="eo">Komunumo</span></div>
-            <h3 class="mini-title zh">外部社群連結</h3><h3 class="mini-title en">External Community</h3><h3 class="mini-title jp">外部コミュニティ</h3><h3 class="mini-title kr">외부 커뮤니티</h3><h3 class="mini-title es">Comunidad Externa</h3><h3 class="mini-title eo">Ekstera Komunumo</h3>
-            <p class="mini-text zh">Discord、VRChat Group、媒體平台等外部入口,等正式連結確認後再開放。</p>
-            <p class="mini-text en">Discord, VRChat Group, and media links stay closed until confirmed.</p>
-            <p class="mini-text jp">Discord・VRChat Group・メディアリンクは確認されるまで保留です。</p>
-            <p class="mini-text kr">Discord, VRChat Group, 미디어 링크는 확인될 때까지 보류입니다。</p>
-            <p class="mini-text es">Discord, VRChat Group y medios permanecen cerrados hasta confirmación.</p>
-            <p class="mini-text eo">Discord, VRChat Group kaj amaskomunikiloj restas fermitaj ĝis konfirmo.</p>
+            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span><span class="kr">준비 중</span><span class="es">Próximamente</span><span class="eo">Baldaŭ</span></span>
           </article>
         </div>
       </section>
