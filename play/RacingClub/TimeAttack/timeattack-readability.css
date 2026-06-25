@@ -59,3 +59,22 @@ html.sr-fluid .ta-title   { font-size: clamp(2.6rem, 1.8rem + 3.4vw, 5rem); line
 html.sr-fluid .ta-desc    { font-size: clamp(16px, 1rem + 0.2vw, 19px); }
 html.sr-fluid .ta-section-title,
 html.sr-fluid .ta-board-title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem); }
+
+/* 4 · topbar brand + back-nav contrast --------------------------
+   .pt-brand / .pt-toplink / .pt-lang come from project-t.css with the
+   DAY (map-paper) palette — dark ink + near-white fills — which render
+   dark-on-dark on this NIGHT topbar (the station never overrides them).
+   Re-point them to the station's night tokens. Scoped to .ta-topbar so
+   the light Play pages are untouched. */
+.ta-topbar .pt-brand,
+.ta-topbar .pt-brand-name   { color: var(--ta-text); }
+.ta-topbar .pt-brand-kicker { color: var(--ta-text-faint); }
+.ta-topbar .pt-toplink,
+.ta-topbar .pt-lang,
+.ta-topbar .pt-ghostlink {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--ta-text);
+}
+.ta-topbar .pt-toplink:hover,
+.ta-topbar .pt-ghostlink:hover { background: rgba(255, 255, 255, 0.12); }
