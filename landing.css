@@ -25,12 +25,9 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
 /* language visibility (unchanged from the site convention) */
-html.lang-zh :is(.en,.jp,.kr,.es,.eo) { display: none; }
-html.lang-en :is(.zh,.jp,.kr,.es,.eo) { display: none; }
-html.lang-jp :is(.zh,.en,.kr,.es,.eo) { display: none; }
-html.lang-kr :is(.zh,.en,.jp,.es,.eo) { display: none; }
-html.lang-es :is(.zh,.en,.jp,.kr,.eo) { display: none; }
-html.lang-eo :is(.zh,.en,.jp,.kr,.es) { display: none; }
+html.lang-zh :is(.en,.jp) { display: none; }
+html.lang-en :is(.zh,.jp) { display: none; }
+html.lang-jp :is(.zh,.en) { display: none; }
 
 /* ─── background: nebula + starfield (z-index:-1 — never over UI) ─ */
 .sr-sky {
