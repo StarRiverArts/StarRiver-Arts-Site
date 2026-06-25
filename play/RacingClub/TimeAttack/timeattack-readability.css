@@ -11,6 +11,11 @@
    Load AFTER timeattack.css.
    ============================================================ */
 
+/* 0 · large-screen fluid root — the station does NOT load ds-additions.css,
+   so html.sr-fluid would otherwise be inert here. Define it locally so the
+   station scales with the rest of the site (16px laptop → 21px big screen). */
+html.sr-fluid { font-size: clamp(16px, 0.95rem + 0.3vw, 21px); -webkit-text-size-adjust: 100%; }
+
 /* 1 · global contrast — lift the faint/soft tokens one step.
    Fixes every faint label/row at once (was #94A098 / #C3CCC3 on
    the #141B19 night ground). */
