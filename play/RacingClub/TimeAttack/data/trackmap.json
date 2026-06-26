@@ -17,14 +17,14 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "52",
+      "value": "54",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
     {
       "label_zh": "地點",
       "label_en": "Places",
-      "value": "29",
+      "value": "30",
       "note_zh": "有座標可上圖的地名",
       "note_en": "Localities with map coordinates"
     },
@@ -608,8 +608,8 @@
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "困難",
-                  "route_count": 1,
-                  "record_count": 6,
+                  "route_count": 2,
+                  "record_count": 8,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -742,6 +742,20 @@
               "name_en": "Myogi",
               "has_point": true,
               "tracks": [
+                {
+                  "track_world_code": "shinmyogi",
+                  "track_display_name": "ShinMyogi",
+                  "world_name": "ShinMyogi",
+                  "world_url": "https://vrchat.com/home/world/wrld_7f2ab4b2-012c-49d1-a968-3c4ff4a6f7fb",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
                 {
                   "track_world_code": "myogi_asv_jintei",
                   "track_display_name": "妙義(妙義ASV)",
@@ -1150,7 +1164,7 @@
                   "track_env": "公路",
                   "difficulty": "簡單",
                   "route_count": 1,
-                  "record_count": 10,
+                  "record_count": 14,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1429,6 +1443,31 @@
               "point_source": "place"
             },
             {
+              "name": "諾森伯蘭Northumberland",
+              "name_zh": "諾森伯蘭",
+              "name_en": "Northumberland",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "kielder",
+                  "track_display_name": "Kielder",
+                  "world_name": "Kielder",
+                  "world_url": "https://vrchat.com/home/world/wrld_dfc20b4b-0bd1-4438-aed7-c60278312c7b",
+                  "system_name": "Unknown",
+                  "track_env": "拉力",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 55.227187,
+              "lng": -2.564348,
+              "point_source": "place"
+            },
+            {
               "name": "銀石Silverstone",
               "name_zh": "銀石",
               "name_en": "Silverstone",
@@ -1495,8 +1534,8 @@
       "system_name": "Unknown",
       "track_env": "賽道",
       "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
+      "route_count": 2,
+      "record_count": 3,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1566,7 +1605,7 @@
       "track_env": "賽道",
       "difficulty": "中等",
       "route_count": 1,
-      "record_count": 1,
+      "record_count": 3,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1588,7 +1627,8 @@
       "日本Japan|Unknown": "hsl(154, 45%, 62%)",
       "美國USA|CVS": "hsl(206, 78%, 62%)",
       "臺灣Taiwan|CVS": "hsl(257, 78%, 62%)",
-      "英國UK|CVS": "hsl(309, 78%, 62%)"
+      "英國UK|CVS": "hsl(309, 78%, 62%)",
+      "英國UK|Unknown": "hsl(309, 45%, 62%)"
     },
     "neutral": "hsl(150, 6%, 52%)",
     "legend": [
@@ -1663,6 +1703,14 @@
         "system": "CVS",
         "label_zh": "英國·CVS",
         "label_en": "UK·CVS"
+      },
+      {
+        "key": "英國UK|Unknown",
+        "color": "hsl(309, 45%, 62%)",
+        "country": "英國UK",
+        "system": "Unknown",
+        "label_zh": "英國·Unknown",
+        "label_en": "UK·Unknown"
       }
     ]
   }
