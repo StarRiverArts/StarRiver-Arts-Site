@@ -1,43 +1,63 @@
 {
-  "schema": "srvrc-index/1",
+  "schema": "srvrc-index/2",
   "updated": "2026-06-27",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
-  "boards": [
+  "tracks": [
     {
-      "track": "starsight_starriver_arts",
-      "route": "DH",
+      "code": "starsight_starriver_arts",
       "zh": "觀星山",
-      "route_zh": "下行",
-      "file": "starsight_starriver_arts__DH.json",
-      "status": "live",
-      "count": 55
+      "en": "StarSight",
+      "system": "cvs",
+      "file": "starsight_starriver_arts.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "count": 55
+        }
+      ]
     },
     {
-      "track": "pt_9t_starriver_arts",
-      "route": "DH",
+      "code": "pt_9t_starriver_arts",
       "zh": "九彎十八拐CVS",
-      "route_zh": "下行",
-      "file": "pt_9t_starriver_arts__DH.json",
-      "status": "live",
-      "count": 10
+      "en": "PT:9T",
+      "system": "cvs",
+      "file": "pt_9t_starriver_arts.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "count": 10
+        }
+      ]
     },
     {
-      "track": "pt_wuling_starriver_arts",
-      "route": "DH",
+      "code": "pt_wuling_starriver_arts",
       "zh": "武嶺",
-      "route_zh": "下行",
-      "file": "pt_wuling_starriver_arts__DH.json",
-      "status": "prep",
-      "count": 0
-    },
-    {
-      "track": "pt_wuling_starriver_arts",
-      "route": "UH",
-      "zh": "武嶺",
-      "route_zh": "上行",
-      "file": "pt_wuling_starriver_arts__UH.json",
-      "status": "prep",
-      "count": 0
+      "en": "Wuling",
+      "system": "cvs",
+      "file": "pt_wuling_starriver_arts.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "prep",
+          "count": 0
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "prep",
+          "count": 0
+        }
+      ],
+      "region": {
+        "country": "臺灣",
+        "area": "中部",
+        "mountain": "合歡山"
+      }
     }
   ]
 }
