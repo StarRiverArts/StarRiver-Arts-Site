@@ -4,7 +4,7 @@
       "label_zh": "最多賽道紀錄",
       "label_en": "Most Track Records",
       "name": "CannedCarbon",
-      "value": "21 TR"
+      "value": "23 TR"
     },
     {
       "label_zh": "最多車輛紀錄",
@@ -26,6 +26,44 @@
     }
   ],
   "recent_runs": [
+    {
+      "record_date": "2026-06-27",
+      "track_world_code": "happogahara_jintei",
+      "route_code": "IB",
+      "route_label_zh": "Happogahara / Inbound",
+      "route_label_en": "Happogahara / Inbound",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "R34(BNR34)",
+      "vehicle_model_code": "veh_bnr34",
+      "lap_time_text": "03:37.293",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
+    {
+      "record_date": "2026-06-27",
+      "track_world_code": "happogahara_jintei",
+      "route_code": "OB",
+      "route_label_zh": "Happogahara / Outbound",
+      "route_label_en": "Happogahara / Outbound",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "EK9 (Civic Type-R)",
+      "vehicle_model_code": "veh_ek9_civic_type_r",
+      "lap_time_text": "03:31.507",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
     {
       "record_date": "2026-06-26",
       "track_world_code": "futatsukane",
@@ -139,44 +177,6 @@
       "badge_label_zh": "賽道紀錄",
       "badge_label_en": "Track Record",
       "badge_tone": "tr"
-    },
-    {
-      "record_date": "2026-06-26",
-      "track_world_code": "shinmyogi",
-      "route_code": "DH",
-      "route_label_zh": "ShinMyogi / Downhill",
-      "route_label_en": "ShinMyogi / Downhill",
-      "player_display_name": "StarRiver Arts",
-      "player_id": "plr_starriver_arts",
-      "vehicle_model_name": "EG6",
-      "vehicle_model_code": "veh_eg6",
-      "lap_time_text": "02:54.767",
-      "platform": "pc",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "",
-      "badge_label_zh": "",
-      "badge_label_en": "",
-      "badge_tone": ""
-    },
-    {
-      "record_date": "2026-06-26",
-      "track_world_code": "shinmyogi",
-      "route_code": "DH",
-      "route_label_zh": "ShinMyogi / Downhill",
-      "route_label_en": "ShinMyogi / Downhill",
-      "player_display_name": "StarRiver Arts",
-      "player_id": "plr_starriver_arts",
-      "vehicle_model_name": "EG6",
-      "vehicle_model_code": "veh_eg6",
-      "lap_time_text": "02:44.233",
-      "platform": "pc",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "CR",
-      "badge_label_zh": "車輛紀錄",
-      "badge_label_en": "Car Record",
-      "badge_tone": "cr"
     }
   ],
   "track_options": [
@@ -784,6 +784,14 @@
         "category_key": "日本Japan|Sacc"
       },
       {
+        "code": "happogahara_jintei",
+        "name": "Happogahara",
+        "count": 3,
+        "country": "日本Japan",
+        "system": "Sacc",
+        "category_key": "日本Japan|Sacc"
+      },
+      {
         "code": "suzuka",
         "name": "Suzuka",
         "count": 3,
@@ -858,14 +866,6 @@
       {
         "code": "nagoya_jintei",
         "name": "Nagoya",
-        "count": 1,
-        "country": "日本Japan",
-        "system": "Sacc",
-        "category_key": "日本Japan|Sacc"
-      },
-      {
-        "code": "happogahara_jintei",
-        "name": "Happogahara",
         "count": 1,
         "country": "日本Japan",
         "system": "Sacc",
@@ -1045,14 +1045,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "836",
+      "value": "838",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "836",
+      "value": "838",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -1066,7 +1066,7 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "836",
+      "value": "838",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
