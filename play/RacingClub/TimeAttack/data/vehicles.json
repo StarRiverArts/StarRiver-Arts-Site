@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "155",
+      "value": "157",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "201",
+      "value": "204",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "賽道最佳",
       "label_en": "Track Records",
-      "value": "100",
+      "value": "102",
       "note_zh": "車型紀錄中，同時也是整條路線最快的筆數",
       "note_en": "Runs that are both a model best and the fastest overall route record"
     }
@@ -1423,7 +1423,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "50"
+          "value": "51"
         },
         {
           "label_zh": "已驗證",
@@ -1433,11 +1433,11 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "7"
+          "value": "8"
         }
       ],
       "badge_counts": {
-        "TR": 7,
+        "TR": 8,
         "CR": 13,
         "PR": 0
       },
@@ -1947,6 +1947,32 @@
         },
         {
           "rank": 18,
+          "route_label_zh": "Futatsukane / Clockwise",
+          "route_label_en": "Futatsukane / Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 252693,
+          "lap_time_text": "04:12.693",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-28",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 19,
           "route_label_zh": "HarunaG / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "菲娜 希琉絲",
@@ -1973,7 +1999,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 19,
+          "rank": 20,
           "route_label_zh": "Mt.Hakone / Inbound",
           "route_label_en": "Mt.Hakone / Inbound",
           "player_display_name": "StarRiver Arts",
@@ -1998,7 +2024,7 @@
           "badge_tone": "tr"
         },
         {
-          "rank": 20,
+          "rank": 21,
           "route_label_zh": "C1 Runner / Outer",
           "route_label_en": "C1 Runner / Outer",
           "player_display_name": "StarRiver Arts",
@@ -2031,6 +2057,10 @@
         },
         {
           "label": "高速公路",
+          "value": 1
+        },
+        {
+          "label": "公路",
           "value": 1
         }
       ],
@@ -2586,6 +2616,65 @@
           ]
         },
         {
+          "variant_code": "veh_fd3sam_attack",
+          "variant_name": "FD3SAM-Attack",
+          "record_count": 3,
+          "record_rows": [
+            {
+              "rank": 1,
+              "route_label_zh": "Kamidomarizaka / Uphill",
+              "route_label_en": "Kamidomarizaka / Uphill",
+              "player_display_name": "Yang路人",
+              "player_id": "plr_yang",
+              "vehicle_model_name": "FD3S (RX7)",
+              "vehicle_model_code": "veh_fd3s_rx7",
+              "lap_time_ms": 109744,
+              "lap_time_text": "01:49.744",
+              "delta_to_best_text": "+0.000",
+              "platform": "pcvr",
+              "record_date": "2026-03-19",
+              "track_env": "山道",
+              "track_tags": [
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "Yang路人",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "rank": 2,
+              "route_label_zh": "Futatsukane / Clockwise",
+              "route_label_en": "Futatsukane / Clockwise",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "FD3S (RX7)",
+              "vehicle_model_code": "veh_fd3s_rx7",
+              "lap_time_ms": 252693,
+              "lap_time_text": "04:12.693",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-06-28",
+              "track_env": "公路",
+              "track_tags": [
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            }
+          ]
+        },
+        {
           "variant_code": "veh_fd3s_lighttuned_type2",
           "variant_name": "FD3S LightTuned type2",
           "record_count": 2,
@@ -2675,39 +2764,6 @@
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",
               "badge_tone": "cr"
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_fd3sam_attack",
-          "variant_name": "FD3SAM-Attack",
-          "record_count": 2,
-          "record_rows": [
-            {
-              "rank": 1,
-              "route_label_zh": "Kamidomarizaka / Uphill",
-              "route_label_en": "Kamidomarizaka / Uphill",
-              "player_display_name": "Yang路人",
-              "player_id": "plr_yang",
-              "vehicle_model_name": "FD3S (RX7)",
-              "vehicle_model_code": "veh_fd3s_rx7",
-              "lap_time_ms": 109744,
-              "lap_time_text": "01:49.744",
-              "delta_to_best_text": "+0.000",
-              "platform": "pcvr",
-              "record_date": "2026-03-19",
-              "track_env": "山道",
-              "track_tags": [
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "Yang路人",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
             }
           ]
         },
@@ -4760,12 +4816,12 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "9"
+          "value": "7"
         }
       ],
       "badge_counts": {
-        "TR": 9,
-        "CR": 9,
+        "TR": 7,
+        "CR": 11,
         "PR": 0
       },
       "tag_chips": [
@@ -5258,7 +5314,7 @@
           "vehicle_model_code": "veh_bnr34",
           "lap_time_ms": 241783,
           "lap_time_text": "04:01.783",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+22.023",
           "platform": "pc",
           "record_date": "2025-06-09",
           "track_env": "山道",
@@ -5269,10 +5325,10 @@
           "peer_label": "LinWu_05",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "rank": 18,
@@ -5284,7 +5340,7 @@
           "vehicle_model_code": "veh_bnr34",
           "lap_time_ms": 245203,
           "lap_time_text": "04:05.203",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+23.590",
           "platform": "pc",
           "record_date": "2025-06-09",
           "track_env": "山道",
@@ -5295,10 +5351,10 @@
           "peer_label": "LinWu_05",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         }
       ],
       "env_rows": [
@@ -5537,7 +5593,7 @@
               "vehicle_model_code": "veh_bnr34",
               "lap_time_ms": 241783,
               "lap_time_text": "04:01.783",
-              "delta_to_best_text": "+0.000",
+              "delta_to_best_text": "+22.023",
               "platform": "pc",
               "record_date": "2025-06-09",
               "track_env": "山道",
@@ -5548,10 +5604,10 @@
               "peer_label": "LinWu_05",
               "verified": false,
               "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
             },
             {
               "rank": 10,
@@ -5563,7 +5619,7 @@
               "vehicle_model_code": "veh_bnr34",
               "lap_time_ms": 245203,
               "lap_time_text": "04:05.203",
-              "delta_to_best_text": "+0.000",
+              "delta_to_best_text": "+23.590",
               "platform": "pc",
               "record_date": "2025-06-09",
               "track_env": "山道",
@@ -5574,10 +5630,10 @@
               "peer_label": "LinWu_05",
               "verified": false,
               "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
             }
           ]
         },
@@ -14774,6 +14830,168 @@
       "variants": []
     },
     {
+      "vehicle_model_code": "veh_ap1_s2000",
+      "title": "AP1 (S2000)",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car · Honda · 日本 · 1999",
+      "subtitle_en": "Sports Car · Honda · 日本 · 1999",
+      "manufacturer": "Honda",
+      "country": "日本",
+      "year": "1999",
+      "special_marks": [],
+      "drivetrain": "FR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "2"
+        }
+      ],
+      "badge_counts": {
+        "TR": 2,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Honda · 日本 · 1999",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "AP1 (S2000)",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        },
+        {
+          "label": "Sakanakokokoko",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Tsukuba Snow / Outbound",
+          "route_label_en": "Tsukuba Snow / Outbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AP1 (S2000)",
+          "vehicle_model_code": "veh_ap1_s2000",
+          "lap_time_ms": 219760,
+          "lap_time_text": "03:39.760",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-28",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "Tsukuba Snow / Inbound",
+          "route_label_en": "Tsukuba Snow / Inbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AP1 (S2000)",
+          "vehicle_model_code": "veh_ap1_s2000",
+          "lap_time_ms": 221613,
+          "lap_time_text": "03:41.613",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-28",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "Tsukuba / Double Course",
+          "route_label_en": "Tsukuba / Double Course",
+          "player_display_name": "Sakanakokokoko",
+          "player_id": "plr_sakanakokokoko",
+          "vehicle_model_name": "AP1 (S2000)",
+          "vehicle_model_code": "veh_ap1_s2000",
+          "lap_time_ms": 255100,
+          "lap_time_text": "04:15.100",
+          "delta_to_best_text": "+49.434",
+          "platform": "pc",
+          "record_date": "2025-07-18",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "Sakanakokokoko",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 3
+        }
+      ],
+      "variants": []
+    },
+    {
       "vehicle_model_code": "veh_na6ce_mx5_roadster",
       "title": "NA6CE (Mx5 Roadster)",
       "vehicle_class": "Sports Car",
@@ -21242,6 +21460,109 @@
       "variants": []
     },
     {
+      "vehicle_model_code": "veh_mustang_boss_302",
+      "title": "Mustang Boss 302",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 0,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 拉力",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Mustang Boss 302",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Long Beach / Long Beach",
+          "route_label_en": "Long Beach / Long Beach",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Mustang Boss 302",
+          "vehicle_model_code": "veh_mustang_boss_302",
+          "lap_time_ms": 81720,
+          "lap_time_text": "01:21.720",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-28",
+          "track_env": "拉力",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "拉力",
+          "value": 1
+        }
+      ],
+      "variants": []
+    },
+    {
       "vehicle_model_code": "veh_na8c_mx5_roadster",
       "title": "NA8C (Mx5 Roadster)",
       "vehicle_class": "Sports Car",
@@ -22186,112 +22507,6 @@
             "髮夾彎"
           ],
           "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ],
-      "variants": []
-    },
-    {
-      "vehicle_model_code": "veh_ap1_s2000",
-      "title": "AP1 (S2000)",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car · Honda · 日本 · 1999",
-      "subtitle_en": "Sports Car · Honda · 日本 · 1999",
-      "manufacturer": "Honda",
-      "country": "日本",
-      "year": "1999",
-      "special_marks": [],
-      "drivetrain": "FR",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Honda · 日本 · 1999",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 Sakanakokokoko",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "AP1 (S2000)",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "Sakanakokokoko",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Tsukuba / Double Course",
-          "route_label_en": "Tsukuba / Double Course",
-          "player_display_name": "Sakanakokokoko",
-          "player_id": "plr_sakanakokokoko",
-          "vehicle_model_name": "AP1 (S2000)",
-          "vehicle_model_code": "veh_ap1_s2000",
-          "lap_time_ms": 255100,
-          "lap_time_text": "04:15.100",
-          "delta_to_best_text": "+49.434",
-          "platform": "pc",
-          "record_date": "2025-07-18",
-          "track_env": "山道",
-          "track_tags": [
-            "上下山",
-            "高速"
-          ],
-          "peer_label": "Sakanakokokoko",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
@@ -27192,6 +27407,112 @@
             "高速"
           ],
           "peer_label": "Redfrogss",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ],
+      "variants": []
+    },
+    {
+      "vehicle_model_code": "veh_zd8",
+      "title": "ZD8",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "FR",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "ZD8",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Tsukuba Snow / Outbound",
+          "route_label_en": "Tsukuba Snow / Outbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "ZD8",
+          "vehicle_model_code": "veh_zd8",
+          "lap_time_ms": 293517,
+          "lap_time_text": "04:53.517",
+          "delta_to_best_text": "+73.757",
+          "platform": "pc",
+          "record_date": "2026-06-28",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "",
           "badge_code": "CR",
