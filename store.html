@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store Concept — 星河 StarRiver Arts</title>
+<link rel="icon" href="assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="ds-additions.css">
+<style>
+  html.lang-zh #st :is(.en){display:none}
+  html.lang-en #st :is(.zh){display:none}
+  #st{min-height:100vh;background:var(--sr-paper,#F3EEE3);color:var(--sr-ink,#14140E);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  #st a{color:inherit;text-decoration:none}
+  #st img{display:block;max-width:100%}
+  #st .st-ribbon{background:var(--sr-ink,#14140E);color:var(--sr-paper,#F3EEE3);font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:9px 16px}
+  #st .st-ribbon b{color:var(--sr-amber,#E88A2E);font-weight:700}
+  #st .st-nav{position:sticky;top:0;z-index:30;height:60px;display:flex;align-items:center;padding:0 40px;background:rgba(243,238,227,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-300,rgba(40,40,41,.14))}
+  #st .st-home{display:flex;align-items:center;gap:8px;margin-right:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500)}
+  #st .st-home svg{width:10px;height:10px}
+  #st .st-brand{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--sr-ink,#14140E)}
+  #st .st-lang{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);background:none;border:1px solid var(--gray-300,rgba(40,40,41,.18));border-radius:0;padding:5px 11px;cursor:pointer}
+  #st .st-wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  #st .st-hero{padding:84px 40px 60px;max-width:1180px;margin:0 auto}
+  #st .st-kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-400);margin-bottom:22px}
+  #st .st-title{font-family:var(--font-display);font-weight:900;font-size:clamp(52px,9vw,116px);line-height:.9;letter-spacing:-.04em;color:var(--sr-ink,#14140E);margin:0 0 26px}
+  #st .st-sub{font-family:var(--font-body);font-size:20px;line-height:1.6;color:var(--gray-700);max-width:620px;margin:0}
+  #st .st-concept{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:10px 16px;border:1px dashed var(--sr-amber,#E88A2E);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sr-amber-lo,#b96a1f)}
+  #st .st-concept::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sr-amber,#E88A2E)}
+  #st .st-sec{max-width:1180px;margin:0 auto;padding:56px 40px;border-top:1px solid var(--gray-300,rgba(40,40,41,.12))}
+  #st .st-sec-h{font-family:var(--font-deck);font-weight:700;font-size:clamp(26px,3vw,34px);letter-spacing:-.01em;color:var(--sr-ink,#14140E);margin:0 0 8px}
+  #st .st-sec-note{font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--gray-600);max-width:640px;margin:0 0 32px}
+  #st .st-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #st .st-card{display:flex;flex-direction:column;background:rgba(255,255,255,.55);border:1px solid var(--gray-300,rgba(40,40,41,.12))}
+  #st .st-card-fig{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--gray-300,rgba(40,40,41,.1))}
+  #st .st-card-fig span{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #st .st-card-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  #st .st-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #st .st-name{font-family:var(--font-deck);font-weight:700;font-size:20px;line-height:1.12;color:var(--sr-ink,#14140E)}
+  #st .st-desc{font-family:var(--font-body);font-size:14px;line-height:1.6;color:var(--gray-600);flex:1}
+  #st .st-foot-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--gray-300,rgba(40,40,41,.1))}
+  #st .st-price{font-family:var(--font-deck);font-weight:700;font-size:18px;color:var(--sr-ink,#14140E)}
+  #st .st-price small{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);margin-left:6px}
+  /* CTA rendered as a NON-interactive concept marker — deliberately not a link */
+  #st .st-cta-off{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);border:1px solid var(--gray-300,rgba(40,40,41,.16));padding:7px 11px;cursor:not-allowed;user-select:none}
+  #st .st-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #st .st-chan{padding:22px;border:1px solid var(--gray-300,rgba(40,40,41,.12));background:rgba(255,255,255,.5)}
+  #st .st-chan-t{font-family:var(--font-deck);font-weight:700;font-size:18px;color:var(--sr-ink,#14140E);margin:0 0 8px}
+  #st .st-chan-d{font-family:var(--font-body);font-size:14px;line-height:1.65;color:var(--gray-600);margin:0}
+  #st .st-foot{margin-top:24px;padding:40px;max-width:1180px;margin-left:auto;margin-right:auto;border-top:1px solid var(--gray-300,rgba(40,40,41,.12));display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400)}
+  @media(max-width:880px){#st .st-grid,#st .st-channels{grid-template-columns:1fr}#st .st-hero,.st-sec,.st-foot{padding-left:20px;padding-right:20px}#st .st-nav{padding:0 20px}}
+</style>
+</head>
+<body>
+<div id="st" data-screen-label="Store (concept)">
+
+  <div class="st-ribbon"><span class="zh">概念規劃 · <b>尚未上架</b> · 本頁無購買功能</span><span class="en">Concept only · <b>Not live</b> · No checkout on this page</span></div>
+
+  <nav class="st-nav">
+    <a class="st-home" href="index.html">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="st-brand">星河 STARRIVER ARTS</span>
+    </a>
+    <button class="st-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </nav>
+
+  <header class="st-hero">
+    <div class="st-kicker"><span class="zh">創作者商店 · 概念</span><span class="en">Creator store · Concept</span></div>
+    <h1 class="st-title">Store</h1>
+    <p class="st-sub"><span class="zh">星河創作者經濟層的規劃概念：數位 3D 模型、VRChat 系統與工具、世界預設等。此頁僅為版面與分類的概念展示。</span><span class="en">A concept for the StarRiver creator-economy layer: digital 3D models, VRChat systems and tools, world presets. This page is a layout and category concept only.</span></p>
+    <span class="st-concept"><span class="zh">規劃中 · 不含連結與購買接口</span><span class="en">In planning · no links or checkout wired</span></span>
+  </header>
+
+  <section class="st-sec">
+    <h2 class="st-sec-h"><span class="zh">商品分類（規劃）</span><span class="en">Product categories (planned)</span></h2>
+    <p class="st-sec-note"><span class="zh">以下為規劃中的商品類型與版面範本，非實際商品。價格、檔案與購買流程皆未設定。</span><span class="en">Below are planned product types and the listing layout — not real products. Prices, files, and checkout are all unset.</span></p>
+    <div class="st-grid">
+
+      <article class="st-card">
+        <div class="st-card-fig"><span><span class="zh">預覽 · 待補</span><span class="en">Preview · pending</span></span></div>
+        <div class="st-card-body">
+          <div class="st-cat"><span class="zh">3D 模型</span><span class="en">3D model</span></div>
+          <div class="st-name"><span class="zh">商品名稱</span><span class="en">Product name</span></div>
+          <div class="st-desc"><span class="zh">商品說明置於此處。實際內容待商品確認後填入。</span><span class="en">Product description sits here. Real content added once a product is confirmed.</span></div>
+          <div class="st-foot-row"><span class="st-price">—<small><span class="zh">價格未定</span><span class="en">TBD</span></small></span><span class="st-cta-off" aria-disabled="true"><span class="zh">未上架</span><span class="en">Not live</span></span></div>
+        </div>
+      </article>
+
+      <article class="st-card">
+        <div class="st-card-fig"><span><span class="zh">預覽 · 待補</span><span class="en">Preview · pending</span></span></div>
+        <div class="st-card-body">
+          <div class="st-cat"><span class="zh">VRChat 系統 / 工具</span><span class="en">VRChat system / tool</span></div>
+          <div class="st-name"><span class="zh">商品名稱</span><span class="en">Product name</span></div>
+          <div class="st-desc"><span class="zh">商品說明置於此處。實際內容待商品確認後填入。</span><span class="en">Product description sits here. Real content added once a product is confirmed.</span></div>
+          <div class="st-foot-row"><span class="st-price">—<small><span class="zh">價格未定</span><span class="en">TBD</span></small></span><span class="st-cta-off" aria-disabled="true"><span class="zh">未上架</span><span class="en">Not live</span></span></div>
+        </div>
+      </article>
+
+      <article class="st-card">
+        <div class="st-card-fig"><span><span class="zh">預覽 · 待補</span><span class="en">Preview · pending</span></span></div>
+        <div class="st-card-body">
+          <div class="st-cat"><span class="zh">世界預設</span><span class="en">World preset</span></div>
+          <div class="st-name"><span class="zh">商品名稱</span><span class="en">Product name</span></div>
+          <div class="st-desc"><span class="zh">商品說明置於此處。實際內容待商品確認後填入。</span><span class="en">Product description sits here. Real content added once a product is confirmed.</span></div>
+          <div class="st-foot-row"><span class="st-price">—<small><span class="zh">價格未定</span><span class="en">TBD</span></small></span><span class="st-cta-off" aria-disabled="true"><span class="zh">未上架</span><span class="en">Not live</span></span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="st-sec">
+    <h2 class="st-sec-h"><span class="zh">銷售通路（規劃）</span><span class="en">Sales channels (planned)</span></h2>
+    <p class="st-sec-note"><span class="zh">創作者經濟可能分布於多個通路。此處僅列出規劃方向，尚未串接任何平台。</span><span class="en">The creator economy may span several channels. These are planned directions only — no platform is connected yet.</span></p>
+    <div class="st-channels">
+      <div class="st-chan"><h3 class="st-chan-t"><span class="zh">數位商品</span><span class="en">Digital goods</span></h3><p class="st-chan-d"><span class="zh">3D 模型、工具與世界預設的一次性購買。</span><span class="en">One-time purchase of 3D models, tools, and world presets.</span></p></div>
+      <div class="st-chan"><h3 class="st-chan-t"><span class="zh">世界內經濟</span><span class="en">In-world economy</span></h3><p class="st-chan-d"><span class="zh">VRChat 世界內的訂閱、道具與 VIP 權限。</span><span class="en">Subscriptions, items, and VIP access inside VRChat worlds.</span></p></div>
+      <div class="st-chan"><h3 class="st-chan-t">Patreon</h3><p class="st-chan-d"><span class="zh">長期支持與會員制平台。</span><span class="en">Ongoing support and membership platforms.</span></p></div>
+    </div>
+  </section>
+
+  <footer class="st-foot">
+    <span><span class="zh">星河 StarRiver Arts · 商店概念（未上架）</span><span class="en">StarRiver Arts · Store concept (not live)</span></span>
+    <span>2026 StarRiver Arts</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
+  function apply(l){ l=norm(l);
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

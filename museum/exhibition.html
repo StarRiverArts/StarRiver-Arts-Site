@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exhibition | StarRiver Museum</title>
+<link rel="icon" href="../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="museum.css">
+<link rel="stylesheet" href="../ds-additions.css">
+<style>
+  #mex .mex-plate{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);border:1px solid rgba(40,40,41,.1);display:flex;align-items:center;justify-content:center}
+  #mex .mex-plate span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #mex .mex-world{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid rgba(40,40,41,.1);background:rgba(255,255,255,.5)}
+  #mex .mex-world-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0}
+  #mex .mex-world-dot.live{background:var(--sr-amber)}
+  #mex .mex-world-dot.archived{background:var(--gray-400)}
+  #mex .mex-meta-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(40,40,41,.08);font-size:14px}
+  #mex .mex-meta-row:last-child{border-bottom:none}
+  #mex .mex-meta-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #mex .mex-meta-v{color:var(--sr-graphite);text-align:right}
+</style>
+</head>
+<body>
+<div id="mex" class="sr-brand-museum sr-type" data-screen-label="Museum / Exhibition detail">
+
+  <header class="museum-topbar">
+    <a class="museum-brand" href="Museum.dc.html">
+      <span class="museum-brand-mark">StarRiver Arts</span>
+      <span class="museum-brand-name">Museum</span>
+    </a>
+    <nav class="museum-nav" aria-label="Museum">
+      <a href="Museum.dc.html"><span class="zh">入口</span><span class="en">Entry</span></a>
+      <a href="Museum.dc.html" aria-current="page"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
+      <a href="Project T Articles.dc.html"><span class="zh">專欄</span><span class="en">Articles</span></a>
+    </nav>
+    <button class="museum-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </header>
+
+  <main class="museum-main">
+
+    <!-- HERO -->
+    <section class="museum-hero">
+      <div class="museum-copy">
+        <div class="museum-kicker"><span class="zh">展覽 · 半年展</span><span class="en">Exhibition · Half-year</span></div>
+        <h1 class="museum-title"><span class="zh">展覽名稱</span><span class="en">Exhibition Title</span></h1>
+        <p class="museum-lead"><span class="zh">展覽簡述置於此處：一段說明本展主題、策展方向與觀看經驗的引言。實際內容待正式展覽確認後填入。</span><span class="en">The exhibition summary sits here: a short statement of theme, curatorial direction, and the viewing experience. Real content will be added once the exhibition is confirmed.</span></p>
+        <p class="museum-copytext"><span class="zh">這是「以展覽為單位」的詳情頁範本。每檔展覽（常設展、半年展或輪替展）共用此版面，依類型與狀態調整上方標籤與右側資訊欄。</span><span class="en">This is the per-exhibition detail template. Every exhibition — permanent, half-year, or rotating — shares this layout, adjusting the tag above and the status panel at right by type and state.</span></p>
+      </div>
+
+      <aside class="museum-aside">
+        <section class="museum-panel">
+          <div class="museum-label"><span class="zh">展覽資訊</span><span class="en">Exhibition info</span></div>
+          <div style="margin-top:14px">
+            <div class="mex-meta-row"><span class="mex-meta-k"><span class="zh">類型</span><span class="en">Type</span></span><span class="mex-meta-v"><span class="zh">半年展</span><span class="en">Half-year</span></span></div>
+            <div class="mex-meta-row"><span class="mex-meta-k"><span class="zh">展期</span><span class="en">Run</span></span><span class="mex-meta-v">—</span></div>
+            <div class="mex-meta-row"><span class="mex-meta-k"><span class="zh">策展</span><span class="en">Curated</span></span><span class="mex-meta-v">StarRiver Arts</span></div>
+            <div class="mex-meta-row"><span class="mex-meta-k"><span class="zh">媒介</span><span class="en">Medium</span></span><span class="mex-meta-v">VRChat</span></div>
+          </div>
+        </section>
+
+        <section class="museum-panel">
+          <div class="museum-label"><span class="zh">所在世界</span><span class="en">Hosted in</span></div>
+          <div class="mex-world" style="margin-top:14px">
+            <span class="mex-world-dot live"></span>
+            <div>
+              <div class="museum-list-title"><span class="zh">主展廳世界</span><span class="en">Main hall world</span></div>
+              <div class="museum-list-text"><span class="zh">展期間，本展於美術館主展廳（單一 VRChat 世界）中展出。</span><span class="en">While running, this exhibition shows inside the museum's main hall — a single VRChat world.</span></div>
+            </div>
+          </div>
+          <p class="museum-note"><span class="zh">輪替展到期後將自主展廳獨立，封存為單獨的 VRChat 世界供回訪，與主展廳分開以控制效能負載。</span><span class="en">When a rotating exhibition ends, it splits off from the main hall and is archived as its own standalone VRChat world for revisiting — kept separate to manage performance load.</span></p>
+        </section>
+      </aside>
+    </section>
+
+    <!-- EXHIBIT PLATE -->
+    <section class="museum-section">
+      <div class="mex-plate"><span><span class="zh">主視覺 / 展場圖 · 待補</span><span class="en">Key visual / install shot · pending</span></span></div>
+    </section>
+
+    <!-- EXHIBITS -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">展品</span><span class="en">Exhibits</span></div>
+          <h2 class="museum-section-title"><span class="zh">本展展品</span><span class="en">Works on view</span></h2>
+        </div>
+        <p class="museum-section-copy"><span class="zh">展品清單。個別展品若有獨立專欄，將連向「專欄」層的單件作品頁，而非另開展品頁。</span><span class="en">The exhibit list. Where a single work has its own column, it links into the Articles layer's per-work page rather than a separate exhibit page.</span></p>
+      </div>
+      <div class="museum-grid museum-grid-3">
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">展品 01</span><span class="en">Work 01</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="Article.dc.html"><span class="zh">單件專欄</span><span class="en">Read in Articles</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">展品 02</span><span class="en">Work 02</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="Article.dc.html"><span class="zh">單件專欄</span><span class="en">Read in Articles</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">展品 03</span><span class="en">Work 03</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="Article.dc.html"><span class="zh">單件專欄</span><span class="en">Read in Articles</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">參觀</span><span class="en">Visit</span></div>
+          <h2 class="museum-section-title"><span class="zh">如何參觀</span><span class="en">How to visit</span></h2>
+        </div>
+        <p class="museum-section-copy"><span class="zh">參觀方式依展覽狀態而定——展期中於主展廳，結束後（輪替展）於封存世界。</span><span class="en">How to visit depends on state — in the main hall while running, or in the archived world after a rotating show closes.</span></p>
+      </div>
+      <div class="museum-columns">
+        <div class="museum-callout">
+          <p><span class="zh">展期中：進入美術館主展廳世界即可觀看本展，與當期其他展區共用同一個 VRChat 世界。</span><span class="en">While running: enter the museum's main hall world to see this exhibition, sharing one VRChat world with the other current displays.</span></p>
+        </div>
+        <div class="museum-callout">
+          <p><span class="zh">已封存：輪替展結束後獨立為單獨世界，可單獨回訪，不佔用主展廳效能。</span><span class="en">Archived: after a rotating show ends it becomes its own standalone world, revisitable on its own without taxing the main hall's performance.</span></p>
+        </div>
+      </div>
+      <div style="margin-top:24px">
+        <div class="sr-placeholder" style="max-width:520px"><span class="zh">世界連結 · 上線後開放</span><span class="en">World link · opens on launch</span></div>
+      </div>
+    </section>
+
+    <footer class="museum-footer">
+      <span><span class="zh">StarRiver Museum · 展覽詳情</span><span class="en">StarRiver Museum · Exhibition detail</span></span>
+      <span>2026 StarRiver Arts</span>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
+  function apply(l){ l=norm(l);
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

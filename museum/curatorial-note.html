@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curatorial Note | StarRiver Museum</title>
+<link rel="icon" href="../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="museum.css">
+<link rel="stylesheet" href="../ds-additions.css">
+<style>
+  #cur .cur-serif{font-family:"Noto Serif TC","Source Han Serif TC",serif}
+  #cur .cur-head{max-width:760px}
+  #cur .cur-deck{font-size:21px;line-height:1.85;color:var(--gray-700);margin:22px 0 0;font-style:italic}
+  #cur .cur-byline{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;padding-top:18px;border-top:1px solid rgba(40,40,41,.12)}
+  #cur .cur-byline div{font-size:14px}
+  #cur .cur-byline .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);display:block;margin-bottom:3px}
+  #cur .cur-byline .v{color:var(--sr-graphite)}
+  #cur .cur-read{max-width:680px}
+  #cur .cur-read p{font-size:18.5px;line-height:1.95;color:var(--gray-800);margin:0 0 22px}
+  #cur .cur-read .lead-cap::first-letter{float:left;font-family:var(--font-deck);font-weight:700;font-size:62px;line-height:.8;padding:6px 12px 0 0;color:var(--sr-graphite)}
+  #cur .cur-h2{font-family:var(--font-deck);font-weight:700;font-size:24px;color:var(--sr-graphite);margin:40px 0 16px}
+  #cur .cur-pull{font-family:var(--font-deck);font-weight:600;font-size:26px;line-height:1.4;color:var(--sr-graphite);border-left:3px solid var(--sr-graphite);padding-left:24px;margin:36px 0}
+  #cur .cur-plate{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);border:1px solid rgba(40,40,41,.1);display:flex;align-items:center;justify-content:center;margin:32px 0}
+  #cur .cur-plate span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #cur .cur-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--gray-400);margin-top:-20px;margin-bottom:32px}
+</style>
+</head>
+<body>
+<div id="cur" class="sr-brand-museum sr-type" data-screen-label="Museum / Curatorial note">
+
+  <header class="museum-topbar">
+    <a class="museum-brand" href="Museum.dc.html">
+      <span class="museum-brand-mark">StarRiver Arts</span>
+      <span class="museum-brand-name">Museum</span>
+    </a>
+    <nav class="museum-nav" aria-label="Museum">
+      <a href="Museum.dc.html"><span class="zh">入口</span><span class="en">Entry</span></a>
+      <a href="Museum Exhibition.dc.html"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
+      <a href="Museum Curatorial Note.dc.html" aria-current="page"><span class="zh">策展筆記</span><span class="en">Curatorial</span></a>
+    </nav>
+    <button class="museum-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </header>
+
+  <main class="museum-main">
+
+    <a class="museum-text-link" href="Museum Exhibition.dc.html" style="margin-bottom:28px">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="zh">返回展覽</span><span class="en">Back to exhibition</span>
+    </a>
+
+    <!-- HEAD -->
+    <section class="cur-head">
+      <div class="museum-kicker"><span class="zh">策展筆記</span><span class="en">Curatorial Note</span></div>
+      <h1 class="museum-title cur-serif"><span class="zh">筆記標題</span><span class="en">Note Title</span></h1>
+      <p class="cur-deck cur-serif"><span class="zh">副標／引言置於此處：一句點出此篇策展筆記的核心問題。實際內容待撰寫後填入。</span><span class="en">A subhead or epigraph sits here: one line framing the central question of this note. Real text added once written.</span></p>
+      <div class="cur-byline">
+        <div><span class="k"><span class="zh">作者</span><span class="en">By</span></span><span class="v">StarRiver Arts</span></div>
+        <div><span class="k"><span class="zh">關聯展覽</span><span class="en">Exhibition</span></span><span class="v"><a class="museum-text-link" href="Museum Exhibition.dc.html" style="font-size:13px;letter-spacing:0;text-transform:none"><span class="zh">展覽名稱</span><span class="en">Exhibition Title</span></a></span></div>
+        <div><span class="k"><span class="zh">日期</span><span class="en">Date</span></span><span class="v">—</span></div>
+        <div><span class="k"><span class="zh">閱讀</span><span class="en">Read</span></span><span class="v"><span class="zh">長文</span><span class="en">Long-form</span></span></div>
+      </div>
+    </section>
+
+    <!-- READING BODY -->
+    <section class="museum-section" style="border-top:none;padding-top:36px">
+      <div class="cur-read cur-serif">
+        <div class="sr-placeholder" style="max-width:520px"><span class="zh">正文 · 建置中</span><span class="en">Essay body · Coming soon</span></div>
+
+        <div class="cur-plate"><span><span class="zh">圖版 · 待補</span><span class="en">Plate · pending</span></span></div>
+        <p class="cur-cap"><span class="zh">圖說置於此處 · 待補</span><span class="en">Caption sits here · pending</span></p>
+
+        <h2 class="cur-h2"><span class="zh">小節標題</span><span class="en">Section heading</span></h2>
+        <p style="color:var(--gray-400)"><span class="zh">（策展論述段落將於筆記撰寫後置於此處，採 Noto Serif TC 長文排版，含首字放大、引文與圖版等版式元素。）</span><span class="en">(Curatorial paragraphs will sit here once written, set in Noto Serif TC long-form type, with drop-cap, pull-quote, and plate elements available.)</span></p>
+
+        <div class="cur-pull cur-serif"><span class="zh">「引文版式範例——策展筆記中可置入的重點句。」</span><span class="en">"A pull-quote slot — the emphasis line a curatorial note can lift out."</span></div>
+
+        <h2 class="cur-h2"><span class="zh">小節標題</span><span class="en">Section heading</span></h2>
+        <p style="color:var(--gray-400)"><span class="zh">（後續段落 · 待補）</span><span class="en">(Following paragraphs · pending)</span></p>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">延伸閱讀</span><span class="en">Read on</span></div>
+          <h2 class="museum-section-title"><span class="zh">相關內容</span><span class="en">Related</span></h2>
+        </div>
+      </div>
+      <div class="museum-grid">
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">展覽</span><span class="en">Exhibition</span></div>
+          <h3 class="museum-card-title"><span class="zh">關聯展覽</span><span class="en">The exhibition</span></h3>
+          <a class="museum-card-link" href="Museum Exhibition.dc.html"><span class="zh">前往展覽</span><span class="en">View exhibition</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Artwork</span></div>
+          <h3 class="museum-card-title"><span class="zh">單件專欄</span><span class="en">Single-work column</span></h3>
+          <a class="museum-card-link" href="Article.dc.html"><span class="zh">閱讀作品</span><span class="en">Read a work</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="museum-footer">
+      <span><span class="zh">StarRiver Museum · 策展筆記</span><span class="en">StarRiver Museum · Curatorial note</span></span>
+      <span>2026 StarRiver Arts</span>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
+  function apply(l){ l=norm(l);
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

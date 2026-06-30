@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Racing Club | Project T | 星河 StarRiver Arts</title>
+<link rel="icon" href="../../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="../../ds-additions.css">
+<style>
+  html.lang-zh #rc :is(.en,.jp){display:none}
+  html.lang-en #rc :is(.zh,.jp){display:none}
+  html.lang-jp #rc :is(.zh,.en){display:none}
+  #rc{
+    --rc-bg:var(--pt-night,#141B19);--rc-bg2:var(--pt-night-2,#111715);
+    --rc-panel:var(--pt-night-panel,#1C2421);--rc-raised:var(--pt-night-raised,#25302B);
+    --rc-fg:var(--pt-night-fg,#EFF2EC);--rc-fg2:var(--pt-night-fg2,#C3CCC3);--rc-fg3:var(--pt-night-fg3,#94A098);
+    --rc-hair:var(--pt-night-hair,rgba(255,255,255,.10));--rc-line:var(--pt-night-line,rgba(255,255,255,.17));
+    --rc-lamp:var(--pt-lamp,#EFD95B);--rc-lamp-dim:var(--pt-lamp-dim,rgba(239,217,91,.12));
+    --rc-green:var(--pt-night-green,#43935F);--rc-blue:var(--pt-night-blue,#5B8FC9);
+    min-height:100vh;color:var(--rc-fg);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    background:radial-gradient(circle at 14% -4%,var(--rc-lamp-dim),transparent 32%),radial-gradient(circle at 84% 2%,rgba(91,143,201,.10),transparent 26%),linear-gradient(180deg,var(--rc-panel) 0%,var(--rc-bg) 34%,var(--rc-bg2) 100%);background-attachment:fixed;
+  }
+  #rc a{color:inherit;text-decoration:none}
+  #rc img{display:block;max-width:100%}
+
+  #rc .rc-nav{position:sticky;top:0;z-index:30;height:60px;display:flex;align-items:center;padding:0 40px;background:rgba(20,27,25,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--rc-hair)}
+  #rc .rc-home{display:flex;align-items:center;gap:8px;margin-right:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rc-fg3);transition:color .2s}
+  #rc .rc-home:hover{color:var(--rc-fg)}
+  #rc .rc-home svg{width:10px;height:10px}
+  #rc .rc-brand{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--rc-fg)}
+  #rc .rc-links{display:flex}
+  #rc .rc-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rc-fg3);padding:0 14px;height:60px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  #rc .rc-links a:hover{color:var(--rc-fg)}
+  #rc .rc-links a.active{color:var(--rc-lamp);border-bottom-color:var(--rc-lamp)}
+  #rc .rc-lang{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rc-fg3);background:none;border:1px solid var(--rc-line);border-radius:2px;padding:5px 24px 5px 10px;margin-left:14px;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(239,242,236,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+
+  #rc .rc-hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:flex-end}
+  #rc .rc-ranges{position:absolute;inset:0;pointer-events:none}
+  #rc .rc-range{position:absolute;left:-4%;right:-4%}
+  #rc .rc-range svg{width:104%;height:auto;display:block}
+  #rc .r-far{bottom:150px}#rc .r-mid{bottom:78px}#rc .r-near{bottom:0}
+  #rc .r-far svg{fill:#1a241f}#rc .r-mid svg{fill:#141d19}#rc .r-near svg{fill:#0e1714}
+  #rc .rc-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 22%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 62% 14%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 80% 30%,rgba(255,255,255,.35),transparent),radial-gradient(1px 1px at 38% 9%,rgba(255,255,255,.3),transparent),radial-gradient(1.4px 1.4px at 50% 26%,rgba(239,217,91,.5),transparent);opacity:.8}
+  #rc .rc-beams{position:absolute;bottom:0;left:8%;width:60%;height:78%;background:conic-gradient(from 92deg at 4% 100%,transparent 0deg,rgba(239,217,91,.10) 8deg,rgba(239,217,91,.16) 13deg,rgba(239,217,91,.05) 19deg,transparent 26deg);filter:blur(2px);pointer-events:none}
+  #rc .rc-hero-in{position:relative;z-index:3;max-width:1280px;margin:0 auto;width:100%;padding:78px 40px 0}
+  #rc .rc-kicker{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rc-fg2);margin-bottom:20px}
+  #rc .rc-shield{display:flex;flex-direction:column;align-items:center;justify-content:center;width:38px;height:38px;background:var(--rc-lamp);border-radius:2px;font-family:var(--font-display);font-weight:900;color:#1c1304;font-size:13px;line-height:1;box-shadow:0 0 16px rgba(239,217,91,.4)}
+  #rc .rc-title{font-family:var(--font-display);font-weight:900;font-size:clamp(52px,7.5vw,96px);line-height:.9;letter-spacing:-.035em;color:#fff;margin:0 0 16px}
+  #rc .rc-sub{font-family:var(--font-body);font-size:19px;line-height:1.55;color:var(--rc-fg2);max-width:560px;margin:0}
+  #rc .rc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  #rc .rc-cta{display:inline-flex;align-items:center;gap:8px;background:var(--rc-lamp);color:#1c1304;border-radius:2px;font-family:var(--font-deck);font-weight:600;font-size:14px;padding:12px 20px;box-shadow:0 0 20px rgba(239,217,91,.28);transition:transform .12s,filter .2s}
+  #rc .rc-cta:hover{transform:translateY(-1px);filter:brightness(1.06)}
+  #rc .rc-ghost{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rc-lamp);border-bottom:1px solid var(--rc-lamp);padding:12px 2px 11px;transition:border-width .2s}
+  #rc .rc-ghost:hover{border-bottom-width:2px}
+  #rc .rc-road{height:12px;background:#0c100e;position:relative;z-index:4}
+  #rc .rc-road::before{content:"";position:absolute;top:50%;left:0;right:0;height:2px;transform:translateY(-50%);background:repeating-linear-gradient(90deg,var(--rc-lamp) 0 26px,transparent 26px 54px);opacity:.55}
+
+  #rc .rc-body{position:relative;z-index:2}
+  #rc .rc-wrap{max-width:1280px;margin:0 auto;padding:60px 40px 80px}
+  #rc .rc-lead{font-family:var(--font-body);font-size:20px;line-height:1.6;color:var(--rc-fg);max-width:620px;margin:0 0 12px;font-weight:500}
+  #rc .rc-lead-sub{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--rc-fg2);max-width:600px;margin:0 0 48px}
+  #rc .rc-section{margin-top:56px}
+  #rc .rc-section:first-of-type{margin-top:0}
+  #rc .rc-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rc-lamp);margin-bottom:10px}
+  #rc .rc-h2{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;color:var(--rc-fg);margin:0}
+  #rc .rc-note{font-family:var(--font-body);font-size:14.5px;line-height:1.6;color:var(--rc-fg2);max-width:620px;margin:8px 0 0}
+  #rc .rc-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025)),var(--rc-panel);border:1px solid var(--rc-hair);border-radius:16px;padding:24px;box-shadow:0 14px 32px rgba(0,0,0,.22)}
+  #rc .rc-grid{display:grid;gap:14px;margin-top:22px}
+  #rc .rc-grid.cols3{grid-template-columns:repeat(3,1fr)}
+  #rc .rc-clabel{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rc-green);margin-bottom:10px}
+  #rc .rc-ctitle{font-family:var(--font-deck);font-weight:600;font-size:18px;color:var(--rc-fg);margin:0 0 12px}
+
+  #rc .sr-placeholder{border-color:var(--rc-line);background:rgba(255,255,255,.03);color:var(--rc-fg3)}
+
+  #rc .rc-foot{background:#0c100e;border-top:1px solid var(--rc-hair);padding:40px 0 36px}
+  #rc .rc-foot-row{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  #rc .rc-foot-name{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--rc-fg2)}
+  #rc .rc-foot-copy{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--rc-fg3)}
+
+  @media(max-width:800px){
+    #rc .rc-nav{padding:0 20px}#rc .rc-links{display:none}
+    #rc .rc-hero-in,#rc .rc-wrap,#rc .rc-foot-row{padding-left:20px;padding-right:20px}
+    #rc .rc-hero{min-height:420px}
+    #rc .rc-grid.cols3{grid-template-columns:1fr}
+    #rc .r-far{bottom:112px}#rc .r-mid{bottom:60px}
+  }
+</style>
+</head>
+<body>
+<div id="rc" data-screen-label="Play / Racing Club (night)">
+
+  <nav class="rc-nav">
+    <a class="rc-home" href="./index.html">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="rc-brand">星河 STARRIVER ARTS</span>
+    </a>
+    <div class="rc-links">
+      <a href="play/index.html"><span class="zh">Project T</span><span class="en">Project T</span><span class="jp">Project T</span></a>
+      <a href="Project T Worlds.dc.html"><span class="zh">世界</span><span class="en">Worlds</span><span class="jp">ワールド</span></a>
+      <a href="Racing Club.dc.html" class="active"><span class="zh">賽車社群</span><span class="en">Racing Club</span><span class="jp">レーシングクラブ</span></a>
+      <a href="Project T Articles.dc.html"><span class="zh">專欄</span><span class="en">Articles</span><span class="jp">記事</span></a>
+      <a href="play/RacingClub/TimeAttack/"><span class="zh">Time Attack</span><span class="en">Time Attack</span><span class="jp">Time Attack</span></a>
+    </div>
+    <select class="rc-lang" data-lang-select aria-label="Language">
+      <option value="zh">中文</option>
+      <option value="en">EN</option>
+      <option value="jp">日本語</option>
+    </select>
+  </nav>
+
+  <div class="rc-hero">
+    <div class="rc-stars" aria-hidden="true"></div>
+    <div class="rc-ranges" aria-hidden="true">
+      <div class="rc-range r-far"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,120 C150,80 280,140 420,90 C560,40 700,110 840,70 C980,40 1080,100 1200,80 L1200,200 Z"/></svg></div>
+      <div class="rc-range r-mid"><svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,160 L0,110 C180,70 320,120 480,80 C640,40 760,100 920,75 C1040,55 1120,95 1200,85 L1200,160 Z"/></svg></div>
+      <div class="rc-range r-near"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,70 C160,40 330,86 520,60 C710,34 860,80 1030,58 C1110,48 1170,62 1200,56 L1200,120 Z"/></svg></div>
+    </div>
+    <div class="rc-beams" aria-hidden="true"></div>
+    <div class="rc-hero-in">
+      <div class="rc-kicker">
+        <span class="rc-shield">RC</span>
+        <span class="zh">Project T / 入夜的賽道</span><span class="en">Project T / The pass after dark</span><span class="jp">Project T / 夜の峠</span>
+      </div>
+      <h1 class="rc-title">Racing Club</h1>
+      <p class="rc-sub zh">天黑之後，車燈亮起，山道屬於跑者。Racing Club 是 Project T 世界裡的夜跑社群——本頁將整理加入方式、活動時間與分工，目前建置中。</p>
+      <p class="rc-sub en">After dark, headlights come on and the pass belongs to the runners. Racing Club is the night-running community of the Project T worlds. This page will cover joining, sessions, and roles — in preparation.</p>
+      <p class="rc-sub jp">日が暮れ、ヘッドライトが灯り、峠はランナーのもの。Racing Club は Project T の夜走コミュニティ。参加方法・開催時間・役割をまとめる予定です。準備中。</p>
+      <div class="rc-actions">
+        <a class="rc-cta" href="play/RacingClub/TimeAttack/players.html"><span class="zh">看看誰在跑</span><span class="en">See who's running</span><span class="jp">参加者を見る</span></a>
+        <a class="rc-ghost" href="play/index.html"><span class="zh">回到 Project T</span><span class="en">Back to Project T</span><span class="jp">Project T へ戻る</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="rc-road"></div>
+
+  <div class="rc-body">
+    <div class="rc-wrap">
+      <p class="rc-lead zh">夜跑社群 · 紀錄公開 · 內容建置中</p>
+      <p class="rc-lead en">Night-running community · Public records · In preparation</p>
+      <p class="rc-lead jp">夜走コミュニティ · 記録公開 · 準備中</p>
+      <p class="rc-lead-sub zh">圈速與排名透過 Time Attack 紀錄站公開呈現。社群本身的頁面內容將陸續開放。</p>
+      <p class="rc-lead-sub en">Lap times and rankings are shown publicly through the Time Attack station. The club's own page content will open progressively.</p>
+      <p class="rc-lead-sub jp">ラップと順位は Time Attack ステーションで公開。クラブ自体の内容は順次公開予定。</p>
+
+      <section class="rc-section">
+        <div class="rc-eyebrow"><span class="zh">入隊</span><span class="en">Joining</span><span class="jp">参加</span></div>
+        <h2 class="rc-h2"><span class="zh">加入方式</span><span class="en">How to join</span><span class="jp">参加方法</span></h2>
+        <div class="rc-grid" style="margin-top:18px">
+          <div class="sr-placeholder" style="max-width:540px"><span class="zh">加入流程 · 建置中</span><span class="en">Join flow · Coming soon</span><span class="jp">参加フロー · 準備中</span></div>
+        </div>
+      </section>
+
+      <section class="rc-section">
+        <div class="rc-eyebrow"><span class="zh">場次</span><span class="en">Sessions</span><span class="jp">セッション</span></div>
+        <h2 class="rc-h2"><span class="zh">活動時間</span><span class="en">Session schedule</span><span class="jp">開催スケジュール</span></h2>
+        <div class="rc-grid" style="margin-top:18px">
+          <div class="sr-placeholder" style="max-width:540px"><span class="zh">時間表 · 建置中</span><span class="en">Schedule · Coming soon</span><span class="jp">スケジュール · 準備中</span></div>
+        </div>
+      </section>
+
+      <section class="rc-section">
+        <div class="rc-eyebrow"><span class="zh">編制</span><span class="en">Roles</span><span class="jp">役割</span></div>
+        <h2 class="rc-h2"><span class="zh">社群分工</span><span class="en">Club roles</span><span class="jp">クラブの役割</span></h2>
+        <div class="rc-grid cols3">
+          <div class="rc-card">
+            <div class="rc-clabel"><span class="zh">角色</span><span class="en">Role</span><span class="jp">役割</span></div>
+            <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </div>
+          <div class="rc-card">
+            <div class="rc-clabel"><span class="zh">角色</span><span class="en">Role</span><span class="jp">役割</span></div>
+            <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </div>
+          <div class="rc-card">
+            <div class="rc-clabel"><span class="zh">角色</span><span class="en">Role</span><span class="jp">役割</span></div>
+            <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rc-section">
+        <div class="rc-eyebrow"><span class="zh">連結</span><span class="en">Linked</span><span class="jp">連携</span></div>
+        <h2 class="rc-h2"><span class="zh">與 Time Attack 紀錄站連動</span><span class="en">Connected to the Time Attack station</span><span class="jp">Time Attack ステーションと連動</span></h2>
+        <p class="rc-note zh">社群的圈速、玩家與車輛資料皆由 Time Attack 紀錄站維護，依 player_id 聚合。</p>
+        <p class="rc-note en">The club's lap times, players, and vehicles are maintained by the Time Attack station, aggregated by player_id.</p>
+        <p class="rc-note jp">クラブのラップ・選手・車両データは Time Attack ステーションが管理し、player_id で集計されます。</p>
+        <div class="rc-grid cols3" style="margin-top:22px">
+          <a class="rc-card" href="play/RacingClub/TimeAttack/players.html">
+            <div class="rc-clabel"><span class="zh">玩家</span><span class="en">Players</span><span class="jp">プレイヤー</span></div>
+            <div class="rc-ctitle"><span class="zh">玩家紀錄</span><span class="en">Player records</span><span class="jp">選手記録</span></div>
+            <span class="rc-ghost"><span class="zh">前往</span><span class="en">Open</span><span class="jp">開く</span><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></span>
+          </a>
+          <a class="rc-card" href="play/RacingClub/TimeAttack/vehicles.html">
+            <div class="rc-clabel"><span class="zh">車輛</span><span class="en">Vehicles</span><span class="jp">車両</span></div>
+            <div class="rc-ctitle"><span class="zh">車輛資料</span><span class="en">Vehicle data</span><span class="jp">車両データ</span></div>
+            <span class="rc-ghost"><span class="zh">前往</span><span class="en">Open</span><span class="jp">開く</span><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></span>
+          </a>
+          <a class="rc-card" href="play/RacingClub/TimeAttack/tracks.html">
+            <div class="rc-clabel"><span class="zh">賽道</span><span class="en">Tracks</span><span class="jp">コース</span></div>
+            <div class="rc-ctitle"><span class="zh">賽道紀錄</span><span class="en">Track records</span><span class="jp">コース記録</span></div>
+            <span class="rc-ghost"><span class="zh">前往</span><span class="en">Open</span><span class="jp">開く</span><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="rc-foot">
+    <div class="rc-foot-row">
+      <span class="rc-foot-name">星河 STARRIVER ARTS</span>
+      <span class="rc-foot-copy">© 2026 · Project T · Racing Club · <span class="zh">臺灣場景系列</span><span class="en">Taiwan Scene Series</span><span class="jp">台湾景観シリーズ</span></span>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
+  function apply(l){ l=norm(l);
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>
