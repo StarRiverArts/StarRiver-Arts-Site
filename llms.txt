@@ -1,15 +1,90 @@
 # StarRiver Arts
 
-> Public static site for StarRiver Arts — VR environment design, Taiwan landscape digital twins, and immersive exhibition spaces. Hosted on GitHub Pages.
+> Public static site for StarRiver Arts — VR environment design, Taiwan landscape digital twins, Project T mountain-road worlds, VR Racing Club Time Attack records, and VR museum / exhibition systems.
+
+Generated: 2026-07-01T23:03:41+08:00
+Canonical site: https://starriverarts.github.io/StarRiver-Arts-Site/
+Languages: Traditional Chinese / English / Japanese.
+
+## Machine-readable indexes
+
+- [site-index.json](https://starriverarts.github.io/StarRiver-Arts-Site/site-index.json): full page inventory with titles, descriptions, tags, headings, and search text.
+- [search-index.json](https://starriverarts.github.io/StarRiver-Arts-Site/search-index.json): compact browser/client search cache.
+- [llm-index.json](https://starriverarts.github.io/StarRiver-Arts-Site/llm-index.json): compact LLM-oriented context map.
+- [sitemap.xml](https://starriverarts.github.io/StarRiver-Arts-Site/sitemap.xml): canonical crawl URLs.
 
 ## Primary sections
 
-- [Studio](https://starriverarts.github.io/StarRiver-Arts-Site/studio.html): creator portfolio and project index.
-- [Play](https://starriverarts.github.io/StarRiver-Arts-Site/play/): Project T mountain-road content hub. The Time Attack records station is live; other sections are in development.
-- [Time Attack](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/): multi-page records station — tracks, players, vehicles, events.
-- [Museum](https://starriverarts.github.io/StarRiver-Arts-Site/museum/): exhibitions, web exhibitions, and interactive design-system showcases.
+- [Home](https://starriverarts.github.io/StarRiver-Arts-Site/): three entrances into Studio, Project T, and Museum.
+- [Studio](https://starriverarts.github.io/StarRiver-Arts-Site/studio.html): creator portfolio and selected VR / environment design works.
+- [Project T](https://starriverarts.github.io/StarRiver-Arts-Site/play/): VR mountain-road and Taiwan landscape world hub.
+- [Time Attack](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/): VR Racing Club records station with tracks, players, vehicles, events, and catalog pages.
+- [Museum](https://starriverarts.github.io/StarRiver-Arts-Site/museum/): exhibitions, web exhibitions, and interactive museum design-system tools.
 
-## Notes
+## Data endpoints
 
-- The site is trilingual: Traditional Chinese / English / Japanese.
-- The Time Attack station uses shared HTML shells with query-string parameters while loading JSON data client-side.
+- [play/RacingClub/TimeAttack/data/summary.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/summary.json)
+- [play/RacingClub/TimeAttack/data/manifest.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/manifest.json)
+- [play/RacingClub/TimeAttack/data/tracks.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/tracks.json)
+- [play/RacingClub/TimeAttack/data/vehicles.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/vehicles.json)
+- [play/RacingClub/TimeAttack/data/players.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/players.json)
+- [play/RacingClub/TimeAttack/data/catalog.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/catalog.json)
+- [play/RacingClub/TimeAttack/data/trackmap.json](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/data/trackmap.json)
+
+## Indexed pages
+
+### Museum
+
+- [About the Museum | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/about.html): StarRiver Museum 關於頁，說明美術館如何把 VR、網頁與空間敘事視為展覽媒介。
+- [Contact | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/contact.html): StarRiver Museum 聯絡頁，供合作邀請、展覽提案、支持洽談或一般詢問使用。
+- [Exhibitions | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/exhibitions.html): StarRiver Museum 展覽資訊頁，整理正式展覽狀態、展覽形式與參觀入口。
+- [StarRiver Museum | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/): StarRiver Museum 線上入口，整理 VR 空間、台灣地景、科學概念與互動展覽。
+- [Support the Museum | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/support.html): StarRiver Museum 支持頁，說明合作、提案、贊助洽談與技術協作方式。
+- [Web Exhibitions | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/web-exhibitions.html): StarRiver Museum 網頁展覽頁，整理可在線上觀看的數位展覽與互動模組。
+
+### Museum Interactive Systems
+
+- [Falloff Predictor · 光衰減預估](https://starriverarts.github.io/StarRiver-Arts-Site/museum/interactive/design-system-visualize/falloff-predictor.html): VR Gallery Spatial System 的光衰減預估工具，用於比較虛擬展場光線距離與可讀性。
+- [Gallery Study Modules | Museum | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/interactive/design-system-visualize/): Gallery Study Modules：整理空間規劃與光衰減預估兩個 VR 展場研究互動模組。
+- [Spatial Planner · 空間規劃工具](https://starriverarts.github.io/StarRiver-Arts-Site/museum/interactive/design-system-visualize/spatial-planner.html): VR Gallery Spatial System 的空間規劃互動工具，用於理解展場尺度、觀看距離與配置。
+- [VR Gallery Spatial System — Web Exhibitions · StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/museum/interactive/vr-gallery-spatial-system/): VR Gallery Spatial System：虛擬實境美術館的空間、文字標識與展場設計系統網頁展覽。
+
+### Project T
+
+- [Project T Play | 星河 StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/): Project T 山道世界內容系統入口，連到 VR Racing Club、Time Attack 紀錄站與台灣山路世界。
+
+### StarRiver Arts
+
+- [星河 StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/): 星河 StarRiver Arts 的入口頁，連到 Studio 作品集、Project T 台灣山道 VR 世界與 StarRiver Museum。
+
+### Studio
+
+- [Studio — 星河 StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/studio.html): StarRiver / 星河的作品集：VR 環境設計、台灣地景數位孿生、VRChat 世界與沉浸式展覽空間。
+
+### Studio Projects
+
+- [Project T — 九彎十八拐 — StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/projects/9turns.html): Project T 九彎十八拐：以台灣台9線石牌公園至頭城段為基礎的 VRChat 山道路線場景。
+- [Beyond Gravity — StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/projects/beyond-gravity.html): Beyond Gravity：以 VRChat 空間呈現 Skyhook 軌道運輸與太空站尺度的沉浸式概念作品。
+- [Free Trajectory — StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/projects/free-trajectory.html): Free Trajectory：NCHU 相關 VR 景觀提案與街道改善視覺紀錄，聚焦自行車道、街道與城市空間。
+- [StarSight Mt. 觀星山 — StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/projects/starsight-mt.html): StarSight Mt. 觀星山：Project T 的 VRChat 山地觀星與台灣地景世界專案。
+- [Project T — 武嶺 — StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/projects/wuling.html): Project T 武嶺：以台灣高山道路與武嶺地景為題的 VRChat 山道世界製作紀錄。
+
+### VR Racing Club Time Attack
+
+- [Track Map | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/TrackMap/): Time Attack 賽道地圖頁，以地理視角整理賽道路線、地點與紀錄資料。
+- [Index | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/catalog.html): Time Attack 索引頁，整合賽道、地點、車輛、玩家與資料目錄。
+- [Events 建置中 | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/events.html): VR Racing Club 活動頁，預留給 Time Attack 活動、賽事與社群事件資訊。
+- [Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/): VR Racing Club Time Attack 的總覽頁，聚合賽道、玩家、車輛、活動、索引與站台資訊。
+- [Info | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/info.html): Time Attack 站台資訊頁，包含資料摘要、builder 狀態、更新資訊與資料來源說明。
+- [Player | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/player.html): 單一玩家檔案頁，可由查詢參數載入個人 PB、參與賽道、車輛與紀錄歷史。
+- [Players | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/players.html): Time Attack 玩家索引與玩家表現分析，整理 PB、參與路線與排行榜資料。
+- [Track | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/track.html): 單一賽道詳情頁，可由查詢參數載入特定路線的紀錄榜、車輛與玩家表現。
+- [Tracks | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/tracks.html): Time Attack 賽道分析與賽道排行榜入口，依路線檢視紀錄、玩家與車輛表現。
+- [Vehicle | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vehicle.html): 單一車輛檔案頁，可由查詢參數載入車輛變體、使用玩家、路線紀錄與表現。
+- [Vehicles | Time Attack | VR Racing Club | StarRiver Arts](https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vehicles.html): Time Attack 車輛索引與車種表現分析，整理車輛、變體、紀錄與使用趨勢。
+
+## Notes for LLM consumers
+
+- Prefer `llm-index.json` for a compact context map and `site-index.json` when page-level search text is useful.
+- Time Attack pages load JSON client-side; use the data endpoints above for structured records and catalog data.
+- The site represents StarRiver / 星河, a Taiwan creator working around VRChat worlds, Project T, VR racing, and VR museum systems.
