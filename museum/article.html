@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作品專欄 | StarRiver Museum</title>
+<link rel="icon" href="../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="museum.css">
+<link rel="stylesheet" href="../ds-additions.css">
+<style>
+  /* 先不互聯：頁面間連結由 CMS 連上/開啟，暫設 href="#" */
+  #art .art-serif{font-family:"Noto Serif TC","Source Han Serif TC",serif}
+  #art .art-plate{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);border:1px solid rgba(40,40,41,.1);display:flex;align-items:center;justify-content:center}
+  #art .art-plate span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #art .art-spec{display:grid;gap:0;margin-top:18px;border-top:1px solid rgba(40,40,41,.1)}
+  #art .art-spec-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(40,40,41,.08);font-size:14px}
+  #art .art-spec-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #art .art-spec-v{color:var(--sr-graphite);text-align:right}
+  #art .art-body{max-width:660px}
+  #art .art-body p{font-size:18px;line-height:1.9;color:var(--gray-700);margin:0 0 20px}
+  #art .art-h2{font-family:var(--font-deck);font-weight:700;font-size:24px;line-height:1.15;color:var(--sr-graphite);margin:0 0 16px}
+  #art .art-lede{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:40px;align-items:start}
+  @media(max-width:980px){#art .art-lede{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body>
+<div id="art" class="sr-brand-museum sr-type" data-screen-label="Museum / Article (single work)">
+
+  <header class="museum-topbar">
+    <a class="museum-brand" href="#">
+      <span class="museum-brand-mark">StarRiver Arts</span>
+      <span class="museum-brand-name">Museum</span>
+    </a>
+    <nav class="museum-nav" aria-label="Museum">
+      <a href="#"><span class="zh">入口</span><span class="en">Entry</span></a>
+      <a href="#"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
+      <a href="#" aria-current="page"><span class="zh">專欄</span><span class="en">Articles</span></a>
+    </nav>
+    <button class="museum-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </header>
+
+  <main class="museum-main">
+
+    <a class="museum-text-link" href="#" style="margin-bottom:28px">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="zh">返回展覽</span><span class="en">Back to exhibition</span>
+    </a>
+
+    <!-- LEDE -->
+    <section class="art-lede">
+      <div>
+        <div class="museum-kicker"><span class="zh">單件專欄 · 作品</span><span class="en">Single-work column · Artwork</span></div>
+        <h1 class="museum-title art-serif"><span class="zh">作品名稱</span><span class="en">Artwork Title</span></h1>
+        <p class="museum-lead art-serif"><span class="zh">作品引言置於此處：一段介紹此件作品的開場，說明它是什麼、為何被收入此展。實際內容待作品確認後填入。</span><span class="en">The artwork's lede sits here: an opening that introduces the work — what it is and why it entered this exhibition. Real content will be added once the work is confirmed.</span></p>
+      </div>
+      <aside>
+        <div class="art-plate"><span><span class="zh">作品圖 · 待補</span><span class="en">Artwork image · pending</span></span></div>
+        <div class="art-spec">
+          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">媒材</span><span class="en">Medium</span></span><span class="art-spec-v">—</span></div>
+          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">年份</span><span class="en">Year</span></span><span class="art-spec-v">—</span></div>
+          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">所屬展覽</span><span class="en">Exhibition</span></span><span class="art-spec-v"><a class="museum-text-link" href="#" style="font-size:13px;letter-spacing:0;text-transform:none"><span class="zh">展覽名稱</span><span class="en">Exhibition Title</span></a></span></div>
+          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">作者</span><span class="en">Artist</span></span><span class="art-spec-v">—</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- LONG-FORM NOTE -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">作品筆記</span><span class="en">On the work</span></div>
+          <h2 class="museum-section-title art-serif"><span class="zh">關於這件作品</span><span class="en">About this work</span></h2>
+        </div>
+        <p class="museum-section-copy"><span class="zh">單件作品的長文筆記——創作脈絡、技術、在展場中的位置與觀看方式。</span><span class="en">A long-form note on the single work — its making, technique, place in the gallery, and how to look at it.</span></p>
+      </div>
+      <div class="art-body art-serif">
+        <div class="sr-placeholder" style="max-width:520px"><span class="zh">內文 · 建置中</span><span class="en">Body text · Coming soon</span></div>
+        <p style="margin-top:24px;color:var(--gray-400)"><span class="zh">（正文段落將於作品筆記撰寫後置於此處，採 Noto Serif TC 長文排版。）</span><span class="en">(Body paragraphs will sit here once the note is written, set in Noto Serif TC long-form type.)</span></p>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">同展其他作品</span><span class="en">Also in this exhibition</span></div>
+          <h2 class="museum-section-title"><span class="zh">繼續觀看</span><span class="en">Keep looking</span></h2>
+        </div>
+      </div>
+      <div class="museum-grid museum-grid-3">
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="#"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="#"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+        <article class="museum-card">
+          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
+          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
+          <a class="museum-card-link" href="#"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="museum-footer">
+      <span><span class="zh">StarRiver Museum · 單件作品專欄</span><span class="en">StarRiver Museum · Single-work column</span></span>
+      <span>2026 StarRiver Arts</span>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function apply(l){ if(avail.indexOf(l)<0) l=avail[0];
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

@@ -6,119 +6,126 @@
 <title>Article | Project T | 星河 StarRiver Arts</title>
 <link rel="icon" href="../../assets/logos/starriver-primary.png">
 <link rel="stylesheet" href="../../colors_and_type.css">
-<link rel="stylesheet" href="../../museum/museum.css">
 <link rel="stylesheet" href="../../ds-additions.css">
+<link rel="stylesheet" href="../play-landing.css">
+<link rel="stylesheet" href="../play-readability.css">
 <style>
-  #art .art-serif{font-family:"Noto Serif TC","Source Han Serif TC",serif}
-  #art .art-plate{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);border:1px solid rgba(40,40,41,.1);display:flex;align-items:center;justify-content:center}
-  #art .art-plate span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
-  #art .art-spec{display:grid;gap:0;margin-top:18px;border-top:1px solid rgba(40,40,41,.1)}
-  #art .art-spec-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(40,40,41,.08);font-size:14px}
-  #art .art-spec-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
-  #art .art-spec-v{color:var(--sr-graphite);text-align:right}
-  #art .art-body{max-width:660px}
-  #art .art-body p{font-size:18px;line-height:1.9;color:var(--gray-700);margin:0 0 20px}
-  #art .art-h2{font-family:var(--font-deck);font-weight:700;font-size:24px;line-height:1.15;color:var(--sr-graphite);margin:0 0 16px}
-  #art .art-lede{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:40px;align-items:start}
-  @media(max-width:980px){#art .art-lede{grid-template-columns:1fr;gap:28px}}
+  /* 先不互聯：頁面間連結由 CMS 連上/開啟，暫設 href="#"。Project T 專欄閱讀樣式（map-paper 淺色） */
+  #pa .pa-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);margin:0 0 22px}
+  #pa .pa-back svg{width:10px;height:10px}
+  #pa .pa-lede{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:40px;align-items:start}
+  #pa .pa-kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber,#E88A2E);margin-bottom:14px}
+  #pa .pa-title{font-family:var(--font-display);font-weight:900;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.02em;color:var(--fg-1,#20211c);margin:0 0 16px}
+  #pa .pa-ledetext{font-family:var(--font-body);font-size:19px;line-height:1.6;color:var(--gray-700);margin:0}
+  #pa .pa-plate{aspect-ratio:16/10;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);border:1px solid var(--gray-300,rgba(40,40,41,.12));border-radius:6px;display:flex;align-items:center;justify-content:center}
+  #pa .pa-plate span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #pa .pa-spec{display:grid;margin-top:16px;border-top:1px solid var(--gray-300,rgba(40,40,41,.12))}
+  #pa .pa-spec-row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid rgba(40,40,41,.08);font-size:14px}
+  #pa .pa-spec-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #pa .pa-spec-v{color:var(--fg-1,#2a2a2b);text-align:right}
+  #pa .pa-body{max-width:660px;margin-top:8px}
+  #pa .pa-body p{font-family:var(--font-body);font-size:17px;line-height:1.85;color:var(--gray-700);margin:0 0 20px}
+  @media(max-width:980px){#pa .pa-lede{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
-<div id="art" class="sr-brand-museum sr-type" data-screen-label="Articles / Single artwork">
+<div id="pa" class="sr-brand-project-t sr-type" data-screen-label="Play / Articles / Single article">
 
-  <header class="museum-topbar">
-    <a class="museum-brand" href="Museum.dc.html">
-      <span class="museum-brand-mark">StarRiver Arts</span>
-      <span class="museum-brand-name">Museum</span>
-    </a>
-    <nav class="museum-nav" aria-label="Museum">
-      <a href="Museum.dc.html"><span class="zh">入口</span><span class="en">Entry</span></a>
-      <a href="Museum Exhibition.dc.html"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
-      <a href="Article.dc.html" aria-current="page"><span class="zh">專欄</span><span class="en">Articles</span></a>
-    </nav>
-    <button class="museum-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
-  </header>
-
-  <main class="museum-main">
-
-    <a class="museum-text-link" href="Museum Exhibition.dc.html" style="margin-bottom:28px">
+  <nav class="nav">
+    <a class="nav-home" href="#">
       <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
-      <span class="zh">返回展覽</span><span class="en">Back to exhibition</span>
+      <span class="nav-brand">星河 STARRIVER ARTS</span>
     </a>
+    <div class="nav-links">
+      <a href="#"><span class="zh">Project T</span><span class="en">Project T</span><span class="jp">Project T</span></a>
+      <a href="#" class="active"><span class="zh">專欄</span><span class="en">Articles</span><span class="jp">記事</span></a>
+      <a href="#"><span class="zh">Time Attack</span><span class="en">Time Attack</span><span class="jp">Time Attack</span></a>
+    </div>
+    <select class="lang-btn" data-lang-select aria-label="Language">
+      <option value="zh">中文</option>
+      <option value="en">EN</option>
+      <option value="jp">日本語</option>
+    </select>
+  </nav>
 
-    <!-- LEDE -->
-    <section class="art-lede">
-      <div>
-        <div class="museum-kicker"><span class="zh">單件專欄 · 作品</span><span class="en">Single-work column · Artwork</span></div>
-        <h1 class="museum-title art-serif"><span class="zh">作品名稱</span><span class="en">Artwork Title</span></h1>
-        <p class="museum-lead art-serif"><span class="zh">作品引言置於此處：一段介紹此件作品的開場，說明它是什麼、為何被收入此展。實際內容待作品確認後填入。</span><span class="en">The artwork's lede sits here: an opening that introduces the work — what it is and why it entered this exhibition. Real content will be added once the work is confirmed.</span></p>
-      </div>
-      <aside>
-        <div class="art-plate"><span><span class="zh">作品圖 · 待補</span><span class="en">Artwork image · pending</span></span></div>
-        <div class="art-spec">
-          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">媒材</span><span class="en">Medium</span></span><span class="art-spec-v">—</span></div>
-          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">年份</span><span class="en">Year</span></span><span class="art-spec-v">—</span></div>
-          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">所屬展覽</span><span class="en">Exhibition</span></span><span class="art-spec-v"><a class="museum-text-link" href="Museum Exhibition.dc.html" style="font-size:13px;letter-spacing:0;text-transform:none"><span class="zh">展覽名稱</span><span class="en">Exhibition Title</span></a></span></div>
-          <div class="art-spec-row"><span class="art-spec-k"><span class="zh">作者</span><span class="en">Artist</span></span><span class="art-spec-v">—</span></div>
-        </div>
-      </aside>
-    </section>
+  <div class="body-section" style="padding-top:48px">
+    <div class="wrap">
 
-    <!-- LONG-FORM NOTE -->
-    <section class="museum-section">
-      <div class="museum-section-head">
+      <a class="pa-back" href="#">
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+        <span class="zh">回到專欄</span><span class="en">Back to Articles</span><span class="jp">記事一覧へ</span>
+      </a>
+
+      <!-- LEDE -->
+      <section class="pa-lede">
         <div>
-          <div class="museum-kicker"><span class="zh">作品筆記</span><span class="en">On the work</span></div>
-          <h2 class="museum-section-title art-serif"><span class="zh">關於這件作品</span><span class="en">About this work</span></h2>
+          <div class="pa-kicker"><span class="zh">單篇文章 · 路線研究</span><span class="en">Single article · Route study</span><span class="jp">単記事 · ルート研究</span></div>
+          <h1 class="pa-title"><span class="zh">文章標題</span><span class="en">Article Title</span><span class="jp">記事タイトル</span></h1>
+          <p class="pa-ledetext"><span class="zh">文章引言置於此處：一段開場，說明這篇寫的是哪條路線／世界、以及為什麼值得記錄。實際內容待撰寫後填入。</span><span class="en">The article's lede sits here: an opening that says which route or world this covers and why it's worth writing down. Real content will be added once written.</span><span class="jp">記事のリード文。どのルート／ワールドを扱うか、なぜ記録に値するかを述べる導入。執筆後に差し替え。</span></p>
         </div>
-        <p class="museum-section-copy"><span class="zh">單件作品的長文筆記——創作脈絡、技術、在展場中的位置與觀看方式。</span><span class="en">A long-form note on the single work — its making, technique, place in the gallery, and how to look at it.</span></p>
-      </div>
-      <div class="art-body art-serif">
-        <div class="sr-placeholder" style="max-width:520px"><span class="zh">內文 · 建置中</span><span class="en">Body text · Coming soon</span></div>
-        <p style="margin-top:24px;color:var(--gray-400)"><span class="zh">（正文段落將於作品筆記撰寫後置於此處，採 Noto Serif TC 長文排版。）</span><span class="en">(Body paragraphs will sit here once the note is written, set in Noto Serif TC long-form type.)</span></p>
-      </div>
-    </section>
+        <aside>
+          <div class="pa-plate"><span><span class="zh">封面圖 · 待補</span><span class="en">Cover image · pending</span><span class="jp">カバー画像 · 未定</span></span></div>
+          <div class="pa-spec">
+            <div class="pa-spec-row"><span class="pa-spec-k"><span class="zh">世界</span><span class="en">World</span><span class="jp">ワールド</span></span><span class="pa-spec-v">—</span></div>
+            <div class="pa-spec-row"><span class="pa-spec-k"><span class="zh">路線</span><span class="en">Route</span><span class="jp">ルート</span></span><span class="pa-spec-v">—</span></div>
+            <div class="pa-spec-row"><span class="pa-spec-k"><span class="zh">類型</span><span class="en">Type</span><span class="jp">タイプ</span></span><span class="pa-spec-v">—</span></div>
+            <div class="pa-spec-row"><span class="pa-spec-k"><span class="zh">發布</span><span class="en">Published</span><span class="jp">公開</span></span><span class="pa-spec-v">—</span></div>
+          </div>
+        </aside>
+      </section>
 
-    <!-- RELATED -->
-    <section class="museum-section">
-      <div class="museum-section-head">
-        <div>
-          <div class="museum-kicker"><span class="zh">同展其他作品</span><span class="en">Also in this exhibition</span></div>
-          <h2 class="museum-section-title"><span class="zh">繼續觀看</span><span class="en">Keep looking</span></h2>
+      <!-- BODY -->
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title"><span class="zh">正文</span><span class="en">The article</span><span class="jp">本文</span></h2>
+          <p class="section-note zh">路線研究、製作筆記或技術拆解的長文，發布後置於此處。</p>
+          <p class="section-note en">A long-form route study, dev note, or technical breakdown — placed here once published.</p>
+          <p class="section-note jp">ルート研究・制作ノート・技術解説の長文。公開後にここへ。</p>
         </div>
-      </div>
-      <div class="museum-grid museum-grid-3">
-        <article class="museum-card">
-          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
-          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
-          <a class="museum-card-link" href="Article.dc.html"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
-        </article>
-        <article class="museum-card">
-          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
-          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
-          <a class="museum-card-link" href="Article.dc.html"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
-        </article>
-        <article class="museum-card">
-          <div class="museum-card-eyebrow"><span class="zh">作品</span><span class="en">Work</span></div>
-          <div class="sr-placeholder"><span class="zh">建置中</span><span class="en">Coming soon</span></div>
-          <a class="museum-card-link" href="Article.dc.html"><span class="zh">閱讀</span><span class="en">Read</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></a>
-        </article>
-      </div>
-    </section>
+        <div class="pa-body">
+          <div class="sr-placeholder" style="max-width:520px"><span class="zh">內文 · 建置中</span><span class="en">Body text · Coming soon</span><span class="jp">本文 · 準備中</span></div>
+        </div>
+      </section>
 
-    <footer class="museum-footer">
-      <span><span class="zh">StarRiver Museum · 單件作品專欄</span><span class="en">StarRiver Museum · Single-work column</span></span>
-      <span>2026 StarRiver Arts</span>
-    </footer>
-  </main>
+      <!-- RELATED -->
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title"><span class="zh">相關文章</span><span class="en">Related articles</span><span class="jp">関連記事</span></h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-label"><span class="zh">文章</span><span class="en">Article</span><span class="jp">記事</span></div>
+            <div class="sr-placeholder" style="margin-top:4px"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </article>
+          <article class="card">
+            <div class="card-label"><span class="zh">文章</span><span class="en">Article</span><span class="jp">記事</span></div>
+            <div class="sr-placeholder" style="margin-top:4px"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </article>
+          <article class="card">
+            <div class="card-label"><span class="zh">文章</span><span class="en">Article</span><span class="jp">記事</span></div>
+            <div class="sr-placeholder" style="margin-top:4px"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="road-line"></div>
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span class="footer-name">星河 STARRIVER ARTS</span>
+      <span class="footer-copy">© 2026 · Project T · Articles · <span class="zh">臺灣場景系列</span><span class="en">Taiwan Scene Series</span><span class="jp">台湾景観シリーズ</span></span>
+    </div>
+  </footer>
+
 </div>
 <script>
 (function(){
   var h=document.documentElement, avail=[];
   ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
   if(avail.length===0) avail=['zh'];
-  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
-  function apply(l){ l=norm(l);
+  function apply(l){ if(avail.indexOf(l)<0) l=avail[0];
     h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
     h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
     try{localStorage.setItem('sr-lang',l);}catch(e){} }
