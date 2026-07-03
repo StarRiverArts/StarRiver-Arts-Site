@@ -16,7 +16,7 @@
       "label_zh": "最熱門車型",
       "label_en": "Most Used Car",
       "name": "AE86 Trueno",
-      "value": "81 筆"
+      "value": "82 筆"
     },
     {
       "label_zh": "最熱門賽道",
@@ -26,6 +26,44 @@
     }
   ],
   "recent_runs": [
+    {
+      "record_date": "2026-07-02",
+      "track_world_code": "shomaru_jintei",
+      "route_code": "OB",
+      "route_label_zh": "正丸 / Outbound",
+      "route_label_en": "Shomaru / Outbound",
+      "player_display_name": "mantoplay",
+      "player_id": "plr_mantoplay",
+      "vehicle_model_name": "AE86 Trueno",
+      "vehicle_model_code": "veh_ae86t",
+      "lap_time_text": "03:07.264",
+      "platform": "pcvr",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "TR",
+      "badge_label_zh": "賽道紀錄",
+      "badge_label_en": "Track Record",
+      "badge_tone": "tr"
+    },
+    {
+      "record_date": "2026-07-01",
+      "track_world_code": "omote_rokkou_ron",
+      "route_code": "DH",
+      "route_label_zh": "omote_rokko / Downhill",
+      "route_label_en": "omote_rokko / Downhill",
+      "player_display_name": "BannRaven",
+      "player_id": "plr_bannraven",
+      "vehicle_model_name": "EVOIII/CE9A",
+      "vehicle_model_code": "veh_evoiii_ce9a",
+      "lap_time_text": "02:29.292",
+      "platform": "pcvr",
+      "verified": false,
+      "proof_text": "",
+      "badge_code": "CR",
+      "badge_label_zh": "車輛紀錄",
+      "badge_label_en": "Car Record",
+      "badge_tone": "cr"
+    },
     {
       "record_date": "2026-06-30",
       "track_world_code": "kamidomarizaka_calme",
@@ -139,54 +177,12 @@
       "badge_label_zh": "車輛紀錄",
       "badge_label_en": "Car Record",
       "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-06-30",
-      "track_world_code": "kamidomarizaka_calme",
-      "route_code": "DH",
-      "route_label_zh": "Kamidomarizaka / Downhill",
-      "route_label_en": "Kamidomarizaka / Downhill",
-      "player_display_name": "涂山洞洞",
-      "player_id": "plr_unknown",
-      "vehicle_model_name": "YasuriRG",
-      "vehicle_model_code": "veh_yasurirg",
-      "lap_time_text": "04:04.900",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "",
-      "badge_label_zh": "",
-      "badge_label_en": "",
-      "badge_tone": ""
-    },
-    {
-      "record_date": "2026-06-30",
-      "track_world_code": "kamidomarizaka_calme",
-      "route_code": "DH",
-      "route_label_zh": "Kamidomarizaka / Downhill",
-      "route_label_en": "Kamidomarizaka / Downhill",
-      "player_display_name": "涂山洞洞",
-      "player_id": "plr_unknown",
-      "vehicle_model_name": "R34(BNR34)",
-      "vehicle_model_code": "veh_bnr34",
-      "lap_time_text": "03:30.555",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "",
-      "badge_code": "PR",
-      "badge_label_zh": "個人紀錄",
-      "badge_label_en": "Personal Record",
-      "badge_tone": "pr"
     }
   ],
   "track_options": [
     {
       "code": "kart_totuka_kaoru",
       "name": "@Kart"
-    },
-    {
-      "code": "akagi_jintei",
-      "name": "Akagi"
     },
     {
       "code": "c1_runner",
@@ -329,10 +325,6 @@
       "name": "ShinMyogi"
     },
     {
-      "code": "shomaru_jintei",
-      "name": "Shomaru"
-    },
-    {
       "code": "silverstone_aiden1408",
       "name": "Silverstone"
     },
@@ -405,6 +397,10 @@
       "name": "妙義環線"
     },
     {
+      "code": "shomaru_jintei",
+      "name": "正丸"
+    },
+    {
       "code": "unknown",
       "name": "淵森国際サーキット"
     },
@@ -431,6 +427,10 @@
     {
       "code": "starsight_starriver_arts",
       "name": "觀星山"
+    },
+    {
+      "code": "akagi_jintei",
+      "name": "赤城"
     }
   ],
   "popularity_chart": {
@@ -518,7 +518,7 @@
       {
         "code": "omote_rokkou_ron",
         "name": "omote_rokko",
-        "count": 30,
+        "count": 31,
         "country": "日本Japan",
         "system": "CVS",
         "category_key": "日本Japan|CVS"
@@ -557,7 +557,7 @@
       },
       {
         "code": "akagi_jintei",
-        "name": "Akagi",
+        "name": "赤城",
         "count": 14,
         "country": "日本Japan",
         "system": "Sacc",
@@ -653,8 +653,8 @@
       },
       {
         "code": "shomaru_jintei",
-        "name": "Shomaru",
-        "count": 6,
+        "name": "正丸",
+        "count": 7,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
@@ -1057,14 +1057,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "872",
+      "value": "874",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "872",
+      "value": "874",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -1078,21 +1078,21 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "872",
+      "value": "874",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
     {
       "label_zh": "賽道世界",
       "label_en": "Track Worlds",
-      "value": "65",
+      "value": "67",
       "note_zh": "以世界為準的賽道識別",
       "note_en": "World-level track identities"
     },
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "162",
+      "value": "165",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

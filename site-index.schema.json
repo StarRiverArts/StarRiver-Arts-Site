@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starriverarts.github.io/StarRiver-Arts-Site/site-index.schema.json",
+  "title": "StarRiver Arts Site Index",
+  "type": "object",
+  "required": ["generated_at", "site", "pages"],
+  "properties": {
+    "schema": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "site": {
+      "type": "object",
+      "required": ["name", "base_url", "languages"],
+      "properties": {
+        "name": { "type": "string" },
+        "zh_name": { "type": "string" },
+        "description": { "type": "string" },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "creator": { "type": "string" },
+        "base_url": { "type": "string" }
+      }
+    },
+    "key_topics": { "type": "array", "items": { "type": "string" } },
+    "data_endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "url"],
+        "properties": {
+          "path": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "url", "title", "description", "section", "lastmod"],
+        "properties": {
+          "id": { "type": "string" },
+          "path": { "type": "string" },
+          "url": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "section": { "type": "string" },
+          "section_label": { "type": "string" },
+          "languages": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "headings": { "type": "array", "items": { "type": "string" } },
+          "lastmod": { "type": "string" },
+          "priority": { "type": "number" },
+          "search_text": { "type": "string" }
+        }
+      }
+    }
+  }
+}
