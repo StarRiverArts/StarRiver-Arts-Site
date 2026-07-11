@@ -1,80 +1,94 @@
 @charset "UTF-8";
-/* ============================================================
-   Time Attack STATION — readability override  (minimal)
-   ------------------------------------------------------------
-   The station (timeattack.css) is ALREADY night, with TR/CR/PR
-   badges, search/filter and the Leaflet TrackMap. This file only
-   does the light-touch review fixes — no structure, no behaviour:
-     1. lifts the two faintest text tokens one step (global contrast)
-     2. nudges the genuinely tiny 9–11px labels up 1–2px
-     3. STATION-LOCAL sr-fluid — large-screen type scaling that
-        works WITHOUT ds-additions.css (the station never loads it,
-        so the bare `sr-fluid` class would otherwise be a no-op).
-   Grounded in the real selectors + tokens in timeattack.css.
-   Load AFTER timeattack.css; add `sr-fluid` to <html>.
-   ============================================================ */
-
-/* 1 · global contrast — lift the faint/soft tokens one step.
-   Fixes every faint label/row at once (was #94A098 / #C3CCC3 on
-   the #141B19 night ground). */
+/* Time Attack STATION — readability and responsive navigation override */
 .timeattack-page {
-  --ta-text-faint: #AEB7AF;   /* was #94A098 */
-  --ta-text-soft:  #D2D9D2;   /* was #C3CCC3 */
+  --ta-text-faint:#AEB7AF;
+  --ta-text-soft:#D2D9D2;
+}
+.ta-lb-rank,.ta-row-rank { color:rgba(255,255,255,.62)!important; }
+.ta-row-plat,.ta-mini-plat { font-size:10px; }
+.ta-row-rank,.ta-row-sub,.ta-lb-rank,.ta-tm-nopoint,.ta-tm-track-meta { font-size:12px; }
+.ta-lb-sub { font-size:13px; }
+.ta-sidebar-card h2,.ta-tm-track-name,.ta-tm-unlocated h3 { font-size:14px; }
+.ta-tm-crumb,.ta-tm-crumb-sep { font-size:13px; }
+.ta-navlink { font-size:12px; }
+
+html.sr-fluid { font-size:clamp(16px,.95rem + .3vw,21px); -webkit-text-size-adjust:100%; }
+html.sr-fluid .ta-title { font-size:clamp(2.6rem,1.8rem + 3.4vw,5rem); line-height:.94; }
+html.sr-fluid .ta-desc { font-size:clamp(16px,1rem + .2vw,19px); }
+html.sr-fluid .ta-section-title,html.sr-fluid .ta-board-title { font-size:clamp(1.5rem,1.2rem + 1vw,2.1rem); }
+
+.ta-topbar .pt-brand,.ta-topbar .pt-brand-name { color:var(--ta-text); }
+.ta-topbar .pt-brand-kicker { color:var(--ta-text-faint); }
+.ta-topbar .pt-toplink,.ta-topbar .pt-lang,.ta-topbar .pt-ghostlink {
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.18);
+  color:var(--ta-text);
+}
+.ta-topbar .pt-toplink:hover,.ta-topbar .pt-ghostlink:hover { background:rgba(255,255,255,.12); }
+.ta-topbar a:focus-visible,.ta-localnav a:focus-visible,.ta-topbar select:focus-visible {
+  outline:3px solid var(--ta-accent);
+  outline-offset:3px;
 }
 
-/* a few ranks hard-code rgba white — lift those too */
-.ta-lb-rank,
-.ta-row-rank { color: rgba(255, 255, 255, 0.62) !important; }  /* was .44–.45 */
+/* On narrow screens, keep the brand and controls on one compact row. */
+@media (max-width:720px) {
+  .ta-topbar {
+    align-items:center;
+    flex-direction:row;
+    gap:10px;
+    padding:10px 12px;
+  }
+  .ta-topbar .pt-brand { min-width:0; flex:1 1 auto; }
+  .ta-topbar .pt-brand-badge { width:36px; height:36px; flex:0 0 36px; }
+  .ta-topbar .pt-brand-copy { min-width:0; }
+  .ta-topbar .pt-brand-kicker { display:none; }
+  .ta-topbar .pt-brand-name {
+    display:block;
+    font-size:13px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .ta-topbar-nav { flex:0 0 auto; flex-wrap:nowrap; gap:6px; }
+  .ta-topbar .pt-toplink {
+    min-height:40px;
+    padding:8px 10px;
+    font-size:10px;
+    white-space:nowrap;
+  }
+  .ta-topbar .pt-lang {
+    min-height:40px;
+    max-width:76px;
+    padding:7px 24px 7px 8px;
+  }
 
-/* 2 · tiny-label bumps (real selectors from timeattack.css) */
-.ta-row-plat,
-.ta-mini-plat            { font-size: 10px; }   /* was 9px  */
-.ta-row-rank,
-.ta-row-sub,
-.ta-lb-rank,
-.ta-tm-nopoint,
-.ta-tm-track-meta        { font-size: 12px; }   /* was 11px */
-.ta-lb-sub               { font-size: 13px; }   /* was 12px */
-.ta-sidebar-card h2,
-.ta-tm-track-name,
-.ta-tm-unlocated h3      { font-size: 14px; }   /* was 13px */
-.ta-tm-crumb,
-.ta-tm-crumb-sep         { font-size: 13px; }   /* was 12px */
-.ta-navlink              { font-size: 12px; }   /* was ~11px */
-@media (max-width: 720px) {
-  .ta-navlink            { font-size: 11px; }   /* was 10px */
+  /* The eight destinations remain one level, but scroll horizontally
+     instead of wrapping into a tall, unstable block. */
+  .ta-localnav {
+    display:flex;
+    flex-wrap:nowrap;
+    gap:4px;
+    margin-left:-16px;
+    margin-right:-16px;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    padding:6px 16px 0;
+    scrollbar-width:thin;
+    -webkit-overflow-scrolling:touch;
+  }
+  .ta-navlink {
+    flex:0 0 auto;
+    font-size:11px;
+    min-height:44px;
+    padding:9px 12px 11px;
+    white-space:nowrap;
+  }
+  .ta-localnav::after { content:""; flex:0 0 12px; }
 }
 
-/* 3 · STATION-LOCAL sr-fluid -------------------------------------
-   The fluid hook used by the other surfaces lives in ds-additions.css,
-   which Time Attack does NOT load — so we redeclare it here. A fluid
-   root lets rem-based sizes grow on large screens, and the hero /
-   section titles get explicit clamps on the station's real classes.
-   No-op below ~1280px; only widens type on big displays. */
-html.sr-fluid {
-  font-size: clamp(16px, 0.95rem + 0.3vw, 21px);
-  -webkit-text-size-adjust: 100%;
+@media (max-width:420px) {
+  .ta-topbar .pt-brand-badge { display:none; }
+  .ta-topbar .pt-toplink span { max-width:82px; overflow:hidden; text-overflow:ellipsis; }
+  .ta-hero-side { display:none; }
+  .ta-title { max-width:none; }
 }
-html.sr-fluid .ta-title   { font-size: clamp(2.6rem, 1.8rem + 3.4vw, 5rem); line-height: 0.94; }
-html.sr-fluid .ta-desc    { font-size: clamp(16px, 1rem + 0.2vw, 19px); }
-html.sr-fluid .ta-section-title,
-html.sr-fluid .ta-board-title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem); }
-
-/* 4 · topbar brand + back-nav contrast --------------------------
-   .pt-brand / .pt-toplink / .pt-lang come from project-t.css with the
-   DAY (map-paper) palette — dark ink + near-white fills — which render
-   dark-on-dark on this NIGHT topbar (the station never overrides them).
-   Re-point them to the station's night tokens. Scoped to .ta-topbar so
-   the light Play pages are untouched. */
-.ta-topbar .pt-brand,
-.ta-topbar .pt-brand-name   { color: var(--ta-text); }
-.ta-topbar .pt-brand-kicker { color: var(--ta-text-faint); }
-.ta-topbar .pt-toplink,
-.ta-topbar .pt-lang,
-.ta-topbar .pt-ghostlink {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: var(--ta-text);
-}
-.ta-topbar .pt-toplink:hover,
-.ta-topbar .pt-ghostlink:hover { background: rgba(255, 255, 255, 0.12); }
