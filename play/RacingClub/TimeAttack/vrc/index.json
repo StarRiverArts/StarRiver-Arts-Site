@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-06-28",
+  "updated": "2026-07-11",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -16,7 +16,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 80
+          "count": 81
         }
       ]
     },
@@ -134,6 +134,29 @@
       ]
     },
     {
+      "code": "kamidomarizaka_calme",
+      "zh": "Kamidomarizaka",
+      "en": "Kamidomarizaka",
+      "system": "cvs",
+      "file": "kamidomarizaka_calme.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 22
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 23
+        }
+      ]
+    },
+    {
       "code": "ryuoukouzan_calme",
       "zh": "Ryuoukouzan",
       "en": "Ryuoukouzan",
@@ -168,7 +191,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 36
+          "count": 37
         }
       ]
     },
@@ -212,32 +235,9 @@
       ]
     },
     {
-      "code": "kamidomarizaka_calme",
-      "zh": "Kamidomarizaka",
-      "en": "Kamidomarizaka",
-      "system": "cvs",
-      "file": "kamidomarizaka_calme.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 13
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 14
-        }
-      ]
-    },
-    {
       "code": "omote_rokkou_ron",
-      "zh": "omote_rokkou",
-      "en": "omote_rokkou",
+      "zh": "omote_rokko",
+      "en": "omote_rokko",
       "system": "cvs",
       "file": "omote_rokkou_ron.json",
       "routes": [
@@ -246,7 +246,37 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
+          "count": 30
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "futatsukane",
+      "zh": "Futatsukane",
+      "en": "Futatsukane",
+      "system": "cvs",
+      "file": "futatsukane.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "status": "live",
+          "provisional": true,
           "count": 25
+        },
+        {
+          "code": "CW",
+          "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         }
       ]
     },
@@ -262,7 +292,7 @@
           "zh": "Full Course Downhill",
           "status": "live",
           "provisional": true,
-          "count": 15
+          "count": 17
         },
         {
           "code": "FCUH",
@@ -289,8 +319,8 @@
     },
     {
       "code": "urarokkou",
-      "zh": "UraRokkou",
-      "en": "UraRokkou",
+      "zh": "UraRokko",
+      "en": "UraRokko",
       "system": "unknown",
       "file": "urarokkou.json",
       "routes": [
@@ -320,8 +350,24 @@
       ]
     },
     {
+      "code": "unknown_lamina_03",
+      "zh": "大鷺山間サーキット",
+      "en": "大鷺山間サーキット",
+      "system": "unknown",
+      "file": "unknown_lamina_03.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 17
+        }
+      ]
+    },
+    {
       "code": "akagi_jintei",
-      "zh": "Akagi",
+      "zh": "赤城",
       "en": "Akagi",
       "system": "sacc",
       "file": "akagi_jintei.json",
@@ -339,22 +385,6 @@
           "status": "live",
           "provisional": true,
           "count": 3
-        }
-      ]
-    },
-    {
-      "code": "futatsukane",
-      "zh": "Futatsukane",
-      "en": "Futatsukane",
-      "system": "cvs",
-      "file": "futatsukane.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "status": "live",
-          "provisional": true,
-          "count": 13
         }
       ]
     },
@@ -380,6 +410,22 @@
       "en": "AkinaUN",
       "system": "sacc",
       "file": "akinaun_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 11
+        }
+      ]
+    },
+    {
+      "code": "momiji_foxbg",
+      "zh": "Momiji",
+      "en": "Momiji",
+      "system": "cvs",
+      "file": "momiji_foxbg.json",
       "routes": [
         {
           "code": "DH",
@@ -430,22 +476,6 @@
       ]
     },
     {
-      "code": "momiji_foxbg",
-      "zh": "Momiji",
-      "en": "Momiji",
-      "system": "cvs",
-      "file": "momiji_foxbg.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 10
-        }
-      ]
-    },
-    {
       "code": "myogi_cc_jintei",
       "zh": "妙義環線",
       "en": "Myogi(CC)",
@@ -487,7 +517,30 @@
           "zh": "順向",
           "status": "live",
           "provisional": true,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "code": "akina_snow_jintei",
+      "zh": "秋名雪",
+      "en": "Akina Snow",
+      "system": "sacc",
+      "file": "akina_snow_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
           "count": 6
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
         }
       ]
     },
@@ -511,6 +564,22 @@
           "status": "live",
           "provisional": true,
           "count": 1
+        }
+      ]
+    },
+    {
+      "code": "shomaru_foxbg",
+      "zh": "正丸",
+      "en": "Shomaru",
+      "system": "unknown",
+      "file": "shomaru_foxbg.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 8
         }
       ]
     },
@@ -555,7 +624,7 @@
     },
     {
       "code": "shomaru_jintei",
-      "zh": "Shomaru",
+      "zh": "正丸",
       "en": "Shomaru",
       "system": "sacc",
       "file": "shomaru_jintei.json",
@@ -662,22 +731,6 @@
       ]
     },
     {
-      "code": "akina_snow_jintei",
-      "zh": "秋名雪",
-      "en": "Akina Snow",
-      "system": "sacc",
-      "file": "akina_snow_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 5
-        }
-      ]
-    },
-    {
       "code": "nagao_foxbg",
       "zh": "Nagao",
       "en": "Nagao",
@@ -690,6 +743,29 @@
           "status": "live",
           "provisional": true,
           "count": 5
+        }
+      ]
+    },
+    {
+      "code": "tsukuba_snow_jintei",
+      "zh": "Tsukuba Snow",
+      "en": "Tsukuba Snow",
+      "system": "sacc",
+      "file": "tsukuba_snow_jintei.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
         }
       ]
     },
@@ -713,6 +789,29 @@
           "status": "live",
           "provisional": true,
           "count": 3
+        }
+      ]
+    },
+    {
+      "code": "hakone_jintei",
+      "zh": "Hakone",
+      "en": "Hakone",
+      "system": "sacc",
+      "file": "hakone_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         }
       ]
     },
@@ -775,6 +874,29 @@
           "status": "live",
           "provisional": true,
           "count": 4
+        }
+      ]
+    },
+    {
+      "code": "momiji_jintei",
+      "zh": "Momiji",
+      "en": "Momiji",
+      "system": "sacc",
+      "file": "momiji_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
         }
       ]
     },
@@ -890,6 +1012,22 @@
           "status": "live",
           "provisional": true,
           "count": 1
+        }
+      ]
+    },
+    {
+      "code": "tsukubacircuit",
+      "zh": "筑波サーキット-TsukubaCircuit-",
+      "en": "TsukubaCircuit",
+      "system": "unknown",
+      "file": "tsukubacircuit.json",
+      "routes": [
+        {
+          "code": "Circuit",
+          "zh": "Circuit",
+          "status": "live",
+          "provisional": true,
+          "count": 4
         }
       ]
     },
@@ -1018,6 +1156,22 @@
       ]
     },
     {
+      "code": "silverstone_afeminineguy",
+      "zh": "Silverstone",
+      "en": "Silverstone",
+      "system": "unknown",
+      "file": "silverstone_afeminineguy.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "code": "gunsaicp_jintei",
       "zh": "GunsaiCP",
       "en": "GunsaiCP",
@@ -1041,45 +1195,22 @@
       ]
     },
     {
-      "code": "momiji_jintei",
-      "zh": "Momiji",
-      "en": "Momiji",
+      "code": "nagoya_jintei",
+      "zh": "Nagoya",
+      "en": "Nagoya",
       "system": "sacc",
-      "file": "momiji_jintei.json",
+      "file": "nagoya_jintei.json",
       "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
         {
           "code": "DH",
           "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "code": "tsukuba_snow_jintei",
-      "zh": "Tsukuba Snow",
-      "en": "Tsukuba Snow",
-      "system": "sacc",
-      "file": "tsukuba_snow_jintei.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "OB",
-          "zh": "出場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -1103,22 +1234,6 @@
       ]
     },
     {
-      "code": "hakone_jintei",
-      "zh": "Hakone",
-      "en": "Hakone",
-      "system": "sacc",
-      "file": "hakone_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        }
-      ]
-    },
-    {
       "code": "fukutoshin_expressway",
       "zh": "Fukutoshin Expressway",
       "en": "Fukutoshin Expressway",
@@ -1135,18 +1250,18 @@
       ]
     },
     {
-      "code": "nagoya_jintei",
-      "zh": "Nagoya",
-      "en": "Nagoya",
-      "system": "sacc",
-      "file": "nagoya_jintei.json",
+      "code": "hiroshima_expressway",
+      "zh": "廣島高速公路",
+      "en": "Hiroshima Expressway",
+      "system": "unknown",
+      "file": "hiroshima_expressway.json",
       "routes": [
         {
-          "code": "TBD",
-          "zh": "待整理",
+          "code": "",
+          "zh": "",
           "status": "live",
           "provisional": true,
-          "count": 1
+          "count": 2
         }
       ]
     },
@@ -1256,6 +1371,118 @@
         {
           "code": "TBD",
           "zh": "待整理",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "owari_circuit",
+      "zh": "Owari Circuit",
+      "en": "Owari Circuit",
+      "system": "unknown",
+      "file": "owari_circuit.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "long_beach",
+      "zh": "Long Beach",
+      "en": "Long Beach",
+      "system": "unknown",
+      "file": "long_beach.json",
+      "routes": [
+        {
+          "code": "Long Beach",
+          "zh": "Long Beach",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "orc_circuit",
+      "zh": "ORC賽道",
+      "en": "ORC Circuit",
+      "system": "unknown",
+      "file": "orc_circuit.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "hi_land_raceway_2_0",
+      "zh": "Hi-Land Raceway 2.0",
+      "en": "Hi-Land Raceway 2.0",
+      "system": "unknown",
+      "file": "hi_land_raceway_2_0.json",
+      "routes": [
+        {
+          "code": "Circuit",
+          "zh": "Circuit",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "tc2000_n2",
+      "zh": "TC2000 N2決戦",
+      "en": "TC2000 N2決戦",
+      "system": "unknown",
+      "file": "tc2000_n2.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "spelberg_circuit_ff_challenge",
+      "zh": "SPELBERG Circuit FF Challenge",
+      "en": "SPELBERG Circuit FF Challenge",
+      "system": "unknown",
+      "file": "spelberg_circuit_ff_challenge.json",
+      "routes": [
+        {
+          "code": "Spielberg",
+          "zh": "Spielberg",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "calumet_pass",
+      "zh": "Calumet Pass",
+      "en": "Calumet Pass",
+      "system": "unknown",
+      "file": "calumet_pass.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "",
           "status": "live",
           "provisional": true,
           "count": 1
