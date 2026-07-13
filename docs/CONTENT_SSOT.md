@@ -1,7 +1,7 @@
 # StarRiverSite Content SSOT
 
 Date baseline: `2026-07-13`
-Status: `v0.1 - working content baseline`
+Status: `v0.2 - working content baseline`
 
 This document records the current content-positioning source of truth for StarRiver Arts. It is meant to guide page review and later content edits. It does not replace page content, generated indexes, or the existing repo governance SSOT.
 
@@ -30,10 +30,20 @@ Supported concepts:
 - VR digital experiences
 - landscape / terrain / place-based creation
 - VRChat worlds and applications
-- Taiwan landscape and road-world translation
+- 臺灣 landscape and road-world translation
 - digital curation and exhibition planning
 
 Avoid using `digital twin` / `數位孿生` as a broad site-level claim. It is too wide unless a specific project has enough data accuracy, verification, and scope to support that wording.
+
+## Terminology
+
+For Chinese public-facing editorial copy, prefer `臺灣` over `台灣`.
+
+Do not treat this as an automatic global replacement rule. Review usage by context:
+
+- Editorial prose and new public copy should use `臺灣`.
+- Existing titles, URLs, file paths, imported data, quoted text, or project names should be reviewed case by case.
+- Generated indexes should inherit the wording from source pages after content is stabilized and regenerated.
 
 ## Primary Entrances
 
@@ -63,10 +73,18 @@ Open question: the exact Studio page structure and how much creator biography ve
 
 Use `ProjectT` as the integrated public label for the project direction.
 
+Homepage/card-level subtitle direction:
+
+- `臺灣地景 VR 體驗`
+
+This subtitle fits the current outward-facing story. ProjectT may later function as a broader content site, but the public umbrella should remain grounded in 臺灣地景創作 rather than exposing internal IA too early.
+
+ProjectT contains or is expected to contain both Racing Club and article content. Its deeper purpose is to promote 臺灣 local culture, but the outward-facing narrative should frame this through 臺灣 landscape creation, VR worlds, and place-based experiences.
+
 Planned first-level ProjectT structure:
 
 - articles
-- Taiwan world introductions
+- 臺灣 world introductions
 - Racing Club
 
 Planned Racing Club substructure:
@@ -77,7 +95,7 @@ Planned Racing Club substructure:
 - events
 - maps
 
-ProjectT articles are expected to lean toward VRChat columns and Taiwan community introductions. Taiwan world introductions are also expected to become their own content layer.
+ProjectT articles are expected to lean toward VRChat columns and 臺灣 community introductions. 臺灣 world introductions are also expected to become their own content layer.
 
 Current folder and URL names may not fully match this future IA. Renaming folders is deferred because it affects URLs, indexes, sitemap output, internal links, and GitHub Pages history.
 
@@ -85,9 +103,12 @@ Current folder and URL names may not fully match this future IA. Renaming folder
 
 Museum is a plan intended for a fuller launch next year. It should be presented as a developing online museum / digital curation project, not as a fully mature long-running museum unless the context specifically supports that claim.
 
+Current Museum-facing material can be packaged as `季前展`: an off-season and preview positioning at the same time. This lets current web exhibit material function publicly without claiming that the full Museum has already launched.
+
 Current public material includes two pages that can function as web-based digital exhibits. Their current positioning should be:
 
 - part of digital curation practice
+- `季前展` / pre-season preview material
 - precursor material for a future permanent exhibition
 - early web exhibit / interactive exhibit material
 
