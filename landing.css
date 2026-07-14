@@ -146,3 +146,35 @@ html.lang-jp :is(.zh,.en) { display: none; }
   .lp-card-desc { display: none; }            /* keep mobile cards tight; title + button stay */
   .lp-card-head { display:flex; align-items:center; justify-content:space-between; }
 }
+
+
+/* Content baseline v0.3 */
+html { font-size: 16px; }
+.lp-skip {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 1000;
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: #f4efe4;
+  color: #0a0910;
+  transform: translateY(-160%);
+}
+.lp-skip:focus { transform: translateY(0); }
+.lp-title { font-size: 3.25rem; letter-spacing: 0; }
+.lp-card { border-radius: 8px; }
+.lp-card:focus-visible,
+.lp-lang:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+.lp-card .sr-btn { pointer-events: none; }
+@media (max-width: 520px) {
+  .lp-title { font-size: 2.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .lp-card { transition: none; }
+  .lp-card:hover { transform: none; }
+}

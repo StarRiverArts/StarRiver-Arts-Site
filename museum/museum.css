@@ -419,3 +419,38 @@ img{max-width:100%;display:block}
   .museum-card,
   .museum-panel{padding:20px}
 }
+
+
+/* Content baseline v0.3 */
+.museum-skip {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 1000;
+  padding: 10px 14px;
+  background: var(--museum-ink, #191816);
+  color: var(--museum-paper, #fff);
+  transform: translateY(-160%);
+}
+.museum-skip:focus { transform: translateY(0); }
+.museum-nav a,
+.museum-lang,
+.museum-card-link,
+.museum-inline-link { min-height: 32px; display: inline-flex; align-items: center; }
+.museum-card,
+.museum-panel,
+.museum-callout { border-radius: 8px; }
+.museum-nav a:focus-visible,
+.museum-lang:focus-visible,
+.museum-button:focus-visible,
+.museum-card-link:focus-visible,
+.museum-inline-link:focus-visible {
+  outline: 3px solid var(--museum-accent, #8a5a31);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+.museum-hero-actions { margin-top: 24px; }
