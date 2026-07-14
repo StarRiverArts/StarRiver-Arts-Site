@@ -19,11 +19,11 @@ SITE = {
     "name": "StarRiver Arts",
     "zh_name": "星河 StarRiver Arts",
     "description": (
-        "StarRiver Arts is a trilingual portfolio and project site for VR environment design, "
-        "Taiwan landscape digital twins, Project T mountain-road worlds, VR Racing Club Time Attack, "
-        "and VR museum / exhibition systems."
+        "StarRiver Arts is a bilingual portfolio and project site for VR application design, "
+        "landscape and terrain modeling, ProjectT Taiwan landscape experiences, VR Racing Club Time Attack, "
+        "and digital curation."
     ),
-    "languages": ["zh-TW", "en", "ja"],
+    "languages": ["zh-TW", "en"],
     "creator": "StarRiver / 星河",
     "base_url": BASE_URL,
 }
@@ -33,12 +33,12 @@ KEY_TOPICS = [
     "星河",
     "VRChat world design",
     "VR environment design",
-    "Taiwan landscape digital twin",
+    "Taiwan landscape modeling",
     "Project T",
     "VR Racing Club",
     "Time Attack leaderboard",
-    "VR museum",
-    "interactive exhibition system",
+    "digital curation",
+    "web exhibition",
 ]
 
 DATA_ENDPOINTS = [
@@ -62,19 +62,19 @@ TAG_HINTS = {
 
 PAGE_OVERRIDES = {
     "index.html": {
-        "description": "星河 StarRiver Arts 的入口頁，連到 Studio 作品集、Project T 台灣山道 VR 世界與 StarRiver Museum。",
-        "tags": ["星河", "StarRiver Arts", "Studio", "Project T", "Museum"],
+        "description": "StarRiver Arts 以 VR 應用設計、景觀地景建模與數位策展規劃，連結 Studio、ProjectT 與 Museum 季前展。",
+        "tags": ["星河", "StarRiver Arts", "Studio", "ProjectT", "Museum"],
     },
     "studio.html": {
-        "description": "StarRiver / 星河的作品集：VR 環境設計、台灣地景數位孿生、VRChat 世界與沉浸式展覽空間。",
+        "description": "StarRiver Arts 的精選作品與專業能力：VR 應用設計、景觀地景建模與數位策展規劃。",
         "tags": ["portfolio", "VRChat", "Taiwan creator", "environment design"],
     },
     "play/index.html": {
-        "description": "Project T 山道世界內容系統入口，連到 VR Racing Club、Time Attack 紀錄站與台灣山路世界。",
+        "description": "ProjectT 以臺灣道路與地景創作為核心，連結 VRChat 世界、Racing Club 與 Time Attack。",
         "tags": ["Project T", "Taiwan mountain road", "VRChat", "Racing Club"],
     },
     "projects/9turns.html": {
-        "description": "Project T 九彎十八拐：以台灣台9線石牌公園至頭城段為基礎的 VRChat 山道路線場景。",
+        "description": "ProjectT 九彎十八拐：以臺 9 線石牌至頭城段為基礎的 VRChat 道路地景作品。",
         "tags": ["Project T", "Taiwan road", "VRChat", "9 Turns"],
     },
     "projects/beyond-gravity.html": {
@@ -94,7 +94,7 @@ PAGE_OVERRIDES = {
         "tags": ["武嶺", "Wuling", "Project T", "Taiwan mountain road", "VRChat"],
     },
     "museum/index.html": {
-        "description": "StarRiver Museum 線上入口，整理 VR 空間、台灣地景、科學概念與互動展覽。",
+        "description": "StarRiver Museum 季前展以兩件網頁展覽預覽未來的數位策展與常設展方向。",
         "tags": ["StarRiver Museum", "VR museum", "online museum", "exhibition"],
     },
     "museum/about.html": {
@@ -424,11 +424,11 @@ def build_llms_txt(pages: list[dict[str, object]], generated_at: str) -> str:
     lines = [
         "# StarRiver Arts",
         "",
-        "> Public static site for StarRiver Arts — VR environment design, Taiwan landscape digital twins, Project T mountain-road worlds, VR Racing Club Time Attack records, and VR museum / exhibition systems.",
+        "> Public static site for StarRiver Arts — VR application design, landscape and terrain modeling, ProjectT Taiwan landscape experiences, VR Racing Club Time Attack records, and digital curation.",
         "",
         f"Generated: {generated_at}",
         f"Canonical site: {BASE_URL}",
-        "Languages: Traditional Chinese / English / Japanese.",
+        "Languages: Traditional Chinese / English.",
         "",
         "## Machine-readable indexes",
         "",

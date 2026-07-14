@@ -14,6 +14,7 @@ const TA_ROUTE_LABELS = {
 };
 
 const ENABLE_HISTORY_CHARTS = false;
+const SHOW_VERIFICATION = false;
 
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -304,7 +305,7 @@ const renderTrackLeaderboardTable = (rows, view) => {
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
-                        ${row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
+                        ${SHOW_VERIFICATION && row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
                       </div>
                     </div>
                   </td>
@@ -1053,7 +1054,7 @@ const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => 
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
-                        ${row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
+                        ${SHOW_VERIFICATION && row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
                       </div>
                       ${renderRouteTagChips(row)}
                     </div>
@@ -1483,7 +1484,7 @@ const renderRecentRuns = (rows) => {
                   <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
                   <td>${taEntityLink(row.player_display_name, taPlayerHref(row))}</td>
                   <td class="ta-record-peer">${taEntityLink(row.vehicle_model_name, taVehicleHref(row))}</td>
-                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}${row.verified ? ` <span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓</span>` : ""}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}${SHOW_VERIFICATION && row.verified ? ` <span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓</span>` : ""}</td>
                   <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
                 </tr>`,
             )
@@ -1849,7 +1850,7 @@ const renderPageModules = (view, data) => {
   if (Array.isArray(data.event_cards) && data.event_cards.length) {
     modules.push(renderModule("賽季索引", "Season Index", "活動列表", "Event Index", renderEventCards(data.event_cards)));
   }
-  if (Array.isArray(data.review_cards) && data.review_cards.length) {
+  if (SHOW_VERIFICATION && Array.isArray(data.review_cards) && data.review_cards.length) {
     modules.push(renderModule("審核佇列", "Review Queue", "待處理送件", "Pending And Rejected", renderReviewCards(data.review_cards)));
   }
   if (Array.isArray(data.timeline) && data.timeline.length) {
@@ -1908,6 +1909,15 @@ const initTimeAttack = async () => {
     const summaryPromise = loadJson(`${base}data/${manifest.routes.overview}`);
     const pagePromise = view === "overview" ? summaryPromise : loadJson(`${base}data/${manifest.routes[dataKey]}`);
     const [summary, pageData] = await Promise.all([summaryPromise, pagePromise]);
+
+    if (!SHOW_VERIFICATION && view === "overview") {
+      pageData.description_zh = "VR Racing Club 的 Time Attack 資料庫，整理持續更新的賽道、玩家、車輛與有效計時紀錄。";
+      pageData.description_en = "The VR Racing Club Time Attack database for continuously updated tracks, players, vehicles, and valid timed runs.";
+      pageData.board_cards = (pageData.board_cards || []).filter((card) => card.href !== "./review.html");
+      pageData.count_cards = (pageData.count_cards || []).filter((card) => !["已驗證", "未驗證", "Verified", "Unverified"].includes(card.label_zh) && !["Verified", "Unverified"].includes(card.label_en));
+      pageData.sidebar_zh = ["排行榜收錄所有有效計時紀錄。", "TR / CR / PR 分別標示賽道、車輛與玩家紀錄。", "資料內容由既有同步流程持續更新。"];
+      pageData.sidebar_en = ["Leaderboards include all valid timed runs.", "TR / CR / PR mark track, vehicle, and player records.", "Content continues to update through the existing data pipeline."];
+    }
 
     const pageTitle = pageData.title_zh || labels.zh;
     const pageTitleEn = pageData.title_en || labels.en;

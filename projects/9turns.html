@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Project T — 九彎十八拐 — StarRiver Arts</title>
+<meta name="description" content="九彎十八拐是以臺 9 線石牌至頭城段為基礎的 VRChat 道路地景作品。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/projects/9turns.html">
 <link rel="icon" href="../assets/logos/starriver-primary.png">
 <link rel="stylesheet" href="../colors_and_type.css">
 <style>
@@ -78,6 +81,9 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
   .project-nav{grid-template-columns:1fr}
   .hero-image{aspect-ratio:16/9}
 }
+.skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:10px 14px;background:var(--sr-ink);color:var(--sr-paper);transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
@@ -88,6 +94,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
 
 <nav>
   <a class="nav-back" href="../studio.html">
@@ -98,8 +105,9 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
   <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中</span></button>
 </nav>
 
+<main id="main">
 <div class="hero-image">
-  <!-- 台9丙線黃金時刻，綠色路標，中央黃線，兩側樹木 -->
+  <!-- 臺 9 線黃金時刻，綠色路標，中央黃線，兩側樹木 -->
   <img src="9turns/hero.png" alt="Project T — 九彎十八拐">
 </div>
 
@@ -112,13 +120,13 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
     <h1 class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — 9 Turns</span></h1>
 
     <div class="concept">
-      <p class="zh">台9線石牌公園-頭城段數位場景。在虛擬體驗中駕駛車輛。</p>
-      <p class="en">(Project description to be added)</p>
+      <p class="zh">以臺 9 線石牌至頭城段為基礎的 VR 地景創作，可在虛擬世界中駕駛與探索。</p>
+      <p class="en">A VR landscape based on Provincial Highway 9 from Shipai to Toucheng, built for driving and exploration.</p>
     </div>
 
     <!-- 視覺紀錄 -->
     <div class="gallery-section">
-      <div class="sec-label"><span class="zh">視覺紀錄</span><span class="en">Visual Record</span></div>
+      <h2 class="sec-label"><span class="zh">視覺紀錄</span><span class="en">Visual Record</span></h2>
       <div class="gallery-wrap">
         <div class="gallery-track" id="vg">
 
@@ -151,11 +159,11 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
 
           <div class="gallery-item">
             <div class="gallery-thumb">
-              <!-- 台9丙線黃昏，綠色高架路標，中央黃線，路樹 -->
+              <!-- 臺 9 線黃昏，綠色高架路標，中央黃線，路樹 -->
               <img src="9turns/v-04.png" alt="">
             </div>
-            <div class="gallery-caption zh">台 9 丙線 · 黃昏路標全景</div>
-            <div class="gallery-caption en">Highway 9C · Dusk overhead signs</div>
+            <div class="gallery-caption zh">臺 9 線 · 黃昏路標全景</div>
+            <div class="gallery-caption en">Provincial Highway 9 · Dusk overhead signs</div>
           </div>
 
         </div>
@@ -168,7 +176,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
 
     <!-- 技術過程 -->
     <div class="gallery-section">
-      <div class="sec-label"><span class="zh">技術過程</span><span class="en">Technical Process</span></div>
+      <h2 class="sec-label"><span class="zh">技術過程</span><span class="en">Technical Process</span></h2>
       <div class="gallery-wrap">
         <div class="gallery-track" id="tg">
 
@@ -218,7 +226,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
 
     <!-- 技術細節 -->
     <div class="tech-section">
-      <div class="sec-label"><span class="zh">技術細節</span><span class="en">Technical Details</span></div>
+      <h2 class="sec-label"><span class="zh">技術細節</span><span class="en">Technical Details</span></h2>
       <div class="tech-list">
         <div class="tech-item">
           <div class="tech-key"><span class="zh">平台</span><span class="en">Platform</span></div>
@@ -226,14 +234,10 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
         </div>
         <div class="tech-item">
           <div class="tech-key"><span class="zh">地點</span><span class="en">Location</span></div>
-          <div class="tech-val zh">台 9 丙線九彎十八拐 · Project T 系列首作</div>
-          <div class="tech-val en">Highway 9C Nine Turns · First work in Project T series</div>
+          <div class="tech-val zh">臺 9 線九彎十八拐 · Project T 系列首作</div>
+          <div class="tech-val en">Provincial Highway 9 Nine Turns · First work in Project T series</div>
         </div>
-        <div class="tech-item">
-          <div class="tech-key"><span class="zh">製作時間</span><span class="en">Duration</span></div>
-          <div class="tech-val zh">（待補）</div>
-          <div class="tech-val en">(To be added)</div>
-        </div>
+
         <div class="tech-item">
           <div class="tech-key"><span class="zh">角色</span><span class="en">Role</span></div>
           <div class="tech-val zh">環境設計 · 賽道設計 · 路標建模 · 單人</div>
@@ -243,15 +247,15 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
     </div>
 
     <div class="project-nav">
-      <a class="pnav-item" href="wuling.html">
+      <a class="pnav-item" href="starsight-mt.html">
         <div class="pnav-dir zh">← 上一件</div>
         <div class="pnav-dir en">← Previous</div>
-        <div class="pnav-title">Project T — 武嶺</div>
+        <div class="pnav-title">StarSight Mt. 觀星山</div>
       </a>
-      <a class="pnav-item next" href="free-trajectory.html">
+      <a class="pnav-item next" href="beyond-gravity.html">
         <div class="pnav-dir zh">下一件 →</div>
         <div class="pnav-dir en">Next →</div>
-        <div class="pnav-title">Free Trajectory</div>
+        <div class="pnav-title">Beyond Gravity</div>
       </a>
     </div>
 
@@ -291,6 +295,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margi
 </div>
 </div>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="footer-row">

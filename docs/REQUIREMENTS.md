@@ -9,12 +9,12 @@ This file records repo-level requirements and document dependencies for `StarRiv
 1. Keep the site fully static and publishable to GitHub Pages with no build-time network dependencies beyond the repository content.
 2. Preserve the three primary entrances (Studio, Project T, Museum) and the Time Attack records station as the core information architecture.
 3. Keep the machine-readable indexes (`site-index.json`, `search-index.json`, `llm-index.json`, `sitemap.xml`, `llms.txt`) regenerated from page content, never hand-edited.
-4. Keep Traditional Chinese / English / Japanese content aligned when pages carry multilingual copy.
+4. Keep Traditional Chinese and English content aligned when pages carry bilingual copy. Japanese is not part of the current public coverage commitment.
 
 ## Governance Requirements
 
 1. Publishing to GitHub Pages requires explicit user approval (root publish/deploy gate).
-2. Refreshing `play/RacingClub/TimeAttack/data/*.json` from `VR_RacingClubTW` is a cross-project data transfer and follows the root cross-project approval gate.
+2. Refreshing `play/RacingClub/TimeAttack/data/*.json` from `VR_RacingClubTW` is a cross-project data transfer and follows the root cross-project approval gate. Content-only site work must preserve existing data paths, IDs, query parameters, and JSON field contracts.
 3. Local content and style edits default to `Fast Path`; multi-page or data-touching work escalates per `WORKFLOW_LITE.md`.
 4. Repo-level governance docs must stay consistent with the actual folder structure; when the structure changes, update `docs/SSOT.md` in the same change.
 
