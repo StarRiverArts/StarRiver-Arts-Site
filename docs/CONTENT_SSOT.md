@@ -1,7 +1,7 @@
 # StarRiverSite Content SSOT
 
-Date baseline: `2026-07-13`
-Status: `v0.2 - working content baseline`
+Date baseline: `2026-07-14`
+Status: `v0.3 - confirmed implementation baseline`
 
 This document records the current content-positioning source of truth for StarRiver Arts. It is meant to guide page review and later content edits. It does not replace page content, generated indexes, or the existing repo governance SSOT.
 
@@ -57,7 +57,7 @@ This three-entrance relationship is useful as internal SSOT and IA guidance, but
 
 ## Studio
 
-Studio is the professional portfolio and capability entrance.
+Studio is a curated professional portfolio and capability view. Canonical project data belongs in the shared project area; Studio selects and presents that data rather than maintaining duplicate project records.
 
 Current preferred capability axes:
 
@@ -99,11 +99,13 @@ ProjectT articles are expected to lean toward VRChat columns and 臺灣 communit
 
 Current folder and URL names may not fully match this future IA. Renaming folders is deferred because it affects URLs, indexes, sitemap output, internal links, and GitHub Pages history.
 
+Use an existing completed ProjectT world as the first public hero image. `StarSight` is the confirmed initial choice. Studio and ProjectT may link to the same canonical project page from different curated views.
+
 ## Museum
 
 Museum is a plan intended for a fuller launch next year. It should be presented as a developing online museum / digital curation project, not as a fully mature long-running museum unless the context specifically supports that claim.
 
-Current Museum-facing material can be packaged as `季前展`: an off-season and preview positioning at the same time. This lets current web exhibit material function publicly without claiming that the full Museum has already launched.
+Current Museum-facing material should be packaged as `季前展`: an off-season and preview positioning at the same time. The season-preview container remains under the Museum homepage and may temporarily function as the Museum homepage experience until the fuller Museum launches.
 
 Current public material includes two pages that can function as web-based digital exhibits. Their current positioning should be:
 
@@ -115,6 +117,25 @@ Current public material includes two pages that can function as web-based digita
 Museum copy should avoid letting tools, modules, or design-system implementation language define the Museum identity. Those details belong under exhibition, research, or second-layer content.
 
 More writing, information architecture, and exhibition content are expected later, but the concrete content is not finalized.
+
+
+## Confirmed Implementation Decisions
+
+The following decisions were confirmed on `2026-07-14`:
+
+- Homepage H1: `StarRiver Arts`; use `VR 數位體驗的地景創作者` as supporting positioning.
+- ProjectT initial hero: `StarSight`.
+- Canonical project records live in the shared project area. Studio is a curated view over those records.
+- Incomplete editorial/project detail pages with visible placeholders should be withheld from public navigation and indexing. This rule does not apply wholesale to Time Attack, which is a stable operating database and may contain incomplete individual data fields.
+- Museum `季前展` remains under the Museum homepage and may temporarily serve as its primary public experience.
+- Confirmed project facts:
+  - `9 Turns / 九彎十八拐`: 臺 9 線石牌至頭城段.
+  - `Beyond Gravity`: released in April 2026; VRChat project.
+- Project year fields use release year. In-progress work may use a clearly marked range or status.
+- Time Attack verification indicators and verification-facing copy should remain hidden until a real verification workflow is operating.
+- Racing Club remains public because it is the next planned implementation area; do not remove it as abandoned scaffolding.
+- Spatial tools require a future responsive rebuild. Temporary content work should not imply that mobile support is complete.
+- Public language scope is Traditional Chinese and English for now. Do not claim complete Japanese coverage or expose Japanese controls until Japanese content is intentionally restored.
 
 ## Generated Indexes
 
