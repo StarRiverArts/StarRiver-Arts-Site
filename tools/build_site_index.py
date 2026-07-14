@@ -34,7 +34,7 @@ KEY_TOPICS = [
     "VRChat world design",
     "VR environment design",
     "Taiwan landscape modeling",
-    "Project T",
+    "ProjectT",
     "VR Racing Club",
     "Time Attack leaderboard",
     "digital curation",
@@ -54,7 +54,7 @@ DATA_ENDPOINTS = [
 TAG_HINTS = {
     "studio": ["portfolio", "selected works", "VR design"],
     "project": ["project case study", "environment design"],
-    "project-t": ["Project T", "Taiwan mountain road", "VRChat"],
+    "project-t": ["ProjectT", "Taiwan mountain road", "VRChat"],
     "time-attack": ["VR Racing Club", "leaderboard", "records", "Time Attack"],
     "museum": ["VR museum", "exhibition", "gallery"],
     "interactive": ["interactive design system", "spatial system", "museum tool"],
@@ -71,11 +71,11 @@ PAGE_OVERRIDES = {
     },
     "play/index.html": {
         "description": "ProjectT 以臺灣道路與地景創作為核心，連結 VRChat 世界、Racing Club 與 Time Attack。",
-        "tags": ["Project T", "Taiwan mountain road", "VRChat", "Racing Club"],
+        "tags": ["ProjectT", "Taiwan mountain road", "VRChat", "Racing Club"],
     },
     "projects/9turns.html": {
         "description": "ProjectT 九彎十八拐：以臺 9 線石牌至頭城段為基礎的 VRChat 道路地景作品。",
-        "tags": ["Project T", "Taiwan road", "VRChat", "9 Turns"],
+        "tags": ["ProjectT", "Taiwan road", "VRChat", "9 Turns"],
     },
     "projects/beyond-gravity.html": {
         "description": "Beyond Gravity：以 VRChat 空間呈現 Skyhook 軌道運輸與太空站尺度的沉浸式概念作品。",
@@ -86,12 +86,12 @@ PAGE_OVERRIDES = {
         "tags": ["Free Trajectory", "landscape proposal", "street design", "VR"],
     },
     "projects/starsight-mt.html": {
-        "description": "StarSight Mt. 觀星山：Project T 的 VRChat 山地觀星與台灣地景世界專案。",
-        "tags": ["StarSight Mt.", "觀星山", "Project T", "VRChat"],
+        "description": "StarSight Mt. 觀星山：ProjectT 的 VRChat 山地觀星與臺灣地景世界專案。",
+        "tags": ["StarSight Mt.", "觀星山", "ProjectT", "VRChat"],
     },
     "projects/wuling.html": {
-        "description": "Project T 武嶺：以台灣高山道路與武嶺地景為題的 VRChat 山道世界製作紀錄。",
-        "tags": ["武嶺", "Wuling", "Project T", "Taiwan mountain road", "VRChat"],
+        "description": "ProjectT 武嶺：以臺灣高山道路與武嶺地景為題的 VRChat 山道世界製作紀錄。",
+        "tags": ["武嶺", "Wuling", "ProjectT", "Taiwan mountain road", "VRChat"],
     },
     "museum/index.html": {
         "description": "StarRiver Museum 季前展以兩件網頁展覽預覽未來的數位策展與常設展方向。",
@@ -257,7 +257,7 @@ def section_for_path(rel_path: str) -> tuple[str, str]:
     if rel.startswith("play/RacingClub/TimeAttack/"):
         return "time-attack", "VR Racing Club Time Attack"
     if rel.startswith("play/") or rel == "play.html":
-        return "project-t", "Project T"
+        return "project-t", "ProjectT"
     if rel.startswith("museum/interactive/"):
         return "interactive", "Museum Interactive Systems"
     if rel.startswith("museum/") or rel == "museum.html":
@@ -362,7 +362,7 @@ def infer_tags(text: str) -> list[str]:
     checks = [
         ("VRChat", "VRChat"),
         ("Taiwan", "Taiwan"),
-        ("台灣", "Taiwan"),
+        ("臺灣", "Taiwan"),
         ("臺灣", "Taiwan"),
         ("mountain", "mountain road"),
         ("山", "mountain road"),
@@ -439,11 +439,11 @@ def build_llms_txt(pages: list[dict[str, object]], generated_at: str) -> str:
         "",
         "## Primary sections",
         "",
-        f"- [Home]({BASE_URL}): three entrances into Studio, Project T, and Museum.",
-        f"- [Studio]({BASE_URL}studio.html): creator portfolio and selected VR / environment design works.",
-        f"- [Project T]({BASE_URL}play/): VR mountain-road and Taiwan landscape world hub.",
+        f"- [Home]({BASE_URL}): StarRiver Arts brand entry for Studio, ProjectT, and Museum.",
+        f"- [Studio]({BASE_URL}studio.html): curated work in VR application design, landscape modeling, and digital curation.",
+        f"- [ProjectT]({BASE_URL}play/): Taiwan landscape VR experiences, Racing Club, and Time Attack.",
         f"- [Time Attack]({BASE_URL}play/RacingClub/TimeAttack/): VR Racing Club records station with tracks, players, vehicles, events, and catalog pages.",
-        f"- [Museum]({BASE_URL}museum/): exhibitions, web exhibitions, and interactive museum design-system tools.",
+        f"- [Museum]({BASE_URL}museum/): preseason web exhibitions and digital curation preview.",
         "",
         "## Data endpoints",
         "",
@@ -463,7 +463,7 @@ def build_llms_txt(pages: list[dict[str, object]], generated_at: str) -> str:
             "",
             "- Prefer `llm-index.json` for a compact context map and `site-index.json` when page-level search text is useful.",
             "- Time Attack pages load JSON client-side; use the data endpoints above for structured records and catalog data.",
-            "- The site represents StarRiver / 星河, a Taiwan creator working around VRChat worlds, Project T, VR racing, and VR museum systems.",
+            "- The site represents StarRiver / 星河, a Taiwan creator working in VR applications, landscape modeling, ProjectT, VR racing, and digital curation.",
             "",
         ]
     )
@@ -514,7 +514,7 @@ def main() -> None:
         "entry_points": [
             {"label": "Home", "url": BASE_URL},
             {"label": "Studio", "url": BASE_URL + "studio.html"},
-            {"label": "Project T", "url": BASE_URL + "play/"},
+            {"label": "ProjectT", "url": BASE_URL + "play/"},
             {"label": "Time Attack", "url": BASE_URL + "play/RacingClub/TimeAttack/"},
             {"label": "Museum", "url": BASE_URL + "museum/"},
         ],

@@ -135,6 +135,7 @@ The following decisions were confirmed on `2026-07-14`:
 - Time Attack verification indicators and verification-facing copy should remain hidden until a real verification workflow is operating.
 - Racing Club remains public because it is the next planned implementation area; do not remove it as abandoned scaffolding.
 - Spatial tools require a future responsive rebuild. Temporary content work should not imply that mobile support is complete.
+- Content-only work must preserve existing page URLs and external data contracts, including Time Attack data paths, IDs, query parameters, JSON fields, and the cross-project generation pipeline.
 - Public language scope is Traditional Chinese and English for now. Do not claim complete Japanese coverage or expose Japanese controls until Japanese content is intentionally restored.
 
 ## Generated Indexes
