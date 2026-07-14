@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "20",
+      "value": "22",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -117,7 +117,7 @@
                   "track_env": "山道",
                   "difficulty": "簡單",
                   "route_count": 1,
-                  "record_count": 81,
+                  "record_count": 84,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -269,7 +269,7 @@
               "tracks": [
                 {
                   "track_world_code": "sadamine_jintei",
-                  "track_display_name": "Sadamine",
+                  "track_display_name": "定峰峠",
                   "world_name": "Sadamine",
                   "world_url": "",
                   "system_name": "Sacc",
@@ -360,23 +360,6 @@
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "c1_runner",
-                  "track_display_name": "C1 Runner",
-                  "world_name": "C1 Runner",
-                  "world_url": "https://vrchat.com/home/world/wrld_c4e875a4-9655-4bea-be53-359c583b33e3",
-                  "system_name": "Unknown",
-                  "track_env": "高速公路",
-                  "difficulty": "中等",
-                  "route_count": 2,
-                  "record_count": 4,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 35.6889588,
-                  "trace_lng": 139.7457791,
-                  "trace_file": "geo/c1_runner.geojson"
-                },
-                {
                   "track_world_code": "fukutoshin_expressway",
                   "track_display_name": "Fukutoshin Expressway",
                   "world_name": "Fukutoshin Expressway",
@@ -392,10 +375,27 @@
                   "trace_lat": 35.6511883,
                   "trace_lng": 139.686734,
                   "trace_file": "geo/fukutoshin_expressway.geojson"
+                },
+                {
+                  "track_world_code": "c1_runner",
+                  "track_display_name": "東京環狀 C1 Runner",
+                  "world_name": "C1 Runner",
+                  "world_url": "https://vrchat.com/home/world/wrld_c4e875a4-9655-4bea-be53-359c583b33e3",
+                  "system_name": "Unknown",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 4,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 35.6889588,
+                  "trace_lng": 139.7457791,
+                  "trace_file": "geo/c1_runner.geojson"
                 }
               ],
-              "lat": 35.6889588,
-              "lng": 139.7457791,
+              "lat": 35.6511883,
+              "lng": 139.686734,
               "point_source": "trace"
             }
           ]
@@ -420,7 +420,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 1,
-                  "record_count": 37,
+                  "record_count": 42,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -533,57 +533,6 @@
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "h_nanamagari_jintei",
-                  "track_display_name": "H-Nanamagari",
-                  "world_name": "H-Nanamagari",
-                  "world_url": "",
-                  "system_name": "Sacc",
-                  "track_env": "山道",
-                  "difficulty": "困難",
-                  "route_count": 2,
-                  "record_count": 7,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 35.208827,
-                  "trace_lng": 139.059612,
-                  "trace_file": "geo/h_nanamagari_jintei.geojson"
-                },
-                {
-                  "track_world_code": "hakone_jintei",
-                  "track_display_name": "Hakone",
-                  "world_name": "Hakone",
-                  "world_url": "https://vrchat.com/home/world/wrld_f409e2c9-3ddf-4ec2-981e-b41fd9c6687e",
-                  "system_name": "Sacc",
-                  "track_env": "高速公路",
-                  "difficulty": "中等",
-                  "route_count": 2,
-                  "record_count": 5,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 35.213844,
-                  "trace_lng": 139.109762,
-                  "trace_file": "geo/hakone_jintei.geojson"
-                },
-                {
-                  "track_world_code": "mt_hakone_jintei",
-                  "track_display_name": "Mt.Hakone",
-                  "world_name": "Mt.Hakone",
-                  "world_url": "",
-                  "system_name": "Sacc",
-                  "track_env": "山道",
-                  "difficulty": "中等",
-                  "route_count": 1,
-                  "record_count": 1,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 35.218886,
-                  "trace_lng": 138.981433,
-                  "trace_file": "geo/mt_hakone_jintei.geojson"
-                },
-                {
                   "track_world_code": "mt_talkan_jintei",
                   "track_display_name": "Mt.Talkan",
                   "world_name": "Mt.Talkan",
@@ -602,14 +551,14 @@
                 },
                 {
                   "track_world_code": "nanamagari_jintei",
-                  "track_display_name": "Nanamagari",
+                  "track_display_name": "七曲",
                   "world_name": "Nanamagari",
                   "world_url": "",
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 8,
+                  "record_count": 12,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -619,34 +568,85 @@
                 },
                 {
                   "track_world_code": "odawara_jintei",
-                  "track_display_name": "Odawara",
+                  "track_display_name": "小田原",
                   "world_name": "Odawara",
                   "world_url": "https://vrchat.com/home/world/wrld_708b3759-6239-49c1-b6d2-8e502d3bc448",
                   "system_name": "Sacc",
                   "track_env": "賽道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 73,
+                  "record_count": 76,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
                 },
                 {
                   "track_world_code": "tsubaki_jintei",
-                  "track_display_name": "Tsubaki",
-                  "world_name": "Tsubaki",
+                  "track_display_name": "椿線",
+                  "world_name": "Tsubaki Line",
                   "world_url": "https://vrchat.com/home/world/wrld_1510345f-38f3-48db-ae47-000b5e22cb7d",
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 35,
+                  "record_count": 39,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
                   "trace_lat": 35.155961,
                   "trace_lng": 139.077048,
                   "trace_file": "geo/tsubaki_jintei.geojson"
+                },
+                {
+                  "track_world_code": "h_nanamagari_jintei",
+                  "track_display_name": "箱根七曲",
+                  "world_name": "H-Nanamagari",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 7,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 35.208827,
+                  "trace_lng": 139.059612,
+                  "trace_file": "geo/h_nanamagari_jintei.geojson"
+                },
+                {
+                  "track_world_code": "mt_hakone_jintei",
+                  "track_display_name": "箱根山(蘆之湖skyline)",
+                  "world_name": "Mt.Hakone",
+                  "world_url": "",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 35.218886,
+                  "trace_lng": 138.981433,
+                  "trace_file": "geo/mt_hakone_jintei.geojson"
+                },
+                {
+                  "track_world_code": "hakone_jintei",
+                  "track_display_name": "箱根高速",
+                  "world_name": "Hakone",
+                  "world_url": "https://vrchat.com/home/world/wrld_f409e2c9-3ddf-4ec2-981e-b41fd9c6687e",
+                  "system_name": "Sacc",
+                  "track_env": "高速公路",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 5,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 35.213844,
+                  "trace_lng": 139.109762,
+                  "trace_file": "geo/hakone_jintei.geojson"
                 }
               ],
               "lat": 35.2323,
@@ -743,20 +743,6 @@
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "shinmyogi",
-                  "track_display_name": "ShinMyogi",
-                  "world_name": "ShinMyogi",
-                  "world_url": "https://vrchat.com/home/world/wrld_7f2ab4b2-012c-49d1-a968-3c4ff4a6f7fb",
-                  "system_name": "Unknown",
-                  "track_env": "山道",
-                  "difficulty": "中等",
-                  "route_count": 2,
-                  "record_count": 6,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                },
-                {
                   "track_world_code": "myogi_asv_jintei",
                   "track_display_name": "妙義(妙義ASV)",
                   "world_name": "Myogi (ASV)",
@@ -783,6 +769,20 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "shinmyogi",
+                  "track_display_name": "真.妙義",
+                  "world_name": "ShinMyogi",
+                  "world_url": "https://vrchat.com/home/world/wrld_7f2ab4b2-012c-49d1-a968-3c4ff4a6f7fb",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 36.319,
@@ -804,7 +804,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 1,
-                  "record_count": 13,
+                  "record_count": 14,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -892,8 +892,22 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "usuidaa_k_a_u_b_e_r_u",
+                  "track_display_name": "碓冰DAA",
+                  "world_name": "UsuiDAA",
+                  "world_url": "https://vrchat.com/home/world/wrld_0c982147-aa72-485a-8e56-139dfdfc30c6/info",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "usui_v1_jintei",
-                  "track_display_name": "Usui V1",
+                  "track_display_name": "碓冰V1",
                   "world_name": "Usui V1",
                   "world_url": "",
                   "system_name": "Sacc",
@@ -907,7 +921,7 @@
                 },
                 {
                   "track_world_code": "usui_v2_jintei",
-                  "track_display_name": "Usui V2",
+                  "track_display_name": "碓冰V2",
                   "world_name": "Usui V2",
                   "world_url": "",
                   "system_name": "Sacc",
@@ -915,20 +929,6 @@
                   "difficulty": "簡單",
                   "route_count": 2,
                   "record_count": 10,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                },
-                {
-                  "track_world_code": "usuidaa_k_a_u_b_e_r_u",
-                  "track_display_name": "碓冰DAA",
-                  "world_name": "UsuiDAA",
-                  "world_url": "https://vrchat.com/home/world/wrld_0c982147-aa72-485a-8e56-139dfdfc30c6/info",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "中等",
-                  "route_count": 1,
-                  "record_count": 4,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1038,23 +1038,6 @@
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "tsukuba_jintei",
-                  "track_display_name": "Tsukuba",
-                  "world_name": "Tsukuba",
-                  "world_url": "https://vrchat.com/home/world/wrld_7216ef73-8f3a-4e0c-89ae-5796d1beedfb",
-                  "system_name": "Sacc",
-                  "track_env": "山道",
-                  "difficulty": "困難",
-                  "route_count": 5,
-                  "record_count": 72,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 36.1710149,
-                  "trace_lng": 140.1714194,
-                  "trace_file": "geo/tsukuba_jintei.geojson"
-                },
-                {
                   "track_world_code": "tsukuba_snow_jintei",
                   "track_display_name": "Tsukuba Snow",
                   "world_name": "Tsukuba Snow",
@@ -1070,6 +1053,23 @@
                   "trace_lat": 36.1710149,
                   "trace_lng": 140.1714194,
                   "trace_file": "geo/tsukuba_snow_jintei.geojson"
+                },
+                {
+                  "track_world_code": "tsukuba_jintei",
+                  "track_display_name": "筑波產業道路",
+                  "world_name": "Tsukuba Fruits Line",
+                  "world_url": "https://vrchat.com/home/world/wrld_7216ef73-8f3a-4e0c-89ae-5796d1beedfb",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 5,
+                  "record_count": 72,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 36.1710149,
+                  "trace_lng": 140.1714194,
+                  "trace_file": "geo/tsukuba_jintei.geojson"
                 }
               ],
               "lat": 36.2254,
@@ -1098,7 +1098,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 45,
+                  "record_count": 46,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1157,7 +1157,7 @@
               "tracks": [
                 {
                   "track_world_code": "futatsukane",
-                  "track_display_name": "Futatsukane",
+                  "track_display_name": "雙鏡湖外環道",
                   "world_name": "Futatsukane",
                   "world_url": "https://vrchat.com/home/world/wrld_3f0d78a5-0703-4f8f-be48-f5938a48f986",
                   "system_name": "CVS",
@@ -1274,7 +1274,7 @@
               "tracks": [
                 {
                   "track_world_code": "kobe",
-                  "track_display_name": "Kobe",
+                  "track_display_name": "神戶高速",
                   "world_name": "Kobe",
                   "world_url": "https://vrchat.com/home/world/wrld_f2ae5442-2a75-4a72-9f3e-b5ce461dcae6",
                   "system_name": "Unknown",
@@ -1513,6 +1513,20 @@
       "poster_ext": null
     },
     {
+      "track_world_code": "cadence_island",
+      "track_display_name": "Cadence Island",
+      "world_name": "Cadence Island",
+      "world_url": "",
+      "system_name": "Unknown",
+      "track_env": "拉力",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 1,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
       "track_world_code": "calumet_pass",
       "track_display_name": "Calumet Pass",
       "world_name": "Calumet Pass",
@@ -1550,6 +1564,20 @@
       "difficulty": "",
       "route_count": 2,
       "record_count": 3,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "fukushima",
+      "track_display_name": "Fukushima",
+      "world_name": "Fukushima",
+      "world_url": "",
+      "system_name": "Unknown",
+      "track_env": "山道",
+      "difficulty": "",
+      "route_count": 0,
+      "record_count": 0,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1618,8 +1646,8 @@
       "system_name": "Unknown",
       "track_env": "拉力",
       "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
+      "route_count": 2,
+      "record_count": 2,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1759,7 +1787,7 @@
       "track_env": "賽道",
       "difficulty": "中等",
       "route_count": 1,
-      "record_count": 3,
+      "record_count": 4,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
