@@ -178,3 +178,13 @@ html { font-size: 16px; }
   .lp-card { transition: none; }
   .lp-card:hover { transform: none; }
 }
+
+.lp-credit {
+  max-width: var(--sr-container, 1200px);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 44px) 28px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+  color: #8e887b;
+}
