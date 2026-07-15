@@ -1,5 +1,13 @@
 # StarRiverSite Changelog
 
+## 2026-07-15
+
+- Added a consistent public production credit for StarRiver Arts, OpenAI GPT, and Anthropic Claude, scoped to site information architecture and web production.
+- Added titles to all 32 VR Gallery embedded previews without changing their source paths.
+- Hid the unverified Beyond Gravity VRChat CTA and recorded the duplicated world-ID issue in the content SSOT.
+- Updated index parsing to exclude hidden Japanese copy while preserving both `臺灣` and legacy `台灣` discovery terms.
+- Kept Time Attack presentation and all cross-project data contracts unchanged.
+
 ## 2026-07-14
 
 - Recorded content SSOT v0.3 and the confirmed bilingual public scope.
