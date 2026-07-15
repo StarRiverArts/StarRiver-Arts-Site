@@ -1,8 +1,7 @@
 (() => {
   const LANGS = [
-    { code: 'zh', label: '中文',   htmlLang: 'zh-TW' },
-    { code: 'en', label: 'EN',     htmlLang: 'en'    },
-    { code: 'jp', label: '日本語', htmlLang: 'ja'    },
+    { code: 'zh', label: '中文', htmlLang: 'zh-TW' },
+    { code: 'en', label: 'EN', htmlLang: 'en' },
   ];
   const CODES = LANGS.map(l => l.code);
   const KEY   = 'sr-lang';
@@ -16,6 +15,8 @@
     localStorage.setItem(KEY, l.code);
     document.querySelectorAll('[data-lang-select]').forEach(el => { el.value = l.code; });
   };
+
+  document.querySelectorAll('[data-lang-select] option[value="jp"]').forEach((option) => option.remove());
 
   const saved = localStorage.getItem(KEY);
   applyLang(CODES.includes(saved) ? saved : 'zh');

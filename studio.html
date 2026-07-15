@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Studio — 星河 StarRiver Arts</title>
+<title>Studio | StarRiver Arts</title>
+<meta name="description" content="StarRiver Arts 的精選作品與專業能力：VR 應用設計、景觀地景建模與數位策展規劃。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/studio.html">
 <link rel="icon" href="assets/logos/starriver-primary.png">
 <link rel="stylesheet" href="colors_and_type.css">
 <style>
@@ -11,9 +14,9 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--sr-paper);color:var(--sr-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
-html.lang-zh :is(.en,.jp){display:none}
-html.lang-en :is(.zh,.jp){display:none}
-html.lang-jp :is(.zh,.en){display:none}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+.jp{display:none!important}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;height:60px;background:var(--sr-paper);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 48px}
@@ -109,6 +112,8 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
   .footer-nav{align-items:flex-start}
   .intro-title{font-size:clamp(36px,9vw,54px)}
 }
+.skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:10px 14px;background:var(--sr-ink);color:var(--sr-paper);transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--fa-signal);outline-offset:3px}
 </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
@@ -119,6 +124,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
 
 <nav>
   <a class="nav-home" href="index.html">
@@ -126,33 +132,30 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
     <span class="nav-brand">星河 STARRIVER ARTS</span>
   </a>
   <div class="nav-links">
-    <a href="studio.html" class="active"><span class="zh">工作室</span><span class="en">Studio</span><span class="jp">スタジオ</span></a>
+    <a href="studio.html" class="active" aria-current="page"><span class="zh">工作室</span><span class="en">Studio</span><span class="jp">スタジオ</span></a>
     <a href="play/"><span class="zh">體驗</span><span class="en">Play</span><span class="jp">体験</span></a>
   </div>
   <select class="lang-btn" id="langBtn" aria-label="Language">
     <option value="zh">中文</option>
     <option value="en">EN</option>
-    <option value="jp">日本語</option>
 
   </select>
 </nav>
 
-<div class="wrap">
+<main class="wrap" id="main">
 
   <div class="intro">
-    <div class="intro-kicker"><span class="zh">數位體驗創作者 · 台灣</span><span class="en">Digital Artist · Taiwan</span><span class="jp">デジタルアーティスト · 台湾</span></div>
+    <div class="intro-kicker"><span class="zh">VR 數位體驗 · 臺灣</span><span class="en">VR Digital Experiences · Taiwan</span></div>
     <h1 class="intro-title">星河 StarRiver Arts</h1>
-    <p class="intro-sub zh">VR 環境設計、台灣地景數位孿生、沉浸式展覽空間。</p>
-    <p class="intro-sub zh">以景觀空間語言，探索地誌保存與知識傳播。</p>
-    <p class="intro-sub en">VR environment design, Taiwan landscape digital twins, and immersive exhibition spaces. Using spatial language to explore preservation and science communication.</p>
-    <p class="intro-sub jp">VR 環境設計、台湾地景のデジタルツイン、没入型展覧空間。空間言語を用いて、地誌保存と知識伝達を探求する。</p>
+    <p class="intro-sub zh">以 VR 應用設計、景觀地景建模與數位策展規劃，將地景與知識轉譯為可進入的數位體驗。</p>
+    <p class="intro-sub en">Designing VR applications, modeled landscapes, and digitally curated experiences that turn place and knowledge into spaces people can enter.</p>
 
     <div class="intro-rule"></div>
   </div>
 
   <!-- 01 PROJECTS -->
   <section id="projects">
-    <div class="sec-kicker"><span class="zh">01 · 作品</span><span class="en">01 · Projects</span><span class="jp">01 · 作品</span></div>
+    <h2 class="sec-kicker"><span class="zh">01 · 作品</span><span class="en">01 · Projects</span><span class="jp">01 · 作品</span></h2>
     <div class="projects-grid">
 
       <!-- Beyond Gravity -->
@@ -183,65 +186,19 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
         </div>
       </a>
 
-      <!-- FreeTrajectory 致遊軌跡 -->
-      <a class="project-card" href="projects/free-trajectory.html">
-        <div class="project-thumb"><img src="projects/free-trajectory/thumb.png" alt="FreeTrajectory"></div>
-        <div class="project-body">
-          <div class="project-title"><span class="zh">致遊軌跡LR</span><span class="en">FreeTrajectory</span><span class="jp">FreeTrajectory</span></div>
-          <div class="project-desc zh">景觀跨域整合，VR 現場展示，走入設計之中。</div>
-          <div class="project-desc en">Landscape recreation mixed with VR exhibition. Walk through the design.</div>
-          <div class="project-desc jp">景観の異分野融合、VR現場展示、設計の中を歩く。</div>
-
-          <div class="project-meta"><span class="tag">2024</span><span class="tag">Landscape Recreation</span><span class="tag">Real-life Exhibition</span></div>
-          <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
-        </div>
-      </a>
-
       <!-- 9Turns 九彎十八拐 -->
       <a class="project-card" href="projects/9turns.html">
         <div class="project-thumb"><img src="projects/9turns/thumb.png" alt="9 Turns"></div>
         <div class="project-body">
           <div class="project-title"><span class="zh">Project T — 九彎十八拐</span><span class="en">Project T — 9 Turns</span><span class="jp">Project T — 九彎十八拐</span></div>
-          <div class="project-desc zh">台 9 丙線石牌公園-頭城段數位場景。在虛擬體驗中駕駛車輛。</div>
-          <div class="project-desc en">Digital scene of Highway 9C, Shibei Park to Toucheng. Drive through the route in VR.</div>
+          <div class="project-desc zh">臺 9 線石牌至頭城段的 VR 地景創作，可在虛擬世界中駕駛與探索。</div>
+          <div class="project-desc en">A VR landscape based on Provincial Highway 9 from Shipai to Toucheng, built for driving and exploration.</div>
           <div class="project-desc jp">台湾省道9号乙線、石牌公園-頭城区間のデジタルシーン。VRでルートを走行。</div>
 
           <div class="project-meta"><span class="tag">2023</span><span class="tag">VRChat</span><span class="tag">Project T</span></div>
           <div class="project-link"><span class="zh">查看作品</span><span class="en">View project</span><span class="jp">作品を見る</span><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></div>
         </div>
       </a>
-
-      <!-- Wuling WIP -->
-      <a class="project-card" href="projects/wuling.html">
-        <div class="project-thumb"><img src="projects/wuling/thumb.png" alt="Project T — 武嶺"></div>
-        <div class="project-body">
-          <div class="project-title"><span class="zh">Project T — 武嶺</span><span class="en">Project T — Wuling</span><span class="jp">Project T — 武嶺</span></div>
-          <div class="project-desc zh">台 14 甲線武嶺段數位孿生。台灣公路最高點，海拔 3275m（進行中）。</div>
-          <div class="project-desc en">Digital twin of Wuling Pass, Highway 14A. Taiwan's highest road point at 3,275 m (in progress).</div>
-          <div class="project-desc jp">台湾省道14号甲線、武嶺区間のデジタルツイン。台湾最高地点の道路、標高3,275m（制作中）。</div>
-
-          <div class="project-meta"><span class="tag">2026</span><span class="tag">VRChat</span><span class="tag">Project T</span><span class="tag wip"><span class="zh">進行中</span><span class="en">WIP</span><span class="jp">制作中</span></span></div>
-          <div class="project-link" style="opacity:.38;pointer-events:none"><span class="zh">上線後開放</span><span class="en">Available on release</span><span class="jp">リリース後に公開</span></div>
-        </div>
-      </a>
-
-      <!-- Museum Planned -->
-      <div class="project-card no-link">
-        <div class="project-thumb">
-          <div class="thumb-ph" style="flex-direction:column;gap:10px">
-            <span style="font-size:28px;opacity:.2">◎</span>
-            <span class="zh">規劃中</span><span class="en">Planned</span><span class="jp">計画中</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title"><span class="zh">Project Museum</span><span class="en">Project Museum</span><span class="jp">Project Museum</span></div>
-          <div class="project-desc zh">景觀建築設計實例，虛擬策展空間。長期計畫。</div>
-          <div class="project-desc en">Landscape architectural design example, virtual exhibition space. Long-term project.</div>
-          <div class="project-desc jp">景観建築デザインの実例、仮想展覧空間。長期プロジェクト。</div>
-
-          <div class="project-meta"><span class="tag">2027</span><span class="tag">VRChat</span><span class="tag soon"><span class="zh">規劃中</span><span class="en">Planned</span><span class="jp">計画中</span></span></div>
-        </div>
-      </div>
 
       <!-- Mentions -->
       <div class="project-mention">
@@ -257,7 +214,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 
   <!-- 02 IDENTITY -->
   <section id="identity">
-    <div class="sec-kicker"><span class="zh">02 · 關於</span><span class="en">02 · Identity</span><span class="jp">02 · 概要</span></div>
+    <h2 class="sec-kicker"><span class="zh">02 · 關於</span><span class="en">02 · Identity</span><span class="jp">02 · 概要</span></h2>
     <div class="identity-block">
       <div class="identity-name">StarRiver Arts</div>
       <div class="identity-role zh">3D / VR 環境設計師</div>
@@ -265,9 +222,8 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
       <div class="identity-role jp">3D / VR 環境デザイナー</div>
 
       <div class="identity-body">
-        <p class="zh">以 VRChat 為主要媒介，製作地景數位孿生、沉浸式展覽空間與互動社群世界。作品關注台灣本土地景的保存與再現，以及科學概念在空間中的轉譯。</p>
-        <p class="en">Working primarily in VRChat to build landscape digital twins, immersive exhibition spaces, and interactive community worlds. Projects focus on preserving and re-presenting Taiwanese landscapes, and translating scientific concepts into spatial experience.</p>
-        <p class="jp">VRChatを主なメディアとして、地景デジタルツイン、没入型展覧空間、インタラクティブなコミュニティワールドを制作。台湾の地景の保存と再現、および科学概念の空間的転換に注目。</p>
+        <p class="zh">以 VRChat 與即時 3D 為主要媒介，創作臺灣地景、互動世界與數位展覽。Studio 是精選視圖；每件作品的資料由共用專案頁維護。</p>
+        <p class="en">Working primarily with VRChat and real-time 3D to create Taiwanese landscapes, interactive worlds, and digital exhibitions. Studio is a curated view over shared canonical project pages.</p>
 
       </div>
       <div class="identity-current zh">目前正在建構模組化 VR 世界系統與台灣山道還原系列</div>
@@ -279,74 +235,32 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 
   <!-- 03 CAPABILITIES -->
   <section id="capabilities">
-    <div class="sec-kicker"><span class="zh">03 · 能力</span><span class="en">03 · Capabilities</span><span class="jp">03 · 能力</span></div>
+    <h2 class="sec-kicker"><span class="zh">03 · 能力</span><span class="en">03 · Capabilities</span></h2>
     <div class="cap-grid">
       <div class="cap-cell">
-        <div class="cap-title zh">VRChat 世界開發</div>
-        <div class="cap-title en">VRChat World Development</div>
-        <div class="cap-title jp">VRChat ワールド開発</div>
-
-        <div class="cap-desc zh">Unity + VRChat SDK。遊戲機制、物理互動、展覽空間設計，端對端獨立完成。</div>
-        <div class="cap-desc en">Unity + VRChat SDK. Game mechanics, physics interaction, exhibition spaces — end-to-end solo.</div>
-        <div class="cap-desc jp">Unity + VRChat SDK。ゲームメカニクス、物理インタラクション、展覧空間設計 — エンドツーエンドのソロ。</div>
-
+        <div class="cap-title zh">VR 應用設計</div>
+        <div class="cap-title en">VR Application Design</div>
+        <div class="cap-desc zh">以 Unity 與 VRChat SDK 製作互動空間、遊戲機制、計時體驗與社群功能。</div>
+        <div class="cap-desc en">Interactive spaces, game systems, timing experiences, and community features built with Unity and the VRChat SDK.</div>
       </div>
       <div class="cap-cell">
-        <div class="cap-title zh">地景數位孿生</div>
-        <div class="cap-title en">Landscape Digital Twin</div>
-        <div class="cap-title jp">地景デジタルツイン</div>
-
-        <div class="cap-desc zh">台灣地景的數位重建。實景資料為基礎，配合藝術化處理成為可走入的虛擬空間。</div>
-        <div class="cap-desc en">Digital reconstruction of Taiwan landscapes — real-site data combined with artistic treatment to create walkable virtual spaces.</div>
-        <div class="cap-desc jp">台湾地景のデジタル再建。実地データをベースに芸術的処理を加え、歩けるバーチャル空間へ。</div>
-
+        <div class="cap-title zh">景觀地景建模</div>
+        <div class="cap-title en">Landscape &amp; Terrain Modeling</div>
+        <div class="cap-desc zh">從場地研究、道路與地形建模，到植被、材質與氛圍塑造，建立可探索的地景場景。</div>
+        <div class="cap-desc en">Place research, road and terrain modeling, vegetation, materials, and atmosphere for explorable landscape scenes.</div>
       </div>
       <div class="cap-cell">
-        <div class="cap-title zh">沉浸式展覽設計</div>
-        <div class="cap-title en">Immersive Exhibition Design</div>
-        <div class="cap-title jp">没入型展覧設計</div>
-
-        <div class="cap-desc zh">VR 展覽空間的策劃與實作，涵蓋空間敘事、動線設計與多媒體呈現。</div>
-        <div class="cap-desc en">Planning and implementing VR exhibition spaces — spatial narrative, visitor flow, multimedia presentation.</div>
-        <div class="cap-desc jp">VR展覧空間の企画と実装 — 空間ナラティブ、動線設計、マルチメディア展示。</div>
-
-      </div>
-      <div class="cap-cell">
-        <div class="cap-title zh">科普內容設計</div>
-        <div class="cap-title en">Science Communication</div>
-        <div class="cap-title jp">科学コミュニケーション</div>
-
-        <div class="cap-desc zh">以互動展示形式傳遞技術與科學概念，雙語（繁中／英文）呈現。</div>
-        <div class="cap-desc en">Communicating technical and scientific concepts through interactive exhibition formats. Bilingual zh-TW / EN.</div>
-        <div class="cap-desc jp">インタラクティブな展示形式で技術・科学概念を伝達。繁体字中国語/英語のバイリンガル。</div>
-
-      </div>
-      <div class="cap-cell">
-        <div class="cap-title zh">賽道與遊戲機制</div>
-        <div class="cap-title en">Racing &amp; Game Mechanics</div>
-        <div class="cap-title jp">レース＆ゲームメカニクス</div>
-
-        <div class="cap-desc zh">VRChat 賽車場地設計、計時系統與玩家體驗優化。</div>
-        <div class="cap-desc en">VRChat race track design, timing systems, and player experience optimisation.</div>
-        <div class="cap-desc jp">VRChatレーストラック設計、タイミングシステム、プレイヤー体験の最適化。</div>
-
-      </div>
-      <div class="cap-cell">
-        <div class="cap-title zh">社群空間設計</div>
-        <div class="cap-title en">Community Space Design</div>
-        <div class="cap-title jp">コミュニティ空間設計</div>
-
-        <div class="cap-desc zh">以社群需求為核心的 VR 空間設計，兼顧聚會功能與長期維護。</div>
-        <div class="cap-desc en">VR space design centred on community needs — balancing gathering function with maintainability.</div>
-        <div class="cap-desc jp">コミュニティニーズを中心とした VR 空間設計 — 集会機能とメンテナビリティのバランス。</div>
-
+        <div class="cap-title zh">數位策展規劃</div>
+        <div class="cap-title en">Digital Curation Planning</div>
+        <div class="cap-desc zh">規劃 VR 與網頁展覽的空間敘事、觀看動線、互動展示與知識轉譯。</div>
+        <div class="cap-desc en">Spatial narratives, visitor flow, interactive displays, and knowledge translation across VR and web exhibitions.</div>
       </div>
     </div>
   </section>
 
   <!-- 04 CONTACT -->
   <section id="contact">
-    <div class="sec-kicker"><span class="zh">04 · 聯絡</span><span class="en">04 · Contact</span><span class="jp">04 · 連絡</span></div>
+    <h2 class="sec-kicker"><span class="zh">04 · 聯絡</span><span class="en">04 · Contact</span><span class="jp">04 · 連絡</span></h2>
     <p class="contact-note zh">委託、合作邀約或任何詢問，歡迎聯絡。</p>
     <p class="contact-note en">Available for commissions, collaborations, and enquiries.</p>
     <p class="contact-note jp">委託、コラボレーションのご依頼やお問い合わせはお気軽にどうぞ。</p>
@@ -362,7 +276,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
     </div>
   </section>
 
-</div>
+</main>
 
 <footer>
   <div class="wrap">
@@ -371,7 +285,7 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
         <div class="footer-patch"><img src="assets/logos/starriver-primary.png" alt="StarRiver Arts"></div>
         <div>
           <div class="footer-name">星河 STARRIVER ARTS</div>
-          <div class="footer-sub zh">台灣數位藝術創作者</div>
+          <div class="footer-sub zh">臺灣 VR 數位體驗創作者</div>
           <div class="footer-sub en">Digital Artist · Taiwan</div>
           <div class="footer-sub jp">デジタルアーティスト · 台湾</div>
 
@@ -387,7 +301,8 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
       <span class="zh">觀測 · 思考 · 再構築</span>
       <span class="en">Preservation · Accessibility · Development</span>
       <span class="jp">観測 · 思考 · 再構築</span>
-
+      <span class="zh">網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。</span>
+      <span class="en">Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.</span>
     </div>
   </div>
 </footer>
@@ -395,8 +310,8 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 <script>
 (function(){
   var h=document.documentElement,b=document.getElementById('langBtn');
-  var LANGS=['zh','en','jp'];
-  var HTMLLANG={zh:'zh-TW',en:'en',jp:'ja'};
+  var LANGS=['zh','en'];
+  var HTMLLANG={zh:'zh-TW',en:'en'};
   var s=localStorage.getItem('sr-lang')||'zh';
   if(LANGS.indexOf(s)===-1)s='zh';
   function l(v){h.className='lang-'+v;h.lang=HTMLLANG[v]||v;localStorage.setItem('sr-lang',v);if(b)b.value=v}

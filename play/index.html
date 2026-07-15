@@ -3,25 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Project T Play | 星河 StarRiver Arts</title>
+  <title>ProjectT | 臺灣地景 VR 體驗</title>
+  <meta name="description" content="ProjectT 以臺灣道路與地景創作為核心，連結 VRChat 世界、Racing Club 與 Time Attack 紀錄。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/play/">
+  <meta property="og:title" content="ProjectT | StarRiver Arts">
+  <meta property="og:description" content="臺灣地景 VR 體驗、VRChat 世界、Racing Club 與 Time Attack。">
+  <meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/projects/starsight-mt/hero.png">
   <link rel="icon" href="../assets/logos/starriver-primary.png">
   <link rel="stylesheet" href="../colors_and_type.css">
   <link rel="stylesheet" href="play-landing.css">
   <link rel="stylesheet" href="play-readability.css">
-  <style>
-    /* coming-soon card state — non-interactive placeholder */
-    .card-is-soon { opacity: .72; }
-    .card-soon {
-      display: inline-flex; align-items: center; gap: .5em;
-      font-family: var(--font-mono, monospace);
-      font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--fg-3, #8e887b); cursor: default; user-select: none;
-    }
-    .card-soon::before {
-      content: ""; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--sr-amber, #d8a24a); flex-shrink: 0;
-    }
-  </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -31,121 +23,107 @@
 </script>
 </head>
 <body class="sr-brand-project-t sr-type">
+  <a class="pt-skip" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="ProjectT">
     <a class="nav-home" href="../index.html">
-      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <svg aria-hidden="true" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
       <span class="nav-brand">星河 STARRIVER ARTS</span>
     </a>
     <div class="nav-links">
-      <a href="./RacingClub/TimeAttack/"><span class="zh">Time Attack</span><span class="en">Time Attack</span></a>
+      <a href="#worlds"><span class="zh">代表世界</span><span class="en">Worlds</span></a>
+      <a href="./RacingClub/"><span class="zh">賽車俱樂部</span><span class="en">Racing Club</span></a>
+      <a href="./RacingClub/TimeAttack/">Time Attack</a>
     </div>
-    <select class="lang-btn" data-lang-select aria-label="Language">
+    <select class="lang-btn" data-lang-select aria-label="語言 / Language">
       <option value="zh">中文</option>
       <option value="en">EN</option>
-      <option value="jp">日本語</option>
     </select>
   </nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-ranges">
-      <div class="range r-far">
-        <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,120 C150,80 280,140 420,90 C560,40 700,110 840,70 C980,40 1080,100 1200,80 L1200,200 Z"/></svg>
-      </div>
-      <div class="range r-blue">
-        <svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,160 L0,110 C180,70 320,120 480,80 C640,40 760,100 920,75 C1040,55 1120,95 1200,85 L1200,160 Z"/></svg>
-      </div>
-      <div class="range r-green">
-        <svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,150 L0,96 C120,118 260,62 410,88 C560,114 680,58 830,82 C980,106 1100,72 1200,92 L1200,150 Z"/></svg>
-      </div>
-      <div class="range r-near">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,70 C160,40 330,86 520,60 C710,34 860,80 1030,58 C1110,48 1170,62 1200,56 L1200,120 Z"/></svg>
-      </div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-kicker">
-        <div class="hero-shields">
-          <div class="shield">WD<div class="shield-label">Worlds</div></div>
-          <div class="shield is-blue">RC<div class="shield-label">Club</div></div>
-          <div class="shield is-gold">TA<div class="shield-label">Records</div></div>
-          <div class="shield">AR<div class="shield-label">Articles</div></div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="projectt-title">
+      <img class="hero-media" src="../projects/starsight-mt/hero.png" alt="StarSight Mt. 觀星山 VR 世界">
+      <div class="hero-content">
+        <div class="hero-kicker"><span class="zh">臺灣地景 VR 體驗</span><span class="en">Taiwan Landscape VR Experiences</span></div>
+        <h1 class="hero-title" id="projectt-title">ProjectT</h1>
+        <p class="hero-sub zh">以臺灣道路與地景創作為核心，連結可探索的 VR 世界、地方內容與賽車社群。</p>
+        <p class="hero-sub en">Explorable VR worlds, place-based stories, and a racing community grounded in Taiwanese roads and landscapes.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#worlds"><span class="zh">探索代表世界</span><span class="en">Explore Worlds</span></a>
+          <a class="cta cta-secondary" href="./RacingClub/TimeAttack/">Time Attack</a>
         </div>
-        <span class="zh">Project T / 山道世界內容系統入口</span><span class="en">Project T / Mountain-road content hub</span><span class="jp">Project T / 山道コンテンツの入口</span>
       </div>
-      <h1 class="hero-title">Project T Play</h1>
-      <p class="hero-sub zh">Project T 山道世界內容系統的總入口。目前 Time Attack 紀錄站已上線,其餘區塊建置中。</p>
-      <p class="hero-sub en">The hub for the Project T mountain-road content system. The Time Attack records station is live; other sections are coming soon.</p>
-      <p class="hero-sub jp">Project T 山道コンテンツの入口。現在は Time Attack 記録ステーションが稼働中、他のセクションは準備中です。</p>
+    </section>
+    <div class="hero-road" aria-hidden="true"></div>
 
-      <div class="hero-actions">
-        <a class="cta" href="./RacingClub/TimeAttack/">
-          <span class="zh">開啟 Time Attack</span><span class="en">Open Time Attack</span><span class="jp">Time Attack を開く</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-road"></div>
+    <!-- BODY -->
+    <div class="body-section">
+      <div class="wrap">
+        <p class="lead zh">從地景創作進入臺灣，也從玩家留下的路線與紀錄持續理解這些世界。</p>
+        <p class="lead en">Enter Taiwan through landscape creation, then keep reading the worlds through the routes and records left by players.</p>
 
-  <!-- BODY -->
-  <div class="body-section">
-    <div class="wrap">
-      <p class="lead zh">數位體驗 · VRChat 世界 · 台灣地景還原</p>
-      <p class="lead en">Digital experiences · VRChat worlds · Taiwan landscape recreation</p>
-      <p class="lead jp">デジタル体験 · VRChat ワールド · 台湾の景観再現</p>
-
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title"><span class="zh">內容入口</span><span class="en">Sections</span><span class="jp">セクション</span></h2>
-          <p class="section-note zh">Time Attack 紀錄站已上線。Worlds、Racing Club 與 Articles 仍在建置中,稍後開放。</p>
-          <p class="section-note en">The Time Attack station is live. Worlds, Racing Club, and Articles are still being built and will open later.</p>
-          <p class="section-note jp">Time Attack ステーションは稼働中。Worlds・Racing Club・Articles は準備中です。</p>
-
-        </div>
-        <div class="card-grid">
-          <!-- Worlds -->
-          <article class="card card-is-soon">
-            <div class="card-label"><span class="zh">世界介紹</span><span class="en">Worlds</span><span class="jp">ワールド紹介</span></div>
-            <h3 class="card-title">Project T Worlds</h3>
-            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></span>
-          </article>
-          <!-- Racing Club -->
-          <article class="card card-is-soon">
-            <div class="card-label"><span class="zh">賽車社群</span><span class="en">Racing Club</span><span class="jp">クラブ</span></div>
-            <h3 class="card-title">Racing Club</h3>
-            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></span>
-          </article>
-          <!-- Time Attack -->
-          <article class="card">
-            <div class="card-label"><span class="zh">紀錄站</span><span class="en">Records</span><span class="jp">記録ページ</span></div>
-            <h3 class="card-title">Time Attack</h3>
-            <p class="card-text zh">多頁紀錄站,賽道、玩家、車輛皆為清單到詳情。</p>
-            <p class="card-text en">The live multi-page records station — tracks, players, and vehicles each go list-to-detail.</p>
-            <p class="card-text jp">複数ページの記録ステーション — コース・選手・車両それぞれ一覧から詳細へ。</p>
-
-            <a class="card-link" href="./RacingClub/TimeAttack/">
-              <span class="zh">進入紀錄站</span><span class="en">Open Records</span><span class="jp">記録ページを開く</span>
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+        <section class="section" id="worlds">
+          <div class="section-head">
+            <h2 class="section-title"><span class="zh">代表世界</span><span class="en">Featured Worlds</span></h2>
+          </div>
+          <div class="card-grid">
+            <!-- Worlds -->
+            <a class="card project-card" href="../projects/starsight-mt.html">
+              <img class="project-card-media" src="../projects/starsight-mt/thumb.png" alt="">
+              <div class="card-label"><span class="zh">主視覺世界</span><span class="en">Featured World</span></div>
+              <h3 class="card-title"><span class="zh">StarSight Mt. 觀星山</span><span class="en">StarSight Mt. 觀星山</span></h3>
+              <p class="card-text zh">以臺灣山道氛圍為基礎的可駕駛 VRChat 世界，也是 ProjectT 目前的代表場景。</p>
+              <p class="card-text en">A drivable VRChat world shaped by the atmosphere of Taiwanese mountain roads and the current featured scene for ProjectT.</p>
+              <span class="card-link"><span class="zh">查看專案</span><span class="en">View Project</span></span>
             </a>
-          </article>
-          <!-- Articles -->
-          <article class="card card-is-soon">
-            <div class="card-label"><span class="zh">專欄層</span><span class="en">Articles</span><span class="jp">記事層</span></div>
-            <h3 class="card-title">Project T Articles</h3>
-            <span class="card-soon"><span class="zh">建置中</span><span class="en">Coming soon</span><span class="jp">準備中</span></span>
-          </article>
+            <a class="card project-card" href="../projects/9turns.html">
+              <img class="project-card-media" src="../projects/9turns/thumb.png" alt="">
+              <div class="card-label"><span class="zh">臺灣道路地景</span><span class="en">Taiwan Road Landscape</span></div>
+              <h3 class="card-title"><span class="zh">九彎十八拐</span><span class="en">9 Turns</span></h3>
+              <p class="card-text zh">以臺 9 線石牌至頭城段為基礎，轉譯成可駕駛與探索的 VR 地景。</p>
+              <p class="card-text en">A drivable VR landscape based on Provincial Highway 9 from Shipai to Toucheng.</p>
+              <span class="card-link"><span class="zh">查看專案</span><span class="en">View Project</span></span>
+            </a>
+          </div>
+        </section>
 
-          <!-- CardsEnd -->
-        </div>
-      </section>
+        <section class="section" aria-labelledby="community-title">
+          <div class="section-head">
+            <h2 class="section-title" id="community-title"><span class="zh">社群與紀錄</span><span class="en">Community &amp; Records</span></h2>
+          </div>
+          <div class="card-grid">
+            <!-- Racing Club -->
+            <a class="card" href="./RacingClub/">
+              <div class="card-label"><span class="zh">賽車社群</span><span class="en">Racing Community</span></div>
+              <h3 class="card-title"><span class="zh">Racing Club</span><span class="en">Racing Club</span></h3>
+              <p class="card-text zh">ProjectT 的賽車俱樂部入口，將逐步承接活動、世界介紹、地圖與社群內容。</p>
+              <p class="card-text en">The ProjectT racing-club entry for events, world guides, maps, and community content.</p>
+              <span class="card-link"><span class="zh">進入俱樂部</span><span class="en">Enter Club</span></span>
+            </a>
+            <!-- Time Attack -->
+            <a class="card" href="./RacingClub/TimeAttack/">
+              <div class="card-label"><span class="zh">穩定運作</span><span class="en">Live Database</span></div>
+              <h3 class="card-title"><span class="zh">Time Attack</span><span class="en">Time Attack</span></h3>
+              <p class="card-text zh">持續更新的賽道、玩家、車輛與計時紀錄資料庫。</p>
+              <p class="card-text en">A continuously updated database of tracks, players, vehicles, and timed runs.</p>
+              <span class="card-link"><span class="zh">開啟紀錄站</span><span class="en">Open Records</span></span>
+            </a>
+            <!-- Articles -->
+            <!-- CardsEnd -->
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
+  </main>
 
-  <div class="road-line"></div>
+  <div class="road-line" aria-hidden="true"></div>
   <footer class="site-footer">
     <div class="footer-row">
       <span class="footer-name">星河 STARRIVER ARTS</span>
-      <span class="footer-copy">© 2026 · Project T · Play · <span class="zh">臺灣場景系列</span><span class="en">Taiwan Scene Series</span><span class="jp">台湾景観シリーズ</span></span>
+      <span class="footer-copy">© 2026 · ProjectT · <span class="zh">臺灣地景 VR 體驗</span><span class="en">Taiwan Landscape VR</span></span>
+      <span class="footer-copy"><span class="zh">網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。</span><span class="en">Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.</span></span>
     </div>
   </footer>
 
