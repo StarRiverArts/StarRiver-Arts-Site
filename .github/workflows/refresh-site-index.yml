@@ -1,25 +1,19 @@
 name: Refresh site discovery indexes
 
 on:
-  push:
-    branches: ["codex/content-ssot-v0-4"]
-    paths:
-      - "**.html"
-      - "tools/build_site_index.py"
-      - ".github/workflows/refresh-site-index.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   refresh:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the PR branch
         uses: actions/checkout@v4
         with:
-          ref: codex/content-ssot-v0-4
+          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
