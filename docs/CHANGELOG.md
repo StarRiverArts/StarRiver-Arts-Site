@@ -2,6 +2,7 @@
 
 ## 2026-07-15
 
+- Restored the ProjectT layered color-block mountain hero and clarified that StarSight belongs in the featured-world content layer, not over the brand background.
 - Added a consistent public production credit for StarRiver Arts, OpenAI GPT, and Anthropic Claude, scoped to site information architecture and web production.
 - Added titles to all 32 VR Gallery embedded previews without changing their source paths.
 - Hid the unverified Beyond Gravity VRChat CTA and recorded the duplicated world-ID issue in the content SSOT.

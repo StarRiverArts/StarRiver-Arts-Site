@@ -99,7 +99,11 @@ ProjectT articles are expected to lean toward VRChat columns and 臺灣 communit
 
 Current folder and URL names may not fully match this future IA. Renaming folders is deferred because it affects URLs, indexes, sitemap output, internal links, and GitHub Pages history.
 
-Use an existing completed ProjectT world as the first public hero image. `StarSight` is the confirmed initial choice. Studio and ProjectT may link to the same canonical project page from different curated views.
+### ProjectT Visual Identity
+
+The layered color-block mountain scene (`.hero-ranges`) is a persistent ProjectT brand element. It must remain visible as the ProjectT hero background and must not be covered or replaced by a bitmap, project screenshot, or photographic banner.
+
+`StarSight` is the confirmed first featured world and first project image. Use its image in the featured-world content layer or card, not as a replacement for the ProjectT color-block hero. Studio and ProjectT may link to the same canonical project page from different curated views.
 
 ## Museum
 
@@ -124,7 +128,7 @@ More writing, information architecture, and exhibition content are expected late
 The following decisions were confirmed on `2026-07-14`:
 
 - Homepage H1: `StarRiver Arts`; use `VR 數位體驗的地景創作者` as supporting positioning.
-- ProjectT initial hero: `StarSight`.
+- ProjectT hero identity: preserve the layered color-block mountain scene; `StarSight` is the initial featured-world image below the hero.
 - Canonical project records live in the shared project area. Studio is a curated view over those records.
 - Incomplete editorial/project detail pages with visible placeholders should be withheld from public navigation and indexing. This rule does not apply wholesale to Time Attack, which is a stable operating database and may contain incomplete individual data fields.
 - Museum `季前展` remains under the Museum homepage and may temporarily serve as its primary public experience.
