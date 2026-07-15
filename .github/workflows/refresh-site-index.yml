@@ -1,0 +1,63 @@
+name: Refresh site discovery indexes
+
+on:
+  push:
+    branches: ["codex/content-ssot-v0-4"]
+    paths:
+      - "**.html"
+      - "tools/build_site_index.py"
+      - ".github/workflows/refresh-site-index.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/content-ssot-v0-4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild discovery indexes
+        run: python tools/build_site_index.py
+
+      - name: Validate generated content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          outputs = [
+              Path("site-index.json"),
+              Path("search-index.json"),
+              Path("llm-index.json"),
+              Path("sitemap.xml"),
+              Path("llms.txt"),
+          ]
+          forbidden = ["數位孿生", "digital twin", "trilingual", "designed with claude"]
+          for path in outputs:
+              text = path.read_text(encoding="utf-8").casefold()
+              matches = [term for term in forbidden if term.casefold() in text]
+              if matches:
+                  raise SystemExit(f"{path}: stale terms remain: {matches}")
+          PY
+          git diff --check
+
+      - name: Commit generated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site-index.json search-index.json llm-index.json sitemap.xml llms.txt
+          if git diff --cached --quiet; then
+            echo "Indexes are already current."
+            exit 0
+          fi
+          git commit -m "build: refresh site discovery indexes [skip ci]"
+          git push
