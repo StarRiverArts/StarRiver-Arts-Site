@@ -138,6 +138,24 @@ The following decisions were confirmed on `2026-07-14`:
 - Content-only work must preserve existing page URLs and external data contracts, including Time Attack data paths, IDs, query parameters, JSON fields, and the cross-project generation pipeline.
 - Public language scope is Traditional Chinese and English for now. Do not claim complete Japanese coverage or expose Japanese controls until Japanese content is intentionally restored.
 
+## Production Attribution
+
+Public pages should disclose the role of AI collaboration in site production without assigning project authorship or exhibit authorship to the tools.
+
+Preferred footer wording:
+
+- zh-Hant: `網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。`
+- en: `Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.`
+
+Use this as a production credit at the page footer or equivalent low-interruption location. Do not present it as a project creator credit, artwork credit, or design-stage annotation.
+
+Additional decisions confirmed on `2026-07-15`:
+
+- The Beyond Gravity VRChat CTA is temporarily hidden because its stored world ID duplicated the StarSight world ID. Restore it only after the correct Beyond Gravity world ID is verified.
+- Museum Articles and ProjectT Worlds / Articles remain as `noindex` CMS containers. Preserve their editable structure, but do not add them to public navigation until real content is ready.
+- Time Attack implementation labels and data-facing presentation remain unchanged in this pass. Any later cleanup requires a separate contract review because the pages consume cross-project data.
+- Generated search and AI indexes must exclude hidden Japanese copy while retaining both `臺灣` and legacy `台灣` as equivalent discovery terms.
+
 ## Generated Indexes
 
 Generated files are important later for search and AI accessibility, but they should not be manually edited during content SSOT review.
