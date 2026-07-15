@@ -188,14 +188,25 @@ class PageParser(HTMLParser):
         self.text_parts: list[str] = []
         self.image_alts: list[str] = []
         self._tag_stack: list[str] = []
+        self._skip_stack: list[bool] = []
         self._skip_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         attrs_dict = {name.lower(): value or "" for name, value in attrs}
-        self._tag_stack.append(tag)
-        if tag in {"script", "style", "svg", "noscript"}:
-            self._skip_depth += 1
+        classes = set(attrs_dict.get("class", "").split())
+        skip_node = (
+            tag in {"script", "style", "svg", "noscript"}
+            or "jp" in classes
+            or "hidden" in attrs_dict
+            or attrs_dict.get("aria-hidden", "").lower() == "true"
+        )
+        is_void = tag in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+        if not is_void:
+            self._tag_stack.append(tag)
+            self._skip_stack.append(skip_node)
+            if skip_node:
+                self._skip_depth += 1
         if tag == "meta":
             key = attrs_dict.get("name") or attrs_dict.get("property")
             content = attrs_dict.get("content", "").strip()
@@ -206,12 +217,20 @@ class PageParser(HTMLParser):
             if alt:
                 self.image_alts.append(alt)
 
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+        if tag.lower() not in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}:
+            self.handle_endtag(tag)
+
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
-        if tag in {"script", "style", "svg", "noscript"} and self._skip_depth:
-            self._skip_depth -= 1
-        if self._tag_stack:
-            self._tag_stack.pop()
+        while self._tag_stack:
+            open_tag = self._tag_stack.pop()
+            skipped = self._skip_stack.pop()
+            if skipped and self._skip_depth:
+                self._skip_depth -= 1
+            if open_tag == tag:
+                break
 
     def handle_data(self, data: str) -> None:
         text = normalize_space(data)
@@ -362,7 +381,7 @@ def infer_tags(text: str) -> list[str]:
     checks = [
         ("VRChat", "VRChat"),
         ("Taiwan", "Taiwan"),
-        ("臺灣", "Taiwan"),
+        ("台灣", "Taiwan"),
         ("臺灣", "Taiwan"),
         ("mountain", "mountain road"),
         ("山", "mountain road"),
