@@ -1,13 +1,13 @@
 # Project T T-1 差異分析與實作規劃
 
 **文件代號：** D3-B  
-**版本：** Draft 0.2 / Evidence Aligned  
+**版本：** Draft 0.3 / Product Goal Aligned  
 **狀態：** Agent Handoff / Implementation Planning  
 **日期：** 2026-07-16
 
 **上位與配套文件：**
 
-- `MASTER-CHARTER`
+- `docs/SSOT.md`（repo 治理）
 - `docs/project-t/t-1-product-spec.md`
 - `docs/project-t/t-1-gap-analysis.md`
 - `docs/project-t/t-1-current-schema-map.md`
@@ -28,6 +28,19 @@
 3. 每個工作包可修改哪一層、不可修改哪一層。
 4. 如何避免破壞既有 Time Attack 與 VRChat contract。
 5. 何時可從 planning 進入 database／frontend implementation。
+
+---
+
+# 0A. Goal Guardrail
+
+所有 phase 與工作包都必須能說明它改善哪一個端到端旅程：
+
+- 玩家：投稿、receipt／status、處理結果與榜單可見。
+- 活動主辦方：提供可追溯來源與結果。
+- 世界作者：依穩定 contract 把 Project T 榜單接入 VRChat。
+- 維護者：審核、生成、驗證、發布與回復。
+
+Phase 0 是 production change 的保護 gate，不是產品完成證據。第一個產品成果固定為「單一路線 thin vertical slice」；Event、完整 Match、Team 與進階 Evidence 不得提前成為阻塞條件。
 
 ---
 
@@ -151,250 +164,175 @@ Bracket renderer 是後續 UI 能力，不應阻擋第一批 Match／Result cano
 
 # 3. Phase Roadmap
 
-# Phase 0｜契約凍結與現況盤點
+# Phase 0｜Evidence Gate 與契約凍結
 
 ## 目標
 
-在新增功能前，完成 SQLite、pipeline、public JSON 與 consumer 的可追溯 mapping，避免從 projection 猜 schema 或由多個 Agent 各自設計 migration。
+取得足以保護第一個 production slice 的直接證據，避免從 projection 猜 schema、破壞跨 repo 引用或誤改實際 Udon contract。
 
 ## 任務
 
-1. 盤點 `ta_data.sqlite` tables、columns、PK、FK、indexes、views、triggers。
+1. 盤點 `ta_data.sqlite` tables、columns、PK、FK、indexes、views、triggers 與 row counts。
 2. 定位 importer、generator、validator 與 build／deploy command。
-3. 追蹤每個公開欄位的 SQL／lookup／adapter source。
-4. 確認 record stable ID、`event_code`、`verified`、`proof_text`。
-5. 盤點 player／vehicle／track／route lookup 與 alias／merge 規則。
-6. 凍結 Website JSON 與 VRChat producer contract。
-7. 取得至少一個實際 VRChat/Udon consumer 的 field access inventory。
-8. 確認 Site repo 與 pipeline repo 的修改責任。
+3. 追蹤 required public field 的 input → function／query → canonical column → output path。
+4. 確認 stable ID、alias、dedupe、transaction boundary 與 legacy verification flow。
+5. 凍結 Website JSON、VRChat producer contract、URL、query parameter 與 generated 路徑。
+6. 取得至少一個實際 VRChat/Udon consumer 的 field access、null、size、cache、offline 與 schema mismatch 行為。
+7. 確認 Submission／Receipt 可加入的位置、private contact 儲存方式與 retention 邊界。
+8. 明確記錄各 repo owner 與可修改範圍。
 
-## 交付物
+## Gate 結果
 
-- `docs/project-t/t-1-current-schema-map.md`
-- `docs/project-t/t-1-contract-inventory.md`
-- pipeline repo 內的 schema dump／mapping evidence，位置由該 repo governance 決定
+### `ready`
 
-## 現況
+第一個 production slice 所需證據完整；approved migration、generator、frontend 與 consumer change 可以依已凍結 contract 開始。
 
-- Site／VRC producer contract：本 PR 已完成第一版。
-- SQLite／importer／generator／actual consumer：等待 pipeline repo 可見性。
-- Phase 0 在 canonical mapping 完成前不得標記 complete。
+### `conditionally ready`
 
-## 驗收
+只允許：
 
-- 任一公開 required field 可追溯至 canonical／generator source。
-- 每個 repo 的 owner 與可修改範圍明確。
-- 不再以手改 generated JSON 修資料。
-- migration engineer 不需猜既有 table 或 key。
+- docs。
+- fixture。
+- mock contract。
+- read-only audit／validation tooling。
 
----
+禁止：
 
-# Phase 1｜Canonical Schema Migration
+- production SQL migration。
+- production canonical write。
+- generated contract 或正式 consumer 行為修改。
+- 用假設補齊未知 schema／`v` 語意。
 
-## 目標
+每一項 condition 必須記錄：
 
-以 additive migration 加入 T-1 實體，保留既有 table、field、ID 與 generated contract。
-
-## 候選新增實體
-
-```text
-organizations
-events
-event_worlds
-event_routes
-event_entries
-matches
-match_entries
-match_results
-evidence
-record_evidence
-event_evidence
-match_evidence
-revisions
-teams
-team_members
+```yaml
+blocking_condition: "尚缺的直接證據或外部狀態"
+owner: "負責解除條件的角色或帳號"
+due_date: "YYYY-MM-DD"
+allowed_work: []
+forbidden_work: []
 ```
 
-Record review 可採 nullable additive columns，或在既有 record table 不適合修改時採 `record_reviews` companion table。最終命名與 FK 型別必須依 Phase 0 evidence 決定。
+缺少 blocking condition、owner 或 due date 時，不得標示 `conditionally ready`。
 
-## 交付物
+### `blocked`
 
-- pipeline repo 的版本化 SQL migration。
-- migration tests。
-- backup／rollback note。
-- unresolved identity report。
-- 更新後的 migration notes 與 schema map。
+目前無法進行有意義的允許工作，且需外部權限、資料或狀態改變才能繼續。必須記錄阻塞原因與解除條件。
 
 ## 驗收
 
-- migration 在資料副本可重複驗證。
-- integrity／FK／row count 檢查通過。
-- 舊 Website／VRChat snapshot 無非預期變化。
-- `verified` 與 `proof_text` 未移除。
+- 任一 required output field 可追溯至 canonical／producer source。
+- Website 與實際 VRChat consumer contract 均有直接證據。
+- Submission private／public boundary 可落實。
+- Gate decision 與限制有 owner、日期與證據連結。
+- 只有 `ready` 可進入 production Phase 1。
 
 ---
 
-# Phase 2｜Event MVP
+# Phase 1｜單一路線 Thin Vertical Slice
 
 ## 目標
 
-讓 Event index 從空骨架成為可瀏覽的活動資料 surface。
+以一條既有且穩定運作的路線完成第一個可用產品成果：
 
-## MVP
+```text
+玩家投稿
+→ opaque receipt / status
+→ 最小審核
+→ canonical write
+→ 網站榜單輸出
+→ 單一路線 VRChat 顯示
+→ 世界作者接入文件
+```
 
-- Upcoming／Ongoing／Completed／Archived。
-- Event card 與 detail。
-- 世界、路線、主辦、日期、時區。
-- 賽制、報名資訊、result status。
+## 範圍
+
+1. 固定一條 route 與既有 ID／URL／output path。
+2. 提供公開 submission contract；實作可採最小 endpoint、form 或受控 importer，但必須真實可執行。
+3. 產生不可預測 receipt token 與最小 status lookup。
+4. 將 private contact、private evidence、internal note 排除於 public JSON。
+5. 支援 received、queued、needs_information、accepted、rejected、withdrawn。
+6. 完成最小 review，accepted submission 連結正式 Record。
+7. 由 canonical snapshot 重建網站榜單。
+8. 保留現有 route-specific VRC output，並在實際 consumer 驗證該路線顯示。
+9. 建立世界作者接入文件，含 URL、required fields、更新、快取、離線與錯誤行為。
+10. 由非核心維護者依文件完成一次接入測試。
+
+## 明確不包含
+
+- Event／Match canonical system。
+- Team。
+- 進階 Evidence 關聯與公開 verification UI。
+- federation、Source Registry 或 Board Builder。
+- 全站 responsive rebuild。
+
+## 驗收
+
+- 玩家可從投稿走到可理解的結果。
+- 維護者不手改 generated JSON。
+- accepted submission 可追溯至 canonical Record。
+- Website 與 VRChat 顯示同一 canonical snapshot 的相容 projection。
+- receipt/status 不洩露聯絡資訊或私密 Evidence。
+- 舊 Time Attack、ID、URL、路徑與跨專案引用無非預期變化。
+
+---
+
+# Phase 2｜Submission、Review 與 Privacy 強化
+
+- 擴充至多路線。
+- idempotency、duplicate detection、withdrawal、correction 與 token recovery policy。
+- Evidence visibility、review metadata 與 Revision。
+- private retention／deletion policy。
+- legacy `verified`／`proof_text` adapter；compact `v` 僅在 consumer evidence 證實後 mapping。
+- 可選通知，不以前置登入系統為必要條件。
+
+---
+
+# Phase 3｜Event MVP
+
+- Event index／detail。
+- 世界、路線、主辦、日期、時區、status、source 與 recording mode。
 - prospective／retrospective／imported。
-- public source／completeness。
-- Player／World／Route reverse links。
-
-## 第一批候選資料
-
-1. 2026-07-18 Sacc 定峰錦標賽。
-2. 2026-07-19 CVS Momiji 計時賽。
-3. 一場有來源證據的歷史活動作 retrospective 測試。
-
-這些資料必須先進 canonical store；不能直接填入 `events.json`。
-
-## Contract
-
-保留 `events.json` 與 manifest route，以 additive fields 擴充。Event detail 優先沿用 query pattern：
-
-```text
-event.html?id=<event_id>
-```
-
-若採 per-event JSON，必須由 manifest／index discovery，不在 frontend 硬編路徑。
-
-## 驗收
-
-- 三場已核實活動可瀏覽。
-- retrospective 與資料完整度可辨識。
-- Event 能連回 World、Route、Player。
-- 既有空頁文案不再代替正式資料。
+- 第一批資料必須先進 canonical store，不直接填 `events.json`。
+- 保留既有 manifest route 與 query pattern。
 
 ---
 
-# Phase 3｜Match、Entry 與 Result
+# Phase 4｜Match、Entry 與 Result
 
-## 第一批支援
-
-- Time Attack。
-- Win／Loss。
-- Ranking。
-- Single Elimination。
-
-Points、Team Battle、Multiple Legs 與 Championship Round 保留可擴充性，但不阻擋 MVP。
-
-## 核心關係
-
-```text
-Event
-├─ Event Entry
-└─ Match
-   ├─ Match Entry
-   └─ Match Result
-```
-
-Entry 保存比賽當下 player／team／vehicle snapshot；profile rename 不應改寫歷史事實。
-
-## 驗收
-
-- 一個 Event 可有多個 Match。
-- Match 可連 Player、Team、Vehicle、World、Route。
-- Result 支援 time、outcome、rank 與 qualification。
-- 修正 result 時新增 Revision。
-- Result 與 Time Attack Record 可關聯但不混為同一實體。
-
----
-
-# Phase 4｜Evidence、Review 與 Revision
-
-## 目標
-
-將 `verified + proof_text` 升級為可追溯 canonical model，同時保持 legacy output。
-
-Evidence types 與 Review Status 以產品規格、migration plan、adapter policy 為 SSOT。
-
-## 公開策略
-
-- 真實 workflow 穩定前保持 `SHOW_VERIFICATION = false`。
-- Valid 與 Verified 分開。
-- private／restricted evidence 不進 public JSON。
-- 至少有實際 accepted record 與審核流程後，才另行決定公開呈現。
-
-## 驗收
-
-- 一筆 Record 可連多筆 Evidence。
-- 至少四種 Evidence type 可在測試資料登記。
-- submitted、accepted、needs_review、invalidated、removed、superseded 可區分。
-- Revision 保存 actor、reason、entity、changed fields 與前後值。
-- Website `verified`／`proof_text` contract tests 通過；VRChat `v` 先通過 baseline preservation，語意 mapping 待 Phase 0 證實後測試。
+- Event Entry、Match Entry、Match Result。
+- 第一批支援 time、win／loss、ranking、single elimination。
+- 保存參賽當下 player／team／vehicle snapshot。
+- Result 可關聯 Time Attack Record，但不混為同一實體。
 
 ---
 
 # Phase 5｜Team 與反向索引
 
-## Team MVP
-
-- `team_id`。
-- bilingual name。
-- status。
-- managers／members。
-- public links。
-- Event／Match result。
-- team records。
-
-Logo、description、Discord 等可選欄位不應阻擋 identity 與 membership model。
-
-## Reverse indexes
-
+- stable `team_id`、membership history、manager 與 public links。
 - Player → Event／Match／Team。
 - Team → Member／Event／Match Result。
 - World／Route／Vehicle → Event。
-
-## 驗收
-
-- 現有 team display 值完成 unresolved／matched report。
-- 已確認的 Team 能建立正式頁面。
-- Team rename 不破壞 relation。
-- 未確認名稱不自動合併。
+- 未確認 team 名稱只進 unresolved report，不自動 merge。
 
 ---
 
-# Phase 6｜World／Route Metadata 正規化
+# Phase 6｜World／Route 正規化與作者接入擴張
 
-保留 `track_world_code` 與 `route_code` 作 public／legacy key。若內部新增 canonical ID，必須保存 deterministic lookup。
-
-## 驗收
-
-- 新資料不再產生未說明的 `unknown` world。
-- 舊 unknown values 有清理報告，不靜默重寫。
-- Website Track Index 與 VRC Index 使用同一 mapping snapshot。
-- Author、world identity、platform、version、status 的來源可追溯。
+- 保留 `track_world_code` 與 `route_code`。
+- 盤點 Author、VRChat world identity、platform、version、status provenance。
+- 擴張 route coverage 與世界作者接入測試。
+- unknown value 產生清理報告，不靜默重寫。
 
 ---
 
 # Phase 7｜VRChat Contract 正式化
 
-## 應做
-
-- 文件化 schema version、Top N、missing／offline behavior。
+- 文件化 schema version、Top N、missing／offline／cache／schema mismatch。
 - 保持 route-specific compact JSON。
-- 加入 compatibility version／generated timestamp 時採 additive field。
 - 建立 producer fixture 與 actual consumer integration test。
-- 新世界可由設定 URL 接入，不複製整套資料。
-
-## 不應做
-
-- 不讓 VRChat 讀完整 Website JSON。
-- 不在 VRChat 執行多來源 aggregation。
-- 不一次載入全部世界。
-- 不在 T-1 切換 T0 federation。
-
-目前 contract 命名與 major version 不先改。只有證明需要破壞性變更時，才提出新的 major schema 與 parallel output。
+- 新世界由設定 URL 接入，不複製資料管線。
+- `v` 語意在直接證據前保持 pending。
 
 ---
 
@@ -402,26 +340,20 @@ Logo、description、Discord 等可選欄位不應阻擋 identity 與 membership
 
 ## 必備
 
-- Event index／detail。
-- Match／Result。
-- Evidence／Review canonical data。
-- Revision。
-- Team entity。
-- World／Route metadata。
-- Validator。
-- Website／VRChat generated contract。
-- 兩場新活動與一場 retrospective 活動。
-- 維護文件、verified schema map、contract inventory。
-- 至少一條從投稿到發布的完整演練。
+- 玩家投稿、receipt／status、privacy 與 review。
+- Event、Match、Result、Team、Evidence／Revision。
+- World／Route metadata 與世界作者接入。
+- Website／VRChat generated contracts。
+- Validator、contract tests、rollback／recovery。
+- 中英主要旅程。
+- 四類角色各至少一次端到端驗收。
 
 ## 不要求
 
-- 登入後台。
+- 完整登入後台。
 - Federation／Source Registry／Board Builder。
 - 完整 Discord Bot。
-- PostgreSQL。
-- 即時 API。
-- 多租戶權限。
+- PostgreSQL、即時 API 或多租戶權限。
 
 ---
 
@@ -429,51 +361,53 @@ Logo、description、Discord 等可選欄位不應阻擋 identity 與 membership
 
 | 工作包 | 可修改 | 不可越界 |
 | --- | --- | --- |
-| Schema Auditor | 只讀 SQLite／pipeline／consumer；更新 schema map／inventory | 不先改功能或 migration |
-| Migration Engineer | SQL migration、migration test、backup／rollback | 不改 frontend；不猜 schema |
-| Event／Match Data | importer、model、generator、validator | 不手改 Site JSON；不改 VRC schema |
-| Event Frontend | Event／Match pages、CSS、中英 copy | 只讀 generated contract |
-| Evidence／Review | Evidence、review status、Revision、legacy adapter | 不自行公開 SHOW_VERIFICATION |
+| Evidence Auditor | 只讀 SQLite／pipeline／consumer；更新 schema map／inventory／gate decision | 不改 production schema、generator 或 consumer |
+| Submission Slice | submission／receipt／status、最小 review、adapter、journey test | 不引入 Event／Team；不公開 private metadata |
+| Migration Engineer | 已核准 SQL migration、migration test、backup／rollback | 未達 ready 不執行；不猜 schema |
+| Website Output | generator、Website contract、thin-slice UI | 不手改 generated JSON；不重命名舊 URL／ID |
+| VRChat Contract | compact fixtures、actual consumer test、作者接入文件 | 不猜 `v`；不做 federation |
+| Event／Match | importer、model、generator、validator、pages | 不阻塞 Phase 1 |
+| Evidence／Review | 完整 Evidence、review、Revision、legacy adapter | 不自行開啟公開 verification |
 | Team／Reverse Index | Team entity、pages、reverse indexes | 不以名稱自動 merge identity |
-| VRChat Contract | compact schema、fixtures、consumer tests | 不改 Event frontend；不做 federation |
 
-同一時間只允許一個工作包擁有 migration files；跨工作包欄位先透過 contract review 固定。
+同一時間只允許一個工作包擁有 migration files。跨工作包欄位先經 contract review 固定。
 
 ---
 
 # 5. 執行順序
 
 ```text
-Phase 0 Schema / Contract Audit
+Phase 0 Evidence Gate
+        ↓ ready
+Phase 1 One-route Thin Vertical Slice
         ↓
-Phase 1 Database Migration
+Phase 2 Submission / Review / Privacy Hardening
         ↓
-Phase 2 Event canonical data + Phase 4 backend
+Phase 3 Event MVP
         ↓
-Phase 3 Match / Entry / Result
+Phase 4 Match / Entry / Result
         ↓
-Phase 2 Event frontend
+Phase 5 Team / Reverse Index
         ↓
-Phase 5 Team / reverse indexes
+Phase 6 World / Route + Author Onboarding
         ↓
-Phase 6 World / Route normalization
-        ↓
-Phase 7 VRChat contract formalization
+Phase 7 VRChat Contract Formalization
         ↓
 Phase 8 Release Candidate
 ```
 
 可平行：
 
-- Event frontend 可在 sample contract 固定後開始。
-- VRChat inventory 可在不改舊欄位下進行。
-- Team UI 可在 Team schema 固定後開始。
+- `conditionally ready` 時可做 docs、fixtures、mock contracts 與 read-only tooling。
+- VRChat consumer inventory 可與 SQLite／pipeline inventory 平行。
+- Phase 1 mock UI 可在 contract 固定後準備，但 production write 仍須 `ready`。
 
 不可平行：
 
-- Phase 0 前由多個 Agent 各自設計 migration。
+- 未達 `ready` 即執行 production SQL 或修改正式 generated contract。
 - adapter 未固定前移除 legacy verification fields。
 - canonical source 未確認前手改 generated JSON。
+- 以 Event、Team 或完整 Evidence 擴張 Phase 1。
 
 ---
 
@@ -482,7 +416,8 @@ Phase 8 Release Candidate
 建議 branch 依 repo 慣例使用 `agent/<scope>`：
 
 ```text
-agent/t1-schema-audit
+agent/t1-evidence-gate
+agent/t1-submission-slice
 agent/t1-events
 agent/t1-matches
 agent/t1-evidence
@@ -493,12 +428,12 @@ agent/t1-vrc-contract
 Commit 只處理一種責任：
 
 ```text
-docs: map current time attack contracts
-db: add event and match tables
-build: generate event index payload
-feat: render event index
-feat: add evidence model and legacy adapter
-test: validate vrc track contract
+docs: record T-1 gate evidence
+db: add submission receipt tables
+build: project accepted record to route board
+feat: expose opaque submission status
+test: validate one-route vrc contract
+docs: add world-author integration guide
 ```
 
 ---
@@ -507,68 +442,69 @@ test: validate vrc track contract
 
 | 風險 | 控制 |
 | --- | --- |
-| 手改 generated JSON | canonical-first；加入 generated-file warning／build check |
-| Event schema 過度設計 | MVP 只保證 time、win-loss、ranking、single elimination |
-| Verification 過早公開 | 維持 UI flag；先建立 workflow；Valid 與 Verified 分離 |
-| ID 重構破壞舊連結 | 保留 legacy code、lookup、URL 與 query parameter |
-| 多 Agent 衝突 | Phase 0 SSOT；單一 migration owner；固定工作包 |
-| T0 需求拖慢 T-1 | federation／registry／multi-tenant 延後 |
+| receipt token 洩露身分或可猜測 | cryptographically random opaque token；public projection allowlist |
+| private contact／Evidence 進 generated JSON | private/public 欄位分層；contract snapshot 與 leak test |
+| thin slice 膨脹為完整後台 | 固定單一路線與最小 status；Event／Team／進階 Evidence 後移 |
+| 手改 generated JSON | canonical-first；generated-file warning／build check |
+| ID 或路徑重構破壞跨 repo 引用 | 保留 legacy code、URL、query parameter、manifest route |
 | projection 被誤認 canonical | schema map 標記 evidence level；禁止反向寫回 |
-| 私密 Evidence 外洩 | visibility gate、allowlist、public summary adapter |
+| `conditionally ready` 被當成開工許可 | 明列 allowed／forbidden work 與 blocking condition、owner、due date |
+| Verification 過早公開 | 維持 UI flag；Valid 與 Verified 分離 |
+| 多 Agent 衝突 | 單一 migration owner；固定工作包與 contract review |
+| T0 需求拖慢 T-1 | T0 authority 另規格；federation 不進 Phase 1 |
 
 ---
 
 # 8. Definition of Done
 
-T-1 應完成：
+## 第一個產品切片
 
 ```text
-建立活動
+玩家依公開規則投稿
 ↓
-加入玩家／車隊
+取得 opaque receipt 並查詢狀態
 ↓
-建立比賽與結果
+維護者完成最小審核
 ↓
-加入 Evidence
+accepted submission 寫入 canonical Record
 ↓
-審核、修正或歸檔
+生成並驗證網站榜單
 ↓
-生成 Event / Player / Team / World 頁面
+同一路線在實際 VRChat consumer 顯示
 ↓
-生成 Website JSON
-↓
-生成 VRChat compact JSON
-↓
-經 approval gate 發布 GitHub Pages
+非核心維護者依接入文件完成測試
 ```
 
 同時：
 
+- private contact、private Evidence 與 internal note 未進 public output。
+- Submission status 與 Record review status 分離。
 - 舊 Time Attack、玩家、車輛與 VRChat 榜單正常。
-- 不需直接修改 generated JSON。
-- Event／Match／Evidence／Revision 可追溯至 canonical store。
-- 至少一場活動完成端到端演練。
-- Schema map 已由 pipeline evidence 補完。
-- Contract tests 與 rollback rehearsal 通過。
+- 不直接修改 generated JSON。
+- contract test、rollback／recovery rehearsal 與跨 repo 引用檢查通過。
+
+## 完整 T-1
+
+- 玩家、主辦方、世界作者與維護者旅程均可端到端完成。
+- Event／Match／Result／Team／Evidence／Revision 可追溯至 canonical store。
+- 世界作者接入可擴張至多條路線。
+- Schema map 與 contract inventory 由直接證據補完。
+- 中英主要頁面與維護文件完成。
 
 ---
 
 # 9. 下一個立即任務
 
-目前唯一可安全進入的下一步仍是：
+下一步是完成 `Phase 0｜Evidence Gate`，目的只在判斷並解鎖 Phase 1，不把 audit 本身當成產品完成。
 
-```text
-Phase 0｜Schema / Contract Audit
-```
+需要唯讀取得 `VR_RacingClubTW`／實際 pipeline repo 與真正 Udon consumer，補完：
 
-Site producer contract inventory 已可交付；下一位 Schema Auditor 需要取得 `VR_RacingClubTW`／實際 pipeline repo 的唯讀存取，補完：
+1. SQLite schema、row counts 與 canonical Record 主表。
+2. importer／generator／validator 入口與 transaction boundary。
+3. existing ID、alias、dedupe 與 lookup mapping。
+4. `verified`／`proof_text`／`v` 的完整流向。
+5. Website required field → producer mapping。
+6. actual VRChat consumer field access、size、null、cache、offline 與 schema mismatch。
+7. Submission／Receipt／private contact 的 additive migration 候選點。
 
-1. SQLite schema。
-2. Importer／generator／validator 入口。
-3. Existing ID／lookup map。
-4. `event_code` 與 verification source。
-5. Public field → query／adapter mapping。
-6. Actual VRChat consumer field access。
-7. Recommended migration points。
-
-在這些項目完成前，不進行 Phase 1 SQL 或 Event UI 實作。
+若證據不足，只能標示 `conditionally ready` 並附 blocking condition、owner、due date；不得進行 production SQL migration。取得 `ready` 後，下一支 production PR 只實作 Phase 1 thin vertical slice，不混入 Event frontend。
