@@ -64,7 +64,7 @@
 | Event Entry | 未觀察 | 未觀察 | 未觀察 | 缺 player/team/vehicle snapshot、registration status、seed | 參賽當時名稱與現行 profile 不可混為一談 | P0 |
 | Match Result | 未觀察；現有 time rows 僅為計時榜投影 | 無 event match result contract | 無 | 缺 position、outcome、score、points、qualification、finality | 計時紀錄不一定等於活動結果 | P0 |
 | Record | canonical table 名稱與 PK 待驗證；generator 已穩定輸出 | track／summary／player／vehicle 多重投影 | route boards、recent、omni | 公開投影未觀察穩定 `record_id`；review 狀態仍為舊模型 | 新 ID 不可改變排序、URL 或 dedup 結果 | P0 |
-| Evidence | canonical entity 未觀察 | `proof_text` 扁平摘要；review 文案預留更多欄位 | `v` 只有布林結果 | 缺 evidence ID、type、status、visibility、review metadata | 私密 evidence URL 不可直接公開 | P0 |
+| Evidence | canonical entity 未觀察 | `proof_text` 扁平摘要；review 文案預留更多欄位 | 觀察到 numeric `v: 0 / 1`；語意待 Udon／pipeline 證據 | 缺 evidence ID、type、status、visibility、review metadata | 私密 evidence URL 不可直接公開 | P0 |
 | Record Evidence | 未觀察 | 未觀察 | 未觀察 | 缺 record 與多個 evidence 的關聯、排序與角色 | 直接塞入 record 欄位會限制一對多 | P0 |
 | Revision | canonical audit model 未觀察 | 未觀察 | 部分檔案有 `rev`／head pointer | 缺 actor、reason、before/after、entity type／ID | build revision 不等於資料修正紀錄 | P1 |
 
@@ -89,7 +89,7 @@
 ```text
 verified: boolean
 proof_text: string
-v: 0 / 1
+v: 0 / 1  # producer observation; semantics pending
 ```
 
 目標：
@@ -171,4 +171,4 @@ Gap 關閉至少需要：
 - migration 在資料副本通過前後 row count、FK、legacy output snapshot 測試。
 - Website JSON 與 VRChat compact JSON 都由同一 canonical snapshot 生成。
 - 所有既有 consumer 在新增欄位後仍可運作。
-- 新 verification model 可完整回推出 `verified`、`proof_text` 與 `v`。
+- 新 verification model 可完整回推出 `verified` 與 `proof_text`；`v` 只有在 pipeline／Udon evidence 證實語意後才納入 mapping。
