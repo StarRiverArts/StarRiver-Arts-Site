@@ -995,19 +995,20 @@ Event ↔ World ↔ Route
 
 ## 11.4 Legacy JSON 相容政策
 
-現行消費端仍依賴網站欄位 `verified`、`proof_text` 與 VRChat compact 欄位 `v`。canonical model 引入 `review_status`、Evidence 與 Revision 後，由 adapter 產生舊欄位：
+現行網站 consumer 依賴 `verified` 與 `proof_text`；VRChat producer payload 則觀察到 numeric `v: 0 / 1`。真正 Udon consumer 是否讀取 `v`、其語意與 null／unknown 行為仍待 Phase 0 實證。以下是待驗證後採用的目標 adapter policy，不代表目前 pipeline flow 已獲證實：
 
 ```text
 review_status + evidence[]
-        → verified + proof_text
-        → v: 0 / 1
+        → Website: verified + proof_text
+        → VRChat target: v: 0 / 1
+          (only after pipeline + consumer evidence)
 ```
 
 相容規則：
 
-- 在所有既有消費端完成升級前，保留 `verified`、`proof_text` 與 `v`。
+- 在所有既有網站 consumer 完成升級前，保留 `verified` 與 `proof_text`；`v` 在完成 actual Udon consumer inventory 前原樣凍結，不移除、改名、改型別或重新解釋。
 - 新欄位優先採 additive migration，不重新命名、不移除既有欄位，也不更動既有 URL 與 manifest route。
-- `review_status = accepted` 才可映射為 `verified = true` 與 `v = 1`；其他狀態映射為 false／0。遷移期間若新欄位尚未回填，adapter 應保留舊值並輸出 migration warning，不得默認提升可信狀態。
+- Website 目標規則是只有 `review_status = accepted` 映射為 `verified = true`。VRChat 的 `v` mapping 必須先由 pipeline 與 consumer evidence 證實；遷移前 adapter 只保留現行 generator output，不得用未驗證規則重算。
 - `proof_text` 是 Evidence 的相容摘要，不是 canonical evidence store；摘要必須可重現、不得洩漏非公開連結或審核備註。
 - 欄位移除只可在新的 major schema version、完成 consumer inventory、提供遷移期與回退方案後進行。
 
