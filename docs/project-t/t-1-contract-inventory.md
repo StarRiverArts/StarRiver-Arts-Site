@@ -256,15 +256,16 @@ play/RacingClub/TimeAttack/vrc/<route-specific>.json
 - `date`
 - `v`
 
-## 6.3 Legacy verification
+## 6.3 `v` Evidence Status
 
-```text
-review_status = accepted → v: 1
-other known status       → v: 0
-migration null           → preserve legacy verified mapping
-```
+目前可證實：
 
-`v` 在 actual consumer upgrade 前不可移除、改名或改型別。
+- producer payload 有 numeric `v: 0 / 1`。
+- actual Udon consumer 的讀取、語意與 fallback 尚未取得證據。
+
+因此 Phase 0 前只凍結現行值與型別，不把 `v` 命名為 verification contract。若 pipeline query 與 consumer code 證實其語意，再由 Adapter Policy 固定 mapping。
+
+`v` 在 actual consumer inventory、compatibility test 與遷移計畫完成前不可移除、改名、改型別或重新解釋。
 
 ## 6.4 尚待 consumer evidence
 
@@ -304,7 +305,7 @@ migration null           → preserve legacy verified mapping
 3. `timeattack.js` overview、track、player、vehicle、events、review loading。
 4. 既有 ID query parameter 仍能定位同一 entity。
 5. record count、ranking、time、date 與 baseline 的預期差異。
-6. `verified`／`proof_text` 與 `v` mapping。
+6. `verified`／`proof_text` mapping，以及 `v` producer baseline；`v` 語意須由 pipeline／consumer evidence 補完。
 7. VRC index → route file reference 完整。
 8. Top N、offline／missing behavior。
 9. private Evidence leakage scan。
