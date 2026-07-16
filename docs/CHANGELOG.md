@@ -1,5 +1,12 @@
 # StarRiverSite Changelog
 
+## 2026-07-16
+
+- Aligned the Project T T-1 specification around a three-layer data architecture: authoring/import, canonical SQLite, and generated contracts.
+- Added a gap analysis, evidence-scoped current schema map, non-destructive migration proposal, and Website/VRChat adapter policy.
+- Recorded that `VR_RacingClubTW`／the actual pipeline repo was unavailable to the connected repository scope, so canonical table details remain explicitly pending verification.
+- Preserved all Time Attack generated JSON, VRChat contracts, IDs, routes, query parameters, URLs, and cross-project data links.
+
 ## 2026-07-15
 
 - Restored the ProjectT layered color-block mountain hero and clarified that StarSight belongs in the featured-world content layer, not over the brand background.
