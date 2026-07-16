@@ -67,7 +67,7 @@ Website + VRChat
 - `data/*.json` 與 `vrc/*.json` 路徑。
 - manifest route。
 - VRChat compact schema。
-- `verified`、`proof_text` 與 compact `v`。
+- `verified`、`proof_text`，以及 producer payload 中已觀察但語意待驗證的 compact `v`。
 
 新模型先採 additive migration 與 adapter。破壞性改動只能進入新的 major schema，且須完成 consumer inventory、平行遷移與 rollback。
 
@@ -331,7 +331,7 @@ Evidence types 與 Review Status 以產品規格、migration plan、adapter poli
 - 至少四種 Evidence type 可在測試資料登記。
 - submitted、accepted、needs_review、invalidated、removed、superseded 可區分。
 - Revision 保存 actor、reason、entity、changed fields 與前後值。
-- Website `verified`／`proof_text` 與 VRChat `v` contract tests 通過。
+- Website `verified`／`proof_text` contract tests 通過；VRChat `v` 先通過 baseline preservation，語意 mapping 待 Phase 0 證實後測試。
 
 ---
 
