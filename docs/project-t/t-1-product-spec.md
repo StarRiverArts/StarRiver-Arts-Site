@@ -1,7 +1,7 @@
 # Project T T-1 產品規格與版本路線
 
 **文件代號：** D3  
-**版本：** Draft 0.9 / Content Complete  
+**版本：** Draft 0.10 / Data Architecture Aligned  
 **狀態：** 可供實作與內部審查  
 **主要維護者：** StarRiver  
 **上位文件：** `MASTER-CHARTER`  
@@ -157,7 +157,54 @@ Project T
 
 ---
 
+# 4A. 資料架構與 SSOT
+
+本章固定 T-1 的資料權責。章節編號採 4A，是為避免在 Draft 1.0 前改動既有章節引用。
+
+## 4A.1 三層資料架構
+
+```text
+A. Authoring / Import Layer
+   投稿 / 表單 / CSV / Discord Bot / YAML template / External JSON
+                              ↓ Importer + Validation
+B. Canonical Storage Layer
+   T-1: SQLite (ta_data.sqlite)
+   T0 prototype: SQLite
+   T0 scaled deployment: PostgreSQL
+                              ↓ Generator + Adapter
+C. Generated Contract Layer
+   Website JSON / Event JSON / Search Index / VRChat compact JSON
+```
+
+**只有 Canonical Storage 是內部唯一事實來源。** 投稿格式與公開輸出都不得形成第二套 SSOT。
+
+目前網站 manifest 將資料來源標示為 `CodeTools/StarRiverSite/play/RacingClub/TimeAttack/ta_data.sqlite`。實體資料表、索引與 importer 的最終盤點仍以 `VR_RacingClubTW` 或實際資料管線 repo 為準；本網站 repo 不反向定義或覆寫該資料庫。
+
+## 4A.2 格式權責
+
+| 格式／層級 | 正式角色 | 可否直接修改正式資料 |
+| --- | --- | --- |
+| YAML | 文件範例、人工匯入模板、設定、fixture | 否；必須經 importer 與 validation |
+| CSV／表單／Discord | 投稿與批次匯入來源 | 否；必須先寫入 canonical store |
+| External JSON | 跨社群 versioned exchange 或匯入來源 | 否；驗證與正規化後才可寫入 |
+| SQLite | T-1 與 T0 prototype canonical store | 是；須透過受控 migration／維護工具 |
+| PostgreSQL | T0 多人、高併發與多服務階段 canonical store | 尚未啟用 |
+| Website JSON | 網站讀取的 generated public contract | 否；由 generator 重建 |
+| VRChat JSON | 路線別 compact generated contract | 否；由 adapter／generator 重建 |
+
+JSON 可以同時是「外部匯入格式」與「公開輸出格式」，但兩者必須有不同 schema、驗證入口與資料流；任何 JSON 都不因放入 repo 而自動成為 canonical source。
+
+## 4A.3 T0 延伸原則
+
+T0 prototype 沿用 SQLite，並以 versioned JSON 作為 Source Shard、Record Shard 與 Board Output 的跨社群交換格式。外部社群不需交付資料庫檔案；Hub 匯入 JSON 後，須保存 provenance 並正規化至自己的 canonical store。
+
+當系統出現多人同時寫入、持續寫入、複雜權限、高併發 API 或多服務部署需求時，再將 canonical store 遷移至 PostgreSQL。資料模型與 migration 應避免依賴無法移植的 SQLite 特有設計。
+
+---
+
 # 5. 核心資料實體
+
+> 本章及後續章節的 YAML 僅用於表示概念模型、人工匯入格式與測試 fixture，不表示正式儲存必須採用 YAML。正式資料必須經 importer／validation 寫入 canonical SQLite。
 
 ---
 
@@ -913,20 +960,25 @@ Event ↔ World ↔ Route
 
 ## 11.2 優先輸出
 
-```yaml
-world_id: world_example
-route_id: route_example
-generated_at: "2026-07-16T12:00:00+08:00"
-schema_version: "t1-0.1"
-records:
-  - rank: 1
-    player_name: "Player A"
-    vehicle_name: "Vehicle A"
-    time_ms: 123456
-    record_date: "2026-07-16"
-    evidence_summary:
-      - fps_screenshot
-      - full_video
+以下為公開 JSON contract 的概念範例；實際 compact 欄位由 adapter policy 與 schema version 約束。
+
+```json
+{
+  "schema_version": "t1-0.1",
+  "world_id": "world_example",
+  "route_id": "route_example",
+  "generated_at": "2026-07-16T12:00:00+08:00",
+  "records": [
+    {
+      "rank": 1,
+      "player_name": "Player A",
+      "vehicle_name": "Vehicle A",
+      "time_ms": 123456,
+      "record_date": "2026-07-16",
+      "evidence_summary": ["fps_screenshot", "full_video"]
+    }
+  ]
+}
 ```
 
 ## 11.3 輸出原則
@@ -941,6 +993,27 @@ records:
 - 不在 VRChat 端執行複雜聚合
 - 只輸出顯示所需欄位
 
+## 11.4 Legacy JSON 相容政策
+
+現行網站 consumer 依賴 `verified` 與 `proof_text`；VRChat producer payload 則觀察到 numeric `v: 0 / 1`。真正 Udon consumer 是否讀取 `v`、其語意與 null／unknown 行為仍待 Phase 0 實證。以下是待驗證後採用的目標 adapter policy，不代表目前 pipeline flow 已獲證實：
+
+```text
+review_status + evidence[]
+        → Website: verified + proof_text
+        → VRChat target: v: 0 / 1
+          (only after pipeline + consumer evidence)
+```
+
+相容規則：
+
+- 在所有既有網站 consumer 完成升級前，保留 `verified` 與 `proof_text`；`v` 在完成 actual Udon consumer inventory 前原樣凍結，不移除、改名、改型別或重新解釋。
+- 新欄位優先採 additive migration，不重新命名、不移除既有欄位，也不更動既有 URL 與 manifest route。
+- Website 目標規則是只有 `review_status = accepted` 映射為 `verified = true`。VRChat 的 `v` mapping 必須先由 pipeline 與 consumer evidence 證實；遷移前 adapter 只保留現行 generator output，不得用未驗證規則重算。
+- `proof_text` 是 Evidence 的相容摘要，不是 canonical evidence store；摘要必須可重現、不得洩漏非公開連結或審核備註。
+- 欄位移除只可在新的 major schema version、完成 consumer inventory、提供遷移期與回退方案後進行。
+
+完整映射與測試矩陣見 `t-1-adapter-policy.md`。
+
 ---
 
 # 12. 維護工作流
@@ -948,20 +1021,26 @@ records:
 ## 12.1 T-1 建議流程
 
 ```text
-Discord / 表單 / 手動投稿
-↓
-本機資料整理
-↓
-資料驗證
-↓
-生成網站資料
-↓
-生成 VRChat JSON
-↓
-Git Commit / Push
-↓
-GitHub Pages 部署
+投稿 / 表單 / CSV / YAML / Discord / External JSON
+                         ↓
+                 Importer / Validation
+                         ↓
+             ta_data.sqlite (Canonical)
+                         ↓
+                  Generator / Adapter
+             ├─ Website JSON
+             ├─ VRChat compact JSON
+             ├─ Event JSON
+             └─ Search / Index JSON
+                         ↓
+                StarRiver-Arts-Site
+                         ↓
+             Review / Git Commit / Push
+                         ↓
+                 GitHub Pages 部署
 ```
+
+匯入失敗不得部分寫入 canonical store；生成流程應可重複執行並產生確定性輸出。跨專案刷新與發布仍須遵守 repo governance 的 approval gate。
 
 ## 12.2 可接受投稿管道
 
@@ -976,23 +1055,28 @@ T-1 的目標是流程穩定，不是立即建立完整後台。
 
 ---
 
-# 13. 建議目錄結構
+# 13. 概念資料實體與匯入模板結構
+
+此結構描述概念實體、人工匯入模板與測試 fixture，**不是 T-1 canonical store 的強制實作**。現有 T-1 以 SQLite 為主資料來源；YAML／CSV／外部 JSON 可作為匯入來源，公開 JSON 則是生成結果。
 
 ```text
-data/
-├─ worlds/
-├─ routes/
-├─ players/
-├─ vehicles/
-├─ teams/
-├─ records/
-├─ events/
-│  └─ 2026/
-├─ matches/
-│  └─ 2026/
-├─ organizations/
-├─ evidence/
-└─ revisions/
+authoring/
+├─ templates/
+│  ├─ worlds/
+│  ├─ routes/
+│  ├─ players/
+│  ├─ vehicles/
+│  ├─ teams/
+│  ├─ records/
+│  ├─ events/
+│  ├─ matches/
+│  ├─ organizations/
+│  ├─ evidence/
+│  └─ revisions/
+└─ fixtures/
+
+canonical/
+└─ ta_data.sqlite
 
 generated/
 ├─ site/
@@ -1001,6 +1085,13 @@ generated/
 │  └─ routes/
 └─ indexes/
 ```
+
+上列路徑是責任分層示意，不要求搬動既有檔案。網站 repo 的實際輸出位置保持：
+
+- `play/RacingClub/TimeAttack/data/*.json`：generated website artifacts
+- `play/RacingClub/TimeAttack/vrc/*.json`：generated VRChat contracts
+
+兩者皆不得作為 canonical source 手動維護。generator 更新必須保持既有欄位、ID、query parameter、manifest route 與 URL 相容；新增能力以 additive migration 為主。
 
 ## 13.1 Match 拆檔原則
 
@@ -1319,6 +1410,9 @@ result:
 - [ ] Record Evidence 與 Review Status 分離
 - [ ] 事後補登可被標記
 - [ ] Revision 可保存
+- [ ] SQLite 是唯一 canonical store，匯入格式不形成第二套 SSOT
+- [ ] generated website／VRChat JSON 可由同一 canonical snapshot 重建
+- [ ] legacy `verified`／`proof_text`／`v` 仍通過 consumer contract test
 
 ## 頁面
 
@@ -1397,6 +1491,7 @@ T-1 最終應包含：
 - 產品定位
 - 完成定義
 - 資訊架構
+- 資料架構與 SSOT
 - 核心資料實體
 - 活動與比賽框架
 - 事後補登
@@ -1412,10 +1507,11 @@ T-1 最終應包含：
 
 因此本文件可視為 **內容完整版本**。
 
-下一步不再增加大章節，而是進入：
+下一步進入：
 
-1. 欄位檢討  
-2. 命名統一  
-3. 實際資料轉換  
-4. Validator 與頁面實作  
-5. 版本升級為 Draft 1.0  
+1. 完成 canonical schema 實證盤點  
+2. 欄位與命名統一  
+3. 審查非破壞 migration 與 adapter contract  
+4. 實際資料轉換  
+5. Validator、contract test 與頁面實作  
+6. 版本升級為 Draft 1.0  
