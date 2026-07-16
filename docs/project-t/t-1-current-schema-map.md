@@ -214,7 +214,7 @@ Consumers
 - status
 - provisional
 - board：player／vehicle
-- compact verification：`v: 0 / 1`
+- compact numeric field：`v: 0 / 1`；語意與 consumer dependency 待 actual Udon evidence
 
 ## 4.5 `vrc/recent.json`
 
@@ -229,7 +229,7 @@ row 主要欄位：
 - `date`
 - `v`
 
-Compact contract 應只保留 VRChat 顯示必需欄位，不承載完整 Evidence 或 Revision。
+Compact contract 的目標是只保留 VRChat 顯示必需欄位；actual required fields、`v` 語意與 Evidence／Revision 邊界仍待 consumer evidence。
 
 ---
 
