@@ -174,11 +174,11 @@ Bracket renderer 是後續 UI 能力，不應阻擋第一批 Match／Result cano
 - `docs/project-t/t-1-contract-inventory.md`
 - pipeline repo 內的 schema dump／mapping evidence，位置由該 repo governance 決定
 
-## 現況
+## 現況（2026-07-17 更新）
 
-- Site／VRC producer contract：本 PR 已完成第一版。
-- SQLite／importer／generator／actual consumer：等待 pipeline repo 可見性。
-- Phase 0 在 canonical mapping 完成前不得標記 complete。
+- Site／VRC producer contract：已完成第一版。
+- SQLite／importer／generator／actual consumer：**已完成**——本機 workspace 審計直接存取 `VR_RacingClubTW`、canonical SQLite 與 `siteResource/vrc-unity` Udon consumer；證據記錄於 `t-1-current-schema-map.md` §9。
+- **Phase 0 標記 complete**（除 owner 審核外全部驗收項通過）。Phase 1 可開始。
 
 ## 驗收
 
@@ -555,20 +555,20 @@ T-1 應完成：
 
 # 9. 下一個立即任務
 
-目前唯一可安全進入的下一步仍是：
+**Phase 0 已於 2026-07-17 完成**（本機 pipeline 審計；證據見 `t-1-current-schema-map.md` §9）：
+
+1. SQLite schema。 → ✅ §9.2
+2. Importer／generator／validator 入口。 → ✅ §9.3
+3. Existing ID／lookup map。 → ✅ §9.4
+4. `event_code` 與 verification source。 → ✅ §9.5
+5. Public field → query／adapter mapping。 → ✅ §9.3（generator 入口與投影規則）
+6. Actual VRChat consumer field access。 → ✅ §9.6
+7. Recommended migration points。 → ✅ §9.7（`user_version` 起版）＋ migration-plan §4 候選設計可轉正式
+
+下一步進入：
 
 ```text
-Phase 0｜Schema / Contract Audit
+Phase 1｜Canonical Schema Migration（additive；pipeline repo 為 migration owner）
 ```
 
-Site producer contract inventory 已可交付；下一位 Schema Auditor 需要取得 `VR_RacingClubTW`／實際 pipeline repo 的唯讀存取，補完：
-
-1. SQLite schema。
-2. Importer／generator／validator 入口。
-3. Existing ID／lookup map。
-4. `event_code` 與 verification source。
-5. Public field → query／adapter mapping。
-6. Actual VRChat consumer field access。
-7. Recommended migration points。
-
-在這些項目完成前，不進行 Phase 1 SQL 或 Event UI 實作。
+執行注意：新 migration 腳本的 DB_PATH 必須指向 `CodeTools/StarRiverSite/play/RacingClub/TimeAttack/ta_data.sqlite`（舊腳本的巢狀路徑已失效，見 §9.3 陷阱欄）；dry run 一律在資料副本執行。

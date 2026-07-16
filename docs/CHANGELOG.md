@@ -1,5 +1,14 @@
 # StarRiverSite Changelog
 
+## 2026-07-17
+
+- Completed the T-1 Phase 0 canonical schema audit with direct local access to `VR_RacingClubTW`, the canonical SQLite store, and the actual UdonSharp consumers.
+- Verified the canonical store location, all 9 SQLite tables (DDL, PKs, FKs, row counts), the `rec_NNNN` record ID policy, and the world-local `route_code` scope.
+- Confirmed `v = int(verified)` producer semantics and the ✓-rendering Udon consumer behavior; VRChat additive-field tolerance verified via DataDictionary parsing.
+- Answered all eight schema-map open questions; marked Phase 0 complete (pending owner review) and unblocked Phase 1 additive migration.
+- Documented pipeline pitfalls: the empty decoy `ta_data.sqlite` at the pipeline repo root and stale nested `DB_PATH`s in legacy migration scripts.
+- Documentation-only change: no canonical data, generated JSON, contract, ID, or URL was modified.
+
 ## 2026-07-16
 
 - Aligned the Project T T-1 specification around a three-layer data architecture: authoring/import, canonical SQLite, and generated contracts.

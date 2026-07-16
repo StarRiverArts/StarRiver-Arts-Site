@@ -256,31 +256,25 @@ play/RacingClub/TimeAttack/vrc/<route-specific>.json
 - `date`
 - `v`
 
-## 6.3 `v` Evidence Status
+## 6.3 `v` Evidence Status（已證實，2026-07-17）
 
-目前可證實：
+- producer：`build_vrc_leaderboard.py` 輸出 `v = int(record.verified or 0)`。
+- consumer：`siteResource/vrc-unity/SRLeaderboardBoard.cs`／`SRRecentBoard.cs` 讀 `v == 1` 顯示 ✓。
+- **`v` = verified compact flag，語意證實**；mapping 規則由 Adapter Policy §4.3 固定。
 
-- producer payload 有 numeric `v: 0 / 1`。
-- actual Udon consumer 的讀取、語意與 fallback 尚未取得證據。
+`v` 仍屬 Frozen class：不可移除、改名、改型別。
 
-因此 Phase 0 前只凍結現行值與型別，不把 `v` 命名為 verification contract。若 pipeline query 與 consumer code 證實其語意，再由 Adapter Policy 固定 mapping。
+## 6.4 Consumer evidence（2026-07-17 已補完）
 
-`v` 在 actual consumer inventory、compatibility test 與遷移計畫完成前不可移除、改名、改型別或重新解釋。
+實際 UdonSharp consumer（`siteResource/vrc-unity/`）盤點結果：
 
-## 6.4 尚待 consumer evidence
+- 讀取欄位：`name`、`t`、`t_ms`、`sub`、`date`、`v`、`status`、`provisional`、`updated`、track/route bilingual labels。
+- 解析方式：VRCJson `DataDictionary` key 查找——**unknown field tolerant**，additive 欄位安全。
+- `provisional = true` 顯示「臨時榜/未驗證」字樣；`status` 缺值 fallback `"live"`。
+- `rev`／`.head.json` 用於輕量輪詢與快取失效（producer 端為 routes 內容 SHA1）。
+- URL 由 Unity Inspector 設定（`SerializeField`），非硬編路徑常數；路徑變更仍需逐世界重設，Frozen 政策不變。
 
-需要從實際 Unity／UdonSharp repo 確認：
-
-- 哪些 path 被硬編。
-- schema field 是否被檢查。
-- required／optional fields。
-- unknown field tolerance。
-- timeout／offline／cache behavior。
-- Top N 上限與 payload limit。
-- `rev` 的 cache invalidation 行為。
-- `provisional`／status／`v` 的實際顯示邏輯。
-
-在這些項目完成前，不宣告 VRC schema formalized。
+timeout／offline 細部行為與 Top N 上限的 world 內實測，留在 Phase 7 integration test 完成；不阻擋 schema formalization 前置作業。
 
 ---
 
@@ -336,16 +330,14 @@ Site repo
 
 ---
 
-# 10. Phase 0 剩餘 Gate
+# 10. Phase 0 剩餘 Gate（2026-07-17 更新）
 
-Contract inventory 只有在以下證據補完後才可升級為 Verified：
+- SQLite schema dump。 → ✅ schema-map §9.2
+- importer／generator／validator source map。 → ✅ schema-map §9.3
+- public field → query／adapter map。 → ✅ schema-map §9.3
+- stable record ID 與 lookup strategy。 → ✅ schema-map §9.4
+- `event_code` source。 → ✅ schema-map §9.5
+- actual VRChat consumer field inventory。 → ✅ 本文件 §6.4
+- pipeline maintainer review。 → 待 owner 審核本版
 
-- SQLite schema dump。
-- importer／generator／validator source map。
-- public field → query／adapter map。
-- stable record ID 與 lookup strategy。
-- `event_code` source。
-- actual VRChat consumer field inventory。
-- pipeline maintainer review。
-
-在此之前，Phase 1 migration 與 Event UI 均不得開始。
+**Phase 0 證據補完；Phase 1 migration 可以開始。** Event UI 仍依 implementation plan 的順序（canonical data 先行）。
