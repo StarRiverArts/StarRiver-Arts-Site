@@ -104,6 +104,34 @@
 - retrospective event 需要 original event date／source provenance。
 - cancelled／archived 不物理刪除。
 
+## 4.2A `event_worlds`／`event_routes`
+
+用途：保存 Event 與多個 World／Route 的關聯，避免在 `events` 以逗號字串或 JSON 取代可驗證 relation。
+
+`event_worlds` 候選欄位：
+
+- `event_id` FK → events
+- `world_id` FK → 現有 world key
+- `role`：primary／secondary／alternate
+- `display_order`
+- `created_at`
+
+`event_routes` 候選欄位：
+
+- `event_id` FK → events
+- `route_id` FK → 現有 route key
+- `world_id`（只有 canonical route key 不含 world scope 時才需要）
+- `role`
+- `display_order`
+- `created_at`
+
+建議 unique：
+
+- `event_worlds(event_id, world_id, role)`
+- `event_routes(event_id, route_id, role)`，實際 key 依 route scope 調整
+
+若 Phase 0 證實既有 route PK 已包含 world relation，不重複建立第二套 world key。
+
 ## 4.3 `matches`
 
 候選欄位：
@@ -153,6 +181,28 @@
 
 - player／team 至少一者存在，實際 constraint 待 schema 能力確認。
 - private notes 不進 public JSON。
+
+## 4.4A `match_entries`
+
+用途：明確定義哪些 Event Entry 參加特定 Match，並保存 lane、side、seed 或 heat assignment。不能只從 `match_results` 反推參賽者，因為 no-show、withdrawn 或尚無結果者仍是 Match participant。
+
+候選欄位：
+
+- `match_entry_id` PK，或使用 composite key
+- `match_id` FK → matches
+- `entry_id` FK → event_entries
+- `status`
+- `seed`
+- `lane_or_side`
+- `display_order`
+- `created_at`
+- `updated_at`
+
+建議 unique：
+
+- `(match_id, entry_id)`
+
+`match_results.entry_id` 必須能對應同一 Match 的 `match_entries`；實際以 composite FK 或 validator 保證，依 SQLite 現況決定。
 
 ## 4.5 `match_results`
 
@@ -210,6 +260,25 @@
 - URL 與 private reference 分欄，避免 adapter 意外洩漏。
 - status 不直接等於 record review status。
 
+## 4.6A `event_evidence`／`match_evidence`
+
+Evidence 可同時支援 Record、Event 與 Match，但關聯角色不同，應使用獨立 junction table，避免 nullable polymorphic FK。
+
+共同候選欄位：
+
+- parent ID：`event_id` 或 `match_id`
+- `evidence_id` FK → evidence
+- `relation_type`
+- `display_order`
+- `created_at`
+
+建議 unique：
+
+- `event_evidence(event_id, evidence_id, relation_type)`
+- `match_evidence(match_id, evidence_id, relation_type)`
+
+同一 Evidence 是否允許連多種 parent 由 validator 控制；private visibility 規則不因關聯類型改變。
+
 ## 4.7 `record_evidence`
 
 用途：record 與 evidence 的多對多關聯。
@@ -255,6 +324,40 @@
 - public revision summary 與 private audit payload 分離。
 - VRChat `rev` 是 generated contract revision，不直接引用本 table 的 `revision_id`。
 
+## 4.9 `teams`／`team_members`
+
+現有 team display 字串不足以作 identity。Team migration 必須先產生 matched／unresolved report，不可按名稱自動合併。
+
+`teams` 候選欄位：
+
+- `team_id` PK
+- `name_zh_hant`
+- `name_en`
+- `status`
+- `logo_url`
+- `description_zh_hant`
+- `description_en`
+- `public_url`
+- `discord_url`
+- `created_at`
+- `updated_at`
+
+`team_members` 候選欄位：
+
+- `team_id` FK → teams
+- `player_id` FK → 現有 player key
+- `role`
+- `joined_at`
+- `left_at`
+- `status`
+- `created_at`
+- `updated_at`
+
+建議 identity：
+
+- Team name 不設 canonical unique。
+- membership 若需歷史，unique／exclusion 規則應允許同一 player 不同時期重新加入；SQLite 階段可由 validator 保證時間區間不重疊。
+
 ---
 
 # 5. Record 的 additive 欄位策略
@@ -264,8 +367,25 @@
 - `review_status` nullable
 - `verified_by` nullable
 - `verified_at` nullable
+- `invalidated_at` nullable
+- `removed_at` nullable
 - `superseded_by_record_id` nullable
+- `maintainer_id` nullable
+- `revision_no` nullable
 - `review_reason` nullable／private
+
+若既有 record table 不適合直接新增 review 欄位，改用 `record_reviews` companion table：
+
+- `record_review_id` PK
+- `record_id` FK → 既有 record stable PK
+- `review_status`
+- reviewer／reviewed timestamp
+- invalidated／removed／superseded metadata
+- public／private reason
+- `revision_no`
+- `created_at`／`updated_at`
+
+Companion table 必須定義「current review」選取規則，可採每 record 唯一 current row，或 append-only history 加 deterministic latest view。不得同時讓 record columns 與 companion table 都可獨立寫入而形成雙重 SSOT。
 
 遷移期規則：
 
@@ -316,13 +436,14 @@
 順序：
 
 1. organizations
-2. events
-3. event entries
-4. matches
-5. match results
-6. evidence
-7. record-evidence links
-8. revisions／review status
+2. worlds／routes key verification
+3. events + event-world／event-route relations
+4. teams + team memberships
+5. event entries
+6. matches + match entries
+7. match results
+8. evidence + record／event／match evidence links
+9. revisions／review status
 
 每批需記錄來源、row count、unresolved identity 與 rollback key。無法確定的資料不猜測、不自動合併。
 
@@ -350,7 +471,8 @@
 | 類型 | 檢查 |
 | --- | --- |
 | Database | integrity_check、FK violations、row counts、unique conflicts |
-| Identity | 舊 ID 完全保留；無 display-name merge |
+| Identity | 舊 ID 完全保留；無 display-name merge；Team unresolved report 完整 |
+| Relations | Event／World／Route、Match／Entry、Evidence junction 無 orphan／duplicate |
 | Records | 排行筆數、排序、time_ms、日期不變 |
 | Website | manifest routes、JSON paths、query parameters 不變 |
 | Verification | legacy verified／proof_text 與 baseline 一致 |
