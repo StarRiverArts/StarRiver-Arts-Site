@@ -8,6 +8,7 @@
 - Answered all eight schema-map open questions; marked Phase 0 complete (pending owner review) and unblocked Phase 1 additive migration.
 - Documented pipeline pitfalls: the empty decoy `ta_data.sqlite` at the pipeline repo root and stale nested `DB_PATH`s in legacy migration scripts.
 - Documentation-only change: no canonical data, generated JSON, contract, ID, or URL was modified.
+- Phase 1–3 rehearsal (pipeline repo `migrations/`): m0001 additive migration (14 new tables, events +16 / records +6 columns, user_version=1), retrospective import of the taken-down Events subsystem (git `ecee47d`: 3 events / 22 matches / 56 results), and an additive builder projection for event cards — all verified end-to-end on a DB copy with zero non-expected baseline diff and 9 passing tests. Canonical apply awaits owner approval.
 
 ## 2026-07-16
 
