@@ -9,6 +9,8 @@
 - Documented pipeline pitfalls: the empty decoy `ta_data.sqlite` at the pipeline repo root and stale nested `DB_PATH`s in legacy migration scripts.
 - Documentation-only change: no canonical data, generated JSON, contract, ID, or URL was modified.
 - Phase 1–3 rehearsal (pipeline repo `migrations/`): m0001 additive migration (14 new tables, events +16 / records +6 columns, user_version=1), retrospective import of the taken-down Events subsystem (git `ecee47d`: 3 events / 22 matches / 56 results), and an additive builder projection for event cards — all verified end-to-end on a DB copy with zero non-expected baseline diff and 9 passing tests. Canonical apply awaits owner approval.
+- Recorded the owner-approved T-1 product structure (6 product areas + 1 maintenance area, submission-first thin vertical slice) as `t-1-product-structure.md`.
+- Thin-slice rehearsal complete on a DB copy: m0002 submissions layer (receipt query codes, 6-state machine) + workflow CLI; a demo claim was intaken, reviewed, accepted into `rec_0963`, and the same record appeared in website tracks/summary JSON and VRChat `recent.json` (Top-N cutoff behaved correctly). 11 pipeline tests pass.
 
 ## 2026-07-16
 
