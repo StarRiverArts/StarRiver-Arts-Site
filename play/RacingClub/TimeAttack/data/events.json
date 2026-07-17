@@ -17,14 +17,14 @@
     {
       "label_zh": "賽季數",
       "label_en": "Seasons",
-      "value": "0",
+      "value": "2",
       "note_zh": "目前 metadata 已定義的賽季",
       "note_en": "Seasons currently defined in metadata"
     },
     {
       "label_zh": "活動數",
       "label_en": "Events",
-      "value": "0",
+      "value": "5",
       "note_zh": "已建立索引的活動項目",
       "note_en": "Indexed events currently in metadata"
     },
@@ -43,7 +43,227 @@
       "note_en": "Verified runs linked to an event"
     }
   ],
-  "event_cards": [],
+  "event_cards": [
+    {
+      "event_code": "vrrctw_momiji_20260719",
+      "title": "CVS 紅葉 Momiji 計時賽",
+      "subtitle_zh": "time_attack",
+      "subtitle_en": "time_attack",
+      "stats": [
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "參與玩家",
+          "label_en": "Players",
+          "value": "0"
+        },
+        {
+          "label_zh": "涵蓋路線",
+          "label_en": "Routes",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：upcoming",
+        "日期：2026-07-19",
+        "紀錄方式：prospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": []
+    },
+    {
+      "event_code": "vrrctw_sadamine_20260718",
+      "title": "Sacc 定峰錦標賽",
+      "subtitle_zh": "single_elimination",
+      "subtitle_en": "single_elimination",
+      "stats": [
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "參與玩家",
+          "label_en": "Players",
+          "value": "0"
+        },
+        {
+          "label_zh": "涵蓋路線",
+          "label_en": "Routes",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：upcoming",
+        "日期：2026-07-18",
+        "紀錄方式：prospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": []
+    },
+    {
+      "event_code": "vrrctw_casual_0531",
+      "title": "休閒對戰 LinWu vs StarRiver",
+      "subtitle_zh": "casual_meet",
+      "subtitle_en": "casual_meet",
+      "stats": [
+        {
+          "label_zh": "對局數",
+          "label_en": "Matches",
+          "value": "4"
+        },
+        {
+          "label_zh": "參賽者",
+          "label_en": "Entries",
+          "value": "2"
+        },
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-05-31",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "伊呂波 上行 (3:0)",
+          "sub_label": "LinWu_05",
+          "lap_time_text": "win"
+        },
+        {
+          "rank": 2,
+          "route_label": "伊呂波 上行 (3:0)",
+          "sub_label": "StarRiver Arts",
+          "lap_time_text": "loss"
+        }
+      ]
+    },
+    {
+      "event_code": "vrrctw_s1_akina",
+      "title": "第一賽季 七月 秋名錦標賽",
+      "subtitle_zh": "VRRCTW 第一賽季 / single_elimination",
+      "subtitle_en": "VRRCTW 第一賽季 / single_elimination",
+      "stats": [
+        {
+          "label_zh": "對局數",
+          "label_en": "Matches",
+          "value": "9"
+        },
+        {
+          "label_zh": "參賽者",
+          "label_en": "Entries",
+          "value": "8"
+        },
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-07-06",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "final",
+          "sub_label": "『Sigma』",
+          "lap_time_text": "win"
+        },
+        {
+          "rank": 2,
+          "route_label": "final",
+          "sub_label": "ikuhopen",
+          "lap_time_text": "loss"
+        }
+      ]
+    },
+    {
+      "event_code": "vrrctw_s1_myogi",
+      "title": "第一賽季 第一場 妙義錦標賽",
+      "subtitle_zh": "VRRCTW 第一賽季 / single_elimination",
+      "subtitle_en": "VRRCTW 第一賽季 / single_elimination",
+      "stats": [
+        {
+          "label_zh": "對局數",
+          "label_en": "Matches",
+          "value": "9"
+        },
+        {
+          "label_zh": "參賽者",
+          "label_en": "Entries",
+          "value": "8"
+        },
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-06-08",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "final",
+          "sub_label": "Kinokono_Tenka",
+          "lap_time_text": "win"
+        },
+        {
+          "rank": 2,
+          "route_label": "final",
+          "sub_label": "Rushia Angel",
+          "lap_time_text": "loss"
+        }
+      ]
+    }
+  ],
   "sections": [
     {
       "label_zh": "積分系統",
