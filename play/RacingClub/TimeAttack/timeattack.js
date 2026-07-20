@@ -4,6 +4,8 @@ const TA_ROUTE_LABELS = {
   track:    { zh: "賽道詳情", en: "Track Detail", jp: "コース詳細"   },
   players:  { zh: "玩家",     en: "Players",      jp: "プレイヤー"   },
   player:   { zh: "玩家檔案", en: "Driver File",  jp: "プレイヤーファイル" },
+  teams:    { zh: "車隊",     en: "Teams",        jp: "チーム"       },
+  team:     { zh: "車隊檔案", en: "Team File",    jp: "チーム詳細"   },
   vehicles: { zh: "車輛",     en: "Vehicles",     jp: "車両"         },
   vehicle:  { zh: "車輛檔案", en: "Car File",     jp: "車両ファイル" },
   events:   { zh: "活動",     en: "Events",       jp: "イベント"     },
@@ -15,6 +17,7 @@ const TA_ROUTE_LABELS = {
 
 const ENABLE_HISTORY_CHARTS = false;
 const SHOW_VERIFICATION = false;
+let TA_TEAMS = [];
 
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -984,6 +987,28 @@ const renderProfilePlaceholder = (modifier, labelZh, labelEn) => `
   </div>
 `;
 
+const findTeamForPlayer = (card) =>
+  TA_TEAMS.find((team) =>
+    (team.member_ids || []).includes(card.player_id) ||
+    (card.team_name && [team.code, team.name_zh, team.name_en].includes(card.team_name)),
+  );
+
+const renderTeamBanner = (card) => {
+  const team = findTeamForPlayer(card);
+  if (!team) return "";
+  return `
+    <a class="ta-team-banner" href="./team.html?id=${encodeURIComponent(team.team_id)}"
+       style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+      <img class="ta-team-banner-image" src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+      <span class="ta-team-banner-shade"></span>
+      ${team.badge ? `<img class="ta-team-banner-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+      <span class="ta-team-banner-copy">
+        <small>${renderBilingual("所屬車隊", "Racing Team", "所属チーム")}</small>
+        <strong>${renderBilingual(team.name_zh, team.name_en, team.name_en)}</strong>
+      </span>
+    </a>`;
+};
+
 const renderProfileTagChips = (chips) => {
   if (!Array.isArray(chips) || chips.length === 0) {
     return "";
@@ -1086,7 +1111,7 @@ const renderProfileFeatureCard = (card, config) => {
       <div class="ta-profile-marquee">
         ${renderProfilePlaceholder("is-main", config.bannerZh, config.bannerEn)}
         ${renderProfileBadgeRail(card.badge_counts)}
-        ${renderProfilePlaceholder("is-team", "車隊橫幅預留", "Team Banner Slot")}
+        ${renderTeamBanner(card)}
       </div>
       <div class="ta-profile-feature-main">
         <div class="ta-profile-feature-head">
@@ -1202,6 +1227,69 @@ const renderPlayerDetail = (data, id) => {
     ? renderModule("進步曲線", "Progression", "圈速進步", "Lap-time Progression", progression)
     : "";
   return switcher + renderEventsXlink("players.html", card.player_id) + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + progressionModule;
+};
+
+const getTeamMembers = (team, players) =>
+  (team.member_ids || []).map((id) => players.find((player) => player.player_id === id)).filter(Boolean);
+
+const renderTeamCard = (team, players) => {
+  const members = getTeamMembers(team, players);
+  return `
+    <a class="ta-team-card" href="./team.html?id=${encodeURIComponent(team.team_id)}">
+      <div class="ta-team-card-media" style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+        <img src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+        ${team.badge ? `<img class="ta-team-card-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+      </div>
+      <div class="ta-team-card-body">
+        <div class="ta-label">${escapeHtml(team.code)}</div>
+        <h3 class="ta-section-title">${renderBilingual(team.name_zh, team.name_en, team.name_en)}</h3>
+        <p class="ta-profile-subtitle">${renderBilingual(team.tagline_zh, team.tagline_en, team.tagline_en)}</p>
+        <div class="ta-team-member-row">
+          ${members.map((member) => `<span>${escapeHtml(member.title)}</span>`).join("")}
+        </div>
+      </div>
+    </a>`;
+};
+
+const renderTeams = (data) => `
+  <div class="ta-team-grid">
+    ${(data.teams || []).map((team) => renderTeamCard(team, data.player_cards || [])).join("")}
+  </div>`;
+
+const renderTeamDetail = (data, id) => {
+  const teams = data.teams || [];
+  const team = id ? teams.find((item) => item.team_id === id) : teams[0];
+  if (!team) return renderDetailNotFound("車隊", "Team", id, "./teams.html", "返回車隊清單", "Back to Teams");
+  const members = getTeamMembers(team, data.player_cards || []);
+  const totals = members.reduce((sum, member) => {
+    sum.runs += Number(((member.stats || []).find((stat) => stat.label_en === "Valid Runs") || {}).value || 0);
+    ["TR", "CR", "PR"].forEach((code) => { sum[code] += Number((member.badge_counts || {})[code] || 0); });
+    return sum;
+  }, { runs: 0, TR: 0, CR: 0, PR: 0 });
+  return `
+    <article class="ta-team-detail">
+      <div class="ta-team-detail-hero" style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+        <img src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+        <span class="ta-team-banner-shade"></span>
+        ${team.badge ? `<img class="ta-team-detail-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+        <div class="ta-team-detail-copy">
+          <div class="ta-label">${escapeHtml(team.code)}</div>
+          <h2>${renderBilingual(team.name_zh, team.name_en, team.name_en)}</h2>
+          <p>${renderBilingual(team.tagline_zh, team.tagline_en, team.tagline_en)}</p>
+        </div>
+      </div>
+      <div class="ta-team-stats">
+        <span><strong>${members.length}</strong>${renderBilingual("位成員", "Members", "メンバー")}</span>
+        <span><strong>${totals.runs}</strong>${renderBilingual("筆紀錄", "Valid Runs", "有効記録")}</span>
+        ${["TR", "CR", "PR"].map((code) => `<span><strong>${totals[code]}</strong>${code}</span>`).join("")}
+      </div>
+      <section class="ta-team-roster">
+        <div class="ta-label">${renderBilingual("車隊成員", "Team Roster", "チームメンバー")}</div>
+        <div class="ta-track-list-grid">
+          ${members.map((member) => renderProfileListCard(member, `./player.html?id=${encodeURIComponent(member.player_id)}`, "車隊成員", "Team Member")).join("")}
+        </div>
+      </section>
+    </article>`;
 };
 
 const VEHICLE_PROFILE_CONFIG = {
@@ -1829,6 +1917,14 @@ const renderPageModules = (view, data) => {
     return renderPlayerDetail(data, getQueryParam("id"));
   }
 
+  if (view === "teams") {
+    return renderTeams(data);
+  }
+
+  if (view === "team") {
+    return renderTeamDetail(data, getQueryParam("id"));
+  }
+
   if (view === "vehicles") {
     const listHtml = Array.isArray(data.vehicle_cards) && data.vehicle_cards.length
       ? renderVehicleList(data)
@@ -1878,8 +1974,13 @@ const setHtml = (selector, html) => {
 };
 
 const activateNav = (view) => {
-  // Detail views share their parent list nav entry (track→tracks, player→players, vehicle→vehicles).
-  const navView = { track: "tracks", player: "players", vehicle: "vehicles" }[view] || view;
+  const vehicleLink = document.querySelector('[data-view-link="vehicles"]');
+  if (vehicleLink && !document.querySelector('[data-view-link="teams"]')) {
+    const navBase = document.body.dataset.base || "./";
+    vehicleLink.insertAdjacentHTML("beforebegin", `<a class="ta-navlink" href="${navBase}teams.html" data-view-link="teams">${renderBilingual("車隊", "Teams", "チーム")}</a>`);
+  }
+  // Detail views share their parent list nav entry.
+  const navView = { track: "tracks", player: "players", team: "teams", vehicle: "vehicles" }[view] || view;
   document.querySelectorAll("[data-view-link]").forEach((link) => {
     link.classList.toggle("is-active", link.dataset.viewLink === navView);
   });
@@ -1904,11 +2005,20 @@ const initTimeAttack = async () => {
   try {
     const manifest = await loadJson(`${base}data/manifest.json`);
     // Detail views are fed by the same list artifact (track→tracks, player→players, vehicle→vehicles).
-    const DETAIL_DATA_KEY = { track: "tracks", player: "players", vehicle: "vehicles" };
+    const DETAIL_DATA_KEY = { track: "tracks", player: "players", team: "teams", vehicle: "vehicles" };
     const dataKey = DETAIL_DATA_KEY[view] || view;
     const summaryPromise = loadJson(`${base}data/${manifest.routes.overview}`);
     const pagePromise = view === "overview" ? summaryPromise : loadJson(`${base}data/${manifest.routes[dataKey]}`);
     const [summary, pageData] = await Promise.all([summaryPromise, pagePromise]);
+
+    if (["players", "player", "teams", "team"].includes(view)) {
+      const teamsData = dataKey === "teams" ? pageData : await loadJson(`${base}data/${manifest.routes.teams}`);
+      TA_TEAMS = teamsData.teams || [];
+      if (dataKey === "teams") {
+        const playersData = await loadJson(`${base}data/${manifest.routes.players}`);
+        pageData.player_cards = playersData.player_cards || [];
+      }
+    }
 
     if (!SHOW_VERIFICATION && view === "overview") {
       pageData.description_zh = "VR Racing Club 的 Time Attack 資料庫，整理持續更新的賽道、玩家、車輛與有效計時紀錄。";
