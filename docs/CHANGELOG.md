@@ -1,5 +1,17 @@
 # StarRiverSite Changelog
 
+## 2026-07-17
+
+- Completed the T-1 Phase 0 canonical schema audit with direct local access to `VR_RacingClubTW`, the canonical SQLite store, and the actual UdonSharp consumers.
+- Verified the canonical store location, all 9 SQLite tables (DDL, PKs, FKs, row counts), the `rec_NNNN` record ID policy, and the world-local `route_code` scope.
+- Confirmed `v = int(verified)` producer semantics and the ✓-rendering Udon consumer behavior; VRChat additive-field tolerance verified via DataDictionary parsing.
+- Answered all eight schema-map open questions; marked Phase 0 complete (pending owner review) and unblocked Phase 1 additive migration.
+- Documented pipeline pitfalls: the empty decoy `ta_data.sqlite` at the pipeline repo root and stale nested `DB_PATH`s in legacy migration scripts.
+- Documentation-only change: no canonical data, generated JSON, contract, ID, or URL was modified.
+- Phase 1–3 rehearsal (pipeline repo `migrations/`): m0001 additive migration (14 new tables, events +16 / records +6 columns, user_version=1), retrospective import of the taken-down Events subsystem (git `ecee47d`: 3 events / 22 matches / 56 results), and an additive builder projection for event cards — all verified end-to-end on a DB copy with zero non-expected baseline diff and 9 passing tests. Canonical apply awaits owner approval.
+- Recorded the owner-approved T-1 product structure (6 product areas + 1 maintenance area, submission-first thin vertical slice) as `t-1-product-structure.md`.
+- Thin-slice rehearsal complete on a DB copy: m0002 submissions layer (receipt query codes, 6-state machine) + workflow CLI; a demo claim was intaken, reviewed, accepted into `rec_0963`, and the same record appeared in website tracks/summary JSON and VRChat `recent.json` (Top-N cutoff behaved correctly). 11 pipeline tests pass.
+
 ## 2026-07-16
 
 - Aligned the Project T T-1 specification around a three-layer data architecture: authoring/import, canonical SQLite, and generated contracts.

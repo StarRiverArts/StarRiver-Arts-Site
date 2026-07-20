@@ -126,23 +126,23 @@ missing
 - 若 `review_status` 尚未回填，沿用舊 `verified`／`proof_text`，並在 build report 記錄 fallback；不得默認改為 true。
 - 現行榜單是否包含 unverified valid runs 必須保持不變，直到產品規則另行核准。
 
-## 4.3 VRChat compact mapping（Phase 0 Pending）
+## 4.3 VRChat compact mapping（已由 Phase 0 證實，2026-07-17）
 
-目前只確認 producer payload 存在 numeric `v: 0 / 1`；尚未取得 generator source 與真正 Udon consumer，因此不能宣稱 `v` 已證實等同 verification，也不能假定 consumer 容許新增欄位或 null。
+Phase 0 本機審計已取得 generator source 與實際 Udon consumer（證據詳見 `t-1-current-schema-map.md` §9.3／§9.6）：
 
-Phase 0 完成前：
+- generator：`build_vrc_leaderboard.py` 以 `v = int(record.verified or 0)` 輸出。
+- consumer：`siteResource/vrc-unity/SRLeaderboardBoard.cs`／`SRRecentBoard.cs` 讀 `v == 1` 顯示 ✓ 勾號。**`v` 的 verification 語意證實。**
+- consumer 走 VRCJson `DataDictionary` key 查找，未知欄位不破壞解析 → **additive 欄位安全**。
 
-- 原樣保留現行 generator 對 `v` 的輸出。
-- 不由新 `review_status` 重算 `v`。
-- 不改名、改型別、移除或新增依賴。
-
-若 pipeline 與 consumer evidence 證實 `v` 的 verification 語意，候選目標 mapping 才是：
+目標 mapping（自本版起可納入 contract test）：
 
 ```text
 review_status = accepted  → v: 1
 其他已知 status           → v: 0
 migration null            → preserve verified legacy output
 ```
+
+過渡規則不變：`review_status` 尚未回填前，維持現行 `int(verified or 0)` 輸出；不改名、不改型別、不移除。
 
 VRChat target contract 不應接收完整 `evidence[]`、private notes、reviewer identity 或 audit payload。若世界內需要 evidence hint，只能在確認 Udon consumer 的 payload、unknown-field 與 parser 限制後另行提案。
 
