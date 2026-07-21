@@ -71,6 +71,7 @@
   #rc .rc-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025)),var(--rc-panel);border:1px solid var(--rc-hair);border-radius:16px;padding:24px;box-shadow:0 14px 32px rgba(0,0,0,.22)}
   #rc .rc-grid{display:grid;gap:14px;margin-top:22px}
   #rc .rc-grid.cols3{grid-template-columns:repeat(3,1fr)}
+  #rc .rc-grid.cols4{grid-template-columns:repeat(4,1fr)}
   #rc .rc-clabel{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rc-green);margin-bottom:10px}
   #rc .rc-ctitle{font-family:var(--font-deck);font-weight:600;font-size:18px;color:var(--rc-fg);margin:0 0 12px}
 
@@ -86,6 +87,7 @@
     #rc .rc-hero-in,#rc .rc-wrap,#rc .rc-foot-row{padding-left:20px;padding-right:20px}
     #rc .rc-hero{min-height:420px}
     #rc .rc-grid.cols3{grid-template-columns:1fr}
+    #rc .rc-grid.cols4{grid-template-columns:1fr}
     #rc .r-far{bottom:112px}#rc .r-mid{bottom:60px}
   }
 </style>
@@ -193,7 +195,7 @@
         <p class="rc-note zh">社群的圈速、玩家與車輛資料皆由 Time Attack 紀錄站維護，依 player_id 聚合。</p>
         <p class="rc-note en">The club's lap times, players, and vehicles are maintained by the Time Attack station, aggregated by player_id.</p>
         <p class="rc-note jp">クラブのラップ・選手・車両データは Time Attack ステーションが管理し、player_id で集計されます。</p>
-        <div class="rc-grid cols3" style="margin-top:22px">
+        <div class="rc-grid cols4" style="margin-top:22px">
           <a class="rc-card" href="./TimeAttack/players.html">
             <div class="rc-clabel"><span class="zh">玩家</span><span class="en">Players</span><span class="jp">プレイヤー</span></div>
             <div class="rc-ctitle"><span class="zh">玩家紀錄</span><span class="en">Player records</span><span class="jp">選手記録</span></div>
@@ -202,6 +204,11 @@
           <a class="rc-card" href="./TimeAttack/vehicles.html">
             <div class="rc-clabel"><span class="zh">車輛</span><span class="en">Vehicles</span><span class="jp">車両</span></div>
             <div class="rc-ctitle"><span class="zh">車輛資料</span><span class="en">Vehicle data</span><span class="jp">車両データ</span></div>
+            <span class="rc-ghost"><span class="zh">前往</span><span class="en">Open</span><span class="jp">開く</span><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></span>
+          </a>
+          <a class="rc-card" href="./TimeAttack/teams.html">
+            <div class="rc-clabel"><span class="zh">車隊</span><span class="en">Teams</span><span class="jp">チーム</span></div>
+            <div class="rc-ctitle"><span class="zh">車隊與成員</span><span class="en">Teams and members</span><span class="jp">チームとメンバー</span></div>
             <span class="rc-ghost"><span class="zh">前往</span><span class="en">Open</span><span class="jp">開く</span><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg></span>
           </a>
           <a class="rc-card" href="./TimeAttack/tracks.html">

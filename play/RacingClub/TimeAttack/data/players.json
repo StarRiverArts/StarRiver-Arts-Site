@@ -17,7 +17,7 @@
     {
       "label_zh": "玩家數",
       "label_en": "Players",
-      "value": "86",
+      "value": "85",
       "note_zh": "有至少一筆有效紀錄的玩家",
       "note_en": "Players with at least one valid run"
     },
@@ -10295,6 +10295,351 @@
       ]
     },
     {
+      "player_id": "plr_038",
+      "title": "n0ema",
+      "team_name": "",
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "13"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "4"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 4,
+        "CR": 0,
+        "PR": 1
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 X7 RR",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 技術",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "X7 RR",
+          "value": 3
+        },
+        {
+          "label": "EVOVIII/CT9A",
+          "value": 2
+        },
+        {
+          "label": "rb21(RedBull)",
+          "value": 1
+        },
+        {
+          "label": "MCL39",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "技術",
+          "value": 7
+        },
+        {
+          "label": "高速",
+          "value": 6
+        },
+        {
+          "label": "髮夾彎",
+          "value": 2
+        },
+        {
+          "label": "隧道",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "rank": 1,
+          "route_label_zh": "Monaco / 待整理",
+          "route_label_en": "Monaco / 待整理",
+          "player_display_name": "n0ema",
+          "player_id": "plr_038",
+          "vehicle_model_name": "rb21(RedBull)",
+          "vehicle_model_code": "veh_rb21_redbull",
+          "lap_time_ms": 62344,
+          "lap_time_text": "01:02.344",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2025-09-13",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "rb21(RedBull)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 2,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "n0ema",
+          "player_id": "plr_038",
+          "vehicle_model_name": "EVOIII/CE9A",
+          "vehicle_model_code": "veh_evoiii_ce9a",
+          "lap_time_ms": 87980,
+          "lap_time_text": "01:27.980",
+          "delta_to_best_text": "+8.954",
+          "platform": "pcvr",
+          "record_date": "2025-12-08",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "EVOIII/CE9A",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "rank": 3,
+          "route_label_zh": "碓冰DAA / Counter-Clockwise",
+          "route_label_en": "UsuiDAA / Counter-Clockwise",
+          "player_display_name": "n0ema",
+          "player_id": "plr_038",
+          "vehicle_model_name": "R34(BNR34)",
+          "vehicle_model_code": "veh_bnr34",
+          "lap_time_ms": 106925,
+          "lap_time_text": "01:46.925",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-03-14",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "R34(BNR34)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 4,
+          "route_label_zh": "Momiji / Downhill",
+          "route_label_en": "Momiji / Downhill",
+          "player_display_name": "n0ema",
+          "player_id": "plr_038",
+          "vehicle_model_name": "EVOVIII/CT9A",
+          "vehicle_model_code": "veh_revolution_viii",
+          "lap_time_ms": 190529,
+          "lap_time_text": "03:10.529",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-07-19",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "EVOVIII/CT9A",
+          "verified": true,
+          "proof_text": "活動現場紀錄",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "rank": 5,
+          "route_label_zh": "Nagao / Downhill",
+          "route_label_en": "Nagao / Downhill",
+          "player_display_name": "n0ema",
+          "player_id": "plr_038",
+          "vehicle_model_name": "EVOVIII/CT9A",
+          "vehicle_model_code": "veh_revolution_viii",
+          "lap_time_ms": 217063,
+          "lap_time_text": "03:37.063",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-05-09",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "EVOVIII/CT9A",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "history": [
+        {
+          "route_key": "monaco_aiden1408:TBD",
+          "route_label": "Monaco / 待整理",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2025-09-13",
+              "lap_time_ms": 62344,
+              "lap_time_text": "01:02.344",
+              "vehicle": "rb21(RedBull)",
+              "is_pb": true
+            },
+            {
+              "date": "2025-09-13",
+              "lap_time_ms": 62521,
+              "lap_time_text": "01:02.521",
+              "vehicle": "MCL39",
+              "is_pb": false
+            },
+            {
+              "date": "2025-09-13",
+              "lap_time_ms": 63066,
+              "lap_time_text": "01:03.066",
+              "vehicle": "w16(Mercedes)",
+              "is_pb": false
+            },
+            {
+              "date": "2025-09-13",
+              "lap_time_ms": 63455,
+              "lap_time_text": "01:03.455",
+              "vehicle": "sf25(Ferrari)",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "nagao_foxbg:DH",
+          "route_label": "Nagao / Downhill",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2025-10-25",
+              "lap_time_ms": 221699,
+              "lap_time_text": "03:41.699",
+              "vehicle": "X7 RR",
+              "is_pb": true
+            },
+            {
+              "date": "2025-11-09",
+              "lap_time_ms": 219631,
+              "lap_time_text": "03:39.631",
+              "vehicle": "X7 RR",
+              "is_pb": true
+            },
+            {
+              "date": "2026-05-09",
+              "lap_time_ms": 217063,
+              "lap_time_text": "03:37.063",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "momiji_foxbg:DH",
+          "route_label": "Momiji / Downhill",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2025-11-07",
+              "lap_time_ms": 191998,
+              "lap_time_text": "03:11.998",
+              "vehicle": "X7 RR",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-19",
+              "lap_time_ms": 190529,
+              "lap_time_text": "03:10.529",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "starsight_starriver_arts:DH",
+          "route_label": "觀星山 / Downhill",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2025-11-27",
+              "lap_time_ms": 108199,
+              "lap_time_text": "01:48.199",
+              "vehicle": "CoachKart",
+              "is_pb": true
+            },
+            {
+              "date": "2025-12-08",
+              "lap_time_ms": 87980,
+              "lap_time_text": "01:27.980",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "usuidaa_k_a_u_b_e_r_u:CC",
+          "route_label": "碓冰DAA / Counter-Clockwise",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-03-14",
+              "lap_time_ms": 117388,
+              "lap_time_text": "01:57.388",
+              "vehicle": "BMW CS",
+              "is_pb": true
+            },
+            {
+              "date": "2026-03-14",
+              "lap_time_ms": 106925,
+              "lap_time_text": "01:46.925",
+              "vehicle": "R34(BNR34)",
+              "is_pb": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "player_id": "plr_kinokono_tenka",
       "title": "Kinokono_Tenka",
       "team_name": "",
@@ -11022,330 +11367,6 @@
               "lap_time_text": "03:43.250",
               "vehicle": "EK Miracle",
               "is_pb": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "player_id": "plr_038",
-      "title": "ねぎたま",
-      "team_name": "",
-      "subtitle_zh": "未分隊車手",
-      "subtitle_en": "Independent Driver",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "12"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "3"
-        },
-        {
-          "label_zh": "車種最佳",
-          "label_en": "Car Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 3,
-        "CR": 1,
-        "PR": 1
-      },
-      "tag_chips": [
-        {
-          "label": "未分隊",
-          "tone": "team"
-        },
-        {
-          "label": "主力車種 X7 RR",
-          "tone": "vehicle"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "路線標籤 高速",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "X7 RR",
-          "value": 3
-        },
-        {
-          "label": "rb21(RedBull)",
-          "value": 1
-        },
-        {
-          "label": "MCL39",
-          "value": 1
-        },
-        {
-          "label": "w16(Mercedes)",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "高速",
-          "value": 6
-        },
-        {
-          "label": "技術",
-          "value": 6
-        },
-        {
-          "label": "隧道",
-          "value": 2
-        },
-        {
-          "label": "髮夾彎",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Monaco / 待整理",
-          "route_label_en": "Monaco / 待整理",
-          "player_display_name": "ねぎたま",
-          "player_id": "plr_038",
-          "vehicle_model_name": "rb21(RedBull)",
-          "vehicle_model_code": "veh_rb21_redbull",
-          "lap_time_ms": 62344,
-          "lap_time_text": "01:02.344",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2025-09-13",
-          "track_env": "賽道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "rb21(RedBull)",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 2,
-          "route_label_zh": "觀星山 / Downhill",
-          "route_label_en": "StarSight / Downhill",
-          "player_display_name": "ねぎたま",
-          "player_id": "plr_038",
-          "vehicle_model_name": "EVOIII/CE9A",
-          "vehicle_model_code": "veh_evoiii_ce9a",
-          "lap_time_ms": 87980,
-          "lap_time_text": "01:27.980",
-          "delta_to_best_text": "+8.954",
-          "platform": "pcvr",
-          "record_date": "2025-12-08",
-          "track_env": "山道",
-          "track_tags": [
-            "隧道",
-            "高速"
-          ],
-          "peer_label": "EVOIII/CE9A",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "rank": 3,
-          "route_label_zh": "碓冰DAA / Counter-Clockwise",
-          "route_label_en": "UsuiDAA / Counter-Clockwise",
-          "player_display_name": "ねぎたま",
-          "player_id": "plr_038",
-          "vehicle_model_name": "R34(BNR34)",
-          "vehicle_model_code": "veh_bnr34",
-          "lap_time_ms": 106925,
-          "lap_time_text": "01:46.925",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-03-14",
-          "track_env": "山道",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "R34(BNR34)",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "rank": 4,
-          "route_label_zh": "Momiji / Downhill",
-          "route_label_en": "Momiji / Downhill",
-          "player_display_name": "ねぎたま",
-          "player_id": "plr_038",
-          "vehicle_model_name": "X7 RR",
-          "vehicle_model_code": "veh_x7_rr",
-          "lap_time_ms": 191998,
-          "lap_time_text": "03:11.998",
-          "delta_to_best_text": "+1.469",
-          "platform": "pcvr",
-          "record_date": "2025-11-07",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "X7 RR",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "rank": 5,
-          "route_label_zh": "Nagao / Downhill",
-          "route_label_en": "Nagao / Downhill",
-          "player_display_name": "ねぎたま",
-          "player_id": "plr_038",
-          "vehicle_model_name": "EVOVIII/CT9A",
-          "vehicle_model_code": "veh_revolution_viii",
-          "lap_time_ms": 217063,
-          "lap_time_text": "03:37.063",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-05-09",
-          "track_env": "山道",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "EVOVIII/CT9A",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "history": [
-        {
-          "route_key": "monaco_aiden1408:TBD",
-          "route_label": "Monaco / 待整理",
-          "run_count": 4,
-          "runs": [
-            {
-              "date": "2025-09-13",
-              "lap_time_ms": 62344,
-              "lap_time_text": "01:02.344",
-              "vehicle": "rb21(RedBull)",
-              "is_pb": true
-            },
-            {
-              "date": "2025-09-13",
-              "lap_time_ms": 62521,
-              "lap_time_text": "01:02.521",
-              "vehicle": "MCL39",
-              "is_pb": false
-            },
-            {
-              "date": "2025-09-13",
-              "lap_time_ms": 63066,
-              "lap_time_text": "01:03.066",
-              "vehicle": "w16(Mercedes)",
-              "is_pb": false
-            },
-            {
-              "date": "2025-09-13",
-              "lap_time_ms": 63455,
-              "lap_time_text": "01:03.455",
-              "vehicle": "sf25(Ferrari)",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "nagao_foxbg:DH",
-          "route_label": "Nagao / Downhill",
-          "run_count": 3,
-          "runs": [
-            {
-              "date": "2025-10-25",
-              "lap_time_ms": 221699,
-              "lap_time_text": "03:41.699",
-              "vehicle": "X7 RR",
-              "is_pb": true
-            },
-            {
-              "date": "2025-11-09",
-              "lap_time_ms": 219631,
-              "lap_time_text": "03:39.631",
-              "vehicle": "X7 RR",
-              "is_pb": true
-            },
-            {
-              "date": "2026-05-09",
-              "lap_time_ms": 217063,
-              "lap_time_text": "03:37.063",
-              "vehicle": "EVOVIII/CT9A",
-              "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "starsight_starriver_arts:DH",
-          "route_label": "觀星山 / Downhill",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2025-11-27",
-              "lap_time_ms": 108199,
-              "lap_time_text": "01:48.199",
-              "vehicle": "CoachKart",
-              "is_pb": true
-            },
-            {
-              "date": "2025-12-08",
-              "lap_time_ms": 87980,
-              "lap_time_text": "01:27.980",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "usuidaa_k_a_u_b_e_r_u:CC",
-          "route_label": "碓冰DAA / Counter-Clockwise",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-03-14",
-              "lap_time_ms": 117388,
-              "lap_time_text": "01:57.388",
-              "vehicle": "BMW CS",
-              "is_pb": true
-            },
-            {
-              "date": "2026-03-14",
-              "lap_time_ms": 106925,
-              "lap_time_text": "01:46.925",
-              "vehicle": "R34(BNR34)",
-              "is_pb": true
             }
           ]
         }
@@ -15072,103 +15093,6 @@
           ]
         }
       ]
-    },
-    {
-      "player_id": "plr_n0ema",
-      "title": "n0ema",
-      "team_name": "",
-      "subtitle_zh": "未分隊車手",
-      "subtitle_en": "Independent Driver",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        },
-        {
-          "label_zh": "車種最佳",
-          "label_en": "Car Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 0,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "未分隊",
-          "tone": "team"
-        },
-        {
-          "label": "主力車種 EVOVIII/CT9A",
-          "tone": "vehicle"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "路線標籤 技術",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "EVOVIII/CT9A",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "技術",
-          "value": 1
-        },
-        {
-          "label": "髮夾彎",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "rank": 1,
-          "route_label_zh": "Momiji / Downhill",
-          "route_label_en": "Momiji / Downhill",
-          "player_display_name": "n0ema",
-          "player_id": "plr_n0ema",
-          "vehicle_model_name": "EVOVIII/CT9A",
-          "vehicle_model_code": "veh_revolution_viii",
-          "lap_time_ms": 190529,
-          "lap_time_text": "03:10.529",
-          "delta_to_best_text": "+0.000",
-          "platform": "pcvr",
-          "record_date": "2026-07-19",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "EVOVIII/CT9A",
-          "verified": true,
-          "proof_text": "活動現場紀錄",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "history": []
     },
     {
       "player_id": "plr_nykdsamurai",

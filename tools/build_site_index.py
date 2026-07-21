@@ -47,6 +47,9 @@ DATA_ENDPOINTS = [
     "play/RacingClub/TimeAttack/data/tracks.json",
     "play/RacingClub/TimeAttack/data/vehicles.json",
     "play/RacingClub/TimeAttack/data/players.json",
+    "play/RacingClub/TimeAttack/data/teams.json",
+    "play/RacingClub/TimeAttack/data/events.json",
+    "play/RacingClub/TimeAttack/data/event-editorial.json",
     "play/RacingClub/TimeAttack/data/catalog.json",
     "play/RacingClub/TimeAttack/data/trackmap.json",
 ]

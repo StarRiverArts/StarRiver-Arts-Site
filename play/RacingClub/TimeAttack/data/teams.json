@@ -4,8 +4,14 @@
   "title_en": "Teams",
   "description_zh": "VR Racing Club 車隊與成員索引。",
   "description_en": "VR Racing Club team and member directory.",
-  "sidebar_zh": ["車隊以穩定的 team_id 識別。", "成員成績仍由既有玩家紀錄即時計算。"],
-  "sidebar_en": ["Teams are identified by stable team_id values.", "Member results continue to come from the existing player records."],
+  "sidebar_zh": [
+    "車隊以穩定的 team_id 識別。",
+    "成員成績仍由既有玩家紀錄即時計算。"
+  ],
+  "sidebar_en": [
+    "Teams are identified by stable team_id values.",
+    "Member results continue to come from the existing player records."
+  ],
   "teams": [
     {
       "team_id": "team_thdk",
@@ -17,7 +23,12 @@
       "banner": "assets/teams/thdk/banner.jpg",
       "badge": "assets/teams/thdk/badge.png",
       "banner_position": "center center",
-      "member_ids": ["plr_yang", "plr_daisukilian"]
+      "vrchat_group_id": "THTADK.4537",
+      "vrchat_group_url": "https://vrc.group/THTADK.4537",
+      "member_ids": [
+        "plr_yang",
+        "plr_daisukilian"
+      ]
     },
     {
       "team_id": "team_kurohana",
@@ -29,7 +40,12 @@
       "banner": "assets/teams/kurohana/banner.png",
       "badge": "",
       "banner_position": "center 56%",
-      "member_ids": ["plr_linjeyooo", "plr_072"]
+      "vrchat_group_id": "VV18.9837",
+      "vrchat_group_url": "https://vrc.group/VV18.9837",
+      "member_ids": [
+        "plr_linjeyooo",
+        "plr_072"
+      ]
     }
   ]
 }

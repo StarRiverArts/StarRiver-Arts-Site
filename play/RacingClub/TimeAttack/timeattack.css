@@ -1727,6 +1727,9 @@ body.timeattack-page {
 .ta-team-banner-copy small { font: 10px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .ta-team-banner-copy strong { font-size: clamp(18px, 3vw, 28px); }
 .ta-team-banner-badge { bottom: 8px; filter: drop-shadow(0 3px 8px #000); max-height: 96px; object-fit: contain; position: absolute; right: 14px; width: 86px; }
+.ta-team-chip-link { border-radius: 999px; color: inherit; display: inline-flex; text-decoration: none; }
+.ta-team-chip-link:focus-visible { outline: 2px solid var(--ta-accent); outline-offset: 3px; }
+.ta-team-chip-link:hover { filter: brightness(1.16); }
 
 .ta-team-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .ta-team-card { background: rgba(8, 11, 15, .72); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; color: inherit; overflow: hidden; text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
@@ -1745,7 +1748,47 @@ body.timeattack-page {
 .ta-team-stats { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 22px; }
 .ta-team-stats span { align-items: baseline; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; display: flex; gap: 6px; padding: 9px 12px; }
 .ta-team-stats strong { color: var(--ta-accent); font-size: 20px; }
+.ta-team-group-action { align-items: center; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; display: flex; gap: 14px; justify-content: space-between; margin: 0 22px 18px; padding: 13px 15px; }
+.ta-team-group-action > div { display: grid; gap: 5px; }
+.ta-team-group-action small { color: var(--ta-text-soft); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.ta-team-group-action code { color: var(--ta-text); font-size: 12px; }
+.ta-team-group-action a { background: var(--ta-accent); border-radius: 999px; color: #101319; font-size: 12px; font-weight: 800; padding: 9px 14px; text-decoration: none; }
+.ta-team-group-action a:hover { filter: brightness(1.08); }
 .ta-team-roster { display: grid; gap: 12px; padding: 4px 22px 24px; }
+
+.ta-event-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.ta-event-card { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), rgba(8,11,15,.78); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; color: inherit; display: grid; gap: 12px; padding: 22px; text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.ta-event-card:hover { border-color: rgba(239,217,91,.55); transform: translateY(-2px); }
+.ta-event-card-head { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+.ta-event-status { border: 1px solid currentColor; border-radius: 999px; font: 700 10px var(--font-mono); letter-spacing: .1em; padding: 5px 9px; text-transform: uppercase; }
+.ta-event-status.is-completed { color: #8ed7aa; }
+.ta-event-status.is-upcoming { color: #efd95b; }
+.ta-event-status.is-ongoing { color: #7dd3fc; }
+.ta-event-status.is-archived { color: var(--ta-text-soft); }
+.ta-event-date { color: var(--ta-text-soft); font: 11px var(--font-mono); }
+.ta-event-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.ta-event-tags > span { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: 11px; padding: 6px 9px; }
+.ta-event-detail { display: grid; gap: 18px; }
+.ta-event-lead { display: grid; gap: 16px; }
+.ta-event-info-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.ta-event-info-grid > div { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; display: grid; gap: 6px; padding: 12px; }
+.ta-event-info-grid small { color: var(--ta-text-soft); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.ta-event-info-grid strong { font-size: 13px; line-height: 1.5; }
+.ta-event-panel-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.ta-event-schedule { display: grid; gap: 10px; margin-top: 14px; }
+.ta-event-schedule > div { align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.08); display: grid; gap: 12px; grid-template-columns: 54px 1fr; padding-bottom: 9px; }
+.ta-event-schedule time { color: var(--ta-accent); font: 700 12px var(--font-mono); }
+.ta-event-results td { vertical-align: top; }
+.ta-related-events { display: grid; gap: 10px; }
+.ta-related-events > a { align-items: center; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; color: inherit; display: grid; gap: 8px; grid-template-columns: auto 1fr auto; padding: 11px 12px; text-decoration: none; }
+.ta-related-events > a:hover { border-color: rgba(239,217,91,.5); }
+.ta-related-events small { color: var(--ta-text-soft); font: 10px var(--font-mono); }
+
+@media (max-width: 620px) {
+  .ta-related-events > a { align-items: start; grid-template-columns: 1fr; }
+  .ta-team-group-action { align-items: stretch; flex-direction: column; }
+  .ta-team-group-action a { text-align: center; }
+}
 
 .ta-profile-feature-main {
   display: grid;
