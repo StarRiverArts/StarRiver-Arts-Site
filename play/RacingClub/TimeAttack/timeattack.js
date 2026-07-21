@@ -2055,7 +2055,11 @@ const renderOverview = (data) =>
 
 const renderPageModules = (view, data) => {
   if (view === "overview") {
-    return renderOverview(data);
+    const modules = [renderOverview(data)];
+    if (Array.isArray(data.editorial_events) && data.editorial_events.length) {
+      modules.push(renderModule("近期活動", "Recent Events", "活動公告與結果", "Announcements And Results", renderEventCards(data.editorial_events)));
+    }
+    return modules.filter(Boolean).join("");
   }
 
   if (view === "catalog") {
@@ -2207,7 +2211,7 @@ const initTimeAttack = async () => {
       }
     }
 
-    if (["events", "event", "track", "player", "team", "vehicle"].includes(view)) {
+    if (["overview", "events", "event", "track", "player", "team", "vehicle"].includes(view)) {
       const editorial = await loadJson(`${base}data/${manifest.routes.event_editorial}`);
       pageData.editorial_events = editorial.events || [];
       if (["events", "event"].includes(view)) {
