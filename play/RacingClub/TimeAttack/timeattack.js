@@ -985,17 +985,45 @@ const eventMatchesEntity = (event, kind, id, subId = "") => {
 const isPlacementLabel = (text) =>
   /^(冠軍|亞軍|季軍|殿軍)$/.test(String(text || "").trim()) || /第\s*\d+/.test(text || "");
 
-const renderEventRankChip = (result) => {
+const renderEventRankChip = (result, { withName = false } = {}) => {
   if (!result) return "";
   const rank = Number(result.rank);
   const hasRank = Number.isFinite(rank) && rank > 0;
   // 無 rank 的列是榮譽獎這類特殊獎項,直接用原文(差距那批一定帶 rank,不會落到這裡)。
   const usesOwnLabel = isPlacementLabel(result.result_zh) || !hasRank;
-  const labelZh = usesOwnLabel ? result.result_zh : (hasRank ? `第 ${rank} 名` : "");
-  const labelEn = usesOwnLabel ? (result.result_en || labelZh) : (hasRank ? `#${rank}` : "");
+  let labelZh = usesOwnLabel ? result.result_zh : (hasRank ? `第 ${rank} 名` : "");
+  let labelEn = usesOwnLabel ? (result.result_en || labelZh) : (hasRank ? `#${rank}` : "");
   if (!labelZh) return "";
+  if (withName && result.display_name) {
+    labelZh = `${labelZh} · ${result.display_name}`;
+    labelEn = `${labelEn} · ${result.display_name}`;
+  }
   const medal = hasRank && rank <= 3 ? ` is-rank-${rank}` : "";
   return `<span class="ta-event-rank${medal}">${renderBilingual(labelZh, labelEn, labelEn)}</span>`;
+};
+
+const bestResultRow = (rows) =>
+  rows.filter((row) => Number.isFinite(Number(row.rank)))
+    .sort((a, b) => Number(a.rank) - Number(b.rank))[0] || rows[0];
+
+// 每個實體頁要標的活動資訊不同:玩家頁標自己的名次,賽道頁標該場冠軍,車輛頁標這台車
+// 在該場拿到的最佳名次(賽道與車輛頁一場活動對應多筆結果,標單一名次沒有意義)。
+// 車隊頁的 results 沒有車隊欄位,維持不標。
+const eventHighlight = (event, kind, id) => {
+  const rows = event.results || [];
+  if (!rows.length) return null;
+  if (kind === "player") {
+    const row = rows.find((item) => item.player_id === id);
+    return row ? { row, withName: false } : null;
+  }
+  if (kind === "track") {
+    return { row: bestResultRow(rows), withName: true };
+  }
+  if (kind === "vehicle") {
+    const matched = rows.filter((item) => item.vehicle_model_code === id);
+    return matched.length ? { row: bestResultRow(matched), withName: true } : null;
+  }
+  return null;
 };
 
 const renderRelatedEvents = (events, kind, id, subId = "") => {
@@ -1004,10 +1032,8 @@ const renderRelatedEvents = (events, kind, id, subId = "") => {
   const cards = `
     <div class="ta-related-events">
       ${matches.map((event) => {
-        // 名次只在玩家頁顯示;其他實體頁一場活動可能對應多筆結果,沒有單一名次可標。
-        const rankChip = kind === "player"
-          ? renderEventRankChip((event.results || []).find((row) => row.player_id === id))
-          : "";
+        const highlight = eventHighlight(event, kind, id);
+        const rankChip = highlight ? renderEventRankChip(highlight.row, highlight) : "";
         return `
         <a href="./event.html?id=${encodeURIComponent(event.event_id)}">
           <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
