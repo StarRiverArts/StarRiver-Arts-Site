@@ -1701,7 +1701,7 @@ const renderEventBracket = (event) => {
     return `
       <section class="ta-bracket-section">
         <h3>${renderBilingual(sectionName[0], sectionName[1], sectionName[1])}</h3>
-        <div class="ta-bracket-board">
+        <div class="ta-bracket-board" style="--ta-bracket-round-count:${rounds.length}">
           ${rounds.map((round) => {
             const roundMatches = matches.filter((match) => Number(match.round || 0) === round).sort((a, b) => Number(a.slot || 0) - Number(b.slot || 0));
             const roundLabel = roundMatches[0]?.round_label || `${renderBilingual("第", "Round ", "ラウンド ")}${round}`;

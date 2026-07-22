@@ -60,6 +60,19 @@ html.sr-fluid .ta-desc    { font-size: clamp(16px, 1rem + 0.2vw, 19px); }
 html.sr-fluid .ta-section-title,
 html.sr-fluid .ta-board-title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem); }
 
+/* 活動詳情標題需要容納日期、系統與賽事名稱，不能沿用首頁的超大展示字。 */
+html.sr-fluid .ta-event-lead > .ta-title {
+  font-size: clamp(32px, 3.4vw, 56px);
+  line-height: 1.04;
+  max-width: 22ch;
+  overflow-wrap: anywhere;
+}
+
+html.sr-fluid .ta-bracket-module .ta-section-title {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.15;
+}
+
 /* 4 · topbar brand + back-nav contrast --------------------------
    .pt-brand / .pt-toplink / .pt-lang come from project-t.css with the
    DAY (map-paper) palette — dark ink + near-white fills — which render

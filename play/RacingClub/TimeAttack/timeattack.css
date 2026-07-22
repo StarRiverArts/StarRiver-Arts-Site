@@ -1689,7 +1689,7 @@ body.timeattack-page {
 }
 
 .ta-bracket-module {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .ta-bracket-section + .ta-bracket-section {
@@ -1704,15 +1704,19 @@ body.timeattack-page {
 }
 
 .ta-bracket-board {
-  display: flex;
+  display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(var(--ta-bracket-round-count, 1), minmax(13rem, 1fr));
   overflow-x: auto;
-  padding: 0.25rem 0 0.9rem;
+  overscroll-behavior-x: contain;
+  padding: 0.4rem 0 1rem;
+  scrollbar-gutter: stable;
 }
 
 .ta-bracket-round {
-  flex: 0 0 15rem;
-  min-width: 15rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 13rem;
 }
 
 .ta-bracket-round-title {
@@ -1726,7 +1730,7 @@ body.timeattack-page {
 
 .ta-bracket-round-matches {
   display: flex;
-  min-height: 100%;
+  min-height: 0;
   flex-direction: column;
   justify-content: space-around;
   gap: 0.8rem;
