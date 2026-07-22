@@ -979,17 +979,43 @@ const eventMatchesEntity = (event, kind, id, subId = "") => {
   return false;
 };
 
+// result_zh 混了兩套詞彙:對戰賽事寫名次(「冠軍」「殿軍」「第四名」),計時賽事只有
+// 第 1 名寫「活動第 1」,第 2 名以後寫的是差距(「落後 42.692 秒」)。差距不是名次,
+// 直接沿用會讓名次欄位顯示秒數,所以只在原文確實是名次時採用,否則由 rank 推導。
+const isPlacementLabel = (text) =>
+  /^(冠軍|亞軍|季軍|殿軍)$/.test(String(text || "").trim()) || /第\s*\d+/.test(text || "");
+
+const renderEventRankChip = (result) => {
+  if (!result) return "";
+  const rank = Number(result.rank);
+  const hasRank = Number.isFinite(rank) && rank > 0;
+  // 無 rank 的列是榮譽獎這類特殊獎項,直接用原文(差距那批一定帶 rank,不會落到這裡)。
+  const usesOwnLabel = isPlacementLabel(result.result_zh) || !hasRank;
+  const labelZh = usesOwnLabel ? result.result_zh : (hasRank ? `第 ${rank} 名` : "");
+  const labelEn = usesOwnLabel ? (result.result_en || labelZh) : (hasRank ? `#${rank}` : "");
+  if (!labelZh) return "";
+  const medal = hasRank && rank <= 3 ? ` is-rank-${rank}` : "";
+  return `<span class="ta-event-rank${medal}">${renderBilingual(labelZh, labelEn, labelEn)}</span>`;
+};
+
 const renderRelatedEvents = (events, kind, id, subId = "") => {
   const matches = (events || []).filter((event) => eventMatchesEntity(event, kind, id, subId));
   if (!matches.length) return "";
   const cards = `
     <div class="ta-related-events">
-      ${matches.map((event) => `
+      ${matches.map((event) => {
+        // 名次只在玩家頁顯示;其他實體頁一場活動可能對應多筆結果,沒有單一名次可標。
+        const rankChip = kind === "player"
+          ? renderEventRankChip((event.results || []).find((row) => row.player_id === id))
+          : "";
+        return `
         <a href="./event.html?id=${encodeURIComponent(event.event_id)}">
           <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
           <strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong>
+          ${rankChip}
           <small>${renderEventDate(event.starts_at)}</small>
-        </a>`).join("")}
+        </a>`;
+      }).join("")}
     </div>`;
   return renderModule("活動", "Events", "相關活動", "Related Events", cards);
 };
@@ -1555,6 +1581,34 @@ const renderEventResults = (event) => `
     </div>
   </section>`;
 
+// 轉播與賽事紀錄連結。外部 URL 一律過 safeExternalHttpUrl,非 http(s) 直接丟棄。
+const BROADCAST_KIND_LABELS = {
+  vod: ["轉播回顧", "VOD"],
+  live: ["直播", "Live"],
+  recording: ["賽事紀錄", "Recording"],
+};
+
+const renderEventBroadcasts = (event) => {
+  const items = (event.broadcasts || [])
+    .map((item) => ({ ...item, href: safeExternalHttpUrl(item.url) }))
+    .filter((item) => item.href);
+  if (!items.length) return "";
+  return `
+    <section class="ta-content-card ta-content-card-inner">
+      <div class="ta-label">${renderBilingual("轉播與紀錄", "Broadcast & Recordings", "配信・記録")}</div>
+      <div class="ta-event-broadcasts">
+        ${items.map((item) => {
+          const [kindZh, kindEn] = BROADCAST_KIND_LABELS[item.kind] || BROADCAST_KIND_LABELS.vod;
+          return `
+          <a href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer">
+            <span class="ta-broadcast-kind">${renderBilingual(kindZh, kindEn, kindEn)}</span>
+            <strong>${renderBilingual(item.label_zh || kindZh, item.label_en || kindEn, item.label_en || kindEn)}</strong>
+          </a>`;
+        }).join("")}
+      </div>
+    </section>`;
+};
+
 const findEventTimingRecord = (data, recordId) => {
   for (const board of data.track_boards || []) {
     for (const route of board.routes || []) {
@@ -1756,6 +1810,7 @@ const renderEventDetail = (data, id) => {
       ${renderEventBracket(event)}
       ${renderEventMatches(event, data)}
       ${renderEventResults(event)}
+      ${renderEventBroadcasts(event)}
       <div class="ta-event-panel-grid">
         ${renderEventSchedule(event)}
         ${renderEventTextPanel("參賽方式", "Registration", event.registration_zh, event.registration_en)}

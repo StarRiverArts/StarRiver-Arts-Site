@@ -1888,10 +1888,19 @@ body.timeattack-page {
 .ta-event-schedule > div { align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.08); display: grid; gap: 12px; grid-template-columns: 54px 1fr; padding-bottom: 9px; }
 .ta-event-schedule time { color: var(--ta-accent); font: 700 12px var(--font-mono); }
 .ta-event-results td { vertical-align: top; }
+.ta-event-broadcasts { display: grid; gap: 10px; margin-top: 10px; }
+.ta-event-broadcasts > a { align-items: center; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; color: inherit; display: grid; gap: 10px; grid-template-columns: auto 1fr; padding: 11px 12px; text-decoration: none; }
+.ta-event-broadcasts > a:hover { border-color: rgba(239,217,91,.5); }
+.ta-broadcast-kind { border: 1px solid currentColor; border-radius: 999px; color: var(--ta-accent); font: 700 10px var(--font-mono); letter-spacing: .1em; padding: 5px 9px; text-transform: uppercase; white-space: nowrap; }
 .ta-related-events { display: grid; gap: 10px; }
-.ta-related-events > a { align-items: center; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; color: inherit; display: grid; gap: 8px; grid-template-columns: auto 1fr auto; padding: 11px 12px; text-decoration: none; }
+/* 第 4 欄留給玩家頁的名次標籤;沒有名次時該欄寬度為 0,版面與原本一致。 */
+.ta-related-events > a { align-items: center; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; color: inherit; display: grid; gap: 8px; grid-template-columns: auto 1fr auto auto; padding: 11px 12px; text-decoration: none; }
 .ta-related-events > a:hover { border-color: rgba(239,217,91,.5); }
 .ta-related-events small { color: var(--ta-text-soft); font: 10px var(--font-mono); }
+.ta-event-rank { border: 1px solid currentColor; border-radius: 999px; color: var(--ta-text-soft); font: 700 10px var(--font-mono); letter-spacing: .08em; padding: 5px 9px; white-space: nowrap; }
+.ta-event-rank.is-rank-1 { color: #efd95b; }
+.ta-event-rank.is-rank-2 { color: #cfd6df; }
+.ta-event-rank.is-rank-3 { color: #d8a26a; }
 
 @media (max-width: 620px) {
   .ta-related-events > a { align-items: start; grid-template-columns: 1fr; }

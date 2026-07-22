@@ -3028,8 +3028,8 @@
       "title_zh": "3月賽事 伊呂波坂挑戰賽",
       "title_en": "",
       "status": "completed",
-      "status_zh": "",
-      "status_en": "",
+      "status_zh": "已結束",
+      "status_en": "Completed",
       "starts_at": "2026-03-29T21:00:00+08:00",
       "ends_at": "",
       "system": "",
@@ -3038,7 +3038,12 @@
       "group_id": "",
       "track_world_code": "",
       "route_code": "",
-      "participant_player_ids": [],
+      "participant_player_ids": [
+        "plr_034",
+        "plr_003",
+        "plr_lolidia",
+        "plr_rushia_angel"
+      ],
       "vehicle_model_codes": [],
       "team_ids": [],
       "summary_zh": "",
@@ -3281,15 +3286,60 @@
           "lb_rounds": 4,
           "bracket_reset": false
         }
-      }
+      },
+      "result_note_zh": "依主辦公告登錄的最終名次。",
+      "result_note_en": "Final placements as announced by the organizer.",
+      "source_ref": "organizer announcement",
+      "results": [
+        {
+          "result_id": "res_s1_5_r01_1",
+          "rank": 1,
+          "display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "result_zh": "冠軍",
+          "result_en": "Champion"
+        },
+        {
+          "result_id": "res_s1_5_r01_2",
+          "rank": 2,
+          "display_name": "アビドサスヒカリ",
+          "player_id": "plr_003",
+          "result_zh": "亞軍",
+          "result_en": "Runner-up"
+        },
+        {
+          "result_id": "res_s1_5_r01_3",
+          "rank": 3,
+          "display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "result_zh": "季軍",
+          "result_en": "Third place"
+        },
+        {
+          "result_id": "res_s1_5_r01_4",
+          "rank": 4,
+          "display_name": "Rushia Angel",
+          "player_id": "plr_rushia_angel",
+          "result_zh": "殿軍",
+          "result_en": "Fourth place"
+        }
+      ],
+      "broadcasts": [
+        {
+          "kind": "vod",
+          "label_zh": "賽事轉播回顧",
+          "label_en": "Event broadcast VOD",
+          "url": "https://www.youtube.com/watch?v=vsgta1ws_hY&t=2093s"
+        }
+      ]
     },
     {
       "event_id": "vrrctw_Akagi_20260509",
       "title_zh": "5/09 | Sacc赤城錦標賽",
       "title_en": "",
-      "status": "archived",
-      "status_zh": "",
-      "status_en": "",
+      "status": "completed",
+      "status_zh": "已結束",
+      "status_en": "Completed",
       "starts_at": "2026-05-09T21:00:00+08:00",
       "ends_at": "",
       "system": "",
@@ -3298,7 +3348,13 @@
       "group_id": "",
       "track_world_code": "",
       "route_code": "",
-      "participant_player_ids": [],
+      "participant_player_ids": [
+        "plr_048",
+        "plr_starriver_arts",
+        "plr_034",
+        "plr_linwu_05",
+        "plr_yang"
+      ],
       "vehicle_model_codes": [],
       "team_ids": [],
       "summary_zh": "",
@@ -3457,7 +3513,51 @@
           "byes": 3,
           "third_place": true
         }
-      }
+      },
+      "result_note_zh": "依主辦公告登錄的最終名次與榮譽獎。",
+      "result_note_en": "Final placements and the honorable mention as announced by the organizer.",
+      "source_ref": "organizer announcement",
+      "results": [
+        {
+          "result_id": "res_akagi_20260509_1",
+          "rank": 1,
+          "display_name": "Iˣ",
+          "player_id": "plr_048",
+          "result_zh": "冠軍",
+          "result_en": "Champion"
+        },
+        {
+          "result_id": "res_akagi_20260509_2",
+          "rank": 2,
+          "display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "result_zh": "亞軍",
+          "result_en": "Runner-up"
+        },
+        {
+          "result_id": "res_akagi_20260509_3",
+          "rank": 3,
+          "display_name": "菲娜 希琉絲",
+          "player_id": "plr_034",
+          "result_zh": "季軍",
+          "result_en": "Third place"
+        },
+        {
+          "result_id": "res_akagi_20260509_4",
+          "rank": 4,
+          "display_name": "LinWu_05",
+          "player_id": "plr_linwu_05",
+          "result_zh": "殿軍",
+          "result_en": "Fourth place"
+        },
+        {
+          "result_id": "res_akagi_20260509_5",
+          "display_name": "Yang路人",
+          "player_id": "plr_yang",
+          "result_zh": "榮譽獎",
+          "result_en": "Honorable mention"
+        }
+      ]
     }
   ]
 }
