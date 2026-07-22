@@ -1680,6 +1680,7 @@ const renderEventBracket = (event) => {
     W: ["勝者組", "Winners Bracket"],
     L: ["敗者組", "Losers Bracket"],
     GF: ["總決賽", "Grand Final"],
+    TP: ["季軍戰", "Third Place"],
     KO: ["淘汰賽", "Knockout"],
     RR: ["循環賽", "Round Robin"],
     SW: ["瑞士制", "Swiss"],
