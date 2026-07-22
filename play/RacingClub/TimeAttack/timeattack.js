@@ -1629,6 +1629,16 @@ const renderEventMatches = (event, data) => {
     const player = players.find((item) => item.player_id === playerId);
     return taEntityLink(player ? player.title : playerId, `./player.html?id=${encodeURIComponent(playerId)}`);
   };
+  const matchPlayers = (match) => {
+    if ((match.player_ids || []).length) {
+      return match.player_ids.map(playerLink).join(" vs ");
+    }
+    return (match.player_names || []).map((name) => escapeHtml(name)).join(" vs ");
+  };
+  const matchWinner = (match) => {
+    if (match.winner_id) return playerLink(match.winner_id);
+    return match.winner_name ? escapeHtml(match.winner_name) : "-";
+  };
   return `
     <section class="ta-content-card ta-content-card-inner">
       <div class="ta-label">${renderBilingual("淘汰賽賽程", "Tournament Bracket", "トーナメント")}</div>
@@ -1639,8 +1649,8 @@ const renderEventMatches = (event, data) => {
             <tr>
               <td>${escapeHtml(match.order || index + 1)}</td>
               <td>${renderBilingual(match.round_zh || match.round || "", match.round_en || match.round || "", match.round_en || match.round || "")}</td>
-              <td>${(match.player_ids || []).map(playerLink).join(" vs ") || "-"}</td>
-              <td>${match.winner_id ? playerLink(match.winner_id) : "-"}${match.result_zh || match.result_en ? ` · ${renderBilingual(match.result_zh || "", match.result_en || "", match.result_en || "")}` : ""}</td>
+              <td>${matchPlayers(match) || "-"}</td>
+              <td>${matchWinner(match)}${match.result_zh || match.result_en ? ` · ${renderBilingual(match.result_zh || "", match.result_en || "", match.result_en || "")}` : ""}</td>
               <td>${renderBilingual(match.status_zh || match.status || "", match.status_en || match.status || "", match.status_en || match.status || "")}</td>
             </tr>`).join("")}</tbody>
         </table>

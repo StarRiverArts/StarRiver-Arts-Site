@@ -24,28 +24,28 @@
     {
       "label_zh": "活動數",
       "label_en": "Events",
-      "value": "5",
+      "value": "8",
       "note_zh": "已建立索引的活動項目",
       "note_en": "Indexed events currently in metadata"
     },
     {
       "label_zh": "活動綁定紀錄",
       "label_en": "Linked Runs",
-      "value": "0",
+      "value": "12",
       "note_zh": "目前有 event_code 的紀錄",
       "note_en": "Runs that currently carry an event code"
     },
     {
       "label_zh": "活動已驗證",
       "label_en": "Verified Event Runs",
-      "value": "0",
+      "value": "12",
       "note_zh": "活動下已驗證的紀錄",
       "note_en": "Verified runs linked to an event"
     }
   ],
   "event_cards": [
     {
-      "event_code": "vrrctw_momiji_20260719",
+      "event_code": "vrrctw_momiji_20260718",
       "title": "CVS 紅葉 Momiji 計時賽",
       "subtitle_zh": "time_attack",
       "subtitle_en": "time_attack",
@@ -53,32 +53,57 @@
         {
           "label_zh": "綁定紀錄",
           "label_en": "Linked Runs",
-          "value": "0"
+          "value": "12"
         },
         {
           "label_zh": "參與玩家",
           "label_en": "Players",
-          "value": "0"
+          "value": "12"
         },
         {
           "label_zh": "涵蓋路線",
           "label_en": "Routes",
-          "value": "0"
+          "value": "1"
         },
         {
           "label_zh": "已驗證",
           "label_en": "Verified",
-          "value": "0"
+          "value": "12"
         }
       ],
       "tags": [
-        "狀態：upcoming",
-        "日期：2026-07-19",
-        "紀錄方式：prospective"
+        "狀態：completed",
+        "日期：2026-07-18",
+        "紀錄方式：retrospective"
       ],
       "usage_rows": [],
       "tag_rows": [],
-      "best_times": []
+      "best_times": [
+        {
+          "rank": 1,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Twi_Ecli / 已驗證",
+          "lap_time_text": "04:19.720"
+        },
+        {
+          "rank": 2,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "Kinokono_Tenka / 已驗證",
+          "lap_time_text": "04:19.347"
+        },
+        {
+          "rank": 3,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "熾花 / 已驗證",
+          "lap_time_text": "04:03.333"
+        },
+        {
+          "rank": 4,
+          "route_label": "Momiji / Downhill",
+          "sub_label": "wsadwa / 已驗證",
+          "lap_time_text": "04:00.484"
+        }
+      ]
     },
     {
       "event_code": "vrrctw_sadamine_20260718",
@@ -213,6 +238,114 @@
           "lap_time_text": "loss"
         }
       ]
+    },
+    {
+      "event_code": "vrrctw_s1_tsukuba",
+      "title": "第一賽季 第 3 站｜筑波錦標賽",
+      "subtitle_zh": "single_elimination",
+      "subtitle_en": "single_elimination",
+      "stats": [
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "參與玩家",
+          "label_en": "Players",
+          "value": "0"
+        },
+        {
+          "label_zh": "涵蓋路線",
+          "label_en": "Routes",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-08-02",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": []
+    },
+    {
+      "event_code": "vrrctw_s1_odawara",
+      "title": "第一賽季 第 4 站｜小田原錦標賽",
+      "subtitle_zh": "double_elimination",
+      "subtitle_en": "double_elimination",
+      "stats": [
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "參與玩家",
+          "label_en": "Players",
+          "value": "0"
+        },
+        {
+          "label_zh": "涵蓋路線",
+          "label_en": "Routes",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-09-13",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": []
+    },
+    {
+      "event_code": "vrrctw_s1_tsubaki",
+      "title": "第一賽季 第 5 站｜椿線錦標賽",
+      "subtitle_zh": "double_elimination",
+      "subtitle_en": "double_elimination",
+      "stats": [
+        {
+          "label_zh": "綁定紀錄",
+          "label_en": "Linked Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "參與玩家",
+          "label_en": "Players",
+          "value": "0"
+        },
+        {
+          "label_zh": "涵蓋路線",
+          "label_en": "Routes",
+          "value": "0"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "狀態：completed",
+        "日期：2025-10-25",
+        "紀錄方式：retrospective"
+      ],
+      "usage_rows": [],
+      "tag_rows": [],
+      "best_times": []
     },
     {
       "event_code": "vrrctw_s1_myogi",
