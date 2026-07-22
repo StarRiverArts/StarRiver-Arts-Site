@@ -496,7 +496,7 @@ const renderProjectTLinksModule = (board) => {
       description_en:
         world.summary_en || "Open the world page for scene context, route positioning, and the VRChat entry.",
       href: `../../worlds/${world.slug}.html`,
-      href_label_zh: "查看世界頁",
+      href_label_zh: "檢視世界頁",
       href_label_en: "Open World Page",
     });
   }
@@ -1555,6 +1555,172 @@ const renderEventResults = (event) => `
     </div>
   </section>`;
 
+const findEventTimingRecord = (data, recordId) => {
+  for (const board of data.track_boards || []) {
+    for (const route of board.routes || []) {
+      const row = (route.route_rows || []).find((item) => item.record_id === recordId);
+      if (row) {
+        return { ...row, track_world_code: board.track_world_code, route_code: route.route_code };
+      }
+    }
+  }
+  return null;
+};
+
+const eventTimingStageLabel = (stage) => {
+  if (stage === "pre_race") return renderBilingual("賽前計時紀錄", "Pre-race Timing", "レース前タイム");
+  if (stage === "event") return renderBilingual("活動計時紀錄", "Event Timing", "イベントタイム");
+  return renderBilingual("計時紀錄", "Timing Records", "タイム記録");
+};
+
+const renderEventTiming = (event, data) => {
+  const links = (event.timing_records || []).slice().sort((a, b) =>
+    String(a.stage || "event").localeCompare(String(b.stage || "event")) ||
+    Number(a.order || 0) - Number(b.order || 0),
+  );
+  if (!links.length) return "";
+
+  const groups = new Map();
+  links.forEach((link) => {
+    const stage = link.stage || "event";
+    if (!groups.has(stage)) groups.set(stage, []);
+    groups.get(stage).push(link);
+  });
+
+  return Array.from(groups.entries()).map(([stage, stageLinks]) => {
+    const rows = stageLinks.map((link) => ({ link, record: findEventTimingRecord(data, link.record_id) }));
+    const firstRecord = rows.find((item) => item.record)?.record;
+    const trackWorldCode = firstRecord?.track_world_code || event.track_world_code || "";
+    const routeCode = firstRecord?.route_code || event.route_code || "";
+    const indexHref = trackWorldCode
+      ? `./track.html?id=${encodeURIComponent(trackWorldCode)}${routeCode ? `&route=${encodeURIComponent(routeCode)}` : ""}`
+      : "";
+    return `
+      <section class="ta-content-card ta-content-card-inner">
+        <div class="ta-event-card-head">
+          <div class="ta-label">${eventTimingStageLabel(stage)}</div>
+          ${indexHref ? `<a class="ta-entity-link" href="${indexHref}">${renderBilingual("檢視完整計時索引", "Open Full Timing Index", "タイム索引を見る")}</a>` : ""}
+        </div>
+        <div class="ta-profile-record-wrap">
+          <table class="ta-profile-record-table ta-event-results">
+            <thead><tr><th>#</th><th>${renderBilingual("選手", "Driver", "ドライバー")}</th><th>${renderBilingual("車輛", "Vehicle", "車両")}</th><th>${renderBilingual("時間", "Time", "タイム")}</th><th>${renderBilingual("計時 Index", "Timing Index", "タイム索引")}</th></tr></thead>
+            <tbody>
+              ${rows.map(({ link, record }, index) => record ? `
+                <tr>
+                  <td class="ta-profile-record-rank">${escapeHtml(link.order || index + 1)}</td>
+                  <td>${taEntityLink(record.player_display_name, taPlayerHref(record))}</td>
+                  <td>${taEntityLink(record.vehicle_model_name, taVehicleHref(record))}</td>
+                  <td class="ta-profile-record-time">${escapeHtml(record.lap_time_text || "-")}</td>
+                  <td>${indexHref ? `<a class="ta-index-link" href="${indexHref}">#${escapeHtml(record.rank || "-")}</a>` : "-"} ${renderRecordBadge(record)}</td>
+                </tr>` : `
+                <tr><td>${escapeHtml(link.order || index + 1)}</td><td colspan="4">${renderBilingual("找不到計時紀錄", "Timing record not found", "タイム記録が見つかりません")}: ${escapeHtml(link.record_id)}</td></tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>`;
+  }).join("");
+};
+
+const renderEventMatches = (event, data) => {
+  const matches = (event.matches || []).slice().sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+  if (!matches.length) return "";
+  const players = data.player_cards || [];
+  const playerLink = (playerId) => {
+    const player = players.find((item) => item.player_id === playerId);
+    return taEntityLink(player ? player.title : playerId, `./player.html?id=${encodeURIComponent(playerId)}`);
+  };
+  return `
+    <section class="ta-content-card ta-content-card-inner">
+      <div class="ta-label">${renderBilingual("淘汰賽賽程", "Tournament Bracket", "トーナメント")}</div>
+      <div class="ta-profile-record-wrap">
+        <table class="ta-profile-record-table ta-event-results">
+          <thead><tr><th>#</th><th>${renderBilingual("輪次", "Round", "ラウンド")}</th><th>${renderBilingual("對戰", "Match", "対戦")}</th><th>${renderBilingual("勝者／結果", "Winner / Result", "勝者／結果")}</th><th>${renderBilingual("狀態", "Status", "状態")}</th></tr></thead>
+          <tbody>${matches.map((match, index) => `
+            <tr>
+              <td>${escapeHtml(match.order || index + 1)}</td>
+              <td>${renderBilingual(match.round_zh || match.round || "", match.round_en || match.round || "", match.round_en || match.round || "")}</td>
+              <td>${(match.player_ids || []).map(playerLink).join(" vs ") || "-"}</td>
+              <td>${match.winner_id ? playerLink(match.winner_id) : "-"}${match.result_zh || match.result_en ? ` · ${renderBilingual(match.result_zh || "", match.result_en || "", match.result_en || "")}` : ""}</td>
+              <td>${renderBilingual(match.status_zh || match.status || "", match.status_en || match.status || "", match.status_en || match.status || "")}</td>
+            </tr>`).join("")}</tbody>
+        </table>
+      </div>
+  </section>`;
+};
+
+const renderEventBracket = (event) => {
+  const bracket = event.bracket;
+  if (!bracket || !Array.isArray(bracket.matches) || !bracket.matches.length) return "";
+  const participants = new Map((bracket.participants || []).map((item) => [item.id, item]));
+  const participantKind = bracket.participant_kind || "player";
+  const participantLabel = (participantId) => {
+    if (!participantId) return `<span class="ta-bracket-tbd">${renderBilingual("待定", "TBD", "未定")}</span>`;
+    if (participantId === "bye") return `<span class="ta-bracket-tbd">${renderBilingual("輪空", "Bye", "不戦勝")}</span>`;
+    const participant = participants.get(participantId);
+    const name = participant?.name || participantId;
+    if (participantKind === "teams") {
+      return taEntityLink(name, `./team.html?id=${encodeURIComponent(participantId)}`);
+    }
+    if (participantKind === "players" || participantKind === "player") {
+      return taEntityLink(name, `./player.html?id=${encodeURIComponent(participantId)}`);
+    }
+    return escapeHtml(name);
+  };
+  const sectionNames = {
+    W: ["勝者組", "Winners Bracket"],
+    L: ["敗者組", "Losers Bracket"],
+    GF: ["總決賽", "Grand Final"],
+    KO: ["淘汰賽", "Knockout"],
+    RR: ["循環賽", "Round Robin"],
+    SW: ["瑞士制", "Swiss"],
+  };
+  const sectionOrder = [];
+  const sections = new Map();
+  bracket.matches.forEach((match) => {
+    const section = match.section || "main";
+    if (!sections.has(section)) {
+      sections.set(section, []);
+      sectionOrder.push(section);
+    }
+    sections.get(section).push(match);
+  });
+  const sectionHtml = sectionOrder.map((section) => {
+    const matches = sections.get(section);
+    const rounds = [...new Set(matches.map((match) => Number(match.round || 0)))].sort((a, b) => a - b);
+    const sectionName = sectionNames[section] || [section.startsWith("G:") ? `小組 ${section.slice(2)}` : section, section.startsWith("G:") ? `Group ${section.slice(2)}` : section];
+    return `
+      <section class="ta-bracket-section">
+        <h3>${renderBilingual(sectionName[0], sectionName[1], sectionName[1])}</h3>
+        <div class="ta-bracket-board">
+          ${rounds.map((round) => {
+            const roundMatches = matches.filter((match) => Number(match.round || 0) === round).sort((a, b) => Number(a.slot || 0) - Number(b.slot || 0));
+            const roundLabel = roundMatches[0]?.round_label || `${renderBilingual("第", "Round ", "ラウンド ")}${round}`;
+            return `
+              <div class="ta-bracket-round">
+                <div class="ta-bracket-round-title">${escapeHtml(roundLabel)}</div>
+                <div class="ta-bracket-round-matches">
+                  ${roundMatches.map((match) => `
+                    <article class="ta-bracket-match">
+                      <small>${escapeHtml(match.match_id || "")}</small>
+                      <div class="ta-bracket-player${match.winner_id && match.winner_id === match.a_id ? " is-winner" : ""}">${participantLabel(match.a_id)}</div>
+                      <div class="ta-bracket-player${match.winner_id && match.winner_id === match.b_id ? " is-winner" : ""}">${participantLabel(match.b_id)}</div>
+                    </article>`).join("")}
+                </div>
+              </div>`;
+          }).join("")}
+        </div>
+      </section>`;
+  }).join("");
+  return `
+    <section class="ta-content-card ta-content-card-inner ta-bracket-module">
+      <div class="ta-event-card-head">
+        <div><div class="ta-label">${renderBilingual("對戰樹", "Bracket", "トーナメント表")}</div><h2 class="ta-section-title">${escapeHtml(bracket.title || event.title_zh || "")}</h2></div>
+        <span class="ta-event-date">${escapeHtml(bracket.updated_at || "")}</span>
+      </div>
+      ${sectionHtml}
+    </section>`;
+};
+
 const renderEventDetail = (data, id) => {
   const events = data.editorial_events || [];
   const event = id ? events.find((item) => item.event_id === id) : events[0];
@@ -1575,6 +1741,9 @@ const renderEventDetail = (data, id) => {
         <div class="ta-event-tags">${(event.traits_zh || []).map((tag, index) => `<span>${renderBilingual(tag, (event.traits_en || [])[index] || tag, (event.traits_en || [])[index] || tag)}</span>`).join("")}</div>
         ${renderEventInfoRows(event, data)}
       </section>
+      ${renderEventTiming(event, data)}
+      ${renderEventBracket(event)}
+      ${renderEventMatches(event, data)}
       ${renderEventResults(event)}
       <div class="ta-event-panel-grid">
         ${renderEventSchedule(event)}
@@ -2135,7 +2304,7 @@ const renderPageModules = (view, data) => {
     modules.push(renderModule("車輛頁", "Vehicle Profiles", "車輛分析", "Vehicle Analysis", renderVehicleCards(data.vehicle_cards)));
   }
   if (Array.isArray(data.event_cards) && data.event_cards.length) {
-    modules.push(renderModule("賽季索引", "Season Index", "活動列表", "Event Index", renderEventCards(data.event_cards)));
+    modules.push(renderModule("賽季索引", "Season Index", "活動清單", "Event Index", renderEventCards(data.event_cards)));
   }
   if (SHOW_VERIFICATION && Array.isArray(data.review_cards) && data.review_cards.length) {
     modules.push(renderModule("審核佇列", "Review Queue", "待處理送件", "Pending And Rejected", renderReviewCards(data.review_cards)));
@@ -2225,12 +2394,14 @@ const initTimeAttack = async () => {
     }
 
     if (["events", "event"].includes(view)) {
-      const [playersData, vehiclesData] = await Promise.all([
+      const [playersData, vehiclesData, tracksData] = await Promise.all([
         loadJson(`${base}data/${manifest.routes.players}`),
         loadJson(`${base}data/${manifest.routes.vehicles}`),
+        loadJson(`${base}data/${manifest.routes.tracks}`),
       ]);
       pageData.player_cards = playersData.player_cards || [];
       pageData.vehicle_cards = vehiclesData.vehicle_cards || [];
+      pageData.track_boards = tracksData.boards || [];
     }
 
     if (!SHOW_VERIFICATION && view === "overview") {
