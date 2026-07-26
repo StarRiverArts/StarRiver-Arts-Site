@@ -1688,6 +1688,64 @@ body.timeattack-page {
   min-height: 68px;
 }
 
+.ta-team-chip-link.is-primary .ta-tag-chip.is-team {
+  background: rgba(240, 169, 76, 0.24);
+  border-color: rgba(240, 169, 76, 0.72);
+  box-shadow: 0 0 0 2px rgba(240, 169, 76, 0.08);
+}
+
+.ta-player-banner { background: linear-gradient(135deg, #253548, #121820); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; min-height: clamp(150px,23vw,250px); overflow: hidden; position: relative; }
+.ta-player-banner.is-tone-1 { background: linear-gradient(135deg,#342a45,#151723); }
+.ta-player-banner.is-tone-2 { background: linear-gradient(135deg,#173a38,#111b1b); }
+.ta-player-banner.is-tone-3 { background: linear-gradient(135deg,#493322,#1d1712); }
+.ta-player-banner.is-tone-4 { background: linear-gradient(135deg,#263653,#101621); }
+.ta-player-banner.is-tone-5 { background: linear-gradient(135deg,#3d2433,#191218); }
+.ta-player-banner-image,.ta-player-banner-pattern,.ta-player-banner-shade { inset: 0; position: absolute; }
+.ta-player-banner-image { height: 100%; object-fit: cover; object-position: var(--ta-player-banner-position,center center); width: 100%; }
+.ta-player-banner-pattern { background: linear-gradient(115deg,transparent 0 44%,rgba(239,217,91,.15) 44% 47%,transparent 47%),repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px); }
+.ta-player-banner-shade { background: linear-gradient(90deg,rgba(5,8,12,.88),rgba(5,8,12,.2) 72%,rgba(5,8,12,.5)); }
+.ta-player-banner-copy { bottom: 24px; display: grid; left: 24px; max-width: min(72%,680px); position: absolute; z-index: 1; }
+.ta-player-banner-copy small,.ta-player-banner-id { color: rgba(255,255,255,.65); font: 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+.ta-player-banner-copy strong { color: #fff; font-family: var(--font-display); font-size: clamp(26px,5vw,58px); line-height: .95; margin: 8px 0; }
+.ta-player-banner-copy em { color: rgba(255,255,255,.82); font-size: 13px; font-style: normal; }
+.ta-player-banner-id { position: absolute; right: 18px; top: 16px; z-index: 1; }
+.ta-event-badge { align-items: center; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.13); border-radius: 12px; color: var(--ta-text); display: inline-flex; gap: 9px; max-width: min(100%,300px); padding: 7px 10px; text-decoration: none; }
+.ta-event-badge:hover { background: rgba(255,255,255,.08); border-color: rgba(239,217,91,.45); }
+.ta-event-badge-mark { align-items: center; aspect-ratio: 1; background: rgba(239,217,91,.16); border: 1px solid rgba(239,217,91,.48); border-radius: 50%; color: var(--pt-lamp); display: inline-flex; flex: 0 0 36px; font: 800 11px var(--font-display); justify-content: center; }
+.ta-event-badge.is-rank-1 .ta-event-badge-mark { background:#efd95b; color:#18170d; }
+.ta-event-badge.is-rank-2 .ta-event-badge-mark { background:#c4ccd5; color:#18202a; }
+.ta-event-badge.is-rank-3 .ta-event-badge-mark { background:#bd8257; color:#21140d; }
+.ta-event-badge-copy { display:grid; min-width:0; }
+.ta-event-badge-copy strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ta-event-badge-copy small { color:var(--ta-text-faint); font:10px var(--font-mono); }
+.ta-profile-stamp.is-event-empty,.ta-profile-stamp.is-event-more { background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); color:var(--ta-text-faint); }
+.ta-achievement-panel { margin-top: 18px; }
+.ta-achievement-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.ta-achievement-medal { align-items:center; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); border-radius:14px; display:inline-flex; gap:10px; padding:9px 12px; }
+.ta-achievement-medal i { align-items:center; background:rgba(239,217,91,.14); border:1px solid rgba(239,217,91,.4); border-radius:50%; color:var(--pt-lamp); display:flex; flex:0 0 34px; font-style:normal; height:34px; justify-content:center; }
+.ta-achievement-medal span { display:grid; }
+.ta-achievement-medal strong { font-size:12px; }
+.ta-achievement-medal small { color:var(--ta-text-faint); font:9px var(--font-mono); }
+.ta-achievement-medal.is-winner i,.ta-achievement-medal.is-tr i { background:var(--pt-lamp); color:#18170d; }
+.ta-achievement-medal.is-cr i { background:var(--pt-night-blue); color:#0e1a24; }
+.ta-profile-preferences { display:grid; gap:12px; grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:18px; }
+.ta-profile-preferences > div { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:12px; }
+.ta-profile-preferences small { color:var(--ta-text-faint); font:10px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; }
+.ta-tag-chip.is-home { background:rgba(240,169,76,.14); border:1px solid rgba(240,169,76,.32); color:#ffd9a6; text-decoration:none; }
+.ta-achievement-catalog { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); }
+.ta-achievement-catalog .ta-achievement-medal { width:100%; }
+.ta-achievement-medal.is-event i { background:#d97932; border-color:#f2a35f; color:#1e1008; }
+.ta-achievement-medal.is-competition i { background:#efd95b; border-color:#fff0a1; color:#18170d; }
+.ta-achievement-medal.is-record i { background:#d95b68; border-color:#ff9aa4; color:#240b0f; }
+.ta-achievement-medal.is-exploration i { background:#54c6b0; border-color:#9cf0df; color:#09201c; }
+.ta-achievement-medal.is-mastery i { background:#8b78e6; border-color:#c2b6ff; color:#120d27; }
+.ta-achievement-medal.is-track i { background:#58a6d8; border-color:#9bd4f7; color:#091924; }
+.ta-achievement-medal.is-manual i { background:#bd72d9; border-color:#e6a8fb; color:#210b29; }
+.ta-achievement-medal.is-locked { filter:grayscale(1); opacity:.34; }
+.ta-achievement-medal.is-locked i { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16); color:var(--ta-text-faint); }
+@media (max-width:620px) { .ta-player-banner-copy { bottom:18px; left:18px; max-width:calc(100% - 36px); } .ta-player-banner-id { display:none; } .ta-event-badge { max-width:100%; width:100%; } }
+@media (max-width:620px) { .ta-profile-preferences { grid-template-columns:1fr; } .ta-achievement-catalog { grid-template-columns:1fr; } }
+
 .ta-bracket-module {
   overflow: visible;
 }
@@ -2243,6 +2301,35 @@ body.timeattack-page {
   padding: 14px;
   max-height: min(72vh, 680px);
   overflow-y: auto;
+}
+
+.ta-tm-search {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ta-border);
+}
+
+.ta-tm-search label {
+  display: grid;
+  gap: 4px;
+  color: var(--ta-text-soft);
+  font-size: 12px;
+}
+
+.ta-tm-search select {
+  width: 100%;
+  border: 1px solid var(--ta-border);
+  border-radius: 8px;
+  background: var(--ta-bg);
+  color: var(--ta-text);
+  padding: 7px 8px;
+}
+
+.ta-tm-search select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .ta-tm-country > summary,

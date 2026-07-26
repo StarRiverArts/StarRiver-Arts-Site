@@ -19,6 +19,7 @@ const TA_ROUTE_LABELS = {
 const ENABLE_HISTORY_CHARTS = false;
 const SHOW_VERIFICATION = false;
 let TA_TEAMS = [];
+let TA_EDITORIAL_EVENTS = [];
 
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -970,6 +971,29 @@ const renderProfilePlaceholder = (modifier, labelZh, labelEn) => `
   </div>
 `;
 
+const renderPlayerBanner = (card, config) => {
+  if (config !== PLAYER_PROFILE_CONFIG) return renderProfilePlaceholder("is-main", config.bannerZh, config.bannerEn);
+  const banner = card.profile_banner || {};
+  const image = String(banner.image || "").trim();
+  const position = /^(left|center|right|top|bottom|[0-9]{1,3}%)(\s+(left|center|right|top|bottom|[0-9]{1,3}%))?$/.test(String(banner.position || "").trim())
+    ? String(banner.position).trim()
+    : "center center";
+  const media = image
+    ? `<img class="ta-player-banner-image" src="${escapeHtml(image)}" alt="">`
+    : `<span class="ta-player-banner-pattern" aria-hidden="true"></span>`;
+  return `
+    <div class="ta-player-banner is-tone-${Number(banner.tone || 0) % 6}"
+         style="--ta-player-banner-position:${escapeHtml(position)}">
+      ${media}<span class="ta-player-banner-shade"></span>
+      <span class="ta-player-banner-copy">
+        <small>${renderBilingual("車手個人橫幅", "Driver Banner", "ドライバーバナー")}</small>
+        <strong>${renderBilingual(banner.title_zh || card.title, banner.title_en || card.title, banner.title_en || card.title)}</strong>
+        <em>${renderBilingual(banner.subtitle_zh || card.subtitle_zh, banner.subtitle_en || card.subtitle_en, banner.subtitle_en || card.subtitle_en)}</em>
+      </span>
+      <span class="ta-player-banner-id">${escapeHtml(card.player_id || "")}</span>
+    </div>`;
+};
+
 const eventMatchesEntity = (event, kind, id, subId = "") => {
   if (!id) return false;
   if (kind === "player") return (event.participant_player_ids || []).includes(id);
@@ -1046,11 +1070,17 @@ const renderRelatedEvents = (events, kind, id, subId = "") => {
   return renderModule("活動", "Events", "相關活動", "Related Events", cards);
 };
 
-const findTeamForPlayer = (card) =>
-  TA_TEAMS.find((team) =>
-    (team.member_ids || []).includes(card.player_id) ||
-    (card.team_name && [team.code, team.name_zh, team.name_en].includes(card.team_name)),
-  );
+const teamsForPlayer = (card) => {
+  const memberships = TA_TEAMS.filter((team) => (team.member_ids || []).includes(card.player_id));
+  if (memberships.length) return memberships;
+  const legacy = TA_TEAMS.find((team) => card.team_name && [team.code, team.name_zh, team.name_en].includes(card.team_name));
+  return legacy ? [legacy] : [];
+};
+
+const findTeamForPlayer = (card) => {
+  const memberships = teamsForPlayer(card);
+  return memberships.find((team) => team.team_id === card.primary_team_id) || memberships[0] || null;
+};
 
 const renderTeamBanner = (card) => {
   const team = findTeamForPlayer(card);
@@ -1073,20 +1103,138 @@ const renderProfileTagChips = (card) => {
   if (!Array.isArray(chips) || chips.length === 0) {
     return "";
   }
-  const team = findTeamForPlayer(card);
+  const teams = teamsForPlayer(card);
+  const primaryTeam = findTeamForPlayer(card);
+  const nonTeamChips = chips.filter((chip) => chip.tone !== "team");
+  const teamChips = teams.length
+    ? teams.map((team) => `<a class="ta-team-chip-link${team.team_id === primaryTeam?.team_id ? " is-primary" : ""}" href="./team.html?id=${encodeURIComponent(team.team_id)}" aria-label="${escapeHtml(team.name_zh || team.name_en)}">${renderToneChip(`${team.team_id === primaryTeam?.team_id ? "代表 · " : ""}${team.code || team.name_zh || team.name_en}`, "team")}</a>`).join("")
+    : chips.filter((chip) => chip.tone === "team").map((chip) => renderToneChip(chip.label, chip.tone)).join("");
   return `
     <div class="ta-profile-chiprow">
-      ${chips.map((chip) => {
-        const chipHtml = renderToneChip(chip.label, chip.tone);
-        return chip.tone === "team" && team
-          ? `<a class="ta-team-chip-link" href="./team.html?id=${encodeURIComponent(team.team_id)}" aria-label="${escapeHtml(team.name_zh || team.name_en)}">${chipHtml}</a>`
-          : chipHtml;
-      }).join("")}
+      ${teamChips}
+      ${nonTeamChips.map((chip) => renderToneChip(chip.label, chip.tone)).join("")}
     </div>
   `;
 };
 
-const renderProfileBadgeRail = (counts = {}) => {
+const playerEventBadges = (playerId) =>
+  (TA_EDITORIAL_EVENTS || [])
+    .filter((event) => (event.participant_player_ids || []).includes(playerId))
+    .map((event) => ({ event, result: (event.results || []).find((row) => row.player_id === playerId) || null }))
+    .sort((a, b) => String(b.event.starts_at || "").localeCompare(String(a.event.starts_at || "")));
+
+const renderPlayerEventBadges = (playerId) => {
+  if (!playerId) return "";
+  const badges = playerEventBadges(playerId);
+  if (!badges.length) return `<span class="ta-profile-stamp is-event-empty">${renderBilingual("尚無賽事徽章", "No Event Badges Yet", "イベントバッジなし")}</span>`;
+  return badges.slice(0, 8).map(({ event, result }) => {
+    const rank = Number(result && result.rank);
+    const rankClass = Number.isFinite(rank) && rank > 0 && rank <= 3 ? ` is-rank-${rank}` : "";
+    const rankLabel = Number.isFinite(rank) && rank > 0
+      ? renderBilingual(`第 ${rank} 名`, `#${rank}`, `第${rank}位`)
+      : renderBilingual("參賽", "ENTRY", "参加");
+    return `<a class="ta-event-badge${rankClass}" href="./event.html?id=${encodeURIComponent(event.event_id)}" title="${escapeHtml(event.title_zh || event.title_en || event.event_id)}">
+      <span class="ta-event-badge-mark">RC</span><span class="ta-event-badge-copy"><strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong><small>${rankLabel} · ${escapeHtml(renderEventDate(event.starts_at))}</small></span>
+    </a>`;
+  }).join("") + (badges.length > 8 ? `<span class="ta-profile-stamp is-event-more">+${badges.length - 8}</span>` : "");
+};
+
+const achievementItem = (code, category, tier, zh, en, current, target, tone, options = {}) => ({
+  code, category, tier, zh, en, current, target, tone,
+  unlocked: current >= target,
+  detailZh: options.detailZh || `${current} / ${target}`,
+  detailEn: options.detailEn || `${current} / ${target}`,
+  totalOnly: Boolean(options.totalOnly),
+});
+
+const playerAchievementCatalog = (card) => {
+  const completed = playerEventBadges(card.player_id).filter(({ event }) => event.status === "completed");
+  const ranks = completed.map(({ result }) => Number(result && result.rank)).filter((rank) => Number.isFinite(rank) && rank > 0);
+  const eventCount = completed.length;
+  const resultCount = ranks.length;
+  const podiums = ranks.filter((rank) => rank <= 3).length;
+  const wins = ranks.filter((rank) => rank === 1).length;
+  const stats = card.achievement_stats || {};
+  const tr = Number(stats.tr_count || 0);
+  const cr = Number(stats.cr_count || 0);
+  const models = Number(stats.distinct_vehicle_models || 0);
+  const tracks = Number(stats.distinct_tracks || 0);
+  const routeAttempts = Number(stats.max_route_attempts || 0);
+  const selectedVehicles = card.featured_vehicles || [];
+  const mastery = Math.max(0, ...selectedVehicles.map((vehicle) => Number(vehicle.track_count || 0)));
+  const catalog = [
+    achievementItem("EVENT_DEBUT", "event", 1, "初次出賽", "Event Debut", eventCount, 1, "event"),
+    achievementItem("EVENT_3", "event", 2, "賽場新秀", "Event Rookie", eventCount, 3, "event"),
+    achievementItem("EVENT_5", "event", 3, "賽場常客", "Event Regular", eventCount, 5, "event"),
+    achievementItem("EVENT_10", "event", 4, "十戰車手", "Ten-event Driver", eventCount, 10, "event"),
+    achievementItem("EVENT_25", "event", 5, "資深車手", "Veteran Driver", eventCount, 25, "event"),
+    achievementItem("FIRST_FINISH", "competition", 1, "首次完賽", "First Finish", resultCount, 1, "competition"),
+    achievementItem("FIRST_PODIUM", "competition", 2, "初登頒獎台", "First Podium", podiums, 1, "competition"),
+    achievementItem("PODIUM_3", "competition", 3, "頒獎台常客", "Podium Regular", podiums, 3, "competition"),
+    achievementItem("FIRST_WIN", "competition", 4, "首勝", "First Win", wins, 1, "competition"),
+    achievementItem("WIN_3", "competition", 5, "三冠車手", "Three Wins", wins, 3, "competition"),
+    achievementItem("WIN_5", "competition", 6, "五冠車手", "Five Wins", wins, 5, "competition"),
+    achievementItem("TR_1", "record", 1, "賽道紀錄保持者", "Track Record Holder", tr, 1, "record", { detailZh: `目前持有 ${tr} 個 TR`, detailEn: `${tr} current TR` }),
+    achievementItem("CR_1", "record", 1, "車種紀錄保持者", "Car Record Holder", cr, 1, "record", { detailZh: `目前持有 ${cr} 個 CR`, detailEn: `${cr} current CR` }),
+    achievementItem("TR_3", "record", 2, "賽道征服者", "Track Conqueror", tr, 3, "record"),
+    achievementItem("CR_3", "record", 2, "車種專家", "Car Record Expert", cr, 3, "record"),
+    achievementItem("TR_10", "record", 3, "路線支配者", "Route Dominator", tr, 10, "record"),
+    achievementItem("VEHICLE_10", "exploration", 1, "試駕員", "Test Driver", models, 10, "exploration"),
+    achievementItem("VEHICLE_20", "exploration", 2, "換車玩家", "Car Switcher", models, 20, "exploration"),
+    achievementItem("VEHICLE_30", "exploration", 3, "車輛探索家", "Vehicle Explorer", models, 30, "exploration"),
+    achievementItem("VEHICLE_50", "exploration", 4, "車輛拓荒者", "Vehicle Pioneer", models, 50, "exploration"),
+    achievementItem("MASTERY_3", "mastery", 1, "車輛熟練", "Vehicle Proficiency", mastery, 3, "mastery"),
+    achievementItem("MASTERY_5", "mastery", 2, "車輛專精", "Vehicle Specialist", mastery, 5, "mastery"),
+    achievementItem("MASTERY_10", "mastery", 3, "車輛大師", "Vehicle Master", mastery, 10, "mastery"),
+    achievementItem("ROUTE_5", "track", 1, "路線熟練", "Route Proficiency", routeAttempts, 5, "track", { totalOnly: true }),
+    achievementItem("ROUTE_10", "track", 2, "路線專家", "Route Specialist", routeAttempts, 10, "track", { totalOnly: true }),
+    achievementItem("TRACK_5", "track", 3, "四方征戰", "Track Traveller", tracks, 5, "track", { totalOnly: true }),
+  ];
+  const manualLabels = {
+    EVENT_REGULAR: ["活動常客", "Club Event Regular"], EVENT_STAFF: ["賽事工作人員", "Event Staff"],
+    BROADCASTER: ["賽事轉播員", "Broadcaster"], COMMUNITY: ["社群貢獻", "Community Contributor"],
+    FAIR_PLAY: ["運動精神", "Fair Play"], SPECIAL_AWARD: ["特別獎", "Special Award"],
+    SEASON_CHAMPION: ["賽季冠軍", "Season Champion"],
+  };
+  (card.manual_achievement_codes || []).forEach((code, index) => {
+    const labels = manualLabels[code] || [code, code];
+    catalog.push({ code, category: "manual", tier: 100 + index, zh: labels[0], en: labels[1], current: 1, target: 1, tone: "manual", unlocked: true, detailZh: "人工授予", detailEn: "Manually awarded" });
+  });
+  return catalog;
+};
+
+const renderAchievementBlock = (item, locked = false) => `<span class="ta-achievement-medal is-${item.tone}${locked ? " is-locked" : ""}">
+  <i aria-hidden="true">${escapeHtml(item.code.split("_")[0].slice(0, 2))}</i><span><strong>${renderBilingual(item.zh, item.en, item.en)}</strong><small>${renderBilingual(item.detailZh, item.detailEn, item.detailEn)}</small></span>
+</span>`;
+
+const featuredPlayerAchievements = (card) => {
+  const unlocked = playerAchievementCatalog(card).filter((item) => item.unlocked && !item.totalOnly);
+  const categoryOrder = ["manual", "competition", "record", "event", "exploration", "mastery"];
+  return categoryOrder.map((category) => unlocked.filter((item) => item.category === category).sort((a, b) => b.tier - a.tier || b.current - a.current)[0]).filter(Boolean).slice(0, 5);
+};
+
+const renderPlayerAchievements = (card) => {
+  const items = featuredPlayerAchievements(card);
+  if (!items.length) return "";
+  return `<section class="ta-achievement-panel"><div class="ta-lb-col-head">${renderBilingual("代表勳章", "Featured Achievements", "代表実績")}</div><div class="ta-achievement-grid">${items.map((item) => renderAchievementBlock(item)).join("")}</div></section>`;
+};
+
+const renderPlayerPreferences = (card) => {
+  const homes = card.home_tracks || [];
+  const vehicles = card.featured_vehicles || [];
+  if (!homes.length && !vehicles.length) return "";
+  return `<section class="ta-profile-preferences">
+    ${homes.length ? `<div><small>${renderBilingual("主場", "Home Tracks", "ホーム")}</small><div class="ta-profile-chiprow">${homes.map((track) => `<a class="ta-tag-chip is-home" href="./track.html?id=${encodeURIComponent(track.track_world_code)}">${renderBilingual(track.name_zh, track.name_en, track.name_en)}</a>`).join("")}</div></div>` : ""}
+    ${vehicles.length ? `<div><small>${renderBilingual("代表車型", "Featured Cars", "代表車両")}</small><div class="ta-profile-chiprow">${vehicles.map((vehicle) => `<a class="ta-tag-chip is-vehicle" href="./vehicle.html?id=${encodeURIComponent(vehicle.vehicle_model_code)}">${escapeHtml(vehicle.name)}</a>`).join("")}</div></div>` : ""}
+  </section>`;
+};
+
+const renderAchievementCatalog = (card) => {
+  const catalog = playerAchievementCatalog(card);
+  return renderModule("勳章收藏", "Achievement Collection", "完整勳章列表", "Achievement Catalog", `<div class="ta-achievement-catalog">${catalog.map((item) => renderAchievementBlock(item, !item.unlocked)).join("")}</div>`);
+};
+
+const renderProfileBadgeRail = (counts = {}, playerId = "") => {
   const countRail = ["TR", "CR", "PR"]
     .map((code) => {
       const count = Number(counts[code] || 0);
@@ -1102,8 +1250,7 @@ const renderProfileBadgeRail = (counts = {}) => {
   return `
     <div class="ta-profile-badge-rail">
       ${countRail}
-      <span class="ta-profile-stamp is-reserved">${renderBilingual("賽事徽章預留", "Event Badge Slot")}</span>
-      <span class="ta-profile-stamp is-reserved">${renderBilingual("成就徽章預留", "Achievement Slot")}</span>
+      ${renderPlayerEventBadges(playerId)}
     </div>
   `;
 };
@@ -1175,8 +1322,8 @@ const renderProfileFeatureCard = (card, config) => {
   return `
     <article class="ta-profile-feature">
       <div class="ta-profile-marquee">
-        ${renderProfilePlaceholder("is-main", config.bannerZh, config.bannerEn)}
-        ${renderProfileBadgeRail(card.badge_counts)}
+        ${renderPlayerBanner(card, config)}
+        ${renderProfileBadgeRail(card.badge_counts, config === PLAYER_PROFILE_CONFIG ? card.player_id : "")}
         ${renderTeamBanner(card)}
       </div>
       <div class="ta-profile-feature-main">
@@ -1189,6 +1336,8 @@ const renderProfileFeatureCard = (card, config) => {
           ${renderStatPills(card.stats)}
         </div>
         ${renderProfileTagChips(card)}
+        ${config === PLAYER_PROFILE_CONFIG ? renderPlayerPreferences(card) : ""}
+        ${config === PLAYER_PROFILE_CONFIG ? renderPlayerAchievements(card) : ""}
         <div class="ta-profile-panels">
           ${usagePanel}
           ${tagPanel}
@@ -1292,7 +1441,7 @@ const renderPlayerDetail = (data, id) => {
   const progressionModule = progression
     ? renderModule("進步曲線", "Progression", "圈速進步", "Lap-time Progression", progression)
     : "";
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "player", card.player_id) + progressionModule;
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "player", card.player_id) + progressionModule + renderAchievementCatalog(card);
 };
 
 const getTeamMembers = (team, players) =>
@@ -2475,6 +2624,7 @@ const initTimeAttack = async () => {
     if (["overview", "events", "event", "track", "player", "team", "vehicle"].includes(view)) {
       const editorial = await loadJson(`${base}data/${manifest.routes.event_editorial}`);
       pageData.editorial_events = editorial.events || [];
+      TA_EDITORIAL_EVENTS = pageData.editorial_events;
       if (["events", "event"].includes(view)) {
         pageData.title_zh = view === "event" ? "活動詳情" : "活動";
         pageData.title_en = view === "event" ? "Event Detail" : "Events";

@@ -194,8 +194,8 @@
     </details>`;
 
   const renderTree = (data, base, locRefs) => {
-    const countries = (data.countries || []).map((country) => {
-      const regions = country.regions.map((region) => {
+    const countries = (data.countries || []).map((country, countryIndex) => {
+      const regions = country.regions.map((region, regionIndex) => {
         const localities = region.localities.map((loc) => {
           const locIndex = locRefs.push({ loc, country, region }) - 1;
           return renderLocality(loc, locIndex, base);
@@ -205,13 +205,13 @@
           return localities;
         }
         return `
-          <details class="ta-tm-region" open>
+          <details class="ta-tm-region" data-country-index="${countryIndex}" data-region-index="${regionIndex}" open>
             <summary>${bi(region.name_zh, region.name_en)}</summary>
             ${localities}
           </details>`;
       }).join("");
       return `
-        <details class="ta-tm-country" open>
+        <details class="ta-tm-country" data-country-index="${countryIndex}" open>
           <summary>${bi(country.name_zh, country.name_en)}</summary>
           ${regions}
         </details>`;
@@ -228,6 +228,84 @@
       : "";
 
     return `<nav class="ta-tm-tree" aria-label="Track map tree">${countries}</nav>${unlocated}`;
+  };
+
+  const hierarchySearchHtml = () => `
+    <div class="ta-tm-search" role="search" aria-label="Geographic hierarchy search">
+      <label>${bi("國家", "Country")}<select data-geo-country></select></label>
+      <label>${bi("區域", "Region")}<select data-geo-region disabled></select></label>
+      <label>${bi("地名", "Locality")}<select data-geo-locality disabled></select></label>
+      <button class="ta-tm-btn" type="button" data-geo-clear>${bi("清除", "Clear")}</button>
+    </div>`;
+
+  const setupHierarchySearch = (root, data, locRefs, onLocality = null) => {
+    const countrySelect = root.querySelector("[data-geo-country]");
+    const regionSelect = root.querySelector("[data-geo-region]");
+    const localitySelect = root.querySelector("[data-geo-locality]");
+    if (!countrySelect || !regionSelect || !localitySelect) return;
+    const option = (label, value = "") => `<option value="${esc(value)}">${esc(label)}</option>`;
+    const reset = (select, label) => {
+      select.innerHTML = option(label);
+      select.value = "";
+      select.disabled = true;
+    };
+    countrySelect.innerHTML = option("全部國家 / All countries")
+      + (data.countries || []).map((country, index) =>
+        option(`${country.name_zh}${country.name_en ? ` / ${country.name_en}` : ""}`, index)).join("");
+
+    countrySelect.addEventListener("change", () => {
+      reset(regionSelect, "先選國家 / Select country first");
+      reset(localitySelect, "先選區域 / Select region first");
+      if (countrySelect.value === "") return;
+      const country = data.countries[Number(countrySelect.value)];
+      regionSelect.innerHTML = option("選擇區域 / Select region")
+        + (country.regions || []).map((region, index) =>
+          option(region.name
+            ? `${region.name_zh}${region.name_en ? ` / ${region.name_en}` : ""}`
+            : "直屬國家 / Direct", index)).join("");
+      regionSelect.disabled = false;
+      const countryNode = root.querySelector(
+        `.ta-tm-country[data-country-index="${CSS.escape(countrySelect.value)}"]`,
+      );
+      if (countryNode) countryNode.open = true;
+    });
+
+    regionSelect.addEventListener("change", () => {
+      reset(localitySelect, "先選區域 / Select region first");
+      if (countrySelect.value === "" || regionSelect.value === "") return;
+      const country = data.countries[Number(countrySelect.value)];
+      const region = country.regions[Number(regionSelect.value)];
+      localitySelect.innerHTML = option("選擇地名 / Select locality")
+        + (region.localities || []).map((loc, index) =>
+          option(`${loc.name_zh}${loc.name_en ? ` / ${loc.name_en}` : ""}`, index)).join("");
+      localitySelect.disabled = false;
+      const regionNode = root.querySelector(
+        `.ta-tm-region[data-country-index="${CSS.escape(countrySelect.value)}"]`
+        + `[data-region-index="${CSS.escape(regionSelect.value)}"]`,
+      );
+      if (regionNode) regionNode.open = true;
+    });
+
+    localitySelect.addEventListener("change", () => {
+      if (countrySelect.value === "" || regionSelect.value === "" || localitySelect.value === "") return;
+      const country = data.countries[Number(countrySelect.value)];
+      const region = country.regions[Number(regionSelect.value)];
+      const loc = region.localities[Number(localitySelect.value)];
+      const locIndex = locRefs.findIndex((ref) => ref.country === country && ref.region === region && ref.loc === loc);
+      if (locIndex < 0) return;
+      const node = root.querySelector(`[data-loc-index="${locIndex}"]`);
+      if (node) {
+        node.open = true;
+        node.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      }
+      if (onLocality) onLocality(locIndex);
+    });
+
+    root.querySelector("[data-geo-clear]")?.addEventListener("click", () => {
+      countrySelect.value = "";
+      reset(regionSelect, "先選國家 / Select country first");
+      reset(localitySelect, "先選區域 / Select region first");
+    });
   };
 
   window.initTrackMap = (data, base) => {
@@ -253,6 +331,8 @@
     if (typeof L === "undefined" || !mapNode) {
       // Leaflet 沒載到(離線/被擋):退化成單欄純樹,功能仍完整。
       root.classList.add("ta-trackmap-nomap");
+      root.querySelector(".ta-tm-side")?.insertAdjacentHTML("afterbegin", hierarchySearchHtml());
+      setupHierarchySearch(root, data, locRefs);
       return;
     }
     const trackRefs = new Map();
@@ -346,6 +426,13 @@
     if (group.getLayers().length) {
       map.fitBounds(group.getBounds().pad(0.2));
     }
+    root.querySelector(".ta-tm-side")?.insertAdjacentHTML("afterbegin", hierarchySearchHtml());
+    setupHierarchySearch(root, data, locRefs, (locIndex) => {
+      const marker = markers.get(locIndex);
+      if (!marker) return;
+      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 11));
+      marker.openPopup();
+    });
 
     // ── 軌跡懶載與快取 ──
     const regionOverlayGroup = L.layerGroup().addTo(map);
