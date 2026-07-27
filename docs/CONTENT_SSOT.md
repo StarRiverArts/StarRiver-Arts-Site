@@ -1,7 +1,7 @@
 # StarRiverSite Content SSOT
 
 Date baseline: `2026-07-27`
-Status: `v0.4 - confirmed implementation and editorial baseline`
+Status: `v0.5 - confirmed implementation and editorial baseline`
 
 This document records the current content-positioning source of truth for StarRiver Arts. It guides page review, information architecture, editorial work, and later public-page changes. It does not replace page content, generated indexes, or the repository governance SSOT.
 
@@ -28,7 +28,7 @@ Content should be reviewed by information role, not by forcing identical wording
 - `SEO / OG / LLM summary`: concise searchable summaries derived from stable, approved page content.
 - `Navigation / buttons`: functional route labels, not full brand explanations.
 
-Design-stage notes, implementation rationale, IA explanations, placeholders, and model-generated filler should not appear as visible public-page copy unless they are intentionally part of the visitor experience and explicitly approved.
+Design-stage notes, implementation rationale, IA explanations, placeholders, and model-generated filler should not appear as visible public-page copy unless intentionally part of the visitor experience and explicitly approved.
 
 ## AI Placeholder and Semantic Contamination Policy
 
@@ -79,24 +79,26 @@ Supported concepts:
 - 臺灣 landscape and road-world translation
 - digital curation and exhibition planning
 
-Avoid using `digital twin` / `數位孿生` as a broad site-level claim. It is too wide unless a specific project has enough data accuracy, verification, and scope to support that wording.
+Avoid using `digital twin` / `數位孿生` as a broad site-level claim unless a specific project has enough data accuracy, verification, and scope to support it.
 
-## Terminology
+## Terminology and Public Languages
 
 For Chinese public-facing editorial copy, prefer `臺灣` over `台灣`.
 
-Do not treat this as an automatic global replacement rule. Review usage by context:
+Do not treat this as an automatic global replacement rule:
 
 - Editorial prose and new public copy should use `臺灣`.
 - Existing titles, URLs, file paths, imported data, quoted text, or project names should be reviewed case by case.
-- Generated indexes should inherit the wording from source pages after content is stabilized and regenerated.
+- Generated indexes should inherit wording from stabilized source pages.
 
-Public language scope is Traditional Chinese and English for now.
+Public site language scope is Traditional Chinese and English for now.
 
 - User-facing language label: `繁體中文` / `Traditional Chinese`.
 - HTML may use `zh-Hant-TW` or the existing `zh-TW`.
 - Internal short code may remain `zh`.
 - Do not claim complete Japanese coverage or expose Japanese controls until Japanese content is intentionally restored.
+
+The site's public-language setting must not be confused with VRRCTW membership scope. VRRCTW includes users of both Traditional and Simplified Chinese. Traditional Chinese is the primary official written standard for site copy, rules, announcements, and public documents; it is not an eligibility restriction.
 
 ## Primary Entrances
 
@@ -136,7 +138,7 @@ Current preferred capability axes:
 - 景觀地景建模
 - 數位策展規劃
 
-Studio copy should avoid over-broad claims such as site-wide `digital twin`. Prefer more accurate wording such as landscape modeling, landscape translation, terrain/place-based scene creation, VR application design, and digital curation planning.
+Studio copy should avoid over-broad claims such as site-wide `digital twin`. Prefer accurate wording such as landscape modeling, landscape translation, terrain/place-based scene creation, VR application design, and digital curation planning.
 
 The current shared `projects/*.html` pages primarily use Studio portfolio presentation. They must not automatically be treated as complete ProjectT World Pages merely because ProjectT links to them.
 
@@ -162,7 +164,27 @@ Preferred public definition:
 
 > ProjectT 是一項以臺灣為出發點的 VRChat 賽車社群計畫，連結 ProjectT Worlds、VRRCTW、Racing 與 VRChat Racing Toolkit，建立可持續運作的世界、活動、資料與工具生態。
 
-The older subtitle `臺灣地景 VR 體驗` may still be used as a short visual or card-level phrase when context is limited, but it is not sufficient as the full ProjectT definition.
+Approved ProjectT homepage copy is maintained in:
+
+- `docs/project-t/project-t-homepage-copy-v0.1.md`
+
+### Brand name and Hero identity
+
+Approved ProjectT Hero naming:
+
+```text
+ProjectT
+Taiwan Touge Project
+臺灣山道計畫
+```
+
+`Taiwan Touge Project` and `臺灣山道計畫` are brand subtitles linked to touge and the mountain-road driving culture associated with works such as Initial D. They do not restrict ProjectT content to mountain-road worlds only.
+
+The older subtitle `臺灣地景 VR 體驗` may still be used as a limited visual or card-level phrase, but it is not sufficient as the full ProjectT definition.
+
+The layered color-block mountain scene (`.hero-ranges`) is a persistent ProjectT brand element. It must remain visible as the ProjectT hero background and must not be covered or replaced by a bitmap, project screenshot, or photographic banner.
+
+`StarSight` is the confirmed first featured world and first project image. Use its image in the featured-world content layer or card, not as a replacement for the ProjectT color-block hero.
 
 ### ProjectT first-level structure
 
@@ -197,19 +219,26 @@ A ProjectT World Page may contain:
 - community and event relationship;
 - related ProjectT Articles.
 
-The layered color-block mountain scene (`.hero-ranges`) is a persistent ProjectT brand element. It must remain visible as the ProjectT hero background and must not be covered or replaced by a bitmap, project screenshot, or photographic banner.
-
-`StarSight` is the confirmed first featured world and first project image. Use its image in the featured-world content layer or card, not as a replacement for the ProjectT color-block hero.
-
 ### VRRCTW
 
-VRRCTW is the Traditional Chinese VRChat racing community and activity layer of ProjectT.
+VRRCTW is ProjectT's Chinese-language VRChat racing community and activity layer.
+
+Approved Chinese positioning:
+
+> 中文圈主要的 VRChat 賽車社群
 
 Preferred English descriptor:
 
-> Traditional Chinese VRChat Racing Community
+> A leading Chinese-language VRChat racing community
 
-`Traditional Chinese` describes the primary language and content environment, not nationality eligibility.
+VRRCTW connects players, world creators, vehicle creators, and event organizers, and continues to hold driving meetups, Time Attack challenges, and races.
+
+Language and membership rules:
+
+- The community includes both Traditional and Simplified Chinese users.
+- Traditional Chinese is the primary official written standard for rules, announcements, site content, and public documents.
+- Do not present `Traditional Chinese VRChat Racing Community` as a membership-boundary name.
+- Do not treat script, nationality, or place of origin as an automatic participation restriction.
 
 ### Racing
 
@@ -231,9 +260,9 @@ Time Attack is an active Racing module. Do not present it as a peer of Racing or
 
 VRChat Racing Toolkit is the planned and partially implemented competition toolset intended to assist event setup, result collection, data processing, verification, and connection to Racing.
 
-Do not use a fixed completion percentage in public copy. Preferred status wording:
+Do not use a fixed completion percentage in public copy. Approved status direction:
 
-> 部分核心工具與流程已完成或投入內部使用，完整資料串接與公開發行仍在開發中。
+> 協助活動組織者設定賽事、整理結果並串接 Racing 的工具組。計時榜資料串接等部分核心流程已投入內部使用，完整的公開操作介面、發布板與資料整合仍在開發中。
 
 ### ProjectT Articles
 
@@ -338,6 +367,7 @@ The following decisions remain active unless superseded by a newer owner decisio
 
 - Homepage H1: `StarRiver Arts`; use `VR 數位體驗的地景創作者` as supporting positioning.
 - ProjectT hero identity: preserve the layered color-block mountain scene; `StarSight` is the initial featured-world image below the hero.
+- ProjectT Hero naming may use `ProjectT / Taiwan Touge Project / 臺灣山道計畫`.
 - Canonical project records may live in a shared project area. Studio is a curated portfolio view over those records.
 - Incomplete editorial/project detail pages with visible placeholders must be withheld from public navigation and indexing.
 - This rule does not apply wholesale to Time Attack, which is a stable operating database and may contain incomplete individual data fields.
