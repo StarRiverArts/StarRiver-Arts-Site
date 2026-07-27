@@ -3,7 +3,7 @@
 - 文件狀態：Draft for review
 - 適用範圍：StarRiver Arts Site／ProjectT 公開網站
 - 更新日期：2026-07-27
-- 目的：定義 ProjectT 的對外定位、核心組成、內容邊界、命名方式與公開網站導覽層級。
+- 目的：定義 ProjectT 的對外定位、核心組成、內容邊界、命名方式、文章分類與公開網站導覽層級。
 
 ## 1. ProjectT 的對外定位
 
@@ -71,6 +71,27 @@ ProjectT Worlds 不等於 Racing 資料庫中收錄的全部 VRChat 世界。
 
 外部作者世界即使被 Racing 收錄、曾被 VRRCTW 使用，或有 ProjectT Articles 介紹，也不因此成為 ProjectT Worlds。
 
+### World Page 與賽道資訊
+
+ProjectT 不另建立獨立 Track Page。賽道與路線資訊歸在所屬 World Page 內，由文章明確標示目前描述的是哪一條路線。
+
+```text
+World Page
+├─ 世界基礎資訊
+├─ 世界內路線列表
+├─ 各路線的簡短性格與方向說明
+├─ Time Attack／Racing 入口
+├─ 活動與社群關係
+└─ 相關 Articles
+```
+
+若同一世界包含多條賽道，文章 metadata 至少應標示：
+
+- `world_id`
+- `route_name` 或 `route_id`
+- `direction`
+- `article_type`
+
 ### 建議狀態標記
 
 - Public／已公開
@@ -106,7 +127,7 @@ VRRCTW 是 ProjectT 的繁體中文 VRChat 賽車社群與活動層。
 
 Racing 是 ProjectT 的賽車資料與資訊系統。
 
-它整理與呈現世界、賽道、玩家、車輛、車隊、活動、賽事與計時紀錄，並逐步承接投稿、驗證、個人頁面與統計分析等功能。
+它整理與呈現世界、世界內路線、玩家、車輛、車隊、活動、賽事與計時紀錄，並逐步承接投稿、驗證、個人頁面與統計分析等功能。
 
 ### Time Attack 的從屬關係
 
@@ -115,8 +136,7 @@ Time Attack 是 Racing 之下已投入使用的計時紀錄模組，不是與 Ra
 ```text
 Racing
 ├─ Time Attack
-├─ Worlds
-├─ Tracks
+├─ Worlds（包含世界內路線）
 ├─ Players
 ├─ Vehicles
 ├─ Teams
@@ -163,102 +183,207 @@ VRChat Racing Toolkit 是 ProjectT 正在開發的賽事工具組。
 
 > 部分核心工具與流程已完成或投入內部使用，完整資料串接與公開發行仍在開發中。
 
-## 7. Articles
+## 7. ProjectT Articles
 
 ### 定義
 
-Articles 是 ProjectT 的內容與知識層，可跨越 ProjectT Worlds、VRRCTW、Racing 與 Toolkit。
+ProjectT Articles 是 ProjectT 的綜合內容與知識層，可跨越 ProjectT Worlds、VRRCTW、Racing 與 Toolkit。
+
+它不是單純的開發日誌。內容可同時包含世界與路線介紹、使用說明、熟練指南、玩家觀點、社群評論、賽事紀錄與評論，以及 ProjectT 開發紀錄。
 
 文章不只介紹 ProjectT 自有世界，也可以介紹其他作者製作、但與 Racing 或 VRRCTW 有直接關係的世界與賽道。
 
 因此，外部世界出現在文章中不代表該世界由 ProjectT 所有或屬於 ProjectT Worlds。
 
-### 建議內容分類
+### 建議分類
 
-#### Track Guides／賽道指南
+#### Guides／指南
 
-- 賽道整體性格
-- 關鍵彎角與節奏
-- 容易失誤的位置
+- 世界使用方式
+- 路線熟練與駕駛節奏
+- 關鍵彎角與常見失誤
 - 車輛選擇
-- 新手熟練順序
-- Racing／Time Attack 入口
+- 新手學習順序
+- 活動參加與 Time Attack 投稿說明
 
-#### World & Community／世界與社群
+#### Reviews & Community／評論與社群
 
-- 世界作者與背景
+- 玩家評論
 - 世界與 VRRCTW 的關係
 - 社群使用方式
 - 重要活動與共同記憶
-- 世界在繁體中文 VRChat 賽車社群中的意義
+- 世界、車輛或版本體驗
+
+玩家評論與主觀文章必須標示作者、觀點來源與發布日期，避免被誤認為 ProjectT 的客觀官方結論。
 
 #### Events／活動與賽事
 
 - 活動介紹
-- 賽後回顧
+- 賽事預覽
+- 賽事紀錄
 - 賽制說明
-- 歷史賽事
-- 結果與資料的敘事整理
+- 賽後評論
+- 結果與 Racing 資料的敘事整理
 
 #### ProjectT Development／ProjectT 開發
 
 - ProjectT Worlds 製作
+- 路線研究
 - Racing 資料系統演進
 - Toolkit 開發
-- 架構與願景
+- 架構與治理
 - 技術實驗與版本更新
 
-### Articles 與 Racing 的互連
+開發紀錄是可選內容，不要求每次開發都公開記錄。
+
+### Articles 與 World／Racing 的互連
 
 ```text
-Racing World / Track Page
-├─ 結構化世界與賽道資料
-├─ Time Attack 紀錄
+World Page
+├─ 世界與路線基礎資訊
+├─ Time Attack／Racing 入口
 ├─ 活動紀錄
-└─ 相關文章
+└─ 相關 Articles
 
 Article Page
-├─ 世界與賽道脈絡
-├─ 駕駛或社群內容
-├─ Racing 世界／賽道資料入口
-└─ Time Attack 排行榜入口
+├─ 文章類型與作者
+├─ 所屬世界
+├─ 所描述的路線
+├─ 正文與觀點來源
+├─ World Page 入口
+└─ Racing／Time Attack 入口
 ```
 
-Articles 提供解釋、脈絡與知識；Racing 提供可查詢、可驗證的結構化資料。兩者互相連結，但不互相取代。
+Articles 提供解釋、脈絡、經驗與評論；World Page 與 Racing 提供穩定、可查詢的基礎資料。彼此互相連結，但不互相取代。
 
-## 8. Articles 系統的未決架構
+## 8. 三區內容模型
 
-目前 StarRiver Arts Site 基本上存在三套對應三個大區的 Article 呈現方式：
+StarRiver Arts Site 的三個大區不應被強迫使用同一種 Article 分類。
 
-- Studio Articles
-- ProjectT Articles
-- Museum Articles
+### Studio
 
-原始設計將三個大區視為相對獨立的網站，因此各自具有不同的視覺主題與內容情境。當三區被整合至同一個 StarRiver Arts Site 後，若直接共用同一套 Article 頁面，可能產生以下問題：
+Studio 是 Gallery + Portfolio，不視為 Article 系統。
 
-- 文章頁無法判斷應套用哪一區的品牌與視覺主題。
-- 跨區文章或共用文章可能沒有單一合理的主題歸屬。
-- 共用模板可能削弱 Studio、ProjectT 與 Museum 的獨立辨識度。
-- 完全分離可能造成模板、功能與資料維護重複。
-- URL、搜尋、分類、推薦與語言系統可能出現三套實作。
+其內容應保持：
 
-### 本文件暫定原則
+- 精選
+- 簡短
+- 必要資訊優先
+- 不要求相關閱讀或跨頁內容網絡
 
-本階段只確定：
+Studio 主要使用 Project／Work／Case Study 內容模型，而不是 Article。
 
-1. Articles 可作為 ProjectT 的獨立頂層內容入口。
-2. ProjectT Articles 可介紹 ProjectT 自有世界與外部相關世界。
-3. Articles 與 Racing 應互相連結。
-4. ProjectT Worlds 與文章主題必須維持所有權邊界。
-5. 是否共用資料來源、模板、URL 與視覺主題，留待下一階段獨立決策。
+### ProjectT
 
-本文件不預先決定三站 Articles 應完全共用或完全分離。
+ProjectT 使用 World Page、Racing 結構化資料與綜合 Articles。
 
-## 9. 語言命名與技術代碼
+### Museum
+
+Museum 使用 Exhibition／Gallery 與 Columns／Essays。
+
+## 9. Museum 內容分類
+
+Museum 的內容核心是策展、作品解讀、時事評論與 VRChat 社群文化，而不是完整展品資料庫。
+
+### Exhibition／Gallery
+
+Gallery Page 可承擔展品基礎資訊：
+
+- 展品名稱
+- 作者
+- 年份與媒材（需要時）
+- 圖像或預覽
+- 一句說明
+- 所屬展覽或展區
+- 相關 Essay 入口
+
+不是每件展品都必須擁有獨立詳情頁或專欄。
+
+### Exhibit Essay／展品專欄
+
+Essay 可對應：
+
+- 單一展品
+- 多個展品
+- 一組作品
+- 一個展區
+- 整場展覽中的共同主題
+
+因此 Essay 與 Exhibit 應為多對多關係，而不是預設一篇文章只屬於一件作品。
+
+```text
+Museum Essay
+├─ 0..n Exhibits
+├─ 0..n Exhibitions／Sections
+├─ 主題與策展觀點
+└─ 相關內容
+```
+
+建議關聯欄位：
+
+- `exhibit_ids[]`
+- `exhibition_ids[]`
+- `section_ids[]`
+- `article_type`
+
+### Current Commentary／時事評論
+
+- VRChat 平台與文化事件
+- 數位藝術與虛擬展覽趨勢
+- AI 創作與展示
+- 虛擬社群治理與平台政策
+
+### VRC Community & Culture／VRC 社群與文化
+
+- VRChat 創作者生態
+- 世界作者與展覽活動
+- 中文圈與海外圈的內容文化
+- 虛擬空間中的觀看、展示與社群使用方式
+
+## 10. 共用與分離原則
+
+目前不預先決定 ProjectT 與 Museum Articles 是否完全共用同一套前台。
+
+已確定：
+
+1. Studio 不需要 Article 系統。
+2. ProjectT 與 Museum 可共用底層文章資料欄位、搜尋、語言處理與基礎元件。
+3. ProjectT 與 Museum 必須保留不同的內容分類與視覺外殼。
+4. Museum Essay 必須支援多展品關聯。
+5. ProjectT Article 必須支援世界與世界內路線關聯。
+6. 是否共用 URL、模板與編輯流程，留待後續技術設計。
+
+## 11. AI 佔位符與語義污染風險
+
+目前多個未公開頁面包含 AI 生成的佔位文案、假分類、假標題、語義不明的定位框架與「建置中」內容。這些內容即使原意只是視覺原型，也可能被搜尋索引、網站生成器、LLM 索引或後續協作 Agent 誤讀為已確認事實。
+
+ProjectT 首頁與 Articles 原型中的抽象定位、製作筆記分類及其他未經人工確認的描述，不得自動視為正式 public copy 或內容 SSOT。
+
+### 污染控制規則
+
+- AI 生成的 placeholder copy 一律視為非權威草稿。
+- 頁面已存在不代表其文案、分類或 IA 已獲批准。
+- `noindex` 只能降低公開搜尋風險，不能阻止 repo search、LLM、Agent 或內部索引讀取。
+- 未確認頁面不得被加入 sitemap、search index、LLM index、主要導覽或公開推薦。
+- 產生公開 index 前，必須先完成逐頁人工審查。
+- Placeholder 應使用明確、不可被誤認為內容的標記，例如 `PLACEHOLDER — NOT PUBLIC COPY`，而不是撰寫看似完整的假文章或假定位。
+- Agent 在使用頁面內容前，應先比對 `docs/CONTENT_SSOT.md` 與本文件。
+- 若頁面與 SSOT 衝突，以 SSOT 與最新 owner decision 為準。
+
+### 公開前最低 Gate
+
+頁面必須同時符合以下條件才能解除 `noindex` 或加入公開導覽：
+
+1. 定位與分類已由 owner 確認。
+2. 佔位文案已移除。
+3. 文章或資料是真實內容，不是 AI 模擬內容。
+4. 所有權、作者、世界與展品關聯清楚。
+5. 連結、語言與視覺主題完成基本檢查。
+6. 搜尋與 LLM 索引已由乾淨來源重新生成。
+
+## 12. 語言命名與技術代碼
 
 ### 對外顯示
-
-建議語言選單顯示：
 
 - 繁體中文
 - English
@@ -295,11 +420,9 @@ HTML 建議使用：
 
 若未來需要同時支援簡體中文，再拆分為 `zh-Hant` 與 `zh-Hans`。
 
-不建議將 `TraditionalChinese` 作為 HTML 標準語言代碼；它適合對外文字或內部可讀名稱，但不是標準 BCP 47 語言標籤。
+## 13. 建議公開導覽
 
-## 10. 建議公開導覽
-
-### 桌面頂層導覽
+### ProjectT
 
 ```text
 Overview
@@ -323,11 +446,18 @@ Racing
 
 Time Attack 不再與 Racing 並列為頂層系統，但可保留為首頁與 Racing 頁面的強入口。
 
-### 手機導覽
+### Museum
 
-手機版不應直接隱藏全部主要導覽。建議使用漢堡選單、可橫向捲動導覽，或首頁固定核心入口面板。
+```text
+Entry
+Exhibitions
+Gallery
+Columns
+```
 
-## 11. 建議 ProjectT 首頁順序
+實際上 Gallery 可包含在 Exhibition Page 內，不一定需要獨立頂層入口。
+
+## 14. 建議 ProjectT 首頁順序
 
 1. Hero：ProjectT 完整定位
 2. Ecosystem：四個核心系統與 Articles 關係
@@ -336,10 +466,10 @@ Time Attack 不再與 Racing 並列為頂層系統，但可保留為首頁與 Ra
 5. VRRCTW：社群、活動與參與方式
 6. Racing：資料系統與 Time Attack
 7. Toolkit：工具現況與開發方向
-8. Articles：賽道指南、世界與社群、活動與開發內容
+8. Articles：指南、評論、賽事與開發內容
 9. Current Status：已上線、持續擴充與開發中項目
 
-## 12. 路徑與遷移原則
+## 15. 路徑與遷移原則
 
 目前 Time Attack 實際位於：
 
@@ -369,7 +499,7 @@ Time Attack 不再與 Racing 並列為頂層系統，但可保留為首頁與 Ra
 4. 新路徑先以 redirect、adapter 或入口別名銜接。
 5. 等資料庫與工具遷移成熟後，再處理實體路徑。
 
-## 13. 本階段決策摘要
+## 16. 本階段決策摘要
 
 已確定：
 
@@ -378,14 +508,18 @@ Time Attack 不再與 Racing 並列為頂層系統，但可保留為首頁與 Ra
 - Time Attack 從屬於 Racing。
 - ProjectT Worlds 只包含 StarRiver 製作並正式納入計畫的世界。
 - Racing 可收錄其他作者的世界。
-- Articles 是獨立內容與知識層，可介紹自有或外部世界。
-- 外部世界的文章與資料收錄不代表 ProjectT 所有權。
+- 賽道資訊歸在 World Page，不建立獨立 Track Page。
+- ProjectT Articles 是介紹、指南、評論、賽事與開發內容的綜合文章集。
+- Studio 不使用 Article 系統。
+- Museum 以 Exhibition／Gallery 與 Columns／Essays 為主。
+- Museum Essay 可同時對應多個展品、展區或展覽。
+- AI 佔位符與原型文案不得被當成正式 public copy 或 SSOT。
 - 繁體中文對外英文名稱使用 Traditional Chinese。
 - 現有 Time Attack 路徑短期保留。
 
-待下一階段決定：
+待後續決定：
 
-- Studio、ProjectT、Museum 三套 Articles 應共用或分離到什麼程度。
-- Article 資料、模板、URL、搜尋與視覺主題的共享邊界。
+- ProjectT 與 Museum Articles 的資料、模板、URL、搜尋與視覺主題共享邊界。
 - 跨區文章與跨區推薦如何呈現。
-- ProjectT 首頁與各子入口的實際視覺稿。
+- World Page、ProjectT Article、Museum Essay 與 Commentary 的實際資料 schema。
+- 清理現有 AI placeholder 頁面的順序與發布 Gate。
