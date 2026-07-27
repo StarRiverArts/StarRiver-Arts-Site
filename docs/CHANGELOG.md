@@ -1,5 +1,11 @@
 # StarRiverSite Changelog
 
+## 2026-07-27
+
+- Rebuilt the ProjectT homepage from the approved copy baseline: updated SEO and Hero identity, established ProjectT Worlds / VRRCTW / Racing / VRChat Racing Toolkit as the four core systems, placed Articles as the knowledge layer, and restored mobile access to the primary navigation.
+
+- Added a Discord submission entry to the Racing Club page without exposing internal command details.
+
 ## 2026-07-17
 
 - Completed the T-1 Phase 0 canonical schema audit with direct local access to `VR_RacingClubTW`, the canonical SQLite store, and the actual UdonSharp consumers.

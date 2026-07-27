@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ProjectT | 臺灣地景 VR 體驗</title>
-  <meta name="description" content="ProjectT 以臺灣道路與地景創作為核心，連結 VRChat 世界、Racing Club 與 Time Attack 紀錄。">
+  <title>ProjectT｜臺灣 VRChat 賽車社群與世界創作計畫</title>
+  <meta name="description" content="ProjectT 是一項以臺灣為出發點的 VRChat 賽車社群計畫，結合臺灣公路與賽車地景創作、中文賽車社群、賽事及計時紀錄，以及可供不同 VRChat 世界使用的通用賽事工具。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/play/">
-  <meta property="og:title" content="ProjectT | StarRiver Arts">
-  <meta property="og:description" content="臺灣地景 VR 體驗、VRChat 世界、Racing Club 與 Time Attack。">
+  <meta property="og:title" content="ProjectT｜臺灣 VRChat 賽車社群與世界創作計畫">
+  <meta property="og:description" content="ProjectT 是一項以臺灣為出發點的 VRChat 賽車社群計畫，連結世界、社群、紀錄與賽事工具。">
   <meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/projects/starsight-mt/hero.png">
   <link rel="icon" href="../assets/logos/starriver-primary.png">
   <link rel="stylesheet" href="../colors_and_type.css">
@@ -31,101 +31,90 @@
       <span class="nav-brand">星河 STARRIVER ARTS</span>
     </a>
     <div class="nav-links">
-      <a href="#worlds"><span class="zh">代表世界</span><span class="en">Worlds</span></a>
-      <a href="./RacingClub/"><span class="zh">賽車俱樂部</span><span class="en">Racing Club</span></a>
-      <a href="./RacingClub/TimeAttack/">Time Attack</a>
+      <a href="#main"><span class="zh">總覽</span><span class="en">Overview</span></a>
+      <a href="./worlds/">ProjectT Worlds</a>
+      <a href="./RacingClub/">VRRCTW</a>
+      <a href="#racing">Racing</a>
+      <a href="#toolkit"><span class="zh">工具組</span><span class="en">Toolkit</span></a>
+      <a href="./articles/"><span class="zh">文章</span><span class="en">Articles</span></a>
     </div>
     <select class="lang-btn" data-lang-select aria-label="語言 / Language">
-      <option value="zh">中文</option>
-      <option value="en">EN</option>
+      <option value="zh">繁體中文</option>
+      <option value="en">English</option>
     </select>
   </nav>
 
   <main id="main">
-    <!-- HERO -->
     <section class="hero" aria-labelledby="projectt-title">
       <div class="hero-ranges" aria-hidden="true">
-        <div class="range r-far">
-          <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,120 C150,80 280,140 420,90 C560,40 700,110 840,70 C980,40 1080,100 1200,80 L1200,200 Z"/></svg>
-        </div>
-        <div class="range r-blue">
-          <svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,160 L0,110 C180,70 320,120 480,80 C640,40 760,100 920,75 C1040,55 1120,95 1200,85 L1200,160 Z"/></svg>
-        </div>
-        <div class="range r-green">
-          <svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,150 L0,96 C120,118 260,62 410,88 C560,114 680,58 830,82 C980,106 1100,72 1200,92 L1200,150 Z"/></svg>
-        </div>
-        <div class="range r-near">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,70 C160,40 330,86 520,60 C710,34 860,80 1030,58 C1110,48 1170,62 1200,56 L1200,120 Z"/></svg>
-        </div>
+        <div class="range r-far"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,120 C150,80 280,140 420,90 C560,40 700,110 840,70 C980,40 1080,100 1200,80 L1200,200 Z"/></svg></div>
+        <div class="range r-blue"><svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,160 L0,110 C180,70 320,120 480,80 C640,40 760,100 920,75 C1040,55 1120,95 1200,85 L1200,160 Z"/></svg></div>
+        <div class="range r-green"><svg viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,150 L0,96 C120,118 260,62 410,88 C560,114 680,58 830,82 C980,106 1100,72 1200,92 L1200,150 Z"/></svg></div>
+        <div class="range r-near"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,70 C160,40 330,86 520,60 C710,34 860,80 1030,58 C1110,48 1170,62 1200,56 L1200,120 Z"/></svg></div>
       </div>
       <div class="hero-content">
-        <div class="hero-kicker"><span class="zh">臺灣地景 VR 體驗</span><span class="en">Taiwan Landscape VR Experiences</span></div>
+        <div class="hero-kicker">Taiwan Touge Project</div>
         <h1 class="hero-title" id="projectt-title">ProjectT</h1>
-        <p class="hero-sub zh">以臺灣道路與地景創作為核心，連結可探索的 VR 世界、地方內容與賽車社群。</p>
-        <p class="hero-sub en">Explorable VR worlds, place-based stories, and a racing community grounded in Taiwanese roads and landscapes.</p>
+        <p class="hero-name-zh zh">臺灣山道計畫</p>
+        <p class="hero-name-zh en">Taiwan Touge Project</p>
+        <p class="hero-sub zh">自臺灣公路地景出發，連結世界、社群、紀錄與賽事工具的 VRChat 賽車社群計畫。</p>
+        <p class="hero-sub en">A VRChat racing community project connecting worlds, community, records, and competition tools from the roads and landscapes of Taiwan.</p>
         <div class="hero-actions">
-          <a class="cta" href="#worlds"><span class="zh">探索代表世界</span><span class="en">Explore Worlds</span></a>
-          <a class="cta cta-secondary" href="./RacingClub/TimeAttack/">Time Attack</a>
+          <a class="cta" href="./RacingClub/">VRRCTW</a>
+          <a class="cta cta-secondary" href="./RacingClub/TimeAttack/events.html"><span class="zh">參加活動</span><span class="en">Join Events</span></a>
         </div>
       </div>
     </section>
     <div class="hero-road" aria-hidden="true"></div>
 
-    <!-- BODY -->
     <div class="body-section">
       <div class="wrap">
-        <p class="lead zh">從地景創作進入臺灣，也從玩家留下的路線與紀錄持續理解這些世界。</p>
-        <p class="lead en">Enter Taiwan through landscape creation, then keep reading the worlds through the routes and records left by players.</p>
-
-        <section class="section" id="worlds">
+        <section class="section" aria-labelledby="ecosystem-title">
           <div class="section-head">
-            <h2 class="section-title"><span class="zh">代表世界</span><span class="en">Featured Worlds</span></h2>
+            <div class="card-label"><span class="zh">ProjectT 生態</span><span class="en">ProjectT Ecosystem</span></div>
+            <h2 class="section-title" id="ecosystem-title"><span class="zh">世界、社群、資料與工具</span><span class="en">Worlds, community, data, and tools</span></h2>
+            <p class="section-note zh">ProjectT 包含 VRChat 世界、中文賽車社群、計時與賽事資料，以及活動工具。玩家可以在這裡找到世界、參與活動、查詢紀錄，並了解社群、賽道與賽事的發展。</p>
+            <p class="section-note en">ProjectT brings together VRChat worlds, a Chinese-language racing community, timing and event data, and competition tools. Find worlds, join activities, explore records, and follow the development of the community and its racing culture.</p>
           </div>
-          <div class="card-grid">
-            <!-- Worlds -->
-            <a class="card project-card" href="../projects/starsight-mt.html">
-              <img class="project-card-media" src="../projects/starsight-mt/thumb.png" alt="StarSight Mt. 觀星山 VR 世界">
-              <div class="card-label"><span class="zh">主視覺世界</span><span class="en">Featured World</span></div>
-              <h3 class="card-title"><span class="zh">StarSight Mt. 觀星山</span><span class="en">StarSight Mt. 觀星山</span></h3>
-              <p class="card-text zh">以臺灣山道氛圍為基礎的可駕駛 VRChat 世界，也是 ProjectT 目前的代表場景。</p>
-              <p class="card-text en">A drivable VRChat world shaped by the atmosphere of Taiwanese mountain roads and the current featured scene for ProjectT.</p>
-              <span class="card-link"><span class="zh">查看專案</span><span class="en">View Project</span></span>
+          <div class="card-grid ecosystem-grid">
+            <a class="card" href="./worlds/">
+              <div class="card-label">Worlds</div>
+              <h3 class="card-title">ProjectT Worlds</h3>
+              <p class="card-text zh">由 StarRiver 製作的 VRChat 臺灣地景世界。這些場景從臺灣公路文化與自然地景出發，提供駕駛、探索、聚會、車輛測試與活動空間。</p>
+              <p class="card-text en">VRChat Taiwan landscape worlds created by StarRiver for driving, exploration, gatherings, vehicle testing, and events.</p>
+              <span class="card-link"><span class="zh">查看世界</span><span class="en">Explore Worlds</span></span>
             </a>
-            <a class="card project-card" href="../projects/9turns.html">
-              <img class="project-card-media" src="../projects/9turns/thumb.png" alt="">
-              <div class="card-label"><span class="zh">臺灣道路地景</span><span class="en">Taiwan Road Landscape</span></div>
-              <h3 class="card-title"><span class="zh">九彎十八拐</span><span class="en">9 Turns</span></h3>
-              <p class="card-text zh">以臺 9 線石牌至頭城段為基礎，轉譯成可駕駛與探索的 VR 地景。</p>
-              <p class="card-text en">A drivable VR landscape based on Provincial Highway 9 from Shipai to Toucheng.</p>
-              <span class="card-link"><span class="zh">查看專案</span><span class="en">View Project</span></span>
+            <a class="card" id="vrrctw" href="./RacingClub/">
+              <div class="card-label">Community</div>
+              <h3 class="card-title">VRRCTW</h3>
+              <p class="card-text zh">中文圈主要的 VRChat 賽車社群，連結玩家、世界創作者、車輛作者與活動組織者，持續舉辦駕駛聚會、計時挑戰與賽事。</p>
+              <p class="card-text en">A leading Chinese-language VRChat racing community connecting players, world creators, vehicle creators, and event organizers.</p>
+              <span class="card-link"><span class="zh">進入社群</span><span class="en">Enter Community</span></span>
             </a>
+            <a class="card" id="racing" href="./RacingClub/TimeAttack/">
+              <div class="card-label">Data &amp; Records</div>
+              <h3 class="card-title">Racing</h3>
+              <p class="card-text zh">整理 VRChat 賽車世界、路線、玩家、車輛、活動與計時紀錄的資料及資訊系統。你可以從這裡查詢 Time Attack、世界資料與活動結果。</p>
+              <p class="card-text en">A structured information system for VRChat racing worlds, routes, players, vehicles, events, and Time Attack records.</p>
+              <span class="card-link"><span class="zh">開啟 Racing／Time Attack</span><span class="en">Open Racing / Time Attack</span></span>
+            </a>
+            <article class="card" id="toolkit">
+              <div class="card-label"><span class="zh">內部使用／開發中</span><span class="en">Internal use / In development</span></div>
+              <h3 class="card-title">VRChat Racing Toolkit</h3>
+              <p class="card-text zh">協助活動組織者設定賽事、整理結果並串接 Racing 的工具組。計時榜資料串接等部分核心流程已投入內部使用，完整的公開操作介面、發布板與資料整合仍在開發中。</p>
+              <p class="card-text en">A competition toolset for event setup, result processing, and Racing integration. Core timing-data workflows are in internal use while the public interface remains in development.</p>
+            </article>
           </div>
         </section>
 
-        <section class="section" aria-labelledby="community-title">
+        <section class="section" id="articles" aria-labelledby="articles-title">
           <div class="section-head">
-            <h2 class="section-title" id="community-title"><span class="zh">社群與紀錄</span><span class="en">Community &amp; Records</span></h2>
+            <div class="card-label"><span class="zh">文章與賽車知識</span><span class="en">Content &amp; Knowledge</span></div>
+            <h2 class="section-title" id="articles-title">Articles</h2>
+            <p class="section-note zh">Articles 收錄世界與路線介紹、使用指南、玩家觀點、社群故事、賽事紀錄與開發內容。文章提供資料頁與排行榜無法完整呈現的背景、經驗與評論。</p>
+            <p class="section-note en">Articles cover worlds and routes, guides, player viewpoints, community stories, event records, and development—context that data pages and leaderboards cannot provide alone.</p>
           </div>
-          <div class="card-grid">
-            <!-- Racing Club -->
-            <a class="card" href="./RacingClub/">
-              <div class="card-label"><span class="zh">賽車社群</span><span class="en">Racing Community</span></div>
-              <h3 class="card-title"><span class="zh">Racing Club</span><span class="en">Racing Club</span></h3>
-              <p class="card-text zh">ProjectT 的賽車俱樂部入口，將逐步承接活動、世界介紹、地圖與社群內容。</p>
-              <p class="card-text en">The ProjectT racing-club entry for events, world guides, maps, and community content.</p>
-              <span class="card-link"><span class="zh">進入俱樂部</span><span class="en">Enter Club</span></span>
-            </a>
-            <!-- Time Attack -->
-            <a class="card" href="./RacingClub/TimeAttack/">
-              <div class="card-label"><span class="zh">穩定運作</span><span class="en">Live Database</span></div>
-              <h3 class="card-title"><span class="zh">Time Attack</span><span class="en">Time Attack</span></h3>
-              <p class="card-text zh">持續更新的賽道、玩家、車輛與計時紀錄資料庫。</p>
-              <p class="card-text en">A continuously updated database of tracks, players, vehicles, and timed runs.</p>
-              <span class="card-link"><span class="zh">開啟紀錄站</span><span class="en">Open Records</span></span>
-            </a>
-            <!-- Articles -->
-            <!-- CardsEnd -->
-          </div>
+          <a class="cta cta-secondary" href="./articles/"><span class="zh">前往 Articles</span><span class="en">Explore Articles</span></a>
         </section>
       </div>
     </div>
@@ -135,7 +124,7 @@
   <footer class="site-footer">
     <div class="footer-row">
       <span class="footer-name">星河 STARRIVER ARTS</span>
-      <span class="footer-copy">© 2026 · ProjectT · <span class="zh">臺灣地景 VR 體驗</span><span class="en">Taiwan Landscape VR</span></span>
+      <span class="footer-copy">© 2026 · ProjectT · Taiwan Touge Project · 臺灣山道計畫</span>
       <span class="footer-copy"><span class="zh">網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。</span><span class="en">Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.</span></span>
     </div>
   </footer>

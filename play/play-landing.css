@@ -248,3 +248,17 @@ select.lang-btn {
   html { scroll-behavior: auto; }
   * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* ProjectT approved homepage copy v0.1 */
+.hero-name-zh { margin: -8px 0 18px; font-family: var(--font-deck); font-size: clamp(18px, 2.2vw, 26px); font-weight: 700; color: var(--pt-ink); }
+.ecosystem-grid { align-items: stretch; }
+.ecosystem-grid .card { min-height: 100%; }
+#toolkit { scroll-margin-top: 84px; }
+#racing, #vrrctw, #articles { scroll-margin-top: 84px; }
+@media (max-width: 800px) {
+  .nav { height: auto; min-height: 60px; flex-wrap: wrap; gap: 0 12px; padding-top: 10px; padding-bottom: 10px; }
+  .nav-links { display: flex; order: 3; width: 100%; overflow-x: auto; gap: 18px; padding: 10px 0 2px; scrollbar-width: thin; }
+  .nav-links a { flex: 0 0 auto; padding: 4px 0; }
+  .lang-btn { margin-left: auto; }
+  .hero { min-height: 500px; height: 66vh; }
+}

@@ -17,7 +17,7 @@
     {
       "label_zh": "玩家數",
       "label_en": "Players",
-      "value": "85",
+      "value": "86",
       "note_zh": "有至少一筆有效紀錄的玩家",
       "note_en": "Players with at least one valid run"
     },
@@ -11557,8 +11557,35 @@
       "team_name": "",
       "primary_team_id": "",
       "home_tracks": [],
-      "featured_vehicles": [],
-      "manual_achievement_codes": [],
+      "featured_vehicles": [
+        {
+          "vehicle_model_code": "veh_eg_sports",
+          "name": "EG Sports",
+          "track_count": 0,
+          "run_count": 0
+        },
+        {
+          "vehicle_model_code": "veh_eg6_civic",
+          "name": "EG6 (civic)",
+          "track_count": 4,
+          "run_count": 18
+        },
+        {
+          "vehicle_model_code": "veh_ek_miracle",
+          "name": "EK Miracle",
+          "track_count": 1,
+          "run_count": 1
+        },
+        {
+          "vehicle_model_code": "veh_ek9_civic_type_r",
+          "name": "EK9 (Civic Type-R)",
+          "track_count": 1,
+          "run_count": 5
+        }
+      ],
+      "manual_achievement_codes": [
+        "EVENT_REGULAR"
+      ],
       "achievement_stats": {
         "distinct_vehicle_models": 11,
         "distinct_tracks": 11,
@@ -25831,6 +25858,124 @@
           "peer_label": "AdvancedKart",
           "verified": false,
           "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        }
+      ],
+      "history": []
+    },
+    {
+      "player_id": "plr_yang_2",
+      "title": "Yang頝臭犖",
+      "team_name": "",
+      "primary_team_id": "",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 1,
+        "distinct_tracks": 1,
+        "max_route_attempts": 1,
+        "tr_count": 0,
+        "cr_count": 0
+      },
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "Yang頝臭犖",
+        "title_en": "Yang頝臭犖",
+        "subtitle_zh": "VR Racing Club Driver",
+        "subtitle_en": "VR Racing Club Driver",
+        "tone": 2
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 0,
+        "PR": 1
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 FD3S (RX7)",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 高速",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "FD3S (RX7)",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "高速",
+          "value": 1
+        },
+        {
+          "label": "髮夾彎",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1070",
+          "rank": 1,
+          "route_label_zh": "Kamidomarizaka / Uphill",
+          "route_label_en": "Kamidomarizaka / Uphill",
+          "player_display_name": "Yang頝臭犖",
+          "player_id": "plr_yang_2",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "lap_time_ms": 289044,
+          "lap_time_text": "04:49.044",
+          "delta_to_best_text": "+179.300",
+          "platform": "pcvr",
+          "record_date": "2026-07-26",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1530591540953612452",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",

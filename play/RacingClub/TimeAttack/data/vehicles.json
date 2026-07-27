@@ -1562,7 +1562,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "69"
+          "value": "70"
         },
         {
           "label_zh": "已驗證",
@@ -1613,7 +1613,7 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)",
-          "value": 22
+          "value": 23
         },
         {
           "label": "FD3S (RX7)(TT)",
@@ -2291,7 +2291,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 64
+          "value": 65
         },
         {
           "label": "公路",
@@ -2310,7 +2310,7 @@
         {
           "variant_code": "veh_fd3s_rx7",
           "variant_name": "FD3S (RX7)",
-          "record_count": 22,
+          "record_count": 23,
           "record_rows": [
             {
               "record_id": "rec_0888",
@@ -2550,8 +2550,35 @@
               "badge_tone": "cr"
             },
             {
-              "record_id": "rec_0384",
+              "record_id": "rec_1070",
               "rank": 10,
+              "route_label_zh": "Kamidomarizaka / Uphill",
+              "route_label_en": "Kamidomarizaka / Uphill",
+              "player_display_name": "Yang頝臭犖",
+              "player_id": "plr_yang_2",
+              "vehicle_model_name": "FD3S (RX7)",
+              "vehicle_model_code": "veh_fd3s_rx7",
+              "lap_time_ms": 289044,
+              "lap_time_text": "04:49.044",
+              "delta_to_best_text": "+179.300",
+              "platform": "pcvr",
+              "record_date": "2026-07-26",
+              "track_env": "山道",
+              "track_tags": [
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "Yang頝臭犖",
+              "verified": false,
+              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1530591540953612452",
+              "badge_code": "PR",
+              "badge_label_zh": "個人紀錄",
+              "badge_label_en": "Personal Record",
+              "badge_tone": "pr"
+            },
+            {
+              "record_id": "rec_0384",
+              "rank": 11,
               "route_label_zh": "箱根山(蘆之湖skyline) / Inbound",
               "route_label_en": "Mt.Hakone / Inbound",
               "player_display_name": "StarRiver Arts",
@@ -2577,7 +2604,7 @@
             },
             {
               "record_id": "rec_0721",
-              "rank": 11,
+              "rank": 12,
               "route_label_zh": "東京環狀 C1 Runner / Outer",
               "route_label_en": "C1 Runner / Outer",
               "player_display_name": "StarRiver Arts",

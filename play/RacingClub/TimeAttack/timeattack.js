@@ -1203,7 +1203,13 @@ const playerAchievementCatalog = (card) => {
   return catalog;
 };
 
-const renderAchievementBlock = (item, locked = false) => `<span class="ta-achievement-medal is-${item.tone}${locked ? " is-locked" : ""}">
+const achievementTooltip = (item, locked) => {
+  const stateZh = item.detailZh === "人工授予" ? "由管理員人工授予" : (locked ? `尚未解鎖，目前進度 ${item.current} / ${item.target}` : `已解鎖，目前數值 ${item.current}`);
+  const stateEn = item.detailEn === "Manually awarded" ? "Manually awarded by an administrator" : (locked ? `Locked: ${item.current} / ${item.target}` : `Unlocked: current value ${item.current}`);
+  return `${item.zh} — ${stateZh} / ${item.en} — ${stateEn}`;
+};
+
+const renderAchievementBlock = (item, locked = false) => `<span class="ta-achievement-medal is-${item.tone}${locked ? " is-locked" : ""}" tabindex="0" aria-label="${escapeHtml(achievementTooltip(item, locked))}" data-achievement-tooltip="${escapeHtml(achievementTooltip(item, locked))}">
   <i aria-hidden="true">${escapeHtml(item.code.split("_")[0].slice(0, 2))}</i><span><strong>${renderBilingual(item.zh, item.en, item.en)}</strong><small>${renderBilingual(item.detailZh, item.detailEn, item.detailEn)}</small></span>
 </span>`;
 

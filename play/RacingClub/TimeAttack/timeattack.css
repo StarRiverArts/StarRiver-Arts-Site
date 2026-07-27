@@ -1720,8 +1720,8 @@ body.timeattack-page {
 .ta-event-badge-copy small { color:var(--ta-text-faint); font:10px var(--font-mono); }
 .ta-profile-stamp.is-event-empty,.ta-profile-stamp.is-event-more { background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); color:var(--ta-text-faint); }
 .ta-achievement-panel { margin-top: 18px; }
-.ta-achievement-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-.ta-achievement-medal { align-items:center; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); border-radius:14px; display:inline-flex; gap:10px; padding:9px 12px; }
+.ta-achievement-grid { display:grid; gap:10px; grid-template-columns:1fr; margin-top:10px; }
+.ta-achievement-medal { align-items:center; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); border-radius:14px; display:flex; gap:10px; padding:9px 12px; position:relative; width:100%; }
 .ta-achievement-medal i { align-items:center; background:rgba(239,217,91,.14); border:1px solid rgba(239,217,91,.4); border-radius:50%; color:var(--pt-lamp); display:flex; flex:0 0 34px; font-style:normal; height:34px; justify-content:center; }
 .ta-achievement-medal span { display:grid; }
 .ta-achievement-medal strong { font-size:12px; }
@@ -1732,7 +1732,7 @@ body.timeattack-page {
 .ta-profile-preferences > div { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:12px; }
 .ta-profile-preferences small { color:var(--ta-text-faint); font:10px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; }
 .ta-tag-chip.is-home { background:rgba(240,169,76,.14); border:1px solid rgba(240,169,76,.32); color:#ffd9a6; text-decoration:none; }
-.ta-achievement-catalog { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); }
+.ta-achievement-catalog { display:grid; gap:10px; grid-template-columns:1fr; }
 .ta-achievement-catalog .ta-achievement-medal { width:100%; }
 .ta-achievement-medal.is-event i { background:#d97932; border-color:#f2a35f; color:#1e1008; }
 .ta-achievement-medal.is-competition i { background:#efd95b; border-color:#fff0a1; color:#18170d; }
@@ -1741,10 +1741,14 @@ body.timeattack-page {
 .ta-achievement-medal.is-mastery i { background:#8b78e6; border-color:#c2b6ff; color:#120d27; }
 .ta-achievement-medal.is-track i { background:#58a6d8; border-color:#9bd4f7; color:#091924; }
 .ta-achievement-medal.is-manual i { background:#bd72d9; border-color:#e6a8fb; color:#210b29; }
-.ta-achievement-medal.is-locked { filter:grayscale(1); opacity:.34; }
+.ta-achievement-medal.is-locked { border-style:dashed; }
+.ta-achievement-medal.is-locked > i,.ta-achievement-medal.is-locked > span { filter:grayscale(1); opacity:.34; }
 .ta-achievement-medal.is-locked i { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16); color:var(--ta-text-faint); }
+.ta-achievement-medal[data-achievement-tooltip]::after { background:#05080d; border:1px solid rgba(255,255,255,.18); border-radius:9px; bottom:calc(100% + 8px); box-shadow:0 10px 28px rgba(0,0,0,.42); color:#eef3f7; content:attr(data-achievement-tooltip); font:11px/1.5 var(--font-mono); left:12px; max-width:min(420px,calc(100vw - 48px)); opacity:0; padding:8px 10px; pointer-events:none; position:absolute; transform:translateY(4px); transition:opacity .15s ease,transform .15s ease; visibility:hidden; white-space:normal; width:max-content; z-index:20; }
+.ta-achievement-medal[data-achievement-tooltip]:hover::after,.ta-achievement-medal[data-achievement-tooltip]:focus-visible::after { opacity:1; transform:translateY(0); visibility:visible; }
+.ta-achievement-medal:focus-visible { outline:2px solid var(--pt-lamp); outline-offset:2px; }
 @media (max-width:620px) { .ta-player-banner-copy { bottom:18px; left:18px; max-width:calc(100% - 36px); } .ta-player-banner-id { display:none; } .ta-event-badge { max-width:100%; width:100%; } }
-@media (max-width:620px) { .ta-profile-preferences { grid-template-columns:1fr; } .ta-achievement-catalog { grid-template-columns:1fr; } }
+@media (max-width:620px) { .ta-profile-preferences { grid-template-columns:1fr; } }
 
 .ta-bracket-module {
   overflow: visible;
