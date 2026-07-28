@@ -152,32 +152,32 @@
 - [x] Toolkit 未來可能公開販售或開源；目前公開文案只描述為內部使用，不公開未定發行方式。
 - [x] 投稿與驗證目前只公開說明「在 Discord 群組內投稿」，不公開更多未定流程。
 
-### 7.2 為什麼仍需要 Racing 上位入口
+### 7.2 已確認遷移策略
 
-Time Attack 是「計時紀錄模組」，但 Racing 的定義更廣，還包含世界、路線、玩家、車輛、隊伍、活動與未來投稿／驗證。若首頁的 Racing 永久直接指向 Time Attack，使用者會把 Racing 誤認為排行榜本身，後續 Events、投稿或其他資料頁也沒有清楚的上位入口。
+- [x] 採用方案 A：先建立 Racing 上位入口，保留既有 Time Attack 模組路徑。
+- [x] `/play/racing/` 作為目前建議的 Racing landing page 路徑。
+- [x] Time Attack 短期保留 `/play/RacingClub/TimeAttack/`。
+- [x] Racing landing page 先連到 Time Attack、Players、Vehicles、Events 等現有頁。
+- [x] 未來目標為將整組 Racing／Time Attack 相關頁面遷移到統一的 Racing 路徑。
+- [x] 未來整組搬遷必須作為獨立 migration 執行，不得和一般內容更新混在一起。
 
-但建立 Racing 入口不等於立刻搬動 Time Attack：
+### 7.3 未來整組搬遷的必要條件
 
-- 先建立上位入口，可在不破壞既有連結與資料契約的前提下改善 IA。
-- Time Attack 舊路徑已有外部連結、資料載入與相容性價值，不應只為名稱整齊而搬動。
-- 若整組搬去新的 Racing 路徑，需要處理 redirect、相對路徑、JS fetch、資料端點、canonical URL、索引與外部書籤，成本與風險顯著較高。
+正式遷移前必須完成：
 
-### 7.3 待決策方案
+- [ ] 盤點所有 HTML 相對連結。
+- [ ] 盤點 JavaScript `fetch` 與 JSON 資料端點。
+- [ ] 盤點 canonical URL、sitemap、search、LLM index 與外部書籤。
+- [ ] 盤點 Discord Bot、資料產生器與跨 repo 工具是否依賴舊路徑。
+- [ ] 設計舊網址 redirect／adapter。
+- [ ] 驗證 query parameters、IDs、資料格式與外部契約不變。
+- [ ] 完成桌面、手機與資料載入回歸測試。
 
-**方案 A：上位入口＋保留既有模組路徑（建議）**
+### 7.4 為什麼採分階段處理
 
-- 新增 `/play/racing/` 作為 Racing landing page。
-- Time Attack 保留 `/play/RacingClub/TimeAttack/`。
-- Racing landing page 連到 Time Attack、Players、Vehicles、Events 等現有頁。
-- 未來若要遷移，再以 redirect／adapter 分階段處理。
+Time Attack 是計時紀錄模組，Racing 則是包含世界、路線、玩家、車輛、隊伍、活動與未來投稿／驗證的上位系統。先建立 Racing 入口，可以立刻修正 IA，且不破壞既有可用頁面與資料契約。
 
-**方案 B：整組遷移到 Racing**
-
-- 將 Time Attack 與相關頁面移至 `/play/racing/...`。
-- 必須同時完成完整路徑盤點、redirect、資料 fetch 與外部契約測試。
-- 只有在確定要做路徑重構，而且有足夠測試時間時才建議採用。
-
-目前尚未決定 A 或 B。Agent 不得自行搬動整組路徑。
+長期整組搬到 Racing 路徑仍是目標，但必須在依賴盤點、redirect 與回歸測試齊備後執行，避免為了路徑整齊而造成既有網站、資料工具或外部連結中斷。
 
 ## 8. ProjectT 首頁 P13／P14：部分已決策
 
@@ -244,12 +244,11 @@ Time Attack 是「計時紀錄模組」，但 Racing 的定義更廣，還包含
 - [ ] 兩篇操作指南分別對應哪兩個系統，以及各自的操作流程。
 - [ ] 第三篇文章要以「賽車社群概述」與「推薦世界」合併為一篇，或拆成兩篇。
 - [ ] 第一篇實際發布文章與作者／觀點來源。
-- [ ] Racing 採方案 A（上位入口＋保留舊路徑）或方案 B（整組搬遷）。
-- [ ] `/play/racing/` 是否作為正式 Racing URL。
-- [ ] 首頁 Racing 卡片何時停止直接連 Time Attack。
+- [ ] 首頁 Racing 卡片何時停止直接連 Time Attack，改連 `/play/racing/`。
 - [ ] VRRCTW 詳細資訊與解除 `noindex` 條件。
 - [ ] 日文未來恢復按鈕的條件。
 - [ ] World Page 與 Studio project page 的 URL／資料共用方式。
+- [ ] 未來整組 Racing migration 的執行時機與相容期長度。
 
 ## 15. 禁止事項
 
@@ -257,5 +256,5 @@ Time Attack 是「計時紀錄模組」，但 Racing 的定義更廣，還包含
 - [ ] 不得把 ARTC 在現階段誤列為正式公開 ProjectT World。
 - [ ] 不得把九彎十八拐 CVS／Sacc 拆成兩個 ProjectT World。
 - [ ] 不得把外部世界誤標為 ProjectT World。
-- [ ] 不得自行搬動 Time Attack 路徑或資料契約。
+- [ ] 不得在 migration 計畫完成前自行搬動 Time Attack 路徑或資料契約。
 - [ ] 不得因日文按鈕隱藏而誤刪所有可保留日文內容。
