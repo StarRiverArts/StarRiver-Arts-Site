@@ -76,6 +76,10 @@ PAGE_OVERRIDES = {
         "description": "ProjectT 以臺灣道路與地景創作為核心，連結 VRChat 世界、Racing Club 與 Time Attack。",
         "tags": ["ProjectT", "Taiwan mountain road", "VRChat", "Racing Club"],
     },
+    "play/RacingClub/index.html": {
+        "description": "VRRCTW 是中文圈主要的 VRChat 賽車社群，提供賽車活動、日常車聚、Time Attack 紀錄與駕駛技術交流。",
+        "tags": ["VRRCTW", "VRChat racing community", "Racing Club", "Time Attack"],
+    },
     "projects/9turns.html": {
         "description": "ProjectT 九彎十八拐：以臺 9 線石牌至頭城段為基礎的 VRChat 道路地景作品。",
         "tags": ["ProjectT", "Taiwan road", "VRChat", "9 Turns"],
