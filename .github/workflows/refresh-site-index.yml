@@ -1,7 +1,29 @@
-name: Refresh site discovery indexes
+Exit code: 0
+Wall time: 0.3 seconds
+Output:
+name: Refresh discovery indexes
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "**/*.md"
+      - "**/*.json"
+      - "tools/build_agent_index.py"
+      - "tools/build_site_index.py"
+      - "agent-index.config.json"
+      - ".github/workflows/refresh-site-index.yml"
+  push:
+    branches: ["**"]
+    paths:
+      - "**/*.html"
+      - "**/*.md"
+      - "**/*.json"
+      - "tools/build_agent_index.py"
+      - "tools/build_site_index.py"
+      - "agent-index.config.json"
+      - ".github/workflows/refresh-site-index.yml"
 
 permissions:
   contents: write
@@ -10,10 +32,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the PR branch
+      - name: Check out source
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,10 +41,13 @@ jobs:
           python-version: "3.12"
 
       - name: Rebuild discovery indexes
-        run: python tools/build_site_index.py
+        run: |
+          python tools/build_agent_index.py
+          python tools/build_site_index.py
 
       - name: Validate generated content
         run: |
+          python tools/build_agent_index.py --check
           python - <<'PY'
           from pathlib import Path
 
@@ -35,7 +58,7 @@ jobs:
               Path("sitemap.xml"),
               Path("llms.txt"),
           ]
-          forbidden = ["數位孿生", "digital twin", "trilingual", "designed with claude"]
+          forbidden = ["?訾?摮輻?", "digital twin", "trilingual", "designed with claude"]
           for path in outputs:
               text = path.read_text(encoding="utf-8").casefold()
               matches = [term for term in forbidden if term.casefold() in text]
@@ -44,14 +67,20 @@ jobs:
           PY
           git diff --check
 
-      - name: Commit generated outputs
+      - name: Require current indexes in pull requests
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code
+
+      - name: Commit refreshed indexes
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site-index.json search-index.json llm-index.json sitemap.xml llms.txt
+          git add .agent-index site-index.json search-index.json llm-index.json sitemap.xml llms.txt
           if git diff --cached --quiet; then
             echo "Indexes are already current."
             exit 0
           fi
-          git commit -m "build: refresh site discovery indexes [skip ci]"
+          git commit -m "build: refresh discovery indexes [skip ci]"
           git push
+

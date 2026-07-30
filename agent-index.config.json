@@ -1,0 +1,103 @@
+Exit code: 0
+Wall time: 0.3 seconds
+Output:
+{
+  "project_name": "StarRiver Arts Site",
+  "project_purpose": "Public static site for Studio, ProjectT, VR Racing Club Time Attack, and Museum.",
+  "output_dir": ".agent-index",
+  "exclude_dirs": [
+    ".git",
+    ".agent-index",
+    "node_modules",
+    "__pycache__",
+    "downloads_Museum"
+  ],
+  "source_extensions": [
+    ".css",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".py",
+    ".ts",
+    ".xml",
+    ".yaml",
+    ".yml"
+  ],
+  "max_file_bytes": 2000000,
+  "reading_order": [
+    ".agent-index/context.md",
+    "docs/SSOT.md",
+    "docs/CONTENT_SSOT.md",
+    "docs/REQUIREMENTS.md"
+  ],
+  "authoritative_docs": [
+    {
+      "path": "docs/SSOT.md",
+      "purpose": "Implementation authority and current technical decisions."
+    },
+    {
+      "path": "docs/CONTENT_SSOT.md",
+      "purpose": "Public positioning, content boundaries, and publication gates."
+    },
+    {
+      "path": "docs/REQUIREMENTS.md",
+      "purpose": "Product requirements and acceptance direction."
+    }
+  ],
+  "modules": [
+    {
+      "name": "Site shell and Studio",
+      "path": "index.html, studio.html, projects/",
+      "purpose": "Brand entry, portfolio, and project pages.",
+      "read_first": "docs/CONTENT_SSOT.md"
+    },
+    {
+      "name": "ProjectT",
+      "path": "play/",
+      "purpose": "ProjectT worlds, community, racing, and articles.",
+      "read_first": "docs/project-t/"
+    },
+    {
+      "name": "Time Attack",
+      "path": "play/RacingClub/TimeAttack/",
+      "purpose": "Racing records, catalog pages, client UI, and generated data.",
+      "read_first": "play/RacingClub/TimeAttack/data/manifest.json"
+    },
+    {
+      "name": "Museum",
+      "path": "museum/",
+      "purpose": "Museum pages, web exhibitions, and interactive studies.",
+      "read_first": "docs/CONTENT_SSOT.md"
+    },
+    {
+      "name": "Discovery builders",
+      "path": "tools/",
+      "purpose": "Deterministic builders for Agent, search-engine, and external-LLM indexes.",
+      "read_first": "docs/INDEXING.md"
+    }
+  ],
+  "generated_files": [
+    {
+      "path": ".agent-index/context.md",
+      "audience": "Repository coding agents; low-token first read."
+    },
+    {
+      "path": ".agent-index/repo-map.json",
+      "audience": "Repository agents and deterministic tooling."
+    },
+    {
+      "path": "site-index.json, search-index.json, sitemap.xml",
+      "audience": "Search engines and public site search."
+    },
+    {
+      "path": "llms.txt, llm-index.json",
+      "audience": "External LLM crawlers and AI search systems."
+    }
+  ],
+  "commands": {
+    "build": "python tools/build_agent_index.py && python tools/build_site_index.py",
+    "check": "python tools/build_agent_index.py --check && python tools/build_site_index.py && git diff --exit-code"
+  }
+}
+
