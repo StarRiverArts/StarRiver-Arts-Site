@@ -1,9 +1,15 @@
 # StarRiverSite Changelog
 
+## 2026-07-30
+
+- Added the approved `StarRiver Social Hub` page plan under `docs/site/social-hub-page-plan-v0.1.md`.
+- Defined Social Hub as a cross-platform intermediary page rather than a fourth content brand, while preserving Studio / ProjectT / Museum as the three primary entrances.
+- Planned homepage support for the new page: a visible downward-scroll cue, partial exposure of the following section, a small recent-content layer, and a concise Connect summary linking to Social Hub.
+- Recorded first-version scope, platform roles, information architecture, acceptance criteria, maintenance boundaries, and explicit non-goals. No public page or generated index was modified.
+
 ## 2026-07-27
 
 - Rebuilt the ProjectT homepage from the approved copy baseline: updated SEO and Hero identity, established ProjectT Worlds / VRRCTW / Racing / VRChat Racing Toolkit as the four core systems, placed Articles as the knowledge layer, and restored mobile access to the primary navigation.
-
 - Added a Discord submission entry to the Racing Club page without exposing internal command details.
 
 ## 2026-07-17
@@ -47,7 +53,6 @@
 - Hid Time Attack verification UI in the presentation layer while preserving all generated JSON fields and data paths.
 - Preserved existing page URLs, Time Attack endpoints, IDs, query parameters, and cross-project data contracts.
 - Updated the index generator source; generated discovery files still require a deliberate regeneration pass.
-
 
 ## 2026-07-04
 
