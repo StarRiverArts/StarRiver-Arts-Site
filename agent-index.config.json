@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.3 seconds
-Output:
 {
   "project_name": "StarRiver Arts Site",
   "project_purpose": "Public static site for Studio, ProjectT, VR Racing Club Time Attack, and Museum.",
@@ -96,8 +93,9 @@ Output:
     }
   ],
   "commands": {
-    "build": "python tools/build_agent_index.py && python tools/build_site_index.py",
-    "check": "python tools/build_agent_index.py --check && python tools/build_site_index.py && git diff --exit-code"
+    "build": "python tools/build_site_index.py && python tools/build_agent_index.py",
+    "check": "python tools/build_site_index.py && python tools/build_agent_index.py --check && git diff --exit-code"
   }
 }
+
 
