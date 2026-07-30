@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.3 seconds
-Output:
 #!/usr/bin/env python3
 """Build deterministic, low-token repository indexes for coding agents."""
 
@@ -209,4 +206,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
