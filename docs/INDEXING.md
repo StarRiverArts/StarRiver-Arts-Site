@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.3 seconds
-Output:
 # Index architecture and maintenance
 
 The project maintains three separate discovery planes from approved repository sources. They share deterministic builders but do not share the same disclosure boundary.
@@ -54,8 +51,8 @@ Run both builders after changes to:
 Commands:
 
 ```bash
-python tools/build_agent_index.py
 python tools/build_site_index.py
+python tools/build_agent_index.py
 ```
 
 Pull requests must fail when committed generated files are stale. Pushes to the default branch may rebuild and commit deterministic outputs automatically.
@@ -80,4 +77,5 @@ What requires project judgment:
 - pages excluded from search and external LLM discovery.
 
 Therefore, a universal zero-configuration index is unsafe. The supported pattern is a universal deterministic builder plus a small reviewed configuration file.
+
 
