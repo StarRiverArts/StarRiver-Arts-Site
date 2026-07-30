@@ -1,21 +1,11 @@
-# Public discovery is allowed for conventional search engines and external AI search.
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-# GPTBot is separate from ChatGPT search. It is allowed here to maximize public reach.
-User-agent: GPTBot
-Allow: /
-
 User-agent: *
 Allow: /
 
 Sitemap: https://starriverarts.github.io/StarRiver-Arts-Site/sitemap.xml
 
-# Machine-readable public discovery files:
-# External LLM guide: https://starriverarts.github.io/StarRiver-Arts-Site/llms.txt
-# External LLM JSON index: https://starriverarts.github.io/StarRiver-Arts-Site/llm-index.json
-# Canonical public page inventory: https://starriverarts.github.io/StarRiver-Arts-Site/site-index.json
-# Browser/client search cache: https://starriverarts.github.io/StarRiver-Arts-Site/search-index.json
+# Machine-readable discovery files for search, browsers, and LLM tools:
+# LLM guide: https://starriverarts.github.io/StarRiver-Arts-Site/llms.txt
+# LLM JSON index: https://starriverarts.github.io/StarRiver-Arts-Site/llm-index.json
+# Site JSON index: https://starriverarts.github.io/StarRiver-Arts-Site/site-index.json
+# Browser/client search index: https://starriverarts.github.io/StarRiver-Arts-Site/search-index.json
+
