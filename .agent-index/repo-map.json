@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "project": "StarRiver Arts Site",
+  "purpose": "Public static site for Studio, ProjectT, VR Racing Club Time Attack, and Museum.",
+  "source_digest": "a179c629f95aface91fec427aa456c4e8b0d4640c5297cda071e4087bdb462bb",
+  "source_file_count": 402,
+  "reading_order": [
+    ".agent-index/context.md",
+    "docs/SSOT.md",
+    "docs/CONTENT_SSOT.md",
+    "docs/REQUIREMENTS.md"
+  ],
+  "authoritative_docs": [
+    {
+      "path": "docs/SSOT.md",
+      "purpose": "Implementation authority and current technical decisions.",
+      "headings": [
+        "StarRiverSite SSOT",
+        "Repo Scope",
+        "Authority Boundary",
+        "Data Boundary",
+        "Document Ownership Rules",
+        "Known Baseline State"
+      ]
+    },
+    {
+      "path": "docs/CONTENT_SSOT.md",
+      "purpose": "Public positioning, content boundaries, and publication gates.",
+      "headings": [
+        "StarRiverSite Content SSOT",
+        "Authority Order",
+        "Review Principle",
+        "AI Placeholder and Semantic Contamination Policy",
+        "Public-release content gate",
+        "Site Positioning",
+        "Terminology and Public Languages",
+        "Primary Entrances",
+        "Studio",
+        "ProjectT",
+        "Positioning",
+        "Brand name and Hero identity"
+      ]
+    },
+    {
+      "path": "docs/REQUIREMENTS.md",
+      "purpose": "Product requirements and acceptance direction.",
+      "headings": [
+        "StarRiverSite Requirements",
+        "Repo-Level Product Requirements",
+        "Governance Requirements",
+        "Current Authoritative Inputs",
+        "Current Gaps"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "name": "Site shell and Studio",
+      "path": "index.html, studio.html, projects/",
+      "purpose": "Brand entry, portfolio, and project pages.",
+      "read_first": "docs/CONTENT_SSOT.md"
+    },
+    {
+      "name": "ProjectT",
+      "path": "play/",
+      "purpose": "ProjectT worlds, community, racing, and articles.",
+      "read_first": "docs/project-t/"
+    },
+    {
+      "name": "Time Attack",
+      "path": "play/RacingClub/TimeAttack/",
+      "purpose": "Racing records, catalog pages, client UI, and generated data.",
+      "read_first": "play/RacingClub/TimeAttack/data/manifest.json"
+    },
+    {
+      "name": "Museum",
+      "path": "museum/",
+      "purpose": "Museum pages, web exhibitions, and interactive studies.",
+      "read_first": "docs/CONTENT_SSOT.md"
+    },
+    {
+      "name": "Discovery builders",
+      "path": "tools/",
+      "purpose": "Deterministic builders for Agent, search-engine, and external-LLM indexes.",
+      "read_first": "docs/INDEXING.md"
+    }
+  ],
+  "generated_files": [
+    {
+      "path": ".agent-index/context.md",
+      "audience": "Repository coding agents; low-token first read."
+    },
+    {
+      "path": ".agent-index/repo-map.json",
+      "audience": "Repository agents and deterministic tooling."
+    },
+    {
+      "path": "site-index.json, search-index.json, sitemap.xml",
+      "audience": "Search engines and public site search."
+    },
+    {
+      "path": "llms.txt, llm-index.json",
+      "audience": "External LLM crawlers and AI search systems."
+    }
+  ],
+  "commands": {
+    "build": "python tools/build_site_index.py && python tools/build_agent_index.py",
+    "check": "python tools/build_site_index.py && python tools/build_agent_index.py --check && git diff --exit-code"
+  }
+}
