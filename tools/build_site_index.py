@@ -52,6 +52,11 @@ DATA_ENDPOINTS = [
     "play/RacingClub/TimeAttack/data/event-editorial.json",
     "play/RacingClub/TimeAttack/data/catalog.json",
     "play/RacingClub/TimeAttack/data/trackmap.json",
+    "play/RacingClub/TimeAttack/data/proofs.json",
+    "play/RacingClub/TimeAttack/vrc/index.json",
+    "play/RacingClub/TimeAttack/vrc/players.json",
+    "play/RacingClub/TimeAttack/vrc/teams.json",
+    "play/RacingClub/TimeAttack/vrc/vehicles.json",
 ]
 
 TAG_HINTS = {

@@ -1,8 +1,8 @@
 {
-  "title_zh": "資訊",
-  "title_en": "Info",
-  "description_zh": "本站的核心指標、builder 狀態與資料模型說明集中在這頁，讓各分析頁專心呈現紀錄。",
-  "description_en": "Core metrics, builder status, and the data-model notes live here so the analysis pages can stay focused on records.",
+  "title_zh": "VRRCTW 與站台資訊",
+  "title_en": "VRRCTW & Site Info",
+  "description_zh": "認識 VRRCTW、加入社群、投稿成績、了解收錄規則與資料更新狀態。",
+  "description_en": "About VRRCTW, joining the community, submitting runs, record eligibility, and data freshness.",
   "build_state": "live",
   "source_label": "CodeTools/StarRiverSite/play/RacingClub/TimeAttack/ta_data.sqlite",
   "sidebar_zh": [
@@ -60,6 +60,60 @@
     }
   ],
   "sections": [
+    {
+      "label_zh": "關於社群",
+      "label_en": "About",
+      "title_zh": "VRC 賽車俱樂部（VRRCTW）",
+      "title_en": "VR Racing Club Taiwan (VRRCTW)",
+      "body_zh": "VRRCTW 是以 VRChat 賽車、夜跑、計時挑戰與社群活動為核心的玩家社群；Time Attack 資料站整理俱樂部的公開計時與活動資料。",
+      "body_en": "VRRCTW is a player community centered on VRChat racing, night runs, time attacks, and club events. This site maintains its public timing and event records.",
+      "items_zh": [
+        "俱樂部活動與賽事",
+        "玩家、車隊、車輛與賽道資料",
+        "公開排行榜與活動結果"
+      ],
+      "items_en": [
+        "Club sessions and races",
+        "Players, teams, vehicles, and tracks",
+        "Public leaderboards and event results"
+      ]
+    },
+    {
+      "label_zh": "加入與投稿",
+      "label_en": "Join & Submit",
+      "title_zh": "投稿計時成績必須先加入俱樂部 Discord",
+      "title_en": "Join the club Discord before submitting a timed run",
+      "body_zh": "請在 Discord 依指定格式提交玩家名稱、賽道世界、路線、車輛、圈速與可用的截圖、影片或原始計時訊息。需要更正玩家名稱、合併資料或回報錯誤時，也使用同一入口。",
+      "body_en": "Submit your player name, track world, route, vehicle, lap time, and available screenshot, video, or original timing message through Discord. Use the same entry point for corrections and data issues.",
+      "items_zh": [
+        "加入 Discord",
+        "依頻道格式投稿",
+        "管理員確認後進入資料站"
+      ],
+      "items_en": [
+        "Join Discord",
+        "Use the channel submission format",
+        "Records appear after organizer review"
+      ]
+    },
+    {
+      "label_zh": "收錄規則",
+      "label_en": "Eligibility",
+      "title_zh": "有效紀錄與驗證標記",
+      "title_en": "Valid runs and verification",
+      "body_zh": "有效紀錄是格式與必要欄位可進入資料站的紀錄；已驗證標記代表另有可追溯證明。未驗證不等於無效，但後續更正或審核可能調整公開內容。",
+      "body_en": "Valid runs meet the site's required record fields. A verified mark means traceable evidence is available. Unverified does not mean invalid, but later review or correction may change the public record.",
+      "items_zh": [
+        "TR：路線最快",
+        "CR：指定車輛最快",
+        "PR：玩家個人最快"
+      ],
+      "items_en": [
+        "TR: route record",
+        "CR: vehicle record",
+        "PR: personal record"
+      ]
+    },
     {
       "label_zh": "資料流",
       "label_en": "Data Flow",

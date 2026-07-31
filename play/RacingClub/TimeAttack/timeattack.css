@@ -1688,6 +1688,95 @@ body.timeattack-page {
   min-height: 68px;
 }
 
+.ta-global-search {
+  background: var(--ta-card);
+  border: 1px solid var(--ta-border);
+  border-radius: 16px;
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 24px;
+  padding: 16px;
+  position: relative;
+}
+
+.ta-global-search label {
+  color: var(--ta-text-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ta-global-search input {
+  background: var(--ta-card-strong);
+  border: 1px solid var(--ta-border-strong);
+  border-radius: 10px;
+  color: var(--ta-text);
+  font: inherit;
+  min-height: 46px;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.ta-global-search-results {
+  background: var(--ta-card-strong);
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  display: grid;
+  left: 16px;
+  max-height: 420px;
+  overflow-y: auto;
+  position: absolute;
+  right: 16px;
+  top: calc(100% - 8px);
+  z-index: 30;
+}
+
+.ta-global-search-results a {
+  align-items: baseline;
+  color: var(--ta-text);
+  display: grid;
+  gap: 4px 12px;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  padding: 11px 14px;
+  text-decoration: none;
+}
+
+.ta-global-search-results a + a {
+  border-top: 1px solid var(--ta-border);
+}
+
+.ta-global-search-results a:hover,
+.ta-global-search-results a:focus-visible {
+  background: rgba(239, 217, 91, 0.1);
+}
+
+.ta-global-search-results small,
+.ta-global-search-results span {
+  color: var(--ta-text-faint);
+}
+
+.ta-global-search-results p {
+  margin: 0;
+  padding: 14px;
+}
+
+.ta-freshness {
+  color: var(--ta-text-soft);
+  display: grid;
+  font-size: 12px;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.ta-freshness.is-stale {
+  color: var(--ta-accent);
+}
+
+.ta-community-footer a {
+  color: var(--ta-accent);
+}
+
 .ta-team-chip-link.is-primary .ta-tag-chip.is-team {
   background: rgba(240, 169, 76, 0.24);
   border-color: rgba(240, 169, 76, 0.72);

@@ -20,6 +20,7 @@ const ENABLE_HISTORY_CHARTS = false;
 const SHOW_VERIFICATION = false;
 let TA_TEAMS = [];
 let TA_EDITORIAL_EVENTS = [];
+let TA_PROOFS = {};
 
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -44,6 +45,31 @@ const taPlayerHref = (row) => (row && row.player_id ? `./player.html?id=${encode
 const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}` : "");
 const taEntityLink = (name, href) =>
   href ? `<a class="ta-entity-link" href="${href}">${escapeHtml(name || "")}</a>` : escapeHtml(name || "");
+
+const taProofHref = (row) => {
+  if (!row) return "";
+  if (row.proof_ref && TA_PROOFS[row.proof_ref]?.href) return TA_PROOFS[row.proof_ref].href;
+  return /^https?:\/\//.test(row.proof_text || "") ? row.proof_text : "";
+};
+
+const renderProofBadge = (row, withLabel = false) => {
+  if (!SHOW_VERIFICATION || !row?.verified) return "";
+  const href = taProofHref(row);
+  const label = withLabel
+    ? `${renderBilingual("已驗證", "Verified", "検証済み")}`
+    : "✓";
+  return href
+    ? `<a class="ta-verified" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="Open verification evidence">✓ ${withLabel ? label : ""}</a>`
+    : `<span class="ta-verified">✓ ${withLabel ? label : ""}</span>`;
+};
+
+const renderProofNote = (row) => {
+  const href = taProofHref(row);
+  if (href) {
+    return `<a class="ta-entity-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${renderBilingual("查看投稿證明", "Open submission evidence", "投稿証明を開く")}</a>`;
+  }
+  return escapeHtml(row?.submission_note || row?.proof_text || "");
+};
 
 const renderCardLink = (href, labelZh, labelEn) => {
   if (!href) {
@@ -306,7 +332,7 @@ const renderTrackLeaderboardTable = (rows, view) => {
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
-                        ${SHOW_VERIFICATION && row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
+                        ${renderProofBadge(row, true)}
                       </div>
                     </div>
                   </td>
@@ -1298,7 +1324,7 @@ const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => 
                       <div class="ta-record-meta">
                         <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
                         <span>${escapeHtml(row.record_date || "")}</span>
-                        ${SHOW_VERIFICATION && row.verified ? `<span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓ <span class="zh">已驗證</span><span class="en">Verified</span></span>` : ""}
+                        ${renderProofBadge(row, true)}
                       </div>
                       ${renderRouteTagChips(row)}
                     </div>
@@ -2024,7 +2050,7 @@ const renderReviewCards = (cards) => {
                 <span class="en">${escapeHtml(card.player_display_name || "")} / ${escapeHtml(card.vehicle_display_name || "")} / ${escapeHtml(card.event_name || "")}</span>
               </p>
               <div class="ta-summary-value ta-summary-value-small">${escapeHtml(card.lap_time_text || "")}</div>
-              <p class="ta-meta">${escapeHtml(card.submission_note || "")}</p>
+              <p class="ta-meta">${renderProofNote(card)}</p>
             </article>
           `,
         )
@@ -2167,7 +2193,7 @@ const renderRecentRuns = (rows) => {
                   <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
                   <td>${taEntityLink(row.player_display_name, taPlayerHref(row))}</td>
                   <td class="ta-record-peer">${taEntityLink(row.vehicle_model_name, taVehicleHref(row))}</td>
-                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}${SHOW_VERIFICATION && row.verified ? ` <span class="ta-verified" title="${escapeHtml(row.proof_text || "")}">✓</span>` : ""}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")} ${renderProofBadge(row)}</td>
                   <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
                 </tr>`,
             )
@@ -2601,6 +2627,90 @@ const loadJson = async (url) => {
   return response.json();
 };
 
+const renderGlobalSearch = (items) => {
+  const nav = document.querySelector(".ta-localnav");
+  if (!nav || document.querySelector("[data-global-search]")) return;
+  nav.insertAdjacentHTML("afterend", `
+    <section class="ta-global-search" data-global-search>
+      <label for="ta-global-search-input">${renderBilingual("搜尋全站資料", "Search all records", "データ検索")}</label>
+      <input id="ta-global-search-input" type="search" placeholder="玩家、車隊、車輛、賽道 / Player, team, vehicle, track" autocomplete="off" data-global-search-input>
+      <div class="ta-global-search-results" data-global-search-results hidden></div>
+    </section>`);
+  const input = document.querySelector("[data-global-search-input]");
+  const results = document.querySelector("[data-global-search-results]");
+  input.addEventListener("input", () => {
+    const query = input.value.trim().toLocaleLowerCase();
+    if (query.length < 2) {
+      results.hidden = true;
+      results.innerHTML = "";
+      return;
+    }
+    const matches = items.filter((item) => item.search.includes(query)).slice(0, 12);
+    results.innerHTML = matches.length
+      ? matches.map((item) => `<a href="${escapeHtml(item.href)}"><small>${escapeHtml(item.kind)}</small><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.meta || "")}</span></a>`).join("")
+      : `<p>${renderBilingual("找不到符合資料", "No matching data", "該当するデータがありません")}</p>`;
+    results.hidden = false;
+  });
+};
+
+const initGlobalSearch = async (base) => {
+  try {
+    const directory = await loadJson(`${base}vrc/index.json`);
+    const resources = directory.resources || {};
+    const [players, teams, vehicles] = await Promise.all([
+      loadJson(`${base}vrc/${resources.players || "players.json"}`),
+      loadJson(`${base}vrc/${resources.teams || "teams.json"}`),
+      loadJson(`${base}vrc/${resources.vehicles || "vehicles.json"}`),
+    ]);
+    const items = [];
+    (players.data?.players || []).forEach((item) => items.push({
+      kind: "Player", name: item.name, meta: item.team_name || "",
+      href: item.site_id ? `${base}player.html?id=${encodeURIComponent(item.site_id)}` : `${base}players.html`,
+      search: `${item.name} ${item.team_name || ""}`.toLocaleLowerCase(),
+    }));
+    (teams.data?.teams || []).forEach((item) => items.push({
+      kind: "Team", name: item.name, meta: item.representative || "",
+      href: `${base}team.html?id=${encodeURIComponent(item.team_id)}`,
+      search: `${item.name} ${item.short_name || ""} ${item.representative || ""}`.toLocaleLowerCase(),
+    }));
+    (vehicles.data?.vehicles || []).forEach((item) => items.push({
+      kind: "Vehicle", name: item.name, meta: item.manufacturer || "",
+      href: item.site_id ? `${base}vehicle.html?id=${encodeURIComponent(item.site_id)}` : `${base}vehicles.html`,
+      search: `${item.name} ${item.manufacturer || ""} ${item.class || ""}`.toLocaleLowerCase(),
+    }));
+    (directory.tracks || []).forEach((item) => items.push({
+      kind: "Track", name: item.zh || item.en || item.code, meta: item.en || "",
+      href: `${base}track.html?id=${encodeURIComponent(item.code)}`,
+      search: `${item.code} ${item.zh || ""} ${item.en || ""}`.toLocaleLowerCase(),
+    }));
+    renderGlobalSearch(items);
+  } catch (error) {
+    console.warn("Global search contracts unavailable", error);
+  }
+};
+
+const renderFreshness = async (base, manifest) => {
+  const generatedNode = document.querySelector("[data-generated-at]");
+  if (!generatedNode) return;
+  const generatedAt = Date.parse(manifest.generated_at || "");
+  const ageDays = Number.isFinite(generatedAt) ? Math.floor((Date.now() - generatedAt) / 86400000) : null;
+  const stale = ageDays !== null && ageDays > 7;
+  let publishedAt = "";
+  let publishConfirmed = false;
+  try {
+    const marker = await loadJson(`${base}data/bot/publish_marker.json`);
+    publishedAt = marker.published_at || "";
+    publishConfirmed = Boolean(marker.ready_for_discord && publishedAt);
+  } catch (_) {
+    // The public marker is optional; an absent marker means publish state is unconfirmed.
+  }
+  generatedNode.insertAdjacentHTML("afterend", `
+    <div class="ta-freshness${stale ? " is-stale" : ""}">
+      <span>${renderBilingual(stale ? "資料可能過期" : "資料生成正常", stale ? "Data may be stale" : "Data generated", stale ? "データが古い可能性" : "データ生成済み")}</span>
+      <span>${renderBilingual("發布確認", "Publish state", "公開状態")}: ${publishConfirmed ? escapeHtml(publishedAt) : renderBilingual("尚未確認", "Unconfirmed", "未確認")}</span>
+    </div>`);
+};
+
 const initTimeAttack = async () => {
   const view = document.body.dataset.view || "overview";
   // Pages living one directory deeper (TrackMap/) set data-base="../" so the
@@ -2611,12 +2721,18 @@ const initTimeAttack = async () => {
 
   try {
     const manifest = await loadJson(`${base}data/manifest.json`);
+    initGlobalSearch(base);
+    renderFreshness(base, manifest);
     // Detail views are fed by the same list artifact (track→tracks, player→players, vehicle→vehicles).
     const DETAIL_DATA_KEY = { track: "tracks", player: "players", team: "teams", vehicle: "vehicles", event: "events" };
     const dataKey = DETAIL_DATA_KEY[view] || view;
     const summaryPromise = loadJson(`${base}data/${manifest.routes.overview}`);
     const pagePromise = view === "overview" ? summaryPromise : loadJson(`${base}data/${manifest.routes[dataKey]}`);
-    const [summary, pageData] = await Promise.all([summaryPromise, pagePromise]);
+    const proofPromise = manifest.routes.proofs
+      ? loadJson(`${base}data/${manifest.routes.proofs}`).catch(() => ({ proofs: {} }))
+      : Promise.resolve({ proofs: {} });
+    const [summary, pageData, proofData] = await Promise.all([summaryPromise, pagePromise, proofPromise]);
+    TA_PROOFS = proofData.proofs || {};
 
     if (["players", "player", "teams", "team", "events", "event"].includes(view)) {
       const teamsData = dataKey === "teams" ? pageData : await loadJson(`${base}data/${manifest.routes.teams}`);
