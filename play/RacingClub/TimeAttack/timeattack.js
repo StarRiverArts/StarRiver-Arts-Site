@@ -1689,12 +1689,15 @@ const renderEventDate = (value) => {
   return escapeHtml(value.slice(0, 16).replace("T", " "));
 };
 
-const renderEventList = (data) => {
+// Shared by the events list and the overview "Recent Events" module: both take the
+// editorial_events array and render the same card grid. Pass limit to show a subset.
+const renderEventCards = (editorialEvents, limit = 0) => {
   const statusOrder = { ongoing: 0, upcoming: 1, completed: 2, archived: 3 };
-  const events = (data.editorial_events || []).slice().sort((a, b) =>
+  const sorted = (editorialEvents || []).slice().sort((a, b) =>
     (statusOrder[a.status] ?? 4) - (statusOrder[b.status] ?? 4) ||
     String(b.starts_at || "").localeCompare(String(a.starts_at || "")),
   );
+  const events = limit > 0 ? sorted.slice(0, limit) : sorted;
   if (!events.length) return '<p class="ta-empty">No published events yet.</p>';
   return `
     <div class="ta-event-grid">
@@ -1715,6 +1718,8 @@ const renderEventList = (data) => {
         </a>`).join("")}
     </div>`;
 };
+
+const renderEventList = (data) => renderEventCards(data.editorial_events);
 
 const renderEventInfoRows = (event, data) => {
   const players = data.player_cards || [];
@@ -2499,7 +2504,8 @@ const renderPageModules = (view, data) => {
   if (view === "overview") {
     const modules = [renderOverview(data)];
     if (Array.isArray(data.editorial_events) && data.editorial_events.length) {
-      modules.push(renderModule("近期活動", "Recent Events", "活動公告與結果", "Announcements And Results", renderEventCards(data.editorial_events)));
+      // Home page keeps the three most recent; events.html carries the full list.
+      modules.push(renderModule("近期活動", "Recent Events", "活動公告與結果", "Announcements And Results", renderEventCards(data.editorial_events, 3)));
     }
     return modules.filter(Boolean).join("");
   }
@@ -2577,7 +2583,16 @@ const renderPageModules = (view, data) => {
     modules.push(renderModule("車輛頁", "Vehicle Profiles", "車輛分析", "Vehicle Analysis", renderVehicleCards(data.vehicle_cards)));
   }
   if (Array.isArray(data.event_cards) && data.event_cards.length) {
-    modules.push(renderModule("賽季索引", "Season Index", "活動清單", "Event Index", renderEventCards(data.event_cards)));
+    // data.event_cards is the builder's profile-card shape (stats/tags/best_times),
+    // not the editorial_events shape renderEventCards takes.
+    modules.push(renderModule("賽季索引", "Season Index", "活動清單", "Event Index", renderProfileGrid(data.event_cards, {
+      usageZh: "保留欄位",
+      usageEn: "Reserved",
+      tagZh: "保留欄位",
+      tagEn: "Reserved",
+      listZh: "最近提交",
+      listEn: "Recent Submissions",
+    })));
   }
   if (SHOW_VERIFICATION && Array.isArray(data.review_cards) && data.review_cards.length) {
     modules.push(renderModule("審核佇列", "Review Queue", "待處理送件", "Pending And Rejected", renderReviewCards(data.review_cards)));
