@@ -2017,6 +2017,12 @@ body.timeattack-page {
 .ta-team-roster { display: grid; gap: 12px; padding: 4px 22px 24px; }
 
 .ta-event-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.ta-event-series-list { display: grid; gap: 30px; }
+.ta-event-series { display: grid; gap: 16px; }
+.ta-event-series + .ta-event-series { border-top: 1px solid rgba(255,255,255,.1); padding-top: 28px; }
+.ta-event-series-head { align-items: end; display: grid; gap: 12px; grid-template-columns: minmax(220px, .7fr) minmax(280px, 1.3fr); }
+.ta-event-series-head .ta-section-title { margin: 4px 0 0; }
+.ta-event-series-head .ta-section-text { margin: 0; }
 .ta-event-card { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), rgba(8,11,15,.78); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; color: inherit; display: grid; gap: 12px; padding: 22px; text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
 .ta-event-card:hover { border-color: rgba(239,217,91,.55); transform: translateY(-2px); }
 .ta-event-card-head { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
@@ -2030,6 +2036,7 @@ body.timeattack-page {
 .ta-event-tags > span { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: 11px; padding: 6px 9px; }
 .ta-event-detail { display: grid; gap: 18px; }
 .ta-event-lead { display: grid; gap: 16px; }
+.ta-event-lead .ta-title { font-size: clamp(30px, 5vw, 58px); line-height: 1.02; max-width: 18ch; }
 .ta-event-info-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
 .ta-event-info-grid > div { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; display: grid; gap: 6px; padding: 12px; }
 .ta-event-info-grid small { color: var(--ta-text-soft); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
@@ -2051,6 +2058,9 @@ body.timeattack-page {
 .ta-event-rank { border: 1px solid currentColor; border-radius: 999px; color: var(--ta-text-soft); font: 700 10px var(--font-mono); letter-spacing: .08em; padding: 5px 9px; white-space: nowrap; }
 .ta-event-rank.is-rank-1 { color: #efd95b; }
 .ta-event-rank.is-rank-2 { color: #cfd6df; }
+@media (max-width: 720px) {
+  .ta-event-series-head { grid-template-columns: 1fr; }
+}
 .ta-event-rank.is-rank-3 { color: #d8a26a; }
 
 @media (max-width: 620px) {

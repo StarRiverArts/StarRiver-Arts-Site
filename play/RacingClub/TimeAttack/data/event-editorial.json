@@ -361,7 +361,9 @@
           "lb_rounds": 4,
           "bracket_reset": false
         }
-      }
+      },
+      "series_id": "vrrctw_s2",
+      "series_round": 2
     },
     {
       "event_id": "vrrctw_momiji_20260718",
@@ -831,7 +833,9 @@
           "track": "momiji_foxbg",
           "track_name": "Momiji"
         }
-      }
+      },
+      "series_id": "vrrctw_s2",
+      "series_round": 3
     },
     {
       "event_id": "vrrctw_s1_tsubaki",
@@ -1077,7 +1081,9 @@
           "result_en": "Fourth"
         }
       ],
-      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt"
+      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt",
+      "series_id": "vrrctw_s1",
+      "series_round": 5
     },
     {
       "event_id": "vrrctw_s1_odawara",
@@ -1452,7 +1458,9 @@
           "result_en": "Fourth"
         }
       ],
-      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt"
+      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt",
+      "series_id": "vrrctw_s1",
+      "series_round": 4
     },
     {
       "event_id": "vrrctw_s1_tsukuba",
@@ -1777,7 +1785,9 @@
           "result_en": "Fourth"
         }
       ],
-      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt"
+      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt",
+      "series_id": "vrrctw_s1",
+      "series_round": 3
     },
     {
       "event_id": "vrrctw_s1_akina",
@@ -2215,7 +2225,9 @@
           "byes": 0,
           "third_place": true
         }
-      }
+      },
+      "series_id": "vrrctw_s1",
+      "series_round": 2
     },
     {
       "event_id": "vrrctw_s1_myogi",
@@ -2514,7 +2526,9 @@
           "result_en": "Fourth"
         }
       ],
-      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt"
+      "source_ref": "docs/events/season1_google_sheet_export_20260722.txt",
+      "series_id": "vrrctw_s1",
+      "series_round": 1
     },
     {
       "event_id": "vrrctw_ryuoukouzan_20260329",
@@ -3021,7 +3035,9 @@
           ]
         }
       },
-      "source_ref": "ta_data.sqlite records rec_0609–rec_0620"
+      "source_ref": "ta_data.sqlite records rec_0609–rec_0620",
+      "series_id": "",
+      "season_status": "offseason"
     },
     {
       "event_id": "s1.5_r01",
@@ -3032,22 +3048,23 @@
       "status_en": "Completed",
       "starts_at": "2026-03-29T21:00:00+08:00",
       "ends_at": "",
-      "system": "",
-      "format_zh": "",
-      "format_en": "",
-      "group_id": "",
+      "system": "Sacc",
+      "format_zh": "雙淘汰錦標賽",
+      "format_en": "Double elimination tournament",
+      "group_id": "VRRCTW.2777",
       "track_world_code": "irohazaka_jintei",
       "route_code": "DH",
       "participant_player_ids": [
+        "plr_starriver_arts",
         "plr_034",
-        "plr_003",
         "plr_lolidia",
-        "plr_rushia_angel"
+        "plr_rushia_angel",
+        "plr_003"
       ],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "summary_zh": "",
-      "summary_en": "",
+      "summary_zh": "依主辦公告與既有對戰資料重建；共 5 位選手參賽，採雙淘汰賽制，名次以主辦公布結果為準。",
+      "summary_en": "Rebuilt from the organizer announcement and existing bracket data. Five drivers competed in a double-elimination tournament; final placements follow the organizer's results.",
       "bracket": {
         "bracket_id": "3月賽事_伊呂波坂挑戰賽",
         "title": "3月賽事 伊呂波坂挑戰賽",
@@ -3331,7 +3348,11 @@
           "label_en": "Event broadcast VOD",
           "url": "https://www.youtube.com/watch?v=vsgta1ws_hY&t=2093s"
         }
-      ]
+      ],
+      "series_id": "",
+      "season_status": "offseason",
+      "organizer_zh": "VRC 賽車俱樂部",
+      "organizer_en": "VRC Racing Club"
     },
     {
       "event_id": "vrrctw_Akagi_20260509",
@@ -3342,10 +3363,10 @@
       "status_en": "Completed",
       "starts_at": "2026-05-09T21:00:00+08:00",
       "ends_at": "",
-      "system": "",
-      "format_zh": "",
-      "format_en": "",
-      "group_id": "",
+      "system": "Sacc",
+      "format_zh": "單淘汰錦標賽（含季軍戰）",
+      "format_en": "Single elimination tournament with a third-place match",
+      "group_id": "VRRCTW.2777",
       "track_world_code": "akagi_jintei",
       "route_code": "DH",
       "participant_player_ids": [
@@ -3357,8 +3378,8 @@
       ],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "summary_zh": "",
-      "summary_en": "",
+      "summary_zh": "依主辦公告與既有對戰資料重建；共 5 位選手參賽，採單淘汰賽制並設季軍戰，名次以主辦公布結果為準。",
+      "summary_en": "Rebuilt from the organizer announcement and existing bracket data. Five drivers competed in a single-elimination tournament with a third-place match; final placements follow the organizer's results.",
       "bracket": {
         "bracket_id": "5_09_sacc赤城錦標賽",
         "title": "5/09 | Sacc赤城錦標賽",
@@ -3557,6 +3578,39 @@
           "result_zh": "榮譽獎",
           "result_en": "Honorable mention"
         }
+      ],
+      "series_id": "vrrctw_s2",
+      "series_round": 1,
+      "organizer_zh": "VRC 賽車俱樂部",
+      "organizer_en": "VRC Racing Club"
+    }
+  ],
+  "series": [
+    {
+      "series_id": "vrrctw_s1",
+      "display_name": "第一賽季",
+      "display_name_en": "Season 1",
+      "type": "season",
+      "status": "finished",
+      "scope_zh": "2025 年五站錦標賽：妙義、秋名、筑波、小田原與椿線。",
+      "scope_en": "Five 2025 championship rounds: Myogi, Akina, Tsukuba, Odawara, and Tsubaki.",
+      "tags": [
+        "Sacc",
+        "2025"
+      ]
+    },
+    {
+      "series_id": "vrrctw_s2",
+      "display_name": "第二賽季",
+      "display_name_en": "Season 2",
+      "type": "season",
+      "status": "active",
+      "scope_zh": "2026 年第二賽季；目前收錄赤城、定峰與紅葉 Momiji。",
+      "scope_en": "The 2026 second season, currently including Akagi, Sadamine, and Momiji.",
+      "tags": [
+        "Sacc",
+        "CVS",
+        "2026"
       ]
     }
   ]

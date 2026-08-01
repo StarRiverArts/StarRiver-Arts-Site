@@ -1719,11 +1719,40 @@ const renderEventCards = (editorialEvents, limit = 0) => {
     </div>`;
 };
 
-const renderEventList = (data) => renderEventCards(data.editorial_events);
+const renderEventList = (data) => {
+  const events = data.editorial_events || [];
+  const series = data.editorial_series || [];
+  const sections = series.slice().sort((a, b) =>
+    (a.status === "active" ? 0 : 1) - (b.status === "active" ? 0 : 1),
+  ).map((item) => ({
+    item,
+    events: events.filter((event) => event.series_id === item.series_id),
+  })).filter((section) => section.events.length);
+  const offseason = events.filter((event) => !event.series_id);
+  if (offseason.length) {
+    sections.push({
+      item: { display_name: "季外活動", display_name_en: "Off-season Events", scope_zh: "不列入第一、第二賽季的獨立活動。", scope_en: "Standalone events outside Seasons 1 and 2." },
+      events: offseason,
+    });
+  }
+  if (!sections.length) return renderEventCards(events);
+  return `<div class="ta-event-series-list">${sections.map(({ item, events: sectionEvents }) => `
+    <section class="ta-event-series">
+      <div class="ta-event-series-head">
+        <div>
+          <div class="ta-label">${escapeHtml(item.series_id || "offseason")}</div>
+          <h2 class="ta-section-title">${renderBilingual(item.display_name, item.display_name_en, item.display_name_en)}</h2>
+        </div>
+        <p class="ta-section-text">${renderBilingual(item.scope_zh, item.scope_en, item.scope_en)}</p>
+      </div>
+      ${renderEventCards(sectionEvents)}
+    </section>`).join("")}</div>`;
+};
 
 const renderEventInfoRows = (event, data) => {
   const players = data.player_cards || [];
   const vehicles = data.vehicle_cards || [];
+  const series = (data.editorial_series || []).find((item) => item.series_id === event.series_id);
   const groupUrl = buildVrchatGroupUrl({
     vrchat_group_id: event.group_id,
     vrchat_group_url: event.group_url,
@@ -1741,6 +1770,7 @@ const renderEventInfoRows = (event, data) => {
   }).join(" · ");
   return `
   <div class="ta-event-info-grid">
+    <div><small>${renderBilingual("賽季", "Season", "シーズン")}</small><strong>${series ? `${renderBilingual(series.display_name, series.display_name_en, series.display_name_en)}${event.series_round ? ` · ${renderBilingual(`第 ${event.series_round} 站`, `Round ${event.series_round}`, `Round ${event.series_round}`)}` : ""}` : renderBilingual("季外活動", "Off-season event", "シーズン外イベント")}</strong></div>
     <div><small>${renderBilingual("時間", "Time", "日時")}</small><strong>${renderEventDate(event.starts_at)} · ${escapeHtml(event.timezone || "")}</strong></div>
     <div><small>${renderBilingual("系統", "System", "システム")}</small><strong>${escapeHtml(event.system || "-")}</strong></div>
     <div><small>${renderBilingual("賽制", "Format", "形式")}</small><strong>${renderBilingual(event.format_zh, event.format_en, event.format_en)}</strong></div>
@@ -2761,6 +2791,7 @@ const initTimeAttack = async () => {
     if (["overview", "events", "event", "track", "player", "team", "vehicle"].includes(view)) {
       const editorial = await loadJson(`${base}data/${manifest.routes.event_editorial}`);
       pageData.editorial_events = editorial.events || [];
+      pageData.editorial_series = editorial.series || [];
       TA_EDITORIAL_EVENTS = pageData.editorial_events;
       if (["events", "event"].includes(view)) {
         pageData.title_zh = view === "event" ? "活動詳情" : "活動";
