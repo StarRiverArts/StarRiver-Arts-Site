@@ -1448,6 +1448,75 @@ body.timeattack-page {
   border-bottom: 0;
 }
 
+.ta-world-variant-list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ta-world-variant {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(239, 217, 91, 0.24);
+  border-radius: 8px;
+  color: var(--ta-text);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+  padding: 6px 9px;
+}
+
+.ta-world-variant strong {
+  color: var(--ta-text);
+  font-size: var(--ta-fs-body);
+}
+
+.ta-world-variant code {
+  background: transparent;
+  color: var(--ta-accent);
+  font-family: var(--font-mono);
+  font-size: var(--ta-fs-meta);
+  overflow-wrap: anywhere;
+  padding: 0;
+}
+
+.ta-vehicle-variant-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  margin-bottom: 16px;
+}
+
+.ta-vehicle-variant-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.ta-vehicle-variant-name {
+  display: grid;
+  gap: 3px;
+}
+
+.ta-vehicle-variant-name strong {
+  color: var(--ta-text);
+  font-family: var(--font-deck);
+  font-size: 18px;
+}
+
+.ta-vehicle-variant-name code {
+  background: transparent;
+  color: var(--ta-accent);
+  font-family: var(--font-mono);
+  font-size: var(--ta-fs-meta);
+  overflow-wrap: anywhere;
+  padding: 0;
+}
+
 .ta-record-row.is-leader td {
   background: rgba(239, 217, 91, 0.05);
 }

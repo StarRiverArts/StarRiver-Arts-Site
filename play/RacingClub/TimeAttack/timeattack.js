@@ -40,6 +40,15 @@ const renderBilingual = (zh, en, jp) => `
   <span class="jp">${escapeHtml(jp || en || "")}</span>
 `;
 
+// Native <option> elements cannot reliably contain the spans emitted by
+// renderBilingual. Resolve one plain-text label for selects instead.
+const localizedText = (zh, en, jp) => {
+  const root = document.documentElement;
+  if (root.classList.contains("lang-en")) return en || zh || "";
+  if (root.classList.contains("lang-jp")) return jp || en || zh || "";
+  return zh || en || jp || "";
+};
+
 // 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
 const taPlayerHref = (row) => (row && row.player_id ? `./player.html?id=${encodeURIComponent(row.player_id)}` : "");
 const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}` : "");
@@ -1666,7 +1675,7 @@ const renderVehicleWorldTable = (rows) => {
           <tr>
             <th>${renderBilingual("世界", "World")}</th>
             <th>${renderBilingual("作者", "Author")}</th>
-            <th>${renderBilingual("車型代號", "Variant Code")}</th>
+            <th>${renderBilingual("車輛變體", "Vehicle Variant", "車両バリエーション")}</th>
             <th>${renderBilingual("路線", "Routes")}</th>
             <th>${renderBilingual("紀錄", "Runs")}</th>
             <th>${renderBilingual("連結", "Links")}</th>
@@ -1680,11 +1689,21 @@ const renderVehicleWorldTable = (rows) => {
             const worldSub = row.world_name && row.world_name !== worldLabel
               ? `<small>${escapeHtml(row.world_name)}</small>`
               : "";
+            const variants = Array.isArray(row.variants) && row.variants.length
+              ? row.variants
+              : (row.variant_codes || []).map((code) => ({ variant_code: code, variant_name: code }));
+            const variantList = variants.length
+              ? `<div class="ta-world-variant-list">${variants.map((variant) => `
+                  <span class="ta-world-variant">
+                    <strong>${escapeHtml(variant.variant_name || variant.variant_code)}</strong>
+                    <code>${escapeHtml(variant.variant_code || "")}</code>
+                  </span>`).join("")}</div>`
+              : '<span class="ta-empty">—</span>';
             return `
               <tr>
                 <td><a href="${trackHref}"><strong>${escapeHtml(worldLabel)}</strong></a>${worldSub}</td>
                 <td>${escapeHtml(row.track_author || "作者待補")}</td>
-                <td><code>${escapeHtml((row.variant_codes || []).join(", ") || "-")}</code></td>
+                <td>${variantList}</td>
                 <td>${escapeHtml(row.route_count || 0)}</td>
                 <td>${escapeHtml(row.record_count || 0)}</td>
                 <td>
@@ -1704,9 +1723,9 @@ const renderVehicleWorldHistory = (card) => {
   const variants = card.variant_worlds || [];
   const selector = variants.length > 1
     ? `<div class="ta-chart-controls">
-        <span class="ta-label">${renderBilingual("依車型代號篩選", "Filter By Variant")}</span>
+        <span class="ta-label">${renderBilingual("依車輛變體篩選", "Filter By Variant", "車両バリエーションで絞り込む")}</span>
         <select class="ta-switch-select" data-world-variant-select>
-          <option value="__all__">${renderBilingual("全部變體", "All Variants")}（${allRows.length} ${renderBilingual("個世界", "worlds")}）</option>
+          <option value="__all__">${escapeHtml(localizedText(`全部變體（${allRows.length} 個世界）`, `All Variants (${allRows.length} worlds)`, `全バリエーション（${allRows.length} ワールド）`))}</option>
           ${variants.map((variant, index) => `<option value="${index}">${escapeHtml(variant.variant_name)} · ${escapeHtml(variant.variant_code)}（${variant.world_rows.length}）</option>`).join("")}
         </select>
       </div>`
@@ -2539,15 +2558,29 @@ const renderVehicleAnalysis = (card) => {
 // 同母型多變體:下拉切換「全部 / 某變體」的最佳路線榜(資料來自 card.variants)。
 const renderVehicleVariants = (card) => {
   const variants = card.variants || [];
-  if (variants.length < 2) return "";
+  if (!variants.length) return "";
   const allRows = card.record_rows || [];
   const totalRuns = variants.reduce((s, v) => s + (v.record_count || 0), 0);
-  const opts = `<option value="__all__">全部變體（${allRows.length} 路線 / ${totalRuns} 筆)</option>`
+  const identityCards = `<div class="ta-vehicle-variant-grid">${variants.map((variant) => {
+    const tags = Array.isArray(variant.vehicle_tags) ? variant.vehicle_tags : [];
+    return `<article class="ta-vehicle-variant-card">
+      <div class="ta-vehicle-variant-name"><strong>${escapeHtml(variant.variant_name)}</strong><code>${escapeHtml(variant.variant_code)}</code></div>
+      <div class="ta-profile-chiprow">
+        ${variant.drivetrain ? renderToneChip(`驅動型式 ${variant.drivetrain}`, "meta") : ""}
+        ${tags.map((tag) => renderToneChip(tag, "skill")).join("")}
+      </div>
+    </article>`;
+  }).join("")}</div>`;
+  if (variants.length === 1) {
+    return `${identityCards}${renderProfileRecordTable(variants[0].record_rows || allRows, "最快車手", "Fastest Driver", "player_display_name")}`;
+  }
+  const opts = `<option value="__all__">${escapeHtml(localizedText(`全部變體（${allRows.length} 路線 / ${totalRuns} 筆）`, `All Variants (${allRows.length} routes / ${totalRuns} runs)`, `全バリエーション（${allRows.length} ルート / ${totalRuns} 件）`))}</option>`
     + variants.map((v, i) => `<option value="${i}">${escapeHtml(v.variant_name)}（${v.record_count} 筆 / ${v.record_rows.length} 路線)</option>`).join("");
   return `
     <div class="ta-variant" data-variant>
+      ${identityCards}
       <div class="ta-chart-controls">
-        <span class="ta-label">${renderBilingual("選擇變體", "Variant")}</span>
+        <span class="ta-label">${renderBilingual("選擇變體", "Variant", "バリエーション")}</span>
         <select class="ta-switch-select" data-variant-select>${opts}</select>
       </div>
       <div data-variant-table>${renderProfileRecordTable(allRows, "最快車手", "Fastest Driver", "player_display_name")}</div>
