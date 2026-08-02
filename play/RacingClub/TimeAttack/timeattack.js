@@ -43,6 +43,7 @@ const renderBilingual = (zh, en, jp) => `
 // 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
 const taPlayerHref = (row) => (row && row.player_id ? `./player.html?id=${encodeURIComponent(row.player_id)}` : "");
 const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}` : "");
+const taVehicleDisplayName = (row) => row?.vehicle_variant_name || row?.vehicle_model_name || "";
 const taEntityLink = (name, href) =>
   href ? `<a class="ta-entity-link" href="${href}">${escapeHtml(name || "")}</a>` : escapeHtml(name || "");
 
@@ -317,12 +318,12 @@ const renderTrackLeaderboardTable = (rows, view) => {
             .map((row) => {
               const primary =
                 view === "vehicle"
-                  ? taEntityLink(row.vehicle_model_name, taVehicleHref(row))
+                  ? taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))
                   : taEntityLink(row.player_display_name, taPlayerHref(row));
               const peer =
                 view === "vehicle"
                   ? taEntityLink(row.player_display_name, taPlayerHref(row))
-                  : taEntityLink(row.vehicle_model_name, taVehicleHref(row));
+                  : taEntityLink(taVehicleDisplayName(row), taVehicleHref(row));
               return `
                 <tr class="ta-record-row${row.rank === 1 ? " is-leader" : ""}" data-plat="${escapeHtml(row.platform || "")}">
                   <td class="ta-record-rank">${escapeHtml(row.rank)}</td>
@@ -365,7 +366,7 @@ const renderTrackRouteCard = (board, route) => {
         </div>
         <div class="ta-fastest-main">
           <strong>${taEntityLink(fastest.player_display_name, taPlayerHref(fastest))}</strong>
-          <span>${taEntityLink(fastest.vehicle_model_name, taVehicleHref(fastest))}</span>
+          <span>${taEntityLink(taVehicleDisplayName(fastest), taVehicleHref(fastest))}</span>
         </div>
         <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
       </div>
@@ -1332,7 +1333,7 @@ const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => 
                   <td class="ta-profile-record-peer">${
                     peerField === "player_display_name"
                       ? taEntityLink(row.player_display_name, taPlayerHref(row))
-                      : taEntityLink(row.vehicle_model_name, taVehicleHref(row))
+                      : taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))
                   }</td>
                   <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
                   <td class="ta-profile-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
@@ -1654,6 +1655,70 @@ const renderVehicleList = (data) => {
   `;
 };
 
+const renderVehicleWorldTable = (rows) => {
+  if (!Array.isArray(rows) || !rows.length) {
+    return `<p class="ta-empty">${renderBilingual("尚無世界紀錄", "No recorded worlds")}</p>`;
+  }
+  return `
+    <div class="ta-profile-record-table-wrap">
+      <table class="ta-profile-record-table">
+        <thead>
+          <tr>
+            <th>${renderBilingual("世界", "World")}</th>
+            <th>${renderBilingual("作者", "Author")}</th>
+            <th>${renderBilingual("車型代號", "Variant Code")}</th>
+            <th>${renderBilingual("路線", "Routes")}</th>
+            <th>${renderBilingual("紀錄", "Runs")}</th>
+            <th>${renderBilingual("連結", "Links")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((row) => {
+            const worldUrl = safeExternalHttpUrl(row.world_url);
+            const trackHref = `./track.html?id=${encodeURIComponent(row.track_world_code || "")}`;
+            const worldLabel = row.track_display_name || row.world_name || row.track_world_code || "-";
+            const worldSub = row.world_name && row.world_name !== worldLabel
+              ? `<small>${escapeHtml(row.world_name)}</small>`
+              : "";
+            return `
+              <tr>
+                <td><a href="${trackHref}"><strong>${escapeHtml(worldLabel)}</strong></a>${worldSub}</td>
+                <td>${escapeHtml(row.track_author || "作者待補")}</td>
+                <td><code>${escapeHtml((row.variant_codes || []).join(", ") || "-")}</code></td>
+                <td>${escapeHtml(row.route_count || 0)}</td>
+                <td>${escapeHtml(row.record_count || 0)}</td>
+                <td>
+                  <a href="${trackHref}">${renderBilingual("賽道頁", "Track")}</a>
+                  ${worldUrl ? ` · <a href="${escapeHtml(worldUrl)}" target="_blank" rel="noopener noreferrer">VRChat</a>` : ""}
+                </td>
+              </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>`;
+};
+
+const renderVehicleWorldHistory = (card) => {
+  const allRows = card.world_rows || [];
+  if (!allRows.length) return "";
+  const variants = card.variant_worlds || [];
+  const selector = variants.length > 1
+    ? `<div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("依車型代號篩選", "Filter By Variant")}</span>
+        <select class="ta-switch-select" data-world-variant-select>
+          <option value="__all__">${renderBilingual("全部變體", "All Variants")}（${allRows.length} ${renderBilingual("個世界", "worlds")}）</option>
+          ${variants.map((variant, index) => `<option value="${index}">${escapeHtml(variant.variant_name)} · ${escapeHtml(variant.variant_code)}（${variant.world_rows.length}）</option>`).join("")}
+        </select>
+      </div>`
+    : "";
+  return `
+    <div class="ta-variant" data-vehicle-worlds>
+      ${selector}
+      <div data-vehicle-world-table>${renderVehicleWorldTable(allRows)}</div>
+      ${embedJsonData("data-vehicle-world-data", { all: allRows, variants: variants.map((variant) => variant.world_rows) })}
+    </div>`;
+};
+
 const renderVehicleDetail = (data, id) => {
   const cards = data.vehicle_cards || [];
   if (!cards.length) {
@@ -1678,7 +1743,11 @@ const renderVehicleDetail = (data, id) => {
   const variantModule = variants
     ? renderModule("變體", "Variants", "同母型變體成績", "Variants Of This Model", variants)
     : "";
-  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "vehicle", card.vehicle_model_code) + variantModule + analysisModule;
+  const worlds = renderVehicleWorldHistory(card);
+  const worldModule = worlds
+    ? renderModule("世界履歷", "World History", "出現過的世界與作者", "Recorded Worlds & Authors", worlds)
+    : "";
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "vehicle", card.vehicle_model_code) + worldModule + variantModule + analysisModule;
 };
 
 const eventStatusClass = (status) =>
@@ -1905,7 +1974,7 @@ const renderEventTiming = (event, data) => {
                 <tr>
                   <td class="ta-profile-record-rank">${escapeHtml(link.order || index + 1)}</td>
                   <td>${taEntityLink(record.player_display_name, taPlayerHref(record))}</td>
-                  <td>${taEntityLink(record.vehicle_model_name, taVehicleHref(record))}</td>
+                  <td>${taEntityLink(taVehicleDisplayName(record), taVehicleHref(record))}</td>
                   <td class="ta-profile-record-time">${escapeHtml(record.lap_time_text || "-")}</td>
                   <td>${indexHref ? `<a class="ta-index-link" href="${indexHref}">#${escapeHtml(record.rank || "-")}</a>` : "-"} ${renderRecordBadge(record)}</td>
                 </tr>` : `
@@ -2227,7 +2296,7 @@ const renderRecentRuns = (rows) => {
                   <td class="ta-record-gap">${escapeHtml(row.record_date || "")}</td>
                   <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
                   <td>${taEntityLink(row.player_display_name, taPlayerHref(row))}</td>
-                  <td class="ta-record-peer">${taEntityLink(row.vehicle_model_name, taVehicleHref(row))}</td>
+                  <td class="ta-record-peer">${taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))}</td>
                   <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")} ${renderProofBadge(row)}</td>
                   <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
                 </tr>`,
@@ -2512,6 +2581,16 @@ const attachAnalysisInteractions = () => {
       const vdata = JSON.parse(wrap.querySelector("[data-variant-data]").textContent);
       const rows = varSel.value === "__all__" ? vdata.all : (vdata.variants[Number(varSel.value)] || []);
       wrap.querySelector("[data-variant-table]").innerHTML = renderProfileRecordTable(rows, "最快車手", "Fastest Driver", "player_display_name");
+      return;
+    }
+    const worldVariantSel = e.target.closest("[data-world-variant-select]");
+    if (worldVariantSel) {
+      const wrap = worldVariantSel.closest("[data-vehicle-worlds]");
+      const worldData = JSON.parse(wrap.querySelector("[data-vehicle-world-data]").textContent);
+      const rows = worldVariantSel.value === "__all__"
+        ? worldData.all
+        : (worldData.variants[Number(worldVariantSel.value)] || []);
+      wrap.querySelector("[data-vehicle-world-table]").innerHTML = renderVehicleWorldTable(rows);
     }
   });
 };
