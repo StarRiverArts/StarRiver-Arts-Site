@@ -385,16 +385,30 @@ The following decisions remain active unless superseded by a newer owner decisio
 - Time Attack implementation labels and data-facing presentation remain unchanged unless a separate contract review approves cleanup.
 - Generated search and AI indexes must exclude hidden Japanese copy while retaining both `臺灣` and legacy `台灣` as equivalent discovery terms.
 
+## Social Hub
+
+`social.html` is the approved public cross-platform intermediary for StarRiver Arts. It is not a fourth content brand and does not replace the primary Studio, ProjectT, or Museum entrances.
+
+Approved public identity and behavior:
+
+- Page identity: `StarRiver Arts`.
+- Tagline: `Ad Astra, to beyond.`
+- Canonical route: `/social.html`.
+- The pure CyberGum6 presentation is the default theme.
+- The engineering-drawing study is an approved alternate presentation at `?theme=blueprint` and uses the same link destinations and authoritative content.
+- Social platform links, site-area links, and community links remain static and usable when optional featured data is absent.
+- Decorative Blueprint telemetry is fictional StarRiver Space System interface copy; physical quantities and aerospace terminology should remain internally coherent and must not be presented as real flight data.
+
 ## Production Attribution
 
-Public pages should disclose the role of AI collaboration in site production without assigning project authorship or exhibit authorship to the tools.
+Public pages should disclose the role of AI assistance in site production while keeping StarRiver Arts clearly identified as the planning and production lead. The tools must not be assigned project authorship, exhibit authorship, creative ownership, or independent decision-making authority.
 
 Preferred footer wording:
 
-- zh-Hant: `網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。`
-- en: `Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.`
+- zh-Hant: `網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。`
+- en: `Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.`
 
-Use this as a production credit at the page footer or equivalent low-interruption location. Do not present it as a project creator credit, artwork credit, or design-stage annotation.
+Use this as a production-assistance disclosure at the page footer or equivalent low-interruption location. Do not label it as a license, do not present it as a project creator or artwork credit, and do not repeat it as a design-stage annotation.
 
 ## Generated Indexes
 

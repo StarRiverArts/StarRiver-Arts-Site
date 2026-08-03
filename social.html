@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Hub | StarRiver Arts</title>
+<meta name="description" content="StarRiver Arts 的社群、作品、VRChat 體驗與社群入口。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#17112e">
+<link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/social.html">
+<meta property="og:title" content="StarRiver Arts Social Hub">
+<meta property="og:description" content="Ad Astra, to beyond. Find, follow, experience, and join StarRiver Arts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://starriverarts.github.io/StarRiver-Arts-Site/social.html">
+<meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/assets/logos/starriver-primary.png">
+<link rel="icon" href="assets/logos/starriver-primary.png">
+<script>
+(function () {
+  var html = document.documentElement;
+  if (new URLSearchParams(location.search).get("theme") === "blueprint") html.dataset.theme = "blueprint";
+
+  var saved = null;
+  try { saved = localStorage.getItem("sr-lang"); } catch (error) { saved = null; }
+  var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+  var prefersChinese = languages.some(function (language) {
+    var code = String(language).toLowerCase();
+    return code === "zh" || code.indexOf("zh-") === 0;
+  });
+  window.__srInitialLanguage = ["zh", "en"].indexOf(saved) !== -1 ? saved : (prefersChinese ? "zh" : "en");
+  html.className = "lang-" + window.__srInitialLanguage;
+  html.lang = window.__srInitialLanguage === "zh" ? "zh-TW" : "en";
+})();
+</script>
+<link rel="stylesheet" href="social.css">
+<link rel="stylesheet" href="social-blueprint.css">
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
+<div class="cyber-grid" aria-hidden="true"></div>
+<div class="blueprint-telemetry blueprint-telemetry--port blueprint-theme" aria-hidden="true">
+  <span>STARRIVER SPACE SYSTEM</span>
+  <span>ASTERA AS-01 // TERMINAL COUNT</span>
+  <span>L−00:10:00 · SR-FLIGHT / GO</span>
+  <span>GNC · TVC · PROP · GREEN</span>
+  <span>TARGET ORBIT · LEO</span>
+  <span>a 6778.1 km · e 0.0012 · i 51.640°</span>
+  <span>Ω 247.300° · ω 81.400° · ν 312.800°</span>
+</div>
+<div class="blueprint-telemetry blueprint-telemetry--starboard blueprint-theme" aria-hidden="true">
+  <span>VENTURE VS-01 // PROX OPS</span>
+  <span>R-BAR APPROACH · TPI COMPLETE</span>
+  <span>MC-4 COMPLETE · CORRIDOR CAPTURED</span>
+  <span>RANGE 42.8 m · CLOSING −0.080 m/s</span>
+  <span>LOS RATE 0.012°/s · HOLD 30 m</span>
+  <span>qᵣₑₗ [0.99985,+.01000,−.01000,+.01000]</span>
+  <span>‖q‖ 1.00000 · ATTITUDE VALID</span>
+</div>
+<div class="blueprint-telemetry blueprint-telemetry--orbit blueprint-theme" aria-hidden="true">
+  <span>ASCENT EVENT SEQUENCE // AS-01</span>
+  <span>MAX-Q → MECO-1 → STG SEP</span>
+  <span>SES-1 → SECO-1 → OI</span>
+  <span>ORBIT SOLUTION // ASTERA-TGT</span>
+  <span>FRAME ECI / J2000</span>
+  <span>EPOCH 2026-216T04:20:00Z</span>
+  <span>r [−4182.6,+5127.4,+1438.2] km</span>
+  <span>C3 −58.83 km²/s² · SOLUTION 3σ</span>
+</div>
+<div class="blueprint-telemetry blueprint-telemetry--comms blueprint-theme" aria-hidden="true">
+  <span>SR-FLIGHT // VENTURE RELAY</span>
+  <span>S/C ASTERA AS-01 · G/S FORMOSA</span>
+  <span>AOS +03:12 · LOS +11:46</span>
+  <span>S-BAND 2.210 GHz · DOPPLER −18.6 kHz</span>
+  <span>RANGE 704 km · RTLT 4.70 ms</span>
+  <span>Eb/N0 12.4 dB · LINK NOMINAL</span>
+</div>
+<!--
+  Blueprint telemetry glossary:
+  GNC = Guidance, Navigation, and Control; TVC = Thrust Vector Control; PROP = Propulsion.
+  MAX-Q = maximum dynamic pressure; MECO = Main Engine Cutoff; STG SEP = stage separation;
+  SES/SECO = second-stage engine start/cutoff; OI = orbital insertion.
+  TPI = Terminal Phase Initiation; MC-4 = rendezvous midcourse correction 4; R-BAR = radial approach axis.
+  S/C = spacecraft; G/S = ground station; AOS/LOS = acquisition/loss of signal.
+-->
+
+<header class="topbar">
+  <a class="back-link" href="./"><span aria-hidden="true">←</span> <span class="zh">返回 StarRiver Arts</span><span class="en">Back to StarRiver Arts</span></a>
+  <select class="language" id="lang" aria-label="語言 / Language">
+    <option value="zh">中文</option>
+    <option value="en">EN</option>
+  </select>
+</header>
+
+<main id="main" class="hub">
+  <section class="identity" aria-labelledby="hub-title">
+    <div class="logo-shell">
+      <img src="assets/logos/starriver-primary.png" alt="StarRiver Arts">
+      <span class="status-dot" aria-hidden="true"></span>
+    </div>
+    <p class="eyebrow"><span class="base-theme">SOCIAL HUB / STAR RIVER</span><span class="blueprint-theme">CONTACT INTERFACE / SR-02</span></p>
+    <h1 id="hub-title">StarRiver Arts</h1>
+    <p class="tagline">Ad Astra, to beyond.</p>
+    <p class="intro base-theme"><span class="zh">在這裡找到、追蹤、體驗或參與 StarRiver。</span><span class="en">Find, follow, experience, or join StarRiver here.</span></p>
+    <p class="intro blueprint-theme"><span class="zh">外部通訊端點、作品系統與社群節點。</span><span class="en">External communication endpoints, project systems, and community nodes.</span></p>
+  </section>
+
+  <section class="featured" id="featured" aria-labelledby="featured-title" hidden>
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker"><span class="base-theme">NOW / FEATURED</span><span class="blueprint-theme">ACTIVE SIGNAL / PRIORITY</span></p>
+        <h2 id="featured-title"><span class="base-theme"><span class="zh">近期與精選</span><span class="en">Recent &amp; featured</span></span><span class="blueprint-theme"><span class="zh">作用中訊號</span><span class="en">Active transmission</span></span></h2>
+      </div>
+      <div class="feature-controls" id="feature-controls" hidden>
+        <button type="button" id="feature-prev" aria-label="上一項 / Previous">←</button>
+        <span id="feature-count" aria-live="polite"></span>
+        <button type="button" id="feature-next" aria-label="下一項 / Next">→</button>
+      </div>
+    </div>
+    <a class="featured-card" id="featured-card" href="#">
+      <span class="featured-type" id="featured-type"></span>
+      <strong id="featured-name"></strong>
+      <span class="featured-description" id="featured-description"></span>
+      <span class="card-arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="link-section" aria-labelledby="social-title">
+    <div class="section-heading">
+      <div><p class="section-kicker"><span class="base-theme">FOLLOW / WATCH</span><span class="blueprint-theme">EXTERNAL CHANNELS / 01</span></p><h2 id="social-title"><span class="base-theme">Social</span><span class="blueprint-theme"><span class="zh">通訊端點</span><span class="en">Communication</span></span></h2></div>
+    </div>
+    <div class="link-list">
+      <a class="link-card pink" href="https://www.youtube.com/@StarRiverAnythings" target="_blank" rel="noopener noreferrer">
+        <span class="platform-icon" aria-hidden="true">YT</span>
+        <span class="link-copy"><strong>YouTube</strong><small class="base-theme"><span class="zh">影片創作與活動 VOD</span><span class="en">Films, VR world showcases, and longer stories</span></small><small class="blueprint-theme"><span class="zh">影像檔案庫／活動 VOD</span><span class="en">Video archive / event VOD</span></small></span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-card violet" href="https://www.facebook.com/Star.River.Anything/" target="_blank" rel="noopener noreferrer">
+        <span class="platform-icon" aria-hidden="true">f</span>
+        <span class="link-copy"><strong>Facebook</strong><small class="base-theme"><span class="zh">官方粉絲專頁</span><span class="en">Updates, events, and work in progress</span></small><small class="blueprint-theme"><span class="zh">官方公告通道</span><span class="en">Official bulletin channel</span></small></span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="link-card mint" href="https://vrchat.com/home/user/usr_0673194d-712d-4b5d-8167-1f03ed3233cb" target="_blank" rel="noopener noreferrer">
+        <span class="platform-icon" aria-hidden="true">VR</span>
+        <span class="link-copy"><strong>VRChat</strong><small class="base-theme"><span class="zh">歡迎找我一起玩</span><span class="en">Profile, public worlds, and VR experiences</span></small><small class="blueprint-theme"><span class="zh">操作者資料／即時聯絡</span><span class="en">Operator profile / live contact</span></small></span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="link-section" aria-labelledby="explore-title">
+    <div class="section-heading">
+      <div><p class="section-kicker"><span class="base-theme">EXPLORE</span><span class="blueprint-theme">SYSTEM MODULES / 02</span></p><h2 id="explore-title"><span class="base-theme"><span class="zh">探索 StarRiver Arts</span><span class="en">Explore StarRiver Arts</span></span><span class="blueprint-theme"><span class="zh">專案模組</span><span class="en">Project nodes</span></span></h2></div>
+    </div>
+    <div class="link-list">
+      <a class="link-card internal" href="studio.html"><span class="platform-icon" aria-hidden="true">01</span><span class="link-copy"><strong>Studio</strong><small><span class="zh">作品集與專業能力</span><span class="en">Portfolio and capabilities</span></small></span><span class="card-arrow" aria-hidden="true">→</span></a>
+      <a class="link-card internal" href="play/"><span class="platform-icon" aria-hidden="true">02</span><span class="link-copy"><strong>ProjectT</strong><small><span class="zh">臺灣地景、VR 世界與賽車生態</span><span class="en">Taiwan landscapes, VR worlds, and racing</span></small></span><span class="card-arrow" aria-hidden="true">→</span></a>
+      <a class="link-card internal" href="museum/"><span class="platform-icon" aria-hidden="true">03</span><span class="link-copy"><strong>Museum</strong><small><span class="zh">虛擬展覽、文化紀錄與創作敘事</span><span class="en">Virtual exhibitions, culture, and stories</span></small></span><span class="card-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="link-section" aria-labelledby="community-title">
+    <div class="section-heading">
+      <div><p class="section-kicker"><span class="base-theme">JOIN / RACE</span><span class="blueprint-theme">COMMUNITY NETWORK / 03</span></p><h2 id="community-title"><span class="base-theme">Community</span><span class="blueprint-theme"><span class="zh">社群系統</span><span class="en">Community systems</span></span></h2></div>
+    </div>
+    <div class="link-list">
+      <a class="link-card community" href="https://discord.gg/HJSB5D93yp" target="_blank" rel="noopener noreferrer"><span class="platform-icon" aria-hidden="true">DC</span><span class="link-copy"><strong>VRRCTW Discord</strong><small><span class="zh">加入中文 VRChat 賽車社群與投稿 Time Attack</span><span class="en">Join the VRChat racing community and submit Time Attack records</span></small></span><span class="card-arrow" aria-hidden="true">↗</span></a>
+      <a class="link-card community" href="https://vrchat.com/home/group/grp_6ed4e070-c129-4c68-bcb2-6ceab58b2a39" target="_blank" rel="noopener noreferrer"><span class="platform-icon" aria-hidden="true">VRC</span><span class="link-copy"><strong>VRRCTW.2777</strong><small><span class="zh">在 VRChat 內接收活動通知並加入群組房</span><span class="en">Get event notices and join group instances in VRChat</span></small></span><span class="card-arrow" aria-hidden="true">↗</span></a>
+      <a class="link-card community" href="play/RacingClub/TimeAttack/"><span class="platform-icon" aria-hidden="true">TA</span><span class="link-copy"><strong>Time Attack</strong><small><span class="zh">查詢賽道、車輛與玩家計時紀錄</span><span class="en">Browse track, vehicle, and driver records</span></small></span><span class="card-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <footer class="hub-footer">
+    <div class="footer-main">
+      <a class="footer-brand" href="./">
+        <img src="assets/logos/starriver-primary.png" alt="">
+        <span>
+          <strong>星河 STARRIVER ARTS</strong>
+          <small class="en">Digital Artist · Taiwan</small>
+        </span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">StarRiver Arts</a>
+        <a href="studio.html">Studio</a>
+        <a href="play/">ProjectT</a>
+        <a href="museum/">Museum</a>
+        <span aria-current="page">Social Hub</span>
+      </nav>
+    </div>
+    <div class="footer-copy">
+      <span>© 2026 星河 StarRiver Arts</span>
+      <span class="zh">觀測 · 思考 · 再構築</span>
+      <span class="en">Preservation · Accessibility · Development</span>
+      <span class="zh">網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。</span>
+      <span class="en">Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var html = document.documentElement;
+  var select = document.getElementById("lang");
+  var initialLanguage = window.__srInitialLanguage || "en";
+
+  function setLanguage(language, remember) {
+    html.className = "lang-" + language;
+    html.lang = language === "zh" ? "zh-TW" : "en";
+    if (remember) {
+      try { localStorage.setItem("sr-lang", language); } catch (error) { /* Continue without persistence. */ }
+    }
+    select.value = language;
+    window.dispatchEvent(new CustomEvent("sr-language", { detail: language }));
+  }
+  setLanguage(initialLanguage, false);
+  select.addEventListener("change", function () { setLanguage(select.value, true); });
+
+  var items = [];
+  var current = 0;
+  var section = document.getElementById("featured");
+  var card = document.getElementById("featured-card");
+  var controls = document.getElementById("feature-controls");
+
+  function localized(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+    return value[html.classList.contains("lang-en") ? "en" : "zh"] || value.zh || value.en || "";
+  }
+  function renderFeature() {
+    var item = items[current];
+    if (!item) return;
+    card.href = item.url;
+    card.target = item.external ? "_blank" : "";
+    card.rel = item.external ? "noopener noreferrer" : "";
+    document.getElementById("featured-type").textContent = localized(item.type);
+    document.getElementById("featured-name").textContent = localized(item.title);
+    document.getElementById("featured-description").textContent = localized(item.description);
+    document.getElementById("feature-count").textContent = (current + 1) + " / " + items.length;
+  }
+  function moveFeature(step) {
+    current = (current + step + items.length) % items.length;
+    renderFeature();
+  }
+  document.getElementById("feature-prev").addEventListener("click", function () { moveFeature(-1); });
+  document.getElementById("feature-next").addEventListener("click", function () { moveFeature(1); });
+  window.addEventListener("sr-language", renderFeature);
+
+  fetch("data/social-featured.json")
+    .then(function (response) { if (!response.ok) throw new Error("No featured content"); return response.json(); })
+    .then(function (data) {
+      items = Array.isArray(data.items) ? data.items.filter(function (item) { return item && item.approved && item.url && item.title; }) : [];
+      if (!items.length) return;
+      section.hidden = false;
+      controls.hidden = items.length < 2;
+      renderFeature();
+    })
+    .catch(function () { section.hidden = true; });
+})();
+</script>
+</body>
+</html>

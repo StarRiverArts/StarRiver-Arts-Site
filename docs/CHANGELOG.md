@@ -1,5 +1,16 @@
 # StarRiverSite Changelog
 
+## 2026-08-04
+
+- Implemented the `noindex` StarRiver Social Hub preview with shared bilingual content, static platform links, optional approved-feature data, and the approved CyberGum6 presentation.
+- Promoted the pure CyberGum6 palette to the sole Social Hub presentation and removed the earlier A/D palette study and query-parameter switch.
+- Added an intentionally separate `?theme=blueprint` Social Hub study with cold engineering labels, drafting-grid geometry, squared components, and a black / white / deep-blue drawing palette; link destinations and shared site data remain unchanged.
+- Reworked Blueprint decorative telemetry as fictional but physically coherent LEO mission data: six classical orbital elements, ECI/J2000 position and epoch, proximity-operations range/rates, a normalized relative-attitude quaternion, and an S-band link budget summary.
+- Approved Social Hub for public release: changed the page to `index,follow`, added its canonical and Open Graph URL, added a concise homepage Connect entry, and promoted the page and both approved presentations into the content SSOT.
+- Revised the production-assistance disclosure to identify StarRiver Arts as the planning and production lead while limiting OpenAI GPT and Anthropic Claude to information-architecture and web-development assistance.
+- Removed the duplicate AI collaboration annotation from the VR Gallery exhibit header so the disclosure remains in the low-interruption footer location required by the content SSOT.
+- Replaced the incomplete Studio and Social Hub footer links with the approved StarRiver Arts / Studio / ProjectT / Museum / Social Hub route set and marked the current page without a self-link.
+
 ## 2026-07-30
 
 - Added the approved `StarRiver Social Hub` page plan under `docs/site/social-hub-page-plan-v0.1.md`.

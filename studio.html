@@ -100,8 +100,9 @@ footer{background:var(--sr-void);color:var(--sr-paper);padding:44px 0 36px;margi
 .footer-name{font-family:var(--font-deck);font-weight:700;font-size:14px;color:var(--sr-paper);letter-spacing:.04em}
 .footer-sub{font-family:var(--font-mono);font-size:10px;color:var(--gray-500);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 .footer-nav{display:flex;flex-direction:column;gap:7px;align-items:flex-end}
-.footer-nav a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);transition:color 150ms}
+.footer-nav a,.footer-nav [aria-current]{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);transition:color 150ms}
 .footer-nav a:hover{color:var(--sr-paper)}
+.footer-nav [aria-current]{color:var(--sr-paper)}
 .footer-copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--gray-800);font-family:var(--font-mono);font-size:10px;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media(max-width:800px){
@@ -315,8 +316,11 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
         </div>
       </div>
       <div class="footer-nav">
-        <a href="studio.html"><span class="zh">工作室</span><span class="en">Studio</span><span class="jp">スタジオ</span></a>
-        <a href="play/"><span class="zh">體驗</span><span class="en">Play</span><span class="jp">体験</span></a>
+        <a href="index.html">StarRiver Arts</a>
+        <span aria-current="page">Studio</span>
+        <a href="play/">ProjectT</a>
+        <a href="museum/">Museum</a>
+        <a href="social.html">Social Hub</a>
       </div>
     </div>
     <div class="footer-copy">
@@ -324,8 +328,8 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
       <span class="zh">觀測 · 思考 · 再構築</span>
       <span class="en">Preservation · Accessibility · Development</span>
       <span class="jp">観測 · 思考 · 再構築</span>
-      <span class="zh">網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。</span>
-      <span class="en">Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.</span>
+      <span class="zh">網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。</span>
+      <span class="en">Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.</span>
     </div>
   </div>
 </footer>

@@ -139,12 +139,51 @@ html.lang-jp :is(.zh,.en) { display: none; }
 .lp-card--play   .sr-btn--primary { background:#52a578; color:#06180f; }
 .lp-card--museum .sr-btn--primary { background:#cdd0d6; color:#14141a; }
 
+/* ─── connect / social hub ─── */
+.lp-connect {
+  max-width: calc(var(--sr-container, 1200px) - 88px);
+  margin: 0 auto clamp(44px, 7vh, 72px);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,.16);
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+.lp-connect-kicker {
+  margin-bottom: 6px;
+  color: #eb8d9c;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+.lp-connect h2 { margin: 0; color: #f6f1e6; font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.75rem); }
+.lp-connect p { margin: 5px 0 0; color: #aaa496; font-size: .88rem; }
+.lp-connect-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #eb8d9c;
+  color: #f6f1e6;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+.lp-connect-link:hover { color: #1d101f; background: #eb8d9c; }
+.lp-connect-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
 /* ─── responsive ─── */
 @media (max-width: 860px) {
   .lp-cards { grid-template-columns: 1fr; gap: 14px; }
   .lp-card { padding: 20px 20px; }
   .lp-card-desc { display: none; }            /* keep mobile cards tight; title + button stay */
   .lp-card-head { display:flex; align-items:center; justify-content:space-between; }
+  .lp-connect { margin-inline: 20px; align-items: flex-start; flex-direction: column; }
 }
 
 
