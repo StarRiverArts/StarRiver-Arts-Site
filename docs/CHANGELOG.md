@@ -11,6 +11,7 @@
 - Revised the production-assistance disclosure to identify StarRiver Arts as the planning and production lead while limiting OpenAI GPT and Anthropic Claude to information-architecture and web-development assistance.
 - Removed the duplicate AI collaboration annotation from the VR Gallery exhibit header so the disclosure remains in the low-interruption footer location required by the content SSOT.
 - Replaced the incomplete Studio and Social Hub footer links with the approved StarRiver Arts / Studio / ProjectT / Museum / Social Hub route set and marked the current page without a self-link.
+- Removed the Social Hub descriptive subtitle below the tagline in both presentations and both languages, so the identity block ends at `Ad Astra, to beyond.`; the page description is retained in metadata for search and AI discovery.
 
 ## 2026-07-30
 

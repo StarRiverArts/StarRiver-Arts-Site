@@ -393,6 +393,7 @@ Approved public identity and behavior:
 
 - Page identity: `StarRiver Arts`.
 - Tagline: `Ad Astra, to beyond.`
+- The identity block ends at the tagline. No descriptive subtitle line follows it in either presentation or either language; the page description remains in page metadata only.
 - Canonical route: `/social.html`.
 - A parameter-free visit randomly selects one complete presentation: `cybergum` or `blueprint`. The selection changes presentation-specific labels and interface language together with the visual system; it is not a color-only skin.
 - `?theme=cybergum` and `?theme=blueprint` provide stable preview/share URLs for the two approved presentations. Both use the same link destinations and authoritative content.
