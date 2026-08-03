@@ -17,7 +17,21 @@
 <script>
 (function () {
   var html = document.documentElement;
-  if (new URLSearchParams(location.search).get("theme") === "blueprint") html.dataset.theme = "blueprint";
+  var availableThemes = ["cybergum", "blueprint"];
+  var requestedTheme = new URLSearchParams(location.search).get("theme");
+  var selectedTheme = availableThemes.indexOf(requestedTheme) !== -1
+    ? requestedTheme
+    : availableThemes[randomThemeIndex(availableThemes.length)];
+  html.dataset.theme = selectedTheme;
+
+  function randomThemeIndex(length) {
+    if (window.crypto && window.crypto.getRandomValues) {
+      var value = new Uint32Array(1);
+      window.crypto.getRandomValues(value);
+      return value[0] % length;
+    }
+    return Math.floor(Math.random() * length);
+  }
 
   var saved = null;
   try { saved = localStorage.getItem("sr-lang"); } catch (error) { saved = null; }

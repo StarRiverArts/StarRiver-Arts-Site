@@ -394,8 +394,8 @@ Approved public identity and behavior:
 - Page identity: `StarRiver Arts`.
 - Tagline: `Ad Astra, to beyond.`
 - Canonical route: `/social.html`.
-- The pure CyberGum6 presentation is the default theme.
-- The engineering-drawing study is an approved alternate presentation at `?theme=blueprint` and uses the same link destinations and authoritative content.
+- A parameter-free visit randomly selects one complete presentation: `cybergum` or `blueprint`. The selection changes presentation-specific labels and interface language together with the visual system; it is not a color-only skin.
+- `?theme=cybergum` and `?theme=blueprint` provide stable preview/share URLs for the two approved presentations. Both use the same link destinations and authoritative content.
 - Social platform links, site-area links, and community links remain static and usable when optional featured data is absent.
 - Decorative Blueprint telemetry is fictional StarRiver Space System interface copy; physical quantities and aerospace terminology should remain internally coherent and must not be presented as real flight data.
 
