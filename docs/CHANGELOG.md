@@ -14,6 +14,9 @@
 - Removed the Social Hub descriptive subtitle below the tagline in both presentations and both languages, so the identity block ends at `Ad Astra, to beyond.`; the page description is retained in metadata for search and AI discovery.
 - Added the existing analytics tag to the six reachable pages that lacked it, including the newly published Social Hub; `noindex, nofollow` prototype and container pages are deliberately left untracked until they are approved for publication.
 - Removed duplicated `canonical`, `description`, and Open Graph tags from thirteen Time Attack pages, keeping the page-specific block; duplicate canonical links can cause search engines to disregard both.
+- Added a Markdown article pipeline: authors write one source file per language under `content/`, and `tools/build_content.py` renders a single bilingual page per article. Drafts never produce a page, unpublishing removes the generated page, and only files carrying the generated-page marker are ever deleted.
+- Added long-form prose styling in `play/article-prose.css`. The `.pa-*` classes used by the article prototype previously had no rules at all, and no base selectors existed for the elements Markdown emits.
+- Gave the ProjectT article list a generated region delimited by markers, so the builder owns the article cards while StarRiverCMS keeps the surrounding hero, intro, and empty-state copy. Category chips appear only once a category holds two published articles; every article is listed regardless.
 
 ## 2026-07-30
 
