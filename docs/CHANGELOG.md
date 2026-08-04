@@ -12,6 +12,8 @@
 - Removed the duplicate AI collaboration annotation from the VR Gallery exhibit header so the disclosure remains in the low-interruption footer location required by the content SSOT.
 - Replaced the incomplete Studio and Social Hub footer links with the approved StarRiver Arts / Studio / ProjectT / Museum / Social Hub route set and marked the current page without a self-link.
 - Removed the Social Hub descriptive subtitle below the tagline in both presentations and both languages, so the identity block ends at `Ad Astra, to beyond.`; the page description is retained in metadata for search and AI discovery.
+- Added the existing analytics tag to the six reachable pages that lacked it, including the newly published Social Hub; `noindex, nofollow` prototype and container pages are deliberately left untracked until they are approved for publication.
+- Removed duplicated `canonical`, `description`, and Open Graph tags from thirteen Time Attack pages, keeping the page-specific block; duplicate canonical links can cause search engines to disregard both.
 
 ## 2026-07-30
 
