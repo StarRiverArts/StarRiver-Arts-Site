@@ -57,16 +57,23 @@
 </header>
 
 <main id="main">
-  <section class="lp-intro" aria-labelledby="site-title">
-    <div class="lp-kicker">星河 · STARRIVER ARTS</div>
-    <h1 class="lp-title" id="site-title">StarRiver Arts</h1>
-    <p class="lp-sub">
-      <span class="zh">VR 數位體驗的地景創作者</span>
-      <span class="en">A landscape creator for VR digital experiences</span>
-    </p>
-  </section>
+  <div class="lp-opening">
+    <section class="lp-intro" aria-labelledby="site-title">
+      <div class="lp-kicker">星河 · STARRIVER ARTS</div>
+      <h1 class="lp-title" id="site-title">StarRiver Arts</h1>
+      <p class="lp-sub">
+        <span class="zh">VR 數位體驗的地景創作者</span>
+        <span class="en">A landscape creator for VR digital experiences</span>
+      </p>
+    </section>
 
-  <section class="lp-cards" aria-label="StarRiver Arts">
+    <a class="lp-scroll-cue" href="#destinations">
+      <span><span class="zh">向下探索</span><span class="en">Explore below</span></span>
+      <span class="lp-scroll-line" aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <section class="lp-cards" id="destinations" aria-label="StarRiver Arts">
     <a class="lp-card lp-card--studio" href="studio.html">
       <div class="lp-card-idx">01 · STUDIO</div>
       <h2 class="lp-card-title">Studio</h2>
@@ -98,6 +105,19 @@
         <span class="zh">進入 Museum</span><span class="en">Enter Museum</span>
         <svg aria-hidden="true" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
       </span>
+    </a>
+  </section>
+
+  <section class="lp-recent" id="recent" aria-labelledby="recent-title" hidden>
+    <div class="lp-recent-heading">
+      <div class="lp-recent-kicker">RECENT · FEATURED</div>
+      <h2 id="recent-title"><span class="zh">近期與精選</span><span class="en">Recent &amp; featured</span></h2>
+    </div>
+    <a class="lp-recent-card" id="recent-card" href="#">
+      <span class="lp-recent-type" id="recent-type"></span>
+      <strong id="recent-name"></strong>
+      <span class="lp-recent-description" id="recent-description"></span>
+      <span class="lp-recent-arrow" aria-hidden="true">→</span>
     </a>
   </section>
 
@@ -135,6 +155,46 @@
 
   setLanguage(saved);
   select.addEventListener("change", function () { setLanguage(select.value); });
+
+  var recentSection = document.getElementById("recent");
+  var recentCard = document.getElementById("recent-card");
+  var recentItems = [];
+
+  function localized(value) {
+    if (typeof value === "string") return value;
+    if (!value) return "";
+    return value[select.value] || value.zh || value.en || "";
+  }
+
+  function renderRecent() {
+    if (!recentItems.length) {
+      recentSection.hidden = true;
+      return;
+    }
+    var item = recentItems[0];
+    document.getElementById("recent-type").textContent = localized(item.type);
+    document.getElementById("recent-name").textContent = localized(item.title);
+    document.getElementById("recent-description").textContent = localized(item.description);
+    recentCard.href = item.url;
+    recentCard.target = item.external ? "_blank" : "";
+    recentCard.rel = item.external ? "noopener noreferrer" : "";
+    recentSection.hidden = false;
+  }
+
+  fetch("data/social-featured.json")
+    .then(function (response) {
+      if (!response.ok) throw new Error("No featured content");
+      return response.json();
+    })
+    .then(function (data) {
+      recentItems = Array.isArray(data.items) ? data.items.filter(function (item) {
+        return item && item.approved && item.url && item.title;
+      }).slice(0, 1) : [];
+      renderRecent();
+    })
+    .catch(function () { recentSection.hidden = true; });
+
+  select.addEventListener("change", renderRecent);
 })();
 </script>
 </body>
