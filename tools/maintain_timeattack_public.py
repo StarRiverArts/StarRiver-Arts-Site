@@ -61,7 +61,7 @@ def upsert_metadata(raw: str, name: str) -> str:
         f"  {robots}"
         f'  <link rel="canonical" href="{canonical}">\n'
         '  <meta property="og:type" content="website">\n'
-        f'  <meta property="og:title" content="VRRCTW Time Attack">\n'
+        f'  <meta property="og:title" content="Racing Hub 賽事中心 | VRRCTW">\n'
         f'  <meta property="og:description" content="{description}">\n'
         f'  <meta property="og:url" content="{canonical}">\n'
         '  <meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/assets/logos/starriver-primary.png">\n'
@@ -110,7 +110,7 @@ def normalize_return_link(raw: str, prefix: str) -> str:
 
 def normalize_footer(raw: str, prefix: str) -> str:
     footer = f"""<footer class="ta-footer ta-community-footer">
-        <span>VRRCTW · Time Attack</span>
+        <span>VRRCTW · Racing Hub</span>
         <a href="{prefix}../"><span class="zh">關於俱樂部</span><span class="en">About the Club</span><span class="jp">クラブ情報</span></a>
         <a href="{DISCORD_URL}" target="_blank" rel="noopener noreferrer"><span class="zh">加入／投稿／回報錯誤</span><span class="en">Join / Submit / Report</span><span class="jp">参加・投稿・報告</span></a>
       </footer>"""

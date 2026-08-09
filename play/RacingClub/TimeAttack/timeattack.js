@@ -2935,8 +2935,8 @@ const initTimeAttack = async () => {
       pageData.sidebar_en = ["Leaderboards include all valid timed runs.", "TR / CR / PR mark track, vehicle, and player records.", "Content continues to update through the existing data pipeline."];
     }
 
-    const pageTitle = pageData.title_zh || labels.zh;
-    const pageTitleEn = pageData.title_en || labels.en;
+    const pageTitle = view === "overview" ? "Racing Hub 賽事中心" : (pageData.title_zh || labels.zh);
+    const pageTitleEn = view === "overview" ? "Racing Hub" : (pageData.title_en || labels.en);
     const pageDesc = pageData.description_zh || "";
     const pageDescEn = pageData.description_en || "";
 
