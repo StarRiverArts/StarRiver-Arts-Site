@@ -17,14 +17,14 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "59",
+      "value": "87",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
     {
       "label_zh": "地點",
       "label_en": "Places",
-      "value": "30",
+      "value": "45",
       "note_zh": "有座標可上圖的地名",
       "note_en": "Localities with map coordinates"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "30",
+      "value": "13",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -50,31 +50,66 @@
       "name_en": "Taiwan",
       "regions": [
         {
-          "name": "中部Middle",
-          "name_zh": "中部",
-          "name_en": "Middle",
+          "name": "嘉義市Chiayi City",
+          "name_zh": "嘉義市",
+          "name_en": "Chiayi City",
           "localities": [
             {
-              "name": "合歡山HeHuanMt.",
-              "name_zh": "合歡山",
-              "name_en": "HeHuanMt.",
-              "has_point": false,
+              "name": "蘭潭Lantan",
+              "name_zh": "蘭潭",
+              "name_en": "Lantan",
+              "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "wuling_silversummit",
-                  "track_display_name": "武嶺/銀嶺",
-                  "world_name": "Wuling/SilverSummit",
+                  "track_world_code": "lantan",
+                  "track_display_name": "蘭潭",
+                  "world_name": "Lantan",
                   "world_url": "",
-                  "system_name": "Unknown",
+                  "system_name": "",
                   "track_env": "山道",
-                  "difficulty": "困難",
+                  "difficulty": "",
                   "route_count": 0,
                   "record_count": 0,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
+              ],
+              "lat": 23.46544,
+              "lng": 120.4802,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "彰化Changhua",
+          "name_zh": "彰化",
+          "name_en": "Changhua",
+          "localities": [
+            {
+              "name": "鹿港・車輛研究測試中心Lukang · ARTC",
+              "name_zh": "鹿港・車輛研究測試中心",
+              "name_en": "Lukang · ARTC",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "artc",
+                  "track_display_name": "ARTC 車輛測試場",
+                  "world_name": "ARTC Vehicle Test Facility",
+                  "world_url": "",
+                  "system_name": "",
+                  "track_env": "測試場",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.060361,
+              "lng": 120.385444,
+              "point_source": "place"
             }
           ]
         },
@@ -124,6 +159,70 @@
               24.86769,
               121.799032
             ]
+          ]
+        },
+        {
+          "name": "臺中・花蓮Taichung–Hualien",
+          "name_zh": "臺中・花蓮",
+          "name_en": "Taichung–Hualien",
+          "localities": [
+            {
+              "name": "武嶺Wuling",
+              "name_zh": "武嶺",
+              "name_en": "Wuling",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "wuling_silversummit",
+                  "track_display_name": "武嶺/銀嶺",
+                  "world_name": "Wuling/SilverSummit",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.137317,
+              "lng": 121.275606,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "苗栗Miaoli",
+          "name_zh": "苗栗",
+          "name_en": "Miaoli",
+          "localities": [
+            {
+              "name": "勝興・龍騰Shengxing–Longteng",
+              "name_zh": "勝興・龍騰",
+              "name_en": "Shengxing–Longteng",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "old_mountain_line",
+                  "track_display_name": "舊山線",
+                  "world_name": "Old Mountain Line",
+                  "world_url": "",
+                  "system_name": "",
+                  "track_env": "山區",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.38823,
+              "lng": 120.7821,
+              "point_source": "place"
+            }
           ]
         },
         {
@@ -376,6 +475,20 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "shomaru_foxbg",
+                  "track_display_name": "正丸",
+                  "world_name": "Shomaru",
+                  "world_url": "https://vrchat.com/home/world/wrld_8bf0e3de-61d2-4a2f-b0c1-814b35410294",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 35.967,
@@ -416,6 +529,70 @@
               "lat": 34.6834304,
               "lng": 135.5099978,
               "point_source": "trace"
+            }
+          ]
+        },
+        {
+          "name": "宮城Miyagi",
+          "name_zh": "宮城",
+          "name_en": "Miyagi",
+          "localities": [
+            {
+              "name": "仙台Hi-LandSendai Hi-Land",
+              "name_zh": "仙台",
+              "name_en": "Hi-LandSendai Hi-Land",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "hi_land_raceway_2_0",
+                  "track_display_name": "Hi-Land Raceway 2.0",
+                  "world_name": "Hi-Land Raceway 2.0",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 38.2928,
+              "lng": 140.6208,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "廣島Hiroshima",
+          "name_zh": "廣島",
+          "name_en": "Hiroshima",
+          "localities": [
+            {
+              "name": "廣島市Hiroshima",
+              "name_zh": "廣島市",
+              "name_en": "Hiroshima",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "hiroshima_expressway",
+                  "track_display_name": "廣島高速公路",
+                  "world_name": "Hiroshima Expressway",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "高速公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.3853,
+              "lng": 132.4553,
+              "point_source": "place"
             }
           ]
         },
@@ -503,6 +680,31 @@
               "lat": 35.6511883,
               "lng": 139.686734,
               "point_source": "trace"
+            },
+            {
+              "name": "東京都Tokyo",
+              "name_zh": "東京都",
+              "name_en": "Tokyo",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "tokyo_metropolitan_expressway",
+                  "track_display_name": "［MaxiTune］ Tokyo Metropolitan",
+                  "world_name": "Tokyo Metropolitan Expressway",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "高速公路",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.6762,
+              "lng": 139.6503,
+              "point_source": "place"
             }
           ]
         },
@@ -582,7 +784,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 4,
+                  "record_count": 5,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -768,7 +970,7 @@
                   "track_env": "高速公路",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 5,
+                  "record_count": 6,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -860,6 +1062,35 @@
           ]
         },
         {
+          "name": "福島Fukushima",
+          "name_zh": "福島",
+          "name_en": "Fukushima",
+          "localities": [
+            {
+              "name": "福島Fukushima",
+              "name_zh": "福島",
+              "name_en": "Fukushima",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "fukushima",
+                  "track_display_name": "Fukushima",
+                  "world_name": "Fukushima",
+                  "world_url": "https://vrchat.com/home/world/wrld_49c514fc-fc1a-45bb-9b24-0ce88c5f8b0e",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "群馬Gunma",
           "name_zh": "群馬",
           "name_en": "Gunma",
@@ -907,7 +1138,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 6,
+                  "record_count": 7,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -932,7 +1163,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 73,
+                  "record_count": 74,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -999,8 +1230,8 @@
                   "system_name": "CVS",
                   "track_env": "山道",
                   "difficulty": "困難",
-                  "route_count": 1,
-                  "record_count": 25,
+                  "route_count": 2,
+                  "record_count": 61,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1019,6 +1250,20 @@
               "name_en": "Usui",
               "has_point": true,
               "tracks": [
+                {
+                  "track_world_code": "shin_usui",
+                  "track_display_name": "真碓冰",
+                  "world_name": "Shin Usui",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
                 {
                   "track_world_code": "usuidaa_k_a_u_b_e_r_u",
                   "track_display_name": "碓冰DAA",
@@ -1203,6 +1448,45 @@
               "lat": 36.2254,
               "lng": 140.1063,
               "point_source": "place"
+            },
+            {
+              "name": "筑波賽車場Tsukuba Circuit",
+              "name_zh": "筑波賽車場",
+              "name_en": "Tsukuba Circuit",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "tc2000_n2",
+                  "track_display_name": "TC2000 N2決戦",
+                  "world_name": "TC2000 N2決戦",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "tsukubacircuit",
+                  "track_display_name": "筑波サーキット-TsukubaCircuit-",
+                  "world_name": "TsukubaCircuit",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 15,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.1516,
+              "lng": 139.9217,
+              "point_source": "place"
             }
           ]
         },
@@ -1211,6 +1495,160 @@
           "name_zh": "虛構",
           "name_en": "Fictional",
           "localities": [
+            {
+              "name": "@Kart",
+              "name_zh": "@Kart",
+              "name_en": "@Kart",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "kart_totuka_kaoru",
+                  "track_display_name": "@Kart",
+                  "world_name": "@Kart",
+                  "world_url": "https://vrchat.com/home/world/wrld_7378b3c5-89ef-4d49-bdaf-4f452e82dcb8",
+                  "system_name": "CVS",
+                  "track_env": "卡丁車",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 18,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "Cadence Island",
+              "name_zh": "Cadence Island",
+              "name_en": "Cadence Island",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "cadence_island",
+                  "track_display_name": "Cadence Island",
+                  "world_name": "Cadence Island",
+                  "world_url": "https://vrchat.com/home/world/wrld_9537c0a9-60ba-455f-8ec1-bb8638d8fef0",
+                  "system_name": "Unknown",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "Fujino-GT",
+              "name_zh": "Fujino-GT",
+              "name_en": "Fujino-GT",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "fujino_gt",
+                  "track_display_name": "Fujino-GT",
+                  "world_name": "Fujino-GT",
+                  "world_url": "https://vrchat.com/home/world/wrld_9a17a599-e79d-4b12-b9fb-3bc3fc95fcdc",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 2,
+                  "record_count": 3,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "Owari Circuit",
+              "name_zh": "Owari Circuit",
+              "name_en": "Owari Circuit",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "owari_circuit",
+                  "track_display_name": "Owari Circuit",
+                  "world_name": "Owari Circuit",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "Summit",
+              "name_zh": "Summit",
+              "name_en": "Summit",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "summit_jintei",
+                  "track_display_name": "Summit",
+                  "world_name": "Summit",
+                  "world_url": "https://vrchat.com/home/world/wrld_e336e86a-c85f-46f0-9e4b-183594ecac37",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 2,
+                  "record_count": 6,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "大鷺山間Osagi Sankan",
+              "name_zh": "大鷺山間",
+              "name_en": "Osagi Sankan",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "unknown_lamina_03",
+                  "track_display_name": "大鷺山間サーキット",
+                  "world_name": "大鷺山間サーキット",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
+            {
+              "name": "淵森Fuchimori",
+              "name_zh": "淵森",
+              "name_en": "Fuchimori",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "unknown",
+                  "track_display_name": "淵森国際サーキット",
+                  "world_name": "FUCHIMORI INTERNATIONAL CIRCUIT",
+                  "world_url": "https://vrchat.com/home/world/wrld_849a73f5-c4f9-4e99-b4dd-1355b21c2918",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "中等",
+                  "route_count": 1,
+                  "record_count": 9,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
+            },
             {
               "name": "神留坂Kamidomarizaka",
               "name_zh": "神留坂",
@@ -1226,7 +1664,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 73,
+                  "record_count": 93,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1292,12 +1730,51 @@
                   "track_env": "公路",
                   "difficulty": "簡單",
                   "route_count": 2,
-                  "record_count": 32,
+                  "record_count": 38,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "奧地利Austria",
+      "name_zh": "奧地利",
+      "name_en": "Austria",
+      "regions": [
+        {
+          "name": "施蒂里亞Styria",
+          "name_zh": "施蒂里亞",
+          "name_en": "Styria",
+          "localities": [
+            {
+              "name": "斯皮爾堡Spielberg",
+              "name_zh": "斯皮爾堡",
+              "name_en": "Spielberg",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "spelberg_circuit_ff_challenge",
+                  "track_display_name": "SPELBERG Circuit FF Challenge",
+                  "world_name": "SPELBERG Circuit FF Challenge",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 47.2197,
+              "lng": 14.7647,
+              "point_source": "place"
             }
           ]
         }
@@ -1328,6 +1805,20 @@
                   "track_env": "賽道",
                   "difficulty": "極困難",
                   "route_count": 2,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nordschleife",
+                  "track_display_name": "紐柏林北環",
+                  "world_name": "Nordschleife",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
                   "record_count": 5,
                   "has_trace": false,
                   "has_poster": false,
@@ -1425,6 +1916,63 @@
           ]
         },
         {
+          "name": "加利福尼亞California",
+          "name_zh": "加利福尼亞",
+          "name_en": "California",
+          "localities": [
+            {
+              "name": "聖塔莫尼卡山脈Santa Monica Mountains",
+              "name_zh": "聖塔莫尼卡山脈",
+              "name_en": "Santa Monica Mountains",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "santa_monica_mountains",
+                  "track_display_name": "Santa Monica Mountains",
+                  "world_name": "Santa Monica Mountains",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.1203,
+              "lng": -118.9318,
+              "point_source": "place"
+            },
+            {
+              "name": "長灘Long Beach",
+              "name_zh": "長灘",
+              "name_en": "Long Beach",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "long_beach",
+                  "track_display_name": "Long Beach",
+                  "world_name": "Long Beach",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 33.7651,
+              "lng": -118.1897,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
           "name": "北卡羅來納North Carolina",
           "name_zh": "北卡羅來納",
           "name_en": "North Carolina",
@@ -1453,6 +2001,35 @@
               "lat": 35.3521,
               "lng": -80.6831,
               "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "密西根Michigan",
+          "name_zh": "密西根",
+          "name_en": "Michigan",
+          "localities": [
+            {
+              "name": "Calumet Pass",
+              "name_zh": "Calumet Pass",
+              "name_en": "Calumet Pass",
+              "has_point": false,
+              "tracks": [
+                {
+                  "track_world_code": "calumet_pass",
+                  "track_display_name": "Calumet Pass",
+                  "world_name": "Calumet Pass",
+                  "world_url": "https://vrchat.com/home/world/wrld_83f6a44d-f698-4cb6-a444-50212910bdf6",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ]
             }
           ]
         },
@@ -1511,6 +2088,148 @@
                   "poster_ext": null
                 }
               ]
+            }
+          ]
+        },
+        {
+          "name": "紐約New York",
+          "name_zh": "紐約",
+          "name_en": "New York",
+          "localities": [
+            {
+              "name": "沃特金斯格倫Watkins Glen",
+              "name_zh": "沃特金斯格倫",
+              "name_en": "Watkins Glen",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "watkins_glen",
+                  "track_display_name": "Watkins Glen",
+                  "world_name": "Watkins Glen",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 42.3369,
+              "lng": -76.9272,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "華盛頓Washington",
+          "name_zh": "華盛頓",
+          "name_en": "Washington",
+          "localities": [
+            {
+              "name": "西雅圖Seattle",
+              "name_zh": "西雅圖",
+              "name_en": "Seattle",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "seattle_circuit",
+                  "track_display_name": "西雅圖賽道",
+                  "world_name": "Seattle Circuit",
+                  "world_url": "https://vrchat.com/home/world/wrld_16e79c21-c091-46ad-8afb-700b98739cdb",
+                  "system_name": "Unknown",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 47.6062,
+              "lng": -122.3321,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "義大利Italy",
+      "name_zh": "義大利",
+      "name_en": "Italy",
+      "regions": [
+        {
+          "name": "艾米利亞-羅馬涅Emilia-Romagna",
+          "name_zh": "艾米利亞",
+          "name_en": "-羅馬涅Emilia-Romagna",
+          "localities": [
+            {
+              "name": "卡爾皮Carpi",
+              "name_zh": "卡爾皮",
+              "name_en": "Carpi",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "carpi",
+                  "track_display_name": "Carpi",
+                  "world_name": "Carpi",
+                  "world_url": "https://vrchat.com/home/world/wrld_da5847c7-8704-47d6-aacd-b7cc2913dff9",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 2,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 44.7824,
+              "lng": 10.8777,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "芬蘭Finland",
+      "name_zh": "芬蘭",
+      "name_en": "Finland",
+      "regions": [
+        {
+          "name": "中芬蘭Central Finland",
+          "name_zh": "中芬蘭",
+          "name_en": "Central Finland",
+          "localities": [
+            {
+              "name": "于韋斯屈萊Jyväskylä",
+              "name_zh": "于韋斯屈萊",
+              "name_en": "Jyväskylä",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "rally_finland_ss1",
+                  "track_display_name": "芬蘭拉力SS1",
+                  "world_name": "Rally Finland SS1",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 62.2426,
+              "lng": 25.7473,
+              "point_source": "place"
             }
           ]
         }
@@ -1595,6 +2314,20 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "silverstone_afeminineguy",
+                  "track_display_name": "Silverstone",
+                  "world_name": "Silverstone",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 3,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 52.0786,
@@ -1608,57 +2341,15 @@
   ],
   "unlocated": [
     {
-      "track_world_code": "kart_totuka_kaoru",
-      "track_display_name": "@Kart",
-      "world_name": "@Kart",
-      "world_url": "https://vrchat.com/home/world/wrld_7378b3c5-89ef-4d49-bdaf-4f452e82dcb8",
-      "system_name": "CVS",
-      "track_env": "卡丁車",
-      "difficulty": "簡單",
-      "route_count": 1,
-      "record_count": 18,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "cadence_island",
-      "track_display_name": "Cadence Island",
-      "world_name": "Cadence Island",
-      "world_url": "https://vrchat.com/home/world/wrld_9537c0a9-60ba-455f-8ec1-bb8638d8fef0",
+      "track_world_code": "deep_forest_raceway_cvs2",
+      "track_display_name": "Deep Forest Raceway CVS2",
+      "world_name": "Deep Forest Raceway CVS2",
+      "world_url": "",
       "system_name": "Unknown",
-      "track_env": "拉力",
+      "track_env": "山道",
       "difficulty": "",
       "route_count": 1,
       "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "calumet_pass",
-      "track_display_name": "Calumet Pass",
-      "world_name": "Calumet Pass",
-      "world_url": "https://vrchat.com/home/world/wrld_83f6a44d-f698-4cb6-a444-50212910bdf6",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "carpi",
-      "track_display_name": "Carpi",
-      "world_name": "Carpi",
-      "world_url": "https://vrchat.com/home/world/wrld_da5847c7-8704-47d6-aacd-b7cc2913dff9",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 2,
-      "record_count": 2,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1678,54 +2369,54 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "fujino_gt",
-      "track_display_name": "Fujino-GT",
-      "world_name": "Fujino-GT",
-      "world_url": "https://vrchat.com/home/world/wrld_9a17a599-e79d-4b12-b9fb-3bc3fc95fcdc",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 2,
-      "record_count": 3,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "fukushima",
-      "track_display_name": "Fukushima",
-      "world_name": "Fukushima",
-      "world_url": "https://vrchat.com/home/world/wrld_49c514fc-fc1a-45bb-9b24-0ce88c5f8b0e",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hi_land_raceway_2_0",
-      "track_display_name": "Hi-Land Raceway 2.0",
-      "world_name": "Hi-Land Raceway 2.0",
+      "track_world_code": "ford_racing_3_raceway",
+      "track_display_name": "Ford Racing 3 Raceway",
+      "world_name": "Ford Racing 3 Raceway",
       "world_url": "",
       "system_name": "Unknown",
       "track_env": "賽道",
       "difficulty": "",
       "route_count": 1,
-      "record_count": 2,
+      "record_count": 1,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
     },
     {
-      "track_world_code": "long_beach",
-      "track_display_name": "Long Beach",
-      "world_name": "Long Beach",
+      "track_world_code": "ichinose_speed_ring",
+      "track_display_name": "Ichinose Speed Ring",
+      "world_name": "Ichinose Speed Ring",
       "world_url": "",
       "system_name": "Unknown",
-      "track_env": "拉力",
+      "track_env": "賽道",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 7,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "just_gt_3",
+      "track_display_name": "Just GT-3",
+      "world_name": "Just GT-3",
+      "world_url": "",
+      "system_name": "Unknown",
+      "track_env": "賽道",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 1,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
+    },
+    {
+      "track_world_code": "knockhill_racing_circuit_rallycross",
+      "track_display_name": "Knockhill Racing Circuit ＆ Rallycross",
+      "world_name": "Knockhill Racing Circuit ＆ Rallycross",
+      "world_url": "",
+      "system_name": "Unknown",
+      "track_env": "",
       "difficulty": "",
       "route_count": 1,
       "record_count": 1,
@@ -1737,20 +2428,6 @@
       "track_world_code": "orc_circuit",
       "track_display_name": "ORC賽道",
       "world_name": "ORC Circuit",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "owari_circuit",
-      "track_display_name": "Owari Circuit",
-      "world_name": "Owari Circuit",
       "world_url": "",
       "system_name": "Unknown",
       "track_env": "賽道",
@@ -1776,26 +2453,12 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "spelberg_circuit_ff_challenge",
-      "track_display_name": "SPELBERG Circuit FF Challenge",
-      "world_name": "SPELBERG Circuit FF Challenge",
+      "track_world_code": "rallyisland",
+      "track_display_name": "RallyIsland",
+      "world_name": "RallyIsland",
       "world_url": "",
       "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "santa_monica_mountains",
-      "track_display_name": "Santa Monica Mountains",
-      "world_name": "Santa Monica Mountains",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "山道",
+      "track_env": "公路",
       "difficulty": "",
       "route_count": 1,
       "record_count": 2,
@@ -1804,43 +2467,15 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "silverstone_afeminineguy",
-      "track_display_name": "Silverstone",
-      "world_name": "Silverstone",
+      "track_world_code": "usui_rave_stage",
+      "track_display_name": "Usui˸ Rave Stage",
+      "world_name": "Usui˸ Rave Stage",
       "world_url": "",
       "system_name": "Unknown",
-      "track_env": "賽道",
+      "track_env": "山道",
       "difficulty": "",
       "route_count": 1,
-      "record_count": 3,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "summit_jintei",
-      "track_display_name": "Summit",
-      "world_name": "Summit",
-      "world_url": "https://vrchat.com/home/world/wrld_e336e86a-c85f-46f0-9e4b-183594ecac37",
-      "system_name": "Sacc",
-      "track_env": "山道",
-      "difficulty": "困難",
-      "route_count": 2,
-      "record_count": 6,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "tc2000_n2",
-      "track_display_name": "TC2000 N2決戦",
-      "world_name": "TC2000 N2決戦",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
+      "record_count": 1,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -1874,196 +2509,68 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "watkins_glen",
-      "track_display_name": "Watkins Glen",
-      "world_name": "Watkins Glen",
+      "track_world_code": "line_foreststage",
+      "track_display_name": "三之白LINE ForestStage",
+      "world_name": "三之白LINE ForestStage",
       "world_url": "",
       "system_name": "Unknown",
-      "track_env": "賽道",
+      "track_env": "拉力",
       "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "unknown_lamina_03",
-      "track_display_name": "大鷺山間サーキット",
-      "world_name": "大鷺山間サーキット",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hiroshima_expressway",
-      "track_display_name": "廣島高速公路",
-      "world_name": "Hiroshima Expressway",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "高速公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shomaru_foxbg",
-      "track_display_name": "正丸",
-      "world_name": "Shomaru",
-      "world_url": "https://vrchat.com/home/world/wrld_8bf0e3de-61d2-4a2f-b0c1-814b35410294",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 2,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "unknown",
-      "track_display_name": "淵森国際サーキット",
-      "world_name": "FUCHIMORI INTERNATIONAL CIRCUIT",
-      "world_url": "https://vrchat.com/home/world/wrld_849a73f5-c4f9-4e99-b4dd-1355b21c2918",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "中等",
-      "route_count": 1,
-      "record_count": 9,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shin_usui",
-      "track_display_name": "真碓冰",
-      "world_name": "Shin Usui",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 2,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "tsukubacircuit",
-      "track_display_name": "筑波サーキット-TsukubaCircuit-",
-      "world_name": "TsukubaCircuit",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 15,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nordschleife",
-      "track_display_name": "紐柏林北環",
-      "world_name": "Nordschleife",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "",
-      "route_count": 1,
+      "route_count": 2,
       "record_count": 4,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rally_finland_ss1",
-      "track_display_name": "芬蘭拉力SS1",
-      "world_name": "Rally Finland SS1",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "seattle_circuit",
-      "track_display_name": "西雅圖賽道",
-      "world_name": "Seattle Circuit",
-      "world_url": "https://vrchat.com/home/world/wrld_16e79c21-c091-46ad-8afb-700b98739cdb",
-      "system_name": "Unknown",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 2,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "tokyo_metropolitan_expressway",
-      "track_display_name": "［MaxiTune］ Tokyo Metropolitan",
-      "world_name": "Tokyo Metropolitan Expressway",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "高速公路",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
     }
   ],
-  "warnings": [
-    "kart_totuka_kaoru 的國家/地名只填了一半,先列入未定位",
-    "carpi 的國家/地名只填了一半,先列入未定位",
-    "fujino_gt 的國家/地名只填了一半,先列入未定位",
-    "summit_jintei 的國家/地名只填了一半,先列入未定位",
-    "shomaru_foxbg 的國家/地名只填了一半,先列入未定位",
-    "unknown 的國家/地名只填了一半,先列入未定位"
-  ],
+  "warnings": [],
   "category_style": {
     "colors": {
-      "德國Germany|CVS": "hsl(0, 78%, 62%)",
-      "摩納哥Monaco|CVS": "hsl(51, 78%, 62%)",
-      "日本Japan|CVS": "hsl(103, 78%, 62%)",
-      "日本Japan|Sacc": "hsl(103, 28%, 64%)",
-      "日本Japan|Unknown": "hsl(103, 45%, 62%)",
-      "美國USA|CVS": "hsl(154, 78%, 62%)",
-      "美國USA|Unknown": "hsl(154, 45%, 62%)",
-      "義大利Italy|Unknown": "hsl(206, 45%, 62%)",
-      "臺灣Taiwan|CVS": "hsl(257, 78%, 62%)",
-      "臺灣Taiwan|Unknown": "hsl(257, 45%, 62%)",
-      "英國UK|CVS": "hsl(309, 78%, 62%)",
-      "英國UK|Unknown": "hsl(309, 45%, 62%)"
+      "奧地利Austria|Unknown": "hsl(0, 45%, 62%)",
+      "德國Germany|CVS": "hsl(40, 78%, 62%)",
+      "德國Germany|Unknown": "hsl(40, 45%, 62%)",
+      "摩納哥Monaco|CVS": "hsl(80, 78%, 62%)",
+      "日本Japan|CVS": "hsl(120, 78%, 62%)",
+      "日本Japan|Sacc": "hsl(120, 28%, 64%)",
+      "日本Japan|Unknown": "hsl(120, 45%, 62%)",
+      "美國USA|CVS": "hsl(160, 78%, 62%)",
+      "美國USA|Unknown": "hsl(160, 45%, 62%)",
+      "義大利Italy|Unknown": "hsl(200, 45%, 62%)",
+      "臺灣Taiwan|CVS": "hsl(240, 78%, 62%)",
+      "臺灣Taiwan|Unknown": "hsl(240, 45%, 62%)",
+      "芬蘭Finland|Unknown": "hsl(280, 45%, 62%)",
+      "英國UK|CVS": "hsl(320, 78%, 62%)",
+      "英國UK|Unknown": "hsl(320, 45%, 62%)"
     },
     "neutral": "hsl(150, 6%, 52%)",
     "legend": [
       {
+        "key": "奧地利Austria|Unknown",
+        "color": "hsl(0, 45%, 62%)",
+        "country": "奧地利Austria",
+        "system": "Unknown",
+        "label_zh": "奧地利·Unknown",
+        "label_en": "Austria·Unknown"
+      },
+      {
         "key": "德國Germany|CVS",
-        "color": "hsl(0, 78%, 62%)",
+        "color": "hsl(40, 78%, 62%)",
         "country": "德國Germany",
         "system": "CVS",
         "label_zh": "德國·CVS",
         "label_en": "Germany·CVS"
       },
       {
+        "key": "德國Germany|Unknown",
+        "color": "hsl(40, 45%, 62%)",
+        "country": "德國Germany",
+        "system": "Unknown",
+        "label_zh": "德國·Unknown",
+        "label_en": "Germany·Unknown"
+      },
+      {
         "key": "摩納哥Monaco|CVS",
-        "color": "hsl(51, 78%, 62%)",
+        "color": "hsl(80, 78%, 62%)",
         "country": "摩納哥Monaco",
         "system": "CVS",
         "label_zh": "摩納哥·CVS",
@@ -2071,7 +2578,7 @@
       },
       {
         "key": "日本Japan|CVS",
-        "color": "hsl(103, 78%, 62%)",
+        "color": "hsl(120, 78%, 62%)",
         "country": "日本Japan",
         "system": "CVS",
         "label_zh": "日本·CVS",
@@ -2079,7 +2586,7 @@
       },
       {
         "key": "日本Japan|Sacc",
-        "color": "hsl(103, 28%, 64%)",
+        "color": "hsl(120, 28%, 64%)",
         "country": "日本Japan",
         "system": "Sacc",
         "label_zh": "日本·Sacc",
@@ -2087,7 +2594,7 @@
       },
       {
         "key": "日本Japan|Unknown",
-        "color": "hsl(103, 45%, 62%)",
+        "color": "hsl(120, 45%, 62%)",
         "country": "日本Japan",
         "system": "Unknown",
         "label_zh": "日本·Unknown",
@@ -2095,7 +2602,7 @@
       },
       {
         "key": "美國USA|CVS",
-        "color": "hsl(154, 78%, 62%)",
+        "color": "hsl(160, 78%, 62%)",
         "country": "美國USA",
         "system": "CVS",
         "label_zh": "美國·CVS",
@@ -2103,7 +2610,7 @@
       },
       {
         "key": "美國USA|Unknown",
-        "color": "hsl(154, 45%, 62%)",
+        "color": "hsl(160, 45%, 62%)",
         "country": "美國USA",
         "system": "Unknown",
         "label_zh": "美國·Unknown",
@@ -2111,7 +2618,7 @@
       },
       {
         "key": "義大利Italy|Unknown",
-        "color": "hsl(206, 45%, 62%)",
+        "color": "hsl(200, 45%, 62%)",
         "country": "義大利Italy",
         "system": "Unknown",
         "label_zh": "義大利·Unknown",
@@ -2119,7 +2626,7 @@
       },
       {
         "key": "臺灣Taiwan|CVS",
-        "color": "hsl(257, 78%, 62%)",
+        "color": "hsl(240, 78%, 62%)",
         "country": "臺灣Taiwan",
         "system": "CVS",
         "label_zh": "臺灣·CVS",
@@ -2127,15 +2634,23 @@
       },
       {
         "key": "臺灣Taiwan|Unknown",
-        "color": "hsl(257, 45%, 62%)",
+        "color": "hsl(240, 45%, 62%)",
         "country": "臺灣Taiwan",
         "system": "Unknown",
         "label_zh": "臺灣·Unknown",
         "label_en": "Taiwan·Unknown"
       },
       {
+        "key": "芬蘭Finland|Unknown",
+        "color": "hsl(280, 45%, 62%)",
+        "country": "芬蘭Finland",
+        "system": "Unknown",
+        "label_zh": "芬蘭·Unknown",
+        "label_en": "Finland·Unknown"
+      },
+      {
         "key": "英國UK|CVS",
-        "color": "hsl(309, 78%, 62%)",
+        "color": "hsl(320, 78%, 62%)",
         "country": "英國UK",
         "system": "CVS",
         "label_zh": "英國·CVS",
@@ -2143,7 +2658,7 @@
       },
       {
         "key": "英國UK|Unknown",
-        "color": "hsl(309, 45%, 62%)",
+        "color": "hsl(320, 45%, 62%)",
         "country": "英國UK",
         "system": "Unknown",
         "label_zh": "英國·Unknown",
