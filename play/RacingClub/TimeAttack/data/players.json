@@ -31,14 +31,14 @@
     {
       "label_zh": "TR 數量",
       "label_en": "Track Records",
-      "value": "136",
+      "value": "137",
       "note_zh": "一般有效池內已確立的賽道路線最快數",
       "note_en": "Route-level fastest runs established in the valid pool"
     },
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "432",
+      "value": "452",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -53,11 +53,11 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 117,
-        "distinct_tracks": 64,
-        "max_route_attempts": 24,
+        "distinct_vehicle_models": 125,
+        "distinct_tracks": 65,
+        "max_route_attempts": 30,
         "tr_count": 73,
-        "cr_count": 11
+        "cr_count": 14
       },
       "subtitle_zh": "未分隊車手",
       "subtitle_en": "Independent Driver",
@@ -74,7 +74,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "263"
+          "value": "286"
         },
         {
           "label_zh": "已驗證",
@@ -89,13 +89,13 @@
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "11"
+          "value": "14"
         }
       ],
       "badge_counts": {
         "TR": 73,
-        "CR": 11,
-        "PR": 12
+        "CR": 14,
+        "PR": 11
       },
       "tag_chips": [
         {
@@ -118,7 +118,7 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)",
-          "value": 17
+          "value": 18
         },
         {
           "label": "AE86 Trueno",
@@ -130,31 +130,57 @@
         },
         {
           "label": "NA2",
-          "value": 8
+          "value": 9
         }
       ],
       "tag_rows": [
         {
           "label": "高速",
-          "value": 136
+          "value": 149
         },
         {
           "label": "髮夾彎",
-          "value": 111
+          "value": 121
         },
         {
           "label": "技術",
-          "value": 108
+          "value": 119
         },
         {
           "label": "上下山",
-          "value": 16
+          "value": 18
         }
       ],
       "record_rows": [
         {
-          "record_id": "rec_1276",
+          "record_id": "rec_1346",
           "rank": 1,
+          "route_label_zh": "座辰モーターパーク / Clockwise",
+          "route_label_en": "座辰モーターパーク / Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "vehicle_variant_name": "FD3S-Aspec",
+          "vehicle_variant_code": "veh_fd3s_aspec",
+          "lap_time_ms": 36547,
+          "lap_time_text": "00:36.547",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-15",
+          "track_env": "賽道",
+          "track_tags": [],
+          "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1276",
+          "rank": 2,
           "route_label_zh": "Knockhill Racing Circuit ＆ Rallycross / Circuit",
           "route_label_en": "Knockhill Racing Circuit ＆ Rallycross / Circuit",
           "player_display_name": "CannedCarbon",
@@ -180,7 +206,7 @@
         },
         {
           "record_id": "rec_0925",
-          "rank": 2,
+          "rank": 3,
           "route_label_zh": "Silverstone / Clockwise",
           "route_label_en": "Silverstone / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -206,7 +232,7 @@
         },
         {
           "record_id": "rec_1080",
-          "rank": 3,
+          "rank": 4,
           "route_label_zh": "筑波サーキット-TsukubaCircuit- / Circuit",
           "route_label_en": "TsukubaCircuit / Circuit",
           "player_display_name": "CannedCarbon",
@@ -232,7 +258,7 @@
         },
         {
           "record_id": "rec_1314",
-          "rank": 4,
+          "rank": 5,
           "route_label_zh": "Ford Racing 3 Raceway / Racetrack",
           "route_label_en": "Ford Racing 3 Raceway / Racetrack",
           "player_display_name": "CannedCarbon",
@@ -258,7 +284,7 @@
         },
         {
           "record_id": "rec_0893",
-          "rank": 5,
+          "rank": 6,
           "route_label_zh": "SPELBERG Circuit FF Challenge / Spielberg",
           "route_label_en": "SPELBERG Circuit FF Challenge / Spielberg",
           "player_display_name": "CannedCarbon",
@@ -284,7 +310,7 @@
         },
         {
           "record_id": "rec_1091",
-          "rank": 6,
+          "rank": 7,
           "route_label_zh": "八方原 / Outbound",
           "route_label_en": "Happogahara / Outbound",
           "player_display_name": "CannedCarbon",
@@ -314,7 +340,7 @@
         },
         {
           "record_id": "rec_1313",
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "Deep Forest Raceway CVS2 / Forward",
           "route_label_en": "Deep Forest Raceway CVS2 / Forward",
           "player_display_name": "CannedCarbon",
@@ -340,7 +366,7 @@
         },
         {
           "record_id": "rec_1176",
-          "rank": 8,
+          "rank": 9,
           "route_label_zh": "觀星山 / Downhill",
           "route_label_en": "StarSight / Downhill",
           "player_display_name": "CannedCarbon",
@@ -369,7 +395,7 @@
         },
         {
           "record_id": "rec_0841",
-          "rank": 9,
+          "rank": 10,
           "route_label_zh": "Long Beach / Long Beach",
           "route_label_en": "Long Beach / Long Beach",
           "player_display_name": "CannedCarbon",
@@ -395,7 +421,7 @@
         },
         {
           "record_id": "rec_0793",
-          "rank": 10,
+          "rank": 11,
           "route_label_zh": "Summit / Unknown",
           "route_label_en": "Summit / Unknown",
           "player_display_name": "CannedCarbon",
@@ -425,7 +451,7 @@
         },
         {
           "record_id": "rec_1297",
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "Usui˸ Rave Stage / Counter-Clockwise",
           "route_label_en": "Usui˸ Rave Stage / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -451,7 +477,7 @@
         },
         {
           "record_id": "rec_1097",
-          "rank": 12,
+          "rank": 13,
           "route_label_zh": "筑波產業道路 / Downhill",
           "route_label_en": "Tsukuba Fruits Line / Downhill",
           "player_display_name": "CannedCarbon",
@@ -480,7 +506,7 @@
         },
         {
           "record_id": "rec_1123",
-          "rank": 13,
+          "rank": 14,
           "route_label_zh": "西雅圖賽道 / Forward",
           "route_label_en": "Seattle Circuit / Forward",
           "player_display_name": "CannedCarbon",
@@ -508,7 +534,7 @@
         },
         {
           "record_id": "rec_1309",
-          "rank": 14,
+          "rank": 15,
           "route_label_zh": "Just GT-3 / 待整理",
           "route_label_en": "Just GT-3 / 待整理",
           "player_display_name": "CannedCarbon",
@@ -534,7 +560,7 @@
         },
         {
           "record_id": "rec_1036",
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "龍溝山 / Downhill",
           "route_label_en": "Ryuoukouzan / Downhill",
           "player_display_name": "CannedCarbon",
@@ -563,7 +589,7 @@
         },
         {
           "record_id": "rec_1207",
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "Kamidomarizaka / Uphill",
           "route_label_en": "Kamidomarizaka / Uphill",
           "player_display_name": "CannedCarbon",
@@ -592,7 +618,7 @@
         },
         {
           "record_id": "rec_1094",
-          "rank": 17,
+          "rank": 18,
           "route_label_zh": "淵森国際サーキット / Clockwise",
           "route_label_en": "FUCHIMORI INTERNATIONAL CIRCUIT / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -603,7 +629,7 @@
           "vehicle_variant_code": "veh_wonderfe",
           "lap_time_ms": 119346,
           "lap_time_text": "01:59.346",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+12.824",
           "platform": "pc",
           "record_date": "2026-07-26",
           "track_env": "賽道",
@@ -613,14 +639,14 @@
           "peer_label": "WonderFE",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "record_id": "rec_0724",
-          "rank": 18,
+          "rank": 19,
           "route_label_zh": "F1 Circuit / Clockwise",
           "route_label_en": "F1 Circuit / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -649,7 +675,7 @@
         },
         {
           "record_id": "rec_1167",
-          "rank": 19,
+          "rank": 20,
           "route_label_zh": "Hi-Land Raceway 2.0 / Circuit",
           "route_label_en": "Hi-Land Raceway 2.0 / Circuit",
           "player_display_name": "CannedCarbon",
@@ -675,7 +701,7 @@
         },
         {
           "record_id": "rec_0799",
-          "rank": 20,
+          "rank": 21,
           "route_label_zh": "龍溝山 / Uphill",
           "route_label_en": "Ryuoukouzan / Uphill",
           "player_display_name": "CannedCarbon",
@@ -704,7 +730,7 @@
         },
         {
           "record_id": "rec_1135",
-          "rank": 21,
+          "rank": 22,
           "route_label_zh": "omote_rokko / Downhill",
           "route_label_en": "omote_rokko / Downhill",
           "player_display_name": "CannedCarbon",
@@ -732,7 +758,7 @@
         },
         {
           "record_id": "rec_1255",
-          "rank": 22,
+          "rank": 23,
           "route_label_zh": "真.妙義 / Uphill",
           "route_label_en": "ShinMyogi / Uphill",
           "player_display_name": "CannedCarbon",
@@ -761,7 +787,7 @@
         },
         {
           "record_id": "rec_0727",
-          "rank": 23,
+          "rank": 24,
           "route_label_zh": "UraRokko / Downhill",
           "route_label_en": "UraRokko / Downhill",
           "player_display_name": "CannedCarbon",
@@ -787,7 +813,7 @@
         },
         {
           "record_id": "rec_0825",
-          "rank": 24,
+          "rank": 25,
           "route_label_zh": "真.妙義 / Downhill",
           "route_label_en": "ShinMyogi / Downhill",
           "player_display_name": "CannedCarbon",
@@ -816,7 +842,7 @@
         },
         {
           "record_id": "rec_1196",
-          "rank": 25,
+          "rank": 26,
           "route_label_zh": "定峰峠 / Original Course Uphill",
           "route_label_en": "Sadamine / Original Course Uphill",
           "player_display_name": "CannedCarbon",
@@ -845,7 +871,7 @@
         },
         {
           "record_id": "rec_0982",
-          "rank": 26,
+          "rank": 27,
           "route_label_zh": "箱根山(蘆之湖skyline) / Outbound",
           "route_label_en": "Mt.Hakone / Outbound",
           "player_display_name": "CannedCarbon",
@@ -873,7 +899,7 @@
         },
         {
           "record_id": "rec_0981",
-          "rank": 27,
+          "rank": 28,
           "route_label_zh": "箱根山(蘆之湖skyline) / Inbound",
           "route_label_en": "Mt.Hakone / Inbound",
           "player_display_name": "CannedCarbon",
@@ -901,7 +927,7 @@
         },
         {
           "record_id": "rec_1063",
-          "rank": 28,
+          "rank": 29,
           "route_label_zh": "群馬單車中心 / Outbound",
           "route_label_en": "Gunsai / Outbound",
           "player_display_name": "CannedCarbon",
@@ -930,7 +956,7 @@
         },
         {
           "record_id": "rec_0717",
-          "rank": 29,
+          "rank": 30,
           "route_label_zh": "群馬單車中心 / Full Course",
           "route_label_en": "Gunsai / Full Course",
           "player_display_name": "CannedCarbon",
@@ -959,7 +985,7 @@
         },
         {
           "record_id": "rec_1064",
-          "rank": 30,
+          "rank": 31,
           "route_label_zh": "群馬單車中心 / Inbound",
           "route_label_en": "Gunsai / Inbound",
           "player_display_name": "CannedCarbon",
@@ -988,7 +1014,7 @@
         },
         {
           "record_id": "rec_1315",
-          "rank": 31,
+          "rank": 32,
           "route_label_zh": "三之白LINE ForestStage / SS Type",
           "route_label_en": "三之白LINE ForestStage / SS Type",
           "player_display_name": "CannedCarbon",
@@ -1014,7 +1040,7 @@
         },
         {
           "record_id": "rec_1300",
-          "rank": 32,
+          "rank": 33,
           "route_label_zh": "Ichinose Speed Ring / Speer Ring",
           "route_label_en": "Ichinose Speed Ring / Speer Ring",
           "player_display_name": "CannedCarbon",
@@ -1040,7 +1066,7 @@
         },
         {
           "record_id": "rec_1251",
-          "rank": 33,
+          "rank": 34,
           "route_label_zh": "紅葉Momiji / Downhill",
           "route_label_en": "Momiji / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1069,7 +1095,7 @@
         },
         {
           "record_id": "rec_1047",
-          "rank": 34,
+          "rank": 35,
           "route_label_zh": "［MaxiTune］ Tokyo Metropolitan / C1 Inbound",
           "route_label_en": "Tokyo Metropolitan Expressway / C1 Inbound",
           "player_display_name": "CannedCarbon",
@@ -1094,8 +1120,34 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1335",
+          "rank": 36,
+          "route_label_zh": "Rally Snowland / Short Course",
+          "route_label_en": "Rally Snowland / Short Course",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "YasuriRG",
+          "vehicle_model_code": "veh_yasurirg",
+          "vehicle_variant_name": "YasuriRG",
+          "vehicle_variant_code": "veh_yasurirg",
+          "lap_time_ms": 175881,
+          "lap_time_text": "02:55.881",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-16",
+          "track_env": "拉力",
+          "track_tags": [],
+          "peer_label": "YasuriRG",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538573587622002778",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
           "record_id": "rec_1222",
-          "rank": 35,
+          "rank": 37,
           "route_label_zh": "赤城 / Downhill",
           "route_label_en": "Akagi / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1123,34 +1175,8 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_0754",
-          "rank": 36,
-          "route_label_zh": "Rally Snowland / Short Course",
-          "route_label_en": "Rally Snowland / Short Course",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "story",
-          "vehicle_model_code": "veh_story",
-          "vehicle_variant_name": "story",
-          "vehicle_variant_code": "veh_story",
-          "lap_time_ms": 186413,
-          "lap_time_text": "03:06.413",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-06-18",
-          "track_env": "拉力",
-          "track_tags": [],
-          "peer_label": "story",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
           "record_id": "rec_1270",
-          "rank": 37,
+          "rank": 38,
           "route_label_zh": "箱根高速 / Downhill",
           "route_label_en": "Hakone / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1179,7 +1205,7 @@
         },
         {
           "record_id": "rec_1209",
-          "rank": 38,
+          "rank": 39,
           "route_label_zh": "紅葉Momiji / Downhill",
           "route_label_en": "Momiji / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1208,7 +1234,7 @@
         },
         {
           "record_id": "rec_0900",
-          "rank": 39,
+          "rank": 40,
           "route_label_zh": "紅葉Momiji / Uphill",
           "route_label_en": "Momiji / Uphill",
           "player_display_name": "CannedCarbon",
@@ -1236,8 +1262,37 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1323",
+          "rank": 41,
+          "route_label_zh": "七曲 / Downhill",
+          "route_label_en": "Nanamagari / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AE86",
+          "vehicle_model_code": "veh_ae86",
+          "vehicle_variant_name": "AE86",
+          "vehicle_variant_code": "veh_ae86",
+          "lap_time_ms": 191813,
+          "lap_time_text": "03:11.813",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-15",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "AE86",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538002388026396734",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
           "record_id": "rec_1057",
-          "rank": 40,
+          "rank": 42,
           "route_label_zh": "妙義(妙義ASV) / Downhill",
           "route_label_en": "Myogi (ASV) / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1265,7 +1320,7 @@
         },
         {
           "record_id": "rec_1180",
-          "rank": 41,
+          "rank": 43,
           "route_label_zh": "土坂 / Inbound",
           "route_label_en": "Tsuchisaka / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1294,7 +1349,7 @@
         },
         {
           "record_id": "rec_1126",
-          "rank": 42,
+          "rank": 44,
           "route_label_zh": "Carpi / Inbound",
           "route_label_en": "Carpi / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1320,7 +1375,7 @@
         },
         {
           "record_id": "rec_1224",
-          "rank": 43,
+          "rank": 45,
           "route_label_zh": "赤城 / Uphill",
           "route_label_en": "Akagi / Uphill",
           "player_display_name": "CannedCarbon",
@@ -1349,7 +1404,7 @@
         },
         {
           "record_id": "rec_1216",
-          "rank": 44,
+          "rank": 46,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1378,7 +1433,7 @@
         },
         {
           "record_id": "rec_1125",
-          "rank": 45,
+          "rank": 47,
           "route_label_zh": "Carpi / Outbound",
           "route_label_en": "Carpi / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1403,37 +1458,8 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_0831",
-          "rank": 46,
-          "route_label_zh": "七曲 / Downhill",
-          "route_label_en": "Nanamagari / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "S15",
-          "vehicle_model_code": "veh_s15",
-          "vehicle_variant_name": "S15",
-          "vehicle_variant_code": "veh_s15",
-          "lap_time_ms": 196800,
-          "lap_time_text": "03:16.800",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-06-26",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "S15",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
           "record_id": "rec_1002",
-          "rank": 47,
+          "rank": 48,
           "route_label_zh": "定峰峠 / Full Course Downhill",
           "route_label_en": "Sadamine / Full Course Downhill",
           "player_display_name": "CannedCarbon",
@@ -1462,7 +1488,7 @@
         },
         {
           "record_id": "rec_1115",
-          "rank": 48,
+          "rank": 49,
           "route_label_zh": "碓冰V1 / Counter-Clockwise",
           "route_label_en": "Usui V1 / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1490,7 +1516,7 @@
         },
         {
           "record_id": "rec_1181",
-          "rank": 49,
+          "rank": 50,
           "route_label_zh": "土坂 / Outbound",
           "route_label_en": "Tsuchisaka / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1519,7 +1545,7 @@
         },
         {
           "record_id": "rec_1122",
-          "rank": 50,
+          "rank": 51,
           "route_label_zh": "正丸 / Outbound",
           "route_label_en": "Shomaru / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1549,7 +1575,7 @@
         },
         {
           "record_id": "rec_1050",
-          "rank": 51,
+          "rank": 52,
           "route_label_zh": "碓冰V1 / Clockwise",
           "route_label_en": "Usui V1 / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1577,7 +1603,7 @@
         },
         {
           "record_id": "rec_1062",
-          "rank": 52,
+          "rank": 53,
           "route_label_zh": "妙義(妙義ASV) / Uphill",
           "route_label_en": "Myogi (ASV) / Uphill",
           "player_display_name": "CannedCarbon",
@@ -1604,8 +1630,36 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1339",
+          "rank": 54,
+          "route_label_zh": "碓冰V2 / Counter-Clockwise",
+          "route_label_en": "Usui V2 / Counter-Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "GR86/ZN8",
+          "vehicle_model_code": "veh_gr86_zn8",
+          "vehicle_variant_name": "GR86/ZN8",
+          "vehicle_variant_code": "veh_gr86_zn8",
+          "lap_time_ms": 203867,
+          "lap_time_text": "03:23.867",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-18",
+          "track_env": "山道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "GR86/ZN8",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1539230253669679114",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
           "record_id": "rec_0755",
-          "rank": 53,
+          "rank": 55,
           "route_label_zh": "Falstone Rally / Forward",
           "route_label_en": "Falstone Rally / Forward",
           "player_display_name": "CannedCarbon",
@@ -1633,8 +1687,37 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1337",
+          "rank": 56,
+          "route_label_zh": "筑波產業道路 / Outbound",
+          "route_label_en": "Tsukuba Fruits Line / Outbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AE86",
+          "vehicle_model_code": "veh_ae86",
+          "vehicle_variant_name": "AE86",
+          "vehicle_variant_code": "veh_ae86",
+          "lap_time_ms": 206106,
+          "lap_time_text": "03:26.106",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-17",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "AE86",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538905326646988840",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
           "record_id": "rec_1121",
-          "rank": 54,
+          "rank": 57,
           "route_label_zh": "正丸 / Inbound",
           "route_label_en": "Shomaru / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1663,8 +1746,37 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1338",
+          "rank": 58,
+          "route_label_zh": "筑波產業道路 / Inbound",
+          "route_label_en": "Tsukuba Fruits Line / Inbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AP1 (S2000)",
+          "vehicle_model_code": "veh_ap1_s2000",
+          "vehicle_variant_name": "AP1 (S2000)",
+          "vehicle_variant_code": "veh_ap1_s2000",
+          "lap_time_ms": 208493,
+          "lap_time_text": "03:28.493",
+          "delta_to_best_text": "+8.757",
+          "platform": "pc",
+          "record_date": "2026-08-17",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "高速"
+          ],
+          "peer_label": "AP1 (S2000)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538905326646988840",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
           "record_id": "rec_0976",
-          "rank": 55,
+          "rank": 59,
           "route_label_zh": "Tsuchisaka Snow / Inbound",
           "route_label_en": "Tsuchisaka Snow / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1693,8 +1805,37 @@
           "badge_tone": "tr"
         },
         {
+          "record_id": "rec_1324",
+          "rank": 60,
+          "route_label_zh": "七曲 / Uphill",
+          "route_label_en": "Nanamagari / Uphill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "AE86",
+          "vehicle_model_code": "veh_ae86",
+          "vehicle_variant_name": "AE86",
+          "vehicle_variant_code": "veh_ae86",
+          "lap_time_ms": 208947,
+          "lap_time_text": "03:28.947",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-15",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "AE86",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538002388026396734",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
           "record_id": "rec_0932",
-          "rank": 56,
+          "rank": 61,
           "route_label_zh": "碓冰V2 / Clockwise",
           "route_label_en": "Usui V2 / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1721,36 +1862,8 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_1178",
-          "rank": 57,
-          "route_label_zh": "碓冰V2 / Counter-Clockwise",
-          "route_label_en": "Usui V2 / Counter-Clockwise",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "SilEighty",
-          "vehicle_model_code": "veh_sileighty",
-          "vehicle_variant_name": "SilEighty",
-          "vehicle_variant_code": "veh_sileighty",
-          "lap_time_ms": 209973,
-          "lap_time_text": "03:29.973",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-08-02",
-          "track_env": "山道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "SilEighty",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1533420264665120868",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
           "record_id": "rec_0977",
-          "rank": 58,
+          "rank": 62,
           "route_label_zh": "Tsuchisaka Snow / Outbound",
           "route_label_en": "Tsuchisaka Snow / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1780,7 +1893,7 @@
         },
         {
           "record_id": "rec_1022",
-          "rank": 59,
+          "rank": 63,
           "route_label_zh": "Nagoya / Downhill",
           "route_label_en": "Nagoya / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1807,66 +1920,37 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_0974",
-          "rank": 60,
-          "route_label_zh": "筑波產業道路 / Outbound",
-          "route_label_en": "Tsukuba Fruits Line / Outbound",
+          "record_id": "rec_1336",
+          "rank": 64,
+          "route_label_zh": "伊呂波坂 / Downhill",
+          "route_label_en": "Irohazaka / Downhill",
           "player_display_name": "CannedCarbon",
           "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "DC2 (Integra)",
-          "vehicle_model_code": "veh_dc2_integra",
-          "vehicle_variant_name": "DC2 (Integra)",
-          "vehicle_variant_code": "veh_dc2_integra",
-          "lap_time_ms": 211347,
-          "lap_time_text": "03:31.347",
-          "delta_to_best_text": "+0.000",
+          "vehicle_model_name": "AE86",
+          "vehicle_model_code": "veh_ae86",
+          "vehicle_variant_name": "AE86",
+          "vehicle_variant_code": "veh_ae86",
+          "lap_time_ms": 211933,
+          "lap_time_text": "03:31.933",
+          "delta_to_best_text": "+2.066",
           "platform": "pc",
-          "record_date": "2026-07-15",
+          "record_date": "2026-08-17",
           "track_env": "山道",
           "track_tags": [
-            "上下山",
-            "高速"
-          ],
-          "peer_label": "DC2 (Integra)",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_0833",
-          "rank": 61,
-          "route_label_zh": "七曲 / Uphill",
-          "route_label_en": "Nanamagari / Uphill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "AE86 Trueno",
-          "vehicle_model_code": "veh_ae86t",
-          "vehicle_variant_name": "AE86 Trueno",
-          "vehicle_variant_code": "veh_ae86t",
-          "lap_time_ms": 212746,
-          "lap_time_text": "03:32.746",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-06-26",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
+            "技術",
             "髮夾彎"
           ],
-          "peer_label": "AE86 Trueno",
+          "peer_label": "AE86",
           "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538867102524645457",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "record_id": "rec_1052",
-          "rank": 62,
+          "rank": 65,
           "route_label_zh": "秋名 / Downhill",
           "route_label_en": "Akina / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1895,37 +1979,8 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_0853",
-          "rank": 63,
-          "route_label_zh": "伊呂波坂 / Downhill",
-          "route_label_en": "Irohazaka / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "AE86 Trueno",
-          "vehicle_model_code": "veh_ae86t",
-          "vehicle_variant_name": "AE86 Trueno",
-          "vehicle_variant_code": "veh_ae86t",
-          "lap_time_ms": 214160,
-          "lap_time_text": "03:34.160",
-          "delta_to_best_text": "+4.293",
-          "platform": "pc",
-          "record_date": "2026-06-29",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "AE86 Trueno",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
           "record_id": "rec_1199",
-          "rank": 64,
+          "rank": 66,
           "route_label_zh": "定峰峠 / Full Course Uphill",
           "route_label_en": "Sadamine / Full Course Uphill",
           "player_display_name": "CannedCarbon",
@@ -1954,7 +2009,7 @@
         },
         {
           "record_id": "rec_1307",
-          "rank": 65,
+          "rank": 67,
           "route_label_zh": "RallyIsland / IslandRally",
           "route_label_en": "RallyIsland / IslandRally",
           "player_display_name": "CannedCarbon",
@@ -1980,7 +2035,7 @@
         },
         {
           "record_id": "rec_0933",
-          "rank": 66,
+          "rank": 68,
           "route_label_zh": "箱根高速 / Uphill",
           "route_label_en": "Hakone / Uphill",
           "player_display_name": "CannedCarbon",
@@ -2009,7 +2064,7 @@
         },
         {
           "record_id": "rec_0839",
-          "rank": 67,
+          "rank": 69,
           "route_label_zh": "八方原 / Inbound",
           "route_label_en": "Happogahara / Inbound",
           "player_display_name": "CannedCarbon",
@@ -2038,8 +2093,8 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_1101",
-          "rank": 68,
+          "record_id": "rec_1330",
+          "rank": 70,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2048,18 +2103,18 @@
           "vehicle_model_code": "veh_revolution_viii",
           "vehicle_variant_name": "Revolution VIII",
           "vehicle_variant_code": "veh_revolution_viii",
-          "lap_time_ms": 218946,
-          "lap_time_text": "03:38.946",
-          "delta_to_best_text": "+1.883",
+          "lap_time_ms": 217853,
+          "lap_time_text": "03:37.853",
+          "delta_to_best_text": "+0.790",
           "platform": "pc",
-          "record_date": "2026-07-26",
+          "record_date": "2026-08-15",
           "track_env": "山道",
           "track_tags": [
             "技術"
           ],
           "peer_label": "EVOVIII/CT9A",
           "verified": false,
-          "proof_text": "",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538147649956483082",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -2067,7 +2122,7 @@
         },
         {
           "record_id": "rec_0844",
-          "rank": 69,
+          "rank": 71,
           "route_label_zh": "筑波雪 / Outbound",
           "route_label_en": "Tsukuba Snow / Outbound",
           "player_display_name": "CannedCarbon",
@@ -2096,7 +2151,7 @@
         },
         {
           "record_id": "rec_1090",
-          "rank": 70,
+          "rank": 72,
           "route_label_zh": "東京環狀 C1 Runner / Inner",
           "route_label_en": "C1 Runner / Inner",
           "player_display_name": "CannedCarbon",
@@ -2125,7 +2180,7 @@
         },
         {
           "record_id": "rec_0707",
-          "rank": 71,
+          "rank": 73,
           "route_label_zh": "筑波產業道路 / Double Course",
           "route_label_en": "Tsukuba Fruits Line / Double Course",
           "player_display_name": "CannedCarbon",
@@ -2154,7 +2209,7 @@
         },
         {
           "record_id": "rec_0843",
-          "rank": 72,
+          "rank": 74,
           "route_label_zh": "筑波雪 / Inbound",
           "route_label_en": "Tsukuba Snow / Inbound",
           "player_display_name": "CannedCarbon",
@@ -2183,7 +2238,7 @@
         },
         {
           "record_id": "rec_1023",
-          "rank": 73,
+          "rank": 75,
           "route_label_zh": "Nagoya / Uphill",
           "route_label_en": "Nagoya / Uphill",
           "player_display_name": "CannedCarbon",
@@ -2211,7 +2266,7 @@
         },
         {
           "record_id": "rec_1190",
-          "rank": 74,
+          "rank": 76,
           "route_label_zh": "椿線 / Downhill",
           "route_label_en": "Tsubaki Line / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2240,7 +2295,7 @@
         },
         {
           "record_id": "rec_1179",
-          "rank": 75,
+          "rank": 77,
           "route_label_zh": "秋名 / Uphill",
           "route_label_en": "Akina / Uphill",
           "player_display_name": "CannedCarbon",
@@ -2270,7 +2325,7 @@
         },
         {
           "record_id": "rec_1229",
-          "rank": 76,
+          "rank": 78,
           "route_label_zh": "椿線 / Uphill",
           "route_label_en": "Tsubaki Line / Uphill",
           "player_display_name": "CannedCarbon",
@@ -2299,7 +2354,7 @@
         },
         {
           "record_id": "rec_0854",
-          "rank": 77,
+          "rank": 79,
           "route_label_zh": "秋名雪 / Downhill",
           "route_label_en": "Akina Snow / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2330,7 +2385,7 @@
         },
         {
           "record_id": "rec_0945",
-          "rank": 78,
+          "rank": 80,
           "route_label_zh": "小田原 / Counter-Clockwise",
           "route_label_en": "Odawara / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -2358,7 +2413,7 @@
         },
         {
           "record_id": "rec_1174",
-          "rank": 79,
+          "rank": 81,
           "route_label_zh": "小田原 / Clockwise",
           "route_label_en": "Odawara / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -2386,7 +2441,7 @@
         },
         {
           "record_id": "rec_0795",
-          "rank": 80,
+          "rank": 82,
           "route_label_zh": "Osaka Hanshin / Unknown",
           "route_label_en": "Osaka Hanshin / Unknown",
           "player_display_name": "CannedCarbon",
@@ -2414,7 +2469,7 @@
         },
         {
           "record_id": "rec_1168",
-          "rank": 81,
+          "rank": 83,
           "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
           "route_label_en": "Futatsukane / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -2443,7 +2498,7 @@
         },
         {
           "record_id": "rec_0855",
-          "rank": 82,
+          "rank": 84,
           "route_label_zh": "秋名雪 / Uphill",
           "route_label_en": "Akina Snow / Uphill",
           "player_display_name": "CannedCarbon",
@@ -2474,7 +2529,7 @@
         },
         {
           "record_id": "rec_0722",
-          "rank": 83,
+          "rank": 85,
           "route_label_zh": "東京環狀 C1 Runner / Outer",
           "route_label_en": "C1 Runner / Outer",
           "player_display_name": "CannedCarbon",
@@ -2503,7 +2558,7 @@
         },
         {
           "record_id": "rec_1215",
-          "rank": 84,
+          "rank": 86,
           "route_label_zh": "正丸 / Downhill",
           "route_label_en": "Shomaru / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2529,7 +2584,7 @@
         },
         {
           "record_id": "rec_0842",
-          "rank": 85,
+          "rank": 87,
           "route_label_zh": "雙鏡湖外環道 / Clockwise",
           "route_label_en": "Futatsukane / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -2558,7 +2613,7 @@
         },
         {
           "record_id": "rec_1166",
-          "rank": 86,
+          "rank": 88,
           "route_label_zh": "臻名山 / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2588,7 +2643,7 @@
         },
         {
           "record_id": "rec_0718",
-          "rank": 87,
+          "rank": 89,
           "route_label_zh": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "route_label_en": "Fukutoshin Expressway / SHIBUYA-SHINJIKU",
           "player_display_name": "CannedCarbon",
@@ -2618,7 +2673,7 @@
         },
         {
           "record_id": "rec_0824",
-          "rank": 88,
+          "rank": 90,
           "route_label_zh": "Kielder / 待整理",
           "route_label_en": "Kielder / 待整理",
           "player_display_name": "CannedCarbon",
@@ -2644,7 +2699,7 @@
         },
         {
           "record_id": "rec_0794",
-          "rank": 89,
+          "rank": 91,
           "route_label_zh": "神戶高速 / Unknown",
           "route_label_en": "Kobe / Unknown",
           "player_display_name": "CannedCarbon",
@@ -2672,7 +2727,7 @@
         },
         {
           "record_id": "rec_1066",
-          "rank": 90,
+          "rank": 92,
           "route_label_zh": "真碓冰 / Downhill",
           "route_label_en": "Shin Usui / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2697,30 +2752,30 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1291",
-          "rank": 91,
+          "record_id": "rec_1326",
+          "rank": 93,
           "route_label_zh": "臻名山 / Uphill",
           "route_label_en": "HarunaG / Uphill",
           "player_display_name": "CannedCarbon",
           "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "BCNR33 LightTuned",
-          "vehicle_model_code": "veh_bcnr33_lighttuned",
-          "vehicle_variant_name": "BCNR33 LightTuned",
-          "vehicle_variant_code": "veh_bcnr33_lighttuned",
-          "lap_time_ms": 293787,
-          "lap_time_text": "04:53.787",
+          "vehicle_model_name": "NA2",
+          "vehicle_model_code": "veh_na2",
+          "vehicle_variant_name": "NA2 LightTuned",
+          "vehicle_variant_code": "veh_na2_lighttuned",
+          "lap_time_ms": 292093,
+          "lap_time_text": "04:52.093",
           "delta_to_best_text": "+0.000",
           "platform": "pc",
-          "record_date": "2026-08-03",
+          "record_date": "2026-08-15",
           "track_env": "山道",
           "track_tags": [
             "技術",
             "高速",
             "髮夾彎"
           ],
-          "peer_label": "BCNR33 LightTuned",
+          "peer_label": "NA2",
           "verified": false,
-          "proof_text": "",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538005330712076400",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -2728,7 +2783,7 @@
         },
         {
           "record_id": "rec_0821",
-          "rank": 92,
+          "rank": 94,
           "route_label_zh": "九彎十八拐CVS / Downhill",
           "route_label_en": "PT:9T / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2759,7 +2814,7 @@
         },
         {
           "record_id": "rec_1032",
-          "rank": 93,
+          "rank": 95,
           "route_label_zh": "Santa Monica Mountains / Eastbound",
           "route_label_en": "Santa Monica Mountains / Eastbound",
           "player_display_name": "CannedCarbon",
@@ -2785,7 +2840,7 @@
         },
         {
           "record_id": "rec_0953",
-          "rank": 94,
+          "rank": 96,
           "route_label_zh": "Cadence Island / Rally Stage",
           "route_label_en": "Cadence Island / Rally Stage",
           "player_display_name": "CannedCarbon",
@@ -2811,7 +2866,7 @@
         },
         {
           "record_id": "rec_1105",
-          "rank": 95,
+          "rank": 97,
           "route_label_zh": "紐柏林北環 / Downhill",
           "route_label_en": "Nordschleife / Downhill",
           "player_display_name": "CannedCarbon",
@@ -2837,7 +2892,7 @@
         },
         {
           "record_id": "rec_0955",
-          "rank": 96,
+          "rank": 98,
           "route_label_zh": "Rally Snowland / LC",
           "route_label_en": "Rally Snowland / LC",
           "player_display_name": "CannedCarbon",
@@ -2866,7 +2921,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 24,
+          "run_count": 30,
           "runs": [
             {
               "date": "2026-07-16",
@@ -3035,13 +3090,55 @@
               "lap_time_text": "04:41.613",
               "vehicle": "NA2",
               "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 263199,
+              "lap_time_text": "04:23.199",
+              "vehicle": "Revuelto",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 274639,
+              "lap_time_text": "04:34.639",
+              "vehicle": "EVOVI/CP9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 318146,
+              "lap_time_text": "05:18.146",
+              "vehicle": "JA4 Tuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 278641,
+              "lap_time_text": "04:38.641",
+              "vehicle": "EVOVI/CP9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 287652,
+              "lap_time_text": "04:47.652",
+              "vehicle": "Z32",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 293813,
+              "lap_time_text": "04:53.813",
+              "vehicle": "EP71",
+              "is_pb": false
             }
           ]
         },
         {
           "route_key": "omote_rokkou_ron:DH",
           "route_label": "omote_rokko / Downhill",
-          "run_count": 21,
+          "run_count": 22,
           "runs": [
             {
               "date": "2026-05-26",
@@ -3188,6 +3285,13 @@
               "lap_time_ms": 148733,
               "lap_time_text": "02:28.733",
               "vehicle": "EA21R",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 287199,
+              "lap_time_text": "04:47.199",
+              "vehicle": "DR30 Tuned",
               "is_pb": false
             }
           ]
@@ -3565,7 +3669,7 @@
               "date": "2026-08-08",
               "lap_time_ms": 245947,
               "lap_time_text": "04:05.947",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
               "is_pb": false
             },
             {
@@ -3615,13 +3719,13 @@
         {
           "route_key": "unknown:CW",
           "route_label": "淵森国際サーキット / Clockwise",
-          "run_count": 8,
+          "run_count": 9,
           "runs": [
             {
               "date": "2026-06-22",
               "lap_time_ms": 139800,
               "lap_time_text": "02:19.800",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
               "is_pb": true
             },
             {
@@ -3642,7 +3746,7 @@
               "date": "2026-07-13",
               "lap_time_ms": 138333,
               "lap_time_text": "02:18.333",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
               "is_pb": false
             },
             {
@@ -3670,7 +3774,14 @@
               "date": "2026-07-26",
               "lap_time_ms": 137947,
               "lap_time_text": "02:17.947",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 125693,
+              "lap_time_text": "02:05.693",
+              "vehicle": "N2X",
               "is_pb": false
             }
           ]
@@ -3866,7 +3977,7 @@
               "date": "2026-06-22",
               "lap_time_ms": 139720,
               "lap_time_text": "02:19.720",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
               "is_pb": false
             },
             {
@@ -3942,6 +4053,153 @@
           ]
         },
         {
+          "route_key": "nagao_foxbg:DH",
+          "route_label": "長尾 / Downhill",
+          "run_count": 5,
+          "runs": [
+            {
+              "date": "2026-07-15",
+              "lap_time_ms": 226173,
+              "lap_time_text": "03:46.173",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-26",
+              "lap_time_ms": 218946,
+              "lap_time_text": "03:38.946",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-05",
+              "lap_time_ms": 220653,
+              "lap_time_text": "03:40.653",
+              "vehicle": "Karin 96",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 217853,
+              "lap_time_text": "03:37.853",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 220960,
+              "lap_time_text": "03:40.960",
+              "vehicle": "D15",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "unknown_calme:CW",
+          "route_label": "座辰モーターパーク / Clockwise",
+          "run_count": 5,
+          "runs": [
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 36547,
+              "lap_time_text": "00:36.547",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 40239,
+              "lap_time_text": "00:40.239",
+              "vehicle": "ND",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 43174,
+              "lap_time_text": "00:43.174",
+              "vehicle": "Daihatsu Mira(L70/L80)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 44174,
+              "lap_time_text": "00:44.174",
+              "vehicle": "Honda Today(JA4/JA5)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 45280,
+              "lap_time_text": "00:45.280",
+              "vehicle": "Honda Beat(PP1)",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "irohazaka_jintei:DH",
+          "route_label": "伊呂波坂 / Downhill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-06-29",
+              "lap_time_ms": 214160,
+              "lap_time_text": "03:34.160",
+              "vehicle": "AE86 Trueno",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-11",
+              "lap_time_ms": 216733,
+              "lap_time_text": "03:36.733",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-07-27",
+              "lap_time_ms": 220453,
+              "lap_time_text": "03:40.453",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-17",
+              "lap_time_ms": 211933,
+              "lap_time_text": "03:31.933",
+              "vehicle": "AE86",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "tsukuba_jintei:OB",
+          "route_label": "筑波產業道路 / Outbound",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-06-10",
+              "lap_time_ms": 212173,
+              "lap_time_text": "03:32.173",
+              "vehicle": "EK9 (Civic Type-R)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-15",
+              "lap_time_ms": 211347,
+              "lap_time_text": "03:31.347",
+              "vehicle": "DC2 (Integra)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-17",
+              "lap_time_ms": 206106,
+              "lap_time_text": "03:26.106",
+              "vehicle": "AE86",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "f1_circuit_fuffyferret:CW",
           "route_label": "F1 Circuit / Clockwise",
           "run_count": 3,
@@ -3993,6 +4251,34 @@
               "lap_time_ms": 234653,
               "lap_time_text": "03:54.653",
               "vehicle": "991(911 GT3)",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "rally_snowland:SC",
+          "route_label": "Rally Snowland / Short Course",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-06-18",
+              "lap_time_ms": 186413,
+              "lap_time_text": "03:06.413",
+              "vehicle": "story",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-27",
+              "lap_time_ms": 195080,
+              "lap_time_text": "03:15.080",
+              "vehicle": "landp",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-16",
+              "lap_time_ms": 175881,
+              "lap_time_text": "02:55.881",
+              "vehicle": "YasuriRG",
               "is_pb": true
             }
           ]
@@ -4082,30 +4368,30 @@
           ]
         },
         {
-          "route_key": "irohazaka_jintei:DH",
-          "route_label": "伊呂波坂 / Downhill",
+          "route_key": "nanamagari_jintei:DH",
+          "route_label": "七曲 / Downhill",
           "run_count": 3,
           "runs": [
             {
-              "date": "2026-06-29",
-              "lap_time_ms": 214160,
-              "lap_time_text": "03:34.160",
-              "vehicle": "AE86 Trueno",
+              "date": "2026-06-26",
+              "lap_time_ms": 196800,
+              "lap_time_text": "03:16.800",
+              "vehicle": "S15",
               "is_pb": true
             },
             {
               "date": "2026-07-11",
-              "lap_time_ms": 216733,
-              "lap_time_text": "03:36.733",
-              "vehicle": "FD3S (RX7)",
+              "lap_time_ms": 199213,
+              "lap_time_text": "03:19.213",
+              "vehicle": "JZX110",
               "is_pb": false
             },
             {
-              "date": "2026-07-27",
-              "lap_time_ms": 220453,
-              "lap_time_text": "03:40.453",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
+              "date": "2026-08-15",
+              "lap_time_ms": 191813,
+              "lap_time_text": "03:11.813",
+              "vehicle": "AE86",
+              "is_pb": true
             }
           ]
         },
@@ -4166,76 +4452,6 @@
           ]
         },
         {
-          "route_key": "nagao_foxbg:DH",
-          "route_label": "長尾 / Downhill",
-          "run_count": 3,
-          "runs": [
-            {
-              "date": "2026-07-15",
-              "lap_time_ms": 226173,
-              "lap_time_text": "03:46.173",
-              "vehicle": "EVOVIII/CT9A",
-              "is_pb": true
-            },
-            {
-              "date": "2026-07-26",
-              "lap_time_ms": 218946,
-              "lap_time_text": "03:38.946",
-              "vehicle": "EVOVIII/CT9A",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-05",
-              "lap_time_ms": 220653,
-              "lap_time_text": "03:40.653",
-              "vehicle": "Karin 96",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "tsukuba_jintei:OB",
-          "route_label": "筑波產業道路 / Outbound",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-06-10",
-              "lap_time_ms": 212173,
-              "lap_time_text": "03:32.173",
-              "vehicle": "EK9 (Civic Type-R)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-07-15",
-              "lap_time_ms": 211347,
-              "lap_time_text": "03:31.347",
-              "vehicle": "DC2 (Integra)",
-              "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "rally_snowland:SC",
-          "route_label": "Rally Snowland / Short Course",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-06-18",
-              "lap_time_ms": 186413,
-              "lap_time_text": "03:06.413",
-              "vehicle": "story",
-              "is_pb": true
-            },
-            {
-              "date": "2026-07-27",
-              "lap_time_ms": 195080,
-              "lap_time_text": "03:15.080",
-              "vehicle": "landp",
-              "is_pb": false
-            }
-          ]
-        },
-        {
           "route_key": "ryuoukouzan_calme:UH",
           "route_label": "龍溝山 / Uphill",
           "run_count": 2,
@@ -4251,7 +4467,7 @@
               "date": "2026-06-22",
               "lap_time_ms": 138894,
               "lap_time_text": "02:18.894",
-              "vehicle": "RamiTRXX",
+              "vehicle": "Daihatsu Mira(L70/L80)",
               "is_pb": false
             }
           ]
@@ -4299,23 +4515,23 @@
           ]
         },
         {
-          "route_key": "nanamagari_jintei:DH",
-          "route_label": "七曲 / Downhill",
+          "route_key": "nanamagari_jintei:UH",
+          "route_label": "七曲 / Uphill",
           "run_count": 2,
           "runs": [
             {
               "date": "2026-06-26",
-              "lap_time_ms": 196800,
-              "lap_time_text": "03:16.800",
-              "vehicle": "S15",
+              "lap_time_ms": 212746,
+              "lap_time_text": "03:32.746",
+              "vehicle": "AE86 Trueno",
               "is_pb": true
             },
             {
-              "date": "2026-07-11",
-              "lap_time_ms": 199213,
-              "lap_time_text": "03:19.213",
-              "vehicle": "JZX110",
-              "is_pb": false
+              "date": "2026-08-15",
+              "lap_time_ms": 208947,
+              "lap_time_text": "03:28.947",
+              "vehicle": "AE86",
+              "is_pb": true
             }
           ]
         },
@@ -4572,6 +4788,48 @@
           ]
         },
         {
+          "route_key": "usui_v2_jintei:CC",
+          "route_label": "碓冰V2 / Counter-Clockwise",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-08-02",
+              "lap_time_ms": 209973,
+              "lap_time_text": "03:29.973",
+              "vehicle": "SilEighty",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-18",
+              "lap_time_ms": 203867,
+              "lap_time_text": "03:23.867",
+              "vehicle": "GR86/ZN8",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "harunag:UH",
+          "route_label": "臻名山 / Uphill",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-08-03",
+              "lap_time_ms": 293787,
+              "lap_time_text": "04:53.787",
+              "vehicle": "BCNR33 LightTuned",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 292093,
+              "lap_time_text": "04:52.093",
+              "vehicle": "NA2",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "rallyisland:IslandRally",
           "route_label": "RallyIsland / IslandRally",
           "run_count": 2,
@@ -4604,10 +4862,10 @@
       "manual_achievement_codes": [],
       "achievement_stats": {
         "distinct_vehicle_models": 19,
-        "distinct_tracks": 20,
+        "distinct_tracks": 21,
         "max_route_attempts": 6,
         "tr_count": 15,
-        "cr_count": 6
+        "cr_count": 7
       },
       "subtitle_zh": "未分隊車手",
       "subtitle_en": "Independent Driver",
@@ -4624,7 +4882,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "58"
+          "value": "59"
         },
         {
           "label_zh": "已驗證",
@@ -4639,12 +4897,12 @@
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "6"
+          "value": "7"
         }
       ],
       "badge_counts": {
         "TR": 15,
-        "CR": 6,
+        "CR": 7,
         "PR": 4
       },
       "tag_chips": [
@@ -4694,7 +4952,7 @@
         },
         {
           "label": "技術",
-          "value": 27
+          "value": 28
         },
         {
           "label": "上下山",
@@ -5220,8 +5478,36 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_0031",
+          "record_id": "rec_1328",
           "rank": 19,
+          "route_label_zh": "長尾 / Downhill",
+          "route_label_en": "Nagao / Downhill",
+          "player_display_name": "Lolidia",
+          "player_id": "plr_lolidia",
+          "vehicle_model_name": "Karin 96",
+          "vehicle_model_code": "veh_karin_96",
+          "vehicle_variant_name": "Karin 96",
+          "vehicle_variant_code": "veh_karin_96",
+          "lap_time_ms": 217222,
+          "lap_time_text": "03:37.222",
+          "delta_to_best_text": "+0.159",
+          "platform": "pcvr",
+          "record_date": "2026-08-15",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538147782915788850",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_0031",
+          "rank": 20,
           "route_label_zh": "秋名無限 / Downhill",
           "route_label_en": "AkinaUN / Downhill",
           "player_display_name": "Lolidia",
@@ -5251,7 +5537,7 @@
         },
         {
           "record_id": "rec_0297",
-          "rank": 20,
+          "rank": 21,
           "route_label_zh": "小田原 / Clockwise",
           "route_label_en": "Odawara / Clockwise",
           "player_display_name": "Lolidia",
@@ -5279,7 +5565,7 @@
         },
         {
           "record_id": "rec_0372",
-          "rank": 21,
+          "rank": 22,
           "route_label_zh": "秋名 / Uphill",
           "route_label_en": "Akina / Uphill",
           "player_display_name": "Lolidia",
@@ -5309,7 +5595,7 @@
         },
         {
           "record_id": "rec_0028",
-          "rank": 22,
+          "rank": 23,
           "route_label_zh": "秋名雪 / Downhill",
           "route_label_en": "Akina Snow / Downhill",
           "player_display_name": "Lolidia",
@@ -5340,7 +5626,7 @@
         },
         {
           "record_id": "rec_0709",
-          "rank": 23,
+          "rank": 24,
           "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
           "route_label_en": "Futatsukane / Counter-Clockwise",
           "player_display_name": "Lolidia",
@@ -5369,7 +5655,7 @@
         },
         {
           "record_id": "rec_0593",
-          "rank": 24,
+          "rank": 25,
           "route_label_zh": "臻名山 / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "Lolidia",
@@ -5399,7 +5685,7 @@
         },
         {
           "record_id": "rec_0146",
-          "rank": 25,
+          "rank": 26,
           "route_label_zh": "九彎十八拐CVS / Downhill",
           "route_label_en": "PT:9T / Downhill",
           "player_display_name": "Lolidia",
@@ -6873,7 +7159,7 @@
           "vehicle_variant_code": "veh_ek9c_civic_type_r",
           "lap_time_ms": 207667,
           "lap_time_text": "03:27.667",
-          "delta_to_best_text": "+10.867",
+          "delta_to_best_text": "+15.854",
           "platform": "pc",
           "record_date": "2025-11-02",
           "track_env": "山道",
@@ -7132,7 +7418,7 @@
           "vehicle_variant_code": "veh_r35n3",
           "lap_time_ms": 218883,
           "lap_time_text": "03:38.883",
-          "delta_to_best_text": "+7.536",
+          "delta_to_best_text": "+12.777",
           "platform": "pc",
           "record_date": "2025-11-07",
           "track_env": "山道",
@@ -7161,7 +7447,7 @@
           "vehicle_variant_code": "veh_evox_cz4a",
           "lap_time_ms": 219300,
           "lap_time_text": "03:39.300",
-          "delta_to_best_text": "+9.327",
+          "delta_to_best_text": "+15.433",
           "platform": "pc",
           "record_date": "2025-06-13",
           "track_env": "山道",
@@ -10769,7 +11055,7 @@
           "vehicle_variant_code": "veh_na2",
           "lap_time_ms": 223034,
           "lap_time_text": "03:43.034",
-          "delta_to_best_text": "+26.234",
+          "delta_to_best_text": "+31.221",
           "platform": "pc",
           "record_date": "2025-11-02",
           "track_env": "山道",
@@ -10885,7 +11171,7 @@
           "vehicle_variant_code": "veh_380sx",
           "lap_time_ms": 225367,
           "lap_time_text": "03:45.367",
-          "delta_to_best_text": "+15.394",
+          "delta_to_best_text": "+21.500",
           "platform": "pc",
           "record_date": "2025-06-08",
           "track_env": "山道",
@@ -11117,7 +11403,7 @@
           "vehicle_variant_code": "veh_bnr34",
           "lap_time_ms": 239434,
           "lap_time_text": "03:59.434",
-          "delta_to_best_text": "+28.087",
+          "delta_to_best_text": "+33.328",
           "platform": "pc",
           "record_date": "2025-11-17",
           "track_env": "山道",
@@ -11706,10 +11992,10 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 41,
-        "distinct_tracks": 23,
+        "distinct_vehicle_models": 42,
+        "distinct_tracks": 24,
         "max_route_attempts": 10,
-        "tr_count": 4,
+        "tr_count": 5,
         "cr_count": 11
       },
       "subtitle_zh": "未分隊車手",
@@ -11727,7 +12013,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "70"
+          "value": "71"
         },
         {
           "label_zh": "已驗證",
@@ -11737,7 +12023,7 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "4"
+          "value": "5"
         },
         {
           "label_zh": "車種最佳",
@@ -11746,7 +12032,7 @@
         }
       ],
       "badge_counts": {
-        "TR": 4,
+        "TR": 5,
         "CR": 11,
         "PR": 15
       },
@@ -11797,7 +12083,7 @@
         },
         {
           "label": "高速",
-          "value": 35
+          "value": 36
         },
         {
           "label": "隧道",
@@ -11919,8 +12205,36 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1037",
+          "record_id": "rec_1327",
           "rank": 5,
+          "route_label_zh": "淵森国際サーキット / Clockwise",
+          "route_label_en": "FUCHIMORI INTERNATIONAL CIRCUIT / Clockwise",
+          "player_display_name": "Iˣ",
+          "player_id": "plr_048",
+          "vehicle_model_name": "OWF02-KTN",
+          "vehicle_model_code": "veh_owf02_ktn",
+          "vehicle_variant_name": "OWF02-KTN",
+          "vehicle_variant_code": "veh_owf02_ktn",
+          "lap_time_ms": 106522,
+          "lap_time_text": "01:46.522",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-08-15",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "OWF02-KTN",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538046637627154462",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1037",
+          "rank": 6,
           "route_label_zh": "龍溝山 / Downhill",
           "route_label_en": "Ryuoukouzan / Downhill",
           "player_display_name": "Iˣ",
@@ -11949,7 +12263,7 @@
         },
         {
           "record_id": "rec_1203",
-          "rank": 6,
+          "rank": 7,
           "route_label_zh": "Kamidomarizaka / Uphill",
           "route_label_en": "Kamidomarizaka / Uphill",
           "player_display_name": "Iˣ",
@@ -11978,7 +12292,7 @@
         },
         {
           "record_id": "rec_0802",
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "龍溝山 / Uphill",
           "route_label_en": "Ryuoukouzan / Uphill",
           "player_display_name": "Iˣ",
@@ -12007,7 +12321,7 @@
         },
         {
           "record_id": "rec_1146",
-          "rank": 8,
+          "rank": 9,
           "route_label_zh": "omote_rokko / Downhill",
           "route_label_en": "omote_rokko / Downhill",
           "player_display_name": "Iˣ",
@@ -12035,7 +12349,7 @@
         },
         {
           "record_id": "rec_1034",
-          "rank": 9,
+          "rank": 10,
           "route_label_zh": "紅葉Momiji / Downhill S Class",
           "route_label_en": "Momiji / Downhill S Class",
           "player_display_name": "Iˣ",
@@ -12064,7 +12378,7 @@
         },
         {
           "record_id": "rec_0828",
-          "rank": 10,
+          "rank": 11,
           "route_label_zh": "真.妙義 / Downhill",
           "route_label_en": "ShinMyogi / Downhill",
           "player_display_name": "Iˣ",
@@ -12093,7 +12407,7 @@
         },
         {
           "record_id": "rec_0827",
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "真.妙義 / Uphill",
           "route_label_en": "ShinMyogi / Uphill",
           "player_display_name": "Iˣ",
@@ -12122,7 +12436,7 @@
         },
         {
           "record_id": "rec_1195",
-          "rank": 12,
+          "rank": 13,
           "route_label_zh": "定峰峠 / Original Course Downhill",
           "route_label_en": "Sadamine / Original Course Downhill",
           "player_display_name": "Iˣ",
@@ -12151,7 +12465,7 @@
         },
         {
           "record_id": "rec_0980",
-          "rank": 13,
+          "rank": 14,
           "route_label_zh": "箱根山(蘆之湖skyline) / Inbound",
           "route_label_en": "Mt.Hakone / Inbound",
           "player_display_name": "Iˣ",
@@ -12179,7 +12493,7 @@
         },
         {
           "record_id": "rec_1306",
-          "rank": 14,
+          "rank": 15,
           "route_label_zh": "Ichinose Speed Ring / Speer Ring",
           "route_label_en": "Ichinose Speed Ring / Speer Ring",
           "player_display_name": "Iˣ",
@@ -12205,7 +12519,7 @@
         },
         {
           "record_id": "rec_1043",
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "赤城 / Downhill",
           "route_label_en": "Akagi / Downhill",
           "player_display_name": "Iˣ",
@@ -12234,7 +12548,7 @@
         },
         {
           "record_id": "rec_1198",
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "定峰峠 / Original Course Uphill",
           "route_label_en": "Sadamine / Original Course Uphill",
           "player_display_name": "Iˣ",
@@ -12263,7 +12577,7 @@
         },
         {
           "record_id": "rec_0852",
-          "rank": 17,
+          "rank": 18,
           "route_label_zh": "箱根高速 / Downhill",
           "route_label_en": "Hakone / Downhill",
           "player_display_name": "Iˣ",
@@ -12292,7 +12606,7 @@
         },
         {
           "record_id": "rec_1058",
-          "rank": 18,
+          "rank": 19,
           "route_label_zh": "妙義(妙義ASV) / Downhill",
           "route_label_en": "Myogi (ASV) / Downhill",
           "player_display_name": "Iˣ",
@@ -12320,7 +12634,7 @@
         },
         {
           "record_id": "rec_0949",
-          "rank": 19,
+          "rank": 20,
           "route_label_zh": "七曲 / Downhill",
           "route_label_en": "Nanamagari / Downhill",
           "player_display_name": "Iˣ",
@@ -12331,7 +12645,7 @@
           "vehicle_variant_code": "veh_ae86t",
           "lap_time_ms": 199900,
           "lap_time_text": "03:19.900",
-          "delta_to_best_text": "+3.100",
+          "delta_to_best_text": "+8.087",
           "platform": "pcvr",
           "record_date": "2026-07-11",
           "track_env": "山道",
@@ -12349,7 +12663,7 @@
         },
         {
           "record_id": "rec_0677",
-          "rank": 20,
+          "rank": 21,
           "route_label_zh": "Falstone Rally / 待整理",
           "route_label_en": "Falstone Rally / 待整理",
           "player_display_name": "Iˣ",
@@ -12378,7 +12692,7 @@
         },
         {
           "record_id": "rec_1061",
-          "rank": 21,
+          "rank": 22,
           "route_label_zh": "妙義(妙義ASV) / Uphill",
           "route_label_en": "Myogi (ASV) / Uphill",
           "player_display_name": "Iˣ",
@@ -12406,7 +12720,7 @@
         },
         {
           "record_id": "rec_0985",
-          "rank": 22,
+          "rank": 23,
           "route_label_zh": "定峰峠 / Full Course Downhill",
           "route_label_en": "Sadamine / Full Course Downhill",
           "player_display_name": "Iˣ",
@@ -12435,7 +12749,7 @@
         },
         {
           "record_id": "rec_1001",
-          "rank": 23,
+          "rank": 24,
           "route_label_zh": "紅葉Momiji / Downhill",
           "route_label_en": "Momiji / Downhill",
           "player_display_name": "Iˣ",
@@ -12464,7 +12778,7 @@
         },
         {
           "record_id": "rec_0864",
-          "rank": 24,
+          "rank": 25,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "Iˣ",
@@ -12493,7 +12807,7 @@
         },
         {
           "record_id": "rec_1053",
-          "rank": 25,
+          "rank": 26,
           "route_label_zh": "秋名 / Downhill",
           "route_label_en": "Akina / Downhill",
           "player_display_name": "Iˣ",
@@ -12523,7 +12837,7 @@
         },
         {
           "record_id": "rec_0940",
-          "rank": 26,
+          "rank": 27,
           "route_label_zh": "伊呂波坂 / Downhill",
           "route_label_en": "Irohazaka / Downhill",
           "player_display_name": "Iˣ",
@@ -12552,7 +12866,7 @@
         },
         {
           "record_id": "rec_1189",
-          "rank": 27,
+          "rank": 28,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
           "player_display_name": "Iˣ",
@@ -12580,7 +12894,7 @@
         },
         {
           "record_id": "rec_1175",
-          "rank": 28,
+          "rank": 29,
           "route_label_zh": "小田原 / Clockwise",
           "route_label_en": "Odawara / Clockwise",
           "player_display_name": "Iˣ",
@@ -12608,7 +12922,7 @@
         },
         {
           "record_id": "rec_1320",
-          "rank": 29,
+          "rank": 30,
           "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
           "route_label_en": "Futatsukane / Counter-Clockwise",
           "player_display_name": "Iˣ",
@@ -12637,7 +12951,7 @@
         },
         {
           "record_id": "rec_1273",
-          "rank": 30,
+          "rank": 31,
           "route_label_zh": "臻名山 / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "Iˣ",
@@ -13086,8 +13400,8 @@
         "FAIR_PLAY"
       ],
       "achievement_stats": {
-        "distinct_vehicle_models": 19,
-        "distinct_tracks": 16,
+        "distinct_vehicle_models": 20,
+        "distinct_tracks": 17,
         "max_route_attempts": 17,
         "tr_count": 4,
         "cr_count": 4
@@ -13107,7 +13421,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "82"
+          "value": "83"
         },
         {
           "label_zh": "已驗證",
@@ -13128,7 +13442,7 @@
       "badge_counts": {
         "TR": 4,
         "CR": 4,
-        "PR": 8
+        "PR": 9
       },
       "tag_chips": [
         {
@@ -13169,7 +13483,7 @@
       "tag_rows": [
         {
           "label": "技術",
-          "value": 61
+          "value": 62
         },
         {
           "label": "髮夾彎",
@@ -13426,7 +13740,7 @@
           "vehicle_variant_code": "veh_fd3s_rx7",
           "lap_time_ms": 200408,
           "lap_time_text": "03:20.408",
-          "delta_to_best_text": "+3.608",
+          "delta_to_best_text": "+8.595",
           "platform": "pcvr",
           "record_date": "2026-07-11",
           "track_env": "山道",
@@ -13560,8 +13874,36 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1173",
+          "record_id": "rec_1329",
           "rank": 14,
+          "route_label_zh": "長尾 / Downhill",
+          "route_label_en": "Nagao / Downhill",
+          "player_display_name": "菲娜_Fina",
+          "player_id": "plr_034",
+          "vehicle_model_name": "Karin 96",
+          "vehicle_model_code": "veh_karin_96",
+          "vehicle_variant_name": "Karin 96",
+          "vehicle_variant_code": "veh_karin_96",
+          "lap_time_ms": 225258,
+          "lap_time_text": "03:45.258",
+          "delta_to_best_text": "+8.195",
+          "platform": "pcvr",
+          "record_date": "2026-08-15",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538147782915788850",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_1173",
+          "rank": 15,
           "route_label_zh": "小田原 / Clockwise",
           "route_label_en": "Odawara / Clockwise",
           "player_display_name": "菲娜_Fina",
@@ -13589,7 +13931,7 @@
         },
         {
           "record_id": "rec_1252",
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "臻名山 / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "菲娜_Fina",
@@ -13619,7 +13961,7 @@
         },
         {
           "record_id": "rec_1225",
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "真碓冰 / Downhill",
           "route_label_en": "Shin Usui / Downhill",
           "player_display_name": "菲娜_Fina",
@@ -15755,8 +16097,8 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 20,
-        "distinct_tracks": 17,
+        "distinct_vehicle_models": 23,
+        "distinct_tracks": 18,
         "max_route_attempts": 7,
         "tr_count": 3,
         "cr_count": 7
@@ -15776,7 +16118,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "51"
+          "value": "56"
         },
         {
           "label_zh": "已驗證",
@@ -15797,7 +16139,7 @@
       "badge_counts": {
         "TR": 3,
         "CR": 7,
-        "PR": 9
+        "PR": 10
       },
       "tag_chips": [
         {
@@ -15820,7 +16162,7 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)",
-          "value": 23
+          "value": 25
         },
         {
           "label": "FC3S (RX7)",
@@ -15838,15 +16180,15 @@
       "tag_rows": [
         {
           "label": "髮夾彎",
-          "value": 31
+          "value": 32
         },
         {
           "label": "高速",
-          "value": 24
+          "value": 25
         },
         {
           "label": "技術",
-          "value": 23
+          "value": 24
         },
         {
           "label": "低抓地",
@@ -15884,8 +16226,34 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1084",
+          "record_id": "rec_1351",
           "rank": 2,
+          "route_label_zh": "座辰モーターパーク / Clockwise",
+          "route_label_en": "座辰モーターパーク / Clockwise",
+          "player_display_name": "Yang路人",
+          "player_id": "plr_yang",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "vehicle_variant_name": "FD3S-Aspec",
+          "vehicle_variant_code": "veh_fd3s_aspec",
+          "lap_time_ms": 38547,
+          "lap_time_text": "00:38.547",
+          "delta_to_best_text": "+2.000",
+          "platform": "pcvr",
+          "record_date": "2026-08-15",
+          "track_env": "賽道",
+          "track_tags": [],
+          "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_1084",
+          "rank": 3,
           "route_label_zh": "筑波サーキット-TsukubaCircuit- / Circuit",
           "route_label_en": "TsukubaCircuit / Circuit",
           "player_display_name": "Yang路人",
@@ -15911,7 +16279,7 @@
         },
         {
           "record_id": "rec_1092",
-          "rank": 3,
+          "rank": 4,
           "route_label_zh": "八方原 / Outbound",
           "route_label_en": "Happogahara / Outbound",
           "player_display_name": "Yang路人",
@@ -15941,7 +16309,7 @@
         },
         {
           "record_id": "rec_1110",
-          "rank": 4,
+          "rank": 5,
           "route_label_zh": "觀星山 / Downhill",
           "route_label_en": "StarSight / Downhill",
           "player_display_name": "Yang路人",
@@ -15970,7 +16338,7 @@
         },
         {
           "record_id": "rec_1102",
-          "rank": 5,
+          "rank": 6,
           "route_label_zh": "Kamidomarizaka / Uphill",
           "route_label_en": "Kamidomarizaka / Uphill",
           "player_display_name": "Yang路人",
@@ -15999,7 +16367,7 @@
         },
         {
           "record_id": "rec_1040",
-          "rank": 6,
+          "rank": 7,
           "route_label_zh": "龍溝山 / Downhill",
           "route_label_en": "Ryuoukouzan / Downhill",
           "player_display_name": "Yang路人",
@@ -16028,7 +16396,7 @@
         },
         {
           "record_id": "rec_1093",
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "淵森国際サーキット / Clockwise",
           "route_label_en": "FUCHIMORI INTERNATIONAL CIRCUIT / Clockwise",
           "player_display_name": "Yang路人",
@@ -16039,7 +16407,7 @@
           "vehicle_variant_code": "veh_fd3sam_attack",
           "lap_time_ms": 120222,
           "lap_time_text": "02:00.222",
-          "delta_to_best_text": "+0.876",
+          "delta_to_best_text": "+13.700",
           "platform": "pcvr",
           "record_date": "2026-07-26",
           "track_env": "賽道",
@@ -16056,7 +16424,7 @@
         },
         {
           "record_id": "rec_1131",
-          "rank": 8,
+          "rank": 9,
           "route_label_zh": "omote_rokko / Downhill",
           "route_label_en": "omote_rokko / Downhill",
           "player_display_name": "Yang路人",
@@ -16084,7 +16452,7 @@
         },
         {
           "record_id": "rec_1318",
-          "rank": 9,
+          "rank": 10,
           "route_label_zh": "三之白LINE ForestStage / Circuit Type",
           "route_label_en": "三之白LINE ForestStage / Circuit Type",
           "player_display_name": "Yang路人",
@@ -16110,7 +16478,7 @@
         },
         {
           "record_id": "rec_1316",
-          "rank": 10,
+          "rank": 11,
           "route_label_zh": "三之白LINE ForestStage / SS Type",
           "route_label_en": "三之白LINE ForestStage / SS Type",
           "player_display_name": "Yang路人",
@@ -16136,7 +16504,7 @@
         },
         {
           "record_id": "rec_1103",
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "Yang路人",
@@ -16165,7 +16533,7 @@
         },
         {
           "record_id": "rec_1041",
-          "rank": 12,
+          "rank": 13,
           "route_label_zh": "赤城 / Downhill",
           "route_label_en": "Akagi / Downhill",
           "player_display_name": "Yang路人",
@@ -16194,7 +16562,7 @@
         },
         {
           "record_id": "rec_1211",
-          "rank": 13,
+          "rank": 14,
           "route_label_zh": "紅葉Momiji / Downhill",
           "route_label_en": "Momiji / Downhill",
           "player_display_name": "Yang路人",
@@ -16223,7 +16591,7 @@
         },
         {
           "record_id": "rec_0676",
-          "rank": 14,
+          "rank": 15,
           "route_label_zh": "Falstone Rally / 待整理",
           "route_label_en": "Falstone Rally / 待整理",
           "player_display_name": "Yang路人",
@@ -16252,7 +16620,7 @@
         },
         {
           "record_id": "rec_1007",
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "定峰峠 / Full Course Downhill",
           "route_label_en": "Sadamine / Full Course Downhill",
           "player_display_name": "Yang路人",
@@ -16281,7 +16649,7 @@
         },
         {
           "record_id": "rec_0931",
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
           "route_label_en": "Futatsukane / Counter-Clockwise",
           "player_display_name": "Yang路人",
@@ -16310,7 +16678,7 @@
         },
         {
           "record_id": "rec_1188",
-          "rank": 17,
+          "rank": 18,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
           "player_display_name": "Yang路人",
@@ -16337,8 +16705,8 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_1127",
-          "rank": 18,
+          "record_id": "rec_1325",
+          "rank": 19,
           "route_label_zh": "臻名山 / Downhill",
           "route_label_en": "HarunaG / Downhill",
           "player_display_name": "Yang路人",
@@ -16347,11 +16715,11 @@
           "vehicle_model_code": "veh_fd3s_rx7",
           "vehicle_variant_name": "FD3S Super-G",
           "vehicle_variant_code": "veh_fd3s_super_g",
-          "lap_time_ms": 265122,
-          "lap_time_text": "04:25.122",
-          "delta_to_best_text": "+10.122",
+          "lap_time_ms": 265022,
+          "lap_time_text": "04:25.022",
+          "delta_to_best_text": "+10.022",
           "platform": "pcvr",
-          "record_date": "2026-07-30",
+          "record_date": "2026-08-15",
           "track_env": "山道",
           "track_tags": [
             "技術",
@@ -16360,7 +16728,7 @@
           ],
           "peer_label": "FD3S (RX7)",
           "verified": false,
-          "proof_text": "",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1538005330712076400",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -16368,7 +16736,7 @@
         },
         {
           "record_id": "rec_1104",
-          "rank": 19,
+          "rank": 20,
           "route_label_zh": "紐柏林北環 / Downhill",
           "route_label_en": "Nordschleife / Downhill",
           "player_display_name": "Yang路人",
@@ -16447,6 +16815,62 @@
               "lap_time_text": "01:54.345",
               "vehicle": "S15",
               "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "harunag:DH",
+          "route_label": "臻名山 / Downhill",
+          "run_count": 7,
+          "runs": [
+            {
+              "date": "2026-03-21",
+              "lap_time_ms": 283300,
+              "lap_time_text": "04:43.300",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-03-21",
+              "lap_time_ms": 359267,
+              "lap_time_text": "05:59.267",
+              "vehicle": "JA4 Tuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-07-30",
+              "lap_time_ms": 265122,
+              "lap_time_text": "04:25.122",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-03",
+              "lap_time_ms": 275644,
+              "lap_time_text": "04:35.644",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-09",
+              "lap_time_ms": 331589,
+              "lap_time_text": "05:31.589",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-09",
+              "lap_time_ms": 338722,
+              "lap_time_text": "05:38.722",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 265022,
+              "lap_time_text": "04:25.022",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": true
             }
           ]
         },
@@ -16563,55 +16987,6 @@
           ]
         },
         {
-          "route_key": "harunag:DH",
-          "route_label": "臻名山 / Downhill",
-          "run_count": 6,
-          "runs": [
-            {
-              "date": "2026-03-21",
-              "lap_time_ms": 283300,
-              "lap_time_text": "04:43.300",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-03-21",
-              "lap_time_ms": 359267,
-              "lap_time_text": "05:59.267",
-              "vehicle": "JA4 Tuned",
-              "is_pb": false
-            },
-            {
-              "date": "2026-07-30",
-              "lap_time_ms": 265122,
-              "lap_time_text": "04:25.122",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-03",
-              "lap_time_ms": 275644,
-              "lap_time_text": "04:35.644",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-09",
-              "lap_time_ms": 331589,
-              "lap_time_text": "05:31.589",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-09",
-              "lap_time_ms": 338722,
-              "lap_time_text": "05:38.722",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            }
-          ]
-        },
-        {
           "route_key": "omote_rokkou_ron:DH",
           "route_label": "omote_rokko / Downhill",
           "run_count": 6,
@@ -16656,6 +17031,41 @@
               "lap_time_ms": 186723,
               "lap_time_text": "03:06.723",
               "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "unknown_calme:CW",
+          "route_label": "座辰モーターパーク / Clockwise",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 38547,
+              "lap_time_text": "00:38.547",
+              "vehicle": "FD3S (RX7)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 41956,
+              "lap_time_text": "00:41.956",
+              "vehicle": "ND",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 44233,
+              "lap_time_text": "00:44.233",
+              "vehicle": "Daihatsu Mira(L70/L80)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-15",
+              "lap_time_ms": 45355,
+              "lap_time_text": "00:45.355",
+              "vehicle": "Honda Today(JA4/JA5)",
               "is_pb": false
             }
           ]
@@ -17473,7 +17883,7 @@
               "date": "2026-06-22",
               "lap_time_ms": 156115,
               "lap_time_text": "02:36.115",
-              "vehicle": "TomorrowJ4",
+              "vehicle": "Honda Today(JA4/JA5)",
               "is_pb": false
             }
           ]
@@ -18580,7 +18990,7 @@
           "vehicle_variant_code": "veh_ae86t",
           "lap_time_ms": 210300,
           "lap_time_text": "03:30.300",
-          "delta_to_best_text": "+13.500",
+          "delta_to_best_text": "+18.487",
           "platform": "pc",
           "record_date": "2025-06-09",
           "track_env": "山道",
@@ -19280,7 +19690,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 5,
         "distinct_tracks": 5,
-        "max_route_attempts": 3,
+        "max_route_attempts": 4,
         "tr_count": 1,
         "cr_count": 1
       },
@@ -19299,7 +19709,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "13"
+          "value": "14"
         },
         {
           "label_zh": "已驗證",
@@ -19343,7 +19753,7 @@
       "usage_rows": [
         {
           "label": "GC8 (Impreza)",
-          "value": 6
+          "value": 7
         },
         {
           "label": "Karin 96",
@@ -19361,14 +19771,14 @@
       "tag_rows": [
         {
           "label": "髮夾彎",
-          "value": 10
-        },
-        {
-          "label": "技術",
-          "value": 6
+          "value": 11
         },
         {
           "label": "高速",
+          "value": 7
+        },
+        {
+          "label": "技術",
           "value": 6
         }
       ],
@@ -19403,7 +19813,7 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1202",
+          "record_id": "rec_1342",
           "rank": 2,
           "route_label_zh": "Kamidomarizaka / Uphill",
           "route_label_en": "Kamidomarizaka / Uphill",
@@ -19413,11 +19823,11 @@
           "vehicle_model_code": "veh_gc8_impreza",
           "vehicle_variant_name": "GC8-Attack",
           "vehicle_variant_code": "veh_gc8_attack",
-          "lap_time_ms": 113598,
-          "lap_time_text": "01:53.598",
-          "delta_to_best_text": "+4.631",
+          "lap_time_ms": 113541,
+          "lap_time_text": "01:53.541",
+          "delta_to_best_text": "+4.574",
           "platform": "pcvr",
-          "record_date": "2026-08-07",
+          "record_date": "2026-08-10",
           "track_env": "山道",
           "track_tags": [
             "高速",
@@ -19425,7 +19835,7 @@
           ],
           "peer_label": "GC8 (Impreza)",
           "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1535246200620454010",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536328360215576628",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -19546,6 +19956,41 @@
       ],
       "history": [
         {
+          "route_key": "kamidomarizaka_calme:UH",
+          "route_label": "Kamidomarizaka / Uphill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-06-07",
+              "lap_time_ms": 113958,
+              "lap_time_text": "01:53.958",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 113598,
+              "lap_time_text": "01:53.598",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 121055,
+              "lap_time_text": "02:01.055",
+              "vehicle": "GT3RS",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-10",
+              "lap_time_ms": 113541,
+              "lap_time_text": "01:53.541",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "kamidomarizaka_calme:DH",
           "route_label": "Kamidomarizaka / Downhill",
           "run_count": 3,
@@ -19597,34 +20042,6 @@
               "lap_time_ms": 125027,
               "lap_time_text": "02:05.027",
               "vehicle": "MS2-Attack",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "kamidomarizaka_calme:UH",
-          "route_label": "Kamidomarizaka / Uphill",
-          "run_count": 3,
-          "runs": [
-            {
-              "date": "2026-06-07",
-              "lap_time_ms": 113958,
-              "lap_time_text": "01:53.958",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 113598,
-              "lap_time_text": "01:53.598",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 121055,
-              "lap_time_text": "02:01.055",
-              "vehicle": "GT3RS",
               "is_pb": false
             }
           ]
