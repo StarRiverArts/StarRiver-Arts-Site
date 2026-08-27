@@ -17,7 +17,7 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "205",
+      "value": "206",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
@@ -2636,7 +2636,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "114"
+          "value": "115"
         },
         {
           "label_zh": "已驗證",
@@ -3546,7 +3546,7 @@
           "world_name": "HarunaG",
           "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
           "track_author": "G線上のハッチ",
-          "record_count": 29,
+          "record_count": 30,
           "route_count": 1,
           "variant_codes": [
             "veh_fd3s_lighttuned",
@@ -4475,6 +4475,50 @@
           ]
         },
         {
+          "variant_code": "veh_fd3s_lighttuned_type2",
+          "variant_name": "FD3S LightTuned type2",
+          "record_count": 9,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "harunag",
+              "track_display_name": "臻名山",
+              "world_name": "HarunaG",
+              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
+              "track_author": "G線上のハッチ",
+              "record_count": 8,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_fd3s_lighttuned_type2"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_fd3s_lighttuned_type2",
+                  "variant_name": "FD3S LightTuned type2"
+                }
+              ]
+            },
+            {
+              "track_world_code": "omote_rokkou_ron",
+              "track_display_name": "omote_rokko",
+              "world_name": "omote_rokko",
+              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
+              "track_author": "G線上のハッチ",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_fd3s_lighttuned_type2"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_fd3s_lighttuned_type2",
+                  "variant_name": "FD3S LightTuned type2"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "variant_code": "veh_fd3s_aspec",
           "variant_name": "FD3S-Aspec",
           "record_count": 9,
@@ -4513,50 +4557,6 @@
                 {
                   "variant_code": "veh_fd3s_aspec",
                   "variant_name": "FD3S-Aspec"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_fd3s_lighttuned_type2",
-          "variant_name": "FD3S LightTuned type2",
-          "record_count": 8,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "harunag",
-              "track_display_name": "臻名山",
-              "world_name": "HarunaG",
-              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
-              "track_author": "G線上のハッチ",
-              "record_count": 7,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_fd3s_lighttuned_type2"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_fd3s_lighttuned_type2",
-                  "variant_name": "FD3S LightTuned type2"
-                }
-              ]
-            },
-            {
-              "track_world_code": "omote_rokkou_ron",
-              "track_display_name": "omote_rokko",
-              "world_name": "omote_rokko",
-              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_fd3s_lighttuned_type2"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_fd3s_lighttuned_type2",
-                  "variant_name": "FD3S LightTuned type2"
                 }
               ]
             }
@@ -4722,7 +4722,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 96
+          "value": 97
         },
         {
           "label": "其他",
@@ -5591,73 +5591,9 @@
           ]
         },
         {
-          "variant_code": "veh_fd3s_aspec",
-          "variant_name": "FD3S-Aspec",
-          "record_count": 9,
-          "vehicle_tags": [],
-          "drivetrain": "FR",
-          "record_rows": [
-            {
-              "record_id": "rec_1346",
-              "rank": 1,
-              "route_label_zh": "座辰モーターパーク / Clockwise",
-              "route_label_en": "座辰モーターパーク / Clockwise",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "FD3S (RX7)",
-              "vehicle_model_code": "veh_fd3s_rx7",
-              "vehicle_variant_name": "FD3S-Aspec",
-              "vehicle_variant_code": "veh_fd3s_aspec",
-              "lap_time_ms": 36547,
-              "lap_time_text": "00:36.547",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-08-15",
-              "track_env": "賽道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            },
-            {
-              "record_id": "rec_1028",
-              "rank": 2,
-              "route_label_zh": "龍溝山 / Downhill",
-              "route_label_en": "Ryuoukouzan / Downhill",
-              "player_display_name": "Lolidia",
-              "player_id": "plr_lolidia",
-              "vehicle_model_name": "FD3S (RX7)",
-              "vehicle_model_code": "veh_fd3s_rx7",
-              "vehicle_variant_name": "FD3S-Aspec",
-              "vehicle_variant_code": "veh_fd3s_aspec",
-              "lap_time_ms": 110378,
-              "lap_time_text": "01:50.378",
-              "delta_to_best_text": "+6.689",
-              "platform": "pcvr",
-              "record_date": "2026-03-19",
-              "track_env": "山道",
-              "track_tags": [
-                "技術",
-                "髮夾彎"
-              ],
-              "peer_label": "Lolidia",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        },
-        {
           "variant_code": "veh_fd3s_lighttuned_type2",
           "variant_name": "FD3S LightTuned type2",
-          "record_count": 8,
+          "record_count": 9,
           "vehicle_tags": [],
           "drivetrain": "FR",
           "record_rows": [
@@ -5714,6 +5650,70 @@
               "peer_label": "菲娜_Fina",
               "verified": false,
               "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1540327603662098552",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_fd3s_aspec",
+          "variant_name": "FD3S-Aspec",
+          "record_count": 9,
+          "vehicle_tags": [],
+          "drivetrain": "FR",
+          "record_rows": [
+            {
+              "record_id": "rec_1346",
+              "rank": 1,
+              "route_label_zh": "座辰モーターパーク / Clockwise",
+              "route_label_en": "座辰モーターパーク / Clockwise",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "FD3S (RX7)",
+              "vehicle_model_code": "veh_fd3s_rx7",
+              "vehicle_variant_name": "FD3S-Aspec",
+              "vehicle_variant_code": "veh_fd3s_aspec",
+              "lap_time_ms": 36547,
+              "lap_time_text": "00:36.547",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-08-15",
+              "track_env": "賽道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_1028",
+              "rank": 2,
+              "route_label_zh": "龍溝山 / Downhill",
+              "route_label_en": "Ryuoukouzan / Downhill",
+              "player_display_name": "Lolidia",
+              "player_id": "plr_lolidia",
+              "vehicle_model_name": "FD3S (RX7)",
+              "vehicle_model_code": "veh_fd3s_rx7",
+              "vehicle_variant_name": "FD3S-Aspec",
+              "vehicle_variant_code": "veh_fd3s_aspec",
+              "lap_time_ms": 110378,
+              "lap_time_text": "01:50.378",
+              "delta_to_best_text": "+6.689",
+              "platform": "pcvr",
+              "record_date": "2026-03-19",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "髮夾彎"
+              ],
+              "peer_label": "Lolidia",
+              "verified": false,
+              "proof_text": "",
               "badge_code": "CR",
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",
@@ -23778,6 +23778,400 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_revuelto",
+      "title": "Revuelto",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car · Lamborghini · 義大利 · 2023",
+      "subtitle_en": "Sports Car · Lamborghini · 義大利 · 2023",
+      "manufacturer": "Lamborghini",
+      "country": "義大利",
+      "year": "2023",
+      "special_marks": [],
+      "drivetrain": "FR",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "15"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Lamborghini · 義大利 · 2023",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FR",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 菲娜_Fina",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Revuelto",
+          "value": 15
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "菲娜_Fina",
+          "value": 8
+        },
+        {
+          "label": "Lolidia",
+          "value": 2
+        },
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        },
+        {
+          "label": "Yang路人",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1133",
+          "rank": 1,
+          "route_label_zh": "omote_rokko / Downhill",
+          "route_label_en": "omote_rokko / Downhill",
+          "player_display_name": "菲娜_Fina",
+          "player_id": "plr_034",
+          "vehicle_model_name": "Revuelto",
+          "vehicle_model_code": "veh_revuelto",
+          "vehicle_variant_name": "Revuelto",
+          "vehicle_variant_code": "veh_revuelto",
+          "lap_time_ms": 135058,
+          "lap_time_text": "02:15.058",
+          "delta_to_best_text": "+1.100",
+          "platform": "pcvr",
+          "record_date": "2026-07-31",
+          "track_env": "其他",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "菲娜_Fina",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_0727",
+          "rank": 2,
+          "route_label_zh": "UraRokko / Downhill",
+          "route_label_en": "UraRokko / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Revuelto",
+          "vehicle_model_code": "veh_revuelto",
+          "vehicle_variant_name": "Revuelto",
+          "vehicle_variant_code": "veh_revuelto",
+          "lap_time_ms": 156053,
+          "lap_time_text": "02:36.053",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1247",
+          "rank": 3,
+          "route_label_zh": "臻名山 / Downhill",
+          "route_label_en": "HarunaG / Downhill",
+          "player_display_name": "菲娜_Fina",
+          "player_id": "plr_034",
+          "vehicle_model_name": "Revuelto",
+          "vehicle_model_code": "veh_revuelto",
+          "vehicle_variant_name": "Revuelto",
+          "vehicle_variant_code": "veh_revuelto",
+          "lap_time_ms": 256342,
+          "lap_time_text": "04:16.342",
+          "delta_to_best_text": "+4.442",
+          "platform": "pcvr",
+          "record_date": "2026-08-12",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "菲娜_Fina",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536786671989686353",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "harunag",
+          "track_display_name": "臻名山",
+          "world_name": "HarunaG",
+          "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
+          "track_author": "G線上のハッチ",
+          "record_count": 9,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_revuelto"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_revuelto",
+              "variant_name": "Revuelto"
+            }
+          ]
+        },
+        {
+          "track_world_code": "omote_rokkou_ron",
+          "track_display_name": "omote_rokko",
+          "world_name": "omote_rokko",
+          "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
+          "track_author": "G線上のハッチ",
+          "record_count": 3,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_revuelto"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_revuelto",
+              "variant_name": "Revuelto"
+            }
+          ]
+        },
+        {
+          "track_world_code": "urarokkou",
+          "track_display_name": "UraRokko",
+          "world_name": "UraRokko",
+          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+          "track_author": "G線上のハッチ",
+          "record_count": 3,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_revuelto"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_revuelto",
+              "variant_name": "Revuelto"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_revuelto",
+          "variant_name": "Revuelto",
+          "record_count": 15,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "harunag",
+              "track_display_name": "臻名山",
+              "world_name": "HarunaG",
+              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
+              "track_author": "G線上のハッチ",
+              "record_count": 9,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_revuelto"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_revuelto",
+                  "variant_name": "Revuelto"
+                }
+              ]
+            },
+            {
+              "track_world_code": "omote_rokkou_ron",
+              "track_display_name": "omote_rokko",
+              "world_name": "omote_rokko",
+              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
+              "track_author": "G線上のハッチ",
+              "record_count": 3,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_revuelto"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_revuelto",
+                  "variant_name": "Revuelto"
+                }
+              ]
+            },
+            {
+              "track_world_code": "urarokkou",
+              "track_display_name": "UraRokko",
+              "world_name": "UraRokko",
+              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+              "track_author": "G線上のハッチ",
+              "record_count": 3,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_revuelto"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_revuelto",
+                  "variant_name": "Revuelto"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 12
+        },
+        {
+          "label": "其他",
+          "value": 3
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_revuelto",
+          "variant_name": "Revuelto",
+          "record_count": 15,
+          "vehicle_tags": [],
+          "drivetrain": "FR",
+          "record_rows": [
+            {
+              "record_id": "rec_1133",
+              "rank": 1,
+              "route_label_zh": "omote_rokko / Downhill",
+              "route_label_en": "omote_rokko / Downhill",
+              "player_display_name": "菲娜_Fina",
+              "player_id": "plr_034",
+              "vehicle_model_name": "Revuelto",
+              "vehicle_model_code": "veh_revuelto",
+              "vehicle_variant_name": "Revuelto",
+              "vehicle_variant_code": "veh_revuelto",
+              "lap_time_ms": 135058,
+              "lap_time_text": "02:15.058",
+              "delta_to_best_text": "+1.100",
+              "platform": "pcvr",
+              "record_date": "2026-07-31",
+              "track_env": "其他",
+              "track_tags": [
+                "技術"
+              ],
+              "peer_label": "菲娜_Fina",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_0727",
+              "rank": 2,
+              "route_label_zh": "UraRokko / Downhill",
+              "route_label_en": "UraRokko / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "Revuelto",
+              "vehicle_model_code": "veh_revuelto",
+              "vehicle_variant_name": "Revuelto",
+              "vehicle_variant_code": "veh_revuelto",
+              "lap_time_ms": 156053,
+              "lap_time_text": "02:36.053",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-06-14",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_1247",
+              "rank": 3,
+              "route_label_zh": "臻名山 / Downhill",
+              "route_label_en": "HarunaG / Downhill",
+              "player_display_name": "菲娜_Fina",
+              "player_id": "plr_034",
+              "vehicle_model_name": "Revuelto",
+              "vehicle_model_code": "veh_revuelto",
+              "vehicle_variant_name": "Revuelto",
+              "vehicle_variant_code": "veh_revuelto",
+              "lap_time_ms": 256342,
+              "lap_time_text": "04:16.342",
+              "delta_to_best_text": "+4.442",
+              "platform": "pcvr",
+              "record_date": "2026-08-12",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "菲娜_Fina",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536786671989686353",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_na2",
       "title": "NA2",
       "vehicle_class": "Sports Car",
@@ -25166,400 +25560,6 @@
               "badge_label_zh": "賽道紀錄",
               "badge_label_en": "Track Record",
               "badge_tone": "tr"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_revuelto",
-      "title": "Revuelto",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car · Lamborghini · 義大利 · 2023",
-      "subtitle_en": "Sports Car · Lamborghini · 義大利 · 2023",
-      "manufacturer": "Lamborghini",
-      "country": "義大利",
-      "year": "2023",
-      "special_marks": [],
-      "drivetrain": "FR",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "14"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 1,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Lamborghini · 義大利 · 2023",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FR",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 菲娜_Fina",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "Revuelto",
-          "value": 14
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "菲娜_Fina",
-          "value": 8
-        },
-        {
-          "label": "Lolidia",
-          "value": 2
-        },
-        {
-          "label": "CannedCarbon",
-          "value": 2
-        },
-        {
-          "label": "Yang路人",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_1133",
-          "rank": 1,
-          "route_label_zh": "omote_rokko / Downhill",
-          "route_label_en": "omote_rokko / Downhill",
-          "player_display_name": "菲娜_Fina",
-          "player_id": "plr_034",
-          "vehicle_model_name": "Revuelto",
-          "vehicle_model_code": "veh_revuelto",
-          "vehicle_variant_name": "Revuelto",
-          "vehicle_variant_code": "veh_revuelto",
-          "lap_time_ms": 135058,
-          "lap_time_text": "02:15.058",
-          "delta_to_best_text": "+1.100",
-          "platform": "pcvr",
-          "record_date": "2026-07-31",
-          "track_env": "其他",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "菲娜_Fina",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_0727",
-          "rank": 2,
-          "route_label_zh": "UraRokko / Downhill",
-          "route_label_en": "UraRokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "Revuelto",
-          "vehicle_model_code": "veh_revuelto",
-          "vehicle_variant_name": "Revuelto",
-          "vehicle_variant_code": "veh_revuelto",
-          "lap_time_ms": 156053,
-          "lap_time_text": "02:36.053",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-06-14",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1247",
-          "rank": 3,
-          "route_label_zh": "臻名山 / Downhill",
-          "route_label_en": "HarunaG / Downhill",
-          "player_display_name": "菲娜_Fina",
-          "player_id": "plr_034",
-          "vehicle_model_name": "Revuelto",
-          "vehicle_model_code": "veh_revuelto",
-          "vehicle_variant_name": "Revuelto",
-          "vehicle_variant_code": "veh_revuelto",
-          "lap_time_ms": 256342,
-          "lap_time_text": "04:16.342",
-          "delta_to_best_text": "+4.442",
-          "platform": "pcvr",
-          "record_date": "2026-08-12",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "菲娜_Fina",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536786671989686353",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "harunag",
-          "track_display_name": "臻名山",
-          "world_name": "HarunaG",
-          "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
-          "track_author": "G線上のハッチ",
-          "record_count": 8,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_revuelto"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_revuelto",
-              "variant_name": "Revuelto"
-            }
-          ]
-        },
-        {
-          "track_world_code": "omote_rokkou_ron",
-          "track_display_name": "omote_rokko",
-          "world_name": "omote_rokko",
-          "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-          "track_author": "G線上のハッチ",
-          "record_count": 3,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_revuelto"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_revuelto",
-              "variant_name": "Revuelto"
-            }
-          ]
-        },
-        {
-          "track_world_code": "urarokkou",
-          "track_display_name": "UraRokko",
-          "world_name": "UraRokko",
-          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-          "track_author": "G線上のハッチ",
-          "record_count": 3,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_revuelto"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_revuelto",
-              "variant_name": "Revuelto"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_revuelto",
-          "variant_name": "Revuelto",
-          "record_count": 14,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "harunag",
-              "track_display_name": "臻名山",
-              "world_name": "HarunaG",
-              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
-              "track_author": "G線上のハッチ",
-              "record_count": 8,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_revuelto"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_revuelto",
-                  "variant_name": "Revuelto"
-                }
-              ]
-            },
-            {
-              "track_world_code": "omote_rokkou_ron",
-              "track_display_name": "omote_rokko",
-              "world_name": "omote_rokko",
-              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-              "track_author": "G線上のハッチ",
-              "record_count": 3,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_revuelto"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_revuelto",
-                  "variant_name": "Revuelto"
-                }
-              ]
-            },
-            {
-              "track_world_code": "urarokkou",
-              "track_display_name": "UraRokko",
-              "world_name": "UraRokko",
-              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-              "track_author": "G線上のハッチ",
-              "record_count": 3,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_revuelto"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_revuelto",
-                  "variant_name": "Revuelto"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 11
-        },
-        {
-          "label": "其他",
-          "value": 3
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_revuelto",
-          "variant_name": "Revuelto",
-          "record_count": 14,
-          "vehicle_tags": [],
-          "drivetrain": "FR",
-          "record_rows": [
-            {
-              "record_id": "rec_1133",
-              "rank": 1,
-              "route_label_zh": "omote_rokko / Downhill",
-              "route_label_en": "omote_rokko / Downhill",
-              "player_display_name": "菲娜_Fina",
-              "player_id": "plr_034",
-              "vehicle_model_name": "Revuelto",
-              "vehicle_model_code": "veh_revuelto",
-              "vehicle_variant_name": "Revuelto",
-              "vehicle_variant_code": "veh_revuelto",
-              "lap_time_ms": 135058,
-              "lap_time_text": "02:15.058",
-              "delta_to_best_text": "+1.100",
-              "platform": "pcvr",
-              "record_date": "2026-07-31",
-              "track_env": "其他",
-              "track_tags": [
-                "技術"
-              ],
-              "peer_label": "菲娜_Fina",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_0727",
-              "rank": 2,
-              "route_label_zh": "UraRokko / Downhill",
-              "route_label_en": "UraRokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "Revuelto",
-              "vehicle_model_code": "veh_revuelto",
-              "vehicle_variant_name": "Revuelto",
-              "vehicle_variant_code": "veh_revuelto",
-              "lap_time_ms": 156053,
-              "lap_time_text": "02:36.053",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-06-14",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            },
-            {
-              "record_id": "rec_1247",
-              "rank": 3,
-              "route_label_zh": "臻名山 / Downhill",
-              "route_label_en": "HarunaG / Downhill",
-              "player_display_name": "菲娜_Fina",
-              "player_id": "plr_034",
-              "vehicle_model_name": "Revuelto",
-              "vehicle_model_code": "veh_revuelto",
-              "vehicle_variant_name": "Revuelto",
-              "vehicle_variant_code": "veh_revuelto",
-              "lap_time_ms": 256342,
-              "lap_time_text": "04:16.342",
-              "delta_to_best_text": "+4.442",
-              "platform": "pcvr",
-              "record_date": "2026-08-12",
-              "track_env": "山道",
-              "track_tags": [
-                "技術",
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "菲娜_Fina",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536786671989686353",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
             }
           ]
         }
@@ -55393,6 +55393,214 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_st205_celica",
+      "title": "ST205 (Celica)",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car · Toyota · 日本 · 1994",
+      "subtitle_en": "Sports Car · Toyota · 日本 · 1994",
+      "manufacturer": "Toyota",
+      "country": "日本",
+      "year": "1994",
+      "special_marks": [],
+      "drivetrain": "AWD",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Toyota · 日本 · 1994",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 AWD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 ikuhopen",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "ST205 (Celica)",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "ikuhopen",
+          "value": 1
+        },
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1379",
+          "rank": 1,
+          "route_label_zh": "秋名雪 / Downhill",
+          "route_label_en": "Akina Snow / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "ST205 (Celica)",
+          "vehicle_model_code": "veh_st205_celica",
+          "vehicle_variant_name": "ST205 (Celica)",
+          "vehicle_variant_code": "veh_st205_celica",
+          "lap_time_ms": 232253,
+          "lap_time_text": "03:52.253",
+          "delta_to_best_text": "+1.231",
+          "platform": "pc",
+          "record_date": "2026-08-27",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "雪地",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1542481033499512932",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "akina_snow_jintei",
+          "track_display_name": "秋名雪",
+          "world_name": "Akina Snow",
+          "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
+          "track_author": "Jintei",
+          "record_count": 2,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_st205_celica"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_st205_celica",
+              "variant_name": "ST205 (Celica)"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_st205_celica",
+          "variant_name": "ST205 (Celica)",
+          "record_count": 2,
+          "vehicle_tags": [
+            "拉力款"
+          ],
+          "world_rows": [
+            {
+              "track_world_code": "akina_snow_jintei",
+              "track_display_name": "秋名雪",
+              "world_name": "Akina Snow",
+              "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
+              "track_author": "Jintei",
+              "record_count": 2,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_st205_celica"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_st205_celica",
+                  "variant_name": "ST205 (Celica)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 2
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_st205_celica",
+          "variant_name": "ST205 (Celica)",
+          "record_count": 2,
+          "vehicle_tags": [
+            "拉力款"
+          ],
+          "drivetrain": "AWD",
+          "record_rows": [
+            {
+              "record_id": "rec_1379",
+              "rank": 1,
+              "route_label_zh": "秋名雪 / Downhill",
+              "route_label_en": "Akina Snow / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "ST205 (Celica)",
+              "vehicle_model_code": "veh_st205_celica",
+              "vehicle_variant_name": "ST205 (Celica)",
+              "vehicle_variant_code": "veh_st205_celica",
+              "lap_time_ms": 232253,
+              "lap_time_text": "03:52.253",
+              "delta_to_best_text": "+1.231",
+              "platform": "pc",
+              "record_date": "2026-08-27",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "雪地",
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1542481033499512932",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_tgx_d38",
       "title": "TGX-D38",
       "vehicle_class": "Sports Car",
@@ -69645,6 +69853,202 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_quattro_b2",
+      "title": "Quattro B2",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 拉力",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Quattro B2",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1376",
+          "rank": 1,
+          "route_label_zh": "Falstone Rally / Forward",
+          "route_label_en": "Falstone Rally / Forward",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Quattro B2",
+          "vehicle_model_code": "veh_quattro_b2",
+          "vehicle_variant_name": "Quattro B2",
+          "vehicle_variant_code": "veh_quattro_b2",
+          "lap_time_ms": 223796,
+          "lap_time_text": "03:43.796",
+          "delta_to_best_text": "+19.365",
+          "platform": "pc",
+          "record_date": "2026-08-26",
+          "track_env": "拉力",
+          "track_tags": [
+            "低抓地",
+            "技術"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1542184007096078397",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "falstone_rally",
+          "track_display_name": "Falstone Rally",
+          "world_name": "Falstone Rally",
+          "world_url": "https://vrchat.com/home/world/wrld_448ff03d-6d0e-4728-8c6b-deebb5fe34d9",
+          "track_author": "Crimson_foxVRC",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_quattro_b2"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_quattro_b2",
+              "variant_name": "Quattro B2"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_quattro_b2",
+          "variant_name": "Quattro B2",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "falstone_rally",
+              "track_display_name": "Falstone Rally",
+              "world_name": "Falstone Rally",
+              "world_url": "https://vrchat.com/home/world/wrld_448ff03d-6d0e-4728-8c6b-deebb5fe34d9",
+              "track_author": "Crimson_foxVRC",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_quattro_b2"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_quattro_b2",
+                  "variant_name": "Quattro B2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "拉力",
+          "value": 1
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_quattro_b2",
+          "variant_name": "Quattro B2",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "drivetrain": "",
+          "record_rows": [
+            {
+              "record_id": "rec_1376",
+              "rank": 1,
+              "route_label_zh": "Falstone Rally / Forward",
+              "route_label_en": "Falstone Rally / Forward",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "Quattro B2",
+              "vehicle_model_code": "veh_quattro_b2",
+              "vehicle_variant_name": "Quattro B2",
+              "vehicle_variant_code": "veh_quattro_b2",
+              "lap_time_ms": 223796,
+              "lap_time_text": "03:43.796",
+              "delta_to_best_text": "+19.365",
+              "platform": "pc",
+              "record_date": "2026-08-26",
+              "track_env": "拉力",
+              "track_tags": [
+                "低抓地",
+                "技術"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1542184007096078397",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_sls",
       "title": "SLS",
       "vehicle_class": "Sports Car",
@@ -70217,210 +70621,6 @@
                 "技術"
               ],
               "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_st205_celica",
-      "title": "ST205 (Celica)",
-      "vehicle_class": "Sports Car",
-      "subtitle_zh": "Sports Car · Toyota · 日本 · 1994",
-      "subtitle_en": "Sports Car · Toyota · 日本 · 1994",
-      "manufacturer": "Toyota",
-      "country": "日本",
-      "year": "1994",
-      "special_marks": [],
-      "drivetrain": "AWD",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "1"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Toyota · 日本 · 1994",
-          "tone": "team"
-        },
-        {
-          "label": "Sports Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 AWD",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 ikuhopen",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "ST205 (Celica)",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "ikuhopen",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_0030",
-          "rank": 1,
-          "route_label_zh": "秋名雪 / Downhill",
-          "route_label_en": "Akina Snow / Downhill",
-          "player_display_name": "ikuhopen",
-          "player_id": "plr_ikuhopen",
-          "vehicle_model_name": "ST205 (Celica)",
-          "vehicle_model_code": "veh_st205_celica",
-          "vehicle_variant_name": "ST205 (Celica)",
-          "vehicle_variant_code": "veh_st205_celica",
-          "lap_time_ms": 250053,
-          "lap_time_text": "04:10.053",
-          "delta_to_best_text": "+19.031",
-          "platform": "pcvr",
-          "record_date": "2025-06-05",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "雪地",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "ikuhopen",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "akina_snow_jintei",
-          "track_display_name": "秋名雪",
-          "world_name": "Akina Snow",
-          "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
-          "track_author": "Jintei",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_st205_celica"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_st205_celica",
-              "variant_name": "ST205 (Celica)"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_st205_celica",
-          "variant_name": "ST205 (Celica)",
-          "record_count": 1,
-          "vehicle_tags": [
-            "拉力款"
-          ],
-          "world_rows": [
-            {
-              "track_world_code": "akina_snow_jintei",
-              "track_display_name": "秋名雪",
-              "world_name": "Akina Snow",
-              "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
-              "track_author": "Jintei",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_st205_celica"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_st205_celica",
-                  "variant_name": "ST205 (Celica)"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_st205_celica",
-          "variant_name": "ST205 (Celica)",
-          "record_count": 1,
-          "vehicle_tags": [
-            "拉力款"
-          ],
-          "drivetrain": "AWD",
-          "record_rows": [
-            {
-              "record_id": "rec_0030",
-              "rank": 1,
-              "route_label_zh": "秋名雪 / Downhill",
-              "route_label_en": "Akina Snow / Downhill",
-              "player_display_name": "ikuhopen",
-              "player_id": "plr_ikuhopen",
-              "vehicle_model_name": "ST205 (Celica)",
-              "vehicle_model_code": "veh_st205_celica",
-              "vehicle_variant_name": "ST205 (Celica)",
-              "vehicle_variant_code": "veh_st205_celica",
-              "lap_time_ms": 250053,
-              "lap_time_text": "04:10.053",
-              "delta_to_best_text": "+19.031",
-              "platform": "pcvr",
-              "record_date": "2025-06-05",
-              "track_env": "山道",
-              "track_tags": [
-                "技術",
-                "雪地",
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "ikuhopen",
               "verified": false,
               "proof_text": "",
               "badge_code": "CR",
