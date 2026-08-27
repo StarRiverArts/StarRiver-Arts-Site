@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>社群規範 Community Guidelines｜VRRCTW｜ProjectT</title>
+<meta name="description" content="VRRCTW VR Racing Club 社群規範：尊重玩家、公平競爭、投稿與排行榜驗證方式，以及管理處理原則。">
+<link rel="icon" href="../../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="../../ds-additions.css">
+<style>
+html.lang-zh #rc :is(.en,.jp){display:none}html.lang-en #rc :is(.zh,.jp){display:none}
+#rc{--rc-bg:var(--pt-night,#141B19);--rc-bg2:var(--pt-night-2,#111715);--rc-panel:var(--pt-night-panel,#1C2421);--rc-fg:var(--pt-night-fg,#EFF2EC);--rc-fg2:var(--pt-night-fg2,#C3CCC3);--rc-fg3:var(--pt-night-fg3,#94A098);--rc-hair:var(--pt-night-hair,rgba(255,255,255,.10));--rc-line:var(--pt-night-line,rgba(255,255,255,.17));--rc-lamp:var(--pt-lamp,#EFD95B);--rc-lamp-dim:var(--pt-lamp-dim,rgba(239,217,91,.12));--rc-green:var(--pt-night-green,#43935F);min-height:100vh;color:var(--rc-fg);font-family:var(--font-body);background:radial-gradient(circle at 14% -4%,var(--rc-lamp-dim),transparent 32%),linear-gradient(180deg,var(--rc-panel) 0%,var(--rc-bg) 34%,var(--rc-bg2) 100%)}
+#rc a{color:inherit;text-decoration:none}#rc .rc-nav{position:sticky;top:0;z-index:30;height:60px;display:flex;align-items:center;padding:0 40px;background:rgba(20,27,25,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--rc-hair)}
+#rc .rc-home{display:flex;align-items:center;gap:8px;margin-right:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rc-fg3)}#rc .rc-home svg{width:10px;height:10px}#rc .rc-brand{font-family:var(--font-deck);font-weight:700;font-size:13px;color:var(--rc-fg)}
+#rc .rc-links{display:flex}#rc .rc-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rc-fg3);padding:0 12px;height:60px;display:flex;align-items:center;border-bottom:2px solid transparent}#rc .rc-links a:hover{color:var(--rc-fg)}#rc .rc-links a.active{color:var(--rc-lamp);border-bottom-color:var(--rc-lamp)}
+#rc .rc-lang{font-family:var(--font-mono);font-size:11px;color:var(--rc-fg3);background:none;border:1px solid var(--rc-line);border-radius:2px;padding:5px 10px;margin-left:12px}
+#rc .rc-hero{position:relative;overflow:hidden;min-height:280px;display:flex;align-items:flex-end;background:radial-gradient(circle at 28% 30%,rgba(239,217,91,.12),transparent 28%)}#rc .rc-hero::after{content:"";position:absolute;left:-4%;right:-4%;bottom:0;height:120px;background:linear-gradient(165deg,transparent 0 38%,#1a241f 39% 55%,#111916 56% 72%,#0e1714 73%)}
+#rc .rc-hero-in{position:relative;z-index:3;max-width:1280px;margin:0 auto;width:100%;padding:64px 40px 56px}#rc .rc-kicker{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--rc-fg2);margin-bottom:20px}#rc .rc-shield{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--rc-lamp);border-radius:2px;font-family:var(--font-display);font-weight:900;color:#1c1304;font-size:12px;box-shadow:0 0 16px rgba(239,217,91,.4)}
+#rc .rc-title{font-family:var(--font-display);font-weight:900;font-size:clamp(40px,6vw,68px);line-height:.95;letter-spacing:-.03em;color:#fff;margin:0 0 16px}#rc .rc-sub{font-size:17px;line-height:1.6;color:var(--rc-fg2);max-width:720px;margin:0}
+#rc .rc-road{height:12px;background:#0c100e;position:relative}#rc .rc-road::before{content:"";position:absolute;top:50%;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--rc-lamp) 0 26px,transparent 26px 54px);opacity:.55}
+#rc .rc-wrap{max-width:880px;margin:0 auto;padding:56px 40px 96px}#rc .rc-lead{font-size:16px;line-height:1.75;color:var(--rc-fg2);margin:0 0 44px}
+#rc .rc-section{margin-top:52px;padding-top:36px;border-top:1px solid var(--rc-hair)}#rc .rc-section:first-of-type{margin-top:0;padding-top:0;border-top:none}
+#rc .rc-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rc-lamp);margin-bottom:10px}#rc .rc-h2{font-family:var(--font-display);font-weight:900;font-size:clamp(22px,2.6vw,28px);letter-spacing:-.015em;margin:0 0 16px}
+#rc .rc-note{font-size:15px;line-height:1.75;color:var(--rc-fg2);margin:0 0 14px}#rc .rc-note:last-child{margin-bottom:0}#rc .rc-note strong{color:var(--rc-fg)}
+#rc .rc-note ul{padding-left:20px;margin:10px 0 14px;display:flex;flex-direction:column;gap:6px}
+#rc .rc-grid{display:grid;gap:16px;margin-top:20px}#rc .cols2{grid-template-columns:repeat(2,1fr)}#rc .rc-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025)),var(--rc-panel);border:1px solid var(--rc-hair);border-radius:16px;padding:22px;box-shadow:0 14px 32px rgba(0,0,0,.22)}#rc .rc-clabel{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rc-green);margin-bottom:10px}#rc .rc-ctitle{font-family:var(--font-deck);font-weight:700;font-size:17px;margin:0 0 10px}#rc .rc-card ul{padding-left:20px;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}#rc .rc-card p,#rc .rc-card li{font-size:14px;line-height:1.7;color:var(--rc-fg2)}
+#rc .rc-foot{background:#0c100e;border-top:1px solid var(--rc-hair);padding:40px 0 36px}#rc .rc-foot-row{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--rc-fg3);font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:800px){#rc .rc-nav{padding:0 16px}#rc .rc-links{display:none}#rc .rc-lang{margin-left:8px}#rc .rc-hero-in,#rc .rc-wrap,#rc .rc-foot-row{padding-left:20px;padding-right:20px}#rc .cols2{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/guidelines.html">
+<meta property="og:title" content="社群規範 Community Guidelines｜VRRCTW">
+<meta property="og:description" content="VRRCTW VR Racing Club 社群規範：尊重玩家、公平競爭、投稿與排行榜驗證方式，以及管理處理原則。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/guidelines.html">
+<meta property="og:image" content="https://starriverarts.github.io/StarRiver-Arts-Site/assets/logos/starriver-primary.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "社群規範 Community Guidelines｜VRRCTW",
+  "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/guidelines.html",
+  "description": "VRRCTW VR Racing Club 社群規範：尊重玩家、公平競爭、投稿與排行榜驗證方式，以及管理處理原則。",
+  "inLanguage": ["zh-TW", "en"],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "StarRiver Arts",
+    "url": "https://starriverarts.github.io/StarRiver-Arts-Site/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="rc">
+<nav class="rc-nav">
+<a class="rc-home" href="../../index.html"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg><span class="rc-brand">星河 STARRIVER ARTS</span></a>
+<div class="rc-links"><a href="../index.html">ProjectT</a><a href="../worlds/"><span class="zh">世界</span><span class="en">Worlds</span></a><a href="./">VRRCTW</a><a href="./guidelines.html" class="active"><span class="zh">規範</span><span class="en">Guidelines</span></a><a href="../articles/"><span class="zh">專欄</span><span class="en">Articles</span></a><a href="./TimeAttack/"><span class="zh">Racing Hub 賽事中心</span><span class="en">Racing Hub</span></a></div>
+<select class="rc-lang" data-lang-select aria-label="Language"><option value="zh">繁體中文</option><option value="en">English</option></select>
+</nav>
+
+<header class="rc-hero"><div class="rc-hero-in">
+<div class="rc-kicker"><span class="rc-shield">VRC</span><span class="zh">VRRCTW / 社群規範</span><span class="en">VRRCTW / Community Guidelines</span></div>
+<h1 class="rc-title"><span class="zh">社群規範</span><span class="en">Community Guidelines</span></h1>
+<p class="rc-sub zh">我們希望這裡是一個能自在聊天、開車、交流技術，也能認真挑戰成績的地方。競賽難免有碰撞，交流也難免有不同意見；我們不期待每個人都完全一致，但希望每個人都能尊重其他玩家，也不要讓自己的行為妨礙別人參與社群。</p>
+<p class="rc-sub en">We want this to be a place where people can hang out, drive, share knowledge, and seriously challenge their own lap times. Racing naturally involves mistakes and contact, and people will not always agree with each other. We do not expect everyone to get along perfectly, but we do expect everyone to respect other players and avoid interfering with their ability to participate in the community.</p>
+</div></header><div class="rc-road"></div>
+
+<main class="rc-wrap">
+
+<section class="rc-section">
+<div class="rc-eyebrow">01</div>
+<h2 class="rc-h2"><span class="zh">尊重其他玩家</span><span class="en">Respect Other Players</span></h2>
+<p class="rc-note zh">請不要持續騷擾、威脅、惡意羞辱、冒充或針對特定玩家。</p>
+<p class="rc-note en">Do not repeatedly harass, threaten, maliciously insult, impersonate, or target other players.</p>
+<p class="rc-note zh">意見不同、技術討論、玩笑或一時的情緒並不會自動構成違規；管理上會特別考量行為是否具有持續性、惡意，以及是否實際影響他人。</p>
+<p class="rc-note en">Disagreements, technical discussions, jokes, and occasional frustration are not automatically violations. When reviewing an incident, we primarily consider whether the behavior was persistent, malicious, or had a meaningful impact on others.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">02</div>
+<h2 class="rc-h2"><span class="zh">不要破壞別人的遊戲與活動</span><span class="en">Do Not Disrupt Other Players or Events</span></h2>
+<p class="rc-note zh">正常失誤、碰撞或駕駛技術不足都是遊戲的一部分。</p>
+<p class="rc-note en">Driving mistakes, crashes, and lack of driving skill are normal parts of the game.</p>
+<p class="rc-note zh">但請不要故意撞擊、堵塞賽道、干擾起跑或計時、持續妨礙活動進行，或利用 Avatar、Client、漏洞及其他方式破壞他人的遊戲體驗。</p>
+<p class="rc-note en">However, do not intentionally ram other players, block the course, interfere with starts or timing sessions, repeatedly disrupt events, or use Avatars, clients, exploits, or other methods to interfere with other players' experience.</p>
+<p class="rc-note zh">正式活動進行時，請配合當次公布的車輛、起跑、賽道與房間管理規則。</p>
+<p class="rc-note en">During organized events, please follow any vehicle, starting procedure, course, or instance rules announced for that event.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">03</div>
+<h2 class="rc-h2"><span class="zh">公平競爭</span><span class="en">Fair Competition</span></h2>
+<p class="rc-note zh">參加計時、排行榜或正式競賽時，不得使用未經允許的方式改變車輛性能、物理、計時結果或取得其他不公平優勢。</p>
+<p class="rc-note en">During time attacks, leaderboard runs, or organized competition, players must not use unauthorized methods to alter vehicle performance, physics, timing results, or otherwise gain an unfair competitive advantage.</p>
+<p class="rc-note zh">特殊車輛、改裝或特殊玩法若為當次活動明確允許，則不受此限。</p>
+<p class="rc-note en">Special vehicles, modifications, or unusual gameplay mechanics are allowed when they are explicitly permitted by the event.</p>
+<p class="rc-note en">Unusual Avatar features, physics interactions, collider behavior, or other non-standard gameplay are not automatically violations. What matters is whether they interfere with players who did not agree to participate, disrupt an event, or compromise fair competition.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">04</div>
+<h2 class="rc-h2"><span class="zh">Discord 與公開交流</span><span class="en">Discord and Public Communication</span></h2>
+<p class="rc-note zh">歡迎聊天、分享作品、討論技術與宣傳相關活動。</p>
+<p class="rc-note en">You are welcome to chat, share your work, discuss techniques, and promote relevant events or projects.</p>
+<p class="rc-note zh">請避免洗頻、惡意干擾語音、持續挑釁、公審、煽動騷擾或大量與頻道無關的宣傳。</p>
+<p class="rc-note en">Please avoid spam, deliberately disruptive voice chat, persistent provocation, public dogpiling, coordinated harassment, or excessive unrelated advertising.</p>
+<p class="rc-note zh">遇到爭議時，我們可能要求暫停討論、移至適合的頻道，或改由管理員協助處理。</p>
+<p class="rc-note en">If a discussion becomes disruptive, moderators may ask participants to stop, move the discussion elsewhere, or continue the matter privately.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">05</div>
+<h2 class="rc-h2"><span class="zh">投稿與排行榜</span><span class="en">Submissions and Leaderboards</span></h2>
+<p class="rc-note zh">投稿資料請盡可能保持真實、完整，並尊重原作者及其他玩家。</p>
+<p class="rc-note en">Submitted information should be as accurate and complete as reasonably possible, and should respect the work and identity of other players and creators.</p>
+<p class="rc-note zh">不得偽造成績、冒充他人、刻意提供錯誤資料，或將他人的作品冒充為自己的內容。</p>
+<p class="rc-note en">Do not falsify records, impersonate another player, intentionally submit misleading information, or present someone else's work as your own.</p>
+
+<div class="rc-grid cols2">
+<div class="rc-card">
+<div class="rc-clabel">Official leaderboard</div>
+<div class="rc-ctitle"><span class="zh">正式榜</span><span class="en">Official Leaderboard</span></div>
+<p class="zh">正式榜原則上接受：</p>
+<p class="en">The official leaderboard generally accepts:</p>
+<ul>
+<li class="zh">社群計時活動或正式賽事產生的紀錄。</li>
+<li class="zh">可以確認完整駕駛過程的玩家錄影。</li>
+<li class="zh">可以辨認必要資訊，並能確認 FPS 的成績截圖。</li>
+<li class="en">Records produced during community time attack sessions or organized events.</li>
+<li class="en">Player-submitted recordings that reasonably show the complete run.</li>
+<li class="en">Result screenshots that contain the necessary identifying information and allow FPS to be verified.</li>
+</ul>
+<p class="zh">不同世界或計時系統若有特殊限制，可以採用具有相同可信度的其他驗證方式。</p>
+<p class="en">Different worlds and timing systems may require different forms of evidence. Equivalent verification methods may be accepted when the usual information is unavailable.</p>
+</div>
+<div class="rc-card">
+<div class="rc-clabel">General records</div>
+<div class="rc-ctitle"><span class="zh">一般紀錄</span><span class="en">General and Historical Records</span></div>
+<p class="zh">其他具有合理可信度，但不足以符合正式榜驗證要求的舊紀錄或截圖，仍可保留於一般榜或歷史資料。</p>
+<p class="en">Older records, screenshots, or other submissions that appear reasonably credible but do not meet the full verification requirements of the official leaderboard may still be preserved as general or historical records.</p>
+</div>
+</div>
+
+<p class="rc-note zh" style="margin-top:20px"><strong>紀錄是否可信、玩家目前是否具備榜單／活動資格，以及歷史資料是否保留，是三個不同的判斷。</strong></p>
+<p class="rc-note en"><strong>The validity of a record, a player's current eligibility for the leaderboard or events, and whether historical data should be preserved are three separate decisions.</strong></p>
+<p class="rc-note zh">玩家之後受到管理處分，不代表過去真實完成的紀錄因此變成作弊紀錄；必要時，歷史結果可以保留，但不列入目前排行榜。</p>
+<p class="rc-note en">A player receiving a moderation action does not automatically make their previous legitimate records fraudulent. When appropriate, historical results may remain archived without being included in the current leaderboard.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">06</div>
+<h2 class="rc-h2"><span class="zh">管理方式</span><span class="en">Moderation</span></h2>
+<p class="rc-note zh">依事件情況，管理團隊可能採取提醒、刪除內容、移出活動房間、暫時限制活動或投稿資格、暫時封禁或永久封禁等措施。</p>
+<p class="rc-note en">Depending on the situation, moderation may include a reminder, removal of content, removal from a VRChat instance, temporary restrictions on events or submissions, temporary suspension, or permanent removal from the community.</p>
+<p class="rc-note zh">我們不採固定的「第一次警告、第二次封禁」制度。處理時會考量：</p>
+<p class="rc-note en">We do not use a fixed system such as "first offense = warning, second offense = ban." Moderation decisions may consider:</p>
+<ul class="rc-note">
+<li class="zh">行為是否故意。</li>
+<li class="zh">實際造成的影響。</li>
+<li class="zh">嚴重程度與安全風險。</li>
+<li class="zh">是否重複發生。</li>
+<li class="zh">當事人是否願意停止或改善。</li>
+<li class="en">Intent.</li>
+<li class="en">Actual impact.</li>
+<li class="en">Severity and safety risk.</li>
+<li class="en">Whether the behavior is repeated.</li>
+<li class="en">Whether the person is willing to stop or correct the behavior.</li>
+</ul>
+<p class="rc-note zh">因此，單純失誤與惡意破壞不會以同樣方式處理。</p>
+<p class="rc-note en">An ordinary mistake and deliberate disruption will therefore not be treated in the same way.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">07</div>
+<h2 class="rc-h2"><span class="zh">未列出的情況</span><span class="en">Situations Not Explicitly Covered</span></h2>
+<p class="rc-note zh">規則無法列出所有可能發生的事件。</p>
+<p class="rc-note en">No ruleset can anticipate every possible situation.</p>
+<p class="rc-note zh">若某項行為雖未逐字寫在規則中，但明顯危害玩家、安全、公平競爭或社群正常運作，管理團隊仍可能依實際情況處理。</p>
+<p class="rc-note en">Behavior that is not specifically listed may still be addressed when it clearly threatens player safety, fair competition, event integrity, or the normal operation of the community.</p>
+<p class="rc-note zh">這項裁量不應用於單純的個人好惡、普通意見衝突或玩家技術差異。</p>
+<p class="rc-note en">This discretion is not intended to punish ordinary disagreements, personal dislike, or differences in player skill.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">08</div>
+<h2 class="rc-h2"><span class="zh">社群外事件</span><span class="en">Conduct Outside the Community</span></h2>
+<p class="rc-note zh">我們原則上不管理玩家在其他社群或私人場合的一般行為。</p>
+<p class="rc-note en">As a general rule, we do not moderate ordinary behavior that takes place in other communities or private spaces.</p>
+<p class="rc-note zh">但若有可信資訊顯示相關事件與本社群目前的玩家安全、作弊風險、活動秩序或惡意攻擊直接相關，管理團隊可能將其納入當前的風險評估。</p>
+<p class="rc-note en">However, credible information about external incidents may be considered when they are directly relevant to current player safety, cheating risk, attacks against our community, or the integrity of our events.</p>
+<p class="rc-note zh">新規則不會把過去原本不存在的規定追溯套用為新的違規。</p>
+<p class="rc-note en">New rules will not retroactively turn past behavior into a violation of a rule that did not exist at the time.</p>
+</section>
+
+<section class="rc-section">
+<div class="rc-eyebrow">09</div>
+<h2 class="rc-h2"><span class="zh">有疑問時</span><span class="en">Questions and Appeals</span></h2>
+<p class="rc-note zh">如果對管理決定、排行榜或投稿結果有疑問，歡迎私下聯絡管理團隊並提供相關資訊。</p>
+<p class="rc-note en">If you have questions about a moderation decision, leaderboard result, or submission decision, you are welcome to contact the moderation team privately and provide any relevant information.</p>
+<p class="rc-note zh">正常詢問、申訴或提出不同意見本身不會構成違規。</p>
+<p class="rc-note en">Asking questions, appealing a decision, or respectfully disagreeing with a moderator is not itself a violation.</p>
+<p class="rc-note zh">本規範可能依社群實際運作持續調整；重大修改會盡可能公開說明。</p>
+<p class="rc-note en">These guidelines may be updated as the community develops. Significant changes will be communicated whenever reasonably possible.</p>
+</section>
+
+</main>
+
+<footer class="rc-foot"><div class="rc-foot-row"><span>星河 STARRIVER ARTS</span><a href="./"><span class="zh">VRRCTW 首頁</span><span class="en">VRRCTW Home</span></a><a href="https://discord.gg/HJSB5D93yp" target="_blank" rel="noopener noreferrer"><span class="zh">Discord</span><span class="en">Discord</span></a><span>© 2026 · ProjectT · VRRCTW</span></div></footer>
+</div>
+<script>(function(){var h=document.documentElement,avail=['zh','en'];function norm(l){return avail.indexOf(l)>=0?l:'zh'}function apply(l){l=norm(l);h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;h.lang=l==='zh'?'zh-TW':'en';try{localStorage.setItem('sr-lang',l)}catch(e){}var s=document.querySelector('[data-lang-select]');if(s)s.value=l}var saved='zh';try{saved=localStorage.getItem('sr-lang')||'zh'}catch(e){}apply(saved);var s=document.querySelector('[data-lang-select]');if(s)s.addEventListener('change',function(){apply(this.value)})})();</script>
+</body>
+</html>

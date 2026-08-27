@@ -85,6 +85,10 @@ PAGE_OVERRIDES = {
         "description": "VRRCTW 是中文圈主要的 VRChat 賽車社群，提供賽車活動、日常車聚、Time Attack 紀錄與駕駛技術交流。",
         "tags": ["VRRCTW", "VRChat racing community", "Racing Club", "Time Attack"],
     },
+    "play/RacingClub/guidelines.html": {
+        "description": "VRRCTW 社群規範：尊重玩家、公平競爭、投稿與排行榜驗證方式，以及管理處理原則。",
+        "tags": ["VRRCTW", "community guidelines", "code of conduct", "Racing Club"],
+    },
     "projects/9turns.html": {
         "description": "ProjectT 九彎十八拐：以臺 9 線石牌至頭城段為基礎的 VRChat 道路地景作品。",
         "tags": ["ProjectT", "Taiwan road", "VRChat", "9 Turns"],
