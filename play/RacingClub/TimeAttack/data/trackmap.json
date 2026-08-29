@@ -17,14 +17,14 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "109",
+      "value": "224",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
     {
       "label_zh": "地點",
       "label_en": "Places",
-      "value": "50",
+      "value": "87",
       "note_zh": "有座標可上圖的地名",
       "note_en": "Localities with map coordinates"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "118",
+      "value": "0",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -59,7 +59,22 @@
               "name_zh": "日月潭",
               "name_en": "Sun Moon Lake",
               "has_point": true,
-              "tracks": [],
+              "tracks": [
+                {
+                  "track_world_code": "sunmoonlake_crimsonfox",
+                  "track_display_name": "日月潭外周道 Sun Moon Lake",
+                  "world_name": "日月潭外周道 Sun Moon Lake",
+                  "world_url": "https://vrchat.com/home/world/wrld_6e465490-9b15-4d2b-b4fe-1ea06e09e55a",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
               "lat": 23.852328,
               "lng": 120.928607,
               "point_source": "place"
@@ -307,6 +322,20 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "suzukatwincircuit_kkclint",
+                  "track_display_name": "Suzuka twin circuit",
+                  "world_name": "Suzuka twin circuit",
+                  "world_url": "https://vrchat.com/home/world/wrld_d47b6ac0-d8a2-4cac-9bac-b8411f3199a8",
+                  "system_name": "",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "suzuka",
                   "track_display_name": "鈴鹿國際賽車場",
                   "world_name": "SuzukaGP",
@@ -331,8 +360,8 @@
                   "system_name": "Unknown",
                   "track_env": "賽道",
                   "difficulty": "困難",
-                  "route_count": 0,
-                  "record_count": 0,
+                  "route_count": 2,
+                  "record_count": 7,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -364,7 +393,7 @@
                   "track_env": "山道",
                   "difficulty": "",
                   "route_count": 1,
-                  "record_count": 22,
+                  "record_count": 27,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -378,7 +407,7 @@
                   "track_env": "",
                   "difficulty": "",
                   "route_count": 2,
-                  "record_count": 72,
+                  "record_count": 76,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -439,6 +468,38 @@
               ],
               "lat": 34.887892,
               "lng": 134.496281,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "千葉Chiba",
+          "name_zh": "千葉",
+          "name_en": "Chiba",
+          "localities": [
+            {
+              "name": "市原Ichihara",
+              "name_zh": "市原",
+              "name_en": "Ichihara",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "w_6f4d768c_kkclint",
+                  "track_display_name": "南千葉サーキット",
+                  "world_name": "南千葉サーキット",
+                  "world_url": "https://vrchat.com/home/world/wrld_6f4d768c-648c-457e-882f-a387b3559ecc",
+                  "system_name": "",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.49777,
+              "lng": 140.1157,
               "point_source": "place"
             }
           ]
@@ -579,6 +640,38 @@
           ]
         },
         {
+          "name": "大分Oita",
+          "name_zh": "大分",
+          "name_en": "Oita",
+          "localities": [
+            {
+              "name": "オートポリスAutopolis",
+              "name_zh": "オートポリス",
+              "name_en": "Autopolis",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "autopolis_jintei",
+                  "track_display_name": "Autopolis",
+                  "world_name": "Autopolis",
+                  "world_url": "https://vrchat.com/home/world/wrld_3e250f11-a3b4-4966-b76a-132b9834a985",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 33.03894,
+              "lng": 130.97438,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
           "name": "大阪Osaka",
           "name_zh": "大阪",
           "name_en": "Osaka",
@@ -637,6 +730,34 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "hilandraceway2_0_rionya",
+                  "track_display_name": "Hi-Land Raceway 2․0",
+                  "world_name": "Hi-Land Raceway 2․0",
+                  "world_url": "https://vrchat.com/home/world/wrld_75e2f86e-28e1-49a8-b887-354d068073ad",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "hilandracewaytest_rionya",
+                  "track_display_name": "Hi-Land Raceway Test",
+                  "world_name": "Hi-Land Raceway Test",
+                  "world_url": "https://vrchat.com/home/world/wrld_7684db9f-9ad5-48bd-9cec-327dfec34bf0",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 38.2928,
@@ -680,6 +801,38 @@
               ],
               "lat": 37.903333,
               "lng": 140.515278,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "岡山Okayama",
+          "name_zh": "岡山",
+          "name_en": "Okayama",
+          "localities": [
+            {
+              "name": "美作Mimasaka",
+              "name_zh": "美作",
+              "name_en": "Mimasaka",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "mimasakaraceway_rionya",
+                  "track_display_name": "MIMASAKA Raceway",
+                  "world_name": "MIMASAKA Raceway",
+                  "world_url": "https://vrchat.com/home/world/wrld_26ce7913-465f-42da-8b2f-e6ac6cdd209e",
+                  "system_name": "",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.0261,
+              "lng": 134.15976,
               "point_source": "place"
             }
           ]
@@ -757,6 +910,45 @@
           "name_en": "Tokyo",
           "localities": [
             {
+              "name": "大井埠頭Oi Wharf",
+              "name_zh": "大井埠頭",
+              "name_en": "Oi Wharf",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "oiwharfv2remastered90sgdsp_kkclint",
+                  "track_display_name": "Oi Wharf V2 Remastered［90sGDSP］",
+                  "world_name": "Oi Wharf V2 Remastered［90sGDSP］",
+                  "world_url": "https://vrchat.com/home/world/wrld_ebcfe714-7fe0-43a6-9282-c87cde22dac5",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "oiwharf90sgdsp_kkclint",
+                  "track_display_name": "Oi Wharf［90sGDSP］",
+                  "world_name": "Oi Wharf［90sGDSP］",
+                  "world_url": "https://vrchat.com/home/world/wrld_af7faa34-e0de-4541-b52e-c5016677e05a",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.591,
+              "lng": 139.75028,
+              "point_source": "place"
+            },
+            {
               "name": "東京Tokyo",
               "name_zh": "東京",
               "name_en": "Tokyo",
@@ -808,6 +1000,62 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "bayshoreloop_jintei",
+                  "track_display_name": "Bayshore Loop",
+                  "world_name": "Bayshore Loop",
+                  "world_url": "https://vrchat.com/home/world/wrld_c60988b7-20fb-4fc1-81fc-7431fbf27ae4",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "shinjukupa_jintei",
+                  "track_display_name": "Shinjuku PA",
+                  "world_name": "Shinjuku PA",
+                  "world_url": "https://vrchat.com/home/world/wrld_69a91e27-7453-40c8-b177-8096dd9847d6",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "shutokouexpresswaytokyoarea_jintei",
+                  "track_display_name": "Shutokou Expressway （Tokyo Area）",
+                  "world_name": "Shutokou Expressway （Tokyo Area）",
+                  "world_url": "https://vrchat.com/home/world/wrld_16f9fa68-2a30-463e-8334-129bfdbe53a9",
+                  "system_name": "Sacc",
+                  "track_env": "高速公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "unfinishedshutokouexpressway_crimsonfox",
+                  "track_display_name": "首都高 UNFINISHED Shutokou Expressway CVS2",
+                  "world_name": "首都高 UNFINISHED Shutokou Expressway CVS2",
+                  "world_url": "https://vrchat.com/home/world/wrld_eeae7044-c5d9-4481-b16b-de179094ef09",
+                  "system_name": "CVS",
+                  "track_env": "高速公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "tokyo_metropolitan_expressway",
                   "track_display_name": "［MaxiTune］ Tokyo Metropolitan",
                   "world_name": "Tokyo Metropolitan Expressway",
@@ -820,10 +1068,102 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "nfstokyodockyard_jintei",
+                  "track_display_name": "［NFS］ Tokyo Dockyard",
+                  "world_name": "［NFS］ Tokyo Dockyard",
+                  "world_url": "https://vrchat.com/home/world/wrld_8801bbcb-5a7f-4064-ac6a-77bb6c30bec1",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "sbxneoc1_jintei",
+                  "track_display_name": "［SBX］ Neo C1",
+                  "world_name": "［SBX］ Neo C1",
+                  "world_url": "https://vrchat.com/home/world/wrld_1dc5a6ba-2f42-4bb4-aeaf-7424696024cb",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 35.6762,
               "lng": 139.6503,
+              "point_source": "place"
+            },
+            {
+              "name": "澀谷Shibuya",
+              "name_zh": "澀谷",
+              "name_en": "Shibuya",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "shibuyafreeride_jintei",
+                  "track_display_name": "Shibuya Freeride",
+                  "world_name": "Shibuya Freeride",
+                  "world_url": "https://vrchat.com/home/world/wrld_8e93f971-3740-490a-b3dc-860c02c6db9e",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "gridshibuya_jintei",
+                  "track_display_name": "［GRiD］ Shibuya",
+                  "world_name": "［GRiD］ Shibuya",
+                  "world_url": "https://vrchat.com/home/world/wrld_764a633e-2732-41f9-8bd6-89143083988d",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.65846,
+              "lng": 139.70058,
+              "point_source": "place"
+            },
+            {
+              "name": "羽田Haneda",
+              "name_zh": "羽田",
+              "name_en": "Haneda",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "hanedasprint_jintei",
+                  "track_display_name": "Haneda Sprint",
+                  "world_name": "Haneda Sprint",
+                  "world_url": "https://vrchat.com/home/world/wrld_e7fa085a-8cb7-4786-adcd-3bd2f369ad10",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.54569,
+              "lng": 139.7761,
               "point_source": "place"
             }
           ]
@@ -952,7 +1292,7 @@
               "name": "茂木町Motegi",
               "name_zh": "茂木町",
               "name_en": "Motegi",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "motegitr",
@@ -968,7 +1308,10 @@
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
+              ],
+              "lat": 36.53136,
+              "lng": 140.22945,
+              "point_source": "place"
             }
           ],
           "has_overlay": true,
@@ -991,6 +1334,31 @@
           "name_en": "Kanagawa",
           "localities": [
             {
+              "name": "橫濱Yokohama",
+              "name_zh": "橫濱",
+              "name_en": "Yokohama",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "yokohamadocks_jintei",
+                  "track_display_name": "Yokohama Docks",
+                  "world_name": "Yokohama Docks",
+                  "world_url": "https://vrchat.com/home/world/wrld_198e2c6e-6273-4e33-9d32-3fe09524bda9",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.4482,
+              "lng": 139.68491,
+              "point_source": "place"
+            },
+            {
               "name": "箱根Hakone",
               "name_zh": "箱根",
               "name_en": "Hakone",
@@ -1012,6 +1380,20 @@
                   "trace_lat": 35.213844,
                   "trace_lng": 139.109762,
                   "trace_file": "geo/mt_talkan_jintei.geojson"
+                },
+                {
+                  "track_world_code": "mt_taikan_jintei",
+                  "track_display_name": "Mt․ Taikan",
+                  "world_name": "Mt․ Taikan",
+                  "world_url": "https://vrchat.com/home/world/wrld_6870da97-ab25-45fb-98c3-1bd86b9f3baf",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 },
                 {
                   "track_world_code": "nanamagari_jintei",
@@ -1065,7 +1447,7 @@
                   "track_world_code": "h_nanamagari_jintei",
                   "track_display_name": "箱根七曲",
                   "world_name": "H-Nanamagari",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_de9c3566-8384-41da-944d-b0f07a1bb477",
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "困難",
@@ -1082,7 +1464,7 @@
                   "track_world_code": "mt_hakone_jintei",
                   "track_display_name": "箱根山(蘆之湖skyline)",
                   "world_name": "Mt.Hakone",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_bdb4d257-f917-4575-a323-674e1a94dcba",
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "中等",
@@ -1149,7 +1531,7 @@
                   "track_env": "山道",
                   "difficulty": "",
                   "route_count": 1,
-                  "record_count": 2,
+                  "record_count": 6,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1215,10 +1597,35 @@
           "name_en": "Fukushima",
           "localities": [
             {
+              "name": "エビスEbisu",
+              "name_zh": "エビス",
+              "name_en": "Ebisu",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "ebisudirt_jintei",
+                  "track_display_name": "Ebisu Dirt",
+                  "world_name": "Ebisu Dirt",
+                  "world_url": "https://vrchat.com/home/world/wrld_8b336226-3847-41b5-835b-8109be71278d",
+                  "system_name": "Sacc",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 37.64221,
+              "lng": 140.36427,
+              "point_source": "place"
+            },
+            {
               "name": "福島Fukushima",
               "name_zh": "福島",
               "name_en": "Fukushima",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "fukushima",
@@ -1234,7 +1641,10 @@
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
+              ],
+              "lat": 37.76078,
+              "lng": 140.47458,
+              "point_source": "place"
             }
           ]
         },
@@ -1376,7 +1786,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 11,
+                  "record_count": 13,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1393,7 +1803,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 92,
+                  "record_count": 120,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1458,7 +1868,7 @@
                   "track_world_code": "usui_v1_jintei",
                   "track_display_name": "碓冰V1",
                   "world_name": "Usui V1",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_da3ab600-6c79-46c4-9f3b-0f05e21a1a91",
                   "system_name": "Sacc",
                   "track_env": "山道",
                   "difficulty": "簡單",
@@ -1477,7 +1887,7 @@
                   "track_env": "山道",
                   "difficulty": "簡單",
                   "route_count": 2,
-                  "record_count": 13,
+                  "record_count": 17,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1840,7 +2250,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 109,
+                  "record_count": 119,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1918,6 +2328,45 @@
       ]
     },
     {
+      "name": "印尼Indonesia",
+      "name_zh": "印尼",
+      "name_en": "Indonesia",
+      "regions": [
+        {
+          "name": "雅加達Jakarta",
+          "name_zh": "雅加達",
+          "name_en": "Jakarta",
+          "localities": [
+            {
+              "name": "格羅拉蓬卡諾Gelora Bung Karno",
+              "name_zh": "格羅拉蓬卡諾",
+              "name_en": "Gelora Bung Karno",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "gelorabungkarno_jintei",
+                  "track_display_name": "Gelora Bung Karno",
+                  "world_name": "Gelora Bung Karno",
+                  "world_url": "https://vrchat.com/home/world/wrld_43a93e9f-c7ec-4dcc-af1a-6a1e0a35cf3f",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": -6.21861,
+              "lng": 106.80255,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "奧地利Austria",
       "name_zh": "奧地利",
       "name_en": "Austria",
@@ -1946,6 +2395,20 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "spielburgredbullring_afeminineg",
+                  "track_display_name": "Spielburg （Red Bull Ring）",
+                  "world_name": "Spielburg （Red Bull Ring）",
+                  "world_url": "https://vrchat.com/home/world/wrld_f7fe5ee0-39f5-4236-883e-de71b6dfd281",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 47.2197,
@@ -1962,10 +2425,67 @@
       "name_en": "Germany",
       "regions": [
         {
+          "name": "巴伐利亞Bavaria",
+          "name_zh": "巴伐利亞",
+          "name_en": "Bavaria",
+          "localities": [
+            {
+              "name": "紐倫堡Nürnberg",
+              "name_zh": "紐倫堡",
+              "name_en": "Nürnberg",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "norisring_jintei",
+                  "track_display_name": "Norisring",
+                  "world_name": "Norisring",
+                  "world_url": "https://vrchat.com/home/world/wrld_96fd5768-41f8-48e3-af58-5e4c7f271495",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 49.42372,
+              "lng": 11.13667,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
           "name": "萊茵蘭普法爾茨Rhineland-Pfalz",
           "name_zh": "萊茵蘭普法爾茨",
           "name_en": "Rhineland-Pfalz",
           "localities": [
+            {
+              "name": "奧克芬Ockfen",
+              "name_zh": "奧克芬",
+              "name_en": "Ockfen",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "ockfen_jintei",
+                  "track_display_name": "Ockfen",
+                  "world_name": "Ockfen",
+                  "world_url": "https://vrchat.com/home/world/wrld_27dd67c5-2bbf-4b3c-b4a2-09132d3adc5a",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 49.62412,
+              "lng": 6.5842,
+              "point_source": "place"
+            },
             {
               "name": "紐柏林Nürburgring",
               "name_zh": "紐柏林",
@@ -1995,7 +2515,7 @@
                   "track_env": "山道",
                   "difficulty": "",
                   "route_count": 1,
-                  "record_count": 5,
+                  "record_count": 6,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -2026,6 +2546,20 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "monacogymkhana_jintei",
+                  "track_display_name": "Monaco Gymkhana",
+                  "world_name": "Monaco Gymkhana",
+                  "world_url": "https://vrchat.com/home/world/wrld_c958c235-b633-4b0c-82ea-fb44914db863",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "monaco_aiden1408",
                   "track_display_name": "摩納哥",
                   "world_name": "Monaco",
@@ -2052,10 +2586,223 @@
       ]
     },
     {
+      "name": "比利時Belgium",
+      "name_zh": "比利時",
+      "name_en": "Belgium",
+      "regions": [
+        {
+          "name": "列日Liège",
+          "name_zh": "列日",
+          "name_en": "Liège",
+          "localities": [
+            {
+              "name": "斯帕-弗朗科爾尚Spa-Francorchamps",
+              "name_zh": "斯帕",
+              "name_en": "-弗朗科爾尚Spa-Francorchamps",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "spafrancorchampsf1_pkqk",
+                  "track_display_name": "Spa Francorchamps F1",
+                  "world_name": "Spa Francorchamps F1",
+                  "world_url": "https://vrchat.com/home/world/wrld_24356231-a96c-47ad-a086-11f70c6f077f",
+                  "system_name": "",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "spafrancorchampssportscar2006_jintei",
+                  "track_display_name": "Spa-Francorchamps （Sportscar 2006）",
+                  "world_name": "Spa-Francorchamps （Sportscar 2006）",
+                  "world_url": "https://vrchat.com/home/world/wrld_71802843-6ba9-47d9-9b89-178232645d66",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 50.43693,
+              "lng": 5.97013,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "法國France",
+      "name_zh": "法國",
+      "name_en": "France",
+      "regions": [
+        {
+          "name": "佩勒盧瓦爾Pays de la Loire",
+          "name_zh": "佩勒盧瓦爾",
+          "name_en": "Pays de la Loire",
+          "localities": [
+            {
+              "name": "勒芒Le Mans",
+              "name_zh": "勒芒",
+              "name_en": "Le Mans",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "circuit_de_la_sarthe_aiden1408",
+                  "track_display_name": "Circuit de la Sarthe",
+                  "world_name": "Circuit de la Sarthe",
+                  "world_url": "https://vrchat.com/home/world/wrld_85bee910-b321-43ac-bc47-4e0c93e39c9b",
+                  "system_name": "Chikuwa Vehicle System",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 47.94269,
+              "lng": 0.20918,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "濱海阿爾卑斯Alpes-Maritimes",
+          "name_zh": "濱海阿爾卑斯",
+          "name_en": "Alpes-Maritimes",
+          "localities": [
+            {
+              "name": "圖里尼山口Col de Turini",
+              "name_zh": "圖里尼山口",
+              "name_en": "Col de Turini",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "coldeturini_jintei",
+                  "track_display_name": "Col de Turini",
+                  "world_name": "Col de Turini",
+                  "world_url": "https://vrchat.com/home/world/wrld_629d4c6c-420c-4546-b31b-35614dbb470e",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 43.97757,
+              "lng": 7.3916,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "美國USA",
       "name_zh": "美國",
       "name_en": "USA",
       "regions": [
+        {
+          "name": "亞利桑那Arizona",
+          "name_zh": "亞利桑那",
+          "name_en": "Arizona",
+          "localities": [
+            {
+              "name": "鳳凰城Phoenix",
+              "name_zh": "鳳凰城",
+              "name_en": "Phoenix",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "phoenixraceway_nascvr",
+                  "track_display_name": "Phoenix Raceway",
+                  "world_name": "Phoenix Raceway",
+                  "world_url": "https://vrchat.com/home/world/wrld_a8c3b9f3-522c-42fc-b071-bdd922dabb65",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 33.37363,
+              "lng": -112.32129,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "佛羅里達Florida",
+          "name_zh": "佛羅里達",
+          "name_en": "Florida",
+          "localities": [
+            {
+              "name": "代托納Daytona",
+              "name_zh": "代托納",
+              "name_en": "Daytona",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "daytonainternationalspeedway_nascvr",
+                  "track_display_name": "Daytona International Speedway",
+                  "world_name": "Daytona International Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_8db66e34-2cd3-4933-a81b-69b8f0a73066",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 29.18401,
+              "lng": -81.07032,
+              "point_source": "place"
+            },
+            {
+              "name": "霍姆斯特德Homestead",
+              "name_zh": "霍姆斯特德",
+              "name_en": "Homestead",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "homesteadmiamispeedway_nascvr",
+                  "track_display_name": "Homestead-Miami Speedway",
+                  "world_name": "Homestead-Miami Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_74882786-1999-439c-8a3a-073d33bb6073",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 25.45175,
+              "lng": -80.40943,
+              "point_source": "place"
+            }
+          ]
+        },
         {
           "name": "內華達Nevada",
           "name_zh": "內華達",
@@ -2097,6 +2844,31 @@
           "name_en": "California",
           "localities": [
             {
+              "name": "拉古納塞卡Laguna Seca",
+              "name_zh": "拉古納塞卡",
+              "name_en": "Laguna Seca",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "lagunasecaracetrack_fuffyferre",
+                  "track_display_name": "Laguna Seca Race Track",
+                  "world_name": "Laguna Seca Race Track",
+                  "world_url": "https://vrchat.com/home/world/wrld_34b09d29-7e3d-416b-a2e7-a6ba04857620",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.58441,
+              "lng": -121.75339,
+              "point_source": "place"
+            },
+            {
               "name": "聖塔莫尼卡山脈Santa Monica Mountains",
               "name_zh": "聖塔莫尼卡山脈",
               "name_en": "Santa Monica Mountains",
@@ -2122,6 +2894,31 @@
               "point_source": "place"
             },
             {
+              "name": "舊金山San Francisco",
+              "name_zh": "舊金山",
+              "name_en": "San Francisco",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "dirtshowdownsanfranciscohead2head_jintei",
+                  "track_display_name": "［DiRT Showdown］ San Francisco Head2Head",
+                  "world_name": "［DiRT Showdown］ San Francisco Head2Head",
+                  "world_url": "https://vrchat.com/home/world/wrld_1b842f5f-91fd-498f-8042-80907f22460a",
+                  "system_name": "Sacc",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 37.78794,
+              "lng": -122.40752,
+              "point_source": "place"
+            },
+            {
               "name": "長灘Long Beach",
               "name_zh": "長灘",
               "name_en": "Long Beach",
@@ -2140,10 +2937,49 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "gridlongbeach_jintei",
+                  "track_display_name": "［GRiD］ Long Beach",
+                  "world_name": "［GRiD］ Long Beach",
+                  "world_url": "https://vrchat.com/home/world/wrld_fdfcac76-9f0b-4a1b-a65e-cec94608a4ec",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 33.7651,
               "lng": -118.1897,
+              "point_source": "place"
+            },
+            {
+              "name": "阿卡迪亞Arcadia",
+              "name_zh": "阿卡迪亞",
+              "name_en": "Arcadia",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "santaanitapark_nascvr",
+                  "track_display_name": "Santa Anita Park",
+                  "world_name": "Santa Anita Park",
+                  "world_url": "https://vrchat.com/home/world/wrld_631e9b04-2705-4dda-89ae-d12a820beccd",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.13896,
+              "lng": -118.04589,
               "point_source": "place"
             }
           ]
@@ -2153,6 +2989,31 @@
           "name_zh": "北卡羅來納",
           "name_en": "North Carolina",
           "localities": [
+            {
+              "name": "北威爾克斯伯勒North Wilkesboro",
+              "name_zh": "北威爾克斯伯勒",
+              "name_en": "North Wilkesboro",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "northwilkesborospeedway_nascvr",
+                  "track_display_name": "North Wilkesboro Speedway",
+                  "world_name": "North Wilkesboro Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_18727efd-12d2-4363-b8ae-161042050e41",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.1428,
+              "lng": -81.07287,
+              "point_source": "place"
+            },
             {
               "name": "夏洛特Charlotte",
               "name_zh": "夏洛特",
@@ -2172,10 +3033,63 @@
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
+                },
+                {
+                  "track_world_code": "roval2021_nascvr",
+                  "track_display_name": "Roval 2021",
+                  "world_name": "Roval 2021",
+                  "world_url": "https://vrchat.com/home/world/wrld_1f899a1d-2ebb-46c0-8c56-65ad83090376",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "roval2024_nascvr",
+                  "track_display_name": "Roval 2024",
+                  "world_name": "Roval 2024",
+                  "world_url": "https://vrchat.com/home/world/wrld_1b12e431-edb2-4908-9154-b488a3441ce6",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 35.3521,
               "lng": -80.6831,
+              "point_source": "place"
+            },
+            {
+              "name": "康科德Concord",
+              "name_zh": "康科德",
+              "name_en": "Concord",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "concordspeedway_nascvr",
+                  "track_display_name": "Concord Speedway",
+                  "world_name": "Concord Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_8f43f52b-26c4-4349-93bf-ca4335a10f0d",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 35.40942,
+              "lng": -80.58,
               "point_source": "place"
             },
             {
@@ -2192,8 +3106,8 @@
                   "system_name": "Unknown",
                   "track_env": "山道",
                   "difficulty": "",
-                  "route_count": 2,
-                  "record_count": 8,
+                  "route_count": 1,
+                  "record_count": 9,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -2201,6 +3115,70 @@
               ],
               "lat": 35.466588,
               "lng": -83.918124,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "印第安納Indiana",
+          "name_zh": "印第安納",
+          "name_en": "Indiana",
+          "localities": [
+            {
+              "name": "印第安納波利斯Indianapolis",
+              "name_zh": "印第安納波利斯",
+              "name_en": "Indianapolis",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "indianapolismotorspeedway_nascvr",
+                  "track_display_name": "Indianapolis Motor Speedway",
+                  "world_name": "Indianapolis Motor Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_5bf182ac-4884-4a45-a33c-5bb4fb7c8b08",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 39.79625,
+              "lng": -86.23482,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "喬治亞Georgia",
+          "name_zh": "喬治亞",
+          "name_en": "Georgia",
+          "localities": [
+            {
+              "name": "布拉斯爾頓Road Atlanta",
+              "name_zh": "布拉斯爾頓",
+              "name_en": "Road Atlanta",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "roadatlanta_jintei",
+                  "track_display_name": "Road Atlanta",
+                  "world_name": "Road Atlanta",
+                  "world_url": "https://vrchat.com/home/world/wrld_a963d0b0-2ee5-425e-9bd2-a9647a04ac14",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 34.14594,
+              "lng": -83.81493,
               "point_source": "place"
             }
           ]
@@ -2214,7 +3192,7 @@
               "name": "Calumet Pass",
               "name_zh": "Calumet Pass",
               "name_en": "Calumet Pass",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "calumet_pass",
@@ -2230,20 +3208,16 @@
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "密西根州Michigan",
-          "name_zh": "密西根州",
-          "name_en": "Michigan",
-          "localities": [
+              ],
+              "lat": 47.24669,
+              "lng": -88.45403,
+              "point_source": "place"
+            },
             {
               "name": "布魯克林Brooklyn",
               "name_zh": "布魯克林",
               "name_en": "Brooklyn",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "michigan",
@@ -2259,20 +3233,101 @@
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
+              ],
+              "lat": 42.06566,
+              "lng": -84.24221,
+              "point_source": "place"
             }
           ]
         },
         {
-          "name": "田納西州Tennessee",
-          "name_zh": "田納西州",
+          "name": "德克薩斯Texas",
+          "name_zh": "德克薩斯",
+          "name_en": "Texas",
+          "localities": [
+            {
+              "name": "奧斯汀Austin",
+              "name_zh": "奧斯汀",
+              "name_en": "Austin",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "circuitoftheamericascota_nascvr",
+                  "track_display_name": "Circuit of the Americas （COTA）",
+                  "world_name": "Circuit of the Americas （COTA）",
+                  "world_url": "https://vrchat.com/home/world/wrld_287f7b7e-5ce8-412f-a80d-fa2fdbc9ec43",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "circuitoftheamericasshortlayout_nascvr",
+                  "track_display_name": "Circuit of the Americas （Short Layout）",
+                  "world_name": "Circuit of the Americas （Short Layout）",
+                  "world_url": "https://vrchat.com/home/world/wrld_2f6a6ab8-3306-4895-a7c6-735cb9fb4417",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 30.13843,
+              "lng": -97.63487,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "德拉瓦Delaware",
+          "name_zh": "德拉瓦",
+          "name_en": "Delaware",
+          "localities": [
+            {
+              "name": "多佛Dover",
+              "name_zh": "多佛",
+              "name_en": "Dover",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "dovermotorspeedway_nascvr",
+                  "track_display_name": "Dover Motor Speedway",
+                  "world_name": "Dover Motor Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_1fbdf0b6-275f-4017-a36a-9b82083ade2e",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 39.18965,
+              "lng": -75.53005,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "田納西Tennessee",
+          "name_zh": "田納西",
           "name_en": "Tennessee",
           "localities": [
             {
               "name": "布里斯托Bristol",
               "name_zh": "布里斯托",
               "name_en": "Bristol",
-              "has_point": false,
+              "has_point": true,
               "tracks": [
                 {
                   "track_world_code": "bristol",
@@ -2288,7 +3343,49 @@
                   "has_poster": false,
                   "poster_ext": null
                 }
-              ]
+              ],
+              "lat": 36.51566,
+              "lng": -82.25706,
+              "point_source": "place"
+            },
+            {
+              "name": "納許維爾Nashville",
+              "name_zh": "納許維爾",
+              "name_en": "Nashville",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "nashvillesuperspeedway_nascvr",
+                  "track_display_name": "Nashville Superspeedway",
+                  "world_name": "Nashville Superspeedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_4d34704f-791b-4868-a3a7-5284807b05a0",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nashvillesuperspeedwaynextgen_nascvr",
+                  "track_display_name": "Nashville Superspeedway （NextGen）",
+                  "world_name": "Nashville Superspeedway （NextGen）",
+                  "world_url": "https://vrchat.com/home/world/wrld_23f6aa1b-d1eb-4a2a-894b-ac3c79b95486",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 36.04563,
+              "lng": -86.41015,
+              "point_source": "place"
             }
           ]
         },
@@ -2364,6 +3461,38 @@
       "name_en": "Italy",
       "regions": [
         {
+          "name": "倫巴底Lombardy",
+          "name_zh": "倫巴底",
+          "name_en": "Lombardy",
+          "localities": [
+            {
+              "name": "米蘭Milan",
+              "name_zh": "米蘭",
+              "name_en": "Milan",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "gridmilan_jintei",
+                  "track_display_name": "［GRiD］ Milan",
+                  "world_name": "［GRiD］ Milan",
+                  "world_url": "https://vrchat.com/home/world/wrld_ea66cc62-0137-46c6-aaf9-2ac6fb49f145",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 45.46419,
+              "lng": 9.18963,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
           "name": "艾米利亞-羅馬涅Emilia-Romagna",
           "name_zh": "艾米利亞",
           "name_en": "-羅馬涅Emilia-Romagna",
@@ -2414,6 +3543,20 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "rallyfinlandss1_chikwanmets_kkclint",
+                  "track_display_name": "Rally Finland SS1＂Chikwan metsä＂",
+                  "world_name": "Rally Finland SS1＂Chikwan metsä＂",
+                  "world_url": "https://vrchat.com/home/world/wrld_3b4a0fa4-e791-4013-a117-6b1d977989e9",
+                  "system_name": "",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "rally_finland_ss1",
                   "track_display_name": "芬蘭拉力SS1",
                   "world_name": "Rally Finland SS1",
@@ -2446,6 +3589,56 @@
           "name_zh": "英格蘭",
           "name_en": "England",
           "localities": [
+            {
+              "name": "唐寧頓公園Donington Park",
+              "name_zh": "唐寧頓公園",
+              "name_en": "Donington Park",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "doningtonpark_jintei",
+                  "track_display_name": "Donington Park",
+                  "world_name": "Donington Park",
+                  "world_url": "https://vrchat.com/home/world/wrld_0a76132a-82bf-4c6a-b74d-5be7cf975f68",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 52.82961,
+              "lng": -1.39014,
+              "point_source": "place"
+            },
+            {
+              "name": "巴特西Battersea",
+              "name_zh": "巴特西",
+              "name_en": "Battersea",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "dirt2_batterseaair_jintei",
+                  "track_display_name": "DiRT2˸ Battersea Air",
+                  "world_name": "DiRT2˸ Battersea Air",
+                  "world_url": "https://vrchat.com/home/world/wrld_f15fad3e-2b0d-4daa-811e-daf5bae3d2f3",
+                  "system_name": "Sacc",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 51.47921,
+              "lng": -0.15706,
+              "point_source": "place"
+            },
             {
               "name": "法爾斯通Falstone",
               "name_zh": "法爾斯通",
@@ -2497,6 +3690,31 @@
               "point_source": "place"
             },
             {
+              "name": "鄧斯福德Dunsfold",
+              "name_zh": "鄧斯福德",
+              "name_en": "Dunsfold",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "dunsfoldaerodrome_jintei",
+                  "track_display_name": "Dunsfold Aerodrome",
+                  "world_name": "Dunsfold Aerodrome",
+                  "world_url": "https://vrchat.com/home/world/wrld_4c1c8eee-2d59-4e06-8bb1-b3acac2de654",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 51.11534,
+              "lng": -0.53098,
+              "point_source": "place"
+            },
+            {
               "name": "銀石Silverstone",
               "name_zh": "銀石",
               "name_en": "Silverstone",
@@ -2536,6 +3754,38 @@
               "point_source": "place"
             }
           ]
+        },
+        {
+          "name": "蘇格蘭Scotland",
+          "name_zh": "蘇格蘭",
+          "name_en": "Scotland",
+          "localities": [
+            {
+              "name": "諾克希爾Knockhill",
+              "name_zh": "諾克希爾",
+              "name_en": "Knockhill",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "knockhill_racing_circuit_rallycross",
+                  "track_display_name": "Knockhill Racing Circuit ＆ Rallycross",
+                  "world_name": "Knockhill Racing Circuit ＆ Rallycross",
+                  "world_url": "https://vrchat.com/home/world/wrld_91056a52-c61b-4c17-a427-87d4dcbb1c38",
+                  "system_name": "Unknown",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 56.1283,
+              "lng": -3.50578,
+              "point_source": "place"
+            }
+          ]
         }
       ]
     },
@@ -2555,6 +3805,244 @@
               "name_en": "Unknown Location",
               "has_point": false,
               "tracks": [
+                {
+                  "track_world_code": "citynightdrive_komuhachi",
+                  "track_display_name": "City Night Drive",
+                  "world_name": "City Night Drive",
+                  "world_url": "https://vrchat.com/home/world/wrld_e6b6ea55-7011-4cbe-b627-70336271550f",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "dodgestadium_nascvr",
+                  "track_display_name": "Dodge Stadium",
+                  "world_name": "Dodge Stadium",
+                  "world_url": "https://vrchat.com/home/world/wrld_2e100a22-b246-4e54-bbd4-35d2b9122f3d",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "drikhanav2_kkclint",
+                  "track_display_name": "Dri-khana V2",
+                  "world_name": "Dri-khana V2",
+                  "world_url": "https://vrchat.com/home/world/wrld_3316edde-55f7-4b38-a5ed-2e262655d455",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "driftplaygroundnight_crimsonfox",
+                  "track_display_name": "Drift Playground Night CVS2",
+                  "world_name": "Drift Playground Night CVS2",
+                  "world_url": "https://vrchat.com/home/world/wrld_66479443-f943-47b3-bbd8-37a47532cb11",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "f1_circuit_fuffyferret",
+                  "track_display_name": "F1 Circuit",
+                  "world_name": "F1 Circuit",
+                  "world_url": "https://vrchat.com/home/world/wrld_ab240657-e177-4df8-93d3-c97559559d3e",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "中等",
+                  "route_count": 2,
+                  "record_count": 5,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "fujimikaido_jintei",
+                  "track_display_name": "Fujimi Kaido",
+                  "world_name": "Fujimi Kaido",
+                  "world_url": "https://vrchat.com/home/world/wrld_bdebb147-c25c-4642-ba54-7a96f643d77a",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "hanagasakiforcr5_komuhachi",
+                  "track_display_name": "Hanagasaki for CR5",
+                  "world_name": "Hanagasaki for CR5",
+                  "world_url": "https://vrchat.com/home/world/wrld_4ea9316b-e3db-4de2-9714-80f702e5df28",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "ichinose_speed_ring",
+                  "track_display_name": "Ichinose Speed Ring",
+                  "world_name": "Ichinose Speed Ring",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 7,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "islandcoastlandscapedrive_komuhachi",
+                  "track_display_name": "Island Coast Landscape Drive",
+                  "world_name": "Island Coast Landscape Drive",
+                  "world_url": "https://vrchat.com/home/world/wrld_06c5c62c-dacd-4705-9a98-031c6f302caf",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "just_kkclint",
+                  "track_display_name": "JUST 暴走",
+                  "world_name": "JUST 暴走",
+                  "world_url": "https://vrchat.com/home/world/wrld_f6c07ef1-4e7a-4d03-ae57-dd8462fa638a",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "just_gt_3",
+                  "track_display_name": "Just GT-3",
+                  "world_name": "Just GT-3",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "just_v2_komuhachi",
+                  "track_display_name": "Just教習 V2",
+                  "world_name": "Just教習 V2",
+                  "world_url": "https://vrchat.com/home/world/wrld_fe0f5b02-339f-468b-91c0-a7220df73a6a",
+                  "system_name": "",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kksdriftkhanacircuit_kkclint",
+                  "track_display_name": "KK's Drift-khana ＆ Circuit",
+                  "world_name": "KK's Drift-khana ＆ Circuit",
+                  "world_url": "https://vrchat.com/home/world/wrld_56b44888-ca6f-40aa-95c3-7be9e8d6393f",
+                  "system_name": "",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kksgymkhanaevo_kkclint",
+                  "track_display_name": "KK's Gymkhana Evo",
+                  "world_name": "KK's Gymkhana Evo",
+                  "world_url": "https://vrchat.com/home/world/wrld_7d42b429-6c24-4f6c-8b87-533ac2cd4fbd",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kkshajwalahdrift_kkclint",
+                  "track_display_name": "KK's Hajwalah Drift",
+                  "world_name": "KK's Hajwalah Drift",
+                  "world_url": "https://vrchat.com/home/world/wrld_15ba2edf-bf33-4ab6-a2e9-abc770bed9ac",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kkshighwaymeetup_kkclint",
+                  "track_display_name": "KK's Highway Meetup",
+                  "world_name": "KK's Highway Meetup",
+                  "world_url": "https://vrchat.com/home/world/wrld_cbf15d06-21bc-419c-adb7-2a831cc3de28",
+                  "system_name": "",
+                  "track_env": "高速公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kksplayground_kkclint",
+                  "track_display_name": "KK's Playground",
+                  "world_name": "KK's Playground",
+                  "world_url": "https://vrchat.com/home/world/wrld_0674d1ae-8e7a-4e1d-8d73-f96b52b25772",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
                 {
                   "track_world_code": "kkssnowtougedrift_kkclint",
                   "track_display_name": "KK's Snow Touge Drift",
@@ -2612,12 +4100,180 @@
                   "poster_ext": null
                 },
                 {
+                  "track_world_code": "mountainrun_afeminineg",
+                  "track_display_name": "Mountain Run",
+                  "world_name": "Mountain Run",
+                  "world_url": "https://vrchat.com/home/world/wrld_07558ce1-9bbf-401c-be5c-05ba281f777f",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "mt_bano_re",
+                  "track_display_name": "Mt․ Bano",
+                  "world_name": "Mt․ Bano",
+                  "world_url": "https://vrchat.com/home/world/wrld_d740b9a7-0e8c-4765-80b8-2f6439ccea8c",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "orc_circuit",
+                  "track_display_name": "ORC賽道",
+                  "world_name": "ORC Circuit",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "rccrawlerpark_kkclint",
+                  "track_display_name": "RC Crawler Park",
+                  "world_name": "RC Crawler Park",
+                  "world_url": "https://vrchat.com/home/world/wrld_de35143b-88d9-4bfa-b277-dfed36e6eb3f",
+                  "system_name": "",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "ragingice_cliffsideblizzard_jintei",
+                  "track_display_name": "Raging Ice˸ Cliffside Blizzard",
+                  "world_name": "Raging Ice˸ Cliffside Blizzard",
+                  "world_url": "https://vrchat.com/home/world/wrld_0e3d6e37-82cc-4ec5-beb4-8a9b7d408b21",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "ragingice_sunsetdownhill_jintei",
                   "track_display_name": "Raging Ice˸ Sunset Downhill",
                   "world_name": "Raging Ice˸ Sunset Downhill",
                   "world_url": "https://vrchat.com/home/world/wrld_71c5cca3-2662-4cb5-a39b-2de4422f96b3",
                   "system_name": "Sacc",
                   "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "rally_snowland",
+                  "track_display_name": "Rally Snowland",
+                  "world_name": "Rally Snowland",
+                  "world_url": "https://vrchat.com/home/world/wrld_3b7c57d2-b974-437d-a26e-f8cd983a6013",
+                  "system_name": "Unknown",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 2,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "rallyisland",
+                  "track_display_name": "RallyIsland",
+                  "world_name": "RallyIsland",
+                  "world_url": "https://vrchat.com/home/world/wrld_67186e84-4c85-463a-8731-de207caa0ea9",
+                  "system_name": "Unknown",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "rockydesertsfreeroam_crimsonfox",
+                  "track_display_name": "Rocky Deserts Freeroam CVS2",
+                  "world_name": "Rocky Deserts Freeroam CVS2",
+                  "world_url": "https://vrchat.com/home/world/wrld_d52b034b-1e26-4a88-9fd7-957adda1b6ef",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "skartparkv2_kkclint",
+                  "track_display_name": "S Kart Park V2",
+                  "world_name": "S Kart Park V2",
+                  "world_url": "https://vrchat.com/home/world/wrld_583d64c7-2057-4434-8fee-857427458cf9",
+                  "system_name": "",
+                  "track_env": "卡丁車",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "shibushinjuline_jintei",
+                  "track_display_name": "Shibu-Shinju Line",
+                  "world_name": "Shibu-Shinju Line",
+                  "world_url": "https://vrchat.com/home/world/wrld_605f989b-a0b5-43e0-ab49-2dc823dfdcd4",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "shinkanjoudaybreak_jintei",
+                  "track_display_name": "Shinkanjou Daybreak",
+                  "world_name": "Shinkanjou Daybreak",
+                  "world_url": "https://vrchat.com/home/world/wrld_ff3ded99-386a-4391-8e85-44cdbaeef9bf",
+                  "system_name": "Sacc",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "ttcs_totukakaor",
+                  "track_display_name": "TTC-S 第３周回路",
+                  "world_name": "TTC-S 第３周回路",
+                  "world_url": "https://vrchat.com/home/world/wrld_38a9c594-0a8d-4d3d-a943-56eaef682eb2",
+                  "system_name": "",
+                  "track_env": "公路",
                   "difficulty": "",
                   "route_count": 0,
                   "record_count": 0,
@@ -2646,6 +4302,174 @@
                   "world_url": "https://vrchat.com/home/world/wrld_93e42d9d-3562-4a2f-a52d-71f7979b15a2",
                   "system_name": "",
                   "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "twingo_kkclint",
+                  "track_display_name": "Twin-GOǃ",
+                  "world_name": "Twin-GOǃ",
+                  "world_url": "https://vrchat.com/home/world/wrld_48b994f5-da4c-4eec-8ed9-46a612b96ffd",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "vr660_kai_kai",
+                  "track_display_name": "VR660",
+                  "world_name": "VR660",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "vr660racingworldv2_kaikai",
+                  "track_display_name": "VR660Racing world v2",
+                  "world_name": "VR660Racing world v2",
+                  "world_url": "https://vrchat.com/home/world/wrld_fd53d2f8-e478-443f-880c-940d9a72fe07",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "w_f1472240_totukakaor",
+                  "track_display_name": "VR運転トレーニング 大特とろうよ！",
+                  "world_name": "VR運転トレーニング 大特とろうよ！",
+                  "world_url": "https://vrchat.com/home/world/wrld_f1472240-c1e9-4054-a395-14a55d32c4e9",
+                  "system_name": "",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "vestoril",
+                  "track_display_name": "Vestoril",
+                  "world_name": "Vestoril",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 2,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "com8cartest2_komuhachi",
+                  "track_display_name": "com8 car test 2",
+                  "world_name": "com8 car test 2",
+                  "world_url": "https://vrchat.com/home/world/wrld_1c559163-f336-4d5e-a07f-7c2851bce1be",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "com8cartest_komuhachi",
+                  "track_display_name": "com8 cartest",
+                  "world_name": "com8 cartest",
+                  "world_url": "https://vrchat.com/home/world/wrld_d256aac9-3f59-4604-aa70-b08a8f6998f9",
+                  "system_name": "",
+                  "track_env": "公路",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "com8sdesertdrive_komuhachi",
+                  "track_display_name": "com8's Desert Drive",
+                  "world_name": "com8's Desert Drive",
+                  "world_url": "https://vrchat.com/home/world/wrld_df5acb7a-554d-4d88-bd41-afcc5db228ff",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "com8sdirttrial_komuhachi",
+                  "track_display_name": "com8's Dirt Trial",
+                  "world_name": "com8's Dirt Trial",
+                  "world_url": "https://vrchat.com/home/world/wrld_bcf85a5e-e949-468c-8219-baf53a976041",
+                  "system_name": "",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "kuwantamotorsportspark_komuhachi",
+                  "track_display_name": "kuwanta Motorsports Park",
+                  "world_name": "kuwanta Motorsports Park",
+                  "world_url": "https://vrchat.com/home/world/wrld_7d90e20e-04ab-4534-97aa-0997e59ef964",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "line_foreststage",
+                  "track_display_name": "三之白LINE ForestStage",
+                  "world_name": "三之白LINE ForestStage",
+                  "world_url": "https://vrchat.com/home/world/wrld_c60076c4-5c23-45b4-a72d-538f5c7388b0",
+                  "system_name": "Unknown",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 2,
+                  "record_count": 7,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "w_5b8ec815_komuhachi",
+                  "track_display_name": "筑和グラベルパーク",
+                  "world_name": "筑和グラベルパーク",
+                  "world_url": "https://vrchat.com/home/world/wrld_5b8ec815-b593-4497-9660-aa7d33c07993",
+                  "system_name": "",
+                  "track_env": "",
                   "difficulty": "",
                   "route_count": 0,
                   "record_count": 0,
@@ -2690,6 +4514,48 @@
               "has_point": false,
               "tracks": [
                 {
+                  "track_world_code": "w_64667e7f_calme",
+                  "track_display_name": "B北サーキット-ChikuwaVehicleSystem2-",
+                  "world_name": "B北サーキット-ChikuwaVehicleSystem2-",
+                  "world_url": "https://vrchat.com/home/world/wrld_64667e7f-4678-4758-b7ac-9461f34c71a9",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "chikuwadriveunlimited_kkclint",
+                  "track_display_name": "Chikuwa Drive Unlimited",
+                  "world_name": "Chikuwa Drive Unlimited",
+                  "world_url": "https://vrchat.com/home/world/wrld_b0190e21-43b5-4381-b490-b1f5a8546be3",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "chikuwasnowtrial_g",
+                  "track_display_name": "ChikuwaSnowTrial-極月-",
+                  "world_name": "ChikuwaSnowTrial-極月-",
+                  "world_url": "https://vrchat.com/home/world/wrld_12078402-aa36-47ef-8caa-34cd3ef3611d",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "deep_forest_raceway_cvs2",
                   "track_display_name": "Deep Forest Raceway CVS2",
                   "world_name": "Deep Forest Raceway CVS2",
@@ -2699,6 +4565,188 @@
                   "difficulty": "",
                   "route_count": 1,
                   "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "ford_racing_3_raceway",
+                  "track_display_name": "Ford Racing 3 Raceway",
+                  "world_name": "Ford Racing 3 Raceway",
+                  "world_url": "https://vrchat.com/home/world/wrld_9fbadff0-8e11-4b5f-b3dc-b8ae531389b5",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "highspeedring_jintei",
+                  "track_display_name": "High Speed Ring",
+                  "world_name": "High Speed Ring",
+                  "world_url": "https://vrchat.com/home/world/wrld_27bbcee9-0ccc-4f7f-a652-ffea9596ee66",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nfscarbon_lookoutpoint_jintei",
+                  "track_display_name": "NFS Carbon˸ Lookout Point",
+                  "world_name": "NFS Carbon˸ Lookout Point",
+                  "world_url": "https://vrchat.com/home/world/wrld_fde005c7-3cfc-4af0-8366-ba972407a8b6",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "polycitydriving_totukakaor",
+                  "track_display_name": "POLY CITY DRIVING",
+                  "world_name": "POLY CITY DRIVING",
+                  "world_url": "https://vrchat.com/home/world/wrld_d65e97c7-f002-47f2-83be-11850c734b6b",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "polyforniadriving_totukakaor",
+                  "track_display_name": "POLYFORNIA DRIVING",
+                  "world_name": "POLYFORNIA DRIVING",
+                  "world_url": "https://vrchat.com/home/world/wrld_ec3fedec-177b-4970-b757-095d37237a1c",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "rainbowroad_nascvr",
+                  "track_display_name": "Rainbow Road",
+                  "world_name": "Rainbow Road",
+                  "world_url": "https://vrchat.com/home/world/wrld_0014b000-3a85-464f-a129-f50d5fbc0db2",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "segarallychampionshipvrcforestdemo_crimsonfox",
+                  "track_display_name": "SEGA RALLY CHAMPIONSHIP VRC （Forest Demo）",
+                  "world_name": "SEGA RALLY CHAMPIONSHIP VRC （Forest Demo）",
+                  "world_url": "https://vrchat.com/home/world/wrld_52353917-e7b2-4c7b-9fb5-e2fd25c1af51",
+                  "system_name": "CVS",
+                  "track_env": "拉力",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "thefastandthefurioustokyodrift_sui_jintei",
+                  "track_display_name": "The Fast And The Furious Tokyo Drift˸ Suicide Mountain",
+                  "world_name": "The Fast And The Furious Tokyo Drift˸ Suicide Mountain",
+                  "world_url": "https://vrchat.com/home/world/wrld_32357667-0e3d-4d39-a81f-76f504370b61",
+                  "system_name": "Sacc",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "warehousekartclub_calme",
+                  "track_display_name": "Warehouse Kart Club-ChikuwaCarSystem-",
+                  "world_name": "Warehouse Kart Club-ChikuwaCarSystem-",
+                  "world_url": "https://vrchat.com/home/world/wrld_f7613214-4ac8-464e-ad07-43b55dc3c059",
+                  "system_name": "CVS",
+                  "track_env": "卡丁車",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "w_079307db_calme",
+                  "track_display_name": "グランドパーキング永火垣-ChikuwaVehicleSystem2-",
+                  "world_name": "グランドパーキング永火垣-ChikuwaVehicleSystem2-",
+                  "world_url": "https://vrchat.com/home/world/wrld_079307db-843a-43e5-96db-7643a3bbaaf9",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "night_calme",
+                  "track_display_name": "双ツ鏡湖外周道~Night~ -ChikuwaVehicleSystem2-",
+                  "world_name": "双ツ鏡湖外周道~Night~ -ChikuwaVehicleSystem2-",
+                  "world_url": "https://vrchat.com/home/world/wrld_0ac1d9ba-acd1-4800-b3f4-97962badbc26",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "unknown_calme",
+                  "track_display_name": "座辰モーターパーク",
+                  "world_name": "座辰モーターパーク",
+                  "world_url": "https://vrchat.com/home/world/wrld_e3ca7f8a-3203-4bc2-8874-bd59e0a0546d",
+                  "system_name": "Unknown",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 10,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "w_1c08b4d8_calme",
+                  "track_display_name": "烽壇平サーキット-ナイター-ChikuwaVehicleSystem2-",
+                  "world_name": "烽壇平サーキット-ナイター-ChikuwaVehicleSystem2-",
+                  "world_url": "https://vrchat.com/home/world/wrld_1c08b4d8-ad15-45cf-85d0-48f639a953a8",
+                  "system_name": "CVS",
+                  "track_env": "賽道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -2732,12 +4780,68 @@
                   "poster_ext": null
                 },
                 {
+                  "track_world_code": "nabeshirowharf_kkclint",
+                  "track_display_name": "鍋城ふ頭コンテナターミナル ~Nabeshiro Wharf~",
+                  "world_name": "鍋城ふ頭コンテナターミナル ~Nabeshiro Wharf~",
+                  "world_url": "https://vrchat.com/home/world/wrld_5b0c1255-c0e8-4962-ab3e-b10a3336df39",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "returns_calme",
                   "track_display_name": "鼻曲り峠RETURNS-ChikuwaVehicleSystem2-",
                   "world_name": "鼻曲り峠RETURNS-ChikuwaVehicleSystem2-",
                   "world_url": "https://vrchat.com/home/world/wrld_82cbef97-2510-4c8a-81a7-bb26b419f8bb",
                   "system_name": "CVS",
                   "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "cr6rd_3_kkclint",
+                  "track_display_name": "［CR6 Rd․3］ちくわスーパーラップ",
+                  "world_name": "［CR6 Rd․3］ちくわスーパーラップ",
+                  "world_url": "https://vrchat.com/home/world/wrld_a5653f18-7e94-49f1-aa8c-554474c5ac64",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nfsmwdowntownrockport_crimsonfox",
+                  "track_display_name": "［NFSMW］ Downtown Rockport CVS2",
+                  "world_name": "［NFSMW］ Downtown Rockport CVS2",
+                  "world_url": "https://vrchat.com/home/world/wrld_b9d76321-bf24-469b-805e-134fe6dab71a",
+                  "system_name": "CVS",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
+                  "track_world_code": "nfsu2bayviewspeedway_jintei",
+                  "track_display_name": "［NFSU2］ Bayview Speedway",
+                  "world_name": "［NFSU2］ Bayview Speedway",
+                  "world_url": "https://vrchat.com/home/world/wrld_a5064362-ce75-447f-8c58-311be88feab1",
+                  "system_name": "Sacc",
+                  "track_env": "賽道",
                   "difficulty": "",
                   "route_count": 0,
                   "record_count": 0,
@@ -2752,1688 +4856,64 @@
       ]
     }
   ],
-  "unlocated": [
-    {
-      "track_world_code": "autopolis_jintei",
-      "track_display_name": "Autopolis",
-      "world_name": "Autopolis",
-      "world_url": "https://vrchat.com/home/world/wrld_3e250f11-a3b4-4966-b76a-132b9834a985",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "bayshoreloop_jintei",
-      "track_display_name": "Bayshore Loop",
-      "world_name": "Bayshore Loop",
-      "world_url": "https://vrchat.com/home/world/wrld_c60988b7-20fb-4fc1-81fc-7431fbf27ae4",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_64667e7f_calme",
-      "track_display_name": "B北サーキット-ChikuwaVehicleSystem2-",
-      "world_name": "B北サーキット-ChikuwaVehicleSystem2-",
-      "world_url": "https://vrchat.com/home/world/wrld_64667e7f-4678-4758-b7ac-9461f34c71a9",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "chikuwadriveunlimited_kkclint",
-      "track_display_name": "Chikuwa Drive Unlimited",
-      "world_name": "Chikuwa Drive Unlimited",
-      "world_url": "https://vrchat.com/home/world/wrld_b0190e21-43b5-4381-b490-b1f5a8546be3",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "chikuwasnowtrial_g",
-      "track_display_name": "ChikuwaSnowTrial-極月-",
-      "world_name": "ChikuwaSnowTrial-極月-",
-      "world_url": "https://vrchat.com/home/world/wrld_12078402-aa36-47ef-8caa-34cd3ef3611d",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "circuit_de_la_sarthe_aiden1408",
-      "track_display_name": "Circuit de la Sarthe",
-      "world_name": "Circuit de la Sarthe",
-      "world_url": "https://vrchat.com/home/world/wrld_85bee910-b321-43ac-bc47-4e0c93e39c9b",
-      "system_name": "Chikuwa Vehicle System",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "circuitoftheamericascota_nascvr",
-      "track_display_name": "Circuit of the Americas （COTA）",
-      "world_name": "Circuit of the Americas （COTA）",
-      "world_url": "https://vrchat.com/home/world/wrld_287f7b7e-5ce8-412f-a80d-fa2fdbc9ec43",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "circuitoftheamericasshortlayout_nascvr",
-      "track_display_name": "Circuit of the Americas （Short Layout）",
-      "world_name": "Circuit of the Americas （Short Layout）",
-      "world_url": "https://vrchat.com/home/world/wrld_2f6a6ab8-3306-4895-a7c6-735cb9fb4417",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "citynightdrive_komuhachi",
-      "track_display_name": "City Night Drive",
-      "world_name": "City Night Drive",
-      "world_url": "https://vrchat.com/home/world/wrld_e6b6ea55-7011-4cbe-b627-70336271550f",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "coldeturini_jintei",
-      "track_display_name": "Col de Turini",
-      "world_name": "Col de Turini",
-      "world_url": "https://vrchat.com/home/world/wrld_629d4c6c-420c-4546-b31b-35614dbb470e",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "concordspeedway_nascvr",
-      "track_display_name": "Concord Speedway",
-      "world_name": "Concord Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_8f43f52b-26c4-4349-93bf-ca4335a10f0d",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "daytonainternationalspeedway_nascvr",
-      "track_display_name": "Daytona International Speedway",
-      "world_name": "Daytona International Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_8db66e34-2cd3-4933-a81b-69b8f0a73066",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "dirt2_batterseaair_jintei",
-      "track_display_name": "DiRT2˸ Battersea Air",
-      "world_name": "DiRT2˸ Battersea Air",
-      "world_url": "https://vrchat.com/home/world/wrld_f15fad3e-2b0d-4daa-811e-daf5bae3d2f3",
-      "system_name": "Sacc",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "dodgestadium_nascvr",
-      "track_display_name": "Dodge Stadium",
-      "world_name": "Dodge Stadium",
-      "world_url": "https://vrchat.com/home/world/wrld_2e100a22-b246-4e54-bbd4-35d2b9122f3d",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "doningtonpark_jintei",
-      "track_display_name": "Donington Park",
-      "world_name": "Donington Park",
-      "world_url": "https://vrchat.com/home/world/wrld_0a76132a-82bf-4c6a-b74d-5be7cf975f68",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "dovermotorspeedway_nascvr",
-      "track_display_name": "Dover Motor Speedway",
-      "world_name": "Dover Motor Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_1fbdf0b6-275f-4017-a36a-9b82083ade2e",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "drikhanav2_kkclint",
-      "track_display_name": "Dri-khana V2",
-      "world_name": "Dri-khana V2",
-      "world_url": "https://vrchat.com/home/world/wrld_3316edde-55f7-4b38-a5ed-2e262655d455",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "driftplaygroundnight_crimsonfox",
-      "track_display_name": "Drift Playground Night CVS2",
-      "world_name": "Drift Playground Night CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_66479443-f943-47b3-bbd8-37a47532cb11",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "dunsfoldaerodrome_jintei",
-      "track_display_name": "Dunsfold Aerodrome",
-      "world_name": "Dunsfold Aerodrome",
-      "world_url": "https://vrchat.com/home/world/wrld_4c1c8eee-2d59-4e06-8bb1-b3acac2de654",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ebisudirt_jintei",
-      "track_display_name": "Ebisu Dirt",
-      "world_name": "Ebisu Dirt",
-      "world_url": "https://vrchat.com/home/world/wrld_8b336226-3847-41b5-835b-8109be71278d",
-      "system_name": "Sacc",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "f1_circuit_fuffyferret",
-      "track_display_name": "F1 Circuit",
-      "world_name": "F1 Circuit",
-      "world_url": "https://vrchat.com/home/world/wrld_ab240657-e177-4df8-93d3-c97559559d3e",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "中等",
-      "route_count": 2,
-      "record_count": 5,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ford_racing_3_raceway",
-      "track_display_name": "Ford Racing 3 Raceway",
-      "world_name": "Ford Racing 3 Raceway",
-      "world_url": "https://vrchat.com/home/world/wrld_9fbadff0-8e11-4b5f-b3dc-b8ae531389b5",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "fujimikaido_jintei",
-      "track_display_name": "Fujimi Kaido",
-      "world_name": "Fujimi Kaido",
-      "world_url": "https://vrchat.com/home/world/wrld_bdebb147-c25c-4642-ba54-7a96f643d77a",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "gelorabungkarno_jintei",
-      "track_display_name": "Gelora Bung Karno",
-      "world_name": "Gelora Bung Karno",
-      "world_url": "https://vrchat.com/home/world/wrld_43a93e9f-c7ec-4dcc-af1a-6a1e0a35cf3f",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hakonenanamagari_jintei",
-      "track_display_name": "Hakone Nanamagari",
-      "world_name": "Hakone Nanamagari",
-      "world_url": "https://vrchat.com/home/world/wrld_de9c3566-8384-41da-944d-b0f07a1bb477",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hanagasakiforcr5_komuhachi",
-      "track_display_name": "Hanagasaki for CR5",
-      "world_name": "Hanagasaki for CR5",
-      "world_url": "https://vrchat.com/home/world/wrld_4ea9316b-e3db-4de2-9714-80f702e5df28",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hanedasprint_jintei",
-      "track_display_name": "Haneda Sprint",
-      "world_name": "Haneda Sprint",
-      "world_url": "https://vrchat.com/home/world/wrld_e7fa085a-8cb7-4786-adcd-3bd2f369ad10",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hilandraceway2_0_rionya",
-      "track_display_name": "Hi-Land Raceway 2․0",
-      "world_name": "Hi-Land Raceway 2․0",
-      "world_url": "https://vrchat.com/home/world/wrld_75e2f86e-28e1-49a8-b887-354d068073ad",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "hilandracewaytest_rionya",
-      "track_display_name": "Hi-Land Raceway Test",
-      "world_name": "Hi-Land Raceway Test",
-      "world_url": "https://vrchat.com/home/world/wrld_7684db9f-9ad5-48bd-9cec-327dfec34bf0",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "highspeedring_jintei",
-      "track_display_name": "High Speed Ring",
-      "world_name": "High Speed Ring",
-      "world_url": "https://vrchat.com/home/world/wrld_27bbcee9-0ccc-4f7f-a652-ffea9596ee66",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "homesteadmiamispeedway_nascvr",
-      "track_display_name": "Homestead-Miami Speedway",
-      "world_name": "Homestead-Miami Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_74882786-1999-439c-8a3a-073d33bb6073",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ichinose_speed_ring",
-      "track_display_name": "Ichinose Speed Ring",
-      "world_name": "Ichinose Speed Ring",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 7,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "indianapolismotorspeedway_nascvr",
-      "track_display_name": "Indianapolis Motor Speedway",
-      "world_name": "Indianapolis Motor Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_5bf182ac-4884-4a45-a33c-5bb4fb7c8b08",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "islandcoastlandscapedrive_komuhachi",
-      "track_display_name": "Island Coast Landscape Drive",
-      "world_name": "Island Coast Landscape Drive",
-      "world_url": "https://vrchat.com/home/world/wrld_06c5c62c-dacd-4705-9a98-031c6f302caf",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "just_kkclint",
-      "track_display_name": "JUST 暴走",
-      "world_name": "JUST 暴走",
-      "world_url": "https://vrchat.com/home/world/wrld_f6c07ef1-4e7a-4d03-ae57-dd8462fa638a",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "just_gt_3",
-      "track_display_name": "Just GT-3",
-      "world_name": "Just GT-3",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "just_v2_komuhachi",
-      "track_display_name": "Just教習 V2",
-      "world_name": "Just教習 V2",
-      "world_url": "https://vrchat.com/home/world/wrld_fe0f5b02-339f-468b-91c0-a7220df73a6a",
-      "system_name": "",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kksdriftkhanacircuit_kkclint",
-      "track_display_name": "KK's Drift-khana ＆ Circuit",
-      "world_name": "KK's Drift-khana ＆ Circuit",
-      "world_url": "https://vrchat.com/home/world/wrld_56b44888-ca6f-40aa-95c3-7be9e8d6393f",
-      "system_name": "",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kksgymkhanaevo_kkclint",
-      "track_display_name": "KK's Gymkhana Evo",
-      "world_name": "KK's Gymkhana Evo",
-      "world_url": "https://vrchat.com/home/world/wrld_7d42b429-6c24-4f6c-8b87-533ac2cd4fbd",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kkshajwalahdrift_kkclint",
-      "track_display_name": "KK's Hajwalah Drift",
-      "world_name": "KK's Hajwalah Drift",
-      "world_url": "https://vrchat.com/home/world/wrld_15ba2edf-bf33-4ab6-a2e9-abc770bed9ac",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kkshighwaymeetup_kkclint",
-      "track_display_name": "KK's Highway Meetup",
-      "world_name": "KK's Highway Meetup",
-      "world_url": "https://vrchat.com/home/world/wrld_cbf15d06-21bc-419c-adb7-2a831cc3de28",
-      "system_name": "",
-      "track_env": "高速公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kksplayground_kkclint",
-      "track_display_name": "KK's Playground",
-      "world_name": "KK's Playground",
-      "world_url": "https://vrchat.com/home/world/wrld_0674d1ae-8e7a-4e1d-8d73-f96b52b25772",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "knockhill_racing_circuit_rallycross",
-      "track_display_name": "Knockhill Racing Circuit ＆ Rallycross",
-      "world_name": "Knockhill Racing Circuit ＆ Rallycross",
-      "world_url": "https://vrchat.com/home/world/wrld_91056a52-c61b-4c17-a427-87d4dcbb1c38",
-      "system_name": "Unknown",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "lagunasecaracetrack_fuffyferre",
-      "track_display_name": "Laguna Seca Race Track",
-      "world_name": "Laguna Seca Race Track",
-      "world_url": "https://vrchat.com/home/world/wrld_34b09d29-7e3d-416b-a2e7-a6ba04857620",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "mimasakaraceway_rionya",
-      "track_display_name": "MIMASAKA Raceway",
-      "world_name": "MIMASAKA Raceway",
-      "world_url": "https://vrchat.com/home/world/wrld_26ce7913-465f-42da-8b2f-e6ac6cdd209e",
-      "system_name": "",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "monacogymkhana_jintei",
-      "track_display_name": "Monaco Gymkhana",
-      "world_name": "Monaco Gymkhana",
-      "world_url": "https://vrchat.com/home/world/wrld_c958c235-b633-4b0c-82ea-fb44914db863",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "mountainrun_afeminineg",
-      "track_display_name": "Mountain Run",
-      "world_name": "Mountain Run",
-      "world_url": "https://vrchat.com/home/world/wrld_07558ce1-9bbf-401c-be5c-05ba281f777f",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "mt_bano_re",
-      "track_display_name": "Mt․ Bano",
-      "world_name": "Mt․ Bano",
-      "world_url": "https://vrchat.com/home/world/wrld_d740b9a7-0e8c-4765-80b8-2f6439ccea8c",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "mt_hakone_jintei_2",
-      "track_display_name": "Mt․ Hakone",
-      "world_name": "Mt․ Hakone",
-      "world_url": "https://vrchat.com/home/world/wrld_bdb4d257-f917-4575-a323-674e1a94dcba",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "mt_taikan_jintei",
-      "track_display_name": "Mt․ Taikan",
-      "world_name": "Mt․ Taikan",
-      "world_url": "https://vrchat.com/home/world/wrld_6870da97-ab25-45fb-98c3-1bd86b9f3baf",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nfscarbon_lookoutpoint_jintei",
-      "track_display_name": "NFS Carbon˸ Lookout Point",
-      "world_name": "NFS Carbon˸ Lookout Point",
-      "world_url": "https://vrchat.com/home/world/wrld_fde005c7-3cfc-4af0-8366-ba972407a8b6",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nashvillesuperspeedway_nascvr",
-      "track_display_name": "Nashville Superspeedway",
-      "world_name": "Nashville Superspeedway",
-      "world_url": "https://vrchat.com/home/world/wrld_4d34704f-791b-4868-a3a7-5284807b05a0",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nashvillesuperspeedwaynextgen_nascvr",
-      "track_display_name": "Nashville Superspeedway （NextGen）",
-      "world_name": "Nashville Superspeedway （NextGen）",
-      "world_url": "https://vrchat.com/home/world/wrld_23f6aa1b-d1eb-4a2a-894b-ac3c79b95486",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "norisring_jintei",
-      "track_display_name": "Norisring",
-      "world_name": "Norisring",
-      "world_url": "https://vrchat.com/home/world/wrld_96fd5768-41f8-48e3-af58-5e4c7f271495",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "northwilkesborospeedway_nascvr",
-      "track_display_name": "North Wilkesboro Speedway",
-      "world_name": "North Wilkesboro Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_18727efd-12d2-4363-b8ae-161042050e41",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "orc_circuit",
-      "track_display_name": "ORC賽道",
-      "world_name": "ORC Circuit",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ockfen_jintei",
-      "track_display_name": "Ockfen",
-      "world_name": "Ockfen",
-      "world_url": "https://vrchat.com/home/world/wrld_27dd67c5-2bbf-4b3c-b4a2-09132d3adc5a",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "oiwharfv2remastered90sgdsp_kkclint",
-      "track_display_name": "Oi Wharf V2 Remastered［90sGDSP］",
-      "world_name": "Oi Wharf V2 Remastered［90sGDSP］",
-      "world_url": "https://vrchat.com/home/world/wrld_ebcfe714-7fe0-43a6-9282-c87cde22dac5",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "oiwharf90sgdsp_kkclint",
-      "track_display_name": "Oi Wharf［90sGDSP］",
-      "world_name": "Oi Wharf［90sGDSP］",
-      "world_url": "https://vrchat.com/home/world/wrld_af7faa34-e0de-4541-b52e-c5016677e05a",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "polycitydriving_totukakaor",
-      "track_display_name": "POLY CITY DRIVING",
-      "world_name": "POLY CITY DRIVING",
-      "world_url": "https://vrchat.com/home/world/wrld_d65e97c7-f002-47f2-83be-11850c734b6b",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "polyforniadriving_totukakaor",
-      "track_display_name": "POLYFORNIA DRIVING",
-      "world_name": "POLYFORNIA DRIVING",
-      "world_url": "https://vrchat.com/home/world/wrld_ec3fedec-177b-4970-b757-095d37237a1c",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "phoenixraceway_nascvr",
-      "track_display_name": "Phoenix Raceway",
-      "world_name": "Phoenix Raceway",
-      "world_url": "https://vrchat.com/home/world/wrld_a8c3b9f3-522c-42fc-b071-bdd922dabb65",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rccrawlerpark_kkclint",
-      "track_display_name": "RC Crawler Park",
-      "world_name": "RC Crawler Park",
-      "world_url": "https://vrchat.com/home/world/wrld_de35143b-88d9-4bfa-b277-dfed36e6eb3f",
-      "system_name": "",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ragingice_cliffsideblizzard_jintei",
-      "track_display_name": "Raging Ice˸ Cliffside Blizzard",
-      "world_name": "Raging Ice˸ Cliffside Blizzard",
-      "world_url": "https://vrchat.com/home/world/wrld_0e3d6e37-82cc-4ec5-beb4-8a9b7d408b21",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rainbowroad_nascvr",
-      "track_display_name": "Rainbow Road",
-      "world_name": "Rainbow Road",
-      "world_url": "https://vrchat.com/home/world/wrld_0014b000-3a85-464f-a129-f50d5fbc0db2",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rallyfinlandss1_chikwanmets_kkclint",
-      "track_display_name": "Rally Finland SS1＂Chikwan metsä＂",
-      "world_name": "Rally Finland SS1＂Chikwan metsä＂",
-      "world_url": "https://vrchat.com/home/world/wrld_3b4a0fa4-e791-4013-a117-6b1d977989e9",
-      "system_name": "",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rally_snowland",
-      "track_display_name": "Rally Snowland",
-      "world_name": "Rally Snowland",
-      "world_url": "https://vrchat.com/home/world/wrld_3b7c57d2-b974-437d-a26e-f8cd983a6013",
-      "system_name": "Unknown",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 2,
-      "record_count": 4,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rallyisland",
-      "track_display_name": "RallyIsland",
-      "world_name": "RallyIsland",
-      "world_url": "https://vrchat.com/home/world/wrld_67186e84-4c85-463a-8731-de207caa0ea9",
-      "system_name": "Unknown",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 2,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "roadatlanta_jintei",
-      "track_display_name": "Road Atlanta",
-      "world_name": "Road Atlanta",
-      "world_url": "https://vrchat.com/home/world/wrld_a963d0b0-2ee5-425e-9bd2-a9647a04ac14",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "rockydesertsfreeroam_crimsonfox",
-      "track_display_name": "Rocky Deserts Freeroam CVS2",
-      "world_name": "Rocky Deserts Freeroam CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_d52b034b-1e26-4a88-9fd7-957adda1b6ef",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "roval2021_nascvr",
-      "track_display_name": "Roval 2021",
-      "world_name": "Roval 2021",
-      "world_url": "https://vrchat.com/home/world/wrld_1f899a1d-2ebb-46c0-8c56-65ad83090376",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "roval2024_nascvr",
-      "track_display_name": "Roval 2024",
-      "world_name": "Roval 2024",
-      "world_url": "https://vrchat.com/home/world/wrld_1b12e431-edb2-4908-9154-b488a3441ce6",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "skartparkv2_kkclint",
-      "track_display_name": "S Kart Park V2",
-      "world_name": "S Kart Park V2",
-      "world_url": "https://vrchat.com/home/world/wrld_583d64c7-2057-4434-8fee-857427458cf9",
-      "system_name": "",
-      "track_env": "卡丁車",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "segarallychampionshipvrcforestdemo_crimsonfox",
-      "track_display_name": "SEGA RALLY CHAMPIONSHIP VRC （Forest Demo）",
-      "world_name": "SEGA RALLY CHAMPIONSHIP VRC （Forest Demo）",
-      "world_url": "https://vrchat.com/home/world/wrld_52353917-e7b2-4c7b-9fb5-e2fd25c1af51",
-      "system_name": "CVS",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "santaanitapark_nascvr",
-      "track_display_name": "Santa Anita Park",
-      "world_name": "Santa Anita Park",
-      "world_url": "https://vrchat.com/home/world/wrld_631e9b04-2705-4dda-89ae-d12a820beccd",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shibushinjuline_jintei",
-      "track_display_name": "Shibu-Shinju Line",
-      "world_name": "Shibu-Shinju Line",
-      "world_url": "https://vrchat.com/home/world/wrld_605f989b-a0b5-43e0-ab49-2dc823dfdcd4",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shibuyafreeride_jintei",
-      "track_display_name": "Shibuya Freeride",
-      "world_name": "Shibuya Freeride",
-      "world_url": "https://vrchat.com/home/world/wrld_8e93f971-3740-490a-b3dc-860c02c6db9e",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shinjukupa_jintei",
-      "track_display_name": "Shinjuku PA",
-      "world_name": "Shinjuku PA",
-      "world_url": "https://vrchat.com/home/world/wrld_69a91e27-7453-40c8-b177-8096dd9847d6",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shinkanjoudaybreak_jintei",
-      "track_display_name": "Shinkanjou Daybreak",
-      "world_name": "Shinkanjou Daybreak",
-      "world_url": "https://vrchat.com/home/world/wrld_ff3ded99-386a-4391-8e85-44cdbaeef9bf",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "shutokouexpresswaytokyoarea_jintei",
-      "track_display_name": "Shutokou Expressway （Tokyo Area）",
-      "world_name": "Shutokou Expressway （Tokyo Area）",
-      "world_url": "https://vrchat.com/home/world/wrld_16f9fa68-2a30-463e-8334-129bfdbe53a9",
-      "system_name": "Sacc",
-      "track_env": "高速公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "spafrancorchampsf1_pkqk",
-      "track_display_name": "Spa Francorchamps F1",
-      "world_name": "Spa Francorchamps F1",
-      "world_url": "https://vrchat.com/home/world/wrld_24356231-a96c-47ad-a086-11f70c6f077f",
-      "system_name": "",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "spafrancorchampssportscar2006_jintei",
-      "track_display_name": "Spa-Francorchamps （Sportscar 2006）",
-      "world_name": "Spa-Francorchamps （Sportscar 2006）",
-      "world_url": "https://vrchat.com/home/world/wrld_71802843-6ba9-47d9-9b89-178232645d66",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "spielburgredbullring_afeminineg",
-      "track_display_name": "Spielburg （Red Bull Ring）",
-      "world_name": "Spielburg （Red Bull Ring）",
-      "world_url": "https://vrchat.com/home/world/wrld_f7fe5ee0-39f5-4236-883e-de71b6dfd281",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "suzukatwincircuit_kkclint",
-      "track_display_name": "Suzuka twin circuit",
-      "world_name": "Suzuka twin circuit",
-      "world_url": "https://vrchat.com/home/world/wrld_d47b6ac0-d8a2-4cac-9bac-b8411f3199a8",
-      "system_name": "",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "ttcs_totukakaor",
-      "track_display_name": "TTC-S 第３周回路",
-      "world_name": "TTC-S 第３周回路",
-      "world_url": "https://vrchat.com/home/world/wrld_38a9c594-0a8d-4d3d-a943-56eaef682eb2",
-      "system_name": "",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "thefastandthefurioustokyodrift_sui_jintei",
-      "track_display_name": "The Fast And The Furious Tokyo Drift˸ Suicide Mountain",
-      "world_name": "The Fast And The Furious Tokyo Drift˸ Suicide Mountain",
-      "world_url": "https://vrchat.com/home/world/wrld_32357667-0e3d-4d39-a81f-76f504370b61",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "twingo_kkclint",
-      "track_display_name": "Twin-GOǃ",
-      "world_name": "Twin-GOǃ",
-      "world_url": "https://vrchat.com/home/world/wrld_48b994f5-da4c-4eec-8ed9-46a612b96ffd",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "vr660_kai_kai",
-      "track_display_name": "VR660",
-      "world_name": "VR660",
-      "world_url": "",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "vr660racingworldv2_kaikai",
-      "track_display_name": "VR660Racing world v2",
-      "world_name": "VR660Racing world v2",
-      "world_url": "https://vrchat.com/home/world/wrld_fd53d2f8-e478-443f-880c-940d9a72fe07",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_f1472240_totukakaor",
-      "track_display_name": "VR運転トレーニング 大特とろうよ！",
-      "world_name": "VR運転トレーニング 大特とろうよ！",
-      "world_url": "https://vrchat.com/home/world/wrld_f1472240-c1e9-4054-a395-14a55d32c4e9",
-      "system_name": "",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "vestoril",
-      "track_display_name": "Vestoril",
-      "world_name": "Vestoril",
-      "world_url": "",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 2,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "warehousekartclub_calme",
-      "track_display_name": "Warehouse Kart Club-ChikuwaCarSystem-",
-      "world_name": "Warehouse Kart Club-ChikuwaCarSystem-",
-      "world_url": "https://vrchat.com/home/world/wrld_f7613214-4ac8-464e-ad07-43b55dc3c059",
-      "system_name": "CVS",
-      "track_env": "卡丁車",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "yokohamadocks_jintei",
-      "track_display_name": "Yokohama Docks",
-      "world_name": "Yokohama Docks",
-      "world_url": "https://vrchat.com/home/world/wrld_198e2c6e-6273-4e33-9d32-3fe09524bda9",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "com8cartest2_komuhachi",
-      "track_display_name": "com8 car test 2",
-      "world_name": "com8 car test 2",
-      "world_url": "https://vrchat.com/home/world/wrld_1c559163-f336-4d5e-a07f-7c2851bce1be",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "com8cartest_komuhachi",
-      "track_display_name": "com8 cartest",
-      "world_name": "com8 cartest",
-      "world_url": "https://vrchat.com/home/world/wrld_d256aac9-3f59-4604-aa70-b08a8f6998f9",
-      "system_name": "",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "com8sdesertdrive_komuhachi",
-      "track_display_name": "com8's Desert Drive",
-      "world_name": "com8's Desert Drive",
-      "world_url": "https://vrchat.com/home/world/wrld_df5acb7a-554d-4d88-bd41-afcc5db228ff",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "com8sdirttrial_komuhachi",
-      "track_display_name": "com8's Dirt Trial",
-      "world_name": "com8's Dirt Trial",
-      "world_url": "https://vrchat.com/home/world/wrld_bcf85a5e-e949-468c-8219-baf53a976041",
-      "system_name": "",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "kuwantamotorsportspark_komuhachi",
-      "track_display_name": "kuwanta Motorsports Park",
-      "world_name": "kuwanta Motorsports Park",
-      "world_url": "https://vrchat.com/home/world/wrld_7d90e20e-04ab-4534-97aa-0997e59ef964",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_079307db_calme",
-      "track_display_name": "グランドパーキング永火垣-ChikuwaVehicleSystem2-",
-      "world_name": "グランドパーキング永火垣-ChikuwaVehicleSystem2-",
-      "world_url": "https://vrchat.com/home/world/wrld_079307db-843a-43e5-96db-7643a3bbaaf9",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "line_foreststage",
-      "track_display_name": "三之白LINE ForestStage",
-      "world_name": "三之白LINE ForestStage",
-      "world_url": "https://vrchat.com/home/world/wrld_c60076c4-5c23-45b4-a72d-538f5c7388b0",
-      "system_name": "Unknown",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 2,
-      "record_count": 6,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_6f4d768c_kkclint",
-      "track_display_name": "南千葉サーキット",
-      "world_name": "南千葉サーキット",
-      "world_url": "https://vrchat.com/home/world/wrld_6f4d768c-648c-457e-882f-a387b3559ecc",
-      "system_name": "",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "night_calme",
-      "track_display_name": "双ツ鏡湖外周道~Night~ -ChikuwaVehicleSystem2-",
-      "world_name": "双ツ鏡湖外周道~Night~ -ChikuwaVehicleSystem2-",
-      "world_url": "https://vrchat.com/home/world/wrld_0ac1d9ba-acd1-4800-b3f4-97962badbc26",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "unknown_calme",
-      "track_display_name": "座辰モーターパーク",
-      "world_name": "座辰モーターパーク",
-      "world_url": "https://vrchat.com/home/world/wrld_e3ca7f8a-3203-4bc2-8874-bd59e0a0546d",
-      "system_name": "Unknown",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 1,
-      "record_count": 9,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "sunmoonlake_crimsonfox",
-      "track_display_name": "日月潭外周道 Sun Moon Lake",
-      "world_name": "日月潭外周道 Sun Moon Lake",
-      "world_url": "https://vrchat.com/home/world/wrld_6e465490-9b15-4d2b-b4fe-1ea06e09e55a",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_1c08b4d8_calme",
-      "track_display_name": "烽壇平サーキット-ナイター-ChikuwaVehicleSystem2-",
-      "world_name": "烽壇平サーキット-ナイター-ChikuwaVehicleSystem2-",
-      "world_url": "https://vrchat.com/home/world/wrld_1c08b4d8-ad15-45cf-85d0-48f639a953a8",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "w_5b8ec815_komuhachi",
-      "track_display_name": "筑和グラベルパーク",
-      "world_name": "筑和グラベルパーク",
-      "world_url": "https://vrchat.com/home/world/wrld_5b8ec815-b593-4497-9660-aa7d33c07993",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nabeshirowharf_kkclint",
-      "track_display_name": "鍋城ふ頭コンテナターミナル ~Nabeshiro Wharf~",
-      "world_name": "鍋城ふ頭コンテナターミナル ~Nabeshiro Wharf~",
-      "world_url": "https://vrchat.com/home/world/wrld_5b0c1255-c0e8-4962-ab3e-b10a3336df39",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "unfinishedshutokouexpressway_crimsonfox",
-      "track_display_name": "首都高 UNFINISHED Shutokou Expressway CVS2",
-      "world_name": "首都高 UNFINISHED Shutokou Expressway CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_eeae7044-c5d9-4481-b16b-de179094ef09",
-      "system_name": "CVS",
-      "track_env": "高速公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "cr6rd_3_kkclint",
-      "track_display_name": "［CR6 Rd․3］ちくわスーパーラップ",
-      "world_name": "［CR6 Rd․3］ちくわスーパーラップ",
-      "world_url": "https://vrchat.com/home/world/wrld_a5653f18-7e94-49f1-aa8c-554474c5ac64",
-      "system_name": "",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "dirtshowdownsanfranciscohead2head_jintei",
-      "track_display_name": "［DiRT Showdown］ San Francisco Head2Head",
-      "world_name": "［DiRT Showdown］ San Francisco Head2Head",
-      "world_url": "https://vrchat.com/home/world/wrld_1b842f5f-91fd-498f-8042-80907f22460a",
-      "system_name": "Sacc",
-      "track_env": "拉力",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "gridlongbeach_jintei",
-      "track_display_name": "［GRiD］ Long Beach",
-      "world_name": "［GRiD］ Long Beach",
-      "world_url": "https://vrchat.com/home/world/wrld_fdfcac76-9f0b-4a1b-a65e-cec94608a4ec",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "gridmilan_jintei",
-      "track_display_name": "［GRiD］ Milan",
-      "world_name": "［GRiD］ Milan",
-      "world_url": "https://vrchat.com/home/world/wrld_ea66cc62-0137-46c6-aaf9-2ac6fb49f145",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "gridshibuya_jintei",
-      "track_display_name": "［GRiD］ Shibuya",
-      "world_name": "［GRiD］ Shibuya",
-      "world_url": "https://vrchat.com/home/world/wrld_764a633e-2732-41f9-8bd6-89143083988d",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "usuiarcadestagecircuitver_1_jintei",
-      "track_display_name": "［Initial D］ Usui （Arcade Stage Circuit Ver․ 1）",
-      "world_name": "［Initial D］ Usui （Arcade Stage Circuit Ver․ 1）",
-      "world_url": "https://vrchat.com/home/world/wrld_da3ab600-6c79-46c4-9f3b-0f05e21a1a91",
-      "system_name": "Sacc",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nfsmwdowntownrockport_crimsonfox",
-      "track_display_name": "［NFSMW］ Downtown Rockport CVS2",
-      "world_name": "［NFSMW］ Downtown Rockport CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_b9d76321-bf24-469b-805e-134fe6dab71a",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nfsu2bayviewspeedway_jintei",
-      "track_display_name": "［NFSU2］ Bayview Speedway",
-      "world_name": "［NFSU2］ Bayview Speedway",
-      "world_url": "https://vrchat.com/home/world/wrld_a5064362-ce75-447f-8c58-311be88feab1",
-      "system_name": "Sacc",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "nfstokyodockyard_jintei",
-      "track_display_name": "［NFS］ Tokyo Dockyard",
-      "world_name": "［NFS］ Tokyo Dockyard",
-      "world_url": "https://vrchat.com/home/world/wrld_8801bbcb-5a7f-4064-ac6a-77bb6c30bec1",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "sbxneoc1_jintei",
-      "track_display_name": "［SBX］ Neo C1",
-      "world_name": "［SBX］ Neo C1",
-      "world_url": "https://vrchat.com/home/world/wrld_1dc5a6ba-2f42-4bb4-aeaf-7424696024cb",
-      "system_name": "Sacc",
-      "track_env": "公路",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    }
-  ],
+  "unlocated": [],
   "warnings": [],
   "category_style": {
     "colors": {
-      "奧地利Austria|Unknown": "hsl(0, 45%, 62%)",
-      "德國Germany|CVS": "hsl(33, 78%, 62%)",
-      "德國Germany|Unknown": "hsl(33, 45%, 62%)",
-      "摩納哥Monaco|CVS": "hsl(65, 78%, 62%)",
-      "日本Japan|CVS": "hsl(98, 78%, 62%)",
-      "日本Japan|Sacc": "hsl(98, 28%, 64%)",
-      "日本Japan|Unknown": "hsl(98, 45%, 62%)",
-      "未知Unknown|Sacc": "hsl(131, 28%, 64%)",
-      "美國USA|CVS": "hsl(164, 78%, 62%)",
-      "美國USA|Unknown": "hsl(164, 45%, 62%)",
-      "義大利Italy|Unknown": "hsl(196, 45%, 62%)",
-      "臺灣Taiwan|CVS": "hsl(229, 78%, 62%)",
-      "臺灣Taiwan|Sacc": "hsl(229, 28%, 64%)",
-      "臺灣Taiwan|Unknown": "hsl(229, 45%, 62%)",
-      "芬蘭Finland|Unknown": "hsl(262, 45%, 62%)",
-      "英國UK|CVS": "hsl(295, 78%, 62%)",
-      "英國UK|Unknown": "hsl(295, 45%, 62%)",
-      "虛構Fictional|CVS": "hsl(327, 78%, 62%)",
-      "虛構Fictional|Unknown": "hsl(327, 45%, 62%)"
+      "印尼Indonesia|Sacc": "hsl(0, 28%, 64%)",
+      "奧地利Austria|CVS": "hsl(26, 78%, 62%)",
+      "奧地利Austria|Unknown": "hsl(26, 45%, 62%)",
+      "德國Germany|CVS": "hsl(51, 78%, 62%)",
+      "德國Germany|Sacc": "hsl(51, 28%, 64%)",
+      "德國Germany|Unknown": "hsl(51, 45%, 62%)",
+      "摩納哥Monaco|CVS": "hsl(77, 78%, 62%)",
+      "摩納哥Monaco|Sacc": "hsl(77, 28%, 64%)",
+      "日本Japan|CVS": "hsl(103, 78%, 62%)",
+      "日本Japan|Sacc": "hsl(103, 28%, 64%)",
+      "日本Japan|Unknown": "hsl(103, 45%, 62%)",
+      "未知Unknown|CVS": "hsl(129, 78%, 62%)",
+      "未知Unknown|Sacc": "hsl(129, 28%, 64%)",
+      "未知Unknown|Unknown": "hsl(129, 45%, 62%)",
+      "比利時Belgium|Sacc": "hsl(154, 28%, 64%)",
+      "法國France|Chikuwa Vehicle System": "hsl(180, 45%, 62%)",
+      "法國France|Sacc": "hsl(180, 28%, 64%)",
+      "美國USA|CVS": "hsl(206, 78%, 62%)",
+      "美國USA|Sacc": "hsl(206, 28%, 64%)",
+      "美國USA|Unknown": "hsl(206, 45%, 62%)",
+      "義大利Italy|Sacc": "hsl(231, 28%, 64%)",
+      "義大利Italy|Unknown": "hsl(231, 45%, 62%)",
+      "臺灣Taiwan|CVS": "hsl(257, 78%, 62%)",
+      "臺灣Taiwan|Sacc": "hsl(257, 28%, 64%)",
+      "臺灣Taiwan|Unknown": "hsl(257, 45%, 62%)",
+      "芬蘭Finland|Unknown": "hsl(283, 45%, 62%)",
+      "英國UK|CVS": "hsl(309, 78%, 62%)",
+      "英國UK|Sacc": "hsl(309, 28%, 64%)",
+      "英國UK|Unknown": "hsl(309, 45%, 62%)",
+      "虛構Fictional|CVS": "hsl(334, 78%, 62%)",
+      "虛構Fictional|Sacc": "hsl(334, 28%, 64%)",
+      "虛構Fictional|Unknown": "hsl(334, 45%, 62%)"
     },
     "neutral": "hsl(150, 6%, 52%)",
     "legend": [
       {
+        "key": "印尼Indonesia|Sacc",
+        "color": "hsl(0, 28%, 64%)",
+        "country": "印尼Indonesia",
+        "system": "Sacc",
+        "label_zh": "印尼·Sacc",
+        "label_en": "Indonesia·Sacc"
+      },
+      {
+        "key": "奧地利Austria|CVS",
+        "color": "hsl(26, 78%, 62%)",
+        "country": "奧地利Austria",
+        "system": "CVS",
+        "label_zh": "奧地利·CVS",
+        "label_en": "Austria·CVS"
+      },
+      {
         "key": "奧地利Austria|Unknown",
-        "color": "hsl(0, 45%, 62%)",
+        "color": "hsl(26, 45%, 62%)",
         "country": "奧地利Austria",
         "system": "Unknown",
         "label_zh": "奧地利·Unknown",
@@ -4441,15 +4921,23 @@
       },
       {
         "key": "德國Germany|CVS",
-        "color": "hsl(33, 78%, 62%)",
+        "color": "hsl(51, 78%, 62%)",
         "country": "德國Germany",
         "system": "CVS",
         "label_zh": "德國·CVS",
         "label_en": "Germany·CVS"
       },
       {
+        "key": "德國Germany|Sacc",
+        "color": "hsl(51, 28%, 64%)",
+        "country": "德國Germany",
+        "system": "Sacc",
+        "label_zh": "德國·Sacc",
+        "label_en": "Germany·Sacc"
+      },
+      {
         "key": "德國Germany|Unknown",
-        "color": "hsl(33, 45%, 62%)",
+        "color": "hsl(51, 45%, 62%)",
         "country": "德國Germany",
         "system": "Unknown",
         "label_zh": "德國·Unknown",
@@ -4457,15 +4945,23 @@
       },
       {
         "key": "摩納哥Monaco|CVS",
-        "color": "hsl(65, 78%, 62%)",
+        "color": "hsl(77, 78%, 62%)",
         "country": "摩納哥Monaco",
         "system": "CVS",
         "label_zh": "摩納哥·CVS",
         "label_en": "Monaco·CVS"
       },
       {
+        "key": "摩納哥Monaco|Sacc",
+        "color": "hsl(77, 28%, 64%)",
+        "country": "摩納哥Monaco",
+        "system": "Sacc",
+        "label_zh": "摩納哥·Sacc",
+        "label_en": "Monaco·Sacc"
+      },
+      {
         "key": "日本Japan|CVS",
-        "color": "hsl(98, 78%, 62%)",
+        "color": "hsl(103, 78%, 62%)",
         "country": "日本Japan",
         "system": "CVS",
         "label_zh": "日本·CVS",
@@ -4473,7 +4969,7 @@
       },
       {
         "key": "日本Japan|Sacc",
-        "color": "hsl(98, 28%, 64%)",
+        "color": "hsl(103, 28%, 64%)",
         "country": "日本Japan",
         "system": "Sacc",
         "label_zh": "日本·Sacc",
@@ -4481,39 +4977,95 @@
       },
       {
         "key": "日本Japan|Unknown",
-        "color": "hsl(98, 45%, 62%)",
+        "color": "hsl(103, 45%, 62%)",
         "country": "日本Japan",
         "system": "Unknown",
         "label_zh": "日本·Unknown",
         "label_en": "Japan·Unknown"
       },
       {
+        "key": "未知Unknown|CVS",
+        "color": "hsl(129, 78%, 62%)",
+        "country": "未知Unknown",
+        "system": "CVS",
+        "label_zh": "未知·CVS",
+        "label_en": "Unknown·CVS"
+      },
+      {
         "key": "未知Unknown|Sacc",
-        "color": "hsl(131, 28%, 64%)",
+        "color": "hsl(129, 28%, 64%)",
         "country": "未知Unknown",
         "system": "Sacc",
         "label_zh": "未知·Sacc",
         "label_en": "Unknown·Sacc"
       },
       {
+        "key": "未知Unknown|Unknown",
+        "color": "hsl(129, 45%, 62%)",
+        "country": "未知Unknown",
+        "system": "Unknown",
+        "label_zh": "未知·Unknown",
+        "label_en": "Unknown·Unknown"
+      },
+      {
+        "key": "比利時Belgium|Sacc",
+        "color": "hsl(154, 28%, 64%)",
+        "country": "比利時Belgium",
+        "system": "Sacc",
+        "label_zh": "比利時·Sacc",
+        "label_en": "Belgium·Sacc"
+      },
+      {
+        "key": "法國France|Chikuwa Vehicle System",
+        "color": "hsl(180, 45%, 62%)",
+        "country": "法國France",
+        "system": "Chikuwa Vehicle System",
+        "label_zh": "法國·Chikuwa Vehicle System",
+        "label_en": "France·Chikuwa Vehicle System"
+      },
+      {
+        "key": "法國France|Sacc",
+        "color": "hsl(180, 28%, 64%)",
+        "country": "法國France",
+        "system": "Sacc",
+        "label_zh": "法國·Sacc",
+        "label_en": "France·Sacc"
+      },
+      {
         "key": "美國USA|CVS",
-        "color": "hsl(164, 78%, 62%)",
+        "color": "hsl(206, 78%, 62%)",
         "country": "美國USA",
         "system": "CVS",
         "label_zh": "美國·CVS",
         "label_en": "USA·CVS"
       },
       {
+        "key": "美國USA|Sacc",
+        "color": "hsl(206, 28%, 64%)",
+        "country": "美國USA",
+        "system": "Sacc",
+        "label_zh": "美國·Sacc",
+        "label_en": "USA·Sacc"
+      },
+      {
         "key": "美國USA|Unknown",
-        "color": "hsl(164, 45%, 62%)",
+        "color": "hsl(206, 45%, 62%)",
         "country": "美國USA",
         "system": "Unknown",
         "label_zh": "美國·Unknown",
         "label_en": "USA·Unknown"
       },
       {
+        "key": "義大利Italy|Sacc",
+        "color": "hsl(231, 28%, 64%)",
+        "country": "義大利Italy",
+        "system": "Sacc",
+        "label_zh": "義大利·Sacc",
+        "label_en": "Italy·Sacc"
+      },
+      {
         "key": "義大利Italy|Unknown",
-        "color": "hsl(196, 45%, 62%)",
+        "color": "hsl(231, 45%, 62%)",
         "country": "義大利Italy",
         "system": "Unknown",
         "label_zh": "義大利·Unknown",
@@ -4521,7 +5073,7 @@
       },
       {
         "key": "臺灣Taiwan|CVS",
-        "color": "hsl(229, 78%, 62%)",
+        "color": "hsl(257, 78%, 62%)",
         "country": "臺灣Taiwan",
         "system": "CVS",
         "label_zh": "臺灣·CVS",
@@ -4529,7 +5081,7 @@
       },
       {
         "key": "臺灣Taiwan|Sacc",
-        "color": "hsl(229, 28%, 64%)",
+        "color": "hsl(257, 28%, 64%)",
         "country": "臺灣Taiwan",
         "system": "Sacc",
         "label_zh": "臺灣·Sacc",
@@ -4537,7 +5089,7 @@
       },
       {
         "key": "臺灣Taiwan|Unknown",
-        "color": "hsl(229, 45%, 62%)",
+        "color": "hsl(257, 45%, 62%)",
         "country": "臺灣Taiwan",
         "system": "Unknown",
         "label_zh": "臺灣·Unknown",
@@ -4545,7 +5097,7 @@
       },
       {
         "key": "芬蘭Finland|Unknown",
-        "color": "hsl(262, 45%, 62%)",
+        "color": "hsl(283, 45%, 62%)",
         "country": "芬蘭Finland",
         "system": "Unknown",
         "label_zh": "芬蘭·Unknown",
@@ -4553,15 +5105,23 @@
       },
       {
         "key": "英國UK|CVS",
-        "color": "hsl(295, 78%, 62%)",
+        "color": "hsl(309, 78%, 62%)",
         "country": "英國UK",
         "system": "CVS",
         "label_zh": "英國·CVS",
         "label_en": "UK·CVS"
       },
       {
+        "key": "英國UK|Sacc",
+        "color": "hsl(309, 28%, 64%)",
+        "country": "英國UK",
+        "system": "Sacc",
+        "label_zh": "英國·Sacc",
+        "label_en": "UK·Sacc"
+      },
+      {
         "key": "英國UK|Unknown",
-        "color": "hsl(295, 45%, 62%)",
+        "color": "hsl(309, 45%, 62%)",
         "country": "英國UK",
         "system": "Unknown",
         "label_zh": "英國·Unknown",
@@ -4569,15 +5129,23 @@
       },
       {
         "key": "虛構Fictional|CVS",
-        "color": "hsl(327, 78%, 62%)",
+        "color": "hsl(334, 78%, 62%)",
         "country": "虛構Fictional",
         "system": "CVS",
         "label_zh": "虛構·CVS",
         "label_en": "Fictional·CVS"
       },
       {
+        "key": "虛構Fictional|Sacc",
+        "color": "hsl(334, 28%, 64%)",
+        "country": "虛構Fictional",
+        "system": "Sacc",
+        "label_zh": "虛構·Sacc",
+        "label_en": "Fictional·Sacc"
+      },
+      {
         "key": "虛構Fictional|Unknown",
-        "color": "hsl(327, 45%, 62%)",
+        "color": "hsl(334, 45%, 62%)",
         "country": "虛構Fictional",
         "system": "Unknown",
         "label_zh": "虛構·Unknown",
