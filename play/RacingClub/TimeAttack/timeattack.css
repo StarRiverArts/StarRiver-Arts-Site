@@ -2724,6 +2724,13 @@ body.timeattack-page {
   z-index: 1;
 }
 
+/* Light basemaps (the key-less OSM raster) inverted to sit on the dark page.
+   Only the tile pane is filtered, so markers, traces and popups keep their own
+   colours. Set by addBasemap() in TrackMap/trackmap-view.js. */
+#ta-map.ta-map-darken-tiles .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.72) contrast(1.05) saturate(0.35);
+}
+
 .ta-trace-path {
   fill: none !important;
   vector-effect: non-scaling-stroke;

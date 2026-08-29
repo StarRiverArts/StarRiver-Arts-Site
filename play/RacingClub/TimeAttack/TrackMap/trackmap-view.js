@@ -22,6 +22,80 @@
     return `<span class="zh">${z}</span><span class="en">${e}</span>`;
   };
 
+  /* Basemap sources, most-preferred first.
+   *
+   * CARTO started serving key-less basemap tiles with an "API KEY REQUIRED"
+   * watermark baked into the image (verified 2026-08-29: the watermark comes
+   * back on a plain curl with no Referer, and the response is still HTTP 200 —
+   * so it cannot be detected client-side and cannot be fixed by a header).
+   * The default is therefore the key-less OSM raster, darkened in CSS to match
+   * the page; set `window.TA_BASEMAP_KEYS = { carto: "<key>" }` before this
+   * script to put CARTO's dark_all style back in front.
+   *
+   * `darken` marks a light basemap that needs the CSS filter. `needsKey` skips
+   * a source until its key is supplied. Sources after the first are fallbacks
+   * for hard tile failures (network/DNS), not for the watermark case.
+   */
+  const BASEMAP_SOURCES = [
+    {
+      id: "carto-dark",
+      needsKey: "carto",
+      url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key={apiKey}",
+      options: {
+        subdomains: "abcd",
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      },
+    },
+    {
+      id: "osm-dark",
+      darken: true,
+      url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      options: {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      },
+    },
+    {
+      id: "esri-dark",
+      url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      options: {
+        maxZoom: 16,
+        attribution:
+          'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      },
+    },
+  ];
+  const BASEMAP_FAILURE_LIMIT = 6;
+
+  const addBasemap = (map) => {
+    const keys = window.TA_BASEMAP_KEYS || {};
+    const usable = BASEMAP_SOURCES.filter((src) => !src.needsKey || keys[src.needsKey]);
+    const node = map.getContainer();
+    let layer = null;
+
+    const attach = (index) => {
+      const src = usable[index];
+      if (!src) return;
+      node.classList.toggle("ta-map-darken-tiles", Boolean(src.darken));
+      const url = src.needsKey
+        ? src.url.replace("{apiKey}", encodeURIComponent(keys[src.needsKey]))
+        : src.url;
+      let failures = 0;
+      layer = L.tileLayer(url, src.options).addTo(map);
+      layer.on("tileerror", () => {
+        failures += 1;
+        if (failures !== BASEMAP_FAILURE_LIMIT || index + 1 >= usable.length) return;
+        map.removeLayer(layer);
+        attach(index + 1);
+      });
+    };
+
+    attach(0);
+  };
+
   const TRACE_STYLE = { color: "#EFD95B", weight: 4, opacity: 0.96, lineCap: "round", lineJoin: "round" };
   const TRACE_HALO_STYLE = { color: "#fff", weight: 10, opacity: 0.26, lineCap: "round", lineJoin: "round" };
   const TRACE_CONNECTOR_COLOR = "hsl(158, 18%, 80%)";
@@ -356,12 +430,7 @@
     const tracePane = map.createPane("taTracePane");
     tracePane.style.zIndex = "450";
     tracePane.style.pointerEvents = "none";
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-      subdomains: "abcd",
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    }).addTo(map);
+    addBasemap(map);
 
     // 共用色彩(色相=國家、彩度=系統),色碼由 builder 算好,與首頁同色。
     const style = data.category_style || { colors: {}, neutral: "#7a857e" };
