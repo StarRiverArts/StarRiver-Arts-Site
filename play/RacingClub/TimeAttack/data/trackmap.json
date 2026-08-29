@@ -17,7 +17,7 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "111",
+      "value": "109",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "123",
+      "value": "118",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -59,22 +59,7 @@
               "name_zh": "日月潭",
               "name_en": "Sun Moon Lake",
               "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "unfinishedprojecttsunmoonlake_crimsonfox",
-                  "track_display_name": "UNFINISHED Project T SunMoonLake 日月潭 南投山道",
-                  "world_name": "UNFINISHED Project T SunMoonLake 日月潭 南投山道",
-                  "world_url": "https://vrchat.com/home/world/wrld_1b189721-fa5d-4c64-a24b-9a2c5b89b3b5",
-                  "system_name": "",
-                  "track_env": "山道",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
+              "tracks": [],
               "lat": 23.852328,
               "lng": 120.928607,
               "point_source": "place"
@@ -157,20 +142,6 @@
               "has_point": true,
               "tracks": [
                 {
-                  "track_world_code": "projectt9turnstaiwantougesacc_starrivera",
-                  "track_display_name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
-                  "world_name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
-                  "world_url": "https://vrchat.com/home/world/wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35",
-                  "system_name": "",
-                  "track_env": "山道",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                },
-                {
                   "track_world_code": "pt_9t_starriver_arts",
                   "track_display_name": "九彎十八拐CVS",
                   "world_name": "PT:9T",
@@ -186,6 +157,20 @@
                   "trace_lat": 24.858635,
                   "trace_lng": 121.795063,
                   "trace_file": "geo/pt_9t_starriver_arts.geojson"
+                },
+                {
+                  "track_world_code": "projectt9turnstaiwantougesacc_starrivera",
+                  "track_display_name": "九彎十八拐Sacc",
+                  "world_name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
+                  "world_url": "https://vrchat.com/home/world/wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
                 }
               ],
               "lat": 24.886,
@@ -218,20 +203,6 @@
               "name_en": "Wuling",
               "has_point": true,
               "tracks": [
-                {
-                  "track_world_code": "unfinishedprojecttwuling_starrivera",
-                  "track_display_name": "UNFINISHED Project T WuLing 武嶺（佐久間峠） 合歡山山道",
-                  "world_name": "UNFINISHED Project T WuLing 武嶺（佐久間峠） 合歡山山道",
-                  "world_url": "https://vrchat.com/home/world/wrld_5fb84156-598a-43c8-8a2b-2c9aa7c95b40",
-                  "system_name": "",
-                  "track_env": "山道",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                },
                 {
                   "track_world_code": "wuling_silversummit",
                   "track_display_name": "武嶺/銀嶺",
@@ -393,7 +364,7 @@
                   "track_env": "山道",
                   "difficulty": "",
                   "route_count": 1,
-                  "record_count": 21,
+                  "record_count": 22,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -760,7 +731,7 @@
                   "track_world_code": "nagoya_jintei",
                   "track_display_name": "Nagoya",
                   "world_name": "Nagoya",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_f4fd6115-3505-4e33-bc3f-7e07af947973",
                   "system_name": "Sacc",
                   "track_env": "高速公路",
                   "difficulty": "中等",
@@ -840,7 +811,7 @@
                   "track_world_code": "tokyo_metropolitan_expressway",
                   "track_display_name": "［MaxiTune］ Tokyo Metropolitan",
                   "world_name": "Tokyo Metropolitan Expressway",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_7a923825-6d87-4f7d-a1ce-e5d7a42ad3b9",
                   "system_name": "Unknown",
                   "track_env": "高速公路",
                   "difficulty": "",
@@ -905,7 +876,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 3,
+                  "record_count": 4,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1506,7 +1477,7 @@
                   "track_env": "山道",
                   "difficulty": "簡單",
                   "route_count": 2,
-                  "record_count": 12,
+                  "record_count": 13,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -1884,9 +1855,9 @@
               "tracks": [
                 {
                   "track_world_code": "ryuoukouzan_calme",
-                  "track_display_name": "龍溝山",
+                  "track_display_name": "龍鉤山",
                   "world_name": "Ryuoukouzan",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
                   "system_name": "CVS",
                   "track_env": "山道",
                   "difficulty": "困難",
@@ -1966,7 +1937,7 @@
                   "track_world_code": "spelberg_circuit_ff_challenge",
                   "track_display_name": "SPELBERG Circuit FF Challenge",
                   "world_name": "SPELBERG Circuit FF Challenge",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
                   "system_name": "Unknown",
                   "track_env": "賽道",
                   "difficulty": "",
@@ -2019,7 +1990,7 @@
                   "track_world_code": "nordschleife",
                   "track_display_name": "紐柏林北環",
                   "world_name": "Nordschleife",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_9c61fe62-c0f7-474e-ace8-40e2f04a13c9",
                   "system_name": "Unknown",
                   "track_env": "山道",
                   "difficulty": "",
@@ -2058,7 +2029,7 @@
                   "track_world_code": "monaco_aiden1408",
                   "track_display_name": "摩納哥",
                   "world_name": "Monaco",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_4529b8ee-4e38-44d0-afd8-8fdf109bdae6",
                   "system_name": "CVS",
                   "track_env": "賽道",
                   "difficulty": "困難",
@@ -2135,7 +2106,7 @@
                   "track_world_code": "santa_monica_mountains",
                   "track_display_name": "Santa Monica Mountains",
                   "world_name": "Santa Monica Mountains",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_52d02569-84b5-487e-b3e6-b1a808a4de06",
                   "system_name": "Unknown",
                   "track_env": "山道",
                   "difficulty": "",
@@ -2221,8 +2192,8 @@
                   "system_name": "Unknown",
                   "track_env": "山道",
                   "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
+                  "route_count": 2,
+                  "record_count": 8,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -2549,7 +2520,7 @@
                   "track_world_code": "silverstone_afeminineguy",
                   "track_display_name": "Silverstone",
                   "world_name": "Silverstone",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_32c9d71f-30ab-4ae9-9be0-14f74e3850b2",
                   "system_name": "Unknown",
                   "track_env": "賽道",
                   "difficulty": "",
@@ -2722,7 +2693,7 @@
                   "track_world_code": "deep_forest_raceway_cvs2",
                   "track_display_name": "Deep Forest Raceway CVS2",
                   "world_name": "Deep Forest Raceway CVS2",
-                  "world_url": "",
+                  "world_url": "https://vrchat.com/home/world/wrld_1930bc7e-08b4-40bf-bc0b-a72c77a12457",
                   "system_name": "Unknown",
                   "track_env": "山道",
                   "difficulty": "",
@@ -2856,12 +2827,12 @@
       "track_world_code": "circuit_de_la_sarthe_aiden1408",
       "track_display_name": "Circuit de la Sarthe",
       "world_name": "Circuit de la Sarthe",
-      "world_url": "",
+      "world_url": "https://vrchat.com/home/world/wrld_85bee910-b321-43ac-bc47-4e0c93e39c9b",
       "system_name": "Chikuwa Vehicle System",
       "track_env": "",
       "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
+      "route_count": 1,
+      "record_count": 1,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -3497,20 +3468,6 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "nagoyaspeedring_jintei",
-      "track_display_name": "Nagoya Speed Ring",
-      "world_name": "Nagoya Speed Ring",
-      "world_url": "https://vrchat.com/home/world/wrld_f4fd6115-3505-4e33-bc3f-7e07af947973",
-      "system_name": "Sacc",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
       "track_world_code": "nashvillesuperspeedway_nascvr",
       "track_display_name": "Nashville Superspeedway",
       "world_name": "Nashville Superspeedway",
@@ -3686,8 +3643,8 @@
       "system_name": "Sacc",
       "track_env": "",
       "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
+      "route_count": 1,
+      "record_count": 1,
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
@@ -3839,20 +3796,6 @@
       "world_url": "https://vrchat.com/home/world/wrld_631e9b04-2705-4dda-89ae-d12a820beccd",
       "system_name": "CVS",
       "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "santamonicamountains_mulhollandhig_crimsonfox",
-      "track_display_name": "Santa Monica Mountains⁄Mulholland Highway CVS2",
-      "world_name": "Santa Monica Mountains⁄Mulholland Highway CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_52d02569-84b5-487e-b3e6-b1a808a4de06",
-      "system_name": "CVS",
-      "track_env": "高速公路",
       "difficulty": "",
       "route_count": 0,
       "record_count": 0,
@@ -4323,20 +4266,6 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "w_08802cde_calme",
-      "track_display_name": "龍鉤山-ChikuwaVehicleSystem2-",
-      "world_name": "龍鉤山-ChikuwaVehicleSystem2-",
-      "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
-      "system_name": "CVS",
-      "track_env": "",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
       "track_world_code": "cr6rd_3_kkclint",
       "track_display_name": "［CR6 Rd․3］ちくわスーパーラップ",
       "world_name": "［CR6 Rd․3］ちくわスーパーラップ",
@@ -4407,40 +4336,12 @@
       "poster_ext": null
     },
     {
-      "track_world_code": "gtdeepforestraceway_crimsonfox",
-      "track_display_name": "［GT］ Deep Forest Raceway CVS2",
-      "world_name": "［GT］ Deep Forest Raceway CVS2",
-      "world_url": "https://vrchat.com/home/world/wrld_1930bc7e-08b4-40bf-bc0b-a72c77a12457",
-      "system_name": "CVS",
-      "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
       "track_world_code": "usuiarcadestagecircuitver_1_jintei",
       "track_display_name": "［Initial D］ Usui （Arcade Stage Circuit Ver․ 1）",
       "world_name": "［Initial D］ Usui （Arcade Stage Circuit Ver․ 1）",
       "world_url": "https://vrchat.com/home/world/wrld_da3ab600-6c79-46c4-9f3b-0f05e21a1a91",
       "system_name": "Sacc",
       "track_env": "賽道",
-      "difficulty": "",
-      "route_count": 0,
-      "record_count": 0,
-      "has_trace": false,
-      "has_poster": false,
-      "poster_ext": null
-    },
-    {
-      "track_world_code": "maxitunetokyometropolitanexpresswa_jintei",
-      "track_display_name": "［MaxiTune］ Tokyo Metropolitan Expressway",
-      "world_name": "［MaxiTune］ Tokyo Metropolitan Expressway",
-      "world_url": "https://vrchat.com/home/world/wrld_7a923825-6d87-4f7d-a1ce-e5d7a42ad3b9",
-      "system_name": "Sacc",
-      "track_env": "高速公路",
       "difficulty": "",
       "route_count": 0,
       "record_count": 0,
@@ -4520,6 +4421,7 @@
       "美國USA|Unknown": "hsl(164, 45%, 62%)",
       "義大利Italy|Unknown": "hsl(196, 45%, 62%)",
       "臺灣Taiwan|CVS": "hsl(229, 78%, 62%)",
+      "臺灣Taiwan|Sacc": "hsl(229, 28%, 64%)",
       "臺灣Taiwan|Unknown": "hsl(229, 45%, 62%)",
       "芬蘭Finland|Unknown": "hsl(262, 45%, 62%)",
       "英國UK|CVS": "hsl(295, 78%, 62%)",
@@ -4624,6 +4526,14 @@
         "system": "CVS",
         "label_zh": "臺灣·CVS",
         "label_en": "Taiwan·CVS"
+      },
+      {
+        "key": "臺灣Taiwan|Sacc",
+        "color": "hsl(229, 28%, 64%)",
+        "country": "臺灣Taiwan",
+        "system": "Sacc",
+        "label_zh": "臺灣·Sacc",
+        "label_en": "Taiwan·Sacc"
       },
       {
         "key": "臺灣Taiwan|Unknown",

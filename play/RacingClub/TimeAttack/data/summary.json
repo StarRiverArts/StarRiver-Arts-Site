@@ -4,7 +4,7 @@
       "label_zh": "最多賽道紀錄",
       "label_en": "Most Track Records",
       "name": "CannedCarbon",
-      "value": "74 TR"
+      "value": "76 TR"
     },
     {
       "label_zh": "最多車輛紀錄",
@@ -26,6 +26,27 @@
     }
   ],
   "recent_runs": [
+    {
+      "record_date": "2026-08-29",
+      "track_world_code": "harunag",
+      "route_code": "DH",
+      "route_label_zh": "臻名山 / Downhill",
+      "route_label_en": "HarunaG / Downhill",
+      "player_display_name": "CannedCarbon",
+      "player_id": "plr_cannedcarbon",
+      "vehicle_model_name": "R32(BNR32)",
+      "vehicle_model_code": "veh_bnr32",
+      "vehicle_variant_name": "BNR32 LightTuned",
+      "vehicle_variant_code": "veh_bnr32_lighttuned",
+      "lap_time_text": "04:39.946",
+      "platform": "pc",
+      "verified": false,
+      "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543107821195759739",
+      "badge_code": "CR",
+      "badge_label_zh": "車輛紀錄",
+      "badge_label_en": "Car Record",
+      "badge_tone": "cr"
+    },
     {
       "record_date": "2026-08-28",
       "track_world_code": "nagao_jintei",
@@ -172,27 +193,6 @@
       "badge_label_zh": "車輛紀錄",
       "badge_label_en": "Car Record",
       "badge_tone": "cr"
-    },
-    {
-      "record_date": "2026-08-28",
-      "track_world_code": "harunag",
-      "route_code": "DH",
-      "route_label_zh": "臻名山 / Downhill",
-      "route_label_en": "HarunaG / Downhill",
-      "player_display_name": "Yang路人",
-      "player_id": "plr_yang",
-      "vehicle_model_name": "FD3S (RX7)",
-      "vehicle_model_code": "veh_fd3s_rx7",
-      "vehicle_variant_name": "FD3S Normal",
-      "vehicle_variant_code": "veh_fd3s_normal",
-      "lap_time_text": "05:02.322",
-      "platform": "pcvr",
-      "verified": false,
-      "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1540950304068079639",
-      "badge_code": "",
-      "badge_label_zh": "",
-      "badge_label_en": "",
-      "badge_tone": ""
     }
   ],
   "track_options": [
@@ -211,6 +211,10 @@
     {
       "code": "charlotte_nascvr",
       "name": "Charlotte"
+    },
+    {
+      "code": "circuit_de_la_sarthe_aiden1408",
+      "name": "Circuit de la Sarthe"
     },
     {
       "code": "deep_forest_raceway_cvs2",
@@ -281,6 +285,10 @@
       "name": "Osaka Hanshin"
     },
     {
+      "code": "ragingice_cliffsideblizzard_jintei",
+      "name": "Raging Ice˸ Cliffside Blizzard"
+    },
+    {
       "code": "rally_snowland",
       "name": "Rally Snowland"
     },
@@ -307,6 +315,10 @@
     {
       "code": "summit_jintei",
       "name": "Summit"
+    },
+    {
+      "code": "tail_of_the_dragon",
+      "name": "Tail Of The Dragon"
     },
     {
       "code": "tsuchisaka_snow_jintei",
@@ -534,7 +546,7 @@
     },
     {
       "code": "ryuoukouzan_calme",
-      "name": "龍溝山"
+      "name": "龍鉤山"
     },
     {
       "code": "tokyo_metropolitan_expressway",
@@ -633,7 +645,7 @@
       },
       {
         "code": "ryuoukouzan_calme",
-        "name": "龍溝山",
+        "name": "龍鉤山",
         "count": 49,
         "country": "日本Japan",
         "system": "CVS",
@@ -664,20 +676,20 @@
         "category_key": "英國UK|CVS"
       },
       {
+        "code": "urarokkou",
+        "name": "UraRokko",
+        "count": 22,
+        "country": "日本Japan",
+        "system": "Unknown",
+        "category_key": "日本Japan|Unknown"
+      },
+      {
         "code": "akagi_jintei",
         "name": "赤城",
         "count": 21,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
-      },
-      {
-        "code": "urarokkou",
-        "name": "UraRokko",
-        "count": 21,
-        "country": "日本Japan",
-        "system": "Unknown",
-        "category_key": "日本Japan|Unknown"
       },
       {
         "code": "nagao_foxbg",
@@ -714,7 +726,7 @@
       {
         "code": "usui_v2_jintei",
         "name": "碓冰V2",
-        "count": 12,
+        "count": 13,
         "country": "日本Japan",
         "system": "Sacc",
         "category_key": "日本Japan|Sacc"
@@ -790,6 +802,14 @@
         "country": "",
         "system": "Unknown",
         "category_key": "|Unknown"
+      },
+      {
+        "code": "tail_of_the_dragon",
+        "name": "Tail Of The Dragon",
+        "count": 8,
+        "country": "美國USA",
+        "system": "Unknown",
+        "category_key": "美國USA|Unknown"
       },
       {
         "code": "h_nanamagari_jintei",
@@ -976,6 +996,14 @@
         "category_key": "美國USA|CVS"
       },
       {
+        "code": "happogahara_jintei",
+        "name": "八方原",
+        "count": 4,
+        "country": "日本Japan",
+        "system": "Sacc",
+        "category_key": "日本Japan|Sacc"
+      },
+      {
         "code": "usuidaa_k_a_u_b_e_r_u",
         "name": "碓冰DAA",
         "count": 4,
@@ -990,14 +1018,6 @@
         "country": "",
         "system": "Unknown",
         "category_key": "|Unknown"
-      },
-      {
-        "code": "happogahara_jintei",
-        "name": "八方原",
-        "count": 3,
-        "country": "日本Japan",
-        "system": "Sacc",
-        "category_key": "日本Japan|Sacc"
       },
       {
         "code": "suzuka",
@@ -1230,6 +1250,22 @@
         "country": "",
         "system": "Unknown",
         "category_key": "|Unknown"
+      },
+      {
+        "code": "circuit_de_la_sarthe_aiden1408",
+        "name": "Circuit de la Sarthe",
+        "count": 1,
+        "country": "",
+        "system": "Chikuwa Vehicle System",
+        "category_key": "|Chikuwa Vehicle System"
+      },
+      {
+        "code": "ragingice_cliffsideblizzard_jintei",
+        "name": "Raging Ice˸ Cliffside Blizzard",
+        "count": 1,
+        "country": "",
+        "system": "Sacc",
+        "category_key": "|Sacc"
       }
     ]
   },
@@ -1247,6 +1283,7 @@
       "美國USA|Unknown": "hsl(164, 45%, 62%)",
       "義大利Italy|Unknown": "hsl(196, 45%, 62%)",
       "臺灣Taiwan|CVS": "hsl(229, 78%, 62%)",
+      "臺灣Taiwan|Sacc": "hsl(229, 28%, 64%)",
       "臺灣Taiwan|Unknown": "hsl(229, 45%, 62%)",
       "芬蘭Finland|Unknown": "hsl(262, 45%, 62%)",
       "英國UK|CVS": "hsl(295, 78%, 62%)",
@@ -1353,6 +1390,14 @@
         "label_en": "Taiwan·CVS"
       },
       {
+        "key": "臺灣Taiwan|Sacc",
+        "color": "hsl(229, 28%, 64%)",
+        "country": "臺灣Taiwan",
+        "system": "Sacc",
+        "label_zh": "臺灣·Sacc",
+        "label_en": "Taiwan·Sacc"
+      },
+      {
         "key": "臺灣Taiwan|Unknown",
         "color": "hsl(229, 45%, 62%)",
         "country": "臺灣Taiwan",
@@ -1421,14 +1466,14 @@
     {
       "label_zh": "總輸入筆數",
       "label_en": "All Runs",
-      "value": "1358",
+      "value": "1371",
       "note_zh": "輸入表中所有紀錄列",
       "note_en": "All imported rows from the input sheet"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "1358",
+      "value": "1371",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -1442,21 +1487,21 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "1340",
+      "value": "1353",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
     {
       "label_zh": "賽道世界",
       "label_en": "Track Worlds",
-      "value": "234",
+      "value": "227",
       "note_zh": "以世界為準的賽道識別",
       "note_en": "World-level track identities"
     },
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "222",
+      "value": "225",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

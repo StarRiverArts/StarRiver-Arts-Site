@@ -255,6 +255,10 @@
       </li>`;
   };
 
+  const renderLocalityTracks = (tracks, base) => (tracks.length
+    ? tracks.map((track) => renderTrackRow(track, base)).join("")
+    : `<li class="ta-tm-track ta-tm-empty-track">${bi("目前沒有收錄賽道", "No listed tracks")}</li>`);
+
   const renderLocality = (loc, locIndex, base) => `
     <details class="ta-tm-loc" data-loc-index="${locIndex}">
       <summary>
@@ -264,7 +268,7 @@
           ? `<button class="ta-tm-btn ta-tm-btn-focus" type="button" data-loc-focus="${locIndex}">${bi("地圖", "Map")}</button>`
           : `<span class="ta-tm-nopoint">${bi("無座標", "No point")}</span>`}
       </summary>
-      <ul class="ta-tm-tracks">${loc.tracks.map((t) => renderTrackRow(t, base)).join("")}</ul>
+      <ul class="ta-tm-tracks">${renderLocalityTracks(loc.tracks, base)}</ul>
     </details>`;
 
   const renderTree = (data, base, locRefs) => {
@@ -483,7 +487,7 @@
         <div class="ta-tm-popup">
           <h3>${bi(loc.name_zh, loc.name_en)}</h3>
           <p class="ta-tm-popup-path">${esc(country.name_zh)} ${region.name ? "› " + esc(region.name_zh) : ""}${loc.point_source === "trace" ? " ·" + " trace-derived" : ""}</p>
-          <ul class="ta-tm-tracks">${loc.tracks.map((t) => renderTrackRow(t, base)).join("")}</ul>
+          <ul class="ta-tm-tracks">${renderLocalityTracks(loc.tracks, base)}</ul>
         </div>`;
       const marker = L.marker([loc.lat, loc.lng], { icon })
         .bindPopup(popupHtml, { maxWidth: 320, className: "ta-tm-leaflet-popup" });
