@@ -17,7 +17,7 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "225",
+      "value": "224",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "0",
+      "value": "1",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -202,7 +202,7 @@
                   "track_world_code": "pt_ych_starriver_arts",
                   "track_display_name": "玉長公路",
                   "world_name": "Yuli-Changbin",
-                  "world_url": "https://vrchat.com/home/world/wrld_3b184bcb-26cb-4d7a-bbfa-091fbfbb093a",
+                  "world_url": "",
                   "system_name": "CVS",
                   "track_env": "山道",
                   "difficulty": "中等",
@@ -245,25 +245,7 @@
               "name_zh": "武嶺",
               "name_en": "Wuling",
               "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "pt_wuling_starriver_arts",
-                  "track_display_name": "武嶺/銀嶺",
-                  "world_name": "Wuling/SilverSummit",
-                  "world_url": "https://vrchat.com/home/world/wrld_cbaca63c-b105-4e72-98ff-a5ef96f0ee28",
-                  "system_name": "Unknown",
-                  "track_env": "山道",
-                  "difficulty": "困難",
-                  "route_count": 1,
-                  "record_count": 1,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 24.1219585,
-                  "trace_lng": 121.2727393,
-                  "trace_file": "geo/pt_wuling_starriver_arts.geojson"
-                }
-              ],
+              "tracks": [],
               "lat": 24.137317,
               "lng": 121.275606,
               "point_source": "place"
@@ -4887,8 +4869,28 @@
       ]
     }
   ],
-  "unlocated": [],
-  "warnings": [],
+  "unlocated": [
+    {
+      "track_world_code": "pt_wuling_starriver_arts",
+      "track_display_name": "武嶺(銀嶺)",
+      "world_name": "Wuling(SilverSummit)",
+      "world_url": "",
+      "system_name": "Unknown",
+      "track_env": "山道",
+      "difficulty": "困難",
+      "route_count": 1,
+      "record_count": 1,
+      "has_trace": true,
+      "has_poster": false,
+      "poster_ext": null,
+      "trace_lat": 24.1219585,
+      "trace_lng": 121.2727393,
+      "trace_file": "geo/pt_wuling_starriver_arts.geojson"
+    }
+  ],
+  "warnings": [
+    "pt_wuling_starriver_arts 的國家/地名只填了一半,先列入未定位"
+  ],
   "category_style": {
     "colors": {
       "印尼Indonesia|Sacc": "hsl(0, 28%, 64%)",
