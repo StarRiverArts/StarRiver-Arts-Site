@@ -17,7 +17,7 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "224",
+      "value": "225",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
@@ -38,286 +38,12 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "1",
+      "value": "0",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
   ],
   "countries": [
-    {
-      "name": "臺灣Taiwan",
-      "name_zh": "臺灣",
-      "name_en": "Taiwan",
-      "regions": [
-        {
-          "name": "南投Nantou",
-          "name_zh": "南投",
-          "name_en": "Nantou",
-          "localities": [
-            {
-              "name": "日月潭Sun Moon Lake",
-              "name_zh": "日月潭",
-              "name_en": "Sun Moon Lake",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "sunmoonlake_crimsonfox",
-                  "track_display_name": "日月潭外周道 Sun Moon Lake",
-                  "world_name": "日月潭外周道 Sun Moon Lake",
-                  "world_url": "https://vrchat.com/home/world/wrld_6e465490-9b15-4d2b-b4fe-1ea06e09e55a",
-                  "system_name": "",
-                  "track_env": "",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 23.852328,
-              "lng": 120.928607,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "嘉義市Chiayi City",
-          "name_zh": "嘉義市",
-          "name_en": "Chiayi City",
-          "localities": [
-            {
-              "name": "蘭潭Lantan",
-              "name_zh": "蘭潭",
-              "name_en": "Lantan",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "lantan",
-                  "track_display_name": "蘭潭",
-                  "world_name": "Lantan",
-                  "world_url": "",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 23.46544,
-              "lng": 120.4802,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "彰化Changhua",
-          "name_zh": "彰化",
-          "name_en": "Changhua",
-          "localities": [
-            {
-              "name": "鹿港・車輛研究測試中心Lukang · ARTC",
-              "name_zh": "鹿港・車輛研究測試中心",
-              "name_en": "Lukang · ARTC",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "artc",
-                  "track_display_name": "ARTC 車輛測試場",
-                  "world_name": "ARTC Vehicle Test Facility",
-                  "world_url": "",
-                  "system_name": "CVS",
-                  "track_env": "測試場",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 24.060361,
-              "lng": 120.385444,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "東部East",
-          "name_zh": "東部",
-          "name_en": "East",
-          "localities": [
-            {
-              "name": "宜蘭Yilan",
-              "name_zh": "宜蘭",
-              "name_en": "Yilan",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "pt_9t_starriver_arts",
-                  "track_display_name": "九彎十八拐CVS",
-                  "world_name": "PT:9T",
-                  "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "困難",
-                  "route_count": 1,
-                  "record_count": 11,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 24.858635,
-                  "trace_lng": 121.795063,
-                  "trace_file": "geo/pt_9t_starriver_arts.geojson"
-                },
-                {
-                  "track_world_code": "projectt9turnstaiwantougesacc_starrivera",
-                  "track_display_name": "九彎十八拐Sacc",
-                  "world_name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
-                  "world_url": "https://vrchat.com/home/world/wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35",
-                  "system_name": "Sacc",
-                  "track_env": "山道",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 24.886,
-              "lng": 121.714,
-              "point_source": "place"
-            },
-            {
-              "name": "玉里–長濱Yuli–Changbin",
-              "name_zh": "玉里–長濱",
-              "name_en": "Yuli–Changbin",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "pt_ych_starriver_arts",
-                  "track_display_name": "玉長公路",
-                  "world_name": "Yuli-Changbin",
-                  "world_url": "",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "中等",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": true,
-                  "has_poster": false,
-                  "poster_ext": null,
-                  "trace_lat": 23.264033,
-                  "trace_lng": 121.386162,
-                  "trace_file": "geo/pt_ych_starriver_arts.geojson"
-                }
-              ],
-              "lat": 23.264033,
-              "lng": 121.386162,
-              "point_source": "trace"
-            }
-          ],
-          "has_overlay": true,
-          "overlay_file": "geo/regions/taiwan__east.geojson",
-          "overlay_source": "manual",
-          "overlay_bounds": [
-            [
-              24.15559,
-              121.309989
-            ],
-            [
-              24.86769,
-              121.799032
-            ]
-          ]
-        },
-        {
-          "name": "臺中・花蓮Taichung–Hualien",
-          "name_zh": "臺中・花蓮",
-          "name_en": "Taichung–Hualien",
-          "localities": [
-            {
-              "name": "武嶺Wuling",
-              "name_zh": "武嶺",
-              "name_en": "Wuling",
-              "has_point": true,
-              "tracks": [],
-              "lat": 24.137317,
-              "lng": 121.275606,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "苗栗Miaoli",
-          "name_zh": "苗栗",
-          "name_en": "Miaoli",
-          "localities": [
-            {
-              "name": "勝興・龍騰Shengxing–Longteng",
-              "name_zh": "勝興・龍騰",
-              "name_en": "Shengxing–Longteng",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "old_mountain_line",
-                  "track_display_name": "舊山線",
-                  "world_name": "Old Mountain Line",
-                  "world_url": "",
-                  "system_name": "CVS",
-                  "track_env": "山區",
-                  "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 24.38823,
-              "lng": 120.7821,
-              "point_source": "place"
-            }
-          ]
-        },
-        {
-          "name": "虛構Fictional",
-          "name_zh": "虛構",
-          "name_en": "Fictional",
-          "localities": [
-            {
-              "name": "俱樂部主場Club",
-              "name_zh": "俱樂部主場",
-              "name_en": "Club",
-              "has_point": true,
-              "tracks": [
-                {
-                  "track_world_code": "starsight_starriver_arts",
-                  "track_display_name": "觀星山",
-                  "world_name": "StarSight",
-                  "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-                  "system_name": "CVS",
-                  "track_env": "山道",
-                  "difficulty": "簡單",
-                  "route_count": 1,
-                  "record_count": 91,
-                  "has_trace": false,
-                  "has_poster": false,
-                  "poster_ext": null
-                }
-              ],
-              "lat": 23.55,
-              "lng": 119.3,
-              "point_source": "place"
-            }
-          ]
-        }
-      ]
-    },
     {
       "name": "日本Japan",
       "name_zh": "日本",
@@ -2373,6 +2099,298 @@
               ],
               "lat": -6.21861,
               "lng": 106.80255,
+              "point_source": "place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "台灣",
+      "name_zh": "台灣",
+      "name_en": "台灣",
+      "regions": [
+        {
+          "name": "南投縣",
+          "name_zh": "南投縣",
+          "name_en": "南投縣",
+          "localities": [
+            {
+              "name": "日月潭",
+              "name_zh": "日月潭",
+              "name_en": "日月潭",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "sunmoonlake_crimsonfox",
+                  "track_display_name": "日月潭外周道 Sun Moon Lake",
+                  "world_name": "日月潭外周道 Sun Moon Lake",
+                  "world_url": "https://vrchat.com/home/world/wrld_6e465490-9b15-4d2b-b4fe-1ea06e09e55a",
+                  "system_name": "",
+                  "track_env": "",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 23.852328,
+              "lng": 120.928607,
+              "point_source": "place"
+            },
+            {
+              "name": "武嶺",
+              "name_zh": "武嶺",
+              "name_en": "武嶺",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "pt_wuling_starriver_arts",
+                  "track_display_name": "武嶺(銀嶺)",
+                  "world_name": "Wuling(SilverSummit)",
+                  "world_url": "",
+                  "system_name": "Unknown",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 1,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 24.1219585,
+                  "trace_lng": 121.2727393,
+                  "trace_file": "geo/pt_wuling_starriver_arts.geojson"
+                }
+              ],
+              "lat": 24.137317,
+              "lng": 121.275606,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "嘉義市",
+          "name_zh": "嘉義市",
+          "name_en": "嘉義市",
+          "localities": [
+            {
+              "name": "蘭潭",
+              "name_zh": "蘭潭",
+              "name_en": "蘭潭",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "lantan",
+                  "track_display_name": "蘭潭",
+                  "world_name": "Lantan",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 23.46544,
+              "lng": 120.4802,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "宜蘭縣",
+          "name_zh": "宜蘭縣",
+          "name_en": "宜蘭縣",
+          "localities": [
+            {
+              "name": "九彎十八拐（北宜公路）",
+              "name_zh": "九彎十八拐（北宜公路）",
+              "name_en": "九彎十八拐（北宜公路）",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "pt_9t_starriver_arts",
+                  "track_display_name": "九彎十八拐CVS",
+                  "world_name": "PT:9T",
+                  "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "困難",
+                  "route_count": 1,
+                  "record_count": 11,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 24.858635,
+                  "trace_lng": 121.795063,
+                  "trace_file": "geo/pt_9t_starriver_arts.geojson"
+                },
+                {
+                  "track_world_code": "projectt9turnstaiwantougesacc_starrivera",
+                  "track_display_name": "九彎十八拐Sacc",
+                  "world_name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
+                  "world_url": "https://vrchat.com/home/world/wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35",
+                  "system_name": "Sacc",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.886,
+              "lng": 121.714,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "彰化縣",
+          "name_zh": "彰化縣",
+          "name_en": "彰化縣",
+          "localities": [
+            {
+              "name": "鹿港・ARTC 車輛研究測試中心",
+              "name_zh": "鹿港・",
+              "name_en": "ARTC 車輛研究測試中心",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "artc",
+                  "track_display_name": "ARTC 車輛測試場",
+                  "world_name": "ARTC Vehicle Test Facility",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "測試場",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.060361,
+              "lng": 120.385444,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "花蓮縣・臺東縣",
+          "name_zh": "花蓮縣・臺東縣",
+          "name_en": "花蓮縣・臺東縣",
+          "localities": [
+            {
+              "name": "玉長公路（玉里－長濱）",
+              "name_zh": "玉長公路（玉里－長濱）",
+              "name_en": "玉長公路（玉里－長濱）",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "pt_ych_starriver_arts",
+                  "track_display_name": "玉長公路",
+                  "world_name": "Yuli-Changbin",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "中等",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": true,
+                  "has_poster": false,
+                  "poster_ext": null,
+                  "trace_lat": 23.264033,
+                  "trace_lng": 121.386162,
+                  "trace_file": "geo/pt_ych_starriver_arts.geojson"
+                }
+              ],
+              "lat": 23.264033,
+              "lng": 121.386162,
+              "point_source": "trace"
+            }
+          ],
+          "has_overlay": true,
+          "overlay_file": "geo/regions/re2e4525e58__r1930bdf27e.geojson",
+          "overlay_source": "manual",
+          "overlay_bounds": [
+            [
+              24.15559,
+              121.309989
+            ],
+            [
+              24.86769,
+              121.799032
+            ]
+          ]
+        },
+        {
+          "name": "苗栗縣",
+          "name_zh": "苗栗縣",
+          "name_en": "苗栗縣",
+          "localities": [
+            {
+              "name": "舊山線（勝興－龍騰）",
+              "name_zh": "舊山線（勝興－龍騰）",
+              "name_en": "舊山線（勝興－龍騰）",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "old_mountain_line",
+                  "track_display_name": "舊山線",
+                  "world_name": "Old Mountain Line",
+                  "world_url": "",
+                  "system_name": "CVS",
+                  "track_env": "山區",
+                  "difficulty": "",
+                  "route_count": 0,
+                  "record_count": 0,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 24.38823,
+              "lng": 120.7821,
+              "point_source": "place"
+            }
+          ]
+        },
+        {
+          "name": "虛構",
+          "name_zh": "虛構",
+          "name_en": "虛構",
+          "localities": [
+            {
+              "name": "虛構",
+              "name_zh": "虛構",
+              "name_en": "虛構",
+              "has_point": true,
+              "tracks": [
+                {
+                  "track_world_code": "starsight_starriver_arts",
+                  "track_display_name": "觀星山",
+                  "world_name": "StarSight",
+                  "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "簡單",
+                  "route_count": 1,
+                  "record_count": 91,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                }
+              ],
+              "lat": 23.55,
+              "lng": 119.3,
               "point_source": "place"
             }
           ]
@@ -4869,55 +4887,35 @@
       ]
     }
   ],
-  "unlocated": [
-    {
-      "track_world_code": "pt_wuling_starriver_arts",
-      "track_display_name": "武嶺(銀嶺)",
-      "world_name": "Wuling(SilverSummit)",
-      "world_url": "",
-      "system_name": "Unknown",
-      "track_env": "山道",
-      "difficulty": "困難",
-      "route_count": 1,
-      "record_count": 1,
-      "has_trace": true,
-      "has_poster": false,
-      "poster_ext": null,
-      "trace_lat": 24.1219585,
-      "trace_lng": 121.2727393,
-      "trace_file": "geo/pt_wuling_starriver_arts.geojson"
-    }
-  ],
-  "warnings": [
-    "pt_wuling_starriver_arts 的國家/地名只填了一半,先列入未定位"
-  ],
+  "unlocated": [],
+  "warnings": [],
   "category_style": {
     "colors": {
       "印尼Indonesia|Sacc": "hsl(0, 28%, 64%)",
-      "奧地利Austria|CVS": "hsl(26, 78%, 62%)",
-      "奧地利Austria|Unknown": "hsl(26, 45%, 62%)",
-      "德國Germany|CVS": "hsl(51, 78%, 62%)",
-      "德國Germany|Sacc": "hsl(51, 28%, 64%)",
-      "德國Germany|Unknown": "hsl(51, 45%, 62%)",
-      "摩納哥Monaco|CVS": "hsl(77, 78%, 62%)",
-      "摩納哥Monaco|Sacc": "hsl(77, 28%, 64%)",
-      "日本Japan|CVS": "hsl(103, 78%, 62%)",
-      "日本Japan|Sacc": "hsl(103, 28%, 64%)",
-      "日本Japan|Unknown": "hsl(103, 45%, 62%)",
-      "未知Unknown|CVS": "hsl(129, 78%, 62%)",
-      "未知Unknown|Sacc": "hsl(129, 28%, 64%)",
-      "未知Unknown|Unknown": "hsl(129, 45%, 62%)",
-      "比利時Belgium|Sacc": "hsl(154, 28%, 64%)",
-      "法國France|Chikuwa Vehicle System": "hsl(180, 45%, 62%)",
-      "法國France|Sacc": "hsl(180, 28%, 64%)",
-      "美國USA|CVS": "hsl(206, 78%, 62%)",
-      "美國USA|Sacc": "hsl(206, 28%, 64%)",
-      "美國USA|Unknown": "hsl(206, 45%, 62%)",
-      "義大利Italy|Sacc": "hsl(231, 28%, 64%)",
-      "義大利Italy|Unknown": "hsl(231, 45%, 62%)",
-      "臺灣Taiwan|CVS": "hsl(257, 78%, 62%)",
-      "臺灣Taiwan|Sacc": "hsl(257, 28%, 64%)",
-      "臺灣Taiwan|Unknown": "hsl(257, 45%, 62%)",
+      "台灣|CVS": "hsl(26, 78%, 62%)",
+      "台灣|Sacc": "hsl(26, 28%, 64%)",
+      "台灣|Unknown": "hsl(26, 45%, 62%)",
+      "奧地利Austria|CVS": "hsl(51, 78%, 62%)",
+      "奧地利Austria|Unknown": "hsl(51, 45%, 62%)",
+      "德國Germany|CVS": "hsl(77, 78%, 62%)",
+      "德國Germany|Sacc": "hsl(77, 28%, 64%)",
+      "德國Germany|Unknown": "hsl(77, 45%, 62%)",
+      "摩納哥Monaco|CVS": "hsl(103, 78%, 62%)",
+      "摩納哥Monaco|Sacc": "hsl(103, 28%, 64%)",
+      "日本Japan|CVS": "hsl(129, 78%, 62%)",
+      "日本Japan|Sacc": "hsl(129, 28%, 64%)",
+      "日本Japan|Unknown": "hsl(129, 45%, 62%)",
+      "未知Unknown|CVS": "hsl(154, 78%, 62%)",
+      "未知Unknown|Sacc": "hsl(154, 28%, 64%)",
+      "未知Unknown|Unknown": "hsl(154, 45%, 62%)",
+      "比利時Belgium|Sacc": "hsl(180, 28%, 64%)",
+      "法國France|Chikuwa Vehicle System": "hsl(206, 45%, 62%)",
+      "法國France|Sacc": "hsl(206, 28%, 64%)",
+      "美國USA|CVS": "hsl(231, 78%, 62%)",
+      "美國USA|Sacc": "hsl(231, 28%, 64%)",
+      "美國USA|Unknown": "hsl(231, 45%, 62%)",
+      "義大利Italy|Sacc": "hsl(257, 28%, 64%)",
+      "義大利Italy|Unknown": "hsl(257, 45%, 62%)",
       "芬蘭Finland|Unknown": "hsl(283, 45%, 62%)",
       "英國UK|CVS": "hsl(309, 78%, 62%)",
       "英國UK|Sacc": "hsl(309, 28%, 64%)",
@@ -4937,8 +4935,32 @@
         "label_en": "Indonesia·Sacc"
       },
       {
-        "key": "奧地利Austria|CVS",
+        "key": "台灣|CVS",
         "color": "hsl(26, 78%, 62%)",
+        "country": "台灣",
+        "system": "CVS",
+        "label_zh": "台灣·CVS",
+        "label_en": "台灣·CVS"
+      },
+      {
+        "key": "台灣|Sacc",
+        "color": "hsl(26, 28%, 64%)",
+        "country": "台灣",
+        "system": "Sacc",
+        "label_zh": "台灣·Sacc",
+        "label_en": "台灣·Sacc"
+      },
+      {
+        "key": "台灣|Unknown",
+        "color": "hsl(26, 45%, 62%)",
+        "country": "台灣",
+        "system": "Unknown",
+        "label_zh": "台灣·Unknown",
+        "label_en": "台灣·Unknown"
+      },
+      {
+        "key": "奧地利Austria|CVS",
+        "color": "hsl(51, 78%, 62%)",
         "country": "奧地利Austria",
         "system": "CVS",
         "label_zh": "奧地利·CVS",
@@ -4946,7 +4968,7 @@
       },
       {
         "key": "奧地利Austria|Unknown",
-        "color": "hsl(26, 45%, 62%)",
+        "color": "hsl(51, 45%, 62%)",
         "country": "奧地利Austria",
         "system": "Unknown",
         "label_zh": "奧地利·Unknown",
@@ -4954,7 +4976,7 @@
       },
       {
         "key": "德國Germany|CVS",
-        "color": "hsl(51, 78%, 62%)",
+        "color": "hsl(77, 78%, 62%)",
         "country": "德國Germany",
         "system": "CVS",
         "label_zh": "德國·CVS",
@@ -4962,7 +4984,7 @@
       },
       {
         "key": "德國Germany|Sacc",
-        "color": "hsl(51, 28%, 64%)",
+        "color": "hsl(77, 28%, 64%)",
         "country": "德國Germany",
         "system": "Sacc",
         "label_zh": "德國·Sacc",
@@ -4970,7 +4992,7 @@
       },
       {
         "key": "德國Germany|Unknown",
-        "color": "hsl(51, 45%, 62%)",
+        "color": "hsl(77, 45%, 62%)",
         "country": "德國Germany",
         "system": "Unknown",
         "label_zh": "德國·Unknown",
@@ -4978,7 +5000,7 @@
       },
       {
         "key": "摩納哥Monaco|CVS",
-        "color": "hsl(77, 78%, 62%)",
+        "color": "hsl(103, 78%, 62%)",
         "country": "摩納哥Monaco",
         "system": "CVS",
         "label_zh": "摩納哥·CVS",
@@ -4986,7 +5008,7 @@
       },
       {
         "key": "摩納哥Monaco|Sacc",
-        "color": "hsl(77, 28%, 64%)",
+        "color": "hsl(103, 28%, 64%)",
         "country": "摩納哥Monaco",
         "system": "Sacc",
         "label_zh": "摩納哥·Sacc",
@@ -4994,7 +5016,7 @@
       },
       {
         "key": "日本Japan|CVS",
-        "color": "hsl(103, 78%, 62%)",
+        "color": "hsl(129, 78%, 62%)",
         "country": "日本Japan",
         "system": "CVS",
         "label_zh": "日本·CVS",
@@ -5002,7 +5024,7 @@
       },
       {
         "key": "日本Japan|Sacc",
-        "color": "hsl(103, 28%, 64%)",
+        "color": "hsl(129, 28%, 64%)",
         "country": "日本Japan",
         "system": "Sacc",
         "label_zh": "日本·Sacc",
@@ -5010,7 +5032,7 @@
       },
       {
         "key": "日本Japan|Unknown",
-        "color": "hsl(103, 45%, 62%)",
+        "color": "hsl(129, 45%, 62%)",
         "country": "日本Japan",
         "system": "Unknown",
         "label_zh": "日本·Unknown",
@@ -5018,7 +5040,7 @@
       },
       {
         "key": "未知Unknown|CVS",
-        "color": "hsl(129, 78%, 62%)",
+        "color": "hsl(154, 78%, 62%)",
         "country": "未知Unknown",
         "system": "CVS",
         "label_zh": "未知·CVS",
@@ -5026,7 +5048,7 @@
       },
       {
         "key": "未知Unknown|Sacc",
-        "color": "hsl(129, 28%, 64%)",
+        "color": "hsl(154, 28%, 64%)",
         "country": "未知Unknown",
         "system": "Sacc",
         "label_zh": "未知·Sacc",
@@ -5034,7 +5056,7 @@
       },
       {
         "key": "未知Unknown|Unknown",
-        "color": "hsl(129, 45%, 62%)",
+        "color": "hsl(154, 45%, 62%)",
         "country": "未知Unknown",
         "system": "Unknown",
         "label_zh": "未知·Unknown",
@@ -5042,7 +5064,7 @@
       },
       {
         "key": "比利時Belgium|Sacc",
-        "color": "hsl(154, 28%, 64%)",
+        "color": "hsl(180, 28%, 64%)",
         "country": "比利時Belgium",
         "system": "Sacc",
         "label_zh": "比利時·Sacc",
@@ -5050,7 +5072,7 @@
       },
       {
         "key": "法國France|Chikuwa Vehicle System",
-        "color": "hsl(180, 45%, 62%)",
+        "color": "hsl(206, 45%, 62%)",
         "country": "法國France",
         "system": "Chikuwa Vehicle System",
         "label_zh": "法國·Chikuwa Vehicle System",
@@ -5058,7 +5080,7 @@
       },
       {
         "key": "法國France|Sacc",
-        "color": "hsl(180, 28%, 64%)",
+        "color": "hsl(206, 28%, 64%)",
         "country": "法國France",
         "system": "Sacc",
         "label_zh": "法國·Sacc",
@@ -5066,7 +5088,7 @@
       },
       {
         "key": "美國USA|CVS",
-        "color": "hsl(206, 78%, 62%)",
+        "color": "hsl(231, 78%, 62%)",
         "country": "美國USA",
         "system": "CVS",
         "label_zh": "美國·CVS",
@@ -5074,7 +5096,7 @@
       },
       {
         "key": "美國USA|Sacc",
-        "color": "hsl(206, 28%, 64%)",
+        "color": "hsl(231, 28%, 64%)",
         "country": "美國USA",
         "system": "Sacc",
         "label_zh": "美國·Sacc",
@@ -5082,7 +5104,7 @@
       },
       {
         "key": "美國USA|Unknown",
-        "color": "hsl(206, 45%, 62%)",
+        "color": "hsl(231, 45%, 62%)",
         "country": "美國USA",
         "system": "Unknown",
         "label_zh": "美國·Unknown",
@@ -5090,7 +5112,7 @@
       },
       {
         "key": "義大利Italy|Sacc",
-        "color": "hsl(231, 28%, 64%)",
+        "color": "hsl(257, 28%, 64%)",
         "country": "義大利Italy",
         "system": "Sacc",
         "label_zh": "義大利·Sacc",
@@ -5098,35 +5120,11 @@
       },
       {
         "key": "義大利Italy|Unknown",
-        "color": "hsl(231, 45%, 62%)",
+        "color": "hsl(257, 45%, 62%)",
         "country": "義大利Italy",
         "system": "Unknown",
         "label_zh": "義大利·Unknown",
         "label_en": "Italy·Unknown"
-      },
-      {
-        "key": "臺灣Taiwan|CVS",
-        "color": "hsl(257, 78%, 62%)",
-        "country": "臺灣Taiwan",
-        "system": "CVS",
-        "label_zh": "臺灣·CVS",
-        "label_en": "Taiwan·CVS"
-      },
-      {
-        "key": "臺灣Taiwan|Sacc",
-        "color": "hsl(257, 28%, 64%)",
-        "country": "臺灣Taiwan",
-        "system": "Sacc",
-        "label_zh": "臺灣·Sacc",
-        "label_en": "Taiwan·Sacc"
-      },
-      {
-        "key": "臺灣Taiwan|Unknown",
-        "color": "hsl(257, 45%, 62%)",
-        "country": "臺灣Taiwan",
-        "system": "Unknown",
-        "label_zh": "臺灣·Unknown",
-        "label_en": "Taiwan·Unknown"
       },
       {
         "key": "芬蘭Finland|Unknown",
