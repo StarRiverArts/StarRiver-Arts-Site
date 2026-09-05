@@ -17,7 +17,7 @@
     {
       "label_zh": "玩家數",
       "label_en": "Players",
-      "value": "100",
+      "value": "102",
       "note_zh": "有至少一筆有效紀錄的玩家",
       "note_en": "Players with at least one valid run"
     },
@@ -31,14 +31,14 @@
     {
       "label_zh": "TR 數量",
       "label_en": "Track Records",
-      "value": "147",
+      "value": "149",
       "note_zh": "一般有效池內已確立的賽道路線最快數",
       "note_en": "Route-level fastest runs established in the valid pool"
     },
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "503",
+      "value": "507",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -53,10 +53,10 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 145,
-        "distinct_tracks": 75,
+        "distinct_vehicle_models": 147,
+        "distinct_tracks": 76,
         "max_route_attempts": 52,
-        "tr_count": 86,
+        "tr_count": 88,
         "cr_count": 12
       },
       "subtitle_zh": "未分隊車手",
@@ -74,7 +74,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "382"
+          "value": "389"
         },
         {
           "label_zh": "已驗證",
@@ -84,7 +84,7 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "86"
+          "value": "88"
         },
         {
           "label_zh": "車種最佳",
@@ -93,7 +93,7 @@
         }
       ],
       "badge_counts": {
-        "TR": 86,
+        "TR": 88,
         "CR": 12,
         "PR": 13
       },
@@ -144,7 +144,7 @@
         },
         {
           "label": "技術",
-          "value": 164
+          "value": 166
         },
         {
           "label": "上下山",
@@ -863,28 +863,28 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_1422",
+          "record_id": "rec_1543",
           "rank": 27,
           "route_label_zh": "omote_rokko / Downhill",
           "route_label_en": "omote_rokko / Downhill",
           "player_display_name": "CannedCarbon",
           "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "AP1 (S2000)",
-          "vehicle_model_code": "veh_ap1_s2000",
-          "vehicle_variant_name": "AP1 GRP",
-          "vehicle_variant_code": "veh_ap1_grp",
-          "lap_time_ms": 140827,
-          "lap_time_text": "02:20.827",
-          "delta_to_best_text": "+8.261",
+          "vehicle_model_name": "EVOVI/CP9A",
+          "vehicle_model_code": "veh_evovi_cp9a",
+          "vehicle_variant_name": "CP9A RS LightTuned",
+          "vehicle_variant_code": "veh_cp9a_rs_lighttuned",
+          "lap_time_ms": 140347,
+          "lap_time_text": "02:20.347",
+          "delta_to_best_text": "+7.781",
           "platform": "pc",
-          "record_date": "2026-08-22",
+          "record_date": "2026-09-05",
           "track_env": "其他",
           "track_tags": [
             "技術"
           ],
-          "peer_label": "AP1 (S2000)",
+          "peer_label": "EVOVI/CP9A",
           "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1540595217869053994",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1545607312365060156",
           "badge_code": "CR",
           "badge_label_zh": "車輛紀錄",
           "badge_label_en": "Car Record",
@@ -1004,8 +1004,34 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_0982",
+          "record_id": "rec_1548",
           "rank": 32,
+          "route_label_zh": "三之白LINE ForestStage / SS Type",
+          "route_label_en": "三之白LINE ForestStage / SS Type",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Storatos",
+          "vehicle_model_code": "veh_storatos",
+          "vehicle_variant_name": "Storatos",
+          "vehicle_variant_code": "veh_storatos",
+          "lap_time_ms": 157533,
+          "lap_time_text": "02:37.533",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "拉力",
+          "track_tags": [],
+          "peer_label": "Storatos",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1545768382819995678",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_0982",
+          "rank": 33,
           "route_label_zh": "箱根山(蘆之湖skyline) / Outbound",
           "route_label_en": "Mt.Hakone / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1033,7 +1059,7 @@
         },
         {
           "record_id": "rec_0981",
-          "rank": 33,
+          "rank": 34,
           "route_label_zh": "箱根山(蘆之湖skyline) / Inbound",
           "route_label_en": "Mt.Hakone / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1061,7 +1087,7 @@
         },
         {
           "record_id": "rec_1063",
-          "rank": 34,
+          "rank": 35,
           "route_label_zh": "群馬單車中心 / Outbound",
           "route_label_en": "Gunsai / Outbound",
           "player_display_name": "CannedCarbon",
@@ -1083,32 +1109,6 @@
           "peer_label": "Ridox Supra",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1477",
-          "rank": 35,
-          "route_label_zh": "三之白LINE ForestStage / SS Type",
-          "route_label_en": "三之白LINE ForestStage / SS Type",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "YasuriRG",
-          "vehicle_model_code": "veh_yasurirg",
-          "vehicle_variant_name": "YasuriRG",
-          "vehicle_variant_code": "veh_yasurirg",
-          "lap_time_ms": 161187,
-          "lap_time_text": "02:41.187",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-08-30",
-          "track_env": "拉力",
-          "track_tags": [],
-          "peer_label": "YasuriRG",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543291067850432702",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3243,8 +3243,60 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_0955",
+          "record_id": "rec_1549",
           "rank": 111,
+          "route_label_zh": "玉長公路 / Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 399693,
+          "lap_time_text": "06:39.693",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EK Miracle",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ob",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1553",
+          "rank": 112,
+          "route_label_zh": "玉長公路 / Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 410653,
+          "lap_time_text": "06:50.653",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EK Miracle",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ib",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_0955",
+          "rank": 113,
           "route_label_zh": "Rally Snowland / LC",
           "route_label_en": "Rally Snowland / LC",
           "player_display_name": "CannedCarbon",
@@ -3644,7 +3696,7 @@
         {
           "route_key": "omote_rokkou_ron:DH",
           "route_label": "omote_rokko / Downhill",
-          "run_count": 24,
+          "run_count": 26,
           "runs": [
             {
               "date": "2026-05-26",
@@ -3813,6 +3865,20 @@
               "lap_time_text": "02:20.827",
               "vehicle": "AP1 (S2000)",
               "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 140347,
+              "lap_time_text": "02:20.347",
+              "vehicle": "EVOVI/CP9A",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 144707,
+              "lap_time_text": "02:24.707",
+              "vehicle": "EG6 (Civic)",
+              "is_pb": false
             }
           ]
         },
@@ -4664,6 +4730,62 @@
           ]
         },
         {
+          "route_key": "line_foreststage:SS Type",
+          "route_label": "三之白LINE ForestStage / SS Type",
+          "run_count": 7,
+          "runs": [
+            {
+              "date": "2026-08-12",
+              "lap_time_ms": 166521,
+              "lap_time_text": "02:46.521",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-27",
+              "lap_time_ms": 161213,
+              "lap_time_text": "02:41.213",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-28",
+              "lap_time_ms": 161213,
+              "lap_time_text": "02:41.213",
+              "vehicle": "Storatos",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-30",
+              "lap_time_ms": 161187,
+              "lap_time_text": "02:41.187",
+              "vehicle": "YasuriRG",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 158240,
+              "lap_time_text": "02:38.240",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 178040,
+              "lap_time_text": "02:58.040",
+              "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 157533,
+              "lap_time_text": "02:37.533",
+              "vehicle": "Storatos",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "tail_of_the_dragon:FC",
           "route_label": "Tail Of The Dragon / Full Course",
           "run_count": 7,
@@ -5080,41 +5202,6 @@
               "lap_time_text": "05:09.841",
               "vehicle": "EK9 (Civic Type-R)",
               "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "line_foreststage:SS Type",
-          "route_label": "三之白LINE ForestStage / SS Type",
-          "run_count": 4,
-          "runs": [
-            {
-              "date": "2026-08-12",
-              "lap_time_ms": 166521,
-              "lap_time_text": "02:46.521",
-              "vehicle": "Storatos",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-27",
-              "lap_time_ms": 161213,
-              "lap_time_text": "02:41.213",
-              "vehicle": "Storatos",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 161213,
-              "lap_time_text": "02:41.213",
-              "vehicle": "Storatos",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-30",
-              "lap_time_ms": 161187,
-              "lap_time_text": "02:41.187",
-              "vehicle": "YasuriRG",
-              "is_pb": true
             }
           ]
         },
@@ -7356,7 +7443,7 @@
       "manual_achievement_codes": [],
       "achievement_stats": {
         "distinct_vehicle_models": 67,
-        "distinct_tracks": 48,
+        "distinct_tracks": 49,
         "max_route_attempts": 22,
         "tr_count": 9,
         "cr_count": 41
@@ -7376,7 +7463,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "274"
+          "value": "275"
         },
         {
           "label_zh": "已驗證",
@@ -7397,7 +7484,7 @@
       "badge_counts": {
         "TR": 9,
         "CR": 41,
-        "PR": 26
+        "PR": 27
       },
       "tag_chips": [
         {
@@ -9595,8 +9682,34 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_0395",
+          "record_id": "rec_1550",
           "rank": 75,
+          "route_label_zh": "玉長公路 / Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Outbound - to Yuli",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 446967,
+          "lap_time_text": "07:26.967",
+          "delta_to_best_text": "+47.274",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EK Miracle",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ob",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_0395",
+          "rank": 76,
           "route_label_zh": "紐柏林 / Nordschleife",
           "route_label_en": "Nurburgring / Nordschleife",
           "player_display_name": "StarRiver Arts",
@@ -9627,7 +9740,7 @@
         },
         {
           "record_id": "rec_0258",
-          "rank": 76,
+          "rank": 77,
           "route_label_zh": "正丸 / Double Course",
           "route_label_en": "Shomaru / Double Course",
           "player_display_name": "StarRiver Arts",
@@ -18113,7 +18226,7 @@
           "vehicle_variant_code": "veh_storatos",
           "lap_time_ms": 178478,
           "lap_time_text": "02:58.478",
-          "delta_to_best_text": "+17.291",
+          "delta_to_best_text": "+20.945",
           "platform": "pcvr",
           "record_date": "2026-08-12",
           "track_env": "拉力",
@@ -25462,6 +25575,290 @@
       ]
     },
     {
+      "player_id": "plr_0074",
+      "title": "櫻井琦蘿蘿",
+      "team_name": "THDK",
+      "primary_team_id": "team_thdk",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 5,
+        "distinct_tracks": 4,
+        "max_route_attempts": 4,
+        "tr_count": 0,
+        "cr_count": 1
+      },
+      "subtitle_zh": "THDK",
+      "subtitle_en": "THDK",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "櫻井琦蘿蘿",
+        "title_en": "櫻井琦蘿蘿",
+        "subtitle_zh": "THDK",
+        "subtitle_en": "THDK",
+        "tone": 3
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "8"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 4
+      },
+      "tag_chips": [
+        {
+          "label": "THDK",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 R34(BNR34)",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 高速",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "R34(BNR34)",
+          "value": 2
+        },
+        {
+          "label": "GC8 (Impreza)",
+          "value": 2
+        },
+        {
+          "label": "1998 NASCAR",
+          "value": 2
+        },
+        {
+          "label": "Kanjo 6",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "高速",
+          "value": 6
+        },
+        {
+          "label": "髮夾彎",
+          "value": 4
+        },
+        {
+          "label": "技術",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1497",
+          "rank": 1,
+          "route_label_zh": "鈴鹿國際賽車場 / NASCAR '97 (East Circuit)",
+          "route_label_en": "Suzuka2026 / NASCAR '97 (East Circuit)",
+          "player_display_name": "櫻井琦蘿蘿",
+          "player_id": "plr_0074",
+          "vehicle_model_name": "1998 NASCAR",
+          "vehicle_model_code": "veh_1998_nascar",
+          "vehicle_variant_name": "1998 NASCAR",
+          "vehicle_variant_code": "veh_1998_nascar",
+          "lap_time_ms": 51923,
+          "lap_time_text": "00:51.923",
+          "delta_to_best_text": "+2.949",
+          "platform": "pcvr",
+          "record_date": "2026-08-31",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "1998 NASCAR",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543655225062068244",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_1503",
+          "rank": 2,
+          "route_label_zh": "鈴鹿國際賽車場 / Grand Prix Circuit",
+          "route_label_en": "Suzuka2026 / Grand Prix Circuit",
+          "player_display_name": "櫻井琦蘿蘿",
+          "player_id": "plr_0074",
+          "vehicle_model_name": "1998 NASCAR",
+          "vehicle_model_code": "veh_1998_nascar",
+          "vehicle_variant_name": "1998 NASCAR",
+          "vehicle_variant_code": "veh_1998_nascar",
+          "lap_time_ms": 127355,
+          "lap_time_text": "02:07.355",
+          "delta_to_best_text": "+4.835",
+          "platform": "pcvr",
+          "record_date": "2026-08-31",
+          "track_env": "賽道",
+          "track_tags": [
+            "高速"
+          ],
+          "peer_label": "1998 NASCAR",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543655225062068244",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_1545",
+          "rank": 3,
+          "route_label_zh": "omote_rokko / Downhill",
+          "route_label_en": "omote_rokko / Downhill",
+          "player_display_name": "櫻井琦蘿蘿",
+          "player_id": "plr_0074",
+          "vehicle_model_name": "FD3S (RX7)",
+          "vehicle_model_code": "veh_fd3s_rx7",
+          "vehicle_variant_name": "FD3S Super-G",
+          "vehicle_variant_code": "veh_fd3s_super_g",
+          "lap_time_ms": 132855,
+          "lap_time_text": "02:12.855",
+          "delta_to_best_text": "+0.289",
+          "platform": "pcvr",
+          "record_date": "2026-09-05",
+          "track_env": "其他",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "FD3S (RX7)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1545607312365060156",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_1452",
+          "rank": 4,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "櫻井琦蘿蘿",
+          "player_id": "plr_0074",
+          "vehicle_model_name": "R34(BNR34)",
+          "vehicle_model_code": "veh_bnr34",
+          "vehicle_variant_name": "GTR34-Attack",
+          "vehicle_variant_code": "veh_gtr34_attack_2",
+          "lap_time_ms": 197222,
+          "lap_time_text": "03:17.222",
+          "delta_to_best_text": "+62.101",
+          "platform": "pcvr",
+          "record_date": "2026-08-23",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "R34(BNR34)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1541348918082797589",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_1531",
+          "rank": 5,
+          "route_label_zh": "長尾 / Downhill",
+          "route_label_en": "Nagao / Downhill",
+          "player_display_name": "櫻井琦蘿蘿",
+          "player_id": "plr_0074",
+          "vehicle_model_name": "Kanjo 6",
+          "vehicle_model_code": "veh_kanjo_6",
+          "vehicle_variant_name": "Kanjo 6",
+          "vehicle_variant_code": "veh_kanjo_6",
+          "lap_time_ms": 230733,
+          "lap_time_text": "03:50.733",
+          "delta_to_best_text": "+13.670",
+          "platform": "pcvr",
+          "record_date": "2026-09-03",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "Kanjo 6",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1545031539811819541",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        }
+      ],
+      "history": [
+        {
+          "route_key": "kamidomarizaka_calme:DH",
+          "route_label": "Kamidomarizaka / Downhill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-08-22",
+              "lap_time_ms": 200832,
+              "lap_time_text": "03:20.832",
+              "vehicle": "R34(BNR34)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-23",
+              "lap_time_ms": 197222,
+              "lap_time_text": "03:17.222",
+              "vehicle": "R34(BNR34)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-24",
+              "lap_time_ms": 199367,
+              "lap_time_text": "03:19.367",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-28",
+              "lap_time_ms": 199367,
+              "lap_time_text": "03:19.367",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "player_id": "plr_052",
       "title": "熾花",
       "team_name": "",
@@ -26065,262 +26462,6 @@
               "lap_time_text": "03:20.315",
               "vehicle": "EVOVII/CT9A",
               "is_pb": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "player_id": "plr_0074",
-      "title": "櫻井琦蘿蘿",
-      "team_name": "THDK",
-      "primary_team_id": "team_thdk",
-      "home_tracks": [],
-      "featured_vehicles": [],
-      "manual_achievement_codes": [],
-      "achievement_stats": {
-        "distinct_vehicle_models": 4,
-        "distinct_tracks": 3,
-        "max_route_attempts": 4,
-        "tr_count": 0,
-        "cr_count": 1
-      },
-      "subtitle_zh": "THDK",
-      "subtitle_en": "THDK",
-      "profile_banner": {
-        "image": "",
-        "position": "center center",
-        "title_zh": "櫻井琦蘿蘿",
-        "title_en": "櫻井琦蘿蘿",
-        "subtitle_zh": "THDK",
-        "subtitle_en": "THDK",
-        "tone": 3
-      },
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "7"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        },
-        {
-          "label_zh": "車種最佳",
-          "label_en": "Car Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 3
-      },
-      "tag_chips": [
-        {
-          "label": "THDK",
-          "tone": "team"
-        },
-        {
-          "label": "主力車種 R34(BNR34)",
-          "tone": "vehicle"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "路線標籤 高速",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "R34(BNR34)",
-          "value": 2
-        },
-        {
-          "label": "GC8 (Impreza)",
-          "value": 2
-        },
-        {
-          "label": "1998 NASCAR",
-          "value": 2
-        },
-        {
-          "label": "Kanjo 6",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "高速",
-          "value": 6
-        },
-        {
-          "label": "髮夾彎",
-          "value": 4
-        },
-        {
-          "label": "技術",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_1497",
-          "rank": 1,
-          "route_label_zh": "鈴鹿國際賽車場 / NASCAR '97 (East Circuit)",
-          "route_label_en": "Suzuka2026 / NASCAR '97 (East Circuit)",
-          "player_display_name": "櫻井琦蘿蘿",
-          "player_id": "plr_0074",
-          "vehicle_model_name": "1998 NASCAR",
-          "vehicle_model_code": "veh_1998_nascar",
-          "vehicle_variant_name": "1998 NASCAR",
-          "vehicle_variant_code": "veh_1998_nascar",
-          "lap_time_ms": 51923,
-          "lap_time_text": "00:51.923",
-          "delta_to_best_text": "+2.949",
-          "platform": "pcvr",
-          "record_date": "2026-08-31",
-          "track_env": "賽道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "1998 NASCAR",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543655225062068244",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_1503",
-          "rank": 2,
-          "route_label_zh": "鈴鹿國際賽車場 / Grand Prix Circuit",
-          "route_label_en": "Suzuka2026 / Grand Prix Circuit",
-          "player_display_name": "櫻井琦蘿蘿",
-          "player_id": "plr_0074",
-          "vehicle_model_name": "1998 NASCAR",
-          "vehicle_model_code": "veh_1998_nascar",
-          "vehicle_variant_name": "1998 NASCAR",
-          "vehicle_variant_code": "veh_1998_nascar",
-          "lap_time_ms": 127355,
-          "lap_time_text": "02:07.355",
-          "delta_to_best_text": "+4.835",
-          "platform": "pcvr",
-          "record_date": "2026-08-31",
-          "track_env": "賽道",
-          "track_tags": [
-            "高速"
-          ],
-          "peer_label": "1998 NASCAR",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1543655225062068244",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_1452",
-          "rank": 3,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "櫻井琦蘿蘿",
-          "player_id": "plr_0074",
-          "vehicle_model_name": "R34(BNR34)",
-          "vehicle_model_code": "veh_bnr34",
-          "vehicle_variant_name": "GTR34-Attack",
-          "vehicle_variant_code": "veh_gtr34_attack_2",
-          "lap_time_ms": 197222,
-          "lap_time_text": "03:17.222",
-          "delta_to_best_text": "+62.101",
-          "platform": "pcvr",
-          "record_date": "2026-08-23",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "R34(BNR34)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1541348918082797589",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_1531",
-          "rank": 4,
-          "route_label_zh": "長尾 / Downhill",
-          "route_label_en": "Nagao / Downhill",
-          "player_display_name": "櫻井琦蘿蘿",
-          "player_id": "plr_0074",
-          "vehicle_model_name": "Kanjo 6",
-          "vehicle_model_code": "veh_kanjo_6",
-          "vehicle_variant_name": "Kanjo 6",
-          "vehicle_variant_code": "veh_kanjo_6",
-          "lap_time_ms": 230733,
-          "lap_time_text": "03:50.733",
-          "delta_to_best_text": "+13.670",
-          "platform": "pcvr",
-          "record_date": "2026-09-03",
-          "track_env": "山道",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "Kanjo 6",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1545031539811819541",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        }
-      ],
-      "history": [
-        {
-          "route_key": "kamidomarizaka_calme:DH",
-          "route_label": "Kamidomarizaka / Downhill",
-          "run_count": 4,
-          "runs": [
-            {
-              "date": "2026-08-22",
-              "lap_time_ms": 200832,
-              "lap_time_text": "03:20.832",
-              "vehicle": "R34(BNR34)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 197222,
-              "lap_time_text": "03:17.222",
-              "vehicle": "R34(BNR34)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-24",
-              "lap_time_ms": 199367,
-              "lap_time_text": "03:19.367",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 199367,
-              "lap_time_text": "03:19.367",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
             }
           ]
         }
@@ -27959,6 +28100,114 @@
           ]
         }
       ]
+    },
+    {
+      "player_id": "plr_an1ing_w",
+      "title": "An1ing_W",
+      "team_name": "",
+      "primary_team_id": "",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 1,
+        "distinct_tracks": 1,
+        "max_route_attempts": 1,
+        "tr_count": 0,
+        "cr_count": 1
+      },
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "An1ing_W",
+        "title_en": "An1ing_W",
+        "subtitle_zh": "VR Racing Club Driver",
+        "subtitle_en": "VR Racing Club Driver",
+        "tone": 5
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 EG Sports",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 -",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EG Sports",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "record_rows": [
+        {
+          "record_id": "rec_1552",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Outbound - to Yuli",
+          "player_display_name": "An1ing_W",
+          "player_id": "plr_an1ing_w",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 563411,
+          "lap_time_text": "09:23.411",
+          "delta_to_best_text": "+163.718",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EG Sports",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ob",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "history": []
     },
     {
       "player_id": "plr_anling_w",
@@ -29830,7 +30079,7 @@
           "vehicle_variant_code": "veh_yasurirg",
           "lap_time_ms": 187167,
           "lap_time_text": "03:07.167",
-          "delta_to_best_text": "+25.980",
+          "delta_to_best_text": "+29.634",
           "platform": "pcvr",
           "record_date": "2026-08-12",
           "track_env": "拉力",
@@ -36491,6 +36740,114 @@
           "peer_label": "EVOIII/CE9A",
           "verified": false,
           "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        }
+      ],
+      "history": []
+    },
+    {
+      "player_id": "plr_0077",
+      "title": "阿慈谷ヒフミ",
+      "team_name": "",
+      "primary_team_id": "",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 1,
+        "distinct_tracks": 1,
+        "max_route_attempts": 1,
+        "tr_count": 0,
+        "cr_count": 0
+      },
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "阿慈谷ヒフミ",
+        "title_en": "阿慈谷ヒフミ",
+        "subtitle_zh": "VR Racing Club Driver",
+        "subtitle_en": "VR Racing Club Driver",
+        "tone": 3
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 0,
+        "PR": 1
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 EK Miracle",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 -",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EK Miracle",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "record_rows": [
+        {
+          "record_id": "rec_1551",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Outbound - to Yuli",
+          "player_display_name": "阿慈谷ヒフミ",
+          "player_id": "plr_0077",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 496506,
+          "lap_time_text": "08:16.506",
+          "delta_to_best_text": "+96.813",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EK Miracle",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ob",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
