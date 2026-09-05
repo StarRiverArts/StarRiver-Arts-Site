@@ -357,9 +357,9 @@
       "event_id": "vrrctw_s2_suzuka_20260830",
       "title_zh": "第二賽季｜CVS 鈴鹿賽道計時賽",
       "title_en": "Season 2 | CVS Suzuka Time Attack",
-      "status": "upcoming",
-      "status_zh": "即將舉行",
-      "status_en": "Upcoming",
+      "status": "completed",
+      "status_zh": "已結束",
+      "status_en": "Completed",
       "starts_at": "2026-08-30",
       "ends_at": null,
       "timezone": "Asia/Taipei",
@@ -367,39 +367,192 @@
       "organizer_en": "VRC Racing Club",
       "group_id": "VRRCTW.2777",
       "system": "CVS / Chikuwa Vehicle System",
-      "format_zh": "計時賽",
-      "format_en": "Time Attack",
-      "track_world_code": "suzuka",
+      "format_zh": "雙路線計時挑戰",
+      "format_en": "Two-route Time Attack",
+      "track_world_code": "suzuka2026",
       "route_code": "",
       "track_zh": "鈴鹿國際賽車場",
       "track_en": "Suzuka International Racing Course",
-      "track_href": "./track.html?id=suzuka",
-      "world_url": "https://vrchat.com/home/world/wrld_f14c5faf-2dd2-4667-9bff-08a5ed5f0764",
+      "track_href": "./track.html?id=suzuka2026",
+      "world_url": "https://vrchat.com/home/world/wrld_ae829b2f-67d1-4d60-85b3-da1aa14f918f",
       "participant_player_ids": [],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "traits_zh": [],
-      "traits_en": [],
-      "summary_zh": "第二賽季第 5 站，使用 CVS 鈴鹿賽道。開始時間、指定路線、車輛限制、計時時段與報到方式待主辦公告。",
-      "summary_en": "Season 2 Round 5 at the CVS Suzuka world. Start time, route, vehicle restrictions, timing window, and check-in details are to be announced.",
-      "schedule": [],
+      "traits_zh": ["2 條路線", "8 位車手", "15 筆榜單成績"],
+      "traits_en": ["2 routes", "8 drivers", "15 leaderboard entries"],
+      "summary_zh": "第二賽季第 5 站已結束，共 8 位車手挑戰鈴鹿 NASCAR '97 東賽道與 Grand Prix 全賽道。東賽道榜首為 Cannedcarbon（00:48.974），Grand Prix 榜首為 mrkamari.2026 86a8（02:02.153）。",
+      "summary_en": "Season 2 Round 5 has concluded, with 8 drivers across Suzuka NASCAR '97 East Circuit and Grand Prix Circuit. Cannedcarbon led the East Circuit at 00:48.974; mrkamari.2026 86a8 led the Grand Prix Circuit at 02:02.153.",
+      "schedule": [
+        {
+          "time": "2026-08-30",
+          "label_zh": "鈴鹿賽道計時挑戰活動日",
+          "label_en": "Suzuka Time Attack event date"
+        },
+        {
+          "time": "2026-08-31 00:07",
+          "label_zh": "兩條路線榜單截圖時間",
+          "label_en": "Leaderboard capture time for both routes"
+        }
+      ],
       "registration_zh": [
-        "活動時間、車輛限制與報到方式待主辦公告。"
+        "本場活動已結束；兩條路線的榜單成績收錄於下方。"
       ],
       "registration_en": [
-        "Start time, vehicle restrictions, and check-in details are to be announced."
+        "This event has concluded. Leaderboard results for both routes are listed below."
       ],
       "rules_zh": [
-        "詳細規則待公告；最終以主辦公告與現場判定為準。"
+        "名次與最佳圈速依活動榜單截圖登錄，兩條路線分別列榜。",
+        "車手名稱保留截圖顯示；最佳圈次／總圈數對應榜單的 Best/Lap 欄位。"
       ],
       "rules_en": [
-        "Detailed rules are to be announced; organizer announcements and on-site rulings are final."
+        "Positions and best lap times are transcribed from the event screenshots, with separate standings for each route.",
+        "Driver names follow the screenshots. Best lap / total laps corresponds to the boards' Best/Lap column."
       ],
       "timing_records": [],
       "matches": [],
-      "result_note_zh": "活動尚未舉行。",
-      "result_note_en": "The event has not taken place yet.",
-      "results": [],
+      "result_note_zh": "依 2026-08-31 00:07 的兩張活動榜單截圖整理：NASCAR '97 東賽道 7 人、Grand Prix 全賽道 8 人，共 8 位不同車手、15 筆最佳圈速。名次各自依路線列出，沒有合併總排名。",
+      "result_note_en": "Transcribed from the two event leaderboard screenshots captured at 00:07 on August 31, 2026: 7 drivers on NASCAR '97 East Circuit and 8 on Grand Prix Circuit, representing 8 distinct drivers and 15 best lap times. Positions are listed per route, with no combined overall ranking.",
+      "results": [
+        {
+          "rank": 1,
+          "player_id": "plr_cannedcarbon",
+          "display_name": "Cannedcarbon",
+          "lap_time_text": "00:48.974",
+          "route_code": "NASCAR97East",
+          "route_label_zh": "NASCAR '97 東賽道",
+          "route_label_en": "NASCAR '97 (East Circuit)",
+          "result_zh": "最佳圈次／總圈數：6/6",
+          "result_en": "Best lap / total laps: 6/6"
+        },
+        {
+          "rank": 2,
+          "player_id": "",
+          "display_name": "mrkamari.2026 86a8",
+          "lap_time_text": "00:50.278",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：4/4",
+          "result_en": "Best lap / total laps: 4/4"
+        },
+        {
+          "rank": 3,
+          "player_id": "plr_0074",
+          "display_name": "櫻井琦蘿蘿",
+          "lap_time_text": "00:51.923",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：4/9",
+          "result_en": "Best lap / total laps: 4/9"
+        },
+        {
+          "rank": 4,
+          "player_id": "plr_yang",
+          "display_name": "Yang路人",
+          "lap_time_text": "00:52.044",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：4/4",
+          "result_en": "Best lap / total laps: 4/4"
+        },
+        {
+          "rank": 5,
+          "player_id": "",
+          "display_name": "WESDOG",
+          "lap_time_text": "00:52.292",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：2/4",
+          "result_en": "Best lap / total laps: 2/4"
+        },
+        {
+          "rank": 6,
+          "player_id": "plr_su_yan",
+          "display_name": "Su Yan",
+          "lap_time_text": "00:52.611",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：5/10",
+          "result_en": "Best lap / total laps: 5/10"
+        },
+        {
+          "rank": 7,
+          "player_id": "plr_starriver_arts",
+          "display_name": "StarRiver Arts",
+          "lap_time_text": "00:53.050",
+          "route_code": "NASCAR97East",
+          "result_zh": "最佳圈次／總圈數：5/14",
+          "result_en": "Best lap / total laps: 5/14"
+        },
+        {
+          "rank": 1,
+          "player_id": "",
+          "display_name": "mrkamari.2026 86a8",
+          "lap_time_text": "02:02.153",
+          "route_code": "GrandPrix",
+          "route_label_zh": "Grand Prix 全賽道",
+          "route_label_en": "Grand Prix Circuit",
+          "result_zh": "最佳圈次／總圈數：6/6",
+          "result_en": "Best lap / total laps: 6/6"
+        },
+        {
+          "rank": 2,
+          "player_id": "plr_cannedcarbon",
+          "display_name": "Cannedcarbon",
+          "lap_time_text": "02:02.520",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：1/7",
+          "result_en": "Best lap / total laps: 1/7"
+        },
+        {
+          "rank": 3,
+          "player_id": "",
+          "display_name": "WESDOG",
+          "lap_time_text": "02:05.653",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：7/8",
+          "result_en": "Best lap / total laps: 7/8"
+        },
+        {
+          "rank": 4,
+          "player_id": "plr_yang",
+          "display_name": "Yang路人",
+          "lap_time_text": "02:07.267",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：7/10",
+          "result_en": "Best lap / total laps: 7/10"
+        },
+        {
+          "rank": 5,
+          "player_id": "plr_0074",
+          "display_name": "櫻井琦蘿蘿",
+          "lap_time_text": "02:07.355",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：1/8",
+          "result_en": "Best lap / total laps: 1/8"
+        },
+        {
+          "rank": 6,
+          "player_id": "plr_su_yan",
+          "display_name": "Su Yan",
+          "lap_time_text": "02:12.011",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：5/5",
+          "result_en": "Best lap / total laps: 5/5"
+        },
+        {
+          "rank": 7,
+          "player_id": "plr_starriver_arts",
+          "display_name": "StarRiver Arts",
+          "lap_time_text": "02:18.033",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：1/1",
+          "result_en": "Best lap / total laps: 1/1"
+        },
+        {
+          "rank": 8,
+          "player_id": "plr_w",
+          "display_name": "窝窝头w",
+          "lap_time_text": "02:25.344",
+          "route_code": "GrandPrix",
+          "result_zh": "最佳圈次／總圈數：8/9",
+          "result_en": "Best lap / total laps: 8/9"
+        }
+      ],
       "series_id": "vrrctw_s2",
       "series_round": 5
     },

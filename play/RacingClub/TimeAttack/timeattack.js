@@ -1891,15 +1891,25 @@ const renderEventTextPanel = (labelZh, labelEn, rowsZh, rowsEn) => `
     </ul>
   </section>`;
 
-const renderEventResults = (event) => `
+const renderEventResults = (event) => {
+  const groups = new Map();
+  (event.results || []).forEach((row) => {
+    const key = row.route_code || "";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+  if (!groups.size) groups.set("", []);
+  return `
   <section class="ta-content-card ta-content-card-inner">
     <div class="ta-label">${renderBilingual("賽事結果", "Results", "結果")}</div>
     <p class="ta-section-text">${renderBilingual(event.result_note_zh, event.result_note_en, event.result_note_en)}</p>
+    ${Array.from(groups, ([routeCode, rows]) => `
     <div class="ta-profile-record-wrap">
       <table class="ta-profile-record-table ta-event-results">
+        ${routeCode ? `<caption>${renderBilingual(rows[0].route_label_zh || routeCode, rows[0].route_label_en || routeCode)}</caption>` : ""}
         <thead><tr><th>#</th><th>${renderBilingual("選手", "Driver", "ドライバー")}</th><th>${renderBilingual("時間／結果", "Time / Result", "タイム／結果")}</th><th>${renderBilingual("備註", "Note", "注記")}</th></tr></thead>
         <tbody>
-          ${(event.results || []).map((row) => `
+          ${rows.map((row) => `
             <tr>
               <td class="ta-profile-record-rank">${escapeHtml(row.rank)}</td>
               <td>${row.player_id ? taEntityLink(row.display_name, `./player.html?id=${encodeURIComponent(row.player_id)}`) : escapeHtml(row.display_name)}</td>
@@ -1908,8 +1918,9 @@ const renderEventResults = (event) => `
             </tr>`).join("")}
         </tbody>
       </table>
-    </div>
+    </div>`).join("")}
   </section>`;
+};
 
 // 轉播與賽事紀錄連結。外部 URL 一律過 safeExternalHttpUrl,非 http(s) 直接丟棄。
 const BROADCAST_KIND_LABELS = {
