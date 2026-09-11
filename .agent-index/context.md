@@ -36,4 +36,4 @@ Read only the module needed for the current task. Do not crawl the full reposito
 - Rebuild: `python tools/build_site_index.py && python tools/build_agent_index.py`
 - Check: `python tools/build_site_index.py && python tools/build_agent_index.py --check && git diff --exit-code`
 
-Source digest: `363a39695075df3178f2a47877cabc772ece94dd1198ec22baab01513288023d`
+Source digest: `806d8fbe07be3b67326b66d5c2605d05f531b368f0f44d08cf981add36e7160d`
