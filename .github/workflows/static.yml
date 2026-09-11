@@ -4,6 +4,16 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
+  pull_request:
+    paths:
+      - ".github/workflows/static.yml"
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - "**/*.json"
+      - "**/*.xml"
+      - "robots.txt"
+      - "llms.txt"
   workflow_dispatch:
 
 permissions:
@@ -12,20 +22,17 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.event_name }}-${{ github.ref }}"
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate discovery files before deploy
+      - name: Validate discovery files before staging
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -54,7 +61,7 @@ jobs:
           if f"Sitemap: {expected}" not in robots.read_text(encoding="utf-8"):
               raise SystemExit("robots.txt does not point to the canonical sitemap")
 
-          print(f"Validated {len(locs)} sitemap URLs before deploy")
+          print(f"Validated {len(locs)} sitemap URLs before staging")
           PY
 
       - name: Stage public Pages artifact
@@ -179,10 +186,33 @@ jobs:
           PY
           du -sh _site
 
+      - name: Upload staged site for deploy job
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: staged-pages-site
+          path: _site
+          include-hidden-files: true
+          retention-days: 1
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download staged site
+        uses: actions/download-artifact@v4
+        with:
+          name: staged-pages-site
+          path: _site
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '_site'
