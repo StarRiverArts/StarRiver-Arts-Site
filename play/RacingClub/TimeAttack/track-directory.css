@@ -1,0 +1,243 @@
+.ta-track-directory {
+  display: grid;
+  gap: 24px;
+}
+
+.ta-directory-controls {
+  align-items: end;
+  background: var(--ta-card);
+  border: 1px solid var(--ta-border);
+  border-radius: 16px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(260px, 1fr) minmax(140px, 0.28fr) minmax(160px, 0.32fr) auto;
+  padding: 16px;
+  position: sticky;
+  top: 132px;
+  z-index: 12;
+}
+
+.ta-directory-controls label {
+  color: var(--ta-text-soft);
+  display: grid;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  gap: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ta-directory-controls input,
+.ta-directory-controls select {
+  background: var(--ta-bg);
+  border: 1px solid var(--ta-border-strong);
+  border-radius: 9px;
+  color: var(--ta-text);
+  font: 13px var(--font-body);
+  min-height: 42px;
+  padding: 8px 11px;
+  width: 100%;
+}
+
+.ta-directory-controls input:focus,
+.ta-directory-controls select:focus {
+  border-color: var(--ta-accent);
+  outline: none;
+}
+
+.ta-directory-result {
+  color: var(--ta-text-faint);
+  font: 11px var(--font-mono);
+  padding-bottom: 11px;
+  white-space: nowrap;
+}
+
+.ta-directory-section {
+  display: grid;
+  gap: 14px;
+}
+
+.ta-directory-section + .ta-directory-section {
+  border-top: 1px solid var(--ta-border);
+  padding-top: 22px;
+}
+
+.ta-directory-section.is-untimed {
+  border-top-style: dashed;
+}
+
+.ta-directory-section.is-unknown {
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px dashed var(--ta-border);
+  border-radius: 14px;
+  padding: 0;
+}
+
+.ta-directory-section.is-unknown[open] {
+  padding-bottom: 14px;
+}
+
+.ta-directory-section-head {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+summary.ta-directory-section-head {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 16px;
+}
+
+summary.ta-directory-section-head::-webkit-details-marker {
+  display: none;
+}
+
+.ta-directory-section-head > span:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.ta-directory-section-head strong {
+  color: var(--ta-text-strong);
+  font-family: var(--font-deck);
+  font-size: 21px;
+}
+
+.ta-directory-section-head small {
+  color: var(--ta-text-soft);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ta-directory-count {
+  align-items: center;
+  background: var(--ta-card-strong);
+  border: 1px solid var(--ta-border);
+  border-radius: 999px;
+  color: var(--ta-text-soft);
+  display: inline-flex;
+  font: 11px var(--font-mono);
+  justify-content: center;
+  min-width: 38px;
+  padding: 6px 10px;
+}
+
+.ta-directory-section.is-unknown .ta-track-list-grid {
+  padding: 0 14px;
+}
+
+.ta-directory-card {
+  gap: 10px;
+}
+
+.ta-directory-card-top {
+  align-items: start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.ta-directory-state {
+  border: 1px solid var(--ta-border);
+  border-radius: 999px;
+  flex: 0 0 auto;
+  font: 700 9px var(--font-mono);
+  letter-spacing: 0.08em;
+  padding: 6px 8px;
+  text-transform: uppercase;
+}
+
+.ta-directory-state.is-recorded {
+  background: rgba(67, 147, 95, 0.16);
+  border-color: rgba(67, 147, 95, 0.38);
+  color: #c8f5d5;
+}
+
+.ta-directory-state.is-empty {
+  background: rgba(239, 217, 91, 0.1);
+  border-color: rgba(239, 217, 91, 0.32);
+  color: #fff2a9;
+}
+
+.ta-directory-state.is-drive {
+  background: rgba(91, 143, 201, 0.1);
+  border-color: rgba(91, 143, 201, 0.3);
+  color: #cfe6ff;
+}
+
+.ta-directory-state.is-unknown {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--ta-text-faint);
+}
+
+.ta-directory-location {
+  color: var(--ta-text-soft);
+  font-size: 12px;
+}
+
+.ta-directory-note {
+  color: var(--ta-text-soft);
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ta-directory-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.ta-directory-actions .ta-world-link-btn {
+  margin-top: 0;
+}
+
+.ta-directory-actions .ta-world-link-btn.is-primary {
+  background: var(--ta-accent);
+  border-color: var(--ta-accent);
+  color: var(--ta-accent-ink);
+}
+
+.ta-directory-empty {
+  color: var(--ta-text-faint);
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .ta-directory-controls {
+    grid-template-columns: 1fr 1fr;
+    position: static;
+  }
+
+  .ta-directory-search,
+  .ta-directory-result {
+    grid-column: 1 / -1;
+  }
+
+  .ta-directory-result {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .ta-directory-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .ta-directory-search,
+  .ta-directory-result {
+    grid-column: auto;
+  }
+
+  .ta-directory-card-top,
+  .ta-directory-section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}
