@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Deploy only the public runtime surface to GitHub Pages.
 name: Deploy static content to Pages
 
 on:
@@ -57,13 +57,135 @@ jobs:
           print(f"Validated {len(locs)} sitemap URLs before deploy")
           PY
 
+      - name: Stage public Pages artifact
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+
+          public_dirs=(
+            assets
+            data
+            downloads_Museum
+            fonts
+            Images
+            museum
+            play
+            projects
+          )
+
+          public_files=(
+            404.html
+            index.html
+            studio.html
+            museum.html
+            play.html
+            store.html
+            social.html
+            landing.css
+            social.css
+            social-blueprint.css
+            colors_and_type.css
+            ds-additions.css
+            site-index.json
+            search-index.json
+            llm-index.json
+            site-index.schema.json
+            sitemap.xml
+            robots.txt
+            llms.txt
+          )
+
+          for dir in "${public_dirs[@]}"; do
+            if [[ -d "$dir" ]]; then
+              rsync -a \
+                --exclude='.DS_Store' \
+                --exclude='.*' \
+                --exclude='*.md' \
+                "$dir/" "_site/$dir/"
+            fi
+          done
+
+          for file in "${public_files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "Required public file is missing: $file" >&2
+              exit 1
+            fi
+            cp -p "$file" "_site/$file"
+          done
+
+          touch _site/.nojekyll
+
+      - name: Validate staged artifact
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote, urlparse
+          import xml.etree.ElementTree as ET
+
+          root = Path("_site")
+          base_path = "/StarRiver-Arts-Site/"
+
+          forbidden = [
+              ".agent-index",
+              ".claude",
+              ".github",
+              "docs",
+              "tools",
+              "content",
+              "uploads",
+              "screenshots",
+              "AGENTS.md",
+              "StarRiver-Arts-Site.code-workspace",
+              "agent-index.config.json",
+              ".gitignore",
+          ]
+          leaked = [name for name in forbidden if (root / name).exists()]
+          if leaked:
+              raise SystemExit(f"Non-public paths leaked into Pages artifact: {leaked}")
+
+          sitemap = root / "sitemap.xml"
+          tree = ET.parse(sitemap)
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          missing = []
+          checked = 0
+          for node in tree.getroot().findall("sm:url/sm:loc", ns):
+              url = (node.text or "").strip()
+              path = unquote(urlparse(url).path)
+              if not path.startswith(base_path):
+                  missing.append((url, "outside canonical base"))
+                  continue
+              rel = path[len(base_path):]
+              candidate = root / rel
+              if not rel or rel.endswith("/"):
+                  candidate = candidate / "index.html"
+              if not candidate.exists():
+                  missing.append((url, candidate.as_posix()))
+              checked += 1
+
+          if missing:
+              preview = "\n".join(f"- {url} -> {path}" for url, path in missing[:10])
+              raise SystemExit(f"Sitemap URLs missing from staged artifact:\n{preview}")
+
+          robots = (root / "robots.txt").read_text(encoding="utf-8")
+          expected = "https://starriverarts.github.io/StarRiver-Arts-Site/sitemap.xml"
+          if f"Sitemap: {expected}" not in robots:
+              raise SystemExit("Staged robots.txt lost the canonical sitemap pointer")
+
+          files = sum(1 for path in root.rglob("*") if path.is_file())
+          size = sum(path.stat().st_size for path in root.rglob("*") if path.is_file())
+          print(f"Staged {files} public files; {size / 1024 / 1024:.1f} MiB")
+          print(f"Verified {checked} sitemap URLs exist in the staged artifact")
+          PY
+          du -sh _site
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
