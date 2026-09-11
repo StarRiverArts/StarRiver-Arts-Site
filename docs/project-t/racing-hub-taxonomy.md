@@ -29,6 +29,30 @@ Public taxonomy therefore uses:
 
 Optional future grouping by place, cultural reference, aliases, or source course is discovery metadata only. It must not merge canonical Track counts or leaderboards.
 
+## Track directory state
+
+The public `Tracks` index is the common inventory for Racing Hub Track entities, but timing capability should be visually separated so free-driving worlds do not visually mix with Time Attack entries.
+
+Use these states:
+
+1. **Timed Track** — timing capability is confirmed. It belongs in the primary Time Attack section.
+   - `record_count > 0`: recorded Track.
+   - `record_count = 0`: keep the Track as an **Empty Card**; this means the Track supports timing but has no indexed submitted record yet.
+2. **Driveable / No Timing** — the Track is explicitly confirmed not to use a timing system. Keep it in a separate lower section for free driving / exploration.
+3. **Timing Unknown** — the current source does not contain enough evidence to classify timing capability. Keep this separate / low-weight until classified.
+
+Important inference rule:
+
+- `route_count = 0` **must not** be interpreted as `No Timing`.
+- Missing records **must not** be interpreted as missing timing support.
+- Existing registered routes are acceptable evidence that timing exists, but the long-term canonical model should use an explicit timing-capability field such as `timing_support` / equivalent.
+
+This keeps the three concepts distinct:
+
+`Driveable → Timed → Recorded`
+
+where each step adds a capability / observed state rather than replacing the previous identity.
+
 ## Route identity
 
 A `Route` is a drivable/timed course inside one Track World.
