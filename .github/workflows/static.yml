@@ -185,6 +185,7 @@ jobs:
           print(f"Verified {checked} sitemap URLs exist in the staged artifact")
           PY
           du -sh _site
+          du -sh _site/* 2>/dev/null | sort -h
 
       - name: Upload staged site for deploy job
         if: github.event_name != 'pull_request'
