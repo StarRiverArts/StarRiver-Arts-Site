@@ -44,10 +44,12 @@ jobs:
 
       - name: Validate generated content
         run: |
-          python tools/build_site_index.py
+          # Do not rebuild build_site_index.py here. It writes generated_at,
+          # which would immediately invalidate the agent-index source digest.
           python tools/build_agent_index.py --check
           python - <<'PY'
           from pathlib import Path
+          import xml.etree.ElementTree as ET
 
           outputs = [
               Path("site-index.json"),
@@ -62,6 +64,27 @@ jobs:
               matches = [term for term in forbidden if term.casefold() in text]
               if matches:
                   raise SystemExit(f"{path}: stale terms remain: {matches}")
+
+          sitemap = Path("sitemap.xml")
+          root = ET.parse(sitemap).getroot()
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          locs = [
+              (node.text or "").strip()
+              for node in root.findall("sm:url/sm:loc", ns)
+          ]
+          if not locs:
+              raise SystemExit("sitemap.xml: no <loc> entries found")
+          base = "https://starriverarts.github.io/StarRiver-Arts-Site/"
+          bad = [url for url in locs if not url.startswith(base)]
+          if bad:
+              raise SystemExit(f"sitemap.xml: URLs outside canonical base: {bad[:5]}")
+
+          robots = Path("robots.txt").read_text(encoding="utf-8")
+          expected = base + "sitemap.xml"
+          if f"Sitemap: {expected}" not in robots:
+              raise SystemExit("robots.txt: canonical sitemap pointer missing")
+
+          print(f"Validated sitemap.xml with {len(locs)} URLs")
           PY
           git diff --check
 
@@ -81,5 +104,3 @@ jobs:
           fi
           git commit -m "build: refresh discovery indexes [skip ci]"
           git push
-
-
