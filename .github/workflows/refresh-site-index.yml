@@ -27,6 +27,11 @@ permissions:
 
 jobs:
   refresh:
+    # Generated-index commits may themselves match the broad *.json/*.md
+    # push paths. Skip only the bot's push event to prevent a refresh loop;
+    # do not use [skip ci], because that marker can leak into squash-merge
+    # messages and suppress unrelated production workflows such as Pages.
+    if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -170,5 +175,5 @@ jobs:
             echo "Indexes are already current."
             exit 0
           fi
-          git commit -m "build: refresh discovery indexes [skip ci]"
+          git commit -m "build: refresh discovery indexes"
           git push
