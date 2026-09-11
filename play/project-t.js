@@ -30,16 +30,18 @@
   // Racing Hub is a distinct data/application site even though its historical
   // filesystem path is still /play/RacingClub/TimeAttack/. Keep the browser
   // title site-first and derive detail names from the rendered canonical data.
+  // A Racing Hub Track is the independently indexed track-world implementation;
+  // routes are world-local children and records are compared within that scope.
   const RACING_HUB_CATEGORIES = {
     overview: '',
-    tracks: 'Worlds',
-    track: 'Worlds',
+    tracks: 'Tracks',
+    track: 'Tracks',
     players: 'Racers',
     player: 'Racers',
     teams: 'Teams',
     team: 'Teams',
-    vehicles: 'Cars',
-    vehicle: 'Cars',
+    vehicles: 'Vehicles',
+    vehicle: 'Vehicles',
     events: 'Events',
     event: 'Events',
     trackmap: 'Map',
