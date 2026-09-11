@@ -53,14 +53,21 @@
     player: '.ta-profile-feature .ta-section-title',
     vehicle: '.ta-profile-feature .ta-section-title',
     team: '.ta-team-detail-copy h2',
-    event: '.ta-event-detail h2, .ta-event-detail .ta-section-title, [data-page-root] > article .ta-section-title, [data-page-root] .ta-section-title',
+    event: '.ta-event-detail .ta-event-lead .ta-title',
+  };
+
+  const activeNodeText = (node) => {
+    if (!node) return '';
+    const lang = html.classList.contains('lang-en') ? 'en' : 'zh';
+    const localized = node.querySelector(`.${lang}`);
+    const source = localized || node;
+    return source.textContent.replace(/\s+/g, ' ').trim();
   };
 
   const racingHubDetailName = (view) => {
     const selector = RACING_HUB_DETAIL_SELECTORS[view];
     if (!selector) return '';
-    const node = document.querySelector(selector);
-    const text = node ? node.textContent.replace(/\s+/g, ' ').trim() : '';
+    const text = activeNodeText(document.querySelector(selector));
     if (text) return text;
     const fallbackId = new URLSearchParams(window.location.search).get('id');
     return fallbackId ? decodeURIComponent(fallbackId) : '';
