@@ -2,27 +2,20 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,13 +24,74 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Validate discovery files before deploy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          base = "https://starriverarts.github.io/StarRiver-Arts-Site/"
+          sitemap = Path("sitemap.xml")
+          if not sitemap.exists():
+              raise SystemExit("sitemap.xml is missing")
+          root = ET.parse(sitemap).getroot()
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          locs = [
+              (node.text or "").strip()
+              for node in root.findall("sm:url/sm:loc", ns)
+          ]
+          if not locs:
+              raise SystemExit("sitemap.xml has no URLs")
+          bad = [url for url in locs if not url.startswith(base)]
+          if bad:
+              raise SystemExit(f"sitemap.xml contains non-canonical URLs: {bad[:5]}")
+
+          robots = Path("robots.txt")
+          if not robots.exists():
+              raise SystemExit("robots.txt is missing")
+          expected = base + "sitemap.xml"
+          if f"Sitemap: {expected}" not in robots.read_text(encoding="utf-8"):
+              raise SystemExit("robots.txt does not point to the canonical sitemap")
+
+          print(f"Validated {len(locs)} sitemap URLs before deploy")
+          PY
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify deployed sitemap and robots
+        run: |
+          python - <<'PY'
+          import time
+          import urllib.request
+
+          urls = {
+              "sitemap": "https://starriverarts.github.io/StarRiver-Arts-Site/sitemap.xml",
+              "robots": "https://starriverarts.github.io/StarRiver-Arts-Site/robots.txt",
+          }
+          for label, url in urls.items():
+              last_error = None
+              for attempt in range(12):
+                  try:
+                      req = urllib.request.Request(url, headers={"User-Agent": "StarRiver-Pages-Verify/1.0"})
+                      with urllib.request.urlopen(req, timeout=15) as response:
+                          body = response.read()
+                          if response.status == 200 and body:
+                              print(label, response.status, response.headers.get("Content-Type"), len(body))
+                              break
+                  except Exception as exc:
+                      last_error = exc
+                  time.sleep(5)
+              else:
+                  raise SystemExit(f"Unable to fetch deployed {label}: {last_error}")
+          PY

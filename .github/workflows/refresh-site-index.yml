@@ -37,17 +37,87 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Rebuild discovery indexes
+      - name: Rebuild site discovery indexes
+        run: python tools/build_site_index.py
+
+      - name: Normalize volatile metadata in pull requests
+        if: github.event_name == 'pull_request'
         run: |
-          python tools/build_site_index.py
-          python tools/build_agent_index.py
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import re
+          import subprocess
+          import xml.etree.ElementTree as ET
+
+          def committed_text(path: str) -> str:
+              return subprocess.check_output(
+                  ["git", "show", f"HEAD:{path}"],
+                  text=True,
+                  encoding="utf-8",
+              )
+
+          # generated_at is informational, not content identity. Keep the
+          # committed value during PR checks so wall-clock time cannot create
+          # a false stale-index failure.
+          for name in ("site-index.json", "search-index.json", "llm-index.json"):
+              path = Path(name)
+              current = json.loads(path.read_text(encoding="utf-8"))
+              committed = json.loads(committed_text(name))
+              if "generated_at" in committed:
+                  current["generated_at"] = committed["generated_at"]
+              path.write_text(
+                  json.dumps(current, ensure_ascii=False, indent=2) + "\n",
+                  encoding="utf-8",
+              )
+
+          llms = Path("llms.txt")
+          current_llms = llms.read_text(encoding="utf-8")
+          committed_llms = committed_text("llms.txt")
+          old_generated = re.search(r"^Generated: .*?$", committed_llms, flags=re.MULTILINE)
+          if old_generated:
+              current_llms = re.sub(
+                  r"^Generated: .*?$",
+                  old_generated.group(0),
+                  current_llms,
+                  count=1,
+                  flags=re.MULTILINE,
+              )
+          llms.write_text(current_llms, encoding="utf-8")
+
+          # Existing sitemap URLs keep their committed lastmod during PR
+          # checks. Added/removed URLs still produce a real diff.
+          sitemap = Path("sitemap.xml")
+          current_root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
+          committed_root = ET.fromstring(committed_text("sitemap.xml"))
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          old_lastmod = {}
+          for url in committed_root.findall("sm:url", ns):
+              loc = url.find("sm:loc", ns)
+              lastmod = url.find("sm:lastmod", ns)
+              if loc is not None and loc.text and lastmod is not None and lastmod.text:
+                  old_lastmod[loc.text.strip()] = lastmod.text.strip()
+          for url in current_root.findall("sm:url", ns):
+              loc = url.find("sm:loc", ns)
+              lastmod = url.find("sm:lastmod", ns)
+              if loc is not None and loc.text and lastmod is not None:
+                  previous = old_lastmod.get(loc.text.strip())
+                  if previous:
+                      lastmod.text = previous
+          ET.register_namespace("", "http://www.sitemaps.org/schemas/sitemap/0.9")
+          xml = ET.tostring(current_root, encoding="unicode", xml_declaration=False)
+          sitemap.write_text('<?xml version="1.0" encoding="UTF-8"?>\n' + xml + "\n", encoding="utf-8")
+          PY
+
+      - name: Rebuild agent index
+        run: python tools/build_agent_index.py
 
       - name: Validate generated content
         run: |
-          python tools/build_site_index.py
           python tools/build_agent_index.py --check
           python - <<'PY'
           from pathlib import Path
+          import xml.etree.ElementTree as ET
 
           outputs = [
               Path("site-index.json"),
@@ -62,6 +132,27 @@ jobs:
               matches = [term for term in forbidden if term.casefold() in text]
               if matches:
                   raise SystemExit(f"{path}: stale terms remain: {matches}")
+
+          sitemap = Path("sitemap.xml")
+          root = ET.parse(sitemap).getroot()
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          locs = [
+              (node.text or "").strip()
+              for node in root.findall("sm:url/sm:loc", ns)
+          ]
+          if not locs:
+              raise SystemExit("sitemap.xml: no <loc> entries found")
+          base = "https://starriverarts.github.io/StarRiver-Arts-Site/"
+          bad = [url for url in locs if not url.startswith(base)]
+          if bad:
+              raise SystemExit(f"sitemap.xml: URLs outside canonical base: {bad[:5]}")
+
+          robots = Path("robots.txt").read_text(encoding="utf-8")
+          expected = base + "sitemap.xml"
+          if f"Sitemap: {expected}" not in robots:
+              raise SystemExit("robots.txt: canonical sitemap pointer missing")
+
+          print(f"Validated sitemap.xml with {len(locs)} URLs")
           PY
           git diff --check
 
@@ -74,12 +165,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .agent-index site-index.json search-index.json llm-index.json sitemap.xml llms.txt
+          git add .agent-index site-index.json search-index.json llm-index.json sitemap.xml robots.txt llms.txt
           if git diff --cached --quiet; then
             echo "Indexes are already current."
             exit 0
           fi
           git commit -m "build: refresh discovery indexes [skip ci]"
           git push
-
-
