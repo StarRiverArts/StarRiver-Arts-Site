@@ -1,7 +1,7 @@
 {
   "contract": "world",
   "version": "1.0.0",
-  "generated_at": "2026-09-13T18:07:01Z",
+  "generated_at": "2026-09-13T19:04:03Z",
   "source_id": "project-t",
   "world_id": "pt_ych_starriver_arts",
   "data": {
@@ -9,7 +9,7 @@
     "author": "StarRiver Arts",
     "world_version": "",
     "status": "testing",
-    "vehicle_system": "CVS",
+    "vehicle_system": "cvs",
     "description": "穿越海岸山脈的公路旅行；以玉里－長濱方向的臺灣公路地景為主題，目前為 Closed Test。",
     "routes": [
       {
@@ -19,7 +19,7 @@
         "type": "full_course",
         "from": "玉里側",
         "to": "長濱側",
-        "has_leaderboard": false,
+        "has_leaderboard": true,
         "has_event": false
       },
       {
@@ -29,7 +29,21 @@
         "type": "full_course",
         "from": "長濱側",
         "to": "玉里側",
-        "has_leaderboard": false,
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "HCIB",
+        "name": "Half Course Inbound - to Changbin",
+        "direction": "other",
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "HCOB",
+        "name": "Half Course Outbound - to Yuli",
+        "direction": "other",
+        "has_leaderboard": true,
         "has_event": false
       }
     ],
