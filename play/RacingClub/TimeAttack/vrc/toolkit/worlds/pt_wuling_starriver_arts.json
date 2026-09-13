@@ -1,1 +1,56 @@
-{"contract":"world","version":"1.0.0","generated_at":"2026-08-30T18:46:45Z","source_id":"project-t","world_id":"pt_wuling_starriver_arts","data":{"name":"武嶺/銀嶺","author":"StarRiver Arts","status":"development","vehicle_system":"Unknown","description":"線性 / 中程 / 困難","routes":[{"route_id":"DH","name":"Downhill","has_leaderboard":false,"has_event":false},{"route_id":"IB","name":"Full Inbound","has_leaderboard":false,"has_event":false},{"route_id":"OB","name":"Full Outbound","has_leaderboard":false,"has_event":false},{"route_id":"UH","name":"Uphill","has_leaderboard":false,"has_event":false}]}}
+{
+  "contract": "world",
+  "version": "1.0.0",
+  "generated_at": "2026-09-13T18:07:01Z",
+  "source_id": "project-t",
+  "world_id": "pt_wuling_starriver_arts",
+  "data": {
+    "name": "武嶺 / 銀嶺",
+    "author": "StarRiver Arts",
+    "world_version": "",
+    "status": "testing",
+    "vehicle_system": "cvs",
+    "description": "陡峭的高山景觀與臺灣公路最高點主題，目前為測試中的 Project T 世界。",
+    "routes": [
+      {
+        "route_id": "DH",
+        "name": "Downhill",
+        "direction": "downhill",
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "UH",
+        "name": "Uphill",
+        "direction": "uphill",
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "IB",
+        "name": "Full Inbound",
+        "direction": "other",
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "OB",
+        "name": "Full Outbound",
+        "direction": "other",
+        "has_leaderboard": true,
+        "has_event": false
+      }
+    ],
+    "location": {
+      "country": "Taiwan",
+      "region": "南投縣",
+      "locality": "合歡山・武嶺"
+    },
+    "access": {
+      "release_state": "closed_test",
+      "pc": true,
+      "quest": false,
+      "quest_target": true
+    }
+  }
+}

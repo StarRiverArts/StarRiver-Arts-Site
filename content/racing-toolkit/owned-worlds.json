@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "project-t",
+  "worlds": [
+    {
+      "world_id": "pt_9t_starriver_arts",
+      "name": "九彎十八拐CVS",
+      "name_en": "9 Turns",
+      "author": "StarRiver Arts",
+      "status": "released",
+      "vehicle_system": "CVS",
+      "project_t_link": "https://starriverarts.github.io/StarRiver-Arts-Site/projects/9turns.html",
+      "description": "Project T 系列首作；以臺 9 線石牌至頭城段為基礎的線性長程山道，VRChat PC／Quest 公開世界。",
+      "routes": [
+        {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course"}
+      ]
+    },
+    {
+      "world_id": "pt_9t_sacc_starriver_arts",
+      "name": "九彎十八拐 Sacc",
+      "name_en": "9 Turns Sacc",
+      "author": "StarRiver Arts",
+      "status": "released",
+      "vehicle_system": "Sacc",
+      "project_t_link": "https://starriverarts.github.io/StarRiver-Arts-Site/projects/9turns.html",
+      "description": "以臺 9 線石牌至頭城段為基礎的長程山道；Sacc 版本與 CVS 版本屬同一 Project T 世界作品。",
+      "routes": [
+        {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course"}
+      ]
+    },
+    {
+      "world_id": "starsight_starriver_arts",
+      "name": "觀星山",
+      "name_en": "StarSight",
+      "author": "StarRiver Arts",
+      "status": "released",
+      "vehicle_system": "CVS",
+      "project_t_link": "https://starriverarts.github.io/StarRiver-Arts-Site/projects/starsight-mt.html",
+      "description": "虛構臺灣山景；線性短程山道，VRChat PC／Quest 公開世界。",
+      "routes": [
+        {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course"}
+      ]
+    },
+    {
+      "world_id": "pt_wuling_starriver_arts",
+      "name": "武嶺 / 銀嶺",
+      "name_en": "Wuling / SilverSummit",
+      "author": "StarRiver Arts",
+      "status": "testing",
+      "vehicle_system": "CVS",
+      "description": "陡峭的高山景觀與臺灣公路最高點主題，目前為測試中的 Project T 世界。",
+      "location": {"country": "Taiwan", "region": "南投縣", "locality": "合歡山・武嶺"},
+      "access": {"release_state": "closed_test", "pc": true, "quest": false, "quest_target": true},
+      "routes": [
+        {"route_id": "DH", "name": "Downhill", "direction": "downhill"},
+        {"route_id": "UH", "name": "Uphill", "direction": "uphill"},
+        {"route_id": "IB", "name": "Full Inbound", "direction": "other"},
+        {"route_id": "OB", "name": "Full Outbound", "direction": "other"}
+      ]
+    },
+    {
+      "world_id": "pt_ych_starriver_arts",
+      "name": "玉長公路 / Yuli–Changbin",
+      "name_en": "Yuli–Changbin",
+      "author": "StarRiver Arts",
+      "status": "testing",
+      "vehicle_system": "CVS",
+      "description": "穿越海岸山脈的公路旅行；以玉里－長濱方向的臺灣公路地景為主題，目前為 Closed Test。",
+      "location": {"country": "Taiwan", "region": "花蓮縣・臺東縣", "locality": "玉里－長濱", "road": "玉長公路"},
+      "access": {"release_state": "closed_test", "pc": true, "quest": false, "quest_target": true},
+      "routes": [
+        {"route_id": "FCIB", "name": "全程－往長濱 / Full Course Inbound - To Changbin", "direction": "other", "type": "full_course", "from": "玉里側", "to": "長濱側"},
+        {"route_id": "FCOB", "name": "全程－往玉里 / Full Course Outbound - To Yuli", "direction": "other", "type": "full_course", "from": "長濱側", "to": "玉里側"}
+      ]
+    }
+  ]
+}
