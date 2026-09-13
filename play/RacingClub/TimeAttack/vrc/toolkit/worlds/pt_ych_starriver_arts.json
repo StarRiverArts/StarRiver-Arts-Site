@@ -1,0 +1,49 @@
+{
+  "contract": "world",
+  "version": "1.0.0",
+  "generated_at": "2026-09-13T18:07:01Z",
+  "source_id": "project-t",
+  "world_id": "pt_ych_starriver_arts",
+  "data": {
+    "name": "玉長公路 / Yuli–Changbin",
+    "author": "StarRiver Arts",
+    "world_version": "",
+    "status": "testing",
+    "vehicle_system": "CVS",
+    "description": "穿越海岸山脈的公路旅行；以玉里－長濱方向的臺灣公路地景為主題，目前為 Closed Test。",
+    "routes": [
+      {
+        "route_id": "FCIB",
+        "name": "全程－往長濱 / Full Course Inbound - To Changbin",
+        "direction": "other",
+        "type": "full_course",
+        "from": "玉里側",
+        "to": "長濱側",
+        "has_leaderboard": false,
+        "has_event": false
+      },
+      {
+        "route_id": "FCOB",
+        "name": "全程－往玉里 / Full Course Outbound - To Yuli",
+        "direction": "other",
+        "type": "full_course",
+        "from": "長濱側",
+        "to": "玉里側",
+        "has_leaderboard": false,
+        "has_event": false
+      }
+    ],
+    "location": {
+      "country": "Taiwan",
+      "region": "花蓮縣・臺東縣",
+      "locality": "玉里－長濱",
+      "road": "玉長公路"
+    },
+    "access": {
+      "release_state": "closed_test",
+      "pc": true,
+      "quest": false,
+      "quest_target": true
+    }
+  }
+}
