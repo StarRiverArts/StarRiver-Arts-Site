@@ -70,7 +70,9 @@
       "access": {"release_state": "closed_test", "pc": true, "quest": false, "quest_target": true},
       "routes": [
         {"route_id": "FCIB", "name": "全程－往長濱 / Full Course Inbound - To Changbin", "direction": "other", "type": "full_course", "from": "玉里側", "to": "長濱側"},
-        {"route_id": "FCOB", "name": "全程－往玉里 / Full Course Outbound - To Yuli", "direction": "other", "type": "full_course", "from": "長濱側", "to": "玉里側"}
+        {"route_id": "FCOB", "name": "全程－往玉里 / Full Course Outbound - To Yuli", "direction": "other", "type": "full_course", "from": "長濱側", "to": "玉里側"},
+        {"route_id": "HCIB", "name": "半程－往長濱 / Half Course Inbound - To Changbin", "direction": "other", "type": "half_course", "from": "隧道長濱側出口", "to": "長濱側"},
+        {"route_id": "HCOB", "name": "半程－往玉里 / Half Course Outbound - To Yuli", "direction": "other", "type": "half_course", "from": "隧道玉里側出口", "to": "玉里側"}
       ]
     }
   ]
