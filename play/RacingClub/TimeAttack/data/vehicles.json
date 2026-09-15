@@ -31,14 +31,14 @@
     {
       "label_zh": "已驗證",
       "label_en": "Verified Runs",
-      "value": "18",
+      "value": "19",
       "note_zh": "所有母型累積的已驗證紀錄",
       "note_en": "Verified runs across all models"
     },
     {
       "label_zh": "賽道最佳",
       "label_en": "Track Records",
-      "value": "154",
+      "value": "155",
       "note_zh": "車型紀錄中，同時也是整條路線最快的筆數",
       "note_en": "Runs that are both a model best and the fastest overall route record"
     }
@@ -16123,6 +16123,738 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_eg_sports",
+      "title": "EG Sports",
+      "vehicle_class": "高性能乘用車 Performance Car",
+      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 1991",
+      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 1991",
+      "manufacturer": "Honda",
+      "country": "日本",
+      "year": "1991",
+      "special_marks": [],
+      "drivetrain": "FF",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "31"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "4"
+        }
+      ],
+      "badge_counts": {
+        "TR": 4,
+        "CR": 3,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Honda · 日本 · 1991",
+          "tone": "team"
+        },
+        {
+          "label": "高性能乘用車 Performance Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EG Sports",
+          "value": 28
+        },
+        {
+          "label": "EG-Sports Coupe",
+          "value": 2
+        },
+        {
+          "label": "EG-Sports NA",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 11
+        },
+        {
+          "label": "Iˣ",
+          "value": 6
+        },
+        {
+          "label": "StarRiver Arts",
+          "value": 6
+        },
+        {
+          "label": "菲娜_Fina",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_0893",
+          "rank": 1,
+          "route_label_zh": "SPELBERG Circuit FF Challenge / Spielberg",
+          "route_label_en": "SPELBERG Circuit FF Challenge / Spielberg",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG-Sports NA",
+          "vehicle_variant_code": "veh_eg_sports_na",
+          "lap_time_ms": 67653,
+          "lap_time_text": "01:07.653",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-07-05",
+          "track_env": "賽道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1176",
+          "rank": 2,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG-Sports Coupe",
+          "vehicle_variant_code": "veh_eg_sports_coupe",
+          "lap_time_ms": 77761,
+          "lap_time_text": "01:17.761",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-08-02",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1533350673876520970",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1667",
+          "rank": 3,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 167040,
+          "lap_time_text": "02:47.040",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-15",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549084890216136777",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1673",
+          "rank": 4,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 174067,
+          "lap_time_text": "02:54.067",
+          "delta_to_best_text": "+10.387",
+          "platform": "pc",
+          "record_date": "2026-09-15",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549427310804078672",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_1370",
+          "rank": 5,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "芝士口罩",
+          "player_id": "plr_0075",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 222211,
+          "lap_time_text": "03:42.211",
+          "delta_to_best_text": "+103.197",
+          "platform": "pcvr",
+          "record_date": "2026-08-22",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "芝士口罩",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_1675",
+          "rank": 6,
+          "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 363387,
+          "lap_time_text": "06:03.387",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-15",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549427310804078672",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1564",
+          "rank": 7,
+          "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EG Sports",
+          "vehicle_model_code": "veh_eg_sports",
+          "vehicle_variant_name": "EG Sports",
+          "vehicle_variant_code": "veh_eg_sports",
+          "lap_time_ms": 411307,
+          "lap_time_text": "06:51.307",
+          "delta_to_best_text": "+0.654",
+          "platform": "pc",
+          "record_date": "2026-09-06",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260906_ib",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 16,
+          "route_count": 4,
+          "variant_codes": [
+            "veh_eg_sports"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_eg_sports",
+              "variant_name": "EG Sports"
+            }
+          ]
+        },
+        {
+          "track_world_code": "starsight_starriver_arts",
+          "track_display_name": "觀星山",
+          "world_name": "StarSight",
+          "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+          "track_author": "StarRiver Arts",
+          "record_count": 13,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_eg_sports",
+            "veh_eg_sports_coupe"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_eg_sports",
+              "variant_name": "EG Sports"
+            },
+            {
+              "variant_code": "veh_eg_sports_coupe",
+              "variant_name": "EG-Sports Coupe"
+            }
+          ]
+        },
+        {
+          "track_world_code": "kamidomarizaka_calme",
+          "track_display_name": "Kamidomarizaka",
+          "world_name": "Kamidomarizaka",
+          "world_url": "https://vrchat.com/home/world/wrld_8f72eebe-686c-4d4a-9149-8394fc44a033",
+          "track_author": "Calme",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_eg_sports"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_eg_sports",
+              "variant_name": "EG Sports"
+            }
+          ]
+        },
+        {
+          "track_world_code": "spelberg_circuit_ff_challenge",
+          "track_display_name": "SPELBERG Circuit FF Challenge",
+          "world_name": "SPELBERG Circuit FF Challenge",
+          "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
+          "track_author": "komuhachi",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_eg_sports_na"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_eg_sports_na",
+              "variant_name": "EG-Sports NA"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_eg_sports",
+          "variant_name": "EG Sports",
+          "record_count": 28,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 16,
+              "route_count": 4,
+              "variant_codes": [
+                "veh_eg_sports"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_eg_sports",
+                  "variant_name": "EG Sports"
+                }
+              ]
+            },
+            {
+              "track_world_code": "starsight_starriver_arts",
+              "track_display_name": "觀星山",
+              "world_name": "StarSight",
+              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+              "track_author": "StarRiver Arts",
+              "record_count": 11,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_eg_sports"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_eg_sports",
+                  "variant_name": "EG Sports"
+                }
+              ]
+            },
+            {
+              "track_world_code": "kamidomarizaka_calme",
+              "track_display_name": "Kamidomarizaka",
+              "world_name": "Kamidomarizaka",
+              "world_url": "https://vrchat.com/home/world/wrld_8f72eebe-686c-4d4a-9149-8394fc44a033",
+              "track_author": "Calme",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_eg_sports"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_eg_sports",
+                  "variant_name": "EG Sports"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_eg_sports_coupe",
+          "variant_name": "EG-Sports Coupe",
+          "record_count": 2,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "starsight_starriver_arts",
+              "track_display_name": "觀星山",
+              "world_name": "StarSight",
+              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+              "track_author": "StarRiver Arts",
+              "record_count": 2,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_eg_sports_coupe"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_eg_sports_coupe",
+                  "variant_name": "EG-Sports Coupe"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_eg_sports_na",
+          "variant_name": "EG-Sports NA",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "spelberg_circuit_ff_challenge",
+              "track_display_name": "SPELBERG Circuit FF Challenge",
+              "world_name": "SPELBERG Circuit FF Challenge",
+              "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
+              "track_author": "komuhachi",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_eg_sports_na"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_eg_sports_na",
+                  "variant_name": "EG-Sports NA"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 30
+        },
+        {
+          "label": "賽道",
+          "value": 1
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_eg_sports",
+          "variant_name": "EG Sports",
+          "record_count": 28,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_0929",
+              "rank": 1,
+              "route_label_zh": "觀星山 / Downhill",
+              "route_label_en": "StarSight / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 79026,
+              "lap_time_text": "01:19.026",
+              "delta_to_best_text": "+1.265",
+              "platform": "pc",
+              "record_date": "2026-07-07",
+              "track_env": "山道",
+              "track_tags": [
+                "隧道",
+                "高速"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_1667",
+              "rank": 2,
+              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 167040,
+              "lap_time_text": "02:47.040",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-15",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549084890216136777",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_1673",
+              "rank": 3,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 174067,
+              "lap_time_text": "02:54.067",
+              "delta_to_best_text": "+10.387",
+              "platform": "pc",
+              "record_date": "2026-09-15",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549427310804078672",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_1370",
+              "rank": 4,
+              "route_label_zh": "Kamidomarizaka / Downhill",
+              "route_label_en": "Kamidomarizaka / Downhill",
+              "player_display_name": "芝士口罩",
+              "player_id": "plr_0075",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 222211,
+              "lap_time_text": "03:42.211",
+              "delta_to_best_text": "+103.197",
+              "platform": "pcvr",
+              "record_date": "2026-08-22",
+              "track_env": "山道",
+              "track_tags": [
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "芝士口罩",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_1675",
+              "rank": 5,
+              "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 363387,
+              "lap_time_text": "06:03.387",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-15",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549427310804078672",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_1564",
+              "rank": 6,
+              "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG Sports",
+              "vehicle_variant_code": "veh_eg_sports",
+              "lap_time_ms": 411307,
+              "lap_time_text": "06:51.307",
+              "delta_to_best_text": "+0.654",
+              "platform": "pc",
+              "record_date": "2026-09-06",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "evidence:evd_ych_20260906_ib",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_eg_sports_coupe",
+          "variant_name": "EG-Sports Coupe",
+          "record_count": 2,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_1176",
+              "rank": 1,
+              "route_label_zh": "觀星山 / Downhill",
+              "route_label_en": "StarSight / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG-Sports Coupe",
+              "vehicle_variant_code": "veh_eg_sports_coupe",
+              "lap_time_ms": 77761,
+              "lap_time_text": "01:17.761",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-08-02",
+              "track_env": "山道",
+              "track_tags": [
+                "隧道",
+                "高速"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1533350673876520970",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_eg_sports_na",
+          "variant_name": "EG-Sports NA",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_0893",
+              "rank": 1,
+              "route_label_zh": "SPELBERG Circuit FF Challenge / Spielberg",
+              "route_label_en": "SPELBERG Circuit FF Challenge / Spielberg",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EG Sports",
+              "vehicle_model_code": "veh_eg_sports",
+              "vehicle_variant_name": "EG-Sports NA",
+              "vehicle_variant_code": "veh_eg_sports_na",
+              "lap_time_ms": 67653,
+              "lap_time_text": "01:07.653",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-07-05",
+              "track_env": "賽道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_ek9_civic_type_r",
       "title": "EK9 (Civic Type-R)",
       "vehicle_class": "高性能乘用車 Performance Car",
@@ -19875,686 +20607,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_eg_sports",
-      "title": "EG Sports",
-      "vehicle_class": "高性能乘用車 Performance Car",
-      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 1991",
-      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 1991",
-      "manufacturer": "Honda",
-      "country": "日本",
-      "year": "1991",
-      "special_marks": [],
-      "drivetrain": "FF",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "26"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "3"
-        }
-      ],
-      "badge_counts": {
-        "TR": 3,
-        "CR": 3,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Honda · 日本 · 1991",
-          "tone": "team"
-        },
-        {
-          "label": "高性能乘用車 Performance Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FF",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "EG Sports",
-          "value": 23
-        },
-        {
-          "label": "EG-Sports Coupe",
-          "value": 2
-        },
-        {
-          "label": "EG-Sports NA",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 7
-        },
-        {
-          "label": "Iˣ",
-          "value": 6
-        },
-        {
-          "label": "StarRiver Arts",
-          "value": 5
-        },
-        {
-          "label": "菲娜_Fina",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_0893",
-          "rank": 1,
-          "route_label_zh": "SPELBERG Circuit FF Challenge / Spielberg",
-          "route_label_en": "SPELBERG Circuit FF Challenge / Spielberg",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG-Sports NA",
-          "vehicle_variant_code": "veh_eg_sports_na",
-          "lap_time_ms": 67653,
-          "lap_time_text": "01:07.653",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-07-05",
-          "track_env": "賽道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1176",
-          "rank": 2,
-          "route_label_zh": "觀星山 / Downhill",
-          "route_label_en": "StarSight / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG-Sports Coupe",
-          "vehicle_variant_code": "veh_eg_sports_coupe",
-          "lap_time_ms": 77761,
-          "lap_time_text": "01:17.761",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-08-02",
-          "track_env": "山道",
-          "track_tags": [
-            "隧道",
-            "高速"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1533350673876520970",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1667",
-          "rank": 3,
-          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
-          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG Sports",
-          "vehicle_variant_code": "veh_eg_sports",
-          "lap_time_ms": 167040,
-          "lap_time_text": "02:47.040",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-09-15",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549084890216136777",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1370",
-          "rank": 4,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "芝士口罩",
-          "player_id": "plr_0075",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG Sports",
-          "vehicle_variant_code": "veh_eg_sports",
-          "lap_time_ms": 222211,
-          "lap_time_text": "03:42.211",
-          "delta_to_best_text": "+103.197",
-          "platform": "pcvr",
-          "record_date": "2026-08-22",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "芝士口罩",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_1566",
-          "rank": 5,
-          "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
-          "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG Sports",
-          "vehicle_variant_code": "veh_eg_sports",
-          "lap_time_ms": 403600,
-          "lap_time_text": "06:43.600",
-          "delta_to_best_text": "+11.694",
-          "platform": "pc",
-          "record_date": "2026-09-06",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "evidence:evd_ych_20260906_ob",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_1564",
-          "rank": 6,
-          "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
-          "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EG Sports",
-          "vehicle_model_code": "veh_eg_sports",
-          "vehicle_variant_name": "EG Sports",
-          "vehicle_variant_code": "veh_eg_sports",
-          "lap_time_ms": 411307,
-          "lap_time_text": "06:51.307",
-          "delta_to_best_text": "+0.654",
-          "platform": "pc",
-          "record_date": "2026-09-06",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "evidence:evd_ych_20260906_ib",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "starsight_starriver_arts",
-          "track_display_name": "觀星山",
-          "world_name": "StarSight",
-          "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-          "track_author": "StarRiver Arts",
-          "record_count": 13,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_eg_sports",
-            "veh_eg_sports_coupe"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_eg_sports",
-              "variant_name": "EG Sports"
-            },
-            {
-              "variant_code": "veh_eg_sports_coupe",
-              "variant_name": "EG-Sports Coupe"
-            }
-          ]
-        },
-        {
-          "track_world_code": "pt_ych_starriver_arts",
-          "track_display_name": "玉長公路",
-          "world_name": "Yuli-Changbin",
-          "world_url": "",
-          "track_author": "StarRiver Arts",
-          "record_count": 11,
-          "route_count": 3,
-          "variant_codes": [
-            "veh_eg_sports"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_eg_sports",
-              "variant_name": "EG Sports"
-            }
-          ]
-        },
-        {
-          "track_world_code": "kamidomarizaka_calme",
-          "track_display_name": "Kamidomarizaka",
-          "world_name": "Kamidomarizaka",
-          "world_url": "https://vrchat.com/home/world/wrld_8f72eebe-686c-4d4a-9149-8394fc44a033",
-          "track_author": "Calme",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_eg_sports"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_eg_sports",
-              "variant_name": "EG Sports"
-            }
-          ]
-        },
-        {
-          "track_world_code": "spelberg_circuit_ff_challenge",
-          "track_display_name": "SPELBERG Circuit FF Challenge",
-          "world_name": "SPELBERG Circuit FF Challenge",
-          "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
-          "track_author": "komuhachi",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_eg_sports_na"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_eg_sports_na",
-              "variant_name": "EG-Sports NA"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_eg_sports",
-          "variant_name": "EG Sports",
-          "record_count": 23,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "pt_ych_starriver_arts",
-              "track_display_name": "玉長公路",
-              "world_name": "Yuli-Changbin",
-              "world_url": "",
-              "track_author": "StarRiver Arts",
-              "record_count": 11,
-              "route_count": 3,
-              "variant_codes": [
-                "veh_eg_sports"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_eg_sports",
-                  "variant_name": "EG Sports"
-                }
-              ]
-            },
-            {
-              "track_world_code": "starsight_starriver_arts",
-              "track_display_name": "觀星山",
-              "world_name": "StarSight",
-              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-              "track_author": "StarRiver Arts",
-              "record_count": 11,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_eg_sports"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_eg_sports",
-                  "variant_name": "EG Sports"
-                }
-              ]
-            },
-            {
-              "track_world_code": "kamidomarizaka_calme",
-              "track_display_name": "Kamidomarizaka",
-              "world_name": "Kamidomarizaka",
-              "world_url": "https://vrchat.com/home/world/wrld_8f72eebe-686c-4d4a-9149-8394fc44a033",
-              "track_author": "Calme",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_eg_sports"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_eg_sports",
-                  "variant_name": "EG Sports"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_eg_sports_coupe",
-          "variant_name": "EG-Sports Coupe",
-          "record_count": 2,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "starsight_starriver_arts",
-              "track_display_name": "觀星山",
-              "world_name": "StarSight",
-              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-              "track_author": "StarRiver Arts",
-              "record_count": 2,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_eg_sports_coupe"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_eg_sports_coupe",
-                  "variant_name": "EG-Sports Coupe"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_eg_sports_na",
-          "variant_name": "EG-Sports NA",
-          "record_count": 1,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "spelberg_circuit_ff_challenge",
-              "track_display_name": "SPELBERG Circuit FF Challenge",
-              "world_name": "SPELBERG Circuit FF Challenge",
-              "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
-              "track_author": "komuhachi",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_eg_sports_na"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_eg_sports_na",
-                  "variant_name": "EG-Sports NA"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 25
-        },
-        {
-          "label": "賽道",
-          "value": 1
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_eg_sports",
-          "variant_name": "EG Sports",
-          "record_count": 23,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_0929",
-              "rank": 1,
-              "route_label_zh": "觀星山 / Downhill",
-              "route_label_en": "StarSight / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG Sports",
-              "vehicle_variant_code": "veh_eg_sports",
-              "lap_time_ms": 79026,
-              "lap_time_text": "01:19.026",
-              "delta_to_best_text": "+1.265",
-              "platform": "pc",
-              "record_date": "2026-07-07",
-              "track_env": "山道",
-              "track_tags": [
-                "隧道",
-                "高速"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_1667",
-              "rank": 2,
-              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
-              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG Sports",
-              "vehicle_variant_code": "veh_eg_sports",
-              "lap_time_ms": 167040,
-              "lap_time_text": "02:47.040",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-09-15",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549084890216136777",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            },
-            {
-              "record_id": "rec_1370",
-              "rank": 3,
-              "route_label_zh": "Kamidomarizaka / Downhill",
-              "route_label_en": "Kamidomarizaka / Downhill",
-              "player_display_name": "芝士口罩",
-              "player_id": "plr_0075",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG Sports",
-              "vehicle_variant_code": "veh_eg_sports",
-              "lap_time_ms": 222211,
-              "lap_time_text": "03:42.211",
-              "delta_to_best_text": "+103.197",
-              "platform": "pcvr",
-              "record_date": "2026-08-22",
-              "track_env": "山道",
-              "track_tags": [
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "芝士口罩",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_1566",
-              "rank": 4,
-              "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
-              "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG Sports",
-              "vehicle_variant_code": "veh_eg_sports",
-              "lap_time_ms": 403600,
-              "lap_time_text": "06:43.600",
-              "delta_to_best_text": "+11.694",
-              "platform": "pc",
-              "record_date": "2026-09-06",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "evidence:evd_ych_20260906_ob",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_1564",
-              "rank": 5,
-              "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
-              "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG Sports",
-              "vehicle_variant_code": "veh_eg_sports",
-              "lap_time_ms": 411307,
-              "lap_time_text": "06:51.307",
-              "delta_to_best_text": "+0.654",
-              "platform": "pc",
-              "record_date": "2026-09-06",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "evidence:evd_ych_20260906_ib",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_eg_sports_coupe",
-          "variant_name": "EG-Sports Coupe",
-          "record_count": 2,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_1176",
-              "rank": 1,
-              "route_label_zh": "觀星山 / Downhill",
-              "route_label_en": "StarSight / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG-Sports Coupe",
-              "vehicle_variant_code": "veh_eg_sports_coupe",
-              "lap_time_ms": 77761,
-              "lap_time_text": "01:17.761",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-08-02",
-              "track_env": "山道",
-              "track_tags": [
-                "隧道",
-                "高速"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1533350673876520970",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_eg_sports_na",
-          "variant_name": "EG-Sports NA",
-          "record_count": 1,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_0893",
-              "rank": 1,
-              "route_label_zh": "SPELBERG Circuit FF Challenge / Spielberg",
-              "route_label_en": "SPELBERG Circuit FF Challenge / Spielberg",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EG Sports",
-              "vehicle_model_code": "veh_eg_sports",
-              "vehicle_variant_name": "EG-Sports NA",
-              "vehicle_variant_code": "veh_eg_sports_na",
-              "lap_time_ms": 67653,
-              "lap_time_text": "01:07.653",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-07-05",
-              "track_env": "賽道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_sileighty",
       "title": "SilEighty",
       "vehicle_class": "跑車 Sports Car",
@@ -23434,7 +23486,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "20"
+          "value": "22"
         },
         {
           "label_zh": "已驗證",
@@ -23449,7 +23501,7 @@
       ],
       "badge_counts": {
         "TR": 2,
-        "CR": 1,
+        "CR": 2,
         "PR": 0
       },
       "tag_chips": [
@@ -23477,21 +23529,21 @@
       "usage_rows": [
         {
           "label": "EK Miracle",
-          "value": 20
+          "value": 22
         }
       ],
       "tag_rows": [
         {
           "label": "CannedCarbon",
-          "value": 5
+          "value": 6
+        },
+        {
+          "label": "StarRiver Arts",
+          "value": 4
         },
         {
           "label": "Iˣ",
           "value": 4
-        },
-        {
-          "label": "StarRiver Arts",
-          "value": 3
         },
         {
           "label": "Kinokono_Tenka",
@@ -23529,8 +23581,34 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_1620",
+          "record_id": "rec_1672",
           "rank": 2,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 163680,
+          "lap_time_text": "02:43.680",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-15",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549425908085952653",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1620",
+          "rank": 3,
           "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
           "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
           "player_display_name": "CannedCarbon",
@@ -23541,7 +23619,7 @@
           "vehicle_variant_code": "veh_ek_miracle",
           "lap_time_ms": 391906,
           "lap_time_text": "06:31.906",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+28.519",
           "platform": "pc",
           "record_date": "2026-09-13",
           "track_env": "山道",
@@ -23549,14 +23627,14 @@
           "peer_label": "CannedCarbon",
           "verified": false,
           "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1548422887726121081\nyuchang:1548422887726121081:FCOB:1\nimage_sha256:665c927d35672ce37230a304ec2bd52fc7f6f4f3f6523054fcff4ba0c0849871\nUser requested all 15 rows recorded; time visually checked against original image. Iˣ identity confirmed by owner. On 2026-09-13 owner confirmed Twi_Eeli/CoCo84523/瓜orACE/蒼 AO/Mung8ean as PCVR, sauce醬油/Yabe_Fubuki/阿斯顿在县城 as PC. Owner shorthand Yㄍ interpreted as Yabe_Fubuki. Cannedcarbon/StarRiver Arts PC and Iˣ/Kinokono_Tenka PCVR retain disclosed historical defaults. Platform is not visible in the image.",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "record_id": "rec_1553",
-          "rank": 3,
+          "rank": 4,
           "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
           "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
           "player_display_name": "CannedCarbon",
@@ -23588,8 +23666,8 @@
           "world_name": "Yuli-Changbin",
           "world_url": "",
           "track_author": "StarRiver Arts",
-          "record_count": 18,
-          "route_count": 2,
+          "record_count": 20,
+          "route_count": 3,
           "variant_codes": [
             "veh_ek_miracle"
           ],
@@ -23623,7 +23701,7 @@
         {
           "variant_code": "veh_ek_miracle",
           "variant_name": "EK Miracle",
-          "record_count": 20,
+          "record_count": 22,
           "vehicle_tags": [],
           "world_rows": [
             {
@@ -23632,8 +23710,8 @@
               "world_name": "Yuli-Changbin",
               "world_url": "",
               "track_author": "StarRiver Arts",
-              "record_count": 18,
-              "route_count": 2,
+              "record_count": 20,
+              "route_count": 3,
               "variant_codes": [
                 "veh_ek_miracle"
               ],
@@ -23668,14 +23746,14 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 20
+          "value": 22
         }
       ],
       "variants": [
         {
           "variant_code": "veh_ek_miracle",
           "variant_name": "EK Miracle",
-          "record_count": 20,
+          "record_count": 22,
           "vehicle_tags": [],
           "drivetrain": "FF",
           "record_rows": [
@@ -23709,8 +23787,34 @@
               "badge_tone": "cr"
             },
             {
-              "record_id": "rec_1620",
+              "record_id": "rec_1672",
               "rank": 2,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 163680,
+              "lap_time_text": "02:43.680",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-15",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discordapp.com/channels/1324724752862150696/1324735926806511656/1549425908085952653",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_1620",
+              "rank": 3,
               "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
               "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
               "player_display_name": "CannedCarbon",
@@ -23721,7 +23825,7 @@
               "vehicle_variant_code": "veh_ek_miracle",
               "lap_time_ms": 391906,
               "lap_time_text": "06:31.906",
-              "delta_to_best_text": "+0.000",
+              "delta_to_best_text": "+28.519",
               "platform": "pc",
               "record_date": "2026-09-13",
               "track_env": "山道",
@@ -23729,14 +23833,14 @@
               "peer_label": "CannedCarbon",
               "verified": false,
               "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1548422887726121081\nyuchang:1548422887726121081:FCOB:1\nimage_sha256:665c927d35672ce37230a304ec2bd52fc7f6f4f3f6523054fcff4ba0c0849871\nUser requested all 15 rows recorded; time visually checked against original image. Iˣ identity confirmed by owner. On 2026-09-13 owner confirmed Twi_Eeli/CoCo84523/瓜orACE/蒼 AO/Mung8ean as PCVR, sauce醬油/Yabe_Fubuki/阿斯顿在县城 as PC. Owner shorthand Yㄍ interpreted as Yabe_Fubuki. Cannedcarbon/StarRiver Arts PC and Iˣ/Kinokono_Tenka PCVR retain disclosed historical defaults. Platform is not visible in the image.",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
             },
             {
               "record_id": "rec_1553",
-              "rank": 3,
+              "rank": 4,
               "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
               "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
               "player_display_name": "CannedCarbon",
