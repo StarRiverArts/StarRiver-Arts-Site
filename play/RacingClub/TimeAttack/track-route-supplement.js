@@ -81,15 +81,23 @@
     });
     if (!missing.length) return;
 
-    // timeattack.js falls back to the full track when ?route= points at a route
-    // absent from data/tracks.json. For a supplemental route, correct that here.
-    if (routeParam && missing.some((route) => route.route_id === routeParam)) {
-      container.innerHTML = "";
+    // Route-detail pages must only show the requested route. Supplemental routes
+    // exist only to bridge routes that are absent from data/tracks.json; never
+    // append sibling routes under a valid, already-rendered route detail.
+    if (routeParam) {
       const selected = missing.find((route) => route.route_id === routeParam);
-      container.insertAdjacentHTML("beforeend", renderEmptyRoute(worldDoc.data, selected, compactRoutes.get(selected.route_id)));
+      if (!selected) return;
+
+      container.innerHTML = "";
+      container.insertAdjacentHTML(
+        "beforeend",
+        renderEmptyRoute(worldDoc.data, selected, compactRoutes.get(selected.route_id)),
+      );
       return;
     }
 
+    // On the world-level detail page (no ?route=), keep supplementing only
+    // routes that the main generated website data does not yet expose.
     missing.forEach((route) => {
       container.insertAdjacentHTML("beforeend", renderEmptyRoute(worldDoc.data, route, compactRoutes.get(route.route_id)));
     });
