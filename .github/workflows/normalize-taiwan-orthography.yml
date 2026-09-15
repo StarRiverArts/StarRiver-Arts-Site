@@ -1,0 +1,65 @@
+name: One-time Taiwan orthography normalization
+
+on:
+  push:
+    paths:
+      - '.github/workflows/normalize-taiwan-orthography.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace public/editorial 台灣 with 臺灣
+        shell: python
+        run: |
+          import subprocess
+          from pathlib import Path
+
+          root = Path('.')
+          # These occurrences are intentionally retained as aliases / compatibility checks,
+          # not public-facing orthography.
+          keep_legacy_alias = {
+              'docs/CONTENT_SSOT.md',
+              'docs/project-t/project-t-content-rebuild-todo.md',
+              'tools/build_site_index.py',
+          }
+
+          tracked = subprocess.check_output(['git', 'ls-files', '-z']).decode('utf-8').split('\0')
+          changed = []
+          for rel in tracked:
+              if not rel or rel in keep_legacy_alias:
+                  continue
+              path = root / rel
+              try:
+                  raw = path.read_bytes()
+                  text = raw.decode('utf-8')
+              except (UnicodeDecodeError, OSError):
+                  continue
+              if '台灣' not in text:
+                  continue
+              path.write_text(text.replace('台灣', '臺灣'), encoding='utf-8')
+              changed.append(rel)
+
+          print('Normalized files:')
+          for rel in changed:
+              print(f' - {rel}')
+
+      - name: Remove one-time workflow and commit
+        run: |
+          rm -f .github/workflows/normalize-taiwan-orthography.yml
+          if git diff --quiet; then
+            echo "No orthography changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "style: standardize 臺灣 orthography"
+          git push
