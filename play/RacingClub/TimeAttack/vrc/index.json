@@ -23,7 +23,7 @@
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 72
+          "count": 74
         }
       ]
     },
@@ -557,6 +557,36 @@
       ]
     },
     {
+      "code": "shomaru_foxbg",
+      "zh": "正丸",
+      "en": "Shomaru",
+      "system": "cvs",
+      "file": "shomaru_foxbg.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        },
+        {
+          "code": "",
+          "zh": "",
+          "status": "live",
+          "provisional": true,
+          "count": 8
+        }
+      ]
+    },
+    {
       "code": "nanamagari_jintei",
       "zh": "七曲",
       "en": "Nanamagari",
@@ -599,29 +629,6 @@
           "status": "live",
           "provisional": true,
           "count": 10
-        }
-      ]
-    },
-    {
-      "code": "shomaru_foxbg",
-      "zh": "正丸",
-      "en": "Shomaru",
-      "system": "cvs",
-      "file": "shomaru_foxbg.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 4
-        },
-        {
-          "code": "",
-          "zh": "",
-          "status": "live",
-          "provisional": true,
-          "count": 8
         }
       ]
     },
@@ -927,6 +934,29 @@
       ]
     },
     {
+      "code": "falstone_rally",
+      "zh": "Falstone Rally",
+      "en": "Falstone Rally",
+      "system": "cvs",
+      "file": "falstone_rally.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "FWD",
+          "zh": "Forward",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        }
+      ]
+    },
+    {
       "code": "shinmyogi",
       "zh": "真.妙義",
       "en": "ShinMyogi",
@@ -1130,29 +1160,6 @@
           "status": "live",
           "provisional": true,
           "count": 6
-        }
-      ]
-    },
-    {
-      "code": "falstone_rally",
-      "zh": "Falstone Rally",
-      "en": "Falstone Rally",
-      "system": "cvs",
-      "file": "falstone_rally.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "status": "live",
-          "provisional": true,
-          "count": 4
-        },
-        {
-          "code": "FWD",
-          "zh": "Forward",
-          "status": "live",
-          "provisional": true,
-          "count": 2
         }
       ]
     },
@@ -1628,6 +1635,29 @@
       ]
     },
     {
+      "code": "kobe",
+      "zh": "神戶高速",
+      "en": "Kobe",
+      "system": "sacc",
+      "file": "kobe.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "Unknown",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "code": "kielder",
       "zh": "Kielder",
       "en": "Kielder",
@@ -1834,22 +1864,6 @@
         {
           "code": "TBD",
           "zh": "待整理",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "code": "kobe",
-      "zh": "神戶高速",
-      "en": "Kobe",
-      "system": "sacc",
-      "file": "kobe.json",
-      "routes": [
-        {
-          "code": "",
-          "zh": "Unknown",
           "status": "live",
           "provisional": true,
           "count": 1
