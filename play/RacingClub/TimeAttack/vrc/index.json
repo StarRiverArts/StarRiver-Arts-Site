@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-09-16",
+  "updated": "2026-09-18",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -39,7 +39,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 121
+          "count": 122
         },
         {
           "code": "UH",
@@ -851,6 +851,43 @@
       ]
     },
     {
+      "code": "tsuchisaka_jintei",
+      "zh": "土坂",
+      "en": "Tsuchisaka",
+      "system": "sacc",
+      "file": "tsuchisaka_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 5
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "code": "usui_v1_jintei",
       "zh": "碓冰V1",
       "en": "Usui V1",
@@ -992,43 +1029,6 @@
           "status": "live",
           "provisional": true,
           "count": 3
-        }
-      ]
-    },
-    {
-      "code": "tsuchisaka_jintei",
-      "zh": "土坂",
-      "en": "Tsuchisaka",
-      "system": "sacc",
-      "file": "tsuchisaka_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        },
-        {
-          "code": "OB",
-          "zh": "出場",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
         }
       ]
     },
@@ -1628,6 +1628,22 @@
       ]
     },
     {
+      "code": "kielder",
+      "zh": "Kielder",
+      "en": "Kielder",
+      "system": "sacc",
+      "file": "kielder.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "hiroshima_expressway",
       "zh": "廣島高速公路",
       "en": "Hiroshima Expressway",
@@ -1850,22 +1866,6 @@
         {
           "code": "",
           "zh": "Unknown",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "code": "kielder",
-      "zh": "Kielder",
-      "en": "Kielder",
-      "system": "sacc",
-      "file": "kielder.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
           "status": "live",
           "provisional": true,
           "count": 1

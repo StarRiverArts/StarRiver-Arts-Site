@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "542",
+      "value": "543",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -53,9 +53,9 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 154,
+        "distinct_vehicle_models": 155,
         "distinct_tracks": 79,
-        "max_route_attempts": 52,
+        "max_route_attempts": 53,
         "tr_count": 97,
         "cr_count": 11
       },
@@ -74,7 +74,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "441"
+          "value": "444"
         },
         {
           "label_zh": "已驗證",
@@ -126,7 +126,7 @@
         },
         {
           "label": "AE86 Trueno",
-          "value": 17
+          "value": 18
         },
         {
           "label": "R32(BNR32)",
@@ -136,19 +136,19 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 226
+          "value": 227
         },
         {
           "label": "髮夾彎",
-          "value": 193
+          "value": 194
         },
         {
           "label": "技術",
-          "value": 176
+          "value": 178
         },
         {
           "label": "上下山",
-          "value": 27
+          "value": 28
         }
       ],
       "record_rows": [
@@ -1836,8 +1836,37 @@
           "badge_tone": "tr"
         },
         {
-          "record_id": "rec_1002",
+          "record_id": "rec_1677",
           "rank": 62,
+          "route_label_zh": "土坂 / Outbound",
+          "route_label_en": "Tsuchisaka / Outbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "SE3P (RX8)",
+          "vehicle_model_code": "veh_se3prx8",
+          "vehicle_variant_name": "SE3P (RX8)",
+          "vehicle_variant_code": "veh_se3prx8",
+          "lap_time_ms": 197773,
+          "lap_time_text": "03:17.773",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-16",
+          "track_env": "山道",
+          "track_tags": [
+            "上下山",
+            "技術"
+          ],
+          "peer_label": "SE3P (RX8)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1549745713909465169",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_1002",
+          "rank": 63,
           "route_label_zh": "定峰峠 / Full Course Downhill",
           "route_label_en": "Sadamine / Full Course Downhill",
           "player_display_name": "CannedCarbon",
@@ -1866,7 +1895,7 @@
         },
         {
           "record_id": "rec_1115",
-          "rank": 63,
+          "rank": 64,
           "route_label_zh": "碓冰V1 / Counter-Clockwise",
           "route_label_en": "Usui V1 / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1887,35 +1916,6 @@
           "peer_label": "SilEighty",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_1641",
-          "rank": 64,
-          "route_label_zh": "土坂 / Outbound",
-          "route_label_en": "Tsuchisaka / Outbound",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "SE3P (RX8)",
-          "vehicle_model_code": "veh_se3prx8",
-          "vehicle_variant_name": "SE3P (RX8)",
-          "vehicle_variant_code": "veh_se3prx8",
-          "lap_time_ms": 199094,
-          "lap_time_text": "03:19.094",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-09-14",
-          "track_env": "山道",
-          "track_tags": [
-            "上下山",
-            "技術"
-          ],
-          "peer_label": "SE3P (RX8)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1549010938391302234",
           "badge_code": "TR",
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
@@ -3511,7 +3511,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 52,
+          "run_count": 53,
           "runs": [
             {
               "date": "2026-07-16",
@@ -3875,6 +3875,13 @@
               "lap_time_ms": 282854,
               "lap_time_text": "04:42.854",
               "vehicle": "ER34",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-17",
+              "lap_time_ms": 282760,
+              "lap_time_text": "04:42.760",
+              "vehicle": "AE86 Trueno",
               "is_pb": false
             }
           ]
@@ -6078,6 +6085,34 @@
           ]
         },
         {
+          "route_key": "tsuchisaka_jintei:OB",
+          "route_label": "土坂 / Outbound",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-08-03",
+              "lap_time_ms": 199200,
+              "lap_time_text": "03:19.200",
+              "vehicle": "SE3P",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-14",
+              "lap_time_ms": 199094,
+              "lap_time_text": "03:19.094",
+              "vehicle": "SE3P (RX8)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-16",
+              "lap_time_ms": 197773,
+              "lap_time_text": "03:17.773",
+              "vehicle": "SE3P (RX8)",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "shomaru_foxbg:DH",
           "route_label": "正丸 / Downhill",
           "run_count": 3,
@@ -6214,6 +6249,27 @@
               "lap_time_text": "03:15.760",
               "vehicle": "FD3S (RX7)",
               "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "kielder:TBD",
+          "route_label": "Kielder / 待整理",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-06-25",
+              "lap_time_ms": 274307,
+              "lap_time_text": "04:34.307",
+              "vehicle": "Exige",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-17",
+              "lap_time_ms": 277254,
+              "lap_time_text": "04:37.254",
+              "vehicle": "Escort (Mk.I)",
+              "is_pb": false
             }
           ]
         },
@@ -6550,27 +6606,6 @@
               "lap_time_text": "01:52.293",
               "vehicle": "Cobra",
               "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "tsuchisaka_jintei:OB",
-          "route_label": "土坂 / Outbound",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-08-03",
-              "lap_time_ms": 199200,
-              "lap_time_text": "03:19.200",
-              "vehicle": "SE3P",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-14",
-              "lap_time_ms": 199094,
-              "lap_time_text": "03:19.094",
-              "vehicle": "SE3P (RX8)",
-              "is_pb": true
             }
           ]
         },
@@ -8104,7 +8139,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "282"
+          "value": "283"
         },
         {
           "label_zh": "已驗證",
@@ -8170,7 +8205,7 @@
         },
         {
           "label": "技術",
-          "value": 140
+          "value": 141
         },
         {
           "label": "髮夾彎",
@@ -8178,7 +8213,7 @@
         },
         {
           "label": "上下山",
-          "value": 38
+          "value": 39
         }
       ],
       "record_rows": [
@@ -9510,7 +9545,7 @@
           "vehicle_variant_code": "veh_evovi_cp9a",
           "lap_time_ms": 221783,
           "lap_time_text": "03:41.783",
-          "delta_to_best_text": "+22.689",
+          "delta_to_best_text": "+24.010",
           "platform": "pc",
           "record_date": "2025-06-06",
           "track_env": "山道",
@@ -12228,6 +12263,27 @@
               "lap_time_ms": 264073,
               "lap_time_text": "04:24.073",
               "vehicle": "GC8 (Impreza)",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "tsuchisaka_jintei:OB",
+          "route_label": "土坂 / Outbound",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2025-06-06",
+              "lap_time_ms": 221783,
+              "lap_time_text": "03:41.783",
+              "vehicle": "EVOVI/CP9A",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-16",
+              "lap_time_ms": 240350,
+              "lap_time_text": "04:00.350",
+              "vehicle": "EVOVI/CP9A",
               "is_pb": false
             }
           ]

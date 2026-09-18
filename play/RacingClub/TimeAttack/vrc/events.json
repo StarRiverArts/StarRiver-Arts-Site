@@ -1,8 +1,33 @@
 {
   "schema": "srvrc-events/1",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
-  "count": 14,
+  "count": 15,
   "events": [
+    {
+      "id": "vrrctw_ych_trackday_20261003",
+      "title": {
+        "zh": "玉長公路賽道日",
+        "en": "Yuchang Highway Track Day"
+      },
+      "status": "upcoming",
+      "status_label": {
+        "zh": "即將舉行",
+        "en": "Upcoming"
+      },
+      "starts_at": "2026-10-03",
+      "system": "",
+      "track": {
+        "zh": "玉長公路",
+        "en": "Yuchang Highway"
+      },
+      "world_url": "",
+      "summary": {
+        "zh": "自由駕駛、刷成績、聊天，歡迎大家一起來玉長公路跑山！本場為休閒性質，不計入賽季積分。世界目前仍在測試階段，僅開放 VRC 賽車俱樂部 Group Instance，不對外公開世界連結。",
+        "en": "Free driving, casual lap times, and chatting — come run Yuchang Highway with us! This is a casual session and doesn't count toward season points. The world is still in testing, so it's only reachable through the VRC Racing Club group instance — no public world link."
+      },
+      "series_id": "",
+      "series_round": null
+    },
     {
       "id": "vrrctw_s2_nanamagari_dh_20260926",
       "title": {
@@ -14,7 +39,7 @@
         "zh": "即將舉行",
         "en": "Upcoming"
       },
-      "starts_at": "2026-09-26",
+      "starts_at": "2026-09-25",
       "system": "Sacc",
       "track": {
         "zh": "七曲 / 下行",
@@ -354,5 +379,5 @@
       "series_round": 1
     }
   ],
-  "rev": "11335159957a"
+  "rev": "eb252c5776ff"
 }
