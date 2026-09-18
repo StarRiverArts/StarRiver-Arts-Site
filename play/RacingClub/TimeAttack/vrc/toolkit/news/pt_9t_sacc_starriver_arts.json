@@ -1,11 +1,26 @@
 {
   "contract": "news",
   "version": "1.0.0",
-  "generated_at": "2026-09-16T15:29:59Z",
+  "generated_at": "2026-09-18T16:30:35Z",
   "source_id": "project-t",
   "world_id": "pt_9t_sacc_starriver_arts",
   "data": {
     "items": [
+      {
+        "id": "auto-event-vrrctw_s2_nanamagari_dh_20260926-upcoming",
+        "scope": "global",
+        "kind": "event",
+        "text": "即將舉行：第二賽季｜Sacc 七曲 Downhill 錦標賽",
+        "at": "2026-09-24T16:00:00Z",
+        "priority": 80,
+        "valid_from": "2026-09-17T16:00:00Z",
+        "valid_until": "2026-09-24T22:00:00Z",
+        "target": {
+          "event_id": "vrrctw_s2_nanamagari_dh_20260926",
+          "world_id": "nanamagari_jintei",
+          "route_id": "DH"
+        }
+      },
       {
         "id": "auto-event-vrrctw_s2_kamidomarizaka_20260920-upcoming",
         "scope": "global",
