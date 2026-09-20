@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-09-18",
+  "updated": "2026-09-21",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -16,14 +16,14 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 100
+          "count": 122
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 74
+          "count": 93
         }
       ]
     },
@@ -39,7 +39,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 122
+          "count": 126
         },
         {
           "code": "UH",
@@ -302,29 +302,6 @@
       ]
     },
     {
-      "code": "futatsukane",
-      "zh": "雙鏡湖外環道",
-      "en": "Futatsukane",
-      "system": "cvs",
-      "file": "futatsukane.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "status": "live",
-          "provisional": true,
-          "count": 36
-        },
-        {
-          "code": "CW",
-          "zh": "順向",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
       "code": "pt_ych_starriver_arts",
       "zh": "玉長公路",
       "en": "Yuli-Changbin",
@@ -350,14 +327,37 @@
           "zh": "Half Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 6
         },
         {
           "code": "HCOB",
           "zh": "Half Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 3
+          "count": 4
+        }
+      ]
+    },
+    {
+      "code": "futatsukane",
+      "zh": "雙鏡湖外環道",
+      "en": "Futatsukane",
+      "system": "cvs",
+      "file": "futatsukane.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "status": "live",
+          "provisional": true,
+          "count": 36
+        },
+        {
+          "code": "CW",
+          "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         }
       ]
     },
@@ -529,14 +529,7 @@
           "zh": "Circuit",
           "status": "live",
           "provisional": true,
-          "count": 6
-        },
-        {
-          "code": "",
-          "zh": "",
-          "status": "live",
-          "provisional": true,
-          "count": 1
+          "count": 7
         }
       ]
     },
@@ -548,8 +541,8 @@
       "file": "unknown_lamina_03.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 17
@@ -568,7 +561,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 12
         },
         {
           "code": "OB",
@@ -576,13 +569,6 @@
           "status": "live",
           "provisional": true,
           "count": 2
-        },
-        {
-          "code": "",
-          "zh": "",
-          "status": "live",
-          "provisional": true,
-          "count": 8
         }
       ]
     },
@@ -688,6 +674,29 @@
       ]
     },
     {
+      "code": "nordschleife",
+      "zh": "紐柏林北環",
+      "en": "Nordschleife",
+      "system": "cvs",
+      "file": "nordschleife.json",
+      "routes": [
+        {
+          "code": "North",
+          "zh": "Nord",
+          "status": "live",
+          "provisional": true,
+          "count": 8
+        },
+        {
+          "code": "GP",
+          "zh": "GP Layout",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "code": "unknown",
       "zh": "淵森国際サーキット",
       "en": "FUCHIMORI INTERNATIONAL CIRCUIT",
@@ -715,14 +724,7 @@
           "zh": "Speer Ring",
           "status": "live",
           "provisional": true,
-          "count": 7
-        },
-        {
-          "code": "",
-          "zh": "",
-          "status": "live",
-          "provisional": true,
-          "count": 4
+          "count": 11
         }
       ]
     },
@@ -796,6 +798,29 @@
         {
           "code": "IB",
           "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "shinmyogi",
+      "zh": "真.妙義",
+      "en": "ShinMyogi",
+      "system": "sacc",
+      "file": "shinmyogi.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 6
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
           "status": "live",
           "provisional": true,
           "count": 3
@@ -953,29 +978,6 @@
           "status": "live",
           "provisional": true,
           "count": 4
-        }
-      ]
-    },
-    {
-      "code": "shinmyogi",
-      "zh": "真.妙義",
-      "en": "ShinMyogi",
-      "system": "sacc",
-      "file": "shinmyogi.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 5
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 2
         }
       ]
     },
@@ -1164,22 +1166,6 @@
       ]
     },
     {
-      "code": "nordschleife",
-      "zh": "紐柏林北環",
-      "en": "Nordschleife",
-      "system": "cvs",
-      "file": "nordschleife.json",
-      "routes": [
-        {
-          "code": "North",
-          "zh": "Nord",
-          "status": "live",
-          "provisional": true,
-          "count": 6
-        }
-      ]
-    },
-    {
       "code": "carpi",
       "zh": "Carpi",
       "en": "Carpi",
@@ -1268,29 +1254,6 @@
           "status": "live",
           "provisional": true,
           "count": 1
-        }
-      ]
-    },
-    {
-      "code": "nurburgring_aiden1408",
-      "zh": "紐柏林",
-      "en": "Nurburgring",
-      "system": "cvs",
-      "file": "nurburgring_aiden1408.json",
-      "routes": [
-        {
-          "code": "GP",
-          "zh": "GP Layout",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        },
-        {
-          "code": "Nord",
-          "zh": "Nordschleife",
-          "status": "live",
-          "provisional": true,
-          "count": 3
         }
       ]
     },
@@ -1564,18 +1527,11 @@
           "count": 0
         },
         {
-          "code": "TBD",
-          "zh": "待整理",
+          "code": "CC",
+          "zh": "逆向",
           "status": "live",
           "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "",
-          "zh": "",
-          "status": "live",
-          "provisional": true,
-          "count": 2
+          "count": 3
         }
       ]
     },
@@ -1681,8 +1637,8 @@
       "file": "hiroshima_expressway.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 2
@@ -1713,8 +1669,8 @@
       "file": "fukushima.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 2
@@ -1894,8 +1850,8 @@
       "file": "owari_circuit.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -1926,8 +1882,8 @@
       "file": "orc_circuit.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -1942,8 +1898,8 @@
       "file": "tc2000_n2.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -1974,8 +1930,8 @@
       "file": "calumet_pass.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -1990,8 +1946,8 @@
       "file": "rally_finland_ss1.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
@@ -2006,8 +1962,8 @@
       "file": "watkins_glen.json",
       "routes": [
         {
-          "code": "",
-          "zh": "",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 1
