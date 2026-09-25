@@ -1,10 +1,24 @@
 {
   "contract": "news",
   "version": "1.0.0",
-  "generated_at": "2026-09-24T18:45:45Z",
+  "generated_at": "2026-09-25T17:17:38Z",
   "source_id": "project-t",
   "world_id": "pt_9t_starriver_arts",
   "data": {
-    "items": []
+    "items": [
+      {
+        "id": "auto-event-vrrctw_ych_trackday_20261003-upcoming",
+        "scope": "global",
+        "kind": "event",
+        "text": "即將舉行：玉長公路賽道日",
+        "at": "2026-10-02T16:00:00Z",
+        "priority": 80,
+        "valid_from": "2026-09-25T16:00:00Z",
+        "valid_until": "2026-10-02T22:00:00Z",
+        "target": {
+          "event_id": "vrrctw_ych_trackday_20261003"
+        }
+      }
+    ]
   }
 }
