@@ -25,8 +25,14 @@
       "participant_player_ids": [],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "traits_zh": ["休閒", "自由駕駛"],
-      "traits_en": ["Casual", "Free driving"],
+      "traits_zh": [
+        "休閒",
+        "自由駕駛"
+      ],
+      "traits_en": [
+        "Casual",
+        "Free driving"
+      ],
       "summary_zh": "自由駕駛、刷成績、聊天，歡迎大家一起來玉長公路跑山！本場為休閒性質，不計入賽季積分。世界目前仍在測試階段，僅開放 VRC 賽車俱樂部 Group Instance，不對外公開世界連結。",
       "summary_en": "Free driving, casual lap times, and chatting — come run Yuchang Highway with us! This is a casual session and doesn't count toward season points. The world is still in testing, so it's only reachable through the VRC Racing Club group instance — no public world link.",
       "schedule": [
@@ -78,8 +84,16 @@
       "participant_player_ids": [],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "traits_zh": ["高速", "髮夾彎", "PC/PCVR only"],
-      "traits_en": ["High-speed", "Hairpin turns", "PC/PCVR only"],
+      "traits_zh": [
+        "高速",
+        "髮夾彎",
+        "PC/PCVR only"
+      ],
+      "traits_en": [
+        "High-speed",
+        "Hairpin turns",
+        "PC/PCVR only"
+      ],
       "summary_zh": "第二賽季第 6 站，CVS 神留坂計時賽。神留坂是以高速彎與髮夾彎聞名的長程環狀山道，考驗車輛穩定性與煞車節奏。活動期間可不限次數挑戰，以世界 UI 的有效時間排序。",
       "summary_en": "Season 2 Round 6 at CVS Kamidomarizaka. Known for its high-speed corners and hairpin turns on a long circuit layout, it tests vehicle stability and braking rhythm. Drivers can make unlimited attempts during the session, ranked by valid world-UI times.",
       "vehicles_zh": [
@@ -138,11 +152,11 @@
       "event_id": "vrrctw_s2_nanamagari_dh_20260926",
       "title_zh": "第二賽季｜Sacc 七曲 Downhill 錦標賽",
       "title_en": "Season 2 | Sacc Nanamagari Downhill Championship",
-      "status": "upcoming",
-      "status_zh": "即將舉行",
-      "status_en": "Upcoming",
+      "status": "completed",
+      "status_zh": "已完成",
+      "status_en": "Completed",
       "starts_at": "2026-09-25",
-      "ends_at": null,
+      "ends_at": "2026-09-25",
       "timezone": "Asia/Taipei",
       "organizer_zh": "VRC 賽車俱樂部",
       "organizer_en": "VRC Racing Club",
@@ -159,8 +173,12 @@
       "participant_player_ids": [],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "traits_zh": ["新手友善"],
-      "traits_en": ["Beginner-friendly"],
+      "traits_zh": [
+        "新手友善"
+      ],
+      "traits_en": [
+        "Beginner-friendly"
+      ],
       "summary_zh": "第二賽季第 7 站，Sacc 七曲 Downhill 路線錦標賽。本場特別開放新手友善場次，歡迎剛入門的車手一起參加。開始時間、詳細賽制與車輛限制請見下方時程與規則。",
       "summary_en": "Season 2 Round 7 on the Sacc Nanamagari Downhill route. This round is beginner-friendly — newer drivers are welcome to join. See the schedule and rules below for start time, format, and vehicle restrictions.",
       "vehicles_zh": [
@@ -214,11 +232,160 @@
       ],
       "timing_records": [],
       "matches": [],
-      "result_note_zh": "活動尚未舉行。",
-      "result_note_en": "The event has not taken place yet.",
-      "results": [],
+      "result_note_zh": "冠軍：Light_Spirit。",
+      "result_note_en": "Champion: Light_Spirit.",
+      "results": [
+        {
+          "rank": 1,
+          "player_id": "plr_light_spirit",
+          "display_name": "Light_Spirit",
+          "result_zh": "冠軍",
+          "result_en": "Champion"
+        },
+        {
+          "rank": 2,
+          "player_id": "plr_cannedcarbon",
+          "display_name": "CannedCarbon",
+          "result_zh": "亞軍",
+          "result_en": "Runner-up"
+        },
+        {
+          "rank": 3,
+          "player_id": "plr_lolidia",
+          "display_name": "Lolidia",
+          "result_zh": "季軍",
+          "result_en": "3rd Place"
+        },
+        {
+          "rank": 4,
+          "player_id": "plr_starriver_arts",
+          "display_name": "StarRiver Arts",
+          "result_zh": "殿軍",
+          "result_en": "4th Place"
+        }
+      ],
       "series_id": "vrrctw_s2",
-      "series_round": 7
+      "series_round": 7,
+      "bracket": {
+        "bracket_id": "第二賽季_sacc_七曲_downhill_錦標賽",
+        "title": "第二賽季｜Sacc 七曲 Downhill 錦標賽",
+        "format": "round_robin",
+        "participant_kind": "players",
+        "updated_at": "2026-09-25T15:42:37Z",
+        "participants": [
+          {
+            "id": "plr_cannedcarbon",
+            "name": "CannedCarbon",
+            "seed": 1
+          },
+          {
+            "id": "plr_lolidia",
+            "name": "Lolidia",
+            "seed": 2
+          },
+          {
+            "id": "plr_starriver_arts",
+            "name": "StarRiver Arts",
+            "seed": 3
+          },
+          {
+            "id": "plr_light_spirit",
+            "name": "Light_Spirit",
+            "seed": 4
+          }
+        ],
+        "matches": [
+          {
+            "match_id": "rr_r1_m1",
+            "section": "RR",
+            "round": 1,
+            "round_label": "Round 1",
+            "slot": 1,
+            "a_id": "plr_cannedcarbon",
+            "b_id": "plr_light_spirit",
+            "winner_id": "plr_light_spirit",
+            "a_vehicle_code": "veh_ae86t_v2",
+            "a_vehicle_name": "AE86T-V2",
+            "b_vehicle_code": "veh_fd3s_rx7_v2",
+            "b_vehicle_name": "FD3S (RX7) V2"
+          },
+          {
+            "match_id": "rr_r1_m2",
+            "section": "RR",
+            "round": 1,
+            "round_label": "Round 1",
+            "slot": 2,
+            "a_id": "plr_lolidia",
+            "b_id": "plr_starriver_arts",
+            "winner_id": "plr_lolidia",
+            "a_vehicle_code": "veh_ae86t_v2",
+            "a_vehicle_name": "AE86T-V2",
+            "b_vehicle_code": "veh_ek9_civic_type_r",
+            "b_vehicle_name": "EK9 (Civic Type-R)"
+          },
+          {
+            "match_id": "rr_r2_m1",
+            "section": "RR",
+            "round": 2,
+            "round_label": "Round 2",
+            "slot": 1,
+            "a_id": "plr_cannedcarbon",
+            "b_id": "plr_starriver_arts",
+            "winner_id": "plr_cannedcarbon",
+            "a_vehicle_code": "veh_fd3s_rx7_v2",
+            "a_vehicle_name": "FD3S (RX7) V2",
+            "b_vehicle_code": "veh_ek9_civic_type_r",
+            "b_vehicle_name": "EK9 (Civic Type-R)"
+          },
+          {
+            "match_id": "rr_r2_m2",
+            "section": "RR",
+            "round": 2,
+            "round_label": "Round 2",
+            "slot": 2,
+            "a_id": "plr_light_spirit",
+            "b_id": "plr_lolidia",
+            "winner_id": "plr_light_spirit",
+            "a_vehicle_code": "veh_fd3s_rx7_v2",
+            "a_vehicle_name": "FD3S (RX7) V2",
+            "b_vehicle_code": "veh_ae86t_v2",
+            "b_vehicle_name": "AE86T-V2"
+          },
+          {
+            "match_id": "rr_r3_m1",
+            "section": "RR",
+            "round": 3,
+            "round_label": "Round 3",
+            "slot": 1,
+            "a_id": "plr_cannedcarbon",
+            "b_id": "plr_lolidia",
+            "winner_id": "plr_cannedcarbon",
+            "a_vehicle_code": "veh_fd3s_rx7_v2",
+            "a_vehicle_name": "FD3S (RX7) V2",
+            "b_vehicle_code": "veh_ae86t_v2",
+            "b_vehicle_name": "AE86T-V2"
+          },
+          {
+            "match_id": "rr_r3_m2",
+            "section": "RR",
+            "round": 3,
+            "round_label": "Round 3",
+            "slot": 2,
+            "a_id": "plr_starriver_arts",
+            "b_id": "plr_light_spirit",
+            "winner_id": "plr_light_spirit",
+            "a_vehicle_code": "veh_ek9_civic_type_r",
+            "a_vehicle_name": "EK9 (Civic Type-R)",
+            "b_vehicle_code": "veh_fd3s_rx7_v2",
+            "b_vehicle_name": "FD3S (RX7) V2"
+          }
+        ],
+        "entries": [],
+        "meta": {
+          "rounds": 3,
+          "double": false
+        }
+      }
     },
     {
       "event_id": "vrrctw_s2_usui_v2_cc_20260823",
@@ -594,8 +761,16 @@
       "participant_player_ids": [],
       "vehicle_model_codes": [],
       "team_ids": [],
-      "traits_zh": ["2 條路線", "8 位車手", "15 筆榜單成績"],
-      "traits_en": ["2 routes", "8 drivers", "15 leaderboard entries"],
+      "traits_zh": [
+        "2 條路線",
+        "8 位車手",
+        "15 筆榜單成績"
+      ],
+      "traits_en": [
+        "2 routes",
+        "8 drivers",
+        "15 leaderboard entries"
+      ],
       "summary_zh": "第二賽季第 5 站已結束，共 8 位車手挑戰鈴鹿 NASCAR '97 東賽道與 Grand Prix 全賽道。東賽道榜首為 Cannedcarbon（00:48.974），Grand Prix 榜首為 mrkamari.2026 86a8（02:02.153）。",
       "summary_en": "Season 2 Round 5 has concluded, with 8 drivers across Suzuka NASCAR '97 East Circuit and Grand Prix Circuit. Cannedcarbon led the East Circuit at 00:48.974; mrkamari.2026 86a8 led the Grand Prix Circuit at 02:02.153.",
       "schedule": [
