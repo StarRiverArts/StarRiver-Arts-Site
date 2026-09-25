@@ -1,7 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T19:20:57Z",
-  "build_id": "20260924-192057",
-  "updates": [],
+  "generated_at": "2026-09-25T03:19:53Z",
+  "build_id": "20260925-031953",
+  "updates": [
+    {
+      "update_id": "tr_carpi_OB_rec_1793",
+      "update_type": "track_record",
+      "record_id": "rec_1793",
+      "track_id": "carpi",
+      "track_name": "Carpi",
+      "route_code": "OB",
+      "route_label": "Carpi / Outbound",
+      "board": "track",
+      "platform": "all",
+      "previous": {
+        "player_id": "plr_cannedcarbon",
+        "player_name": "CannedCarbon",
+        "vehicle_model_code": "veh_montreal",
+        "vehicle_name": "Montreal",
+        "time_ms": 196200,
+        "time_text": "03:16.200"
+      },
+      "current": {
+        "player_id": "plr_cannedcarbon",
+        "player_name": "CannedCarbon",
+        "vehicle_model_code": "veh_stratos",
+        "vehicle_name": "Lancia Stratos",
+        "time_ms": 186266,
+        "time_text": "03:06.266",
+        "proof_url": ""
+      },
+      "delta_ms": -9934,
+      "delta_text": "-9.934",
+      "page_url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/track.html?id=carpi&route=OB",
+      "screenshot": {
+        "command": "track-record",
+        "track": "carpi",
+        "route": "OB",
+        "board": "track",
+        "platform": "all"
+      },
+      "created_at": "2026-09-25T03:19:53Z"
+    }
+  ],
   "suppressed": []
 }

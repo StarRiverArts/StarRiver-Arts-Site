@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "584",
+      "value": "585",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -55,7 +55,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 167,
         "distinct_tracks": 91,
-        "max_route_attempts": 55,
+        "max_route_attempts": 50,
         "tr_count": 107,
         "cr_count": 12
       },
@@ -74,7 +74,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "500"
+          "value": "492"
         },
         {
           "label_zh": "已驗證",
@@ -118,15 +118,15 @@
       "usage_rows": [
         {
           "label": "GC8 (Impreza)",
-          "value": 23
-        },
-        {
-          "label": "FD3S (RX7)",
           "value": 21
         },
         {
+          "label": "FD3S (RX7)",
+          "value": 20
+        },
+        {
           "label": "AE86 Trueno",
-          "value": 19
+          "value": 20
         },
         {
           "label": "EVOVIII/CT9A",
@@ -136,15 +136,15 @@
       "tag_rows": [
         {
           "label": "高速",
-          "value": 260
+          "value": 252
         },
         {
           "label": "髮夾彎",
-          "value": 222
+          "value": 213
         },
         {
           "label": "技術",
-          "value": 188
+          "value": 182
         },
         {
           "label": "上下山",
@@ -1705,8 +1705,35 @@
           "proof_ref": "proof_7a8b8bcc610f0f0c"
         },
         {
-          "record_id": "rec_1270",
+          "record_id": "rec_1793",
           "rank": 57,
+          "route_label_zh": "Carpi / Outbound",
+          "route_label_en": "Carpi / Outbound",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Lancia Stratos",
+          "vehicle_model_code": "veh_stratos",
+          "vehicle_variant_name": "Stratos",
+          "vehicle_variant_code": "veh_stratos",
+          "lap_time_ms": 186266,
+          "lap_time_text": "03:06.266",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-08",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Lancia Stratos",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr",
+          "proof_ref": "proof_51d9b8fbb1d42127"
+        },
+        {
+          "record_id": "rec_1270",
+          "rank": 58,
           "route_label_zh": "箱根高速 / Downhill",
           "route_label_en": "Hakone / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1736,7 +1763,7 @@
         },
         {
           "record_id": "rec_1209",
-          "rank": 58,
+          "rank": 59,
           "route_label_zh": "紅葉Momiji / Downhill",
           "route_label_en": "Momiji / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1766,7 +1793,7 @@
         },
         {
           "record_id": "rec_0900",
-          "rank": 59,
+          "rank": 60,
           "route_label_zh": "紅葉Momiji / Uphill",
           "route_label_en": "Momiji / Uphill",
           "player_display_name": "CannedCarbon",
@@ -1795,7 +1822,7 @@
         },
         {
           "record_id": "rec_1593",
-          "rank": 60,
+          "rank": 61,
           "route_label_zh": "秋名湖 / Clockwise",
           "route_label_en": "Lake Akina / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1824,7 +1851,7 @@
         },
         {
           "record_id": "rec_1780",
-          "rank": 61,
+          "rank": 62,
           "route_label_zh": "七曲 / Downhill",
           "route_label_en": "Nanamagari / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1854,7 +1881,7 @@
         },
         {
           "record_id": "rec_1594",
-          "rank": 62,
+          "rank": 63,
           "route_label_zh": "秋名湖 / Counter-Clockwise",
           "route_label_en": "Lake Akina / Counter-Clockwise",
           "player_display_name": "CannedCarbon",
@@ -1883,7 +1910,7 @@
         },
         {
           "record_id": "rec_1057",
-          "rank": 63,
+          "rank": 64,
           "route_label_zh": "妙義(妙義ASV) / Downhill",
           "route_label_en": "Myogi (ASV) / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1911,7 +1938,7 @@
         },
         {
           "record_id": "rec_1180",
-          "rank": 64,
+          "rank": 65,
           "route_label_zh": "土坂 / Inbound",
           "route_label_en": "Tsuchisaka / Inbound",
           "player_display_name": "CannedCarbon",
@@ -1940,8 +1967,8 @@
           "proof_ref": "proof_1b9c9eb4b8339fd9"
         },
         {
-          "record_id": "rec_1461",
-          "rank": 65,
+          "record_id": "rec_1383",
+          "rank": 66,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "CannedCarbon",
@@ -1954,7 +1981,7 @@
           "lap_time_text": "03:15.586",
           "delta_to_best_text": "+1.386",
           "platform": "pc",
-          "record_date": "2026-08-24",
+          "record_date": "2026-08-28",
           "track_env": "山道",
           "track_tags": [
             "高速",
@@ -1971,7 +1998,7 @@
         },
         {
           "record_id": "rec_1224",
-          "rank": 66,
+          "rank": 67,
           "route_label_zh": "赤城 / Uphill",
           "route_label_en": "Akagi / Uphill",
           "player_display_name": "CannedCarbon",
@@ -1998,32 +2025,6 @@
           "badge_label_en": "Track Record",
           "badge_tone": "tr",
           "proof_ref": "proof_43e06f537c4073eb"
-        },
-        {
-          "record_id": "rec_1125",
-          "rank": 67,
-          "route_label_zh": "Carpi / Outbound",
-          "route_label_en": "Carpi / Outbound",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "Montreal",
-          "vehicle_model_code": "veh_montreal",
-          "vehicle_variant_name": "Montreal",
-          "vehicle_variant_code": "veh_montreal",
-          "lap_time_ms": 196200,
-          "lap_time_text": "03:16.200",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-07-30",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "Montreal",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
         },
         {
           "record_id": "rec_1356",
@@ -3956,7 +3957,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 55,
+          "run_count": 50,
           "runs": [
             {
               "date": "2026-07-16",
@@ -4204,41 +4205,6 @@
               "is_pb": false
             },
             {
-              "date": "2026-08-23",
-              "lap_time_ms": 297413,
-              "lap_time_text": "04:57.413",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 295293,
-              "lap_time_text": "04:55.293",
-              "vehicle": "EK9 (Civic Type-R)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 289227,
-              "lap_time_text": "04:49.227",
-              "vehicle": "M112S",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 288293,
-              "lap_time_text": "04:48.293",
-              "vehicle": "L880K",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 286946,
-              "lap_time_text": "04:46.946",
-              "vehicle": "FC3S (RX7)",
-              "is_pb": false
-            },
-            {
               "date": "2026-08-27",
               "lap_time_ms": 276400,
               "lap_time_text": "04:36.400",
@@ -4348,7 +4314,7 @@
         {
           "route_key": "kamidomarizaka_calme:DH",
           "route_label": "Kamidomarizaka / Downhill",
-          "run_count": 48,
+          "run_count": 45,
           "runs": [
             {
               "date": "2026-06-06",
@@ -4464,38 +4430,17 @@
             },
             {
               "date": "2026-08-23",
-              "lap_time_ms": 214787,
-              "lap_time_text": "03:34.787",
-              "vehicle": "86N2RK-Attack",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 214560,
-              "lap_time_text": "03:34.560",
-              "vehicle": "Wonder Civic",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
               "lap_time_ms": 209480,
               "lap_time_text": "03:29.480",
               "vehicle": "S13",
               "is_pb": false
             },
             {
-              "date": "2026-08-24",
-              "lap_time_ms": 195586,
-              "lap_time_text": "03:15.586",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
               "date": "2026-08-28",
               "lap_time_ms": 195586,
               "lap_time_text": "03:15.586",
               "vehicle": "GC8 (Impreza)",
-              "is_pb": false
+              "is_pb": true
             },
             {
               "date": "2026-08-28",
@@ -5802,62 +5747,6 @@
           ]
         },
         {
-          "route_key": "line_foreststage:SS Type",
-          "route_label": "三之白LINE ForestStage / SS Type",
-          "run_count": 7,
-          "runs": [
-            {
-              "date": "2026-08-12",
-              "lap_time_ms": 166521,
-              "lap_time_text": "02:46.521",
-              "vehicle": "Storatos",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-27",
-              "lap_time_ms": 161213,
-              "lap_time_text": "02:41.213",
-              "vehicle": "Storatos",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 161213,
-              "lap_time_text": "02:41.213",
-              "vehicle": "Storatos",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-30",
-              "lap_time_ms": 161187,
-              "lap_time_text": "02:41.187",
-              "vehicle": "YasuriRG",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-05",
-              "lap_time_ms": 158240,
-              "lap_time_text": "02:38.240",
-              "vehicle": "Storatos",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-05",
-              "lap_time_ms": 178040,
-              "lap_time_text": "02:58.040",
-              "vehicle": "LapinTuned",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-05",
-              "lap_time_ms": 157533,
-              "lap_time_text": "02:37.533",
-              "vehicle": "Storatos",
-              "is_pb": true
-            }
-          ]
-        },
-        {
           "route_key": "tail_of_the_dragon:FC",
           "route_label": "Tail Of The Dragon / Full Course",
           "run_count": 7,
@@ -6012,6 +5901,55 @@
           ]
         },
         {
+          "route_key": "line_foreststage:SS Type",
+          "route_label": "三之白LINE ForestStage / SS Type",
+          "run_count": 6,
+          "runs": [
+            {
+              "date": "2026-08-12",
+              "lap_time_ms": 166521,
+              "lap_time_text": "02:46.521",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-28",
+              "lap_time_ms": 161213,
+              "lap_time_text": "02:41.213",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-30",
+              "lap_time_ms": 161187,
+              "lap_time_text": "02:41.187",
+              "vehicle": "YasuriRG",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 158240,
+              "lap_time_text": "02:38.240",
+              "vehicle": "Storatos",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 178040,
+              "lap_time_text": "02:58.040",
+              "vehicle": "LapinTuned",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-05",
+              "lap_time_ms": 157533,
+              "lap_time_text": "02:37.533",
+              "vehicle": "Storatos",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "happogahara_jintei:OB",
           "route_label": "八方原 / Outbound",
           "run_count": 5,
@@ -6049,48 +5987,6 @@
               "lap_time_ms": 211187,
               "lap_time_text": "03:31.187",
               "vehicle": "EVOIII/CE9A",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "akina_snow_jintei:DH",
-          "route_label": "秋名雪 / Downhill",
-          "run_count": 5,
-          "runs": [
-            {
-              "date": "2026-06-29",
-              "lap_time_ms": 233694,
-              "lap_time_text": "03:53.694",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-22",
-              "lap_time_ms": 230467,
-              "lap_time_text": "03:50.467",
-              "vehicle": "AE86",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-27",
-              "lap_time_ms": 232253,
-              "lap_time_text": "03:52.253",
-              "vehicle": "ST205 (Celica)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-27",
-              "lap_time_ms": 231573,
-              "lap_time_text": "03:51.573",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 231573,
-              "lap_time_text": "03:51.573",
-              "vehicle": "GC8 (Impreza)",
               "is_pb": false
             }
           ]
@@ -6246,6 +6142,41 @@
               "lap_time_text": "03:31.933",
               "vehicle": "AE86",
               "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "akina_snow_jintei:DH",
+          "route_label": "秋名雪 / Downhill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-06-29",
+              "lap_time_ms": 233694,
+              "lap_time_text": "03:53.694",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-22",
+              "lap_time_ms": 230467,
+              "lap_time_text": "03:50.467",
+              "vehicle": "AE86",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-27",
+              "lap_time_ms": 232253,
+              "lap_time_text": "03:52.253",
+              "vehicle": "ST205 (Celica)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-28",
+              "lap_time_ms": 231573,
+              "lap_time_text": "03:51.573",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": false
             }
           ]
         },
@@ -7398,6 +7329,27 @@
           ]
         },
         {
+          "route_key": "carpi:OB",
+          "route_label": "Carpi / Outbound",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-07-30",
+              "lap_time_ms": 196200,
+              "lap_time_text": "03:16.200",
+              "vehicle": "Montreal",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-08",
+              "lap_time_ms": 186266,
+              "lap_time_text": "03:06.266",
+              "vehicle": "Lancia Stratos",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "rallyisland:IslandRally",
           "route_label": "RallyIsland / IslandRally",
           "run_count": 2,
@@ -7499,6 +7451,27 @@
               "lap_time_text": "03:10.360",
               "vehicle": "AE86 Trueno",
               "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "lake_akina_jintei:CC",
+          "route_label": "秋名湖 / Counter-Clockwise",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-09-08",
+              "lap_time_ms": 191333,
+              "lap_time_text": "03:11.333",
+              "vehicle": "AE86 Trueno",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-08",
+              "lap_time_ms": 191333,
+              "lap_time_text": "03:11.333",
+              "vehicle": "AE86 Trueno",
+              "is_pb": false
             }
           ]
         },
@@ -8932,7 +8905,7 @@
           "vehicle_model_code": "veh_gc8_impreza",
           "name": "GC8 (Impreza)",
           "track_count": 9,
-          "run_count": 23
+          "run_count": 22
         }
       ],
       "manual_achievement_codes": [],
@@ -8958,7 +8931,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "297"
+          "value": "296"
         },
         {
           "label_zh": "已驗證",
@@ -9006,7 +8979,7 @@
         },
         {
           "label": "GC8 (Impreza)",
-          "value": 23
+          "value": 22
         },
         {
           "label": "FD3S (RX7)",
@@ -9024,11 +8997,11 @@
         },
         {
           "label": "技術",
-          "value": 141
+          "value": 140
         },
         {
           "label": "髮夾彎",
-          "value": 112
+          "value": 111
         },
         {
           "label": "上下山",
@@ -11772,7 +11745,7 @@
         {
           "route_key": "irohazaka_jintei:DH",
           "route_label": "伊呂波坂 / Downhill",
-          "run_count": 19,
+          "run_count": 18,
           "runs": [
             {
               "date": "2025-05-30",
@@ -11899,13 +11872,6 @@
               "lap_time_text": "03:37.583",
               "vehicle": "GC8 (Impreza)",
               "is_pb": true
-            },
-            {
-              "date": "2026-07-27",
-              "lap_time_ms": 217583,
-              "lap_time_text": "03:37.583",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
             }
           ]
         },
@@ -15396,7 +15362,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 25,
         "distinct_tracks": 19,
-        "max_route_attempts": 32,
+        "max_route_attempts": 30,
         "tr_count": 6,
         "cr_count": 5
       },
@@ -15415,7 +15381,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "111"
+          "value": "109"
         },
         {
           "label_zh": "已驗證",
@@ -15459,7 +15425,7 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)",
-          "value": 38
+          "value": 36
         },
         {
           "label": "AE86 Trueno",
@@ -15477,15 +15443,15 @@
       "tag_rows": [
         {
           "label": "技術",
-          "value": 82
+          "value": 80
         },
         {
           "label": "髮夾彎",
-          "value": 74
+          "value": 72
         },
         {
           "label": "高速",
-          "value": 70
+          "value": 68
         },
         {
           "label": "隧道",
@@ -16046,7 +16012,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 32,
+          "run_count": 30,
           "runs": [
             {
               "date": "2026-03-20",
@@ -16214,20 +16180,6 @@
               "lap_time_ms": 287134,
               "lap_time_text": "04:47.134",
               "vehicle": "R34(BNR34)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 293158,
-              "lap_time_text": "04:53.158",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 280167,
-              "lap_time_text": "04:40.167",
-              "vehicle": "FD3S (RX7)",
               "is_pb": false
             },
             {
@@ -16887,7 +16839,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "96"
+          "value": "95"
         },
         {
           "label_zh": "已驗證",
@@ -17579,7 +17531,7 @@
           "vehicle_variant_code": "veh_montreal",
           "lap_time_ms": 200078,
           "lap_time_text": "03:20.078",
-          "delta_to_best_text": "+3.878",
+          "delta_to_best_text": "+13.812",
           "platform": "pcvr",
           "record_date": "2026-09-11",
           "track_env": "山道",
@@ -17824,7 +17776,7 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_1459",
+          "record_id": "rec_1394",
           "rank": 31,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
@@ -17838,7 +17790,7 @@
           "lap_time_text": "03:41.000",
           "delta_to_best_text": "+12.934",
           "platform": "pcvr",
-          "record_date": "2026-08-24",
+          "record_date": "2026-08-28",
           "track_env": "山道",
           "track_tags": [],
           "peer_label": "AE86",
@@ -18627,27 +18579,6 @@
           ]
         },
         {
-          "route_key": "nagao_jintei:DH",
-          "route_label": "長尾 / Downhill",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-08-24",
-              "lap_time_ms": 221000,
-              "lap_time_text": "03:41.000",
-              "vehicle": "AE86",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 221000,
-              "lap_time_text": "03:41.000",
-              "vehicle": "AE86",
-              "is_pb": false
-            }
-          ]
-        },
-        {
           "route_key": "pt_ych_starriver_arts:FCIB",
           "route_label": "玉長公路 / Full Course Inbound - to Changbin",
           "run_count": 2,
@@ -18681,7 +18612,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 30,
         "distinct_tracks": 21,
-        "max_route_attempts": 14,
+        "max_route_attempts": 13,
         "tr_count": 3,
         "cr_count": 6
       },
@@ -18700,7 +18631,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "77"
+          "value": "75"
         },
         {
           "label_zh": "已驗證",
@@ -18744,7 +18675,7 @@
       "usage_rows": [
         {
           "label": "FD3S (RX7)",
-          "value": 35
+          "value": 34
         },
         {
           "label": "FC3S (RX7)",
@@ -18762,15 +18693,15 @@
       "tag_rows": [
         {
           "label": "髮夾彎",
-          "value": 43
-        },
-        {
-          "label": "高速",
           "value": 42
         },
         {
+          "label": "高速",
+          "value": 41
+        },
+        {
           "label": "技術",
-          "value": 32
+          "value": 31
         },
         {
           "label": "低抓地",
@@ -19346,7 +19277,7 @@
           "proof_ref": "proof_d3541bd97e55ee7e"
         },
         {
-          "record_id": "rec_1460",
+          "record_id": "rec_1395",
           "rank": 21,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
@@ -19360,7 +19291,7 @@
           "lap_time_text": "03:58.911",
           "delta_to_best_text": "+30.845",
           "platform": "pcvr",
-          "record_date": "2026-08-24",
+          "record_date": "2026-08-28",
           "track_env": "山道",
           "track_tags": [],
           "peer_label": "AE86",
@@ -19468,7 +19399,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 14,
+          "run_count": 13,
           "runs": [
             {
               "date": "2026-03-21",
@@ -19530,13 +19461,6 @@
               "date": "2026-08-21",
               "lap_time_ms": 289745,
               "lap_time_text": "04:49.745",
-              "vehicle": "FD3S (RX7)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-23",
-              "lap_time_ms": 302322,
-              "lap_time_text": "05:02.322",
               "vehicle": "FD3S (RX7)",
               "is_pb": false
             },
@@ -19959,27 +19883,6 @@
               "lap_time_text": "03:56.878",
               "vehicle": "Karin 96",
               "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "nagao_jintei:DH",
-          "route_label": "長尾 / Downhill",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-08-24",
-              "lap_time_ms": 238911,
-              "lap_time_text": "03:58.911",
-              "vehicle": "AE86",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 238911,
-              "lap_time_text": "03:58.911",
-              "vehicle": "AE86",
-              "is_pb": false
             }
           ]
         },
@@ -25867,7 +25770,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 7,
         "distinct_tracks": 7,
-        "max_route_attempts": 8,
+        "max_route_attempts": 7,
         "tr_count": 0,
         "cr_count": 2
       },
@@ -25886,7 +25789,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "19"
+          "value": "18"
         },
         {
           "label_zh": "已驗證",
@@ -25937,22 +25840,22 @@
           "value": 4
         },
         {
-          "label": "GC8 (Impreza)",
-          "value": 3
+          "label": "R34(BNR34)",
+          "value": 2
         },
         {
-          "label": "R34(BNR34)",
+          "label": "GC8 (Impreza)",
           "value": 2
         }
       ],
       "tag_rows": [
         {
           "label": "高速",
-          "value": 11
+          "value": 10
         },
         {
           "label": "髮夾彎",
-          "value": 10
+          "value": 9
         },
         {
           "label": "技術",
@@ -26225,7 +26128,7 @@
         {
           "route_key": "kamidomarizaka_calme:DH",
           "route_label": "Kamidomarizaka / Downhill",
-          "run_count": 8,
+          "run_count": 7,
           "runs": [
             {
               "date": "2026-08-22",
@@ -26243,13 +26146,6 @@
             },
             {
               "date": "2026-08-24",
-              "lap_time_ms": 199367,
-              "lap_time_text": "03:19.367",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-28",
               "lap_time_ms": 199367,
               "lap_time_text": "03:19.367",
               "vehicle": "GC8 (Impreza)",
@@ -29417,7 +29313,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 8,
         "distinct_tracks": 5,
-        "max_route_attempts": 4,
+        "max_route_attempts": 3,
         "tr_count": 0,
         "cr_count": 1
       },
@@ -29436,7 +29332,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "14"
+          "value": "13"
         },
         {
           "label_zh": "已驗證",
@@ -29483,11 +29379,11 @@
           "value": 4
         },
         {
-          "label": "AE86 Levin",
-          "value": 3
+          "label": "AE86 Trueno",
+          "value": 2
         },
         {
-          "label": "AE86 Trueno",
+          "label": "AE86 Levin",
           "value": 2
         },
         {
@@ -29498,15 +29394,15 @@
       "tag_rows": [
         {
           "label": "髮夾彎",
-          "value": 13
+          "value": 12
         },
         {
           "label": "技術",
-          "value": 9
+          "value": 8
         },
         {
           "label": "高速",
-          "value": 9
+          "value": 8
         }
       ],
       "record_rows": [
@@ -29694,7 +29590,7 @@
         {
           "route_key": "harunag:DH",
           "route_label": "臻名山 / Downhill",
-          "run_count": 4,
+          "run_count": 3,
           "runs": [
             {
               "date": "2026-03-21",
@@ -29716,13 +29612,6 @@
               "lap_time_text": "05:19.355",
               "vehicle": "AE86 Trueno",
               "is_pb": true
-            },
-            {
-              "date": "2026-08-28",
-              "lap_time_ms": 352800,
-              "lap_time_text": "05:52.800",
-              "vehicle": "AE86 Levin",
-              "is_pb": false
             }
           ]
         },
