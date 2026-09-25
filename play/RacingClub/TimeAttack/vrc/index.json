@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-09-21",
+  "updated": "2026-09-25",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -16,14 +16,14 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 122
+          "count": 134
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 93
+          "count": 101
         }
       ]
     },
@@ -39,7 +39,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 126
+          "count": 118
         },
         {
           "code": "UH",
@@ -274,30 +274,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 54
-        }
-      ]
-    },
-    {
-      "code": "tsubaki_jintei",
-      "zh": "椿線",
-      "en": "Tsubaki Line",
-      "system": "sacc",
-      "file": "tsubaki_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 39
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 10
+          "count": 53
         }
       ]
     },
@@ -313,28 +290,51 @@
           "zh": "Full Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 6
+          "count": 8
         },
         {
           "code": "FCOB",
           "zh": "Full Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 23
+          "count": 24
         },
         {
           "code": "HCIB",
           "zh": "Half Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 6
+          "count": 12
         },
         {
           "code": "HCOB",
           "zh": "Half Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 8
+        }
+      ]
+    },
+    {
+      "code": "tsubaki_jintei",
+      "zh": "椿線",
+      "en": "Tsubaki Line",
+      "system": "sacc",
+      "file": "tsubaki_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 40
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 10
         }
       ]
     },
@@ -495,6 +495,29 @@
       ]
     },
     {
+      "code": "nanamagari_jintei",
+      "zh": "七曲",
+      "en": "Nanamagari",
+      "system": "sacc",
+      "file": "nanamagari_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 15
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "usui_v2_jintei",
       "zh": "碓冰V2",
       "en": "Usui V2",
@@ -573,29 +596,6 @@
       ]
     },
     {
-      "code": "nanamagari_jintei",
-      "zh": "七曲",
-      "en": "Nanamagari",
-      "system": "sacc",
-      "file": "nanamagari_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 12
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        }
-      ]
-    },
-    {
       "code": "lake_akina_jintei",
       "zh": "秋名湖",
       "en": "Lake Akina",
@@ -607,7 +607,7 @@
           "zh": "逆向",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 5
         },
         {
           "code": "CW",
@@ -630,7 +630,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 10
+          "count": 9
         },
         {
           "code": "UH",
@@ -839,7 +839,7 @@
           "zh": "SS Type",
           "status": "live",
           "provisional": true,
-          "count": 9
+          "count": 8
         },
         {
           "code": "Circuit Type",
@@ -959,6 +959,22 @@
       ]
     },
     {
+      "code": "mtakinadrift_et",
+      "zh": "Mt. Akina Drift CVS2",
+      "en": "Mt. Akina Drift CVS2",
+      "system": "cvs",
+      "file": "mtakinadrift_et.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 9
+        }
+      ]
+    },
+    {
       "code": "falstone_rally",
       "zh": "Falstone Rally",
       "en": "Falstone Rally",
@@ -993,7 +1009,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 7
+          "count": 5
         },
         {
           "code": "UH",
@@ -1061,6 +1077,29 @@
           "status": "live",
           "provisional": true,
           "count": 3
+        }
+      ]
+    },
+    {
+      "code": "carpi",
+      "zh": "Carpi",
+      "en": "Carpi",
+      "system": "sacc",
+      "file": "carpi.json",
+      "routes": [
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 4
         }
       ]
     },
@@ -1162,29 +1201,6 @@
           "status": "live",
           "provisional": true,
           "count": 6
-        }
-      ]
-    },
-    {
-      "code": "carpi",
-      "zh": "Carpi",
-      "en": "Carpi",
-      "system": "sacc",
-      "file": "carpi.json",
-      "routes": [
-        {
-          "code": "OB",
-          "zh": "出場",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 4
         }
       ]
     },
@@ -1795,6 +1811,22 @@
       ]
     },
     {
+      "code": "bathurst_v8_supercars_cvs2",
+      "zh": "Bathurst V8 Supercars CVS2",
+      "en": "Bathurst V8 Supercars CVS2",
+      "system": "unknown",
+      "file": "bathurst_v8_supercars_cvs2.json",
+      "routes": [
+        {
+          "code": "FWD",
+          "zh": "Forward",
+          "status": "live",
+          "provisional": false,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "charlotte_nascvr",
       "zh": "Charlotte",
       "en": "Charlotte",
@@ -2133,6 +2165,22 @@
           "zh": "SS1",
           "status": "live",
           "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "world660",
+      "zh": "world660",
+      "en": "world660",
+      "system": "unknown",
+      "file": "world660.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "status": "live",
+          "provisional": false,
           "count": 1
         }
       ]
