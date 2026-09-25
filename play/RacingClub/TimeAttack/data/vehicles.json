@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "241",
+      "value": "240",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "361",
+      "value": "360",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -48957,6 +48957,390 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_l880k",
+      "title": "L880K",
+      "vehicle_class": "輕型車 Kei Car",
+      "subtitle_zh": "輕型車 Kei Car · Daihatsu · 日本 · 2002",
+      "subtitle_en": "輕型車 Kei Car · Daihatsu · 日本 · 2002",
+      "manufacturer": "Daihatsu",
+      "country": "日本",
+      "year": "2002",
+      "special_marks": [],
+      "drivetrain": "FF",
+      "popularity_bucket_key": "active",
+      "popularity_bucket_zh": "活躍車種",
+      "popularity_bucket_en": "Active Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "6"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 3,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Daihatsu · 日本 · 2002",
+          "tone": "team"
+        },
+        {
+          "label": "輕型車 Kei Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "L880K Tuned",
+          "value": 6
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 6
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_1137",
+          "rank": 1,
+          "route_label_zh": "omote_rokko / Downhill",
+          "route_label_en": "omote_rokko / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "L880K",
+          "vehicle_model_code": "veh_l880k",
+          "vehicle_variant_name": "L880K Tuned",
+          "vehicle_variant_code": "veh_l880k_tuned",
+          "lap_time_ms": 144454,
+          "lap_time_text": "02:24.454",
+          "delta_to_best_text": "+13.637",
+          "platform": "pc",
+          "record_date": "2026-07-31",
+          "track_env": "其他",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_0694",
+          "rank": 2,
+          "route_label_zh": "UraRokko / Downhill",
+          "route_label_en": "UraRokko / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "L880K",
+          "vehicle_model_code": "veh_l880k",
+          "vehicle_variant_name": "L880K Tuned",
+          "vehicle_variant_code": "veh_l880k_tuned",
+          "lap_time_ms": 167440,
+          "lap_time_text": "02:47.440",
+          "delta_to_best_text": "+16.723",
+          "platform": "pc",
+          "record_date": "2026-06-06",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_1390",
+          "rank": 3,
+          "route_label_zh": "臻名山 / Downhill",
+          "route_label_en": "HarunaG / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "L880K",
+          "vehicle_model_code": "veh_l880k",
+          "vehicle_variant_name": "L880K Tuned",
+          "vehicle_variant_code": "veh_l880k_tuned",
+          "lap_time_ms": 288293,
+          "lap_time_text": "04:48.293",
+          "delta_to_best_text": "+36.393",
+          "platform": "pc",
+          "record_date": "2026-08-28",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr",
+          "proof_ref": "proof_017530f0ffcb155e"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "omote_rokkou_ron",
+          "track_display_name": "omote_rokko",
+          "world_name": "omote_rokko",
+          "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
+          "track_author": "G線上のハッチ",
+          "record_count": 3,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_l880k_tuned"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_l880k_tuned",
+              "variant_name": "L880K Tuned"
+            }
+          ]
+        },
+        {
+          "track_world_code": "urarokkou",
+          "track_display_name": "UraRokko",
+          "world_name": "UraRokko",
+          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+          "track_author": "G線上のハッチ",
+          "record_count": 2,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_l880k_tuned"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_l880k_tuned",
+              "variant_name": "L880K Tuned"
+            }
+          ]
+        },
+        {
+          "track_world_code": "harunag",
+          "track_display_name": "臻名山",
+          "world_name": "HarunaG",
+          "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
+          "track_author": "G線上のハッチ",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_l880k_tuned"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_l880k_tuned",
+              "variant_name": "L880K Tuned"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_l880k_tuned",
+          "variant_name": "L880K Tuned",
+          "record_count": 6,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "omote_rokkou_ron",
+              "track_display_name": "omote_rokko",
+              "world_name": "omote_rokko",
+              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
+              "track_author": "G線上のハッチ",
+              "record_count": 3,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_l880k_tuned"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_l880k_tuned",
+                  "variant_name": "L880K Tuned"
+                }
+              ]
+            },
+            {
+              "track_world_code": "urarokkou",
+              "track_display_name": "UraRokko",
+              "world_name": "UraRokko",
+              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+              "track_author": "G線上のハッチ",
+              "record_count": 2,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_l880k_tuned"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_l880k_tuned",
+                  "variant_name": "L880K Tuned"
+                }
+              ]
+            },
+            {
+              "track_world_code": "harunag",
+              "track_display_name": "臻名山",
+              "world_name": "HarunaG",
+              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
+              "track_author": "G線上のハッチ",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_l880k_tuned"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_l880k_tuned",
+                  "variant_name": "L880K Tuned"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 3
+        },
+        {
+          "label": "其他",
+          "value": 3
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_l880k_tuned",
+          "variant_name": "L880K Tuned",
+          "record_count": 6,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_1137",
+              "rank": 1,
+              "route_label_zh": "omote_rokko / Downhill",
+              "route_label_en": "omote_rokko / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "L880K",
+              "vehicle_model_code": "veh_l880k",
+              "vehicle_variant_name": "L880K Tuned",
+              "vehicle_variant_code": "veh_l880k_tuned",
+              "lap_time_ms": 144454,
+              "lap_time_text": "02:24.454",
+              "delta_to_best_text": "+13.637",
+              "platform": "pc",
+              "record_date": "2026-07-31",
+              "track_env": "其他",
+              "track_tags": [
+                "技術"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_0694",
+              "rank": 2,
+              "route_label_zh": "UraRokko / Downhill",
+              "route_label_en": "UraRokko / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "L880K",
+              "vehicle_model_code": "veh_l880k",
+              "vehicle_variant_name": "L880K Tuned",
+              "vehicle_variant_code": "veh_l880k_tuned",
+              "lap_time_ms": 167440,
+              "lap_time_text": "02:47.440",
+              "delta_to_best_text": "+16.723",
+              "platform": "pc",
+              "record_date": "2026-06-06",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_1390",
+              "rank": 3,
+              "route_label_zh": "臻名山 / Downhill",
+              "route_label_en": "HarunaG / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "L880K",
+              "vehicle_model_code": "veh_l880k",
+              "vehicle_variant_name": "L880K Tuned",
+              "vehicle_variant_code": "veh_l880k_tuned",
+              "lap_time_ms": 288293,
+              "lap_time_text": "04:48.293",
+              "delta_to_best_text": "+36.393",
+              "platform": "pc",
+              "record_date": "2026-08-28",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr",
+              "proof_ref": "proof_017530f0ffcb155e"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_samplecar",
       "title": "SampleCar",
       "vehicle_class": "未辨識／原創車 Unresolved/Original Vehicle",
@@ -58694,392 +59078,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_l880k",
-      "title": "L880K",
-      "vehicle_class": "輕型車 Kei Car",
-      "subtitle_zh": "輕型車 Kei Car · Daihatsu · 日本 · 2002",
-      "subtitle_en": "輕型車 Kei Car · Daihatsu · 日本 · 2002",
-      "manufacturer": "Daihatsu",
-      "country": "日本",
-      "year": "2002",
-      "special_marks": [],
-      "drivetrain": "FF",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "3"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 3,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Daihatsu · 日本 · 2002",
-          "tone": "team"
-        },
-        {
-          "label": "輕型車 Kei Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FF",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "L880K Tuned",
-          "value": 3
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 3
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_1144",
-          "rank": 1,
-          "route_label_zh": "omote_rokko / Downhill",
-          "route_label_en": "omote_rokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L880K",
-          "vehicle_model_code": "veh_l880k",
-          "vehicle_variant_name": "L880K Tuned",
-          "vehicle_variant_code": "veh_l880k_tuned",
-          "lap_time_ms": 144454,
-          "lap_time_text": "02:24.454",
-          "delta_to_best_text": "+13.637",
-          "platform": "pc",
-          "record_date": "2026-08-01",
-          "track_env": "其他",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr",
-          "proof_ref": "proof_c4646d85bd39b34a"
-        },
-        {
-          "record_id": "rec_0694",
-          "rank": 2,
-          "route_label_zh": "UraRokko / Downhill",
-          "route_label_en": "UraRokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L880K",
-          "vehicle_model_code": "veh_l880k",
-          "vehicle_variant_name": "L880K Tuned",
-          "vehicle_variant_code": "veh_l880k_tuned",
-          "lap_time_ms": 167440,
-          "lap_time_text": "02:47.440",
-          "delta_to_best_text": "+16.723",
-          "platform": "pc",
-          "record_date": "2026-06-06",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_1390",
-          "rank": 3,
-          "route_label_zh": "臻名山 / Downhill",
-          "route_label_en": "HarunaG / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L880K",
-          "vehicle_model_code": "veh_l880k",
-          "vehicle_variant_name": "L880K Tuned",
-          "vehicle_variant_code": "veh_l880k_tuned",
-          "lap_time_ms": 288293,
-          "lap_time_text": "04:48.293",
-          "delta_to_best_text": "+36.393",
-          "platform": "pc",
-          "record_date": "2026-08-28",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr",
-          "proof_ref": "proof_017530f0ffcb155e"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "omote_rokkou_ron",
-          "track_display_name": "omote_rokko",
-          "world_name": "omote_rokko",
-          "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-          "track_author": "G線上のハッチ",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_l880k_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_l880k_tuned",
-              "variant_name": "L880K Tuned"
-            }
-          ]
-        },
-        {
-          "track_world_code": "urarokkou",
-          "track_display_name": "UraRokko",
-          "world_name": "UraRokko",
-          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-          "track_author": "G線上のハッチ",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_l880k_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_l880k_tuned",
-              "variant_name": "L880K Tuned"
-            }
-          ]
-        },
-        {
-          "track_world_code": "harunag",
-          "track_display_name": "臻名山",
-          "world_name": "HarunaG",
-          "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
-          "track_author": "G線上のハッチ",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_l880k_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_l880k_tuned",
-              "variant_name": "L880K Tuned"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_l880k_tuned",
-          "variant_name": "L880K Tuned",
-          "record_count": 3,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "omote_rokkou_ron",
-              "track_display_name": "omote_rokko",
-              "world_name": "omote_rokko",
-              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_l880k_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_l880k_tuned",
-                  "variant_name": "L880K Tuned"
-                }
-              ]
-            },
-            {
-              "track_world_code": "urarokkou",
-              "track_display_name": "UraRokko",
-              "world_name": "UraRokko",
-              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_l880k_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_l880k_tuned",
-                  "variant_name": "L880K Tuned"
-                }
-              ]
-            },
-            {
-              "track_world_code": "harunag",
-              "track_display_name": "臻名山",
-              "world_name": "HarunaG",
-              "world_url": "https://vrchat.com/home/world/wrld_daf7fdf0-228a-471e-8f6c-be51ad153891",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_l880k_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_l880k_tuned",
-                  "variant_name": "L880K Tuned"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 2
-        },
-        {
-          "label": "其他",
-          "value": 1
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_l880k_tuned",
-          "variant_name": "L880K Tuned",
-          "record_count": 3,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_1144",
-              "rank": 1,
-              "route_label_zh": "omote_rokko / Downhill",
-              "route_label_en": "omote_rokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "L880K",
-              "vehicle_model_code": "veh_l880k",
-              "vehicle_variant_name": "L880K Tuned",
-              "vehicle_variant_code": "veh_l880k_tuned",
-              "lap_time_ms": 144454,
-              "lap_time_text": "02:24.454",
-              "delta_to_best_text": "+13.637",
-              "platform": "pc",
-              "record_date": "2026-08-01",
-              "track_env": "其他",
-              "track_tags": [
-                "技術"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr",
-              "proof_ref": "proof_c4646d85bd39b34a"
-            },
-            {
-              "record_id": "rec_0694",
-              "rank": 2,
-              "route_label_zh": "UraRokko / Downhill",
-              "route_label_en": "UraRokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "L880K",
-              "vehicle_model_code": "veh_l880k",
-              "vehicle_variant_name": "L880K Tuned",
-              "vehicle_variant_code": "veh_l880k_tuned",
-              "lap_time_ms": 167440,
-              "lap_time_text": "02:47.440",
-              "delta_to_best_text": "+16.723",
-              "platform": "pc",
-              "record_date": "2026-06-06",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_1390",
-              "rank": 3,
-              "route_label_zh": "臻名山 / Downhill",
-              "route_label_en": "HarunaG / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "L880K",
-              "vehicle_model_code": "veh_l880k",
-              "vehicle_variant_name": "L880K Tuned",
-              "vehicle_variant_code": "veh_l880k_tuned",
-              "lap_time_ms": 288293,
-              "lap_time_text": "04:48.293",
-              "delta_to_best_text": "+36.393",
-              "platform": "pc",
-              "record_date": "2026-08-28",
-              "track_env": "山道",
-              "track_tags": [
-                "技術",
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr",
-              "proof_ref": "proof_017530f0ffcb155e"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_m3",
       "title": "M3",
       "vehicle_class": "高性能乘用車 Performance Car",
@@ -61000,292 +60998,6 @@
                 "髮夾彎"
               ],
               "peer_label": "wsadwa",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_l800k",
-      "title": "L800K",
-      "vehicle_class": "輕型車 Kei Car",
-      "subtitle_zh": "輕型車 Kei Car · Daihatsu · 日本",
-      "subtitle_en": "輕型車 Kei Car · Daihatsu · 日本",
-      "manufacturer": "Daihatsu",
-      "country": "日本",
-      "year": "",
-      "special_marks": [],
-      "drivetrain": "FF",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "3"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Daihatsu · 日本",
-          "tone": "team"
-        },
-        {
-          "label": "輕型車 Kei Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FF",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 其他",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "L800K Tuned",
-          "value": 3
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 3
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_1137",
-          "rank": 1,
-          "route_label_zh": "omote_rokko / Downhill",
-          "route_label_en": "omote_rokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L800K",
-          "vehicle_model_code": "veh_l800k",
-          "vehicle_variant_name": "L800K Tuned",
-          "vehicle_variant_code": "veh_l800k_tuned",
-          "lap_time_ms": 144454,
-          "lap_time_text": "02:24.454",
-          "delta_to_best_text": "+13.637",
-          "platform": "pc",
-          "record_date": "2026-07-31",
-          "track_env": "其他",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_0732",
-          "rank": 2,
-          "route_label_zh": "UraRokko / Downhill",
-          "route_label_en": "UraRokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "L800K",
-          "vehicle_model_code": "veh_l800k",
-          "vehicle_variant_name": "L800K Tuned",
-          "vehicle_variant_code": "veh_l800k_tuned",
-          "lap_time_ms": 167507,
-          "lap_time_text": "02:47.507",
-          "delta_to_best_text": "+16.790",
-          "platform": "pc",
-          "record_date": "2026-06-14",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "omote_rokkou_ron",
-          "track_display_name": "omote_rokko",
-          "world_name": "omote_rokko",
-          "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-          "track_author": "G線上のハッチ",
-          "record_count": 2,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_l800k_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_l800k_tuned",
-              "variant_name": "L800K Tuned"
-            }
-          ]
-        },
-        {
-          "track_world_code": "urarokkou",
-          "track_display_name": "UraRokko",
-          "world_name": "UraRokko",
-          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-          "track_author": "G線上のハッチ",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_l800k_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_l800k_tuned",
-              "variant_name": "L800K Tuned"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_l800k_tuned",
-          "variant_name": "L800K Tuned",
-          "record_count": 3,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "omote_rokkou_ron",
-              "track_display_name": "omote_rokko",
-              "world_name": "omote_rokko",
-              "world_url": "https://vrchat.com/home/world/wrld_e3e0501d-3b91-4d57-879b-8a9a8b4e1236",
-              "track_author": "G線上のハッチ",
-              "record_count": 2,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_l800k_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_l800k_tuned",
-                  "variant_name": "L800K Tuned"
-                }
-              ]
-            },
-            {
-              "track_world_code": "urarokkou",
-              "track_display_name": "UraRokko",
-              "world_name": "UraRokko",
-              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_l800k_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_l800k_tuned",
-                  "variant_name": "L800K Tuned"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "其他",
-          "value": 2
-        },
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_l800k_tuned",
-          "variant_name": "L800K Tuned",
-          "record_count": 3,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_1137",
-              "rank": 1,
-              "route_label_zh": "omote_rokko / Downhill",
-              "route_label_en": "omote_rokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "L800K",
-              "vehicle_model_code": "veh_l800k",
-              "vehicle_variant_name": "L800K Tuned",
-              "vehicle_variant_code": "veh_l800k_tuned",
-              "lap_time_ms": 144454,
-              "lap_time_text": "02:24.454",
-              "delta_to_best_text": "+13.637",
-              "platform": "pc",
-              "record_date": "2026-07-31",
-              "track_env": "其他",
-              "track_tags": [
-                "技術"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_0732",
-              "rank": 2,
-              "route_label_zh": "UraRokko / Downhill",
-              "route_label_en": "UraRokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "L800K",
-              "vehicle_model_code": "veh_l800k",
-              "vehicle_variant_name": "L800K Tuned",
-              "vehicle_variant_code": "veh_l800k_tuned",
-              "lap_time_ms": 167507,
-              "lap_time_text": "02:47.507",
-              "delta_to_best_text": "+16.790",
-              "platform": "pc",
-              "record_date": "2026-06-14",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
               "verified": false,
               "proof_text": "",
               "badge_code": "CR",
