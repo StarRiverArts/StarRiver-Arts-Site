@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-09-26",
+  "updated": "2026-10-01",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -16,14 +16,14 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 129
+          "count": 138
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 100
+          "count": 106
         }
       ]
     },
@@ -39,14 +39,37 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 117
+          "count": 124
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 5
+        }
+      ]
+    },
+    {
+      "code": "omote_rokkou_ron",
+      "zh": "omote_rokko",
+      "en": "omote_rokko",
+      "system": "cvs",
+      "file": "omote_rokkou_ron.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 97
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         }
       ]
     },
@@ -63,75 +86,6 @@
           "status": "live",
           "provisional": true,
           "count": 91
-        }
-      ]
-    },
-    {
-      "code": "omote_rokkou_ron",
-      "zh": "omote_rokko",
-      "en": "omote_rokko",
-      "system": "cvs",
-      "file": "omote_rokkou_ron.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 79
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "code": "akina_jintei",
-      "zh": "秋名",
-      "en": "Akina",
-      "system": "sacc",
-      "file": "akina_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 73
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 6
-        }
-      ]
-    },
-    {
-      "code": "odawara_jintei",
-      "zh": "小田原",
-      "en": "Odawara",
-      "system": "sacc",
-      "file": "odawara_jintei.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "status": "live",
-          "provisional": true,
-          "count": 14
-        },
-        {
-          "code": "CW",
-          "zh": "順向",
-          "status": "live",
-          "provisional": true,
-          "count": 64
         }
       ]
     },
@@ -168,7 +122,7 @@
           "zh": "出場",
           "status": "live",
           "provisional": true,
-          "count": 11
+          "count": 14
         },
         {
           "code": "UH",
@@ -176,6 +130,89 @@
           "status": "live",
           "provisional": true,
           "count": 5
+        }
+      ]
+    },
+    {
+      "code": "odawara_jintei",
+      "zh": "小田原",
+      "en": "Odawara",
+      "system": "sacc",
+      "file": "odawara_jintei.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "status": "live",
+          "provisional": true,
+          "count": 14
+        },
+        {
+          "code": "CW",
+          "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 65
+        }
+      ]
+    },
+    {
+      "code": "akina_jintei",
+      "zh": "秋名",
+      "en": "Akina",
+      "system": "sacc",
+      "file": "akina_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 73
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "code": "pt_ych_starriver_arts",
+      "zh": "玉長公路",
+      "en": "Yuli-Changbin",
+      "system": "cvs",
+      "file": "pt_ych_starriver_arts.json",
+      "routes": [
+        {
+          "code": "FCIB",
+          "zh": "Full Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 8
+        },
+        {
+          "code": "FCOB",
+          "zh": "Full Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 27
+        },
+        {
+          "code": "HCIB",
+          "zh": "Half Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 25
+        },
+        {
+          "code": "HCOB",
+          "zh": "Half Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 14
         }
       ]
     },
@@ -279,43 +316,6 @@
       ]
     },
     {
-      "code": "pt_ych_starriver_arts",
-      "zh": "玉長公路",
-      "en": "Yuli-Changbin",
-      "system": "cvs",
-      "file": "pt_ych_starriver_arts.json",
-      "routes": [
-        {
-          "code": "FCIB",
-          "zh": "Full Course Inbound - to Changbin",
-          "status": "live",
-          "provisional": true,
-          "count": 8
-        },
-        {
-          "code": "FCOB",
-          "zh": "Full Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 24
-        },
-        {
-          "code": "HCIB",
-          "zh": "Half Course Inbound - to Changbin",
-          "status": "live",
-          "provisional": true,
-          "count": 12
-        },
-        {
-          "code": "HCOB",
-          "zh": "Half Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 8
-        }
-      ]
-    },
-    {
       "code": "tsubaki_jintei",
       "zh": "椿線",
       "en": "Tsubaki Line",
@@ -327,7 +327,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 40
+          "count": 41
         },
         {
           "code": "UH",
@@ -433,6 +433,29 @@
       ]
     },
     {
+      "code": "nanamagari_jintei",
+      "zh": "七曲",
+      "en": "Nanamagari",
+      "system": "sacc",
+      "file": "nanamagari_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 20
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "code": "akagi_jintei",
       "zh": "赤城",
       "en": "Akagi",
@@ -491,29 +514,6 @@
           "status": "live",
           "provisional": true,
           "count": 6
-        }
-      ]
-    },
-    {
-      "code": "nanamagari_jintei",
-      "zh": "七曲",
-      "en": "Nanamagari",
-      "system": "sacc",
-      "file": "nanamagari_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 15
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 2
         }
       ]
     },
@@ -642,6 +642,22 @@
       ]
     },
     {
+      "code": "mtakinadrift_et",
+      "zh": "Mt. Akina Drift CVS2",
+      "en": "Mt. Akina Drift CVS2",
+      "system": "cvs",
+      "file": "mtakinadrift_et.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 11
+        }
+      ]
+    },
+    {
       "code": "akinaun_jintei",
       "zh": "秋名無限",
       "en": "AkinaUN",
@@ -748,6 +764,29 @@
           "status": "live",
           "provisional": true,
           "count": 5
+        }
+      ]
+    },
+    {
+      "code": "usui_v1_jintei",
+      "zh": "碓冰V1",
+      "en": "Usui V1",
+      "system": "sacc",
+      "file": "usui_v1_jintei.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 9
+        },
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         }
       ]
     },
@@ -920,29 +959,6 @@
       ]
     },
     {
-      "code": "usui_v1_jintei",
-      "zh": "碓冰V1",
-      "en": "Usui V1",
-      "system": "sacc",
-      "file": "usui_v1_jintei.json",
-      "routes": [
-        {
-          "code": "CW",
-          "zh": "順向",
-          "status": "live",
-          "provisional": true,
-          "count": 8
-        },
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
       "code": "monaco_aiden1408",
       "zh": "摩納哥",
       "en": "Monaco",
@@ -952,22 +968,6 @@
         {
           "code": "TBD",
           "zh": "待整理",
-          "status": "live",
-          "provisional": true,
-          "count": 9
-        }
-      ]
-    },
-    {
-      "code": "mtakinadrift_et",
-      "zh": "Mt. Akina Drift CVS2",
-      "en": "Mt. Akina Drift CVS2",
-      "system": "cvs",
-      "file": "mtakinadrift_et.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
           "status": "live",
           "provisional": true,
           "count": 9
@@ -1120,6 +1120,29 @@
       ]
     },
     {
+      "code": "momiji_jintei",
+      "zh": "紅葉Momiji",
+      "en": "Momiji",
+      "system": "sacc",
+      "file": "momiji_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "tsuchisaka_snow_jintei",
       "zh": "Tsuchisaka Snow",
       "en": "Tsuchisaka Snow",
@@ -1201,29 +1224,6 @@
           "status": "live",
           "provisional": true,
           "count": 6
-        }
-      ]
-    },
-    {
-      "code": "momiji_jintei",
-      "zh": "紅葉Momiji",
-      "en": "Momiji",
-      "system": "sacc",
-      "file": "momiji_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 2
         }
       ]
     },
@@ -1630,6 +1630,29 @@
       ]
     },
     {
+      "code": "osaka_hanshin",
+      "zh": "Osaka Hanshin",
+      "en": "Osaka Hanshin",
+      "system": "sacc",
+      "file": "osaka_hanshin.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "Unknown",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "code": "kielder",
       "zh": "Kielder",
       "en": "Kielder",
@@ -1827,6 +1850,22 @@
       ]
     },
     {
+      "code": "mazepass_jintei",
+      "zh": "［Initial D］ Maze Pass",
+      "en": "［Initial D］ Maze Pass",
+      "system": "sacc",
+      "file": "mazepass_jintei.json",
+      "routes": [
+        {
+          "code": "Dh",
+          "zh": "Dh",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "charlotte_nascvr",
       "zh": "Charlotte",
       "en": "Charlotte",
@@ -1852,22 +1891,6 @@
         {
           "code": "TBD",
           "zh": "待整理",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "code": "osaka_hanshin",
-      "zh": "Osaka Hanshin",
-      "en": "Osaka Hanshin",
-      "system": "sacc",
-      "file": "osaka_hanshin.json",
-      "routes": [
-        {
-          "code": "",
-          "zh": "Unknown",
           "status": "live",
           "provisional": true,
           "count": 1
