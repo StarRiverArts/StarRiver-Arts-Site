@@ -17,7 +17,7 @@
     {
       "label_zh": "玩家數",
       "label_en": "Players",
-      "value": "128",
+      "value": "129",
       "note_zh": "有至少一筆有效紀錄的玩家",
       "note_en": "Players with at least one valid run"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "CR 數量",
       "label_en": "Car Records",
-      "value": "596",
+      "value": "604",
       "note_zh": "目前一般有效池內的車輛路線紀錄數",
       "note_en": "Vehicle-model route records currently present in the valid pool"
     }
@@ -53,7 +53,7 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 170,
+        "distinct_vehicle_models": 171,
         "distinct_tracks": 92,
         "max_route_attempts": 51,
         "tr_count": 108,
@@ -74,7 +74,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "521"
+          "value": "524"
         },
         {
           "label_zh": "已驗證",
@@ -140,11 +140,11 @@
         },
         {
           "label": "髮夾彎",
-          "value": 230
+          "value": 231
         },
         {
           "label": "技術",
-          "value": 186
+          "value": 187
         },
         {
           "label": "上下山",
@@ -907,8 +907,37 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_001848",
+          "record_id": "rec_001881",
           "rank": 29,
+          "route_label_zh": "龍鉤山 / Uphill",
+          "route_label_en": "Ryuoukouzan / Uphill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC5",
+          "vehicle_model_code": "veh_dc5",
+          "vehicle_variant_name": "DC5-Attack (Integra)",
+          "vehicle_variant_code": "veh_dc5_attack",
+          "lap_time_ms": 120040,
+          "lap_time_text": "02:00.040",
+          "delta_to_best_text": "+3.734",
+          "platform": "pc",
+          "record_date": "2026-10-01",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "DC5",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001848",
+          "rank": 30,
           "route_label_zh": "［Initial D］ Maze Pass / Dh",
           "route_label_en": "［Initial D］ Maze Pass / Dh",
           "player_display_name": "CannedCarbon",
@@ -934,7 +963,7 @@
         },
         {
           "record_id": "rec_001501",
-          "rank": 30,
+          "rank": 31,
           "route_label_zh": "鈴鹿國際賽車場 / Grand Prix Circuit",
           "route_label_en": "Suzuka2026 / Grand Prix Circuit",
           "player_display_name": "CannedCarbon",
@@ -962,7 +991,7 @@
         },
         {
           "record_id": "rec_000724",
-          "rank": 31,
+          "rank": 32,
           "route_label_zh": "F1 Circuit / Clockwise",
           "route_label_en": "F1 Circuit / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -991,7 +1020,7 @@
         },
         {
           "record_id": "rec_001777",
-          "rank": 32,
+          "rank": 33,
           "route_label_zh": "Bathurst V8 Supercars CVS2 / Forward",
           "route_label_en": "Bathurst V8 Supercars CVS2 / Forward",
           "player_display_name": "CannedCarbon",
@@ -1017,7 +1046,7 @@
         },
         {
           "record_id": "rec_001167",
-          "rank": 33,
+          "rank": 34,
           "route_label_zh": "Hi-Land Raceway 2.0 / Circuit",
           "route_label_en": "Hi-Land Raceway 2.0 / Circuit",
           "player_display_name": "CannedCarbon",
@@ -1043,7 +1072,7 @@
         },
         {
           "record_id": "rec_001418",
-          "rank": 34,
+          "rank": 35,
           "route_label_zh": "紐柏林北環 / GP Layout",
           "route_label_en": "Nordschleife / GP Layout",
           "player_display_name": "CannedCarbon",
@@ -1071,35 +1100,6 @@
           "badge_label_zh": "賽道紀錄",
           "badge_label_en": "Track Record",
           "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_000799",
-          "rank": 35,
-          "route_label_zh": "龍鉤山 / Uphill",
-          "route_label_en": "Ryuoukouzan / Uphill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "GarlandPX-Attack",
-          "vehicle_model_code": "veh_garlandpx_attack",
-          "vehicle_variant_name": "GarlandPX-Attack",
-          "vehicle_variant_code": "veh_garlandpx_attack",
-          "lap_time_ms": 132933,
-          "lap_time_text": "02:12.933",
-          "delta_to_best_text": "+9.233",
-          "platform": "pc",
-          "record_date": "2026-06-22",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "GarlandPX-Attack",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
         },
         {
           "record_id": "rec_001828",
@@ -5997,6 +5997,62 @@
           ]
         },
         {
+          "route_key": "pt_ych_starriver_arts:HCIB",
+          "route_label": "玉長公路 / Half Course Inbound - to Changbin",
+          "run_count": 7,
+          "runs": [
+            {
+              "date": "2026-09-15",
+              "lap_time_ms": 163680,
+              "lap_time_text": "02:43.680",
+              "vehicle": "EK Miracle",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-15",
+              "lap_time_ms": 174067,
+              "lap_time_text": "02:54.067",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-18",
+              "lap_time_ms": 209613,
+              "lap_time_text": "03:29.613",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-19",
+              "lap_time_ms": 165693,
+              "lap_time_text": "02:45.693",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-27",
+              "lap_time_ms": 285640,
+              "lap_time_text": "04:45.640",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-29",
+              "lap_time_ms": 163120,
+              "lap_time_text": "02:43.120",
+              "vehicle": "EK Miracle",
+              "is_pb": true
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 177107,
+              "lap_time_text": "02:57.107",
+              "vehicle": "Veryca",
+              "is_pb": false
+            }
+          ]
+        },
+        {
           "route_key": "sadamine_jintei:FCDH",
           "route_label": "定峰峠 / Full Course Downhill",
           "run_count": 6,
@@ -6095,51 +6151,51 @@
           ]
         },
         {
-          "route_key": "pt_ych_starriver_arts:HCIB",
-          "route_label": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_key": "pt_ych_starriver_arts:HCOB",
+          "route_label": "玉長公路 / Half Course Outbound - to Yuli",
           "run_count": 6,
           "runs": [
             {
               "date": "2026-09-15",
-              "lap_time_ms": 163680,
-              "lap_time_text": "02:43.680",
-              "vehicle": "EK Miracle",
+              "lap_time_ms": 167040,
+              "lap_time_text": "02:47.040",
+              "vehicle": "EG Sports",
               "is_pb": true
             },
             {
               "date": "2026-09-15",
-              "lap_time_ms": 174067,
-              "lap_time_text": "02:54.067",
-              "vehicle": "EG Sports",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-18",
-              "lap_time_ms": 209613,
-              "lap_time_text": "03:29.613",
+              "lap_time_ms": 169067,
+              "lap_time_text": "02:49.067",
               "vehicle": "EG Sports",
               "is_pb": false
             },
             {
               "date": "2026-09-19",
-              "lap_time_ms": 165693,
-              "lap_time_text": "02:45.693",
+              "lap_time_ms": 167653,
+              "lap_time_text": "02:47.653",
               "vehicle": "EG Sports",
               "is_pb": false
             },
             {
               "date": "2026-09-27",
-              "lap_time_ms": 285640,
-              "lap_time_text": "04:45.640",
+              "lap_time_ms": 260027,
+              "lap_time_text": "04:20.027",
               "vehicle": "EG Sports",
               "is_pb": false
             },
             {
               "date": "2026-09-29",
-              "lap_time_ms": 163120,
-              "lap_time_text": "02:43.120",
+              "lap_time_ms": 163453,
+              "lap_time_text": "02:43.453",
               "vehicle": "EK Miracle",
               "is_pb": true
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 179520,
+              "lap_time_text": "02:59.520",
+              "vehicle": "Veryca",
+              "is_pb": false
             }
           ]
         },
@@ -6266,48 +6322,6 @@
               "lap_time_text": "00:45.280",
               "vehicle": "Honda Beat(PP1)",
               "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "pt_ych_starriver_arts:HCOB",
-          "route_label": "玉長公路 / Half Course Outbound - to Yuli",
-          "run_count": 5,
-          "runs": [
-            {
-              "date": "2026-09-15",
-              "lap_time_ms": 167040,
-              "lap_time_text": "02:47.040",
-              "vehicle": "EG Sports",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-15",
-              "lap_time_ms": 169067,
-              "lap_time_text": "02:49.067",
-              "vehicle": "EG Sports",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-19",
-              "lap_time_ms": 167653,
-              "lap_time_text": "02:47.653",
-              "vehicle": "EG Sports",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-27",
-              "lap_time_ms": 260027,
-              "lap_time_text": "04:20.027",
-              "vehicle": "EG Sports",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-29",
-              "lap_time_ms": 163453,
-              "lap_time_text": "02:43.453",
-              "vehicle": "EK Miracle",
-              "is_pb": true
             }
           ]
         },
@@ -6809,6 +6823,34 @@
           ]
         },
         {
+          "route_key": "ryuoukouzan_calme:UH",
+          "route_label": "龍鉤山 / Uphill",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-06-22",
+              "lap_time_ms": 132933,
+              "lap_time_text": "02:12.933",
+              "vehicle": "GarlandPX-Attack",
+              "is_pb": true
+            },
+            {
+              "date": "2026-06-22",
+              "lap_time_ms": 138894,
+              "lap_time_text": "02:18.894",
+              "vehicle": "Daihatsu Mira(L70/L80)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-10-01",
+              "lap_time_ms": 120040,
+              "lap_time_text": "02:00.040",
+              "vehicle": "DC5",
+              "is_pb": true
+            }
+          ]
+        },
+        {
           "route_key": "akagi_jintei:DH",
           "route_label": "赤城 / Downhill",
           "run_count": 3,
@@ -7134,27 +7176,6 @@
               "lap_time_text": "02:42.334",
               "vehicle": "R34(BNR34)",
               "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "ryuoukouzan_calme:UH",
-          "route_label": "龍鉤山 / Uphill",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-06-22",
-              "lap_time_ms": 132933,
-              "lap_time_text": "02:12.933",
-              "vehicle": "GarlandPX-Attack",
-              "is_pb": true
-            },
-            {
-              "date": "2026-06-22",
-              "lap_time_ms": 138894,
-              "lap_time_text": "02:18.894",
-              "vehicle": "Daihatsu Mira(L70/L80)",
-              "is_pb": false
             }
           ]
         },
@@ -9101,7 +9122,7 @@
       ],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 70,
+        "distinct_vehicle_models": 71,
         "distinct_tracks": 53,
         "max_route_attempts": 22,
         "tr_count": 9,
@@ -9122,7 +9143,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "302"
+          "value": "303"
         },
         {
           "label_zh": "已驗證",
@@ -9670,7 +9691,7 @@
           "vehicle_variant_code": "veh_le6_attack",
           "lap_time_ms": 132867,
           "lap_time_text": "02:12.867",
-          "delta_to_best_text": "+9.167",
+          "delta_to_best_text": "+16.561",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -13230,6 +13251,41 @@
           ]
         },
         {
+          "route_key": "pt_ych_starriver_arts:HCOB",
+          "route_label": "玉長公路 / Half Course Outbound - to Yuli",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-09-15",
+              "lap_time_ms": 198517,
+              "lap_time_text": "03:18.517",
+              "vehicle": "EG Sports",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-20",
+              "lap_time_ms": 239867,
+              "lap_time_text": "03:59.867",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-27",
+              "lap_time_ms": 206434,
+              "lap_time_text": "03:26.434",
+              "vehicle": "EG Sports",
+              "is_pb": false
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 242983,
+              "lap_time_text": "04:02.983",
+              "vehicle": "VClass",
+              "is_pb": false
+            }
+          ]
+        },
+        {
           "route_key": "akinaun_jintei:DH",
           "route_label": "秋名無限 / Downhill",
           "run_count": 3,
@@ -13449,34 +13505,6 @@
               "lap_time_ms": 321533,
               "lap_time_text": "05:21.533",
               "vehicle": "EVOVI/CP9A",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "pt_ych_starriver_arts:HCOB",
-          "route_label": "玉長公路 / Half Course Outbound - to Yuli",
-          "run_count": 3,
-          "runs": [
-            {
-              "date": "2026-09-15",
-              "lap_time_ms": 198517,
-              "lap_time_text": "03:18.517",
-              "vehicle": "EG Sports",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-20",
-              "lap_time_ms": 239867,
-              "lap_time_text": "03:59.867",
-              "vehicle": "EG Sports",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-27",
-              "lap_time_ms": 206434,
-              "lap_time_text": "03:26.434",
-              "vehicle": "EG Sports",
               "is_pb": false
             }
           ]
@@ -17183,11 +17211,11 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 52,
+        "distinct_vehicle_models": 53,
         "distinct_tracks": 31,
         "max_route_attempts": 11,
-        "tr_count": 4,
-        "cr_count": 16
+        "tr_count": 3,
+        "cr_count": 18
       },
       "subtitle_zh": "未分隊車手",
       "subtitle_en": "Independent Driver",
@@ -17204,7 +17232,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "99"
+          "value": "100"
         },
         {
           "label_zh": "已驗證",
@@ -17214,17 +17242,17 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "4"
+          "value": "3"
         },
         {
           "label_zh": "車種最佳",
           "label_en": "Car Records",
-          "value": "16"
+          "value": "18"
         }
       ],
       "badge_counts": {
-        "TR": 4,
-        "CR": 16,
+        "TR": 3,
+        "CR": 18,
         "PR": 21
       },
       "tag_chips": [
@@ -17520,7 +17548,7 @@
           "vehicle_variant_code": "veh_le6_attack",
           "lap_time_ms": 123700,
           "lap_time_text": "02:03.700",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+7.394",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -17531,10 +17559,10 @@
           "peer_label": "EVOVI/CP9A",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "record_id": "rec_001146",
@@ -18357,8 +18385,34 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_001410",
+          "record_id": "rec_001886",
           "rank": 39,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "Iˣ",
+          "player_id": "plr_048",
+          "vehicle_model_name": "Canter",
+          "vehicle_model_code": "veh_fuso_canter_cab_over_diesel",
+          "vehicle_variant_name": "Fuso Canter Cab-Over Diesel",
+          "vehicle_variant_code": "veh_fuso_canter_cab_over_diesel",
+          "lap_time_ms": 328722,
+          "lap_time_text": "05:28.722",
+          "delta_to_best_text": "+165.269",
+          "platform": "pcvr",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Canter",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001410",
+          "rank": 40,
           "route_label_zh": "Tail Of The Dragon / Full Course",
           "route_label_en": "Tail Of The Dragon / Full Course",
           "player_display_name": "Iˣ",
@@ -18384,7 +18438,7 @@
         },
         {
           "record_id": "rec_001621",
-          "rank": 40,
+          "rank": 41,
           "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
           "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
           "player_display_name": "Iˣ",
@@ -18410,7 +18464,7 @@
         },
         {
           "record_id": "rec_001633",
-          "rank": 41,
+          "rank": 42,
           "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
           "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
           "player_display_name": "Iˣ",
@@ -25225,6 +25279,596 @@
       ]
     },
     {
+      "player_id": "plr_daisukilian",
+      "title": "daisukilian",
+      "team_name": "THDK",
+      "primary_team_id": "",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 10,
+        "distinct_tracks": 7,
+        "max_route_attempts": 8,
+        "tr_count": 1,
+        "cr_count": 1
+      },
+      "subtitle_zh": "THDK",
+      "subtitle_en": "THDK",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "daisukilian",
+        "title_en": "daisukilian",
+        "subtitle_zh": "THDK",
+        "subtitle_en": "THDK",
+        "tone": 2
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "30"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "1"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 1,
+        "CR": 1,
+        "PR": 7
+      },
+      "tag_chips": [
+        {
+          "label": "THDK",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 GC8 (Impreza)",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 髮夾彎",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "GC8 (Impreza)",
+          "value": 12
+        },
+        {
+          "label": "Karin 96",
+          "value": 8
+        },
+        {
+          "label": "GT3RS",
+          "value": 2
+        },
+        {
+          "label": "EVOVIII/CT9A",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "髮夾彎",
+          "value": 20
+        },
+        {
+          "label": "高速",
+          "value": 14
+        },
+        {
+          "label": "技術",
+          "value": 10
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_000681",
+          "rank": 1,
+          "route_label_zh": "龍鉤山 / Downhill",
+          "route_label_en": "Ryuoukouzan / Downhill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_gc8_impreza",
+          "vehicle_variant_name": "GC8-Attack",
+          "vehicle_variant_code": "veh_gc8_attack",
+          "lap_time_ms": 107875,
+          "lap_time_text": "01:47.875",
+          "delta_to_best_text": "+4.186",
+          "platform": "pcvr",
+          "record_date": "2026-05-13",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8 (Impreza)",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001342",
+          "rank": 2,
+          "route_label_zh": "Kamidomarizaka / Uphill",
+          "route_label_en": "Kamidomarizaka / Uphill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_gc8_impreza",
+          "vehicle_variant_name": "GC8-Attack",
+          "vehicle_variant_code": "veh_gc8_attack",
+          "lap_time_ms": 113541,
+          "lap_time_text": "01:53.541",
+          "delta_to_best_text": "+4.574",
+          "platform": "pcvr",
+          "record_date": "2026-08-10",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8 (Impreza)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536328360215576628",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001880",
+          "rank": 3,
+          "route_label_zh": "龍鉤山 / Uphill",
+          "route_label_en": "Ryuoukouzan / Uphill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_gc8_impreza",
+          "vehicle_variant_name": "GC8-Attack",
+          "vehicle_variant_code": "veh_gc8_attack",
+          "lap_time_ms": 116306,
+          "lap_time_text": "01:56.306",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-10-01",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8 (Impreza)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_001033",
+          "rank": 4,
+          "route_label_zh": "紅葉Momiji / Downhill S Class",
+          "route_label_en": "Momiji / Downhill S Class",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "F111",
+          "vehicle_model_code": "veh_f111",
+          "vehicle_variant_name": "F111",
+          "vehicle_variant_code": "veh_f111",
+          "lap_time_ms": 149570,
+          "lap_time_text": "02:29.570",
+          "delta_to_best_text": "+2.826",
+          "platform": "pcvr",
+          "record_date": "2026-07-19",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "F111",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001243",
+          "rank": 5,
+          "route_label_zh": "Kamidomarizaka / Downhill",
+          "route_label_en": "Kamidomarizaka / Downhill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_gc8_impreza",
+          "vehicle_variant_name": "GC8-Attack",
+          "vehicle_variant_code": "veh_gc8_attack",
+          "lap_time_ms": 202889,
+          "lap_time_text": "03:22.889",
+          "delta_to_best_text": "+8.689",
+          "platform": "pcvr",
+          "record_date": "2026-08-10",
+          "track_env": "山道",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "GC8 (Impreza)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536328360215576628",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001599",
+          "rank": 6,
+          "route_label_zh": "長尾 / Downhill",
+          "route_label_en": "Nagao / Downhill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "Karin 96",
+          "vehicle_model_code": "veh_karin_96",
+          "vehicle_variant_name": "Karin 96",
+          "vehicle_variant_code": "veh_karin_96",
+          "lap_time_ms": 222297,
+          "lap_time_text": "03:42.297",
+          "delta_to_best_text": "+11.575",
+          "platform": "pcvr",
+          "record_date": "2026-09-10",
+          "track_env": "山道",
+          "track_tags": [
+            "技術"
+          ],
+          "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1547554763074310164",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001611",
+          "rank": 7,
+          "route_label_zh": "正丸 / Downhill",
+          "route_label_en": "Shomaru / Downhill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "Karin 96",
+          "vehicle_model_code": "veh_karin_96",
+          "vehicle_variant_name": "Karin 96",
+          "vehicle_variant_code": "veh_karin_96",
+          "lap_time_ms": 248236,
+          "lap_time_text": "04:08.236",
+          "delta_to_best_text": "+2.263",
+          "platform": "pcvr",
+          "record_date": "2026-09-11",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Karin 96",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1547921609770278923",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001412",
+          "rank": 8,
+          "route_label_zh": "Tail Of The Dragon / Full Course",
+          "route_label_en": "Tail Of The Dragon / Full Course",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_impreze_vrx",
+          "vehicle_variant_name": "Impreze VRX",
+          "vehicle_variant_code": "veh_impreze_vrx",
+          "lap_time_ms": 338375,
+          "lap_time_text": "05:38.375",
+          "delta_to_best_text": "+18.722",
+          "platform": "pcvr",
+          "record_date": "2026-08-18",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "GC8 (Impreza)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1539583799078297600",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001785",
+          "rank": 9,
+          "route_label_zh": "Mt. Akina Drift CVS2 / Downhill",
+          "route_label_en": "Mt. Akina Drift CVS2 / Downhill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "PS13 (Silvia)",
+          "vehicle_model_code": "veh_ps13_silvia",
+          "vehicle_variant_name": "PS13 (Silvia)",
+          "vehicle_variant_code": "veh_ps13_silvia",
+          "lap_time_ms": 339875,
+          "lap_time_text": "05:39.875",
+          "delta_to_best_text": "+38.216",
+          "platform": "pcvr",
+          "record_date": "2026-09-24",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "PS13 (Silvia)",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1552728892849004584\nakinadrift:1552728892849004584:DH:3\nimage_sha256:bbbc5ace3a3188847bb8a53367a2bcea777cf1480273720b704b3f8d43a5cd68\nAll eight times were cross-checked against the board's own Delay and Gap columns; every value reconciles to the leader's 05:06.717 within 1 ms. Board renders simplified-Chinese spellings. 平泽唯qwq is the same person as the registered 平澤唯qwq (plr_qwq) and is bound explicitly so the import cannot create a duplicate; the board spelling is added as an alias. 樱井琦萝萝 already resolves to plr_0074 via an existing alias. _Eugen_, 青客捞湿 and ばかW256 are new players. The Vehicle column holds in-world GameObject names, not canonical variant names: the ' (1)' / ' 2' suffixes are Unity duplicate-object suffixes, so numbered slots of the same label are the same car. Owner decision 2026-09-25: map each slot to its base model and keep the slot label verbatim in claimed_vehicle_name. Owner instruction 2026-09-25: Cannedcarbon = PC, daisukilian = PCVR, everyone else defaults to PCVR. 菲娜_Fina independently confirmed PCVR by the submitter's own message text. Platform is not visible in the image.",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "history": [
+        {
+          "route_key": "kamidomarizaka_calme:DH",
+          "route_label": "Kamidomarizaka / Downhill",
+          "run_count": 8,
+          "runs": [
+            {
+              "date": "2026-03-1",
+              "lap_time_ms": 208527,
+              "lap_time_text": "03:28.527",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 214402,
+              "lap_time_text": "03:34.402",
+              "vehicle": "GT3RS",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 204195,
+              "lap_time_text": "03:24.195",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-10",
+              "lap_time_ms": 202889,
+              "lap_time_text": "03:22.889",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 210819,
+              "lap_time_text": "03:30.819",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 211250,
+              "lap_time_text": "03:31.250",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 215361,
+              "lap_time_text": "03:35.361",
+              "vehicle": "Lexus LFA",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 218764,
+              "lap_time_text": "03:38.764",
+              "vehicle": "EVOIII/CE9A",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "kamidomarizaka_calme:UH",
+          "route_label": "Kamidomarizaka / Uphill",
+          "run_count": 6,
+          "runs": [
+            {
+              "date": "2026-06-07",
+              "lap_time_ms": 113958,
+              "lap_time_text": "01:53.958",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 113598,
+              "lap_time_text": "01:53.598",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-07",
+              "lap_time_ms": 121055,
+              "lap_time_text": "02:01.055",
+              "vehicle": "GT3RS",
+              "is_pb": false
+            },
+            {
+              "date": "2026-08-10",
+              "lap_time_ms": 113541,
+              "lap_time_text": "01:53.541",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 113611,
+              "lap_time_text": "01:53.611",
+              "vehicle": "EVOVIII/CT9A",
+              "is_pb": false
+            },
+            {
+              "date": "2026-09-06",
+              "lap_time_ms": 120278,
+              "lap_time_text": "02:00.278",
+              "vehicle": "Lexus LFA",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "ryuoukouzan_calme:DH",
+          "route_label": "龍鉤山 / Downhill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-03-19",
+              "lap_time_ms": 111902,
+              "lap_time_text": "01:51.902",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-05-13",
+              "lap_time_ms": 107875,
+              "lap_time_text": "01:47.875",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            },
+            {
+              "date": "2026-05-13",
+              "lap_time_ms": 125027,
+              "lap_time_text": "02:05.027",
+              "vehicle": "MS2",
+              "is_pb": false
+            },
+            {
+              "date": "2026-10-01",
+              "lap_time_ms": 111125,
+              "lap_time_text": "01:51.125",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": false
+            }
+          ]
+        },
+        {
+          "route_key": "nagao_foxbg:DH",
+          "route_label": "長尾 / Downhill",
+          "run_count": 4,
+          "runs": [
+            {
+              "date": "2026-07-17",
+              "lap_time_ms": 229111,
+              "lap_time_text": "03:49.111",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-19",
+              "lap_time_ms": 225236,
+              "lap_time_text": "03:45.236",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-03",
+              "lap_time_ms": 223152,
+              "lap_time_text": "03:43.152",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-10",
+              "lap_time_ms": 222297,
+              "lap_time_text": "03:42.297",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "shomaru_foxbg:DH",
+          "route_label": "正丸 / Downhill",
+          "run_count": 3,
+          "runs": [
+            {
+              "date": "2026-07-02",
+              "lap_time_ms": 257917,
+              "lap_time_text": "04:17.917",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-07-26",
+              "lap_time_ms": 249930,
+              "lap_time_text": "04:09.930",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-09-11",
+              "lap_time_ms": 248236,
+              "lap_time_text": "04:08.236",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "tail_of_the_dragon:FC",
+          "route_label": "Tail Of The Dragon / Full Course",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-08-18",
+              "lap_time_ms": 352432,
+              "lap_time_text": "05:52.432",
+              "vehicle": "Karin 96",
+              "is_pb": true
+            },
+            {
+              "date": "2026-08-18",
+              "lap_time_ms": 338375,
+              "lap_time_text": "05:38.375",
+              "vehicle": "GC8 (Impreza)",
+              "is_pb": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "player_id": "plr_light_spirit",
       "title": "Light_Spirit",
       "team_name": "",
@@ -25956,7 +26600,7 @@
           "vehicle_variant_code": "veh_sxcustom",
           "lap_time_ms": 182422,
           "lap_time_text": "03:02.422",
-          "delta_to_best_text": "+58.722",
+          "delta_to_best_text": "+66.116",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -28114,567 +28758,6 @@
       ]
     },
     {
-      "player_id": "plr_daisukilian",
-      "title": "daisukilian",
-      "team_name": "THDK",
-      "primary_team_id": "",
-      "home_tracks": [],
-      "featured_vehicles": [],
-      "manual_achievement_codes": [],
-      "achievement_stats": {
-        "distinct_vehicle_models": 10,
-        "distinct_tracks": 7,
-        "max_route_attempts": 8,
-        "tr_count": 0,
-        "cr_count": 1
-      },
-      "subtitle_zh": "THDK",
-      "subtitle_en": "THDK",
-      "profile_banner": {
-        "image": "",
-        "position": "center center",
-        "title_zh": "daisukilian",
-        "title_en": "daisukilian",
-        "subtitle_zh": "THDK",
-        "subtitle_en": "THDK",
-        "tone": 2
-      },
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "29"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        },
-        {
-          "label_zh": "車種最佳",
-          "label_en": "Car Records",
-          "value": "1"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 1,
-        "PR": 7
-      },
-      "tag_chips": [
-        {
-          "label": "THDK",
-          "tone": "team"
-        },
-        {
-          "label": "主力車種 GC8 (Impreza)",
-          "tone": "vehicle"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "路線標籤 髮夾彎",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "GC8 (Impreza)",
-          "value": 11
-        },
-        {
-          "label": "Karin 96",
-          "value": 8
-        },
-        {
-          "label": "GT3RS",
-          "value": 2
-        },
-        {
-          "label": "EVOVIII/CT9A",
-          "value": 2
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "髮夾彎",
-          "value": 19
-        },
-        {
-          "label": "高速",
-          "value": 14
-        },
-        {
-          "label": "技術",
-          "value": 9
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_000681",
-          "rank": 1,
-          "route_label_zh": "龍鉤山 / Downhill",
-          "route_label_en": "Ryuoukouzan / Downhill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "GC8 (Impreza)",
-          "vehicle_model_code": "veh_gc8_impreza",
-          "vehicle_variant_name": "GC8-Attack",
-          "vehicle_variant_code": "veh_gc8_attack",
-          "lap_time_ms": 107875,
-          "lap_time_text": "01:47.875",
-          "delta_to_best_text": "+4.186",
-          "platform": "pcvr",
-          "record_date": "2026-05-13",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8 (Impreza)",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001342",
-          "rank": 2,
-          "route_label_zh": "Kamidomarizaka / Uphill",
-          "route_label_en": "Kamidomarizaka / Uphill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "GC8 (Impreza)",
-          "vehicle_model_code": "veh_gc8_impreza",
-          "vehicle_variant_name": "GC8-Attack",
-          "vehicle_variant_code": "veh_gc8_attack",
-          "lap_time_ms": 113541,
-          "lap_time_text": "01:53.541",
-          "delta_to_best_text": "+4.574",
-          "platform": "pcvr",
-          "record_date": "2026-08-10",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8 (Impreza)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536328360215576628",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001033",
-          "rank": 3,
-          "route_label_zh": "紅葉Momiji / Downhill S Class",
-          "route_label_en": "Momiji / Downhill S Class",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "F111",
-          "vehicle_model_code": "veh_f111",
-          "vehicle_variant_name": "F111",
-          "vehicle_variant_code": "veh_f111",
-          "lap_time_ms": 149570,
-          "lap_time_text": "02:29.570",
-          "delta_to_best_text": "+2.826",
-          "platform": "pcvr",
-          "record_date": "2026-07-19",
-          "track_env": "山道",
-          "track_tags": [
-            "技術",
-            "髮夾彎"
-          ],
-          "peer_label": "F111",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001243",
-          "rank": 4,
-          "route_label_zh": "Kamidomarizaka / Downhill",
-          "route_label_en": "Kamidomarizaka / Downhill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "GC8 (Impreza)",
-          "vehicle_model_code": "veh_gc8_impreza",
-          "vehicle_variant_name": "GC8-Attack",
-          "vehicle_variant_code": "veh_gc8_attack",
-          "lap_time_ms": 202889,
-          "lap_time_text": "03:22.889",
-          "delta_to_best_text": "+8.689",
-          "platform": "pcvr",
-          "record_date": "2026-08-10",
-          "track_env": "山道",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "GC8 (Impreza)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1536328360215576628",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001599",
-          "rank": 5,
-          "route_label_zh": "長尾 / Downhill",
-          "route_label_en": "Nagao / Downhill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "Karin 96",
-          "vehicle_model_code": "veh_karin_96",
-          "vehicle_variant_name": "Karin 96",
-          "vehicle_variant_code": "veh_karin_96",
-          "lap_time_ms": 222297,
-          "lap_time_text": "03:42.297",
-          "delta_to_best_text": "+11.575",
-          "platform": "pcvr",
-          "record_date": "2026-09-10",
-          "track_env": "山道",
-          "track_tags": [
-            "技術"
-          ],
-          "peer_label": "Karin 96",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1547554763074310164",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001611",
-          "rank": 6,
-          "route_label_zh": "正丸 / Downhill",
-          "route_label_en": "Shomaru / Downhill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "Karin 96",
-          "vehicle_model_code": "veh_karin_96",
-          "vehicle_variant_name": "Karin 96",
-          "vehicle_variant_code": "veh_karin_96",
-          "lap_time_ms": 248236,
-          "lap_time_text": "04:08.236",
-          "delta_to_best_text": "+2.263",
-          "platform": "pcvr",
-          "record_date": "2026-09-11",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "Karin 96",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1547921609770278923",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001412",
-          "rank": 7,
-          "route_label_zh": "Tail Of The Dragon / Full Course",
-          "route_label_en": "Tail Of The Dragon / Full Course",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "GC8 (Impreza)",
-          "vehicle_model_code": "veh_impreze_vrx",
-          "vehicle_variant_name": "Impreze VRX",
-          "vehicle_variant_code": "veh_impreze_vrx",
-          "lap_time_ms": 338375,
-          "lap_time_text": "05:38.375",
-          "delta_to_best_text": "+18.722",
-          "platform": "pcvr",
-          "record_date": "2026-08-18",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "GC8 (Impreza)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1539583799078297600",
-          "badge_code": "PR",
-          "badge_label_zh": "個人紀錄",
-          "badge_label_en": "Personal Record",
-          "badge_tone": "pr"
-        },
-        {
-          "record_id": "rec_001785",
-          "rank": 8,
-          "route_label_zh": "Mt. Akina Drift CVS2 / Downhill",
-          "route_label_en": "Mt. Akina Drift CVS2 / Downhill",
-          "player_display_name": "daisukilian",
-          "player_id": "plr_daisukilian",
-          "vehicle_model_name": "PS13 (Silvia)",
-          "vehicle_model_code": "veh_ps13_silvia",
-          "vehicle_variant_name": "PS13 (Silvia)",
-          "vehicle_variant_code": "veh_ps13_silvia",
-          "lap_time_ms": 339875,
-          "lap_time_text": "05:39.875",
-          "delta_to_best_text": "+38.216",
-          "platform": "pcvr",
-          "record_date": "2026-09-24",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "PS13 (Silvia)",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1552728892849004584\nakinadrift:1552728892849004584:DH:3\nimage_sha256:bbbc5ace3a3188847bb8a53367a2bcea777cf1480273720b704b3f8d43a5cd68\nAll eight times were cross-checked against the board's own Delay and Gap columns; every value reconciles to the leader's 05:06.717 within 1 ms. Board renders simplified-Chinese spellings. 平泽唯qwq is the same person as the registered 平澤唯qwq (plr_qwq) and is bound explicitly so the import cannot create a duplicate; the board spelling is added as an alias. 樱井琦萝萝 already resolves to plr_0074 via an existing alias. _Eugen_, 青客捞湿 and ばかW256 are new players. The Vehicle column holds in-world GameObject names, not canonical variant names: the ' (1)' / ' 2' suffixes are Unity duplicate-object suffixes, so numbered slots of the same label are the same car. Owner decision 2026-09-25: map each slot to its base model and keep the slot label verbatim in claimed_vehicle_name. Owner instruction 2026-09-25: Cannedcarbon = PC, daisukilian = PCVR, everyone else defaults to PCVR. 菲娜_Fina independently confirmed PCVR by the submitter's own message text. Platform is not visible in the image.",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "history": [
-        {
-          "route_key": "kamidomarizaka_calme:DH",
-          "route_label": "Kamidomarizaka / Downhill",
-          "run_count": 8,
-          "runs": [
-            {
-              "date": "2026-03-1",
-              "lap_time_ms": 208527,
-              "lap_time_text": "03:28.527",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 214402,
-              "lap_time_text": "03:34.402",
-              "vehicle": "GT3RS",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 204195,
-              "lap_time_text": "03:24.195",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-10",
-              "lap_time_ms": 202889,
-              "lap_time_text": "03:22.889",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 210819,
-              "lap_time_text": "03:30.819",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 211250,
-              "lap_time_text": "03:31.250",
-              "vehicle": "EVOVIII/CT9A",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 215361,
-              "lap_time_text": "03:35.361",
-              "vehicle": "Lexus LFA",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 218764,
-              "lap_time_text": "03:38.764",
-              "vehicle": "EVOIII/CE9A",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "kamidomarizaka_calme:UH",
-          "route_label": "Kamidomarizaka / Uphill",
-          "run_count": 6,
-          "runs": [
-            {
-              "date": "2026-06-07",
-              "lap_time_ms": 113958,
-              "lap_time_text": "01:53.958",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 113598,
-              "lap_time_text": "01:53.598",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-07",
-              "lap_time_ms": 121055,
-              "lap_time_text": "02:01.055",
-              "vehicle": "GT3RS",
-              "is_pb": false
-            },
-            {
-              "date": "2026-08-10",
-              "lap_time_ms": 113541,
-              "lap_time_text": "01:53.541",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 113611,
-              "lap_time_text": "01:53.611",
-              "vehicle": "EVOVIII/CT9A",
-              "is_pb": false
-            },
-            {
-              "date": "2026-09-06",
-              "lap_time_ms": 120278,
-              "lap_time_text": "02:00.278",
-              "vehicle": "Lexus LFA",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "ryuoukouzan_calme:DH",
-          "route_label": "龍鉤山 / Downhill",
-          "run_count": 4,
-          "runs": [
-            {
-              "date": "2026-03-19",
-              "lap_time_ms": 111902,
-              "lap_time_text": "01:51.902",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-05-13",
-              "lap_time_ms": 107875,
-              "lap_time_text": "01:47.875",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            },
-            {
-              "date": "2026-05-13",
-              "lap_time_ms": 125027,
-              "lap_time_text": "02:05.027",
-              "vehicle": "MS2",
-              "is_pb": false
-            },
-            {
-              "date": "2026-10-01",
-              "lap_time_ms": 111125,
-              "lap_time_text": "01:51.125",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": false
-            }
-          ]
-        },
-        {
-          "route_key": "nagao_foxbg:DH",
-          "route_label": "長尾 / Downhill",
-          "run_count": 4,
-          "runs": [
-            {
-              "date": "2026-07-17",
-              "lap_time_ms": 229111,
-              "lap_time_text": "03:49.111",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-07-19",
-              "lap_time_ms": 225236,
-              "lap_time_text": "03:45.236",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-03",
-              "lap_time_ms": 223152,
-              "lap_time_text": "03:43.152",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-10",
-              "lap_time_ms": 222297,
-              "lap_time_text": "03:42.297",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "shomaru_foxbg:DH",
-          "route_label": "正丸 / Downhill",
-          "run_count": 3,
-          "runs": [
-            {
-              "date": "2026-07-02",
-              "lap_time_ms": 257917,
-              "lap_time_text": "04:17.917",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-07-26",
-              "lap_time_ms": 249930,
-              "lap_time_text": "04:09.930",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-09-11",
-              "lap_time_ms": 248236,
-              "lap_time_text": "04:08.236",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            }
-          ]
-        },
-        {
-          "route_key": "tail_of_the_dragon:FC",
-          "route_label": "Tail Of The Dragon / Full Course",
-          "run_count": 2,
-          "runs": [
-            {
-              "date": "2026-08-18",
-              "lap_time_ms": 352432,
-              "lap_time_text": "05:52.432",
-              "vehicle": "Karin 96",
-              "is_pb": true
-            },
-            {
-              "date": "2026-08-18",
-              "lap_time_ms": 338375,
-              "lap_time_text": "05:38.375",
-              "vehicle": "GC8 (Impreza)",
-              "is_pb": true
-            }
-          ]
-        }
-      ]
-    },
-    {
       "player_id": "plr_windnight5",
       "title": "windnight5",
       "team_name": "",
@@ -28683,8 +28766,8 @@
       "featured_vehicles": [],
       "manual_achievement_codes": [],
       "achievement_stats": {
-        "distinct_vehicle_models": 15,
-        "distinct_tracks": 7,
+        "distinct_vehicle_models": 17,
+        "distinct_tracks": 8,
         "max_route_attempts": 11,
         "tr_count": 0,
         "cr_count": 1
@@ -28704,7 +28787,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "21"
+          "value": "23"
         },
         {
           "label_zh": "已驗證",
@@ -28725,7 +28808,7 @@
       "badge_counts": {
         "TR": 0,
         "CR": 1,
-        "PR": 6
+        "PR": 7
       },
       "tag_chips": [
         {
@@ -28919,8 +29002,34 @@
           "badge_tone": "pr"
         },
         {
-          "record_id": "rec_001201",
+          "record_id": "rec_001884",
           "rank": 6,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "windnight5",
+          "player_id": "plr_windnight5",
+          "vehicle_model_name": "Veryca",
+          "vehicle_model_code": "veh_veryca_4wd_race",
+          "vehicle_variant_name": "Veryca 4WD Race",
+          "vehicle_variant_code": "veh_veryca_4wd_race",
+          "lap_time_ms": 204125,
+          "lap_time_text": "03:24.125",
+          "delta_to_best_text": "+40.672",
+          "platform": "pcvr",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Veryca",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001201",
+          "rank": 7,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "windnight5",
@@ -28949,7 +29058,7 @@
         },
         {
           "record_id": "rec_001601",
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "長尾 / Downhill",
           "route_label_en": "Nagao / Downhill",
           "player_display_name": "windnight5",
@@ -29114,6 +29223,27 @@
               "lap_time_text": "03:49.611",
               "vehicle": "Kanjo 6",
               "is_pb": true
+            }
+          ]
+        },
+        {
+          "route_key": "pt_ych_starriver_arts:HCOB",
+          "route_label": "玉長公路 / Half Course Outbound - to Yuli",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 204125,
+              "lap_time_text": "03:24.125",
+              "vehicle": "Veryca",
+              "is_pb": true
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 371375,
+              "lap_time_text": "06:11.375",
+              "vehicle": "EG Sports",
+              "is_pb": false
             }
           ]
         }
@@ -31466,6 +31596,170 @@
               "lap_time_text": "03:47.372",
               "vehicle": "FL5 (Civic Type-R)",
               "is_pb": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "player_id": "plr_l",
+      "title": "猫瘾青年丨L",
+      "team_name": "",
+      "primary_team_id": "",
+      "home_tracks": [],
+      "featured_vehicles": [],
+      "manual_achievement_codes": [],
+      "achievement_stats": {
+        "distinct_vehicle_models": 3,
+        "distinct_tracks": 1,
+        "max_route_attempts": 2,
+        "tr_count": 0,
+        "cr_count": 1
+      },
+      "subtitle_zh": "未分隊車手",
+      "subtitle_en": "Independent Driver",
+      "profile_banner": {
+        "image": "",
+        "position": "center center",
+        "title_zh": "猫瘾青年丨L",
+        "title_en": "猫瘾青年丨L",
+        "subtitle_zh": "VR Racing Club Driver",
+        "subtitle_en": "VR Racing Club Driver",
+        "tone": 0
+      },
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        },
+        {
+          "label_zh": "車種最佳",
+          "label_en": "Car Records",
+          "value": "1"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 1
+      },
+      "tag_chips": [
+        {
+          "label": "未分隊",
+          "tone": "team"
+        },
+        {
+          "label": "主力車種 EK Miracle",
+          "tone": "vehicle"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "路線標籤 -",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EK Miracle",
+          "value": 1
+        },
+        {
+          "label": "Hilux",
+          "value": 1
+        },
+        {
+          "label": "VClass",
+          "value": 1
+        }
+      ],
+      "tag_rows": [],
+      "record_rows": [
+        {
+          "record_id": "rec_001883",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "猫瘾青年丨L",
+          "player_id": "plr_l",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 192120,
+          "lap_time_text": "03:12.120",
+          "delta_to_best_text": "+28.667",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "EK Miracle",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "PR",
+          "badge_label_zh": "個人紀錄",
+          "badge_label_en": "Personal Record",
+          "badge_tone": "pr"
+        },
+        {
+          "record_id": "rec_001890",
+          "rank": 2,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "猫瘾青年丨L",
+          "player_id": "plr_l",
+          "vehicle_model_name": "Hilux",
+          "vehicle_model_code": "veh_hilux",
+          "vehicle_variant_name": "Hilux",
+          "vehicle_variant_code": "veh_hilux",
+          "lap_time_ms": 270900,
+          "lap_time_text": "04:30.900",
+          "delta_to_best_text": "+107.780",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Hilux",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "history": [
+        {
+          "route_key": "pt_ych_starriver_arts:HCIB",
+          "route_label": "玉長公路 / Half Course Inbound - to Changbin",
+          "run_count": 2,
+          "runs": [
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 270900,
+              "lap_time_text": "04:30.900",
+              "vehicle": "Hilux",
+              "is_pb": true
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 273240,
+              "lap_time_text": "04:33.240",
+              "vehicle": "VClass",
+              "is_pb": false
             }
           ]
         }
@@ -35775,7 +36069,7 @@
       "achievement_stats": {
         "distinct_vehicle_models": 2,
         "distinct_tracks": 1,
-        "max_route_attempts": 3,
+        "max_route_attempts": 4,
         "tr_count": 0,
         "cr_count": 0
       },
@@ -35794,7 +36088,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "4"
+          "value": "5"
         },
         {
           "label_zh": "已驗證",
@@ -35838,7 +36132,7 @@
       "usage_rows": [
         {
           "label": "EG Sports",
-          "value": 3
+          "value": 4
         },
         {
           "label": "EK Miracle",
@@ -35848,7 +36142,7 @@
       "tag_rows": [],
       "record_rows": [
         {
-          "record_id": "rec_001865",
+          "record_id": "rec_001889",
           "rank": 1,
           "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
           "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
@@ -35858,16 +36152,16 @@
           "vehicle_model_code": "veh_eg_sports",
           "vehicle_variant_name": "EG Sports",
           "vehicle_variant_code": "veh_eg_sports",
-          "lap_time_ms": 215944,
-          "lap_time_text": "03:35.944",
-          "delta_to_best_text": "+52.824",
+          "lap_time_ms": 177289,
+          "lap_time_text": "02:57.289",
+          "delta_to_best_text": "+14.169",
           "platform": "pcvr",
-          "record_date": "2026-09-29",
+          "record_date": "2026-10-03",
           "track_env": "山道",
           "track_tags": [],
           "peer_label": "EG Sports",
           "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554520916849983508",
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
           "badge_code": "PR",
           "badge_label_zh": "個人紀錄",
           "badge_label_en": "Personal Record",
@@ -35904,7 +36198,7 @@
         {
           "route_key": "pt_ych_starriver_arts:HCIB",
           "route_label": "玉長公路 / Half Course Inbound - to Changbin",
-          "run_count": 3,
+          "run_count": 4,
           "runs": [
             {
               "date": "2026-09-29",
@@ -35926,6 +36220,13 @@
               "lap_time_text": "27:23.289",
               "vehicle": "EK Miracle",
               "is_pb": false
+            },
+            {
+              "date": "2026-10-03",
+              "lap_time_ms": 177289,
+              "lap_time_text": "02:57.289",
+              "vehicle": "EG Sports",
+              "is_pb": true
             }
           ]
         }

@@ -17,14 +17,14 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "241",
+      "value": "245",
       "note_zh": "有至少一筆有效紀錄的母型",
       "note_en": "Canonical models with at least one valid run"
     },
     {
       "label_zh": "世界變體",
       "label_en": "Variants",
-      "value": "363",
+      "value": "370",
       "note_zh": "lookup 內已登記的變體碼",
       "note_en": "Variant codes defined in lookup"
     },
@@ -399,7 +399,7 @@
           "vehicle_variant_code": "veh_fd3s_drift",
           "lap_time_ms": 185866,
           "lap_time_text": "03:05.866",
-          "delta_to_best_text": "+62.166",
+          "delta_to_best_text": "+69.560",
           "platform": "pcvr",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -3623,7 +3623,7 @@
               "vehicle_variant_code": "veh_fd3s_drift",
               "lap_time_ms": 185866,
               "lap_time_text": "03:05.866",
-              "delta_to_best_text": "+62.166",
+              "delta_to_best_text": "+69.560",
               "platform": "pcvr",
               "record_date": "2026-06-22",
               "track_env": "山道",
@@ -6637,7 +6637,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "82"
+          "value": "83"
         },
         {
           "label_zh": "已驗證",
@@ -6647,11 +6647,11 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "4"
+          "value": "5"
         }
       ],
       "badge_counts": {
-        "TR": 4,
+        "TR": 5,
         "CR": 14,
         "PR": 0
       },
@@ -6680,7 +6680,7 @@
       "usage_rows": [
         {
           "label": "GC8-Attack",
-          "value": 38
+          "value": 39
         },
         {
           "label": "GC8-F (Impreza)",
@@ -6706,7 +6706,7 @@
         },
         {
           "label": "daisukilian",
-          "value": 10
+          "value": 11
         },
         {
           "label": "Lolidia",
@@ -6861,8 +6861,37 @@
           "badge_tone": "cr"
         },
         {
-          "record_id": "rec_001852",
+          "record_id": "rec_001880",
           "rank": 6,
+          "route_label_zh": "龍鉤山 / Uphill",
+          "route_label_en": "Ryuoukouzan / Uphill",
+          "player_display_name": "daisukilian",
+          "player_id": "plr_daisukilian",
+          "vehicle_model_name": "GC8 (Impreza)",
+          "vehicle_model_code": "veh_gc8_impreza",
+          "vehicle_variant_name": "GC8-Attack",
+          "vehicle_variant_code": "veh_gc8_attack",
+          "lap_time_ms": 116306,
+          "lap_time_text": "01:56.306",
+          "delta_to_best_text": "+0.000",
+          "platform": "pcvr",
+          "record_date": "2026-10-01",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "daisukilian",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_001852",
+          "rank": 7,
           "route_label_zh": "omote_rokko / Downhill",
           "route_label_en": "omote_rokko / Downhill",
           "player_display_name": "windnight5",
@@ -6890,7 +6919,7 @@
         },
         {
           "record_id": "rec_000729",
-          "rank": 7,
+          "rank": 8,
           "route_label_zh": "UraRokko / Downhill",
           "route_label_en": "UraRokko / Downhill",
           "player_display_name": "CannedCarbon",
@@ -6916,7 +6945,7 @@
         },
         {
           "record_id": "rec_001592",
-          "rank": 8,
+          "rank": 9,
           "route_label_zh": "秋名湖 / Clockwise",
           "route_label_en": "Lake Akina / Clockwise",
           "player_display_name": "CannedCarbon",
@@ -6944,7 +6973,7 @@
         },
         {
           "record_id": "rec_001026",
-          "rank": 9,
+          "rank": 10,
           "route_label_zh": "Kamidomarizaka / Downhill",
           "route_label_en": "Kamidomarizaka / Downhill",
           "player_display_name": "Lolidia",
@@ -6973,7 +7002,7 @@
         },
         {
           "record_id": "rec_000289",
-          "rank": 10,
+          "rank": 11,
           "route_label_zh": "秋名湖 / Counter-Clockwise",
           "route_label_en": "Lake Akina / Counter-Clockwise",
           "player_display_name": "Kinokono_Tenka",
@@ -7001,7 +7030,7 @@
         },
         {
           "record_id": "rec_000976",
-          "rank": 11,
+          "rank": 12,
           "route_label_zh": "Tsuchisaka Snow / Inbound",
           "route_label_en": "Tsuchisaka Snow / Inbound",
           "player_display_name": "CannedCarbon",
@@ -7031,7 +7060,7 @@
         },
         {
           "record_id": "rec_001307",
-          "rank": 12,
+          "rank": 13,
           "route_label_zh": "RallyIsland / IslandRally",
           "route_label_en": "RallyIsland / IslandRally",
           "player_display_name": "CannedCarbon",
@@ -7057,7 +7086,7 @@
         },
         {
           "record_id": "rec_001129",
-          "rank": 13,
+          "rank": 14,
           "route_label_zh": "秋名 / Downhill",
           "route_label_en": "Akina / Downhill",
           "player_display_name": "CannedCarbon",
@@ -7087,7 +7116,7 @@
         },
         {
           "record_id": "rec_001071",
-          "rank": 14,
+          "rank": 15,
           "route_label_zh": "伊呂波坂 / Downhill",
           "route_label_en": "Irohazaka / Downhill",
           "player_display_name": "StarRiver Arts",
@@ -7116,7 +7145,7 @@
         },
         {
           "record_id": "rec_000121",
-          "rank": 15,
+          "rank": 16,
           "route_label_zh": "妙義環線 / Counter-Clockwise",
           "route_label_en": "Myogi(CC) / Counter-Clockwise",
           "player_display_name": "StarRiver Arts",
@@ -7144,7 +7173,7 @@
         },
         {
           "record_id": "rec_001381",
-          "rank": 16,
+          "rank": 17,
           "route_label_zh": "秋名雪 / Downhill",
           "route_label_en": "Akina Snow / Downhill",
           "player_display_name": "CannedCarbon",
@@ -7175,7 +7204,7 @@
         },
         {
           "record_id": "rec_000855",
-          "rank": 17,
+          "rank": 18,
           "route_label_zh": "秋名雪 / Uphill",
           "route_label_en": "Akina Snow / Uphill",
           "player_display_name": "CannedCarbon",
@@ -7206,7 +7235,7 @@
         },
         {
           "record_id": "rec_000709",
-          "rank": 18,
+          "rank": 19,
           "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
           "route_label_en": "Futatsukane / Counter-Clockwise",
           "player_display_name": "Lolidia",
@@ -7259,8 +7288,8 @@
           "world_name": "Ryuoukouzan",
           "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
           "track_author": "Calme",
-          "record_count": 12,
-          "route_count": 1,
+          "record_count": 13,
+          "route_count": 2,
           "variant_codes": [
             "veh_gc8_attack"
           ],
@@ -7497,7 +7526,7 @@
         {
           "variant_code": "veh_gc8_attack",
           "variant_name": "GC8-Attack",
-          "record_count": 38,
+          "record_count": 39,
           "vehicle_tags": [
             "拉力款",
             "賽事款"
@@ -7527,8 +7556,8 @@
               "world_name": "Ryuoukouzan",
               "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
               "track_author": "Calme",
-              "record_count": 12,
-              "route_count": 1,
+              "record_count": 13,
+              "route_count": 2,
               "variant_codes": [
                 "veh_gc8_attack"
               ],
@@ -7837,7 +7866,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 78
+          "value": 79
         },
         {
           "label": "公路",
@@ -7852,7 +7881,7 @@
         {
           "variant_code": "veh_gc8_attack",
           "variant_name": "GC8-Attack",
-          "record_count": 38,
+          "record_count": 39,
           "vehicle_tags": [
             "拉力款",
             "賽事款"
@@ -7918,8 +7947,37 @@
               "badge_tone": "cr"
             },
             {
-              "record_id": "rec_001026",
+              "record_id": "rec_001880",
               "rank": 3,
+              "route_label_zh": "龍鉤山 / Uphill",
+              "route_label_en": "Ryuoukouzan / Uphill",
+              "player_display_name": "daisukilian",
+              "player_id": "plr_daisukilian",
+              "vehicle_model_name": "GC8 (Impreza)",
+              "vehicle_model_code": "veh_gc8_impreza",
+              "vehicle_variant_name": "GC8-Attack",
+              "vehicle_variant_code": "veh_gc8_attack",
+              "lap_time_ms": 116306,
+              "lap_time_text": "01:56.306",
+              "delta_to_best_text": "+0.000",
+              "platform": "pcvr",
+              "record_date": "2026-10-01",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "髮夾彎"
+              ],
+              "peer_label": "daisukilian",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_001026",
+              "rank": 4,
               "route_label_zh": "Kamidomarizaka / Downhill",
               "route_label_en": "Kamidomarizaka / Downhill",
               "player_display_name": "Lolidia",
@@ -7948,7 +8006,7 @@
             },
             {
               "record_id": "rec_000709",
-              "rank": 4,
+              "rank": 5,
               "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
               "route_label_en": "Futatsukane / Counter-Clockwise",
               "player_display_name": "Lolidia",
@@ -8493,7 +8551,7 @@
         {
           "label_zh": "有效紀錄",
           "label_en": "Valid Runs",
-          "value": "60"
+          "value": "62"
         },
         {
           "label_zh": "已驗證",
@@ -8536,11 +8594,11 @@
       "usage_rows": [
         {
           "label": "EG Sports",
-          "value": 47
+          "value": 48
         },
         {
           "label": "EG-Sports Family",
-          "value": 10
+          "value": 11
         },
         {
           "label": "EG-Sports Coupe",
@@ -8565,8 +8623,8 @@
           "value": 9
         },
         {
-          "label": "菲娜_Fina",
-          "value": 3
+          "label": "MJ傑羅",
+          "value": 4
         }
       ],
       "record_rows": [
@@ -8766,7 +8824,7 @@
           "world_name": "Yuli-Changbin",
           "world_url": "",
           "track_author": "StarRiver Arts",
-          "record_count": 45,
+          "record_count": 47,
           "route_count": 4,
           "variant_codes": [
             "veh_eg_sports",
@@ -8847,7 +8905,7 @@
         {
           "variant_code": "veh_eg_sports",
           "variant_name": "EG Sports",
-          "record_count": 47,
+          "record_count": 48,
           "vehicle_tags": [],
           "world_rows": [
             {
@@ -8856,7 +8914,7 @@
               "world_name": "Yuli-Changbin",
               "world_url": "",
               "track_author": "StarRiver Arts",
-              "record_count": 35,
+              "record_count": 36,
               "route_count": 4,
               "variant_codes": [
                 "veh_eg_sports"
@@ -8909,7 +8967,7 @@
         {
           "variant_code": "veh_eg_sports_family",
           "variant_name": "EG-Sports Family",
-          "record_count": 10,
+          "record_count": 11,
           "vehicle_tags": [
             "family"
           ],
@@ -8920,7 +8978,7 @@
               "world_name": "Yuli-Changbin",
               "world_url": "",
               "track_author": "StarRiver Arts",
-              "record_count": 10,
+              "record_count": 11,
               "route_count": 4,
               "variant_codes": [
                 "veh_eg_sports_family"
@@ -8990,7 +9048,7 @@
       "env_rows": [
         {
           "label": "山道",
-          "value": 59
+          "value": 61
         },
         {
           "label": "賽道",
@@ -9001,7 +9059,7 @@
         {
           "variant_code": "veh_eg_sports",
           "variant_name": "EG Sports",
-          "record_count": 47,
+          "record_count": 48,
           "vehicle_tags": [],
           "drivetrain": "FF",
           "record_rows": [
@@ -9172,7 +9230,7 @@
         {
           "variant_code": "veh_eg_sports_family",
           "variant_name": "EG-Sports Family",
-          "record_count": 10,
+          "record_count": 11,
           "vehicle_tags": [
             "family"
           ],
@@ -20136,6 +20194,458 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_ek_miracle",
+      "title": "EK Miracle",
+      "vehicle_class": "高性能乘用車 Performance Car",
+      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 1995",
+      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 1995",
+      "manufacturer": "Honda",
+      "country": "日本",
+      "year": "1995",
+      "special_marks": [],
+      "drivetrain": "FF",
+      "popularity_bucket_key": "spotlight",
+      "popularity_bucket_zh": "熱門車種",
+      "popularity_bucket_en": "Spotlight Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "32"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "3"
+        }
+      ],
+      "badge_counts": {
+        "TR": 3,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Honda · 日本 · 1995",
+          "tone": "team"
+        },
+        {
+          "label": "高性能乘用車 Performance Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "EK Miracle",
+          "value": 32
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 10
+        },
+        {
+          "label": "Iˣ",
+          "value": 6
+        },
+        {
+          "label": "StarRiver Arts",
+          "value": 5
+        },
+        {
+          "label": "Kinokono_Tenka",
+          "value": 2
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_000765",
+          "rank": 1,
+          "route_label_zh": "觀星山 / Downhill",
+          "route_label_en": "StarSight / Downhill",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 122200,
+          "lap_time_text": "02:02.200",
+          "delta_to_best_text": "+44.439",
+          "platform": "pc",
+          "record_date": "2026-06-18",
+          "track_env": "山道",
+          "track_tags": [
+            "隧道",
+            "高速"
+          ],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001820",
+          "rank": 2,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 163120,
+          "lap_time_text": "02:43.120",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-29",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_001815",
+          "rank": 3,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 163453,
+          "lap_time_text": "02:43.453",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-29",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        },
+        {
+          "record_id": "rec_001832",
+          "rank": 4,
+          "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 391546,
+          "lap_time_text": "06:31.546",
+          "delta_to_best_text": "+1.159",
+          "platform": "pc",
+          "record_date": "2026-09-29",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001553",
+          "rank": 5,
+          "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "EK Miracle",
+          "vehicle_model_code": "veh_ek_miracle",
+          "vehicle_variant_name": "EK Miracle",
+          "vehicle_variant_code": "veh_ek_miracle",
+          "lap_time_ms": 410653,
+          "lap_time_text": "06:50.653",
+          "delta_to_best_text": "+0.000",
+          "platform": "pc",
+          "record_date": "2026-09-05",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "evidence:evd_ych_20260905_ib",
+          "badge_code": "TR",
+          "badge_label_zh": "賽道紀錄",
+          "badge_label_en": "Track Record",
+          "badge_tone": "tr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 30,
+          "route_count": 4,
+          "variant_codes": [
+            "veh_ek_miracle"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_ek_miracle",
+              "variant_name": "EK Miracle"
+            }
+          ]
+        },
+        {
+          "track_world_code": "starsight_starriver_arts",
+          "track_display_name": "觀星山",
+          "world_name": "StarSight",
+          "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+          "track_author": "StarRiver Arts",
+          "record_count": 2,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_ek_miracle"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_ek_miracle",
+              "variant_name": "EK Miracle"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_ek_miracle",
+          "variant_name": "EK Miracle",
+          "record_count": 32,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 30,
+              "route_count": 4,
+              "variant_codes": [
+                "veh_ek_miracle"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_ek_miracle",
+                  "variant_name": "EK Miracle"
+                }
+              ]
+            },
+            {
+              "track_world_code": "starsight_starriver_arts",
+              "track_display_name": "觀星山",
+              "world_name": "StarSight",
+              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+              "track_author": "StarRiver Arts",
+              "record_count": 2,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_ek_miracle"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_ek_miracle",
+                  "variant_name": "EK Miracle"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 32
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_ek_miracle",
+          "variant_name": "EK Miracle",
+          "record_count": 32,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_000765",
+              "rank": 1,
+              "route_label_zh": "觀星山 / Downhill",
+              "route_label_en": "StarSight / Downhill",
+              "player_display_name": "StarRiver Arts",
+              "player_id": "plr_starriver_arts",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 122200,
+              "lap_time_text": "02:02.200",
+              "delta_to_best_text": "+44.439",
+              "platform": "pc",
+              "record_date": "2026-06-18",
+              "track_env": "山道",
+              "track_tags": [
+                "隧道",
+                "高速"
+              ],
+              "peer_label": "StarRiver Arts",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_001820",
+              "rank": 2,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 163120,
+              "lap_time_text": "02:43.120",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-29",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_001815",
+              "rank": 3,
+              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 163453,
+              "lap_time_text": "02:43.453",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-29",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            },
+            {
+              "record_id": "rec_001832",
+              "rank": 4,
+              "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 391546,
+              "lap_time_text": "06:31.546",
+              "delta_to_best_text": "+1.159",
+              "platform": "pc",
+              "record_date": "2026-09-29",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_001553",
+              "rank": 5,
+              "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "EK Miracle",
+              "vehicle_model_code": "veh_ek_miracle",
+              "vehicle_variant_name": "EK Miracle",
+              "vehicle_variant_code": "veh_ek_miracle",
+              "lap_time_ms": 410653,
+              "lap_time_text": "06:50.653",
+              "delta_to_best_text": "+0.000",
+              "platform": "pc",
+              "record_date": "2026-09-05",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "evidence:evd_ych_20260905_ib",
+              "badge_code": "TR",
+              "badge_label_zh": "賽道紀錄",
+              "badge_label_en": "Track Record",
+              "badge_tone": "tr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_evovi_cp9a",
       "title": "EVOVI/CP9A",
       "vehicle_class": "拉力賽車 Rally Car",
@@ -20163,12 +20673,12 @@
         {
           "label_zh": "賽道最佳",
           "label_en": "Track Records",
-          "value": "3"
+          "value": "2"
         }
       ],
       "badge_counts": {
-        "TR": 3,
-        "CR": 9,
+        "TR": 2,
+        "CR": 10,
         "PR": 0
       },
       "tag_chips": [
@@ -20301,7 +20811,7 @@
           "vehicle_variant_code": "veh_le6_attack",
           "lap_time_ms": 123700,
           "lap_time_text": "02:03.700",
-          "delta_to_best_text": "+0.000",
+          "delta_to_best_text": "+7.394",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -20312,10 +20822,10 @@
           "peer_label": "Iˣ",
           "verified": false,
           "proof_text": "",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
         },
         {
           "record_id": "rec_000160",
@@ -21129,7 +21639,7 @@
               "vehicle_variant_code": "veh_le6_attack",
               "lap_time_ms": 123700,
               "lap_time_text": "02:03.700",
-              "delta_to_best_text": "+0.000",
+              "delta_to_best_text": "+7.394",
               "platform": "pc",
               "record_date": "2026-06-22",
               "track_env": "山道",
@@ -21140,10 +21650,10 @@
               "peer_label": "Iˣ",
               "verified": false,
               "proof_text": "",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
             },
             {
               "record_id": "rec_001537",
@@ -21634,458 +22144,6 @@
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",
               "badge_tone": "cr"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "vehicle_model_code": "veh_ek_miracle",
-      "title": "EK Miracle",
-      "vehicle_class": "高性能乘用車 Performance Car",
-      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 1995",
-      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 1995",
-      "manufacturer": "Honda",
-      "country": "日本",
-      "year": "1995",
-      "special_marks": [],
-      "drivetrain": "FF",
-      "popularity_bucket_key": "spotlight",
-      "popularity_bucket_zh": "熱門車種",
-      "popularity_bucket_en": "Spotlight Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "31"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "3"
-        }
-      ],
-      "badge_counts": {
-        "TR": 3,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Honda · 日本 · 1995",
-          "tone": "team"
-        },
-        {
-          "label": "高性能乘用車 Performance Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FF",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 山道",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "EK Miracle",
-          "value": 31
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 10
-        },
-        {
-          "label": "Iˣ",
-          "value": 6
-        },
-        {
-          "label": "StarRiver Arts",
-          "value": 5
-        },
-        {
-          "label": "Kinokono_Tenka",
-          "value": 2
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_000765",
-          "rank": 1,
-          "route_label_zh": "觀星山 / Downhill",
-          "route_label_en": "StarSight / Downhill",
-          "player_display_name": "StarRiver Arts",
-          "player_id": "plr_starriver_arts",
-          "vehicle_model_name": "EK Miracle",
-          "vehicle_model_code": "veh_ek_miracle",
-          "vehicle_variant_name": "EK Miracle",
-          "vehicle_variant_code": "veh_ek_miracle",
-          "lap_time_ms": 122200,
-          "lap_time_text": "02:02.200",
-          "delta_to_best_text": "+44.439",
-          "platform": "pc",
-          "record_date": "2026-06-18",
-          "track_env": "山道",
-          "track_tags": [
-            "隧道",
-            "高速"
-          ],
-          "peer_label": "StarRiver Arts",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_001820",
-          "rank": 2,
-          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
-          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EK Miracle",
-          "vehicle_model_code": "veh_ek_miracle",
-          "vehicle_variant_name": "EK Miracle",
-          "vehicle_variant_code": "veh_ek_miracle",
-          "lap_time_ms": 163120,
-          "lap_time_text": "02:43.120",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-09-29",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_001815",
-          "rank": 3,
-          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
-          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EK Miracle",
-          "vehicle_model_code": "veh_ek_miracle",
-          "vehicle_variant_name": "EK Miracle",
-          "vehicle_variant_code": "veh_ek_miracle",
-          "lap_time_ms": 163453,
-          "lap_time_text": "02:43.453",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-09-29",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        },
-        {
-          "record_id": "rec_001832",
-          "rank": 4,
-          "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
-          "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EK Miracle",
-          "vehicle_model_code": "veh_ek_miracle",
-          "vehicle_variant_name": "EK Miracle",
-          "vehicle_variant_code": "veh_ek_miracle",
-          "lap_time_ms": 391546,
-          "lap_time_text": "06:31.546",
-          "delta_to_best_text": "+1.159",
-          "platform": "pc",
-          "record_date": "2026-09-29",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_001553",
-          "rank": 5,
-          "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
-          "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "EK Miracle",
-          "vehicle_model_code": "veh_ek_miracle",
-          "vehicle_variant_name": "EK Miracle",
-          "vehicle_variant_code": "veh_ek_miracle",
-          "lap_time_ms": 410653,
-          "lap_time_text": "06:50.653",
-          "delta_to_best_text": "+0.000",
-          "platform": "pc",
-          "record_date": "2026-09-05",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "evidence:evd_ych_20260905_ib",
-          "badge_code": "TR",
-          "badge_label_zh": "賽道紀錄",
-          "badge_label_en": "Track Record",
-          "badge_tone": "tr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "pt_ych_starriver_arts",
-          "track_display_name": "玉長公路",
-          "world_name": "Yuli-Changbin",
-          "world_url": "",
-          "track_author": "StarRiver Arts",
-          "record_count": 29,
-          "route_count": 4,
-          "variant_codes": [
-            "veh_ek_miracle"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_ek_miracle",
-              "variant_name": "EK Miracle"
-            }
-          ]
-        },
-        {
-          "track_world_code": "starsight_starriver_arts",
-          "track_display_name": "觀星山",
-          "world_name": "StarSight",
-          "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-          "track_author": "StarRiver Arts",
-          "record_count": 2,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_ek_miracle"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_ek_miracle",
-              "variant_name": "EK Miracle"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_ek_miracle",
-          "variant_name": "EK Miracle",
-          "record_count": 31,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "pt_ych_starriver_arts",
-              "track_display_name": "玉長公路",
-              "world_name": "Yuli-Changbin",
-              "world_url": "",
-              "track_author": "StarRiver Arts",
-              "record_count": 29,
-              "route_count": 4,
-              "variant_codes": [
-                "veh_ek_miracle"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_ek_miracle",
-                  "variant_name": "EK Miracle"
-                }
-              ]
-            },
-            {
-              "track_world_code": "starsight_starriver_arts",
-              "track_display_name": "觀星山",
-              "world_name": "StarSight",
-              "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
-              "track_author": "StarRiver Arts",
-              "record_count": 2,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_ek_miracle"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_ek_miracle",
-                  "variant_name": "EK Miracle"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "山道",
-          "value": 31
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_ek_miracle",
-          "variant_name": "EK Miracle",
-          "record_count": 31,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_000765",
-              "rank": 1,
-              "route_label_zh": "觀星山 / Downhill",
-              "route_label_en": "StarSight / Downhill",
-              "player_display_name": "StarRiver Arts",
-              "player_id": "plr_starriver_arts",
-              "vehicle_model_name": "EK Miracle",
-              "vehicle_model_code": "veh_ek_miracle",
-              "vehicle_variant_name": "EK Miracle",
-              "vehicle_variant_code": "veh_ek_miracle",
-              "lap_time_ms": 122200,
-              "lap_time_text": "02:02.200",
-              "delta_to_best_text": "+44.439",
-              "platform": "pc",
-              "record_date": "2026-06-18",
-              "track_env": "山道",
-              "track_tags": [
-                "隧道",
-                "高速"
-              ],
-              "peer_label": "StarRiver Arts",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_001820",
-              "rank": 2,
-              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
-              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EK Miracle",
-              "vehicle_model_code": "veh_ek_miracle",
-              "vehicle_variant_name": "EK Miracle",
-              "vehicle_variant_code": "veh_ek_miracle",
-              "lap_time_ms": 163120,
-              "lap_time_text": "02:43.120",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-09-29",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            },
-            {
-              "record_id": "rec_001815",
-              "rank": 3,
-              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
-              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EK Miracle",
-              "vehicle_model_code": "veh_ek_miracle",
-              "vehicle_variant_name": "EK Miracle",
-              "vehicle_variant_code": "veh_ek_miracle",
-              "lap_time_ms": 163453,
-              "lap_time_text": "02:43.453",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-09-29",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
-            },
-            {
-              "record_id": "rec_001832",
-              "rank": 4,
-              "route_label_zh": "玉長公路 / Full Course Outbound - to Yuli",
-              "route_label_en": "Yuli-Changbin / Full Course Outbound - to Yuli",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EK Miracle",
-              "vehicle_model_code": "veh_ek_miracle",
-              "vehicle_variant_name": "EK Miracle",
-              "vehicle_variant_code": "veh_ek_miracle",
-              "lap_time_ms": 391546,
-              "lap_time_text": "06:31.546",
-              "delta_to_best_text": "+1.159",
-              "platform": "pc",
-              "record_date": "2026-09-29",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1554453067959635998",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            },
-            {
-              "record_id": "rec_001553",
-              "rank": 5,
-              "route_label_zh": "玉長公路 / Full Course Inbound - to Changbin",
-              "route_label_en": "Yuli-Changbin / Full Course Inbound - to Changbin",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "EK Miracle",
-              "vehicle_model_code": "veh_ek_miracle",
-              "vehicle_variant_name": "EK Miracle",
-              "vehicle_variant_code": "veh_ek_miracle",
-              "lap_time_ms": 410653,
-              "lap_time_text": "06:50.653",
-              "delta_to_best_text": "+0.000",
-              "platform": "pc",
-              "record_date": "2026-09-05",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "evidence:evd_ych_20260905_ib",
-              "badge_code": "TR",
-              "badge_label_zh": "賽道紀錄",
-              "badge_label_en": "Track Record",
-              "badge_tone": "tr"
             }
           ]
         }
@@ -42864,7 +42922,7 @@
           "vehicle_variant_code": "veh_ramitrxx",
           "lap_time_ms": 138894,
           "lap_time_text": "02:18.894",
-          "delta_to_best_text": "+15.194",
+          "delta_to_best_text": "+22.588",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -43180,7 +43238,7 @@
               "vehicle_variant_code": "veh_ramitrxx",
               "lap_time_ms": 138894,
               "lap_time_text": "02:18.894",
-              "delta_to_best_text": "+15.194",
+              "delta_to_best_text": "+22.588",
               "platform": "pc",
               "record_date": "2026-06-22",
               "track_env": "山道",
@@ -55179,6 +55237,413 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_dc5",
+      "title": "DC5",
+      "vehicle_class": "高性能乘用車 Performance Car",
+      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 2001",
+      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 2001",
+      "manufacturer": "Honda",
+      "country": "日本",
+      "year": "2001",
+      "special_marks": [],
+      "drivetrain": "FF",
+      "popularity_bucket_key": "active",
+      "popularity_bucket_zh": "活躍車種",
+      "popularity_bucket_en": "Active Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "4"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 3,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "Honda · 日本 · 2001",
+          "tone": "team"
+        },
+        {
+          "label": "高性能乘用車 Performance Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 FF",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 公路",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "DC5-Attack (Integra)",
+          "value": 3
+        },
+        {
+          "label": "DC5 Tuned",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 3
+        },
+        {
+          "label": "Redfrogss",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_001881",
+          "rank": 1,
+          "route_label_zh": "龍鉤山 / Uphill",
+          "route_label_en": "Ryuoukouzan / Uphill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC5",
+          "vehicle_model_code": "veh_dc5",
+          "vehicle_variant_name": "DC5-Attack (Integra)",
+          "vehicle_variant_code": "veh_dc5_attack",
+          "lap_time_ms": 120040,
+          "lap_time_text": "02:00.040",
+          "delta_to_best_text": "+3.734",
+          "platform": "pc",
+          "record_date": "2026-10-01",
+          "track_env": "山道",
+          "track_tags": [
+            "技術",
+            "髮夾彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_000728",
+          "rank": 2,
+          "route_label_zh": "UraRokko / Downhill",
+          "route_label_en": "UraRokko / Downhill",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC5",
+          "vehicle_model_code": "veh_dc5",
+          "vehicle_variant_name": "DC5 Tuned",
+          "vehicle_variant_code": "veh_dc5_tuned",
+          "lap_time_ms": 163507,
+          "lap_time_text": "02:43.507",
+          "delta_to_best_text": "+12.790",
+          "platform": "pc",
+          "record_date": "2026-06-14",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001250",
+          "rank": 3,
+          "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
+          "route_label_en": "Futatsukane / Counter-Clockwise",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "DC5",
+          "vehicle_model_code": "veh_dc5",
+          "vehicle_variant_name": "DC5-Attack (Integra)",
+          "vehicle_variant_code": "veh_dc5_attack",
+          "lap_time_ms": 271640,
+          "lap_time_text": "04:31.640",
+          "delta_to_best_text": "+29.613",
+          "platform": "pc",
+          "record_date": "2026-08-12",
+          "track_env": "公路",
+          "track_tags": [
+            "高速",
+            "髮夾彎"
+          ],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1537041915483131995",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "futatsukane",
+          "track_display_name": "雙鏡湖外環道",
+          "world_name": "Futatsukane",
+          "world_url": "https://vrchat.com/home/world/wrld_3f0d78a5-0703-4f8f-be48-f5938a48f986",
+          "track_author": "Calme【かるめ】",
+          "record_count": 2,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_dc5_attack"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_dc5_attack",
+              "variant_name": "DC5-Attack (Integra)"
+            }
+          ]
+        },
+        {
+          "track_world_code": "urarokkou",
+          "track_display_name": "UraRokko",
+          "world_name": "UraRokko",
+          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+          "track_author": "G線上のハッチ",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_dc5_tuned"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_dc5_tuned",
+              "variant_name": "DC5 Tuned"
+            }
+          ]
+        },
+        {
+          "track_world_code": "ryuoukouzan_calme",
+          "track_display_name": "龍鉤山",
+          "world_name": "Ryuoukouzan",
+          "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
+          "track_author": "Calme",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_dc5_attack"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_dc5_attack",
+              "variant_name": "DC5-Attack (Integra)"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_dc5_attack",
+          "variant_name": "DC5-Attack (Integra)",
+          "record_count": 3,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "futatsukane",
+              "track_display_name": "雙鏡湖外環道",
+              "world_name": "Futatsukane",
+              "world_url": "https://vrchat.com/home/world/wrld_3f0d78a5-0703-4f8f-be48-f5938a48f986",
+              "track_author": "Calme【かるめ】",
+              "record_count": 2,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_dc5_attack"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_dc5_attack",
+                  "variant_name": "DC5-Attack (Integra)"
+                }
+              ]
+            },
+            {
+              "track_world_code": "ryuoukouzan_calme",
+              "track_display_name": "龍鉤山",
+              "world_name": "Ryuoukouzan",
+              "world_url": "https://vrchat.com/home/world/wrld_08802cde-7efa-4b88-8336-7a1b27dc2bc3",
+              "track_author": "Calme",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_dc5_attack"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_dc5_attack",
+                  "variant_name": "DC5-Attack (Integra)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_dc5_tuned",
+          "variant_name": "DC5 Tuned",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "urarokkou",
+              "track_display_name": "UraRokko",
+              "world_name": "UraRokko",
+              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
+              "track_author": "G線上のハッチ",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_dc5_tuned"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_dc5_tuned",
+                  "variant_name": "DC5 Tuned"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "公路",
+          "value": 2
+        },
+        {
+          "label": "山道",
+          "value": 2
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_dc5_attack",
+          "variant_name": "DC5-Attack (Integra)",
+          "record_count": 3,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_001881",
+              "rank": 1,
+              "route_label_zh": "龍鉤山 / Uphill",
+              "route_label_en": "Ryuoukouzan / Uphill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "DC5",
+              "vehicle_model_code": "veh_dc5",
+              "vehicle_variant_name": "DC5-Attack (Integra)",
+              "vehicle_variant_code": "veh_dc5_attack",
+              "lap_time_ms": 120040,
+              "lap_time_text": "02:00.040",
+              "delta_to_best_text": "+3.734",
+              "platform": "pc",
+              "record_date": "2026-10-01",
+              "track_env": "山道",
+              "track_tags": [
+                "技術",
+                "髮夾彎"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555198442026962945",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_001250",
+              "rank": 2,
+              "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
+              "route_label_en": "Futatsukane / Counter-Clockwise",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "DC5",
+              "vehicle_model_code": "veh_dc5",
+              "vehicle_variant_name": "DC5-Attack (Integra)",
+              "vehicle_variant_code": "veh_dc5_attack",
+              "lap_time_ms": 271640,
+              "lap_time_text": "04:31.640",
+              "delta_to_best_text": "+29.613",
+              "platform": "pc",
+              "record_date": "2026-08-12",
+              "track_env": "公路",
+              "track_tags": [
+                "高速",
+                "髮夾彎"
+              ],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1537041915483131995",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        },
+        {
+          "variant_code": "veh_dc5_tuned",
+          "variant_name": "DC5 Tuned",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "drivetrain": "FF",
+          "record_rows": [
+            {
+              "record_id": "rec_000728",
+              "rank": 1,
+              "route_label_zh": "UraRokko / Downhill",
+              "route_label_en": "UraRokko / Downhill",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "DC5",
+              "vehicle_model_code": "veh_dc5",
+              "vehicle_variant_name": "DC5 Tuned",
+              "vehicle_variant_code": "veh_dc5_tuned",
+              "lap_time_ms": 163507,
+              "lap_time_text": "02:43.507",
+              "delta_to_best_text": "+12.790",
+              "platform": "pc",
+              "record_date": "2026-06-14",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_gxpa16_gr_yaris",
       "title": "GXPA16 (GR Yaris)",
       "vehicle_class": "拉力賽車 Rally Car",
@@ -61201,319 +61666,6 @@
       ]
     },
     {
-      "vehicle_model_code": "veh_dc5",
-      "title": "DC5",
-      "vehicle_class": "高性能乘用車 Performance Car",
-      "subtitle_zh": "高性能乘用車 Performance Car · Honda · 日本 · 2001",
-      "subtitle_en": "高性能乘用車 Performance Car · Honda · 日本 · 2001",
-      "manufacturer": "Honda",
-      "country": "日本",
-      "year": "2001",
-      "special_marks": [],
-      "drivetrain": "FF",
-      "popularity_bucket_key": "rare",
-      "popularity_bucket_zh": "少量紀錄",
-      "popularity_bucket_en": "Rare Cars",
-      "stats": [
-        {
-          "label_zh": "有效紀錄",
-          "label_en": "Valid Runs",
-          "value": "3"
-        },
-        {
-          "label_zh": "已驗證",
-          "label_en": "Verified Runs",
-          "value": "0"
-        },
-        {
-          "label_zh": "賽道最佳",
-          "label_en": "Track Records",
-          "value": "0"
-        }
-      ],
-      "badge_counts": {
-        "TR": 0,
-        "CR": 2,
-        "PR": 0
-      },
-      "tag_chips": [
-        {
-          "label": "Honda · 日本 · 2001",
-          "tone": "team"
-        },
-        {
-          "label": "高性能乘用車 Performance Car",
-          "tone": "vehicle"
-        },
-        {
-          "label": "驅動型式 FF",
-          "tone": "meta"
-        },
-        {
-          "label": "偏好環境 公路",
-          "tone": "env"
-        },
-        {
-          "label": "常見車手 CannedCarbon",
-          "tone": "skill"
-        }
-      ],
-      "usage_rows": [
-        {
-          "label": "DC5-Attack (Integra)",
-          "value": 2
-        },
-        {
-          "label": "DC5 Tuned",
-          "value": 1
-        }
-      ],
-      "tag_rows": [
-        {
-          "label": "CannedCarbon",
-          "value": 2
-        },
-        {
-          "label": "Redfrogss",
-          "value": 1
-        }
-      ],
-      "record_rows": [
-        {
-          "record_id": "rec_000728",
-          "rank": 1,
-          "route_label_zh": "UraRokko / Downhill",
-          "route_label_en": "UraRokko / Downhill",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "DC5",
-          "vehicle_model_code": "veh_dc5",
-          "vehicle_variant_name": "DC5 Tuned",
-          "vehicle_variant_code": "veh_dc5_tuned",
-          "lap_time_ms": 163507,
-          "lap_time_text": "02:43.507",
-          "delta_to_best_text": "+12.790",
-          "platform": "pc",
-          "record_date": "2026-06-14",
-          "track_env": "山道",
-          "track_tags": [],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        },
-        {
-          "record_id": "rec_001250",
-          "rank": 2,
-          "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
-          "route_label_en": "Futatsukane / Counter-Clockwise",
-          "player_display_name": "CannedCarbon",
-          "player_id": "plr_cannedcarbon",
-          "vehicle_model_name": "DC5",
-          "vehicle_model_code": "veh_dc5",
-          "vehicle_variant_name": "DC5-Attack (Integra)",
-          "vehicle_variant_code": "veh_dc5_attack",
-          "lap_time_ms": 271640,
-          "lap_time_text": "04:31.640",
-          "delta_to_best_text": "+29.613",
-          "platform": "pc",
-          "record_date": "2026-08-12",
-          "track_env": "公路",
-          "track_tags": [
-            "高速",
-            "髮夾彎"
-          ],
-          "peer_label": "CannedCarbon",
-          "verified": false,
-          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1537041915483131995",
-          "badge_code": "CR",
-          "badge_label_zh": "車輛紀錄",
-          "badge_label_en": "Car Record",
-          "badge_tone": "cr"
-        }
-      ],
-      "world_rows": [
-        {
-          "track_world_code": "futatsukane",
-          "track_display_name": "雙鏡湖外環道",
-          "world_name": "Futatsukane",
-          "world_url": "https://vrchat.com/home/world/wrld_3f0d78a5-0703-4f8f-be48-f5938a48f986",
-          "track_author": "Calme【かるめ】",
-          "record_count": 2,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_dc5_attack"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_dc5_attack",
-              "variant_name": "DC5-Attack (Integra)"
-            }
-          ]
-        },
-        {
-          "track_world_code": "urarokkou",
-          "track_display_name": "UraRokko",
-          "world_name": "UraRokko",
-          "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-          "track_author": "G線上のハッチ",
-          "record_count": 1,
-          "route_count": 1,
-          "variant_codes": [
-            "veh_dc5_tuned"
-          ],
-          "variants": [
-            {
-              "variant_code": "veh_dc5_tuned",
-              "variant_name": "DC5 Tuned"
-            }
-          ]
-        }
-      ],
-      "variant_worlds": [
-        {
-          "variant_code": "veh_dc5_attack",
-          "variant_name": "DC5-Attack (Integra)",
-          "record_count": 2,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "futatsukane",
-              "track_display_name": "雙鏡湖外環道",
-              "world_name": "Futatsukane",
-              "world_url": "https://vrchat.com/home/world/wrld_3f0d78a5-0703-4f8f-be48-f5938a48f986",
-              "track_author": "Calme【かるめ】",
-              "record_count": 2,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_dc5_attack"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_dc5_attack",
-                  "variant_name": "DC5-Attack (Integra)"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_dc5_tuned",
-          "variant_name": "DC5 Tuned",
-          "record_count": 1,
-          "vehicle_tags": [],
-          "world_rows": [
-            {
-              "track_world_code": "urarokkou",
-              "track_display_name": "UraRokko",
-              "world_name": "UraRokko",
-              "world_url": "https://vrchat.com/home/world/wrld_2a3df68a-86a8-4949-86a3-f4cac379ac0a",
-              "track_author": "G線上のハッチ",
-              "record_count": 1,
-              "route_count": 1,
-              "variant_codes": [
-                "veh_dc5_tuned"
-              ],
-              "variants": [
-                {
-                  "variant_code": "veh_dc5_tuned",
-                  "variant_name": "DC5 Tuned"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "env_rows": [
-        {
-          "label": "公路",
-          "value": 2
-        },
-        {
-          "label": "山道",
-          "value": 1
-        }
-      ],
-      "variants": [
-        {
-          "variant_code": "veh_dc5_attack",
-          "variant_name": "DC5-Attack (Integra)",
-          "record_count": 2,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_001250",
-              "rank": 1,
-              "route_label_zh": "雙鏡湖外環道 / Counter-Clockwise",
-              "route_label_en": "Futatsukane / Counter-Clockwise",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "DC5",
-              "vehicle_model_code": "veh_dc5",
-              "vehicle_variant_name": "DC5-Attack (Integra)",
-              "vehicle_variant_code": "veh_dc5_attack",
-              "lap_time_ms": 271640,
-              "lap_time_text": "04:31.640",
-              "delta_to_best_text": "+29.613",
-              "platform": "pc",
-              "record_date": "2026-08-12",
-              "track_env": "公路",
-              "track_tags": [
-                "高速",
-                "髮夾彎"
-              ],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1537041915483131995",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        },
-        {
-          "variant_code": "veh_dc5_tuned",
-          "variant_name": "DC5 Tuned",
-          "record_count": 1,
-          "vehicle_tags": [],
-          "drivetrain": "FF",
-          "record_rows": [
-            {
-              "record_id": "rec_000728",
-              "rank": 1,
-              "route_label_zh": "UraRokko / Downhill",
-              "route_label_en": "UraRokko / Downhill",
-              "player_display_name": "CannedCarbon",
-              "player_id": "plr_cannedcarbon",
-              "vehicle_model_name": "DC5",
-              "vehicle_model_code": "veh_dc5",
-              "vehicle_variant_name": "DC5 Tuned",
-              "vehicle_variant_code": "veh_dc5_tuned",
-              "lap_time_ms": 163507,
-              "lap_time_text": "02:43.507",
-              "delta_to_best_text": "+12.790",
-              "platform": "pc",
-              "record_date": "2026-06-14",
-              "track_env": "山道",
-              "track_tags": [],
-              "peer_label": "CannedCarbon",
-              "verified": false,
-              "proof_text": "",
-              "badge_code": "CR",
-              "badge_label_zh": "車輛紀錄",
-              "badge_label_en": "Car Record",
-              "badge_tone": "cr"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "vehicle_model_code": "veh_emrydes",
       "title": "Emrydes",
       "vehicle_class": "未辨識／原創車 Unresolved/Original Vehicle",
@@ -62645,6 +62797,252 @@
               "peer_label": "CannedCarbon",
               "verified": false,
               "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_veryca_4wd_race",
+      "title": "Veryca",
+      "vehicle_class": "商用／大型車 Commercial/Heavy Vehicle",
+      "subtitle_zh": "商用／大型車 Commercial/Heavy Vehicle",
+      "subtitle_en": "商用／大型車 Commercial/Heavy Vehicle",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "4WD",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "3"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "商用／大型車 Commercial/Heavy Vehicle",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 4WD",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 CannedCarbon",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Veryca 4WD Race",
+          "value": 3
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "CannedCarbon",
+          "value": 2
+        },
+        {
+          "label": "windnight5",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_001888",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Veryca",
+          "vehicle_model_code": "veh_veryca_4wd_race",
+          "vehicle_variant_name": "Veryca 4WD Race",
+          "vehicle_variant_code": "veh_veryca_4wd_race",
+          "lap_time_ms": 177107,
+          "lap_time_text": "02:57.107",
+          "delta_to_best_text": "+13.987",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001882",
+          "rank": 2,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "CannedCarbon",
+          "player_id": "plr_cannedcarbon",
+          "vehicle_model_name": "Veryca",
+          "vehicle_model_code": "veh_veryca_4wd_race",
+          "vehicle_variant_name": "Veryca 4WD Race",
+          "vehicle_variant_code": "veh_veryca_4wd_race",
+          "lap_time_ms": 179520,
+          "lap_time_text": "02:59.520",
+          "delta_to_best_text": "+16.067",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "CannedCarbon",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 3,
+          "route_count": 2,
+          "variant_codes": [
+            "veh_veryca_4wd_race"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_veryca_4wd_race",
+              "variant_name": "Veryca 4WD Race"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_veryca_4wd_race",
+          "variant_name": "Veryca 4WD Race",
+          "record_count": 3,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 3,
+              "route_count": 2,
+              "variant_codes": [
+                "veh_veryca_4wd_race"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_veryca_4wd_race",
+                  "variant_name": "Veryca 4WD Race"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 3
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_veryca_4wd_race",
+          "variant_name": "Veryca 4WD Race",
+          "record_count": 3,
+          "vehicle_tags": [],
+          "drivetrain": "4WD",
+          "record_rows": [
+            {
+              "record_id": "rec_001888",
+              "rank": 1,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "Veryca",
+              "vehicle_model_code": "veh_veryca_4wd_race",
+              "vehicle_variant_name": "Veryca 4WD Race",
+              "vehicle_variant_code": "veh_veryca_4wd_race",
+              "lap_time_ms": 177107,
+              "lap_time_text": "02:57.107",
+              "delta_to_best_text": "+13.987",
+              "platform": "pc",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_001882",
+              "rank": 2,
+              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+              "player_display_name": "CannedCarbon",
+              "player_id": "plr_cannedcarbon",
+              "vehicle_model_name": "Veryca",
+              "vehicle_model_code": "veh_veryca_4wd_race",
+              "vehicle_variant_name": "Veryca 4WD Race",
+              "vehicle_variant_code": "veh_veryca_4wd_race",
+              "lap_time_ms": 179520,
+              "lap_time_text": "02:59.520",
+              "delta_to_best_text": "+16.067",
+              "platform": "pc",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "CannedCarbon",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
               "badge_code": "CR",
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",
@@ -67921,7 +68319,7 @@
           "vehicle_variant_code": "veh_garlandpx_attack",
           "lap_time_ms": 132933,
           "lap_time_text": "02:12.933",
-          "delta_to_best_text": "+9.233",
+          "delta_to_best_text": "+16.627",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -68042,7 +68440,7 @@
               "vehicle_variant_code": "veh_garlandpx_attack",
               "lap_time_ms": 132933,
               "lap_time_text": "02:12.933",
-              "delta_to_best_text": "+9.233",
+              "delta_to_best_text": "+16.627",
               "platform": "pc",
               "record_date": "2026-06-22",
               "track_env": "山道",
@@ -69070,7 +69468,7 @@
           "vehicle_variant_code": "veh_sxcustom",
           "lap_time_ms": 182422,
           "lap_time_text": "03:02.422",
-          "delta_to_best_text": "+58.722",
+          "delta_to_best_text": "+66.116",
           "platform": "pc",
           "record_date": "2026-06-22",
           "track_env": "山道",
@@ -69191,7 +69589,7 @@
               "vehicle_variant_code": "veh_sxcustom",
               "lap_time_ms": 182422,
               "lap_time_text": "03:02.422",
-              "delta_to_best_text": "+58.722",
+              "delta_to_best_text": "+66.116",
               "platform": "pc",
               "record_date": "2026-06-22",
               "track_env": "山道",
@@ -69484,6 +69882,252 @@
               "peer_label": "CannedCarbon",
               "verified": false,
               "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1539583799078297600",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_v300_diesel_rwd",
+      "title": "VClass",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "2"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 2,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 StarRiver Arts",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "V300 Diesel RWD",
+          "value": 2
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "StarRiver Arts",
+          "value": 1
+        },
+        {
+          "label": "猫瘾青年丨L",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_001885",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "StarRiver Arts",
+          "player_id": "plr_starriver_arts",
+          "vehicle_model_name": "VClass",
+          "vehicle_model_code": "veh_v300_diesel_rwd",
+          "vehicle_variant_name": "V300 Diesel RWD",
+          "vehicle_variant_code": "veh_v300_diesel_rwd",
+          "lap_time_ms": 242983,
+          "lap_time_text": "04:02.983",
+          "delta_to_best_text": "+79.530",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "StarRiver Arts",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        },
+        {
+          "record_id": "rec_001891",
+          "rank": 2,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "猫瘾青年丨L",
+          "player_id": "plr_l",
+          "vehicle_model_name": "VClass",
+          "vehicle_model_code": "veh_v300_diesel_rwd",
+          "vehicle_variant_name": "V300 Diesel RWD",
+          "vehicle_variant_code": "veh_v300_diesel_rwd",
+          "lap_time_ms": 273240,
+          "lap_time_text": "04:33.240",
+          "delta_to_best_text": "+110.120",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "猫瘾青年丨L",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 2,
+          "route_count": 2,
+          "variant_codes": [
+            "veh_v300_diesel_rwd"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_v300_diesel_rwd",
+              "variant_name": "V300 Diesel RWD"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_v300_diesel_rwd",
+          "variant_name": "V300 Diesel RWD",
+          "record_count": 2,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 2,
+              "route_count": 2,
+              "variant_codes": [
+                "veh_v300_diesel_rwd"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_v300_diesel_rwd",
+                  "variant_name": "V300 Diesel RWD"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 2
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_v300_diesel_rwd",
+          "variant_name": "V300 Diesel RWD",
+          "record_count": 2,
+          "vehicle_tags": [],
+          "drivetrain": "",
+          "record_rows": [
+            {
+              "record_id": "rec_001885",
+              "rank": 1,
+              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+              "player_display_name": "StarRiver Arts",
+              "player_id": "plr_starriver_arts",
+              "vehicle_model_name": "VClass",
+              "vehicle_model_code": "veh_v300_diesel_rwd",
+              "vehicle_variant_name": "V300 Diesel RWD",
+              "vehicle_variant_code": "veh_v300_diesel_rwd",
+              "lap_time_ms": 242983,
+              "lap_time_text": "04:02.983",
+              "delta_to_best_text": "+79.530",
+              "platform": "pc",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "StarRiver Arts",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            },
+            {
+              "record_id": "rec_001891",
+              "rank": 2,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "猫瘾青年丨L",
+              "player_id": "plr_l",
+              "vehicle_model_name": "VClass",
+              "vehicle_model_code": "veh_v300_diesel_rwd",
+              "vehicle_variant_name": "V300 Diesel RWD",
+              "vehicle_variant_code": "veh_v300_diesel_rwd",
+              "lap_time_ms": 273240,
+              "lap_time_text": "04:33.240",
+              "delta_to_best_text": "+110.120",
+              "platform": "pc",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "猫瘾青年丨L",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
               "badge_code": "CR",
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",
@@ -81628,6 +82272,196 @@
       ]
     },
     {
+      "vehicle_model_code": "veh_fuso_canter_cab_over_diesel",
+      "title": "Canter",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 Iˣ",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Fuso Canter Cab-Over Diesel",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "Iˣ",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_001886",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+          "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+          "player_display_name": "Iˣ",
+          "player_id": "plr_048",
+          "vehicle_model_name": "Canter",
+          "vehicle_model_code": "veh_fuso_canter_cab_over_diesel",
+          "vehicle_variant_name": "Fuso Canter Cab-Over Diesel",
+          "vehicle_variant_code": "veh_fuso_canter_cab_over_diesel",
+          "lap_time_ms": 328722,
+          "lap_time_text": "05:28.722",
+          "delta_to_best_text": "+165.269",
+          "platform": "pcvr",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "Iˣ",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_fuso_canter_cab_over_diesel"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_fuso_canter_cab_over_diesel",
+              "variant_name": "Fuso Canter Cab-Over Diesel"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_fuso_canter_cab_over_diesel",
+          "variant_name": "Fuso Canter Cab-Over Diesel",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_fuso_canter_cab_over_diesel"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_fuso_canter_cab_over_diesel",
+                  "variant_name": "Fuso Canter Cab-Over Diesel"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_fuso_canter_cab_over_diesel",
+          "variant_name": "Fuso Canter Cab-Over Diesel",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "drivetrain": "",
+          "record_rows": [
+            {
+              "record_id": "rec_001886",
+              "rank": 1,
+              "route_label_zh": "玉長公路 / Half Course Outbound - to Yuli",
+              "route_label_en": "Yuli-Changbin / Half Course Outbound - to Yuli",
+              "player_display_name": "Iˣ",
+              "player_id": "plr_048",
+              "vehicle_model_name": "Canter",
+              "vehicle_model_code": "veh_fuso_canter_cab_over_diesel",
+              "vehicle_variant_name": "Fuso Canter Cab-Over Diesel",
+              "vehicle_variant_code": "veh_fuso_canter_cab_over_diesel",
+              "lap_time_ms": 328722,
+              "lap_time_text": "05:28.722",
+              "delta_to_best_text": "+165.269",
+              "platform": "pcvr",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "Iˣ",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "vehicle_model_code": "veh_carry",
       "title": "Carry",
       "vehicle_class": "商用／大型車 Commercial/Heavy Vehicle",
@@ -84740,6 +85574,196 @@
               "peer_label": "CannedCarbon",
               "verified": false,
               "proof_text": "",
+              "badge_code": "CR",
+              "badge_label_zh": "車輛紀錄",
+              "badge_label_en": "Car Record",
+              "badge_tone": "cr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vehicle_model_code": "veh_hilux",
+      "title": "Hilux",
+      "vehicle_class": "Sports Car",
+      "subtitle_zh": "Sports Car",
+      "subtitle_en": "Sports Car",
+      "manufacturer": "",
+      "country": "",
+      "year": "",
+      "special_marks": [],
+      "drivetrain": "",
+      "popularity_bucket_key": "rare",
+      "popularity_bucket_zh": "少量紀錄",
+      "popularity_bucket_en": "Rare Cars",
+      "stats": [
+        {
+          "label_zh": "有效紀錄",
+          "label_en": "Valid Runs",
+          "value": "1"
+        },
+        {
+          "label_zh": "已驗證",
+          "label_en": "Verified Runs",
+          "value": "0"
+        },
+        {
+          "label_zh": "賽道最佳",
+          "label_en": "Track Records",
+          "value": "0"
+        }
+      ],
+      "badge_counts": {
+        "TR": 0,
+        "CR": 1,
+        "PR": 0
+      },
+      "tag_chips": [
+        {
+          "label": "少量紀錄",
+          "tone": "team"
+        },
+        {
+          "label": "Sports Car",
+          "tone": "vehicle"
+        },
+        {
+          "label": "驅動型式 -",
+          "tone": "meta"
+        },
+        {
+          "label": "偏好環境 山道",
+          "tone": "env"
+        },
+        {
+          "label": "常見車手 猫瘾青年丨L",
+          "tone": "skill"
+        }
+      ],
+      "usage_rows": [
+        {
+          "label": "Hilux",
+          "value": 1
+        }
+      ],
+      "tag_rows": [
+        {
+          "label": "猫瘾青年丨L",
+          "value": 1
+        }
+      ],
+      "record_rows": [
+        {
+          "record_id": "rec_001890",
+          "rank": 1,
+          "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+          "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+          "player_display_name": "猫瘾青年丨L",
+          "player_id": "plr_l",
+          "vehicle_model_name": "Hilux",
+          "vehicle_model_code": "veh_hilux",
+          "vehicle_variant_name": "Hilux",
+          "vehicle_variant_code": "veh_hilux",
+          "lap_time_ms": 270900,
+          "lap_time_text": "04:30.900",
+          "delta_to_best_text": "+107.780",
+          "platform": "pc",
+          "record_date": "2026-10-03",
+          "track_env": "山道",
+          "track_tags": [],
+          "peer_label": "猫瘾青年丨L",
+          "verified": false,
+          "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
+          "badge_code": "CR",
+          "badge_label_zh": "車輛紀錄",
+          "badge_label_en": "Car Record",
+          "badge_tone": "cr"
+        }
+      ],
+      "world_rows": [
+        {
+          "track_world_code": "pt_ych_starriver_arts",
+          "track_display_name": "玉長公路",
+          "world_name": "Yuli-Changbin",
+          "world_url": "",
+          "track_author": "StarRiver Arts",
+          "record_count": 1,
+          "route_count": 1,
+          "variant_codes": [
+            "veh_hilux"
+          ],
+          "variants": [
+            {
+              "variant_code": "veh_hilux",
+              "variant_name": "Hilux"
+            }
+          ]
+        }
+      ],
+      "variant_worlds": [
+        {
+          "variant_code": "veh_hilux",
+          "variant_name": "Hilux",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "world_rows": [
+            {
+              "track_world_code": "pt_ych_starriver_arts",
+              "track_display_name": "玉長公路",
+              "world_name": "Yuli-Changbin",
+              "world_url": "",
+              "track_author": "StarRiver Arts",
+              "record_count": 1,
+              "route_count": 1,
+              "variant_codes": [
+                "veh_hilux"
+              ],
+              "variants": [
+                {
+                  "variant_code": "veh_hilux",
+                  "variant_name": "Hilux"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "env_rows": [
+        {
+          "label": "山道",
+          "value": 1
+        }
+      ],
+      "variants": [
+        {
+          "variant_code": "veh_hilux",
+          "variant_name": "Hilux",
+          "record_count": 1,
+          "vehicle_tags": [],
+          "drivetrain": "",
+          "record_rows": [
+            {
+              "record_id": "rec_001890",
+              "rank": 1,
+              "route_label_zh": "玉長公路 / Half Course Inbound - to Changbin",
+              "route_label_en": "Yuli-Changbin / Half Course Inbound - to Changbin",
+              "player_display_name": "猫瘾青年丨L",
+              "player_id": "plr_l",
+              "vehicle_model_name": "Hilux",
+              "vehicle_model_code": "veh_hilux",
+              "vehicle_variant_name": "Hilux",
+              "vehicle_variant_code": "veh_hilux",
+              "lap_time_ms": 270900,
+              "lap_time_text": "04:30.900",
+              "delta_to_best_text": "+107.780",
+              "platform": "pc",
+              "record_date": "2026-10-03",
+              "track_env": "山道",
+              "track_tags": [],
+              "peer_label": "猫瘾青年丨L",
+              "verified": false,
+              "proof_text": "https://discord.com/channels/1324724752862150696/1324735926806511656/1555822056438759554",
               "badge_code": "CR",
               "badge_label_zh": "車輛紀錄",
               "badge_label_en": "Car Record",

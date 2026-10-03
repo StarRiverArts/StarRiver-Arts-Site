@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-10-01",
+  "updated": "2026-10-03",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -86,6 +86,43 @@
           "status": "live",
           "provisional": true,
           "count": 91
+        }
+      ]
+    },
+    {
+      "code": "pt_ych_starriver_arts",
+      "zh": "玉長公路",
+      "en": "Yuli-Changbin",
+      "system": "cvs",
+      "file": "pt_ych_starriver_arts.json",
+      "routes": [
+        {
+          "code": "FCIB",
+          "zh": "Full Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 8
+        },
+        {
+          "code": "FCOB",
+          "zh": "Full Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 27
+        },
+        {
+          "code": "HCIB",
+          "zh": "Half Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 29
+        },
+        {
+          "code": "HCOB",
+          "zh": "Half Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 20
         }
       ]
     },
@@ -180,39 +217,25 @@
       ]
     },
     {
-      "code": "pt_ych_starriver_arts",
-      "zh": "玉長公路",
-      "en": "Yuli-Changbin",
+      "code": "ryuoukouzan_calme",
+      "zh": "龍鉤山",
+      "en": "Ryuoukouzan",
       "system": "cvs",
-      "file": "pt_ych_starriver_arts.json",
+      "file": "ryuoukouzan_calme.json",
       "routes": [
         {
-          "code": "FCIB",
-          "zh": "Full Course Inbound - to Changbin",
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 55
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
           "status": "live",
           "provisional": true,
           "count": 8
-        },
-        {
-          "code": "FCOB",
-          "zh": "Full Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 27
-        },
-        {
-          "code": "HCIB",
-          "zh": "Half Course Inbound - to Changbin",
-          "status": "live",
-          "provisional": true,
-          "count": 25
-        },
-        {
-          "code": "HCOB",
-          "zh": "Half Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 14
         }
       ]
     },
@@ -236,29 +259,6 @@
           "status": "live",
           "provisional": true,
           "count": 5
-        }
-      ]
-    },
-    {
-      "code": "ryuoukouzan_calme",
-      "zh": "龍鉤山",
-      "en": "Ryuoukouzan",
-      "system": "cvs",
-      "file": "ryuoukouzan_calme.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 54
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 6
         }
       ]
     },
@@ -2208,10 +2208,5 @@
         }
       ]
     }
-  ],
-  "resources": {
-    "players": "players.json",
-    "teams": "teams.json",
-    "vehicles": "vehicles.json"
-  }
+  ]
 }
