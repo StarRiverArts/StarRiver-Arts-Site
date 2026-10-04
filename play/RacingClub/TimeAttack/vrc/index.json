@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -51,6 +51,43 @@
       ]
     },
     {
+      "code": "pt_ych_starriver_arts",
+      "zh": "玉長公路",
+      "en": "Yuli-Changbin",
+      "system": "cvs",
+      "file": "pt_ych_starriver_arts.json",
+      "routes": [
+        {
+          "code": "FCIB",
+          "zh": "Full Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 9
+        },
+        {
+          "code": "FCOB",
+          "zh": "Full Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 36
+        },
+        {
+          "code": "HCIB",
+          "zh": "Half Course Inbound - to Changbin",
+          "status": "live",
+          "provisional": true,
+          "count": 39
+        },
+        {
+          "code": "HCOB",
+          "zh": "Half Course Outbound - to Yuli",
+          "status": "live",
+          "provisional": true,
+          "count": 35
+        }
+      ]
+    },
+    {
       "code": "omote_rokkou_ron",
       "zh": "omote_rokko",
       "en": "omote_rokko",
@@ -86,43 +123,6 @@
           "status": "live",
           "provisional": true,
           "count": 91
-        }
-      ]
-    },
-    {
-      "code": "pt_ych_starriver_arts",
-      "zh": "玉長公路",
-      "en": "Yuli-Changbin",
-      "system": "cvs",
-      "file": "pt_ych_starriver_arts.json",
-      "routes": [
-        {
-          "code": "FCIB",
-          "zh": "Full Course Inbound - to Changbin",
-          "status": "live",
-          "provisional": true,
-          "count": 8
-        },
-        {
-          "code": "FCOB",
-          "zh": "Full Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 27
-        },
-        {
-          "code": "HCIB",
-          "zh": "Half Course Inbound - to Changbin",
-          "status": "live",
-          "provisional": true,
-          "count": 29
-        },
-        {
-          "code": "HCOB",
-          "zh": "Half Course Outbound - to Yuli",
-          "status": "live",
-          "provisional": true,
-          "count": 20
         }
       ]
     },
