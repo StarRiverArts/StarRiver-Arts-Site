@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-10-05",
+  "updated": "2026-10-13",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -39,7 +39,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 124
+          "count": 129
         },
         {
           "code": "UH",
@@ -62,7 +62,7 @@
           "zh": "Full Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 9
+          "count": 10
         },
         {
           "code": "FCOB",
@@ -76,14 +76,14 @@
           "zh": "Half Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 39
+          "count": 47
         },
         {
           "code": "HCOB",
           "zh": "Half Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 35
+          "count": 38
         }
       ]
     },
@@ -99,14 +99,14 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 97
+          "count": 104
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 1
+          "count": 3
         }
       ]
     },
@@ -171,6 +171,29 @@
       ]
     },
     {
+      "code": "akina_jintei",
+      "zh": "秋名",
+      "en": "Akina",
+      "system": "sacc",
+      "file": "akina_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 75
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 6
+        }
+      ]
+    },
+    {
       "code": "odawara_jintei",
       "zh": "小田原",
       "en": "Odawara",
@@ -194,29 +217,6 @@
       ]
     },
     {
-      "code": "akina_jintei",
-      "zh": "秋名",
-      "en": "Akina",
-      "system": "sacc",
-      "file": "akina_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 73
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 6
-        }
-      ]
-    },
-    {
       "code": "ryuoukouzan_calme",
       "zh": "龍鉤山",
       "en": "Ryuoukouzan",
@@ -228,7 +228,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 55
+          "count": 56
         },
         {
           "code": "UH",
@@ -339,6 +339,22 @@
       ]
     },
     {
+      "code": "nagao_foxbg",
+      "zh": "長尾",
+      "en": "Nagao",
+      "system": "cvs",
+      "file": "nagao_foxbg.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 44
+        }
+      ]
+    },
+    {
       "code": "futatsukane",
       "zh": "雙鏡湖外環道",
       "en": "Futatsukane",
@@ -385,22 +401,6 @@
       ]
     },
     {
-      "code": "nagao_foxbg",
-      "zh": "長尾",
-      "en": "Nagao",
-      "system": "cvs",
-      "file": "nagao_foxbg.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 33
-        }
-      ]
-    },
-    {
       "code": "silverstone_aiden1408",
       "zh": "Silverstone",
       "en": "Silverstone",
@@ -433,6 +433,29 @@
       ]
     },
     {
+      "code": "akagi_jintei",
+      "zh": "赤城",
+      "en": "Akagi",
+      "system": "sacc",
+      "file": "akagi_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 19
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 5
+        }
+      ]
+    },
+    {
       "code": "nanamagari_jintei",
       "zh": "七曲",
       "en": "Nanamagari",
@@ -456,29 +479,6 @@
       ]
     },
     {
-      "code": "akagi_jintei",
-      "zh": "赤城",
-      "en": "Akagi",
-      "system": "sacc",
-      "file": "akagi_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 17
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 4
-        }
-      ]
-    },
-    {
       "code": "kart_totuka_kaoru",
       "zh": "@Kart",
       "en": "@Kart",
@@ -488,6 +488,22 @@
         {
           "code": "TBD",
           "zh": "待整理",
+          "status": "live",
+          "provisional": true,
+          "count": 18
+        }
+      ]
+    },
+    {
+      "code": "unknown_lamina_03",
+      "zh": "大鷺山間サーキット",
+      "en": "大鷺山間サーキット",
+      "system": "unknown",
+      "file": "unknown_lamina_03.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 18
@@ -557,22 +573,6 @@
       ]
     },
     {
-      "code": "unknown_lamina_03",
-      "zh": "大鷺山間サーキット",
-      "en": "大鷺山間サーキット",
-      "system": "unknown",
-      "file": "unknown_lamina_03.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 17
-        }
-      ]
-    },
-    {
       "code": "shomaru_foxbg",
       "zh": "正丸",
       "en": "Shomaru",
@@ -619,6 +619,22 @@
       ]
     },
     {
+      "code": "mtakinadrift_et",
+      "zh": "Mt. Akina Drift CVS2",
+      "en": "Mt. Akina Drift CVS2",
+      "system": "cvs",
+      "file": "mtakinadrift_et.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 13
+        }
+      ]
+    },
+    {
       "code": "akina_snow_jintei",
       "zh": "秋名雪",
       "en": "Akina Snow",
@@ -642,18 +658,41 @@
       ]
     },
     {
-      "code": "mtakinadrift_et",
-      "zh": "Mt. Akina Drift CVS2",
-      "en": "Mt. Akina Drift CVS2",
-      "system": "cvs",
-      "file": "mtakinadrift_et.json",
+      "code": "happogahara_jintei",
+      "zh": "八方原",
+      "en": "Happogahara",
+      "system": "sacc",
+      "file": "happogahara_jintei.json",
       "routes": [
         {
-          "code": "DH",
-          "zh": "下行",
+          "code": "OB",
+          "zh": "出場",
           "status": "live",
           "provisional": true,
-          "count": 11
+          "count": 9
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "ichinose_speed_ring",
+      "zh": "Ichinose Speed Ring",
+      "en": "Ichinose Speed Ring",
+      "system": "unknown",
+      "file": "ichinose_speed_ring.json",
+      "routes": [
+        {
+          "code": "Speer Ring",
+          "zh": "Speer Ring",
+          "status": "live",
+          "provisional": true,
+          "count": 12
         }
       ]
     },
@@ -725,22 +764,6 @@
           "status": "live",
           "provisional": true,
           "count": 9
-        }
-      ]
-    },
-    {
-      "code": "ichinose_speed_ring",
-      "zh": "Ichinose Speed Ring",
-      "en": "Ichinose Speed Ring",
-      "system": "unknown",
-      "file": "ichinose_speed_ring.json",
-      "routes": [
-        {
-          "code": "Speer Ring",
-          "zh": "Speer Ring",
-          "status": "live",
-          "provisional": true,
-          "count": 11
         }
       ]
     },
@@ -817,29 +840,6 @@
           "status": "live",
           "provisional": true,
           "count": 7
-        }
-      ]
-    },
-    {
-      "code": "happogahara_jintei",
-      "zh": "八方原",
-      "en": "Happogahara",
-      "system": "sacc",
-      "file": "happogahara_jintei.json",
-      "routes": [
-        {
-          "code": "OB",
-          "zh": "出場",
-          "status": "live",
-          "provisional": true,
-          "count": 7
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 3
         }
       ]
     },
@@ -922,6 +922,43 @@
       ]
     },
     {
+      "code": "gunsai_jintei",
+      "zh": "群馬單車中心",
+      "en": "Gunsai",
+      "system": "sacc",
+      "file": "gunsai_jintei.json",
+      "routes": [
+        {
+          "code": "C-A",
+          "zh": "Course A",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
+        {
+          "code": "FC",
+          "zh": "全程",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "code": "tsuchisaka_jintei",
       "zh": "土坂",
       "en": "Tsuchisaka",
@@ -975,6 +1012,52 @@
       ]
     },
     {
+      "code": "tsukuba_snow_jintei",
+      "zh": "筑波雪",
+      "en": "Tsukuba Snow",
+      "system": "sacc",
+      "file": "tsukuba_snow_jintei.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "code": "hakone_jintei",
+      "zh": "箱根高速",
+      "en": "Hakone",
+      "system": "sacc",
+      "file": "hakone_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 6
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "falstone_rally",
       "zh": "Falstone Rally",
       "en": "Falstone Rally",
@@ -1021,39 +1104,25 @@
       ]
     },
     {
-      "code": "gunsai_jintei",
-      "zh": "群馬單車中心",
-      "en": "Gunsai",
+      "code": "carpi",
+      "zh": "Carpi",
+      "en": "Carpi",
       "system": "sacc",
-      "file": "gunsai_jintei.json",
+      "file": "carpi.json",
       "routes": [
-        {
-          "code": "C-A",
-          "zh": "Course A",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "FC",
-          "zh": "全程",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        },
         {
           "code": "OB",
           "zh": "出場",
           "status": "live",
           "provisional": true,
-          "count": 2
+          "count": 4
         },
         {
           "code": "IB",
           "zh": "進場",
           "status": "live",
           "provisional": true,
-          "count": 1
+          "count": 4
         }
       ]
     },
@@ -1081,22 +1150,22 @@
       ]
     },
     {
-      "code": "carpi",
-      "zh": "Carpi",
-      "en": "Carpi",
+      "code": "tsuchisaka_snow_jintei",
+      "zh": "Tsuchisaka Snow",
+      "en": "Tsuchisaka Snow",
       "system": "sacc",
-      "file": "carpi.json",
+      "file": "tsuchisaka_snow_jintei.json",
       "routes": [
         {
-          "code": "OB",
-          "zh": "出場",
+          "code": "IB",
+          "zh": "進場",
           "status": "live",
           "provisional": true,
           "count": 3
         },
         {
-          "code": "IB",
-          "zh": "進場",
+          "code": "OB",
+          "zh": "出場",
           "status": "live",
           "provisional": true,
           "count": 4
@@ -1143,29 +1212,6 @@
       ]
     },
     {
-      "code": "tsuchisaka_snow_jintei",
-      "zh": "Tsuchisaka Snow",
-      "en": "Tsuchisaka Snow",
-      "system": "sacc",
-      "file": "tsuchisaka_snow_jintei.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        },
-        {
-          "code": "OB",
-          "zh": "出場",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        }
-      ]
-    },
-    {
       "code": "summit_jintei",
       "zh": "Summit",
       "en": "Summit",
@@ -1189,29 +1235,6 @@
       ]
     },
     {
-      "code": "hakone_jintei",
-      "zh": "箱根高速",
-      "en": "Hakone",
-      "system": "sacc",
-      "file": "hakone_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 5
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        }
-      ]
-    },
-    {
       "code": "chikuyasan_hi50u",
       "zh": "築和山",
       "en": "Chikuyasan",
@@ -1228,25 +1251,41 @@
       ]
     },
     {
-      "code": "tsukuba_snow_jintei",
-      "zh": "筑波雪",
-      "en": "Tsukuba Snow",
-      "system": "sacc",
-      "file": "tsukuba_snow_jintei.json",
+      "code": "bathurst_v8_supercars_cvs2",
+      "zh": "Bathurst V8 Supercars CVS2",
+      "en": "Bathurst V8 Supercars CVS2",
+      "system": "unknown",
+      "file": "bathurst_v8_supercars_cvs2.json",
       "routes": [
         {
-          "code": "IB",
-          "zh": "進場",
+          "code": "FWD",
+          "zh": "Forward",
           "status": "live",
           "provisional": true,
-          "count": 2
+          "count": 6
+        }
+      ]
+    },
+    {
+      "code": "mt_talkan_jintei",
+      "zh": "Mt.Talkan",
+      "en": "Mt.Talkan",
+      "system": "sacc",
+      "file": "mt_talkan_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 1
         },
         {
-          "code": "OB",
-          "zh": "出場",
+          "code": "UH",
+          "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 3
+          "count": 4
         }
       ]
     },
@@ -1320,25 +1359,25 @@
       ]
     },
     {
-      "code": "mt_talkan_jintei",
-      "zh": "Mt.Talkan",
-      "en": "Mt.Talkan",
+      "code": "mazepass_jintei",
+      "zh": "［Initial D］ Maze Pass",
+      "en": "［Initial D］ Maze Pass",
       "system": "sacc",
-      "file": "mt_talkan_jintei.json",
+      "file": "mazepass_jintei.json",
       "routes": [
         {
-          "code": "DH",
-          "zh": "下行",
+          "code": "Dh",
+          "zh": "Dh",
           "status": "live",
           "provisional": true,
-          "count": 1
+          "count": 3
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 3
+          "count": 2
         }
       ]
     },
@@ -1513,6 +1552,22 @@
       ]
     },
     {
+      "code": "hiroshima_expressway",
+      "zh": "廣島高速公路",
+      "en": "Hiroshima Expressway",
+      "system": "cvs",
+      "file": "hiroshima_expressway.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "code": "silverstone_afeminineguy",
       "zh": "Silverstone",
       "en": "Silverstone",
@@ -1669,22 +1724,6 @@
       ]
     },
     {
-      "code": "hiroshima_expressway",
-      "zh": "廣島高速公路",
-      "en": "Hiroshima Expressway",
-      "system": "cvs",
-      "file": "hiroshima_expressway.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        }
-      ]
-    },
-    {
       "code": "hi_land_raceway_2_0",
       "zh": "Hi-Land Raceway 2.0",
       "en": "Hi-Land Raceway 2.0",
@@ -1830,38 +1869,6 @@
           "status": "prep",
           "provisional": false,
           "count": 0
-        }
-      ]
-    },
-    {
-      "code": "bathurst_v8_supercars_cvs2",
-      "zh": "Bathurst V8 Supercars CVS2",
-      "en": "Bathurst V8 Supercars CVS2",
-      "system": "unknown",
-      "file": "bathurst_v8_supercars_cvs2.json",
-      "routes": [
-        {
-          "code": "FWD",
-          "zh": "Forward",
-          "status": "live",
-          "provisional": false,
-          "count": 2
-        }
-      ]
-    },
-    {
-      "code": "mazepass_jintei",
-      "zh": "［Initial D］ Maze Pass",
-      "en": "［Initial D］ Maze Pass",
-      "system": "sacc",
-      "file": "mazepass_jintei.json",
-      "routes": [
-        {
-          "code": "Dh",
-          "zh": "Dh",
-          "status": "live",
-          "provisional": true,
-          "count": 2
         }
       ]
     },
