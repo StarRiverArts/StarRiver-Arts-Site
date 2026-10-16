@@ -338,7 +338,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
   var html=document.documentElement;
   var btn=document.getElementById('langBtn');
   var saved=localStorage.getItem('sr-lang')||'zh';
-  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  if(saved!=='zh' && saved!=='en') saved='zh';
+  function setLang(l){if(l!=='zh'&&l!=='en')l='zh';html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
   setLang(saved);
   btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
 })();
