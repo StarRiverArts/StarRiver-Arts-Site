@@ -1096,7 +1096,7 @@ const renderRelatedEvents = (events, kind, id, subId = "") => {
         const rankChip = highlight ? renderEventRankChip(highlight.row, highlight) : "";
         return `
         <a href="./event.html?id=${encodeURIComponent(event.event_id)}">
-          <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
+          ${renderEventStatus(event)}
           <strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong>
           ${rankChip}
           <small>${renderEventDate(event.starts_at)}</small>
@@ -1769,8 +1769,31 @@ const renderVehicleDetail = (data, id) => {
   return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "vehicle", card.vehicle_model_code) + worldModule + variantModule + analysisModule;
 };
 
-const eventStatusClass = (status) =>
-  ["upcoming", "ongoing", "completed", "archived"].includes(status) ? status : "archived";
+// An elapsed date is not an outcome: the editorial status remains authoritative.
+const eventDisplayStatus = (event) => {
+  if (event.status === "upcoming" && /^\d{4}-\d{2}-\d{2}/.test(event.starts_at || "")) {
+    try {
+      const today = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: event.timezone || "Asia/Taipei",
+        year: "numeric", month: "2-digit", day: "2-digit",
+      }).format(new Date());
+      if (event.starts_at.slice(0, 10) < today) {
+        return { style: "needs-update", zh: "日期已過・狀態待確認", en: "Date passed · Status unconfirmed" };
+      }
+    } catch (_) {
+      // Unrecognized timezone: keep existing editorial status.
+    }
+  }
+  return {
+    style: ["upcoming", "ongoing", "completed", "archived"].includes(event.status) ? event.status : "archived",
+    zh: event.status_zh || event.status || "未確認",
+    en: event.status_en || event.status || "Unconfirmed",
+  };
+};
+const renderEventStatus = (event) => {
+  const state = eventDisplayStatus(event);
+  return `<span class="ta-event-status is-${state.style}">${renderBilingual(state.zh, state.en, state.en)}</span>`;
+};
 
 const renderEventDate = (value) => {
   if (!value) return "-";
@@ -1780,9 +1803,9 @@ const renderEventDate = (value) => {
 // Shared by the events list and the overview "Recent Events" module: both take the
 // editorial_events array and render the same card grid. Pass limit to show a subset.
 const renderEventCards = (editorialEvents, limit = 0) => {
-  const statusOrder = { ongoing: 0, upcoming: 1, completed: 2, archived: 3 };
+  const statusOrder = { ongoing: 0, upcoming: 1, "needs-update": 2, completed: 3, archived: 4 };
   const sorted = (editorialEvents || []).slice().sort((a, b) =>
-    (statusOrder[a.status] ?? 4) - (statusOrder[b.status] ?? 4) ||
+    (statusOrder[eventDisplayStatus(a).style] ?? 5) - (statusOrder[eventDisplayStatus(b).style] ?? 5) ||
     String(b.starts_at || "").localeCompare(String(a.starts_at || "")),
   );
   const events = limit > 0 ? sorted.slice(0, limit) : sorted;
@@ -1792,7 +1815,7 @@ const renderEventCards = (editorialEvents, limit = 0) => {
       ${events.map((event) => `
         <a class="ta-event-card" href="./event.html?id=${encodeURIComponent(event.event_id)}">
           <div class="ta-event-card-head">
-            <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
+            ${renderEventStatus(event)}
             <span class="ta-event-date">${renderEventDate(event.starts_at)}</span>
           </div>
           <div class="ta-label">${escapeHtml(event.system || "")}</div>
@@ -1850,11 +1873,27 @@ const renderEventInfoRows = (event, data) => {
     : "");
   const participantLinks = (event.participant_player_ids || []).map((playerId) => {
     const player = players.find((item) => item.player_id === playerId);
-    return `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player ? player.title : playerId)}</a>`;
+    return player
+      ? `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player.title)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(playerId)} ${renderBilingual("（尚無公開車手頁）", "(No racer profile yet)")}</span>`;
   }).join(" · ");
+  // Historical event rows may refer to a vehicle variant, not a model.
+  // Resolve exact identifiers only; unresolved values remain unlinked.
+  const models = new Map(vehicles.map((v) => [v.vehicle_model_code, v]));
+  const variants = new Map();
+  vehicles.forEach((model) => (model.variants || []).forEach((variant) => {
+    if (variant.variant_code && !variants.has(variant.variant_code)) {
+      variants.set(variant.variant_code, { model, variant });
+    }
+  }));
   const vehicleLinks = (event.vehicle_model_codes || []).map((vehicleCode) => {
-    const vehicle = vehicles.find((item) => item.vehicle_model_code === vehicleCode);
-    return `<a class="ta-entity-link" href="./vehicle.html?id=${encodeURIComponent(vehicleCode)}">${escapeHtml(vehicle ? vehicle.title : vehicleCode)}</a>`;
+    const model = models.get(vehicleCode);
+    const variant = variants.get(vehicleCode);
+    const target = model || variant?.model;
+    const label = model?.title || variant?.variant.variant_name || vehicleCode;
+    return target
+      ? `<a class="ta-entity-link" href="./vehicle.html?id=${encodeURIComponent(target.vehicle_model_code)}">${escapeHtml(label)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(vehicleCode)} ${renderBilingual("（車型待確認）", "(Vehicle ID unresolved)")}</span>`;
   }).join(" · ");
   return `
   <div class="ta-event-info-grid">
@@ -2141,7 +2180,7 @@ const renderEventDetail = (data, id) => {
   return switcher + `
     <article class="ta-event-detail">
       <section class="ta-content-card ta-event-lead">
-        <div class="ta-event-card-head"><span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span><span class="ta-event-date">${renderEventDate(event.starts_at)}</span></div>
+        <div class="ta-event-card-head">${renderEventStatus(event)}<span class="ta-event-date">${renderEventDate(event.starts_at)}</span></div>
         <h2 class="ta-title">${renderBilingual(event.title_zh, event.title_en, event.title_en)}</h2>
         <p class="ta-section-text">${renderBilingual(event.summary_zh, event.summary_en, event.summary_en)}</p>
         <div class="ta-event-tags">${(event.traits_zh || []).map((tag, index) => `<span>${renderBilingual(tag, (event.traits_en || [])[index] || tag, (event.traits_en || [])[index] || tag)}</span>`).join("")}</div>
@@ -2935,6 +2974,23 @@ const initTimeAttack = async () => {
       pageData.player_cards = playersData.player_cards || [];
       pageData.vehicle_cards = vehiclesData.vehicle_cards || [];
       pageData.track_boards = tracksData.boards || [];
+    }
+
+    if (view === "info") {
+      // Generated source-copy still describes Sheet/CSV as canonical.
+      // Do not modify the public JSON projection directly.
+      pageData.description_zh = "本站提供 Racing Hub 公開計時與賽事資料查詢，以及發布資料的更新資訊。";
+      pageData.description_en = "Browse Racing Hub public racing data and check its published data snapshot.";
+      pageData.sidebar_zh = [
+        "本站使用由既有資料管線產生的公開 JSON 快照，不直接編輯原始計時紀錄。",
+        "資料來源及建置時間以本站的資料版本資訊為準。",
+        "資料生成時間不代表每個世界與活動狀態皆經過重新驗證。",
+      ];
+      pageData.sidebar_en = [
+        "This site reads public JSON snapshots from the existing data pipeline, not original timed-run inputs.",
+        "Refer to the published data version for source and generation time.",
+        "A new build does not independently verify every world or event status.",
+      ];
     }
 
     if (!SHOW_VERIFICATION && view === "overview") {
