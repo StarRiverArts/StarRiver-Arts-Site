@@ -303,7 +303,7 @@ StarRiver Museum is the working public name for an evolving digital curation and
 
 A web page may be an exhibition venue, an exhibition in its own right, or a work within another exhibition. Separate exhibition, work, article, venue/worldspace, and medium relationships; none requires a one-to-one mapping.
 
-The current public programme includes two browser-accessible virtual-gallery design displays: `VR Gallery Spatial System` and `Gallery Study Modules`. Their URLs remain stable. Their presence does not make gallery-design modules the identity of the whole Museum. `2026 Preseason` is a contextual programme label, not the Museum homepage's permanent identity.
+The current public programme groups one gallery design-reference presentation (`VR Gallery Spatial System`) with a companion interactive-tool collection (`Gallery Study Modules`, containing Gallery Spatial Planner and Light Falloff Viewer). Their URLs remain stable. Do not infer that the two top-level entries represent independent, formally curated exhibitions. `2026 Preseason` is a contextual grouping, not a promise of a scheduled season or the Museum homepage's permanent identity. Public, verified content records are in `content/museum/catalog.json` with catalogue rules in `docs/museum/public-content-catalog-2026-10.md`.
 
 Approved public Museum URLs are `museum/` (Museum entry), `museum/exhibitions.html` (exhibition directory), `museum/about.html`, `museum/contact.html`, and the two existing interactive presentation URLs. `museum/web-exhibitions.html` remains a `noindex` compatibility route with canonical pointed to the exhibition directory.
 
