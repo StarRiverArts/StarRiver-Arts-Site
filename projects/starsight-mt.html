@@ -144,7 +144,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
 
     <div class="concept">
       <p class="zh">作為個人能力驗證，於一個月內製作的虛構臺灣山景，也為接下來的計畫做準備。</p>
-      <p class="en"></p>
+      <p class="en">A fictional Taiwanese mountain landscape created in one month to test my skills and prepare for future projects.</p>
     </div>
 
     <!-- 視覺紀錄 -->
@@ -155,7 +155,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
 
           <div class="gallery-item">
             <div class="gallery-thumb">
-              <img src="starsight-mt/v-01.png" alt="">
+              <img src="starsight-mt/v-01.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">明隧道段 · 紅色日本自動車穿過光影之間。</div>
             <div class="gallery-caption en">Tunnel section · Red car passing through light and shadow</div>
@@ -164,7 +164,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- 山壁擋土牆旁的隧道入口，針葉林坡面 -->
-              <img src="starsight-mt/v-02.png" alt="">
+              <img src="starsight-mt/v-02.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">山道隧道口 · 擋土牆與針葉林坡面</div>
             <div class="gallery-caption en">Mountain tunnel entrance · Retaining wall and forested slope</div>
@@ -172,7 +172,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
 
           <div class="gallery-item">
             <div class="gallery-thumb">
-              <img src="starsight-mt/v-03.png" alt="">
+              <img src="starsight-mt/v-03.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">火箭模型與紅葉林</div>
             <div class="gallery-caption en"> Rocket model among red-leafed trees</div>
@@ -180,7 +180,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
 
           <div class="gallery-item">
             <div class="gallery-thumb">
-              <img src="starsight-mt/v-04.png" alt="">
+              <img src="starsight-mt/v-04.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">模仿現實公車，添增趣味性</div>
             <div class="gallery-caption en">Adding realism to the bus, enhancing fun</div>
@@ -203,7 +203,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器：複雜蜿蜒賽道 mesh 俯視圖，彎道密集 -->
-              <img src="starsight-mt/p-01.png" alt="">
+              <img src="starsight-mt/p-01.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">賽道設計 · Unity 賽道 mesh 俯視</div>
             <div class="gallery-caption en">Track design · Unity race mesh top-down view</div>
@@ -212,7 +212,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器：隧道內部走廊，柱列與光照測試 -->
-              <img src="starsight-mt/p-02.png" alt="">
+              <img src="starsight-mt/p-02.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">隧道建模 · 柱列結構與光照測試</div>
             <div class="gallery-caption en">Tunnel build · Pillar structure and lighting test</div>
@@ -221,7 +221,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器：山道鳥瞰，急彎連續、植被鋪設中 -->
-              <img src="starsight-mt/p-03.png" alt="">
+              <img src="starsight-mt/p-03.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">地形鳥瞰 · 山道急彎與植被配置</div>
             <div class="gallery-caption en">Terrain aerial · Mountain hairpins and vegetation layout</div>
@@ -230,7 +230,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器：發射台上的火箭模型，旁有建物配置 -->
-              <img src="starsight-mt/p-04.png" alt="">
+              <img src="starsight-mt/p-04.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">火箭展示建模 · 發射台與場地配置</div>
             <div class="gallery-caption en">Rocket display build · Launch pad and site layout</div>
@@ -334,7 +334,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
   var html=document.documentElement;
   var btn=document.getElementById('langBtn');
   var saved=localStorage.getItem('sr-lang')||'zh';
-  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  if(saved!=='zh' && saved!=='en') saved='zh';
+  function setLang(l){if(l!=='zh'&&l!=='en')l='zh';html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
   setLang(saved);
   btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
 })();
