@@ -1,0 +1,53 @@
+name: Responsive visual QA
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "Viewport coverage"
+        required: false
+        default: "full"
+        type: choice
+        options: [smoke, full]
+  pull_request:
+    paths:
+      - "index.html"
+      - "landing.css"
+      - "social.html"
+      - "social.css"
+      - "social-blueprint.css"
+      - "tools/visual_qa.py"
+      - ".github/workflows/responsive-visual-qa.yml"
+permissions:
+  contents: read
+jobs:
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install browser runner
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Start static local website
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/starriver-http.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/starriver-http.log
+          exit 1
+      - name: Capture viewports and validate critical invariants
+        run: python tools/visual_qa.py --base-url http://127.0.0.1:4173/ --profile "${{ github.event.inputs.profile || 'smoke' }}"
+      - name: Upload screenshots and machine report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-visual-qa
+          path: visual-qa-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
