@@ -97,11 +97,12 @@ def run(base_url, profile, output):
                                 warnings.append("search filter returned zero visible cards")
                         if key == "event":
                             # Event vehicle_variant_code must not point at a non-existent model.
-                            bad = page.locator("a[href*='vehicle.html?id=veh_gc8_attack']")
+                            grid = page.locator(".ta-event-info-grid")
+                            bad = grid.locator("a[href*='vehicle.html?id=veh_gc8_attack']")
                             if bad.count(): errors.append("historical variant links to invalid model page")
-                            if not page.locator("a[href*='vehicle.html?id=veh_gc8_impreza']").count():
+                            if not grid.locator("a[href*='vehicle.html?id=veh_gc8_impreza']").count():
                                 errors.append("historical variant did not resolve to model page")
-                            if page.locator("a[href*='vehicle.html?id=veh_gtr34_attack']").count():
+                            if grid.locator("a[href*='vehicle.html?id=veh_gtr34_attack']").count():
                                 errors.append("unknown variant guessed a model link")
                         if key == "events":
                             if page.locator(".ta-event-status.is-needs-update").count() == 0:
