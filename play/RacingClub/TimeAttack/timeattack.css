@@ -2107,6 +2107,7 @@ body.timeattack-page {
 .ta-event-status.is-upcoming { color: #efd95b; }
 .ta-event-status.is-ongoing { color: #7dd3fc; }
 .ta-event-status.is-archived { color: var(--ta-text-soft); }
+.ta-event-status.is-needs-update { color: #f1c987; }
 .ta-event-date { color: var(--ta-text-soft); font: 11px var(--font-mono); }
 .ta-event-tags { display: flex; flex-wrap: wrap; gap: 7px; }
 .ta-event-tags > span { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: 11px; padding: 6px 9px; }
