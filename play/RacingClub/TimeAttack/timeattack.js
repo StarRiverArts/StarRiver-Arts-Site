@@ -1873,11 +1873,27 @@ const renderEventInfoRows = (event, data) => {
     : "");
   const participantLinks = (event.participant_player_ids || []).map((playerId) => {
     const player = players.find((item) => item.player_id === playerId);
-    return `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player ? player.title : playerId)}</a>`;
+    return player
+      ? `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player.title)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(playerId)} ${renderBilingual("（尚無公開車手頁）", "(No racer profile yet)")}</span>`;
   }).join(" · ");
+  // Historical event rows may refer to a vehicle variant, not a model.
+  // Resolve exact identifiers only; unresolved values remain unlinked.
+  const models = new Map(vehicles.map((v) => [v.vehicle_model_code, v]));
+  const variants = new Map();
+  vehicles.forEach((model) => (model.variants || []).forEach((variant) => {
+    if (variant.variant_code && !variants.has(variant.variant_code)) {
+      variants.set(variant.variant_code, { model, variant });
+    }
+  }));
   const vehicleLinks = (event.vehicle_model_codes || []).map((vehicleCode) => {
-    const vehicle = vehicles.find((item) => item.vehicle_model_code === vehicleCode);
-    return `<a class="ta-entity-link" href="./vehicle.html?id=${encodeURIComponent(vehicleCode)}">${escapeHtml(vehicle ? vehicle.title : vehicleCode)}</a>`;
+    const model = models.get(vehicleCode);
+    const variant = variants.get(vehicleCode);
+    const target = model || variant?.model;
+    const label = model?.title || variant?.variant.variant_name || vehicleCode;
+    return target
+      ? `<a class="ta-entity-link" href="./vehicle.html?id=${encodeURIComponent(target.vehicle_model_code)}">${escapeHtml(label)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(vehicleCode)} ${renderBilingual("（車型待確認）", "(Vehicle ID unresolved)")}</span>`;
   }).join(" · ");
   return `
   <div class="ta-event-info-grid">
@@ -2958,6 +2974,23 @@ const initTimeAttack = async () => {
       pageData.player_cards = playersData.player_cards || [];
       pageData.vehicle_cards = vehiclesData.vehicle_cards || [];
       pageData.track_boards = tracksData.boards || [];
+    }
+
+    if (view === "info") {
+      // Generated source-copy still describes Sheet/CSV as canonical.
+      // Do not modify the public JSON projection directly.
+      pageData.description_zh = "本站提供 Racing Hub 公開計時與賽事資料查詢，以及發布資料的更新資訊。";
+      pageData.description_en = "Browse Racing Hub public racing data and check its published data snapshot.";
+      pageData.sidebar_zh = [
+        "本站使用由既有資料管線產生的公開 JSON 快照，不直接編輯原始計時紀錄。",
+        "資料來源及建置時間以本站的資料版本資訊為準。",
+        "資料生成時間不代表每個世界與活動狀態皆經過重新驗證。",
+      ];
+      pageData.sidebar_en = [
+        "This site reads public JSON snapshots from the existing data pipeline, not original timed-run inputs.",
+        "Refer to the published data version for source and generation time.",
+        "A new build does not independently verify every world or event status.",
+      ];
     }
 
     if (!SHOW_VERIFICATION && view === "overview") {
