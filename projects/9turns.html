@@ -156,7 +156,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- 飛行器座艙視角，HUD 儀表板，俯瞰針葉林山道 -->
-              <img src="9turns/v-01.png" alt="">
+              <img src="9turns/v-01.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">飛行器座艙 · HUD 儀表板，俯瞰山道</div>
             <div class="gallery-caption en">Aircraft cockpit · HUD overlay, aerial view of mountain road</div>
@@ -165,7 +165,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- 黃昏山道，兩輛青色轎車並行，護欄與樹木可見 -->
-              <img src="9turns/v-02.png" alt="">
+              <img src="9turns/v-02.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">山道行駛 · 兩輛轎車於黃昏並行</div>
             <div class="gallery-caption en">Mountain road · Two cars driving at dusk</div>
@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- 公車駕駛座內部，貓娘 avatar 坐於方向盤前，窗外黃昏山道 -->
-              <img src="9turns/v-03.png" alt="">
+              <img src="9turns/v-03.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">公車駕駛座 · 黃昏山道窗景</div>
             <div class="gallery-caption en">Bus driver seat · Dusk mountain road view</div>
@@ -183,7 +183,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- 臺 9 線黃昏，綠色高架路標，中央黃線，路樹 -->
-              <img src="9turns/v-04.png" alt="">
+              <img src="9turns/v-04.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">臺 9 線 · 黃昏路標全景</div>
             <div class="gallery-caption en">Provincial Highway 9 · Dusk overhead signs</div>
@@ -206,7 +206,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器：衛星/地圖航拍疊加地形，場景層級樹狀結構可見 -->
-              <img src="9turns/p-01.png" alt="">
+              <img src="9turns/p-01.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">Unity 地形建置 · 航拍地圖疊加與場景結構</div>
             <div class="gallery-caption en">Unity terrain build · Aerial map overlay and scene hierarchy</div>
@@ -215,7 +215,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Blender：60 限速警告標誌 + 里程碑建模，精細比例 -->
-              <img src="9turns/p-02.png" alt="">
+              <img src="9turns/p-02.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">Blender 路標建模 · 速限警告牌與里程碑</div>
             <div class="gallery-caption en">Blender sign modelling · Speed limit warning and kilometre marker</div>
@@ -224,7 +224,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Blender：臺灣路標系列，30/40/60 速限與各式警告標 -->
-              <img src="9turns/p-03.png" alt="">
+              <img src="9turns/p-03.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">臺灣路標系列 · 速限與警告標誌組</div>
             <div class="gallery-caption en">Taiwan road signs · Speed limit and warning sign collection</div>
@@ -233,7 +233,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
           <div class="gallery-item">
             <div class="gallery-thumb">
               <!-- Unity 編輯器夜景：路道上的青色發光檢查點 -->
-              <img src="9turns/p-04.png" alt="">
+              <img src="9turns/p-04.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="gallery-caption zh">Unity 夜景 · 賽道發光檢查點</div>
             <div class="gallery-caption en">Unity night scene · Race track glowing checkpoint</div>
@@ -334,7 +334,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-
   var html=document.documentElement;
   var btn=document.getElementById('langBtn');
   var saved=localStorage.getItem('sr-lang')||'zh';
-  function setLang(l){html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  if(saved!=='zh' && saved!=='en') saved='zh';
+  function setLang(l){if(l!=='zh'&&l!=='en')l='zh';html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
   setLang(saved);
   btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
 })();
