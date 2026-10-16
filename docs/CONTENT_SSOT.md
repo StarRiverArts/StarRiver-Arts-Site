@@ -292,62 +292,26 @@ Article metadata should support:
 
 ## Museum
 
-Museum is a developing online museum and digital-curation project, not a fully mature long-running institution unless a specific context supports that claim.
+StarRiver Museum is the working public name for an evolving digital curation and creation platform. Its website is the umbrella entry for exhibitions, works, writing, and virtual-space experiences; it is not identical to a single VRChat venue or to the 2026 preseason previews.
 
-Current Museum-facing material should be packaged as `季前展`: an off-season and preview positioning at the same time. The season-preview container remains under the Museum homepage and may temporarily function as the Museum homepage experience until the fuller Museum launches.
+### Museum information roles
 
-Current public material includes pages that can function as web-based digital exhibits. Their positioning may include:
+- **Exhibitions / Experiences:** organizes real, available exhibitions and works by what visitors can view, not by a mandatory technology or building. A standalone exhibition may use its own single page, microsite, external domain, VR world, or mixed media. Its Museum listing provides attribution and entry links without requiring the exhibition to adopt the Museum page shell.
+- **Editorial / Explore:** supports cultural writing, community stories, commentary, observations, artistic notes, research, and promotion. The final public navigation label and editorial taxonomy remain undecided. Do not publish an empty article catalogue merely to fill this slot.
+- **Venue:** describes the planned virtual museum building, gardens, and spatial experiences as a separate layer. Do not imply that the venue is open or that exhibitions must occupy one shared world.
+- **About / Contact:** explains the project and routes genuine enquiries, without promising an opening date, a season schedule, or a quantity of future works.
 
-- digital curation practice;
-- `季前展` / pre-season preview material;
-- precursor material for a future permanent exhibition;
-- early web exhibit / interactive exhibit material;
-- world-building and site-construction research.
+A web page may be an exhibition venue, an exhibition in its own right, or a work within another exhibition. Separate exhibition, work, article, venue/worldspace, and medium relationships; none requires a one-to-one mapping.
 
-Museum copy should avoid letting tools, modules, or design-system implementation language define the Museum identity. Those details belong under exhibition, research, or second-layer content.
+The current public programme includes two browser-accessible virtual-gallery design displays: `VR Gallery Spatial System` and `Gallery Study Modules`. Their URLs remain stable. Their presence does not make gallery-design modules the identity of the whole Museum. `2026 Preseason` is a contextual programme label, not the Museum homepage's permanent identity.
 
-### Museum content model
+Approved public Museum URLs are `museum/` (Museum entry), `museum/exhibitions.html` (exhibition directory), `museum/about.html`, `museum/contact.html`, and the two existing interactive presentation URLs. `museum/web-exhibitions.html` remains a `noindex` compatibility route with canonical pointed to the exhibition directory.
 
-Museum primarily uses:
+### Museum articles and prototypes
 
-- Exhibitions
-- Gallery / exhibit listings
-- Columns / Essays
+Articles can address one or several works/exhibitions, or no individual exhibit at all. Do not treat the existing `museum/article.html` single-work layout as a universal article template. `museum/articles.html`, `museum/article.html`, `museum/curatorial-note.html`, and `museum/exhibition.html` remain `noindex` prototypes and must not enter public navigation or generated discovery while carrying placeholders or unapproved assumptions. Specifically, a fixed half-year exhibition term, automatic conversion to a world, and mandatory main-hall VRChat venue are not general Museum rules.
 
-A Gallery Page may carry the necessary exhibit basics:
-
-- title;
-- artist/creator;
-- year and medium when useful;
-- image or preview;
-- short description;
-- exhibition or section;
-- related essay links.
-
-Not every exhibit needs an independent detail page or essay.
-
-### Museum Essays and Columns
-
-Approved content directions:
-
-- `Exhibit Essays`: interpretation, curatorial context, interviews, and viewing guidance.
-- `Current Commentary`: VRChat platform events, digital art, virtual exhibitions, AI creation/display, policy, and governance.
-- `VRC Community & Culture`: creator ecosystems, exhibitions, world-author communities, viewing culture, and social use of virtual space.
-
-An Essay may correspond to:
-
-- one exhibit;
-- multiple exhibits;
-- a group of works;
-- one exhibition section;
-- an entire exhibition theme;
-- no individual exhibit when the article is commentary or cultural analysis.
-
-Therefore, Essay-to-Exhibit is a many-to-many relationship. Do not force every Museum article into the current single-work template.
-
-The existing `museum/article.html` is suitable as a prototype for a single-work or exhibit-focused essay, but it is not the universal Museum article template.
-
-More writing, information architecture, and exhibition content are expected later, but concrete content must be owner-confirmed before publication.
+No opening date, annual season, finalized building plan, or unconfirmed cultural/editorial programme should be promised in public copy.
 
 ## Shared and Separate Article Infrastructure
 
@@ -371,7 +335,7 @@ The following decisions remain active unless superseded by a newer owner decisio
 - Canonical project records may live in a shared project area. Studio is a curated portfolio view over those records.
 - Incomplete editorial/project detail pages with visible placeholders must be withheld from public navigation and indexing.
 - This rule does not apply wholesale to Time Attack, which is a stable operating database and may contain incomplete individual data fields.
-- Museum `季前展` remains under the Museum homepage and may temporarily serve as its primary public experience.
+- Museum homepage is a permanent parent entry; `2026 Preseason` is a limited programme within the exhibitions directory.
 - Confirmed project facts:
   - `9 Turns / 九彎十八拐`: 臺 9 線石牌至頭城段.
   - `Beyond Gravity`: released in April 2026; VRChat project.

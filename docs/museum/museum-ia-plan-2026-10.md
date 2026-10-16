@@ -123,3 +123,15 @@ Exhibitions Index
 本次**僅建立文件紀錄**。不更改公開網頁、既有 URL、主分支 SSOT、SEO/OG 或生成索引；不構成對公開網站上線與部署的授權。
 
 **核心原則**：Museum 負責組織作品、知識、創作與人之間的關係，但不應強迫每件作品服從 Museum 的版型、媒介、單一館舍或統一的研究方法。
+
+## 9. 2026-10-16 Museum 網站實作對照
+
+- `museum/`：改為 Museum 常設母站入口，兩項原有公開作品維持直接可進入。
+- `museum/exhibitions.html`：由 `noindex` 的舊入口轉為公開展示目錄。
+- `museum/web-exhibitions.html`：保留舊網址，`noindex` 並指向新的 canonical 展覽目錄。
+- `museum/about.html`：移除「明年開館」等相對時間承諾，區分網站、展覽與規劃中的虛擬館舍。
+- `museum/articles.html`、`museum/article.html`、`museum/curatorial-note.html`、`museum/exhibition.html`：維持原型、不上架、不索引。
+- 已公開的兩個互動展示改為直接返回展覽目錄；未將其宣告成 Museum 的唯一主要內容或固定展覽格式。
+- 首頁以說明性區塊表達 Editorial / Venue 的內容角色，**不建立空白公開子站**；Editorial 導覽名稱、Venue 詳情、展覽資料模型及跨網域索引仍待真正內容與獨立決策。
+- 本次不修改根目錄 `index.html`，以免與獨立首頁工作產生衝突；該卡片的 Museum 副標應在首頁工作中對齊。
+- 任何 Merge 到 `main` 與 GitHub Pages 正式發布均須經額外確認。完成分支修改及 PR 不代表對外發布。

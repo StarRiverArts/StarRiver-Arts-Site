@@ -462,3 +462,16 @@ img{max-width:100%;display:block}
 }
 
 .museum-hero-actions { margin-top: 24px; }
+
+/* Stable Museum entrance and independent exhibition catalogue */
+.museum-card--compact { min-height: 230px; }
+.museum-link-adjacent { margin-left: 24px; }
+.museum-card-title { margin: 0; }
+.museum-card-text { margin: 0; }
+.museum-callout a + a { margin-top: 8px; }
+@media (max-width: 720px) {
+  .museum-link-adjacent { margin-left: 0; }
+  .museum-callout a { display: flex; }
+  .museum-nav { gap: 10px 16px; }
+  .museum-nav a { min-height: 40px; }
+}

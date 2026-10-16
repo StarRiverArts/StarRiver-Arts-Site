@@ -49,10 +49,10 @@
     credit.setAttribute("data-site-collaboration", "");
     const zh = document.createElement("span");
     zh.className = "zh";
-    zh.textContent = "網站資訊架構與網頁製作由 StarRiver Arts 與 OpenAI GPT、Anthropic Claude 協作。";
+    zh.textContent = "網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。";
     const en = document.createElement("span");
     en.className = "en";
-    en.textContent = "Site information architecture and web production were developed collaboratively by StarRiver Arts, OpenAI GPT, and Anthropic Claude.";
+    en.textContent = "Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.";
     credit.append(zh, en);
     footer.appendChild(credit);
   });
