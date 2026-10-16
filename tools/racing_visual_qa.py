@@ -58,7 +58,7 @@ def run(base_url, profile, output):
                         page.locator("[data-page-root]").wait_for(state="attached", timeout=15000)
                         page.wait_for_function("""() => {
                           const r = document.querySelector('[data-page-root]');
-                          return r && (r.querySelector('.ta-content-card,.ta-track-board,.ta-track-directory,.ta-trackmap-layout,.ta-profile-stack,.ta-event-series-list,.ta-event-detail,.ta-team-list,.ta-directory-card') || r.textContent.includes('Data Load Error') || r.textContent.toLowerCase().includes('not found'));
+                          return r && (r.children.length > 0 || r.textContent.includes('Data Load Error') || r.textContent.toLowerCase().includes('not found'));
                         }""", timeout=30000)
                         if key == "tracks":
                             page.locator("[data-track-directory]").wait_for(timeout=25000)
