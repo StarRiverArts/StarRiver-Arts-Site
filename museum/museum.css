@@ -475,3 +475,11 @@ img{max-width:100%;display:block}
   .museum-nav { gap: 10px 16px; }
   .museum-nav a { min-height: 40px; }
 }
+
+/* Public Museum content registry: direct links to child interactive tools. */
+.museum-sub-links { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:4px; }
+.museum-sub-links a { font-size:12px; line-height:1.5; color:var(--gray-700); text-decoration:underline; text-underline-offset:3px; }
+.museum-sub-links a:hover { color:var(--sr-amber-lo); }
+.museum-sub-links a:focus-visible { outline:3px solid var(--museum-accent,#8a5a31); outline-offset:3px; }
+.museum-columns .museum-callout .museum-card-title { margin:8px 0 12px; font-size:22px; }
+.museum-columns .museum-callout .museum-card-text { margin:0; }

@@ -9,6 +9,7 @@ on:
       - "**/*.json"
       - "tools/build_agent_index.py"
       - "tools/build_site_index.py"
+      - "tools/check_museum_catalog.py"
       - "agent-index.config.json"
       - ".github/workflows/refresh-site-index.yml"
   push:
@@ -19,6 +20,7 @@ on:
       - "**/*.json"
       - "tools/build_agent_index.py"
       - "tools/build_site_index.py"
+      - "tools/check_museum_catalog.py"
       - "agent-index.config.json"
       - ".github/workflows/refresh-site-index.yml"
 
@@ -116,6 +118,9 @@ jobs:
 
       - name: Rebuild agent index
         run: python tools/build_agent_index.py
+
+      - name: Validate Museum public catalogue
+        run: python tools/check_museum_catalog.py
 
       - name: Validate generated content
         run: |

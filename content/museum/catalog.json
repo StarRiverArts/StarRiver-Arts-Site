@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "museum_id": "starriver-museum",
+  "note": "Publicly verifiable Museum entries only. This registry does not announce future exhibitions, confirmed venue openings, or authorship.",
+  "programmes": [
+    {
+      "id": "preseason-2026",
+      "label": {
+        "zh": "2026 季前展示",
+        "en": "2026 Preseason Displays"
+      },
+      "role": "contextual_grouping",
+      "entry_ids": [
+        "vr-gallery-spatial-system",
+        "gallery-study-modules"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "vr-gallery-spatial-system",
+      "role": "design-reference",
+      "publication": "public",
+      "title": {
+        "zh": "VR Gallery Spatial System",
+        "en": "VR Gallery Spatial System"
+      },
+      "summary": {
+        "zh": "虛擬展場的空間設計與標識參考，內容涵蓋尺度、材質、光線、觀看條件、字體與導視。",
+        "en": "A virtual gallery spatial and signage design reference covering scale, materials, lighting, viewing conditions, typography, and wayfinding."
+      },
+      "entry_path": "museum/interactive/vr-gallery-spatial-system/",
+      "medium": [
+        "web"
+      ],
+      "programme_ids": [
+        "preseason-2026"
+      ],
+      "parent_id": null,
+      "related_ids": [
+        "gallery-study-modules"
+      ],
+      "listed": true
+    },
+    {
+      "id": "gallery-study-modules",
+      "role": "interactive-collection",
+      "publication": "public",
+      "title": {
+        "zh": "展場研究模組",
+        "en": "Gallery Study Modules"
+      },
+      "summary": {
+        "zh": "VR Gallery Spatial System 的相關互動工具集合，包含展場空間規劃與光線衰減視覺化。",
+        "en": "A companion collection to VR Gallery Spatial System, comprising spatial planning and light falloff visualizations."
+      },
+      "entry_path": "museum/interactive/design-system-visualize/",
+      "medium": [
+        "web",
+        "interactive"
+      ],
+      "programme_ids": [
+        "preseason-2026"
+      ],
+      "parent_id": null,
+      "related_ids": [
+        "vr-gallery-spatial-system"
+      ],
+      "listed": true
+    },
+    {
+      "id": "gallery-spatial-planner",
+      "role": "interactive-tool",
+      "publication": "public",
+      "title": {
+        "zh": "展場空間規劃器",
+        "en": "Gallery Spatial Planner"
+      },
+      "summary": {
+        "zh": "以平面和立面配置理解展牆、展示量體、觀看方向及通行淨空的關係。",
+        "en": "Explore relationships between gallery walls, reserve volumes, viewing direction, and circulation clearance in plan and elevation."
+      },
+      "entry_path": "museum/interactive/design-system-visualize/spatial-planner.html",
+      "medium": [
+        "web",
+        "interactive"
+      ],
+      "programme_ids": [],
+      "parent_id": "gallery-study-modules",
+      "related_ids": [],
+      "listed": false
+    },
+    {
+      "id": "light-falloff-viewer",
+      "role": "interactive-tool",
+      "publication": "public",
+      "title": {
+        "zh": "光線衰減視覺化工具",
+        "en": "Light Falloff Viewer"
+      },
+      "summary": {
+        "zh": "觀察光衰減模型、表面顏色與距離對展場照明呈現的影響。",
+        "en": "Explore how light falloff models, surface colors, and distance affect gallery illumination."
+      },
+      "entry_path": "museum/interactive/design-system-visualize/falloff-predictor.html",
+      "medium": [
+        "web",
+        "interactive"
+      ],
+      "programme_ids": [],
+      "parent_id": "gallery-study-modules",
+      "related_ids": [],
+      "listed": false
+    }
+  ]
+}
