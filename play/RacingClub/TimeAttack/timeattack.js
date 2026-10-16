@@ -1096,7 +1096,7 @@ const renderRelatedEvents = (events, kind, id, subId = "") => {
         const rankChip = highlight ? renderEventRankChip(highlight.row, highlight) : "";
         return `
         <a href="./event.html?id=${encodeURIComponent(event.event_id)}">
-          <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
+          ${renderEventStatus(event)}
           <strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong>
           ${rankChip}
           <small>${renderEventDate(event.starts_at)}</small>
@@ -1769,8 +1769,31 @@ const renderVehicleDetail = (data, id) => {
   return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "vehicle", card.vehicle_model_code) + worldModule + variantModule + analysisModule;
 };
 
-const eventStatusClass = (status) =>
-  ["upcoming", "ongoing", "completed", "archived"].includes(status) ? status : "archived";
+// An elapsed date is not an outcome: the editorial status remains authoritative.
+const eventDisplayStatus = (event) => {
+  if (event.status === "upcoming" && /^\d{4}-\d{2}-\d{2}/.test(event.starts_at || "")) {
+    try {
+      const today = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: event.timezone || "Asia/Taipei",
+        year: "numeric", month: "2-digit", day: "2-digit",
+      }).format(new Date());
+      if (event.starts_at.slice(0, 10) < today) {
+        return { style: "needs-update", zh: "日期已過・狀態待確認", en: "Date passed · Status unconfirmed" };
+      }
+    } catch (_) {
+      // Unrecognized timezone: keep existing editorial status.
+    }
+  }
+  return {
+    style: ["upcoming", "ongoing", "completed", "archived"].includes(event.status) ? event.status : "archived",
+    zh: event.status_zh || event.status || "未確認",
+    en: event.status_en || event.status || "Unconfirmed",
+  };
+};
+const renderEventStatus = (event) => {
+  const state = eventDisplayStatus(event);
+  return `<span class="ta-event-status is-${state.style}">${renderBilingual(state.zh, state.en, state.en)}</span>`;
+};
 
 const renderEventDate = (value) => {
   if (!value) return "-";
@@ -1780,9 +1803,9 @@ const renderEventDate = (value) => {
 // Shared by the events list and the overview "Recent Events" module: both take the
 // editorial_events array and render the same card grid. Pass limit to show a subset.
 const renderEventCards = (editorialEvents, limit = 0) => {
-  const statusOrder = { ongoing: 0, upcoming: 1, completed: 2, archived: 3 };
+  const statusOrder = { ongoing: 0, upcoming: 1, "needs-update": 2, completed: 3, archived: 4 };
   const sorted = (editorialEvents || []).slice().sort((a, b) =>
-    (statusOrder[a.status] ?? 4) - (statusOrder[b.status] ?? 4) ||
+    (statusOrder[eventDisplayStatus(a).style] ?? 5) - (statusOrder[eventDisplayStatus(b).style] ?? 5) ||
     String(b.starts_at || "").localeCompare(String(a.starts_at || "")),
   );
   const events = limit > 0 ? sorted.slice(0, limit) : sorted;
@@ -1792,7 +1815,7 @@ const renderEventCards = (editorialEvents, limit = 0) => {
       ${events.map((event) => `
         <a class="ta-event-card" href="./event.html?id=${encodeURIComponent(event.event_id)}">
           <div class="ta-event-card-head">
-            <span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span>
+            ${renderEventStatus(event)}
             <span class="ta-event-date">${renderEventDate(event.starts_at)}</span>
           </div>
           <div class="ta-label">${escapeHtml(event.system || "")}</div>
@@ -2141,7 +2164,7 @@ const renderEventDetail = (data, id) => {
   return switcher + `
     <article class="ta-event-detail">
       <section class="ta-content-card ta-event-lead">
-        <div class="ta-event-card-head"><span class="ta-event-status is-${eventStatusClass(event.status)}">${renderBilingual(event.status_zh, event.status_en, event.status_en)}</span><span class="ta-event-date">${renderEventDate(event.starts_at)}</span></div>
+        <div class="ta-event-card-head">${renderEventStatus(event)}<span class="ta-event-date">${renderEventDate(event.starts_at)}</span></div>
         <h2 class="ta-title">${renderBilingual(event.title_zh, event.title_en, event.title_en)}</h2>
         <p class="ta-section-text">${renderBilingual(event.summary_zh, event.summary_en, event.summary_en)}</p>
         <div class="ta-event-tags">${(event.traits_zh || []).map((tag, index) => `<span>${renderBilingual(tag, (event.traits_en || [])[index] || tag, (event.traits_en || [])[index] || tag)}</span>`).join("")}</div>
