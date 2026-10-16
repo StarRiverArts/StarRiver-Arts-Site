@@ -110,7 +110,7 @@ PAGE_OVERRIDES = {
         "tags": ["武嶺", "Wuling", "ProjectT", "Taiwan mountain road", "VRChat"],
     },
     "museum/index.html": {
-        "description": "StarRiver Museum 季前展以兩件網頁展覽預覽未來的數位策展與常設展方向。",
+        "description": "StarRiver Museum 是持續發展中的數位策展與創作平台，連結網頁展覽、作品、文化內容與虛擬空間。",
         "tags": ["StarRiver Museum", "VR museum", "online museum", "exhibition"],
     },
     "museum/about.html": {

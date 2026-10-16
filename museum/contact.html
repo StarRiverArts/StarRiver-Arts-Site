@@ -40,7 +40,7 @@
 }
 </script>
 </head>
-<body>
+<body data-page="contact">
 <a class="museum-skip" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
 <header class="museum-topbar">
   <a class="museum-brand" href="./">
@@ -48,9 +48,10 @@
     <span class="museum-brand-name">Museum</span>
   </a>
   <nav class="museum-nav" aria-label="Museum">
-    <a href="./"><span class="zh">季前展</span><span class="en">Preseason</span></a>
+    <a href="./" data-nav="home"><span class="zh">首頁</span><span class="en">Home</span></a>
+    <a href="./exhibitions.html" data-nav="exhibitions"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
     <a href="./about.html" data-nav="about"><span class="zh">關於</span><span class="en">About</span></a>
-    <a href="./contact.html" data-nav="contact"><span class="zh">聯絡</span><span class="en">Contact</span></a>
+    <a href="./contact.html" data-nav="contact" aria-current="page"><span class="zh">聯絡</span><span class="en">Contact</span></a>
   </nav>
   <button class="museum-lang" type="button" data-lang-toggle><span class="zh">EN</span><span class="en">中</span></button>
 </header>
@@ -78,7 +79,7 @@
     </aside>
   </section>
 </main>
-<footer class="museum-footer"><div><span>© 2026 StarRiver Arts</span><span>StarRiver Museum · Preseason</span></div></footer>
+<footer class="museum-footer"><div><span>© 2026 StarRiver Arts</span><span>StarRiver Museum</span></div></footer>
 <script src="./museum.js"></script>
 </body>
 </html>
