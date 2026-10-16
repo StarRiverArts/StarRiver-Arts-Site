@@ -1,7 +1,7 @@
 # StarRiverSite Content SSOT
 
 Date baseline: `2026-07-27`
-Status: `v0.5 - confirmed implementation and editorial baseline`
+Status: `v0.6 - editorial baseline updated with 2026-10-08 Museum direction`
 
 This document records the current content-positioning source of truth for StarRiver Arts. It guides page review, information architecture, editorial work, and later public-page changes. It does not replace page content, generated indexes, or the repository governance SSOT.
 
@@ -199,11 +199,11 @@ Time Attack belongs under Racing, even if its existing physical path remains und
 
 ### ProjectT Worlds
 
-ProjectT Worlds are VRChat worlds created by StarRiver and formally included in ProjectT.
+ProjectT Worlds are VRChat worlds formally included in ProjectT, including original creations and explicitly included collaborative works. The creator and contributor credits must remain accurate.
 
 They are not equivalent to every world stored in Racing.
 
-- `ProjectT Worlds`: owned/created by StarRiver and included in ProjectT.
+- `ProjectT Worlds`: formally included creations and collaborations with clear authorship and credits.
 - `Racing Worlds`: database records that may include external creators' worlds, community-used worlds, historic worlds, and worlds with Time Attack or event data.
 
 External worlds do not become ProjectT Worlds merely because ProjectT publishes an article about them or VRRCTW has used them.
@@ -256,6 +256,10 @@ It may organize:
 
 Time Attack is an active Racing module. Do not present it as a peer of Racing or as the full definition of VRRCTW.
 
+The data and application site's public identity is **Racing Hub／賽事中心**. Time Attack is a module of Racing Hub, while `/play/RacingClub/TimeAttack/` remains an existing compatible URL. ProjectT can link to Racing Hub, but Racing Hub must also work as a direct entry. Site naming changes must not silently change existing URLs or data links.
+
+Racing world descriptions should distinguish driveable worlds, worlds with timing support, and worlds with published records. A lack of records is not evidence that timing is unsupported.
+
 ### VRChat Racing Toolkit
 
 VRChat Racing Toolkit is the planned and partially implemented competition toolset intended to assist event setup, result collection, data processing, verification, and connection to Racing.
@@ -292,62 +296,32 @@ Article metadata should support:
 
 ## Museum
 
-Museum is a developing online museum and digital-curation project, not a fully mature long-running institution unless a specific context supports that claim.
+StarRiver Museum is a developing digital exhibition, creation, viewing, and cultural-content platform. It is not equivalent to one VRChat world, a future physical-style venue, a research-only publication, or a pre-opening announcement.
 
-Current Museum-facing material should be packaged as `季前展`: an off-season and preview positioning at the same time. The season-preview container remains under the Museum homepage and may temporarily function as the Museum homepage experience until the fuller Museum launches.
+Its guiding editorial direction is **「更少承諾，更多空間」**: present authentic work and available experiences without promising a fixed exhibition schedule, an opening date, a required medium, or a permanent number of exhibits.
 
-Current public material includes pages that can function as web-based digital exhibits. Their positioning may include:
+### Museum content and navigation
 
-- digital curation practice;
-- `季前展` / pre-season preview material;
-- precursor material for a future permanent exhibition;
-- early web exhibit / interactive exhibit material;
-- world-building and site-construction research.
+The confirmed functional directions are:
 
-Museum copy should avoid letting tools, modules, or design-system implementation language define the Museum identity. Those details belong under exhibition, research, or second-layer content.
+- **Exhibitions**: discover and view exhibitions, artworks, and experiences.
+- **Explore / Editorial**: cultural and community writing, humanistic topics, viewpoints, promotion, creative notes, and research. This is a functional area, not a finalized public navigation label.
+- **Venue**: the virtual museum, architecture, landscape and related visiting spaces; accurately distinguish plans from available experiences.
+- **About**: concise description of the platform and contact options.
 
-### Museum content model
+The final names, detailed categories, exhibition schedule, and individual page structures are not fixed.
 
-Museum primarily uses:
+`2026 Preseason／季前展` is a specific Museum program or period of content. It may remain accessible as such, but it should **not define the identity or entire homepage of Museum**.
 
-- Exhibitions
-- Gallery / exhibit listings
-- Columns / Essays
+### Exhibitions, works, articles and media
 
-A Gallery Page may carry the necessary exhibit basics:
+Exhibition, Work / Exhibit, Article / Research, Venue / Worldspace, and Medium describe different entities. Exhibitions may include multiple works, one work may appear in multiple exhibitions, and an article may refer to any number of exhibitions or works. Not all articles are formal research, and not all exhibits require their own article.
 
-- title;
-- artist/creator;
-- year and medium when useful;
-- image or preview;
-- short description;
-- exhibition or section;
-- related essay links.
+Web pages and independent microsites can themselves be exhibition spaces or works, alongside VRChat worlds, other digital media, and mixed formats. Museum may provide catalogue entries and links without imposing one design template or requiring an intermediate information page.
 
-Not every exhibit needs an independent detail page or essay.
+Existing single-work article pages can be useful templates for particular cases but must not constrain every Museum article or exhibition. Publish only confirmed content, links, credits, and availability.
 
-### Museum Essays and Columns
-
-Approved content directions:
-
-- `Exhibit Essays`: interpretation, curatorial context, interviews, and viewing guidance.
-- `Current Commentary`: VRChat platform events, digital art, virtual exhibitions, AI creation/display, policy, and governance.
-- `VRC Community & Culture`: creator ecosystems, exhibitions, world-author communities, viewing culture, and social use of virtual space.
-
-An Essay may correspond to:
-
-- one exhibit;
-- multiple exhibits;
-- a group of works;
-- one exhibition section;
-- an entire exhibition theme;
-- no individual exhibit when the article is commentary or cultural analysis.
-
-Therefore, Essay-to-Exhibit is a many-to-many relationship. Do not force every Museum article into the current single-work template.
-
-The existing `museum/article.html` is suitable as a prototype for a single-work or exhibit-focused essay, but it is not the universal Museum article template.
-
-More writing, information architecture, and exhibition content are expected later, but concrete content must be owner-confirmed before publication.
+See [Museum information architecture (2026-10-08)](museum/museum-ia-plan-2026-10.md) for extended website design options; proposed labels or data models there are not automatically final public copy.
 
 ## Shared and Separate Article Infrastructure
 
@@ -371,7 +345,7 @@ The following decisions remain active unless superseded by a newer owner decisio
 - Canonical project records may live in a shared project area. Studio is a curated portfolio view over those records.
 - Incomplete editorial/project detail pages with visible placeholders must be withheld from public navigation and indexing.
 - This rule does not apply wholesale to Time Attack, which is a stable operating database and may contain incomplete individual data fields.
-- Museum `季前展` remains under the Museum homepage and may temporarily serve as its primary public experience.
+- Museum `2026 Preseason／季前展` remains a distinct Museum program, but no longer defines Museum's overall homepage or permanent identity. The public-page migration is a separate implementation step.
 - Confirmed project facts:
   - `9 Turns / 九彎十八拐`: 臺 9 線石牌至頭城段.
   - `Beyond Gravity`: released in April 2026; VRChat project.
