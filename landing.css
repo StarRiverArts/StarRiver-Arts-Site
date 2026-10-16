@@ -243,10 +243,6 @@ html.lang-jp :is(.zh,.en) { display: none; }
   letter-spacing: .05em;
 }
 .lp-connect-link:hover { color: #1d101f; background: #eb8d9c; }
-.lp-connect-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.lp-connect-link { justify-content: space-between; }
-.lp-connect-link--racing { border-color: #52a578; }
-.lp-connect-link--racing:hover { color: #06180f; background: #52a578; }
 .lp-connect-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 
 /* ─── responsive ─── */
@@ -257,8 +253,6 @@ html.lang-jp :is(.zh,.en) { display: none; }
   .lp-card-desc { display: none; }            /* keep mobile cards tight; title + button stay */
   .lp-card-head { display:flex; align-items:center; justify-content:space-between; }
   .lp-connect { margin-inline: 20px; align-items: flex-start; flex-direction: column; }
-  .lp-connect-actions { width: 100%; }
-  .lp-connect-actions .lp-connect-link { flex: 1 1 180px; }
   .lp-recent { margin-inline: 20px; grid-template-columns: 1fr; gap: 4px; }
 }
 
