@@ -46,3 +46,7 @@ New Museum exhibition microsites may have independent domains, CSS and page layo
 ## Release gate
 
 QA artifacts, failing cases, reviewer initials/date, environment/browser version, exclusions with reasons, and regression result must be attached to the change review. Green smoke does not replace human assessment. No automatic deployment approval is implied.
+
+## Index build integration
+
+After changing approved public page copy or entry metadata, regenerate discovery outputs using the repository's existing site and Agent builders. Changes to this QA document or to its runner/workflow also invalidate the repository Agent source digest; the PR must carry regenerated `.agent-index` files before passing the discovery gate. This is maintenance of the existing index, **not** a new hierarchy/schema rollout.
