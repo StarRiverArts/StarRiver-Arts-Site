@@ -95,6 +95,17 @@ def run(base_url, profile, output):
                             query.fill("kamidomarizaka")
                             if page.locator("[data-directory-card]:visible").count() == 0:
                                 warnings.append("search filter returned zero visible cards")
+                        if key == "event":
+                            # Event vehicle_variant_code must not point at a non-existent model.
+                            bad = page.locator("a[href*='vehicle.html?id=veh_gc8_attack']")
+                            if bad.count(): errors.append("historical variant links to invalid model page")
+                            if not page.locator("a[href*='vehicle.html?id=veh_gc8_impreza']").count():
+                                errors.append("historical variant did not resolve to model page")
+                            if page.locator("a[href*='vehicle.html?id=veh_gtr34_attack']").count():
+                                errors.append("unknown variant guessed a model link")
+                        if key == "events":
+                            if page.locator(".ta-event-status.is-needs-update").count() == 0:
+                                warnings.append("no elapsed upcoming event flagged; check editorial updates")
                         if key == "route" and page.locator("[data-view-toggle] [data-view='vehicle']").count():
                             page.locator("[data-view-toggle] [data-view='vehicle']").click()
                             if page.locator("[data-boards-container]").get_attribute("data-active-view") != "vehicle":
