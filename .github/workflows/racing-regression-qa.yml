@@ -1,0 +1,69 @@
+name: Racing Hub regression QA
+on:
+  pull_request:
+    paths:
+      - "play/RacingClub/TimeAttack/**"
+      - "play/project-t.js"
+      - "tools/racing_data_audit.py"
+      - "tools/racing_visual_qa.py"
+      - ".github/workflows/racing-regression-qa.yml"
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "Browser viewport coverage"
+        type: choice
+        required: false
+        default: full
+        options: [smoke, full]
+permissions:
+  contents: read
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit JSON projection (read-only)
+        run: python tools/racing_data_audit.py
+      - name: Upload data evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: racing-data-audit
+          path: racing-qa-artifacts/data-audit.json
+          if-no-files-found: warn
+          retention-days: 14
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Serve static files over HTTP
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/racing-http.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/racing-http.log
+          exit 1
+      - name: Run Racing Hub pages and responsive regression
+        run: python tools/racing_visual_qa.py --profile "${{ github.event.inputs.profile || 'smoke' }}"
+      - name: Upload screenshots and machine report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: racing-browser-qa
+          path: racing-qa-artifacts/browser/
+          if-no-files-found: warn
+          retention-days: 14
