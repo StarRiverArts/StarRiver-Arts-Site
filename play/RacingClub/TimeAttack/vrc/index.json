@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-index/2",
-  "updated": "2026-10-13",
+  "updated": "2026-10-18",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "provisional": true,
   "tracks": [
@@ -16,14 +16,14 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 138
+          "count": 142
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 106
+          "count": 107
         }
       ]
     },
@@ -39,7 +39,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 129
+          "count": 131
         },
         {
           "code": "UH",
@@ -62,28 +62,28 @@
           "zh": "Full Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 10
+          "count": 11
         },
         {
           "code": "FCOB",
           "zh": "Full Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 36
+          "count": 37
         },
         {
           "code": "HCIB",
           "zh": "Half Course Inbound - to Changbin",
           "status": "live",
           "provisional": true,
-          "count": 47
+          "count": 58
         },
         {
           "code": "HCOB",
           "zh": "Half Course Outbound - to Yuli",
           "status": "live",
           "provisional": true,
-          "count": 38
+          "count": 39
         }
       ]
     },
@@ -99,7 +99,7 @@
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 104
+          "count": 105
         },
         {
           "code": "UH",
@@ -263,6 +263,22 @@
       ]
     },
     {
+      "code": "irohazaka_jintei",
+      "zh": "伊呂波坂",
+      "en": "Irohazaka",
+      "system": "sacc",
+      "file": "irohazaka_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 53
+        }
+      ]
+    },
+    {
       "code": "sadamine_jintei",
       "zh": "定峰峠",
       "en": "Sadamine",
@@ -296,22 +312,6 @@
           "status": "live",
           "provisional": true,
           "count": 5
-        }
-      ]
-    },
-    {
-      "code": "irohazaka_jintei",
-      "zh": "伊呂波坂",
-      "en": "Irohazaka",
-      "system": "sacc",
-      "file": "irohazaka_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 52
         }
       ]
     },
@@ -768,6 +768,43 @@
       ]
     },
     {
+      "code": "gunsai_jintei",
+      "zh": "群馬單車中心",
+      "en": "Gunsai",
+      "system": "sacc",
+      "file": "gunsai_jintei.json",
+      "routes": [
+        {
+          "code": "C-A",
+          "zh": "Course A",
+          "status": "live",
+          "provisional": true,
+          "count": 1
+        },
+        {
+          "code": "FC",
+          "zh": "全程",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        },
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "myogi_cc_jintei",
       "zh": "妙義環線",
       "en": "Myogi(CC)",
@@ -918,43 +955,6 @@
           "status": "live",
           "provisional": true,
           "count": 10
-        }
-      ]
-    },
-    {
-      "code": "gunsai_jintei",
-      "zh": "群馬單車中心",
-      "en": "Gunsai",
-      "system": "sacc",
-      "file": "gunsai_jintei.json",
-      "routes": [
-        {
-          "code": "C-A",
-          "zh": "Course A",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "FC",
-          "zh": "全程",
-          "status": "live",
-          "provisional": true,
-          "count": 3
-        },
-        {
-          "code": "OB",
-          "zh": "出場",
-          "status": "live",
-          "provisional": true,
-          "count": 4
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "status": "live",
-          "provisional": true,
-          "count": 1
         }
       ]
     },
@@ -1150,6 +1150,29 @@
       ]
     },
     {
+      "code": "momiji_jintei",
+      "zh": "紅葉Momiji",
+      "en": "Momiji",
+      "system": "sacc",
+      "file": "momiji_jintei.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "status": "live",
+          "provisional": true,
+          "count": 5
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "status": "live",
+          "provisional": true,
+          "count": 2
+        }
+      ]
+    },
+    {
       "code": "tsuchisaka_snow_jintei",
       "zh": "Tsuchisaka Snow",
       "en": "Tsuchisaka Snow",
@@ -1189,25 +1212,25 @@
       ]
     },
     {
-      "code": "momiji_jintei",
-      "zh": "紅葉Momiji",
-      "en": "Momiji",
+      "code": "mt_talkan_jintei",
+      "zh": "Mt.Talkan",
+      "en": "Mt.Talkan",
       "system": "sacc",
-      "file": "momiji_jintei.json",
+      "file": "mt_talkan_jintei.json",
       "routes": [
         {
           "code": "DH",
           "zh": "下行",
           "status": "live",
           "provisional": true,
-          "count": 4
+          "count": 2
         },
         {
           "code": "UH",
           "zh": "上行",
           "status": "live",
           "provisional": true,
-          "count": 2
+          "count": 4
         }
       ]
     },
@@ -1263,29 +1286,6 @@
           "status": "live",
           "provisional": true,
           "count": 6
-        }
-      ]
-    },
-    {
-      "code": "mt_talkan_jintei",
-      "zh": "Mt.Talkan",
-      "en": "Mt.Talkan",
-      "system": "sacc",
-      "file": "mt_talkan_jintei.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "status": "live",
-          "provisional": true,
-          "count": 1
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "status": "live",
-          "provisional": true,
-          "count": 4
         }
       ]
     },
@@ -1483,6 +1483,22 @@
       ]
     },
     {
+      "code": "gunsai_foxbg",
+      "zh": "Gunsai (FoxBG)",
+      "en": "Gunsai (REUPLOAD)",
+      "system": "cvs",
+      "file": "gunsai_foxbg.json",
+      "routes": [
+        {
+          "code": "OB",
+          "zh": "出場",
+          "status": "live",
+          "provisional": true,
+          "count": 4
+        }
+      ]
+    },
+    {
       "code": "nagoya_jintei",
       "zh": "Nagoya",
       "en": "Nagoya",
@@ -1577,6 +1593,22 @@
         {
           "code": "CW",
           "zh": "順向",
+          "status": "live",
+          "provisional": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "santa_monica_mountains",
+      "zh": "Santa Monica Mountains",
+      "en": "Santa Monica Mountains",
+      "system": "cvs",
+      "file": "santa_monica_mountains.json",
+      "routes": [
+        {
+          "code": "Eastbound",
+          "zh": "Eastbound",
           "status": "live",
           "provisional": true,
           "count": 3
@@ -1756,22 +1788,6 @@
       ]
     },
     {
-      "code": "santa_monica_mountains",
-      "zh": "Santa Monica Mountains",
-      "en": "Santa Monica Mountains",
-      "system": "cvs",
-      "file": "santa_monica_mountains.json",
-      "routes": [
-        {
-          "code": "Eastbound",
-          "zh": "Eastbound",
-          "status": "live",
-          "provisional": true,
-          "count": 2
-        }
-      ]
-    },
-    {
       "code": "shin_usui",
       "zh": "真碓冰",
       "en": "Shin Usui",
@@ -1869,6 +1885,22 @@
           "status": "prep",
           "provisional": false,
           "count": 0
+        }
+      ]
+    },
+    {
+      "code": "hatomiya_circuit",
+      "zh": "鳩宮サーキット",
+      "en": "鳩宮サーキット (CVS2)",
+      "system": "cvs",
+      "file": "hatomiya_circuit.json",
+      "routes": [
+        {
+          "code": "Circuit",
+          "zh": "Circuit",
+          "status": "live",
+          "provisional": true,
+          "count": 2
         }
       ]
     },
@@ -2211,6 +2243,22 @@
           "zh": "待整理",
           "status": "live",
           "provisional": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "shibushinjuline_jintei",
+      "zh": "Shibu-Shinju Line",
+      "en": "Shibu-Shinju Line",
+      "system": "sacc",
+      "file": "shibushinjuline_jintei.json",
+      "routes": [
+        {
+          "code": "Cw",
+          "zh": "Cw",
+          "status": "live",
+          "provisional": true,
           "count": 1
         }
       ]

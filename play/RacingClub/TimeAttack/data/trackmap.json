@@ -17,7 +17,7 @@
     {
       "label_zh": "已定位賽道",
       "label_en": "Located Tracks",
-      "value": "226",
+      "value": "227",
       "note_zh": "已掛在地圖樹上的賽道世界",
       "note_en": "Track worlds placed in the map tree"
     },
@@ -38,7 +38,7 @@
     {
       "label_zh": "未定位",
       "label_en": "Unlocated",
-      "value": "2",
+      "value": "3",
       "note_zh": "虛構或尚未標地理位置的世界",
       "note_en": "Fictional or not-yet-tagged worlds"
     }
@@ -146,7 +146,7 @@
                   "track_env": "",
                   "difficulty": "",
                   "route_count": 2,
-                  "record_count": 107,
+                  "record_count": 108,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -927,7 +927,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 1,
-                  "record_count": 52,
+                  "record_count": 53,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1011,7 +1011,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 6,
+                  "record_count": 7,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1126,7 +1126,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 2,
-                  "record_count": 5,
+                  "record_count": 6,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1556,7 +1556,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 134,
+                  "record_count": 136,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -1657,6 +1657,20 @@
               "has_point": true,
               "tracks": [
                 {
+                  "track_world_code": "gunsai_foxbg",
+                  "track_display_name": "Gunsai (FoxBG)",
+                  "world_name": "Gunsai (REUPLOAD)",
+                  "world_url": "https://vrchat.com/home/world/wrld_60944355-81ca-42db-8586-19647e27d072",
+                  "system_name": "CVS",
+                  "track_env": "山道",
+                  "difficulty": "",
+                  "route_count": 1,
+                  "record_count": 4,
+                  "has_trace": false,
+                  "has_poster": false,
+                  "poster_ext": null
+                },
+                {
                   "track_world_code": "gunsaicp_jintei",
                   "track_display_name": "群山 跨平台版",
                   "world_name": "GunsaiCP",
@@ -1682,7 +1696,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 4,
-                  "record_count": 9,
+                  "record_count": 10,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -2003,7 +2017,7 @@
                   "track_env": "山道",
                   "difficulty": "困難",
                   "route_count": 2,
-                  "record_count": 244,
+                  "record_count": 249,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -2317,7 +2331,7 @@
                   "track_env": "山道",
                   "difficulty": "中等",
                   "route_count": 4,
-                  "record_count": 131,
+                  "record_count": 145,
                   "has_trace": true,
                   "has_poster": false,
                   "poster_ext": null,
@@ -2914,7 +2928,7 @@
                   "track_env": "山道",
                   "difficulty": "",
                   "route_count": 1,
-                  "record_count": 2,
+                  "record_count": 3,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -4292,8 +4306,8 @@
                   "system_name": "Sacc",
                   "track_env": "",
                   "difficulty": "",
-                  "route_count": 0,
-                  "record_count": 0,
+                  "route_count": 1,
+                  "record_count": 1,
                   "has_trace": false,
                   "has_poster": false,
                   "poster_ext": null
@@ -4929,9 +4943,25 @@
       "has_trace": false,
       "has_poster": false,
       "poster_ext": null
+    },
+    {
+      "track_world_code": "hatomiya_circuit",
+      "track_display_name": "鳩宮サーキット",
+      "world_name": "鳩宮サーキット (CVS2)",
+      "world_url": "https://vrchat.com/home/world/wrld_677decd8-b5c2-47e7-a690-3b0da28f49dc",
+      "system_name": "CVS2",
+      "track_env": "賽道",
+      "difficulty": "",
+      "route_count": 1,
+      "record_count": 2,
+      "has_trace": false,
+      "has_poster": false,
+      "poster_ext": null
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "hatomiya_circuit 的國家/地名只填了一半,先列入未定位"
+  ],
   "category_style": {
     "colors": {
       "印尼Indonesia|Sacc": "hsl(0, 28%, 64%)",
@@ -4945,6 +4975,7 @@
       "摩納哥Monaco|CVS": "hsl(103, 78%, 62%)",
       "摩納哥Monaco|Sacc": "hsl(103, 28%, 64%)",
       "日本Japan|CVS": "hsl(129, 78%, 62%)",
+      "日本Japan|CVS2": "hsl(129, 45%, 62%)",
       "日本Japan|Sacc": "hsl(129, 28%, 64%)",
       "日本Japan|Unknown": "hsl(129, 45%, 62%)",
       "未知Unknown|CVS": "hsl(154, 78%, 62%)",
@@ -5055,6 +5086,14 @@
         "system": "CVS",
         "label_zh": "日本·CVS",
         "label_en": "Japan·CVS"
+      },
+      {
+        "key": "日本Japan|CVS2",
+        "color": "hsl(129, 45%, 62%)",
+        "country": "日本Japan",
+        "system": "CVS2",
+        "label_zh": "日本·CVS2",
+        "label_en": "Japan·CVS2"
       },
       {
         "key": "日本Japan|Sacc",
