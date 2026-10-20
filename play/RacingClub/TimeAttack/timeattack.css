@@ -3124,3 +3124,24 @@ body.timeattack-page {
 
 /* TimeAttack → Events 平行連結 */
 .ta-events-xlink { margin: 0 0 14px; }
+
+/* World detail and route-focused links share the same Track page. */
+.ta-track-route-nav {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  background: var(--ta-card-soft);
+}
+.ta-track-route-nav .ta-route-pill.is-active {
+  border-color: var(--ta-accent);
+  background: var(--ta-card-strong);
+  color: var(--ta-text-strong);
+  font-weight: 700;
+}
+.ta-track-route-nav .ta-route-pill:focus-visible {
+  outline: 2px solid var(--ta-accent);
+  outline-offset: 2px;
+}
