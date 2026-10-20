@@ -18,6 +18,8 @@ CASES = {
     "info": ("info.html", "info"),
     "track": ("track.html?id=kamidomarizaka_calme", "track"),
     "route": ("track.html?id=pt_ych_starriver_arts&route=FCIB", "track"),
+    "world-routes": ("track.html?id=pt_ych_starriver_arts", "track"),
+    "bad-route": ("track.html?id=pt_ych_starriver_arts&route=QA_INVALID_ROUTE", "track"),
     "racer": ("player.html?id=plr_cannedcarbon", "player"),
     "vehicle": ("vehicle.html?id=veh_fd3s_rx7", "vehicle"),
     "team": ("team.html?id=team_thdk", "team"),
@@ -30,7 +32,7 @@ CASES = {
 }
 SIZES = [(320, 568), (390, 844), (768, 1024), (1440, 900), (1920, 1080)]
 DETAILS = {"track", "racer", "vehicle", "team", "event", "route"}
-CRITICAL = {"overview", "tracks", "map", "events", "route", "bad-track"}
+CRITICAL = {"overview", "tracks", "map", "events", "route", "world-routes", "bad-route", "bad-track"}
 FULL_ONLY = {(320,568), (768,1024), (1920,1080)}
 
 def run(base_url, profile, output):
@@ -87,8 +89,20 @@ def run(base_url, profile, output):
                         if not metrics["title"].startswith("Racing Hub"): errors.append("browser title not Racing Hub")
                         if metrics["brokenImages"]: errors.append("broken visible images")
                         if key.startswith("bad-") and not metrics["notFound"]: errors.append("invalid ID does not show not-found")
-                        if key == "route" and metrics["routeCards"] + metrics["supplementCards"] != 1:
-                            errors.append("route-scoped detail has extra/missing route cards")
+                        if key == "route":
+                            if metrics["routeCards"] != 1 or metrics["supplementCards"] != 0:
+                                errors.append("route-scoped detail has extra/missing route cards")
+                            if page.locator('[data-track-route-code="FCIB"][aria-current="page"]').count() != 1:
+                                errors.append("requested route is not selected")
+                            if page.locator("[data-track-route-all]").count() != 1:
+                                errors.append("return-to-all route link missing")
+                        if key == "world-routes":
+                            if metrics["routeCards"] < 2 or metrics["supplementCards"] != 0:
+                                errors.append("world overview did not retain all generated route boards")
+                            if page.locator('[data-track-route-all][aria-current="page"]').count() != 1:
+                                errors.append("all routes selection not active")
+                        if key == "bad-route" and not metrics["notFound"]:
+                            errors.append("unknown route silently falls back to world overview")
                         if key == "tracks" and not metrics["trackDirectory"]: errors.append("full track directory missing")
                         if key == "tracks":
                             query = page.locator("[data-directory-query]")
