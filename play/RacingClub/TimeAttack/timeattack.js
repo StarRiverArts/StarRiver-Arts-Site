@@ -623,14 +623,40 @@ const renderTrackDetail = (data, id, routeCode) => {
   if (!board) {
     return renderDetailNotFound("賽道", "Track", id, "./tracks.html", "返回賽道清單", "Back to Tracks");
   }
-  // If a specific route is requested, narrow the board to that route.
+  // The world detail is one page: without ?route=, all route boards remain
+  // expanded. ?route= focuses one route in the same Track/Route data model.
+  // Never fall back to other routes when a requested route code is unknown.
   let focusBoard = board;
   if (routeCode) {
     const route = (board.routes || []).find((item) => item.route_code === routeCode);
-    if (route) {
-      focusBoard = { ...board, routes: [route] };
+    if (!route) {
+      return renderDetailNotFound(
+        "路線", "Route", `${board.track_world_code} / ${routeCode}`,
+        `./track.html?id=${encodeURIComponent(board.track_world_code)}`,
+        "返回此世界的全部路線", "Back to All Routes",
+      );
     }
+    focusBoard = { ...board, routes: [route] };
   }
+  const worldHref = `./track.html?id=${encodeURIComponent(board.track_world_code)}`;
+  const routeNav = (board.routes || []).length ? `
+    <nav class="ta-track-route-nav" aria-label="Routes in this Track World">
+      <div class="ta-label">${renderBilingual("世界內路線", "Routes in this Track World")}</div>
+      <div class="ta-route-pill-row">
+        <a class="ta-route-pill${routeCode ? "" : " is-active"}" href="${worldHref}"${routeCode ? "" : ' aria-current="page"'} data-track-route-all>
+          ${renderBilingual("全部路線", "All Routes")}
+        </a>
+        ${(board.routes || []).map((route) => `
+          <a class="ta-route-pill${route.route_code === routeCode ? " is-active" : ""}"
+             href="${worldHref}&route=${encodeURIComponent(route.route_code)}"
+             data-track-route-code="${escapeHtml(route.route_code)}"${route.route_code === routeCode ? ' aria-current="page"' : ""}>
+            <span>${escapeHtml(route.route_display_name || route.route_code)}</span>
+            <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
+          </a>
+        `).join("")}
+      </div>
+    </nav>
+  ` : "";
   const switcher = renderDetailSwitcher(
     "track",
     boards.map((item) => ({ id: item.track_world_code, name: item.track_display_name })),
@@ -669,13 +695,13 @@ const renderTrackDetail = (data, id, routeCode) => {
       ${worldLinkBtn}
     </article>
   `;
-  const analysis = renderTrackAnalysis(board);
+  const analysis = renderTrackAnalysis(focusBoard);
   // 放在排行榜「之前」:熱門賽道的榜單可長達上萬 px,分析若擺頁尾會被埋到滾不到。
   const analysisModule = analysis
     ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
     : "";
   const projectTLinksModule = renderProjectTLinksModule(board);
-  return switcher + header + renderRelatedEvents(data.editorial_events, "track", board.track_world_code, routeCode) + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  return switcher + header + routeNav + renderRelatedEvents(data.editorial_events, "track", board.track_world_code, routeCode) + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
