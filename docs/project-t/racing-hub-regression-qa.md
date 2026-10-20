@@ -52,3 +52,13 @@ CI success does not replace a reviewer checking map behavior, typography,
 readability, small-screen tables, and changed interface meaning. Preserve
 existing data URLs, VRChat consumer contracts and route query parameters.
 See `docs/site/responsive-visual-qa.md` for the shared viewport matrix.
+
+## Track detail source and navigation (2026-10-20)
+
+- The Racing Hub browser renders its Track detail and leaderboard routes solely from the website `data/tracks.json` projection; do not append Toolkit `vrc/*.json` or `vrc/toolkit/**` world/route contracts to HTML.
+- `track.html?id=<track_world_code>` is the same world detail, showing all generated route boards expanded.
+- `track.html?id=<track_world_code>&route=<route_code>` is a route-focused view of the same page, with an explicit link to all routes.
+- An unknown route code must show a not-found message; it must not silently display all routes.
+- Missing tracks or route definitions belong in the upstream canonical website exporter, not a client-side Toolkit-to-web supplemental adapter.
+- The separate Project T creative world pages remain a distinct editorial view, not a duplicate Racing Hub leaderboard.
+- QA includes a multi-route world overview, a single selected route, and an invalid route. Do not change Toolkit data contracts in a website-detail repair.
