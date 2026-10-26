@@ -297,7 +297,7 @@ const renderTrackLegend = () => `
 
 const renderTrackLeaderboardTable = (rows, view) => {
   if (!Array.isArray(rows) || rows.length === 0) {
-    return '<p class="ta-board-empty">No records yet.</p>';
+    return `<p class="ta-board-empty">${renderBilingual('本期尚無成績','No times in this period yet')}</p>`;
   }
 
   const primaryTitle =
@@ -361,6 +361,9 @@ const renderTrackLeaderboardTable = (rows, view) => {
 };
 
 const renderTrackRouteCard = (board, route) => {
+  if (route.period_not_found) {
+    return `<article class="ta-track-board ta-route-card"><h3>${escapeHtml(board.track_display_name)} · ${escapeHtml(route.route_display_name)}</h3>${window.TAPeriods?.picker(board,route,escapeHtml,renderBilingual)||''}<p class="ta-empty">${renderBilingual('找不到此榜期','Leaderboard period not found')}</p></article>`;
+  }
   const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
     .filter(Boolean)
     .map((tag) => renderToneChip(tag, "meta"))
@@ -401,6 +404,7 @@ const renderTrackRouteCard = (board, route) => {
         <div class="ta-track-chiprow">${metaChips}${techChips}</div>
       </div>
       ${fastestStrip}
+      ${window.TAPeriods?.picker(board, route, escapeHtml, renderBilingual) || ''}
       <div class="ta-board-view" data-board-view="route">
         ${renderTrackLeaderboardTable(route.route_rows, "route")}
       </div>
@@ -466,10 +470,12 @@ const renderTrackListCard = (board) => {
     ? `<span class="ta-tag-chip is-system">${escapeHtml(board.system_name)}</span>`
     : "";
   const id = encodeURIComponent(board.track_world_code);
+  const period = getQueryParam('period');
+  const periodQuery = period ? `&period=${encodeURIComponent(period)}` : '';
   const routeLinks = (board.routes || [])
     .map(
       (route) => `
-        <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}">
+        <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}${periodQuery}">
           <span class="ta-route-pill-name">${escapeHtml(route.route_display_name)}</span>
           <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
         </a>
@@ -479,7 +485,7 @@ const renderTrackListCard = (board) => {
 
   return `
     <article class="ta-track-board ta-track-list-card">
-      <a class="ta-track-list-head" href="./track.html?id=${id}">
+      <a class="ta-track-list-head" href="./track.html?id=${id}${periodQuery}">
         <div class="ta-label">${escapeHtml(board.world_name)}</div>
         <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
         ${board.track_author ? `<div class="ta-track-list-author">${escapeHtml(board.track_author)}</div>` : ""}
@@ -623,14 +629,45 @@ const renderTrackDetail = (data, id, routeCode) => {
   if (!board) {
     return renderDetailNotFound("賽道", "Track", id, "./tracks.html", "返回賽道清單", "Back to Tracks");
   }
-  // If a specific route is requested, narrow the board to that route.
+  // The world detail is one page: without ?route=, all route boards remain
+  // expanded. ?route= focuses one route in the same Track/Route data model.
+  // Never fall back to other routes when a requested route code is unknown.
   let focusBoard = board;
   if (routeCode) {
     const route = (board.routes || []).find((item) => item.route_code === routeCode);
-    if (route) {
-      focusBoard = { ...board, routes: [route] };
+    if (!route) {
+      return renderDetailNotFound(
+        "路線", "Route", `${board.track_world_code} / ${routeCode}`,
+        `./track.html?id=${encodeURIComponent(board.track_world_code)}`,
+        "返回此世界的全部路線", "Back to All Routes",
+      );
     }
+    focusBoard = { ...board, routes: [route] };
   }
+  const requestedPeriod = getQueryParam('period');
+  const selectedRoute = routeCode && board.routes.find(route => route.route_code === routeCode);
+  // A named index identifies the same historical interval across sibling routes.
+  const routePeriod = selectedRoute?.selected_period?.index_code && !['latest','all'].includes(requestedPeriod)
+    ? selectedRoute.selected_period.index_code : requestedPeriod;
+  const worldHref = `./track.html?id=${encodeURIComponent(board.track_world_code)}${routePeriod ? `&period=${encodeURIComponent(routePeriod)}` : ''}`;
+  const routeNav = (board.routes || []).length ? `
+    <nav class="ta-track-route-nav" aria-label="Routes in this Track World">
+      <div class="ta-label">${renderBilingual("世界內路線", "Routes in this Track World")}</div>
+      <div class="ta-route-pill-row">
+        <a class="ta-route-pill${routeCode ? "" : " is-active"}" href="${worldHref}"${routeCode ? "" : ' aria-current="page"'} data-track-route-all>
+          ${renderBilingual("全部路線", "All Routes")}
+        </a>
+        ${(board.routes || []).map((route) => `
+          <a class="ta-route-pill${route.route_code === routeCode ? " is-active" : ""}"
+             href="${worldHref}&route=${encodeURIComponent(route.route_code)}"
+             data-track-route-code="${escapeHtml(route.route_code)}"${route.route_code === routeCode ? ' aria-current="page"' : ""}>
+            <span>${escapeHtml(route.route_display_name || route.route_code)}</span>
+            <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
+          </a>
+        `).join("")}
+      </div>
+    </nav>
+  ` : "";
   const switcher = renderDetailSwitcher(
     "track",
     boards.map((item) => ({ id: item.track_world_code, name: item.track_display_name })),
@@ -669,13 +706,13 @@ const renderTrackDetail = (data, id, routeCode) => {
       ${worldLinkBtn}
     </article>
   `;
-  const analysis = renderTrackAnalysis(board);
+  const analysis = renderTrackAnalysis(focusBoard);
   // 放在排行榜「之前」:熱門賽道的榜單可長達上萬 px,分析若擺頁尾會被埋到滾不到。
   const analysisModule = analysis
     ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
     : "";
   const projectTLinksModule = renderProjectTLinksModule(board);
-  return switcher + header + renderRelatedEvents(data.editorial_events, "track", board.track_world_code, routeCode) + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+  return switcher + header + routeNav + renderRelatedEvents(data.editorial_events, "track", board.track_world_code, routeCode) + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
 };
 
 // Lateral id switching for the detail pages (track/player/vehicle).
@@ -713,6 +750,43 @@ const attachDetailSwitchListeners = () => {
       });
     });
   }
+};
+
+const attachBoardPagination = () => {
+  const wrappers = [...document.querySelectorAll('.ta-track-table-wrap')];
+  const update = (wrap) => {
+    const allRows = [...wrap.querySelectorAll('tbody .ta-record-row')];
+    const platform = (wrap.closest('[data-boards-container]')?.dataset.activePlat || 'all').toLowerCase();
+    allRows.forEach(row => { row.dataset.plat = (row.dataset.plat || '').toLowerCase(); });
+    const rows = allRows.filter(row => platform === 'all' || row.dataset.plat === platform);
+    const size = matchMedia('(max-width:900px)').matches ? 10 : 25;
+    const pages = Math.max(1,Math.ceil(rows.length/size));
+    const page = Math.max(1,Math.min(Number(wrap.dataset.page || 1),pages));
+    wrap.dataset.page = page;
+    const shown = new Set(rows.slice((page-1)*size,page*size));
+    allRows.forEach(row => { row.hidden = !shown.has(row); });
+    let nav = wrap.querySelector('.ta-pagination');
+    if (!nav) {
+      nav = document.createElement('nav'); nav.className = 'ta-pagination'; nav.setAttribute('aria-label','Leaderboard pages');
+      nav.innerHTML = `<button type="button" class="ta-page-prev">${renderBilingual('上一頁','Previous')}</button><span aria-live="polite"></span><button type="button" class="ta-page-next">${renderBilingual('下一頁','Next')}</button>`;
+      wrap.append(nav);
+      nav.querySelectorAll('button').forEach(button => button.addEventListener('click',() => {
+        wrap.dataset.page = Number(wrap.dataset.page) + (button.classList.contains('ta-page-next') ? 1 : -1);
+        update(wrap); wrap.scrollIntoView({block:'start'});
+      }));
+    }
+    nav.hidden = rows.length <= size;
+    nav.querySelector('.ta-page-prev').disabled = page === 1;
+    nav.querySelector('.ta-page-next').disabled = page === pages;
+    nav.querySelector('span[aria-live]').textContent = `${(page-1)*size+1}–${Math.min(page*size,rows.length)} / ${rows.length}`;
+  };
+  wrappers.forEach(update);
+  document.addEventListener('click',event => {
+    if (event.target.closest('[data-plat-toggle] [data-plat]')) {
+      wrappers.forEach(wrap => { wrap.dataset.page=1; update(wrap); });
+    }
+  });
+  window.addEventListener('resize',()=>wrappers.forEach(update));
 };
 
 const attachBoardToggleListeners = () => {
@@ -1397,8 +1471,8 @@ const renderProfileFeatureCard = (card, config) => {
 const PLAYER_PROFILE_CONFIG = {
   fileZh: "玩家檔案",
   fileEn: "Driver File",
-  bannerZh: "個人橫幅預留",
-  bannerEn: "Personal Banner Slot",
+  bannerZh: "玩家紀錄",
+  bannerEn: "Driver Records",
   usageZh: "常用車輛",
   usageEn: "Vehicle Usage",
   tagZh: "路線標籤",
@@ -1591,8 +1665,8 @@ const renderTeamDetail = (data, id) => {
 const VEHICLE_PROFILE_CONFIG = {
   fileZh: "車輛檔案",
   fileEn: "Car File",
-  bannerZh: "車輛橫幅預留",
-  bannerEn: "Car Banner Slot",
+  bannerZh: "車輛紀錄",
+  bannerEn: "Vehicle Records",
   usageZh: "世界變體",
   usageEn: "World Variants",
   tagZh: "常見車手",
@@ -2543,7 +2617,9 @@ const renderPopularityChart = (data) => {
     color: taCategoryColor(style, t.country, t.system),
     href: `./track.html?id=${encodeURIComponent(t.code)}`,
   }));
-  return renderCategoryLegend(style && style.legend) + renderBarChart(rows);
+  const caption = pc.scope === 'all_time_valid_runs'
+    ? `<p class="ta-chart-sub">${renderBilingual('依歷代有效紀錄筆數排序', 'Ranked by all-time valid runs')}</p>` : '';
+  return `<div class="ta-popularity-chart">${caption}${renderCategoryLegend(style && style.legend)}${renderBarChart(rows)}</div>`;
 };
 
 // 車手:進步曲線(路線下拉,一次畫一條,資料來自既有 history,不預先攤平)
@@ -2793,7 +2869,7 @@ const renderPageModules = (view, data) => {
     modules.push(renderModule("時間線", "Timeline", "最近變化", "Recent Changes", renderTimeline(data.timeline)));
   }
   if (Array.isArray(data.sections) && data.sections.length) {
-    modules.push(renderModule("後續規劃", "Next Layers", "預留分析", "Reserved Expansion", renderSectionCards(data.sections)));
+    modules.push(renderModule("紀錄說明", "Record Guide", "使用榜單", "Using the Boards", renderSectionCards(data.sections)));
   }
 
   return modules.filter(Boolean).join("");
@@ -2939,6 +3015,12 @@ const initTimeAttack = async () => {
       ? loadJson(`${base}data/${manifest.routes.proofs}`).catch(() => ({ proofs: {} }))
       : Promise.resolve({ proofs: {} });
     const [summary, pageData, proofData] = await Promise.all([summaryPromise, pagePromise, proofPromise]);
+    if (window.TAPeriods && manifest.routes.leaderboard_periods) {
+      const periodData = await loadJson(`${base}data/${manifest.routes.leaderboard_periods}`);
+      const scoped = window.TAPeriods.apply(pageData, periodData, getQueryParam('period'));
+      pageData.boards = scoped.boards;
+      pageData.has_periods = periodData.scopes.length > 0;
+    }
     TA_PROOFS = proofData.proofs || {};
 
     if (["players", "player", "teams", "team", "events", "event"].includes(view)) {
@@ -3023,6 +3105,7 @@ const initTimeAttack = async () => {
 
     setHtml("[data-page-root]", renderPageModules(view, pageData));
     if (view === "track") attachBoardToggleListeners();
+    if (view === "track") attachBoardPagination();
     if (["track", "player", "team", "vehicle", "event"].includes(view)) attachDetailSwitchListeners();
     if (view === "track" || view === "player" || view === "vehicle") attachAnalysisInteractions();
     if (view === "trackmap" && typeof window.initTrackMap === "function") {

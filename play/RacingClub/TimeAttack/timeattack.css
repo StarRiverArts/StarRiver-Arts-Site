@@ -25,6 +25,8 @@
   --ta-shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.22);
 }
 
+html { background-color: var(--ta-bg); }
+
 body.timeattack-page {
   /* Force the shared near-black ink tokens to the night warm-white set on the
      dark mountain-night pages, so any base text inherited from
@@ -3124,3 +3126,65 @@ body.timeattack-page {
 
 /* TimeAttack → Events 平行連結 */
 .ta-events-xlink { margin: 0 0 14px; }
+
+/* World detail and route-focused links share the same Track page. */
+.ta-track-route-nav {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--ta-border);
+  border-radius: 12px;
+  background: var(--ta-card-soft);
+}
+.ta-track-route-nav .ta-route-pill.is-active {
+  border-color: var(--ta-accent);
+  background: var(--ta-card-strong);
+  color: var(--ta-text-strong);
+  font-weight: 700;
+}
+.ta-track-route-nav .ta-route-pill:focus-visible {
+  outline: 2px solid var(--ta-accent);
+  outline-offset: 2px;
+}
+
+.ta-mobile-notes > summary{display:none}
+.ta-period-picker{display:grid;gap:8px;padding:14px 0;min-width:0}
+.ta-period-picker select{max-width:100%;width:100%;min-height:44px;background:var(--ta-card);color:var(--ta-text);border:1px solid var(--ta-border-strong);border-radius:8px;padding:10px;font:inherit}
+.ta-period-range{font-size:13px;color:var(--ta-text-soft);overflow-wrap:anywhere}
+.ta-record-row[hidden],.ta-pagination[hidden]{display:none!important}
+.ta-track-table-wrap{scroll-margin-top:80px}
+.ta-pagination{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.ta-pagination button{min-height:44px;padding:10px 14px;border:1px solid var(--ta-border-strong);border-radius:8px;background:var(--ta-card);color:var(--ta-text);font:inherit;cursor:pointer}
+.ta-pagination button:disabled{opacity:.4;cursor:default}
+.ta-pagination [aria-live]{font-size:13px;font-variant-numeric:tabular-nums}
+@media(max-width:900px){
+  .ta-topbar{padding:10px 12px;gap:8px}
+  .ta-topbar-nav{width:100%;justify-content:flex-start;gap:8px}
+  .ta-topbar-nav a,.ta-topbar-nav select{min-height:44px;display:inline-flex;align-items:center}
+  .ta-page{padding:18px 12px 40px}
+  .ta-title{font-size:clamp(32px,8vw,46px)}
+  .ta-localnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+  .ta-navlink{font-size:12px;min-height:44px;display:flex;justify-content:center;align-items:center;padding:8px 4px;white-space:normal}
+  .ta-mobile-notes > summary{display:block;min-height:44px;padding:12px;cursor:pointer;border:1px solid var(--ta-border);border-radius:8px}
+  .ta-sidebar,.ta-main,.ta-track-board,.ta-global-search{min-width:0;max-width:100%}
+  .ta-toggle-group{display:flex;flex-wrap:wrap;gap:6px}
+  .ta-toggle-btn{flex:1 1 auto;min-height:44px;padding:10px;font-size:13px}
+  .ta-track-route-nav .ta-route-pill-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ta-track-route-nav .ta-route-pill{max-width:100%;min-width:0;min-height:44px;white-space:normal;overflow-wrap:anywhere}
+  .ta-track-route-nav [data-track-route-all]{grid-column:1/-1}
+  .ta-record-primary{min-width:0}
+  .ta-period-picker select{font-size:16px}
+}
+@media(max-width:720px){
+  .ta-record-table tbody tr{display:grid;grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:'rank primary time' '. peer peer' '. badge gap';gap:6px 8px;padding:14px 0}
+  .ta-record-table tbody td{width:auto;min-width:0;padding:0;overflow-wrap:anywhere}
+  .ta-record-table tbody td:nth-child(1){grid-area:rank}
+  .ta-record-table tbody td:nth-child(2){grid-area:primary}
+  .ta-record-table tbody td:nth-child(3){grid-area:peer;font-size:13px}
+  .ta-record-table tbody td:nth-child(4){grid-area:time;font-size:16px}
+  .ta-record-table tbody td:nth-child(5){grid-area:gap;text-align:right;font-size:12px}
+  .ta-record-table tbody td:nth-child(6){grid-area:badge}
+  .ta-record-primary strong{font-size:16px;line-height:1.35}
+  .ta-record-meta{font-size:12px;gap:4px 8px}
+}

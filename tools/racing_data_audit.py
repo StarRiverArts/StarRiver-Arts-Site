@@ -11,6 +11,18 @@ import json
 from pathlib import Path
 
 
+def current_route_rows(route_pairs, period_data):
+    """Consume DATA's published membership; never infer completion times here."""
+    scopes = period_data.get("scopes", [])
+    scoped_routes = {(s["track_world_code"], s["route_code"]) for s in scopes}
+    current_ids = {r["record_id"] for s in scopes for r in s["records"]
+                   if r.get("period_id") == s["current_period_id"]}
+    return [(world, route, [row for row in route.get("route_rows", [])
+                           if (world, route["route_code"]) not in scoped_routes
+                           or row["record_id"] in current_ids])
+            for world, route in route_pairs]
+
+
 def audit(root: Path) -> dict:
     base = root / "play/RacingClub/TimeAttack"
     data_dir = base / "data"
@@ -53,16 +65,26 @@ def audit(root: Path) -> dict:
 
     route_pairs = [(board["track_world_code"], route)
                    for board in boards for route in board["routes"]]
+    period_file = manifest["routes"].get("leaderboard_periods")
+    current_routes = current_route_rows(route_pairs, load(period_file) if period_file else {})
     route_keys = [(world, route["route_code"]) for world, route in route_pairs]
     check("unique_world_local_routes", unique(route_keys))
     inconsistent = [(world, route["route_code"])
                     for world, route in route_pairs
                     if route["record_count"] != len(route.get("route_rows", []))]
     check("route_counts_match_rows", not inconsistent, mismatches=inconsistent[:20])
-    map_mismatch = [(board["track_world_code"], len(board["routes"]))
+    active_route_counts = {world: sum(bool(rows) for w, _, rows in current_routes if w == world)
+                           for world in board_ids}
+    map_mismatch = [(board["track_world_code"], active_route_counts[board["track_world_code"]])
                     for board in boards
-                    if map_by_id[board["track_world_code"]].get("route_count") != len(board["routes"])]
+                    if map_by_id[board["track_world_code"]].get("route_count")
+                    != active_route_counts[board["track_world_code"]]]
     check("map_route_counts_match_boards", not map_mismatch, mismatches=map_mismatch[:20])
+    current_rows = [row for _, _, rows in current_routes for row in rows]
+    map_run_mismatch = [world for world in board_ids
+                        if map_by_id[world].get("record_count") !=
+                        sum(len(rows) for w, _, rows in current_routes if w == world)]
+    check("map_current_run_counts", not map_run_mismatch, mismatches=map_run_mismatch[:20])
 
     record_rows = [row for _, route in route_pairs for row in route.get("route_rows", [])]
     check("unique_record_ids", unique([row["record_id"] for row in record_rows]))
@@ -81,8 +103,15 @@ def audit(root: Path) -> dict:
         x["label_en"]: int(x["value"].replace(",", ""))
         for x in summary["count_cards"] if x["value"].replace(",", "").isdigit()
     }
-    check("summary_valid_runs", summary_numbers.get("Valid Runs") == len(record_rows),
-          summary=summary_numbers.get("Valid Runs"), records=len(record_rows))
+    check("summary_valid_runs", summary_numbers.get("Valid Runs") == len(current_rows),
+          summary=summary_numbers.get("Valid Runs"), records=len(current_rows), scope="current")
+    popularity = summary.get("popularity_chart", {})
+    popularity_counts = {x["code"]: x["count"] for x in popularity.get("tracks", [])}
+    historical_counts = {world: sum(len(route.get("route_rows", []))
+                                    for w, route in route_pairs if w == world)
+                         for world in board_ids}
+    check("popularity_all_time_runs", popularity.get("scope") == "all_time_valid_runs"
+          and popularity_counts == historical_counts)
     check("summary_track_worlds", summary_numbers.get("Track Worlds") == len(map_ids),
           summary=summary_numbers.get("Track Worlds"), map=len(map_ids))
     players_ids = [x["player_id"] for x in players["player_cards"]]
@@ -158,6 +187,7 @@ def audit(root: Path) -> dict:
         "counts": {
             "track_worlds": len(map_ids), "board_worlds": len(boards),
             "world_routes": len(route_pairs), "valid_records": len(record_rows),
+            "current_valid_records": len(current_rows),
             "players_with_records": len(players_ids),
             "vehicle_models_with_records": len(model_ids),
             "teams": len(teams_ids), "editorial_events": len(editorial_ids),

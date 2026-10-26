@@ -15,6 +15,8 @@
   const bi = (zh, en) => `<span class="zh">${esc(zh || en || "")}</span><span class="en">${esc(en || zh || "")}</span>`;
   const norm = (value) => String(value || "").normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
   const runTotal = (board) => (board?.routes || []).reduce((sum, route) => sum + Number(route.record_count || 0), 0);
+  const periodParam = new URLSearchParams(window.location.search).get('period');
+  const periodQuery = periodParam ? `&period=${encodeURIComponent(periodParam)}` : '';
 
   const flattenMapTracks = (data) => {
     const rows = [];
@@ -68,7 +70,7 @@
         ...existing,
         ...board,
         route_count: (board.routes || []).length || Number(existing.route_count || 0),
-        record_count: runTotal(board) || Number(existing.record_count || 0),
+        record_count: Array.isArray(board.routes) ? runTotal(board) : Number(existing.record_count || 0),
         source_board: true,
       });
     });
@@ -134,7 +136,7 @@
     if (!item.source_board || !(item.routes || []).length) return "";
     const id = encodeURIComponent(item.track_world_code);
     return `<div class="ta-route-pill-row">${item.routes.map((route) => `
-      <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}">
+      <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}${periodQuery}">
         <span class="ta-route-pill-name">${esc(route.route_display_name || route.route_code)}</span>
         <span class="ta-route-pill-stat">${esc(route.record_count || 0)}</span>
       </a>`).join("")}</div>`;
@@ -146,7 +148,7 @@
     const location = locationText(item);
     const meta = [item.system_name && item.system_name !== "Unknown" ? item.system_name : "", item.track_env, item.difficulty]
       .filter(Boolean);
-    const trackHref = item.source_board ? `./track.html?id=${encodeURIComponent(item.track_world_code)}` : "";
+    const trackHref = item.source_board ? `./track.html?id=${encodeURIComponent(item.track_world_code)}${periodQuery}` : "";
     const worldHref = /^https?:\/\//.test(item.world_url || "") ? item.world_url : "";
     const routes = Number(item.route_count || (item.routes || []).length || 0);
     const records = Number(item.record_count || 0);
@@ -300,9 +302,21 @@
       if (!response.ok) throw new Error(`trackmap.json HTTP ${response.status}`);
       return response.json();
     }),
+    fetch("./data/manifest.json").then(response => {
+      if (!response.ok) throw new Error(`manifest.json HTTP ${response.status}`);
+      return response.json();
+    }).then(manifest => {
+      const periodFile = manifest.routes.leaderboard_periods;
+      if (!periodFile || !window.TAPeriods) return null;
+      return fetch(`./data/${periodFile}`).then(response => {
+        if (!response.ok) throw new Error(`leaderboard periods HTTP ${response.status}`);
+        return response.json();
+      });
+    }),
     waitForBaseRenderer(),
   ])
-    .then(([trackData, mapData]) => renderDirectory(mergeInventory(trackData, mapData)))
+    .then(([trackData, mapData, periods]) => renderDirectory(mergeInventory(
+      periods ? window.TAPeriods.apply(trackData, periods, periodParam) : trackData, mapData)))
     .catch((error) => {
       console.error("Racing Hub track directory enhancement failed", error);
       // Keep the existing timeattack.js list as a complete fallback.

@@ -1,46 +1,46 @@
 {
   "title_zh": "資訊",
   "title_en": "Info",
-  "description_zh": "本站的核心指標、builder 狀態與資料模型說明集中在這頁，讓各分析頁專心呈現紀錄。",
-  "description_en": "Core metrics, builder status, and the data-model notes live here so the analysis pages can stay focused on records.",
+  "description_zh": "查看計時紀錄統計與榜單使用說明。",
+  "description_en": "Browse record statistics and learn how to use the boards.",
   "build_state": "live",
-  "source_label": "RacingHubData/canonical/ta_data.sqlite",
+  "source_label": "Racing Hub",
   "sidebar_zh": [
-    "核心指標每次 builder 重建時更新。",
-    "builder 狀態顯示最近建置時間與 schema 版本。",
-    "資料模型說明本站如何從單一輸入表產生靜態頁。"
+    "計時紀錄可依賽道、玩家或車輛查詢。",
+    "賽道榜提供最新榜期、歷期及歷代總榜。",
+    "有疑問或發現錯誤，可透過俱樂部頻道回報。"
   ],
   "sidebar_en": [
-    "Core metrics refresh every time the builder runs.",
-    "Builder status shows the last build time and schema version.",
-    "The data model explains how a single input sheet feeds the static pages."
+    "Explore timed runs by track, driver or vehicle.",
+    "Track boards offer current, past-period and all-time results.",
+    "Report questions or corrections through the club channel."
   ],
   "metric_cards": [
     {
-      "label_zh": "總輸入筆數",
+      "label_zh": "紀錄筆數",
       "label_en": "All Runs",
-      "value": "2022",
-      "note_zh": "輸入表中所有紀錄列",
-      "note_en": "All imported rows from the input sheet"
+      "value": "1875",
+      "note_zh": "本頁統計範圍內的計時紀錄",
+      "note_en": "Timed runs included in this view"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "1983",
+      "value": "1875",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
     {
       "label_zh": "已驗證",
       "label_en": "Verified",
-      "value": "61",
-      "note_zh": "已標記 verified 的紀錄",
+      "value": "47",
+      "note_zh": "已完成證據核對的紀錄",
       "note_en": "Runs marked verified"
     },
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "1922",
+      "value": "1828",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
@@ -54,28 +54,28 @@
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "260",
+      "value": "263",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }
   ],
   "sections": [
     {
-      "label_zh": "資料流",
-      "label_en": "Data Flow",
-      "title_zh": "單一輸入表到靜態頁",
-      "title_en": "Single Sheet To Static Pages",
-      "body_zh": "Builder 讀取輸入表與 lookup 索引，先產生分析 JSON，再由這些靜態頁直接讀取。",
-      "body_en": "The builder reads the input sheet plus lookup indexes, generates analysis JSON, and the static pages consume those artifacts directly.",
+      "label_zh": "使用榜單",
+      "label_en": "Using the Boards",
+      "title_zh": "查詢路線與歷期紀錄",
+      "title_en": "Explore Routes and Past Periods",
+      "body_zh": "選擇賽道與路線，查看計時紀錄，也可依玩家或車輛比較成績。",
+      "body_en": "Choose a track and route to browse runs or compare drivers and vehicles.",
       "items_zh": [
-        "Google Sheet 或 CSV 匯出作為唯一輸入來源",
-        "本機 builder 重建所有排行榜與分析頁資料",
-        "最終只修改 `play/RacingClub/TimeAttack/data/*.json` 後再推上 GitHub Pages"
+        "賽道榜預設顯示最新榜期，可切換歷期或歷代總榜。",
+        "榜期依成績完成時間劃分；日期不足以判定歸屬的成績保留待確認。",
+        "已驗證標記表示已核對證據，未驗證的有效紀錄仍可入榜。"
       ],
       "items_en": [
-        "Google Sheet or CSV export remains the single input source",
-        "A local builder regenerates every board and analysis artifact",
-        "Only `play/RacingClub/TimeAttack/data/*.json` needs to change before pushing to GitHub Pages"
+        "Track boards open on the latest period; past periods and all-time results are also available.",
+        "Period membership follows run completion time. Runs without enough timing detail remain unresolved.",
+        "The verified mark identifies runs whose evidence has been checked. Valid unverified runs are also eligible."
       ]
     }
   ]
