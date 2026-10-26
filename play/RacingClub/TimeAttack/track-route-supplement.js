@@ -3,7 +3,6 @@
   const trackId = params.get("id") || "";
   if (!trackId) return;
 
-  const routeParam = params.get("route") || "";
   const normalize = (value) => String(value || "")
     .toLowerCase()
     .replace(/[–—－]/g, "-")
@@ -39,7 +38,7 @@
     const worldName = world.name || trackId;
     const shortWorld = worldName.includes("/") ? worldName.split("/")[0].trim() : worldName;
     return `
-      <article class="ta-track-board ta-route-card" data-supplemental-route="${escapeHtml(route.route_id)}">
+      <article class="ta-track-board ta-route-card" id="route-${escapeHtml(route.route_id)}" data-supplemental-route="${escapeHtml(route.route_id)}">
         <div class="ta-track-board-head">
           <div class="ta-label">${escapeHtml(worldName)}</div>
           <h3 class="ta-track-board-title">${escapeHtml(shortWorld)}</h3>
@@ -81,23 +80,7 @@
     });
     if (!missing.length) return;
 
-    // Route-detail pages must only show the requested route. Supplemental routes
-    // exist only to bridge routes that are absent from data/tracks.json; never
-    // append sibling routes under a valid, already-rendered route detail.
-    if (routeParam) {
-      const selected = missing.find((route) => route.route_id === routeParam);
-      if (!selected) return;
-
-      container.innerHTML = "";
-      container.insertAdjacentHTML(
-        "beforeend",
-        renderEmptyRoute(worldDoc.data, selected, compactRoutes.get(selected.route_id)),
-      );
-      return;
-    }
-
-    // On the world-level detail page (no ?route=), keep supplementing only
-    // routes that the main generated website data does not yet expose.
+    // Track pages always display all routes, including legacy ?route= links.
     missing.forEach((route) => {
       container.insertAdjacentHTML("beforeend", renderEmptyRoute(worldDoc.data, route, compactRoutes.get(route.route_id)));
     });

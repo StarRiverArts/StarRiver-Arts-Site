@@ -136,7 +136,7 @@
     if (!item.source_board || !(item.routes || []).length) return "";
     const id = encodeURIComponent(item.track_world_code);
     return `<div class="ta-route-pill-row">${item.routes.map((route) => `
-      <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}${periodQuery}">
+      <a class="ta-route-pill" href="./track.html?id=${id}${periodQuery}#route-${encodeURIComponent(route.route_code)}">
         <span class="ta-route-pill-name">${esc(route.route_display_name || route.route_code)}</span>
         <span class="ta-route-pill-stat">${esc(route.record_count || 0)}</span>
       </a>`).join("")}</div>`;
