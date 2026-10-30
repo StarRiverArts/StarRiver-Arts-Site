@@ -23,6 +23,38 @@ def current_route_rows(route_pairs, period_data):
             for world, route in route_pairs]
 
 
+
+def event_projection_status_drifts(editorial_events, vrc_events):
+    """Find shared event IDs whose published status differs between outputs.
+
+    This is a read-only discrepancy detector. It does not infer event outcomes
+    from the calendar, and must not rewrite generated VRChat JSON or canonical
+    data. Differences are advisory until the owning exporter is inspected.
+    """
+    by_id = {
+        event["id"]: event
+        for event in vrc_events
+        if isinstance(event, dict) and isinstance(event.get("id"), str)
+    }
+    drifts = []
+    for event in editorial_events:
+        if not isinstance(event, dict):
+            continue
+        event_id = event.get("event_id")
+        other = by_id.get(event_id)
+        if other is None:
+            continue
+        editorial_status = event.get("status")
+        vrc_status = other.get("status")
+        if editorial_status != vrc_status:
+            drifts.append({
+                "event_id": event_id,
+                "editorial_status": editorial_status,
+                "vrc_status": vrc_status,
+            })
+    return drifts
+
+
 def audit(root: Path) -> dict:
     base = root / "play/RacingClub/TimeAttack"
     data_dir = base / "data"
@@ -125,6 +157,28 @@ def audit(root: Path) -> dict:
     missing_manifest = [path for path in manifest["routes"].values()
                         if not (data_dir / path).is_file()]
     check("manifest_files_exist", not missing_manifest, missing=missing_manifest)
+
+    # vrc/events.json is a separate canonical/exporter projection, not the
+    # site-owned Toolkit event output. Never silently patch it from editorial.
+    vrc_events_file = base / "vrc/events.json"
+    if vrc_events_file.is_file():
+        vrc_event_doc = json.loads(vrc_events_file.read_text(encoding="utf-8"))
+        vrc_event_rows = vrc_event_doc.get("events", [])
+        if not isinstance(vrc_event_rows, list):
+            warn("vrc_events_projection_invalid", reason="events is not a list")
+        else:
+            drifts = event_projection_status_drifts(editorial["events"], vrc_event_rows)
+            if drifts:
+                warn("editorial_vrc_event_status_drift", count=len(drifts),
+                     cases=drifts[:20], remediation="check the canonical VRChat events exporter")
+            editorial_set = {x.get("event_id") for x in editorial["events"] if isinstance(x, dict)}
+            vrc_set = {x.get("id") for x in vrc_event_rows if isinstance(x, dict)}
+            if editorial_set != vrc_set:
+                warn("editorial_vrc_event_identity_sets_differ",
+                     editorial_only=sorted(x for x in editorial_set-vrc_set if isinstance(x, str))[:20],
+                     vrc_only=sorted(x for x in vrc_set-editorial_set if isinstance(x, str))[:20])
+    else:
+        warn("vrc_events_projection_unavailable", path="vrc/events.json")
 
     editorial_ids = [x["event_id"] for x in editorial["events"]]
     generated_ids = [x["event_code"] for x in generated["event_cards"]]

@@ -46,3 +46,29 @@ play/RacingClub/TimeAttack/data/event-editorial.json
 
 - `vrrctw_sadamine_20260718`
 - `vrrctw_momiji_20260719`
+
+
+## 跨管線活動狀態檢核（2026-10）
+
+同一場活動可能出現在兩條獨立的公開輸出：
+
+- `data/event-editorial.json`：網站活動文案、主辦方確認的狀態與結果；`timeattack.js` 直接使用它。
+- `vrc/events.json`：來自 Racing canonical/exporter 的另一份 VRChat 活動索引輸出；不由本站 Toolkit builder 維護。
+- `vrc/toolkit/events/*.json`：本站 `tools/build_racing_toolkit_public.py` 根據 editorial 生成的 Toolkit 投影。
+
+修改 editorial 不代表 `vrc/events.json` 必然同步。以 `event_id`／`id` 比對，不以活動名稱推測身分。
+
+執行唯讀檢核：
+
+```bash
+python tools/racing_data_audit.py
+```
+
+`editorial_vrc_event_status_drift` 是需要追查來源的 **warning**，不應在未確認活動結果或 canonical 資料前自行改寫任何生成檔。發現不同步時：
+
+1. 確認 editorial 狀態與主辦方已核准的事件事實；
+2. 找到本機 canonical/exporter 如何生成 `vrc/events.json`，確認是否使用不同來源或舊快照；
+3. 在有權限的原始資料／生成流程修正並重新發布；
+4. 再跑唯讀檢核，並分別驗證網站與 VRChat 公開端。
+
+已知案例：`vrrctw_ych_trackday_20261003` 的 editorial 已是 `completed`，但在 2026-10-30 檢查時 `vrc/events.json` 仍是 `upcoming`。這是跨輸出狀態差異，不應推定世界本身的公開權限。

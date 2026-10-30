@@ -26,6 +26,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Run projection audit unit tests
+        run: python -m unittest discover -s tools -p test_racing_data_audit.py
       - name: Audit JSON projection (read-only)
         run: python tools/racing_data_audit.py
       - name: Upload data evidence

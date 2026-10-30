@@ -1,7 +1,7 @@
 """Membership regressions for the public artifact audit, without a database."""
 import unittest
 
-from racing_data_audit import current_route_rows
+from racing_data_audit import current_route_rows, event_projection_status_drifts
 
 
 class MembershipTests(unittest.TestCase):
@@ -27,6 +27,37 @@ class MembershipTests(unittest.TestCase):
         route = {"route_code": "DH", "route_rows": [{"record_id": "legacy"}]}
         self.assertEqual(current_route_rows([("world", route)], {}),
                          [("world", route, route["route_rows"])])
+
+
+
+class EventProjectionDriftTests(unittest.TestCase):
+    def test_detects_status_drift_without_rewriting_sources(self):
+        editorial = [
+            {"event_id": "ych", "status": "completed"},
+            {"event_id": "other", "status": "upcoming"},
+        ]
+        vrc = [
+            {"id": "ych", "status": "upcoming"},
+            {"id": "other", "status": "upcoming"},
+        ]
+        self.assertEqual(event_projection_status_drifts(editorial, vrc), [
+            {"event_id": "ych", "editorial_status": "completed", "vrc_status": "upcoming"}
+        ])
+        self.assertEqual(editorial[0]["status"], "completed")
+        self.assertEqual(vrc[0]["status"], "upcoming")
+
+    def test_missing_identity_is_not_an_invented_status_drift(self):
+        self.assertEqual(event_projection_status_drifts(
+            [{"event_id": "known", "status": "completed"}],
+            [{"id": "different", "status": "upcoming"}],
+        ), [])
+
+    def test_matching_status_does_not_warn_due_to_elapsed_date(self):
+        self.assertEqual(event_projection_status_drifts(
+            [{"event_id": "past", "status": "upcoming", "starts_at": "2026-10-03"}],
+            [{"id": "past", "status": "upcoming", "starts_at": "2026-10-03"}],
+        ), [])
+
 
 
 if __name__ == "__main__":
