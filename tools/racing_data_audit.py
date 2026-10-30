@@ -101,7 +101,8 @@ def audit(root: Path) -> dict:
     route_pairs = [(board["track_world_code"], route)
                    for board in boards for route in board["routes"]]
     period_file = manifest["routes"].get("leaderboard_periods")
-    current_routes = current_route_rows(route_pairs, load(period_file) if period_file else {})
+    period_data = load(period_file) if period_file else {}
+    current_routes = current_route_rows(route_pairs, period_data)
     route_keys = [(world, route["route_code"]) for world, route in route_pairs]
     check("unique_world_local_routes", unique(route_keys))
     inconsistent = [(world, route["route_code"])
@@ -140,6 +141,41 @@ def audit(root: Path) -> dict:
     }
     check("summary_valid_runs", summary_numbers.get("Valid Runs") == len(current_rows),
           summary=summary_numbers.get("Valid Runs"), records=len(current_rows), scope="current")
+    # Diagnostics only: mixed publish snapshots cannot establish a real count
+    # discrepancy. Keep the original failed checks visible in the full audit.
+    period_as_of = str(period_data.get("as_of_utc") or "")
+    manifest_generated = str(manifest.get("generated_at") or "")
+    if period_file and period_as_of and manifest_generated:
+        try:
+            parsed_period = datetime.fromisoformat(period_as_of.replace("Z", "+00:00"))
+            parsed_manifest = datetime.fromisoformat(manifest_generated.replace("Z", "+00:00"))
+            stale_seconds = (parsed_manifest - parsed_period).total_seconds()
+        except ValueError:
+            warn("period_projection_snapshot_timestamp_invalid",
+                 period_as_of=period_as_of, manifest_generated_at=manifest_generated)
+        else:
+            if stale_seconds > 3600 and (
+                map_run_mismatch or summary_numbers.get("Valid Runs") != len(current_rows)
+            ):
+                world_counts = [
+                    {
+                        "track_world_code": world,
+                        "map_count": map_by_id[world].get("record_count"),
+                        "period_current_count": sum(
+                            len(rows) for w, _, rows in current_routes if w == world
+                        ),
+                    }
+                    for world in sorted(map_run_mismatch)
+                ]
+                warn("period_projection_snapshot_outdated",
+                     period_as_of_utc=period_as_of,
+                     manifest_generated_at=manifest_generated,
+                     stale_seconds=int(stale_seconds),
+                     affected_worlds=world_counts,
+                     summary_valid_runs=summary_numbers.get("Valid Runs"),
+                     period_current_runs=len(current_rows),
+                     resolution="Regenerate period projection from the same canonical snapshot as other public JSON")
+
     popularity = summary.get("popularity_chart", {})
     popularity_counts = {x["code"]: x["count"] for x in popularity.get("tracks", [])}
     historical_counts = {world: sum(len(route.get("route_rows", []))
@@ -322,6 +358,9 @@ def steward_report_from_audit(report: dict, *, generated_at: str | None = None) 
             sources=[DATA_ROOT + "manifest.json", VRC_ROOT + "index.json"],
         ))
     else:
+        # The underlying audit still FAILS; Steward triages correlated symptoms.
+        period_stale = next((w for w in report.get("warnings", [])
+            if w.get("code") == "period_projection_snapshot_outdated"), None)
         for check in report.get("checks", []):
             code = check.get("code")
             if not isinstance(code, str) or not code:
@@ -334,26 +373,80 @@ def steward_report_from_audit(report: dict, *, generated_at: str | None = None) 
                         "vrc_only", "board_only"):
                 if key in check:
                     observed[key] = check[key]
+            dependent_on_stale_period = bool(
+                period_stale and not ok and code in {
+                    "map_current_run_counts", "summary_valid_runs",
+                }
+            )
+            if dependent_on_stale_period:
+                observed["provisional_reason"] = "period_projection_snapshot_outdated"
+                observed["source_check_pass"] = False
             checks.append(steward_check(
                 "racing_audit_" + code, "public_projection",
-                "PASS" if ok else "ACTION_REQUIRED",
+                "PASS" if ok else "UNKNOWN" if dependent_on_stale_period else "ACTION_REQUIRED",
                 expected={"pass": True}, observed=observed, sources=sources,
             ))
 
         for warning in report.get("warnings", []):
             code = warning.get("code")
-            if code == "editorial_vrc_event_status_drift":
+            if code == "period_projection_snapshot_outdated":
+                item = steward_check(
+                    "refresh_period_projection", "public_racing_data", "ACTION_REQUIRED",
+                    expected={"same_snapshot_as_manifest": True},
+                    observed={
+                        "period_as_of_utc": warning.get("period_as_of_utc"),
+                        "manifest_generated_at": warning.get("manifest_generated_at"),
+                        "stale_seconds": warning.get("stale_seconds"),
+                        "affected_worlds": warning.get("affected_worlds", []),
+                        "summary_valid_runs": warning.get("summary_valid_runs"),
+                        "period_current_runs": warning.get("period_current_runs"),
+                    },
+                    sources=[
+                        DATA_ROOT + "leaderboard-periods.json",
+                        DATA_ROOT + "manifest.json",
+                        DATA_ROOT + "summary.json",
+                        DATA_ROOT + "trackmap.json",
+                    ],
+                )
+                item["handoff"] = {
+                    "owner": "local_canonical_exporter",
+                    "investigate": [
+                        "Find writer of leaderboard-periods.json / as_of_utc in workspace",
+                        "Inspect ProjectT-Record-Database and siteResource TimeAttack builders",
+                        "Rebuild all projections from one validated canonical snapshot",
+                    ],
+                    "acceptance": [
+                        "Manifest and period snapshot timestamps are coherent",
+                        "Current-period row counts agree with trackmap and summary",
+                        "No direct edits of generated records, periods, or times",
+                    ],
+                }
+                checks.append(item)
+            elif code == "editorial_vrc_event_status_drift":
                 for case in warning.get("cases", []):
                     eid = str(case.get("event_id") or "")
                     if not eid:
                         continue
-                    checks.append(steward_check(
+                    item = steward_check(
                         "event_status_consistency", eid, "ACTION_REQUIRED",
                         expected={"relation": "consistent statuses across exports"},
                         observed={"editorial_status": case.get("editorial_status"),
                                   "vrc_status": case.get("vrc_status")},
                         sources=[DATA_ROOT + "event-editorial.json", VRC_ROOT + "events.json"],
-                    ))
+                    )
+                    item["handoff"] = {
+                        "owner": "local_event_canonical_exporter",
+                        "investigate": [
+                            "Locate the exporter writing vrc/events.json",
+                            "Check canonical event status and authorized editorial result",
+                            "Rebuild and verify both event projections for the same event ID",
+                        ],
+                        "acceptance": [
+                            "The two event statuses agree after source reconciliation",
+                            "No inferred results or direct generated JSON edits",
+                        ],
+                    }
+                    checks.append(item)
             elif code == "editorial_vrc_event_identity_sets_differ":
                 for provenance, ids in (
                     ("editorial_only", warning.get("editorial_only", [])),

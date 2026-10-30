@@ -108,5 +108,50 @@ class StewardExportTests(unittest.TestCase):
 
 
 
+class CorrelatedSnapshotDriftTests(unittest.TestCase):
+    def test_stale_period_becomes_one_action_and_two_unknown_dependents(self):
+        report = {
+            "checks": [
+                {"code": "map_current_run_counts", "pass": False,
+                 "mismatches": ["pt_ych_starriver_arts", "gunsai_jintei"]},
+                {"code": "summary_valid_runs", "pass": False,
+                 "summary": 1904, "records": 1887, "scope": "current"},
+            ],
+            "warnings": [{
+                "code": "period_projection_snapshot_outdated",
+                "period_as_of_utc": "2026-10-26T16:21:03Z",
+                "manifest_generated_at": "2026-10-29T18:27:47Z",
+                "stale_seconds": 266804,
+                "affected_worlds": [
+                    {"track_world_code": "pt_ych_starriver_arts", "map_count": 46,
+                     "period_current_count": 31},
+                    {"track_world_code": "gunsai_jintei", "map_count": 4,
+                     "period_current_count": 2},
+                ],
+                "summary_valid_runs": 1904, "period_current_runs": 1887,
+            }],
+        }
+        out = steward_report_from_audit(report, generated_at="2026-10-30T07:00:00Z")
+        issues = {x["rule_id"]: x for x in out["checks"]}
+        self.assertEqual(issues["refresh_period_projection"]["status"], "ACTION_REQUIRED")
+        self.assertEqual(issues["racing_audit_map_current_run_counts"]["status"], "UNKNOWN")
+        self.assertEqual(issues["racing_audit_summary_valid_runs"]["status"], "UNKNOWN")
+        self.assertFalse(issues["racing_audit_summary_valid_runs"]["observed"]["pass"])
+        self.assertEqual(out["summary"]["ACTION_REQUIRED"], 1)
+        self.assertEqual(out["summary"]["UNKNOWN"], 2)
+        self.assertEqual(issues["refresh_period_projection"]["observed"]
+                         ["summary_valid_runs"], 1904)
+
+    def test_no_staleness_evidence_keeps_count_failures_actionable(self):
+        out = steward_report_from_audit({
+            "checks": [{"code": "summary_valid_runs", "pass": False,
+                         "summary": 1904, "records": 1887}],
+            "warnings": [],
+        }, generated_at="2026-10-30T07:00:00Z")
+        self.assertEqual(out["overall_status"], "ACTION_REQUIRED")
+        self.assertEqual(out["checks"][0]["status"], "ACTION_REQUIRED")
+
+
+
 if __name__ == "__main__":
     unittest.main()

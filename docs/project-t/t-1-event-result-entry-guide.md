@@ -85,3 +85,15 @@ python tools/racing_data_audit.py
 
 GitHub Actions 只把兩份報告上傳為短期 CI artifact，不提交報告至版本控制、不放入 GitHub Pages 部署樹、不加入網站前端或搜尋索引。GitHub Actions artifacts 的存取權限仍依 GitHub Repository 與 Actions 的權限控管；由於本 repo 公開，本版只從既有公開投影取材，禁止加入私密的治理紀錄、憑證或未公開來源。
 
+## 2026-10-30：確認的上游失同步與修復順序
+
+`leaderboard-periods.json` 記載的 `as_of_utc` 為 `2026-10-26T16:21:03Z`；新一版 `manifest.json` 為 `2026-10-29T18:27:47Z`。兩者是不同快照，不應用舊 period membership 判定新榜單計數錯誤。
+
+依 GitHub 版本對照：玉長地圖有效紀錄從 31 變成 46（+15），`gunsai_jintei` 從 2 變成 4（+2），剛好構成跨來源的 17 筆計數差。這證明不同公開投影版本不一致，不證明新增紀錄的審查結果或期間歸屬。原始檢核 FAIL 保留；Steward 遇到已證實的舊 period 快照時，輸出單一 `refresh_period_projection` ACTION_REQUIRED，其衍生的 `map_current_run_counts`／`summary_valid_runs` 標為 UNKNOWN（而不是偽裝為 PASS）。
+
+本機 Agent 應讀取 workspace `AGENTS.md`，在 `ProjectT-Record-Database/builders/`、`siteResource/play/RacingClub/TimeAttack/` 與資料發布管線內搜尋 `leaderboard-periods.json` 的 Writer；保持 canonical SQLite 未被手工修改，從同一個快照重建 period membership 和網站各投影後驗證，再合併發布。
+
+活動異常為 `vrrctw_ych_trackday_20261003`：編輯來源 `completed`，舊 `vrc/events.json` 為 `upcoming`，該 VRC 檔案最後一次提交在 2026-09-26。應查 Event 的 canonical/exporter 與發布入口，核對活動實際批准狀態；不要依現在日期強行填入結果，也不要直接修改生成檔。
+
+這兩種異常的 `checks[].handoff` 提供本機 Agent 接手的檢查與驗收條件；所有輸出仍只留在 CI artifact 或本機忽略目錄，不新增網站端點。
+
