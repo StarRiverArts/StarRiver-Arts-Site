@@ -1,0 +1,18 @@
+/* ProjectT editorial and world drafts share the established ProjectT shell. */
+.body-section > .wrap > [role="note"]{display:inline-flex;gap:.5em;max-width:100%;padding:8px 12px;margin:0 0 28px;border-left:3px solid var(--pt-sign-green,#246244);background:rgba(36,98,68,.06);font-size:12px;line-height:1.6}
+.body-section > .wrap > h1{font-family:var(--font-display);font-size:clamp(36px,6vw,72px);line-height:1.04;letter-spacing:-.035em;margin:0 0 18px}
+.body-section > .wrap > .lead{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
+.body-section > .wrap > .lead-sub{max-width:740px;margin-bottom:40px}
+.body-section > .wrap > dl{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,1.3fr);max-width:800px;gap:0;margin:32px 0;border:1px solid rgba(36,51,45,.18);background:#fffdf7;border-radius:8px;overflow:hidden}
+.body-section > .wrap > dl dt,.body-section > .wrap > dl dd{margin:0;padding:16px 20px;border-bottom:1px solid rgba(36,51,45,.1);overflow-wrap:anywhere;line-height:1.65}
+.body-section > .wrap > dl dt{font-size:13px;color:#526157;background:rgba(36,98,68,.035)}
+.body-section > .wrap > dl dd{font-size:16px}
+.body-section .card{display:flex;flex-direction:column;gap:14px}
+.body-section .card p{margin:0;line-height:1.75}
+.body-section .card > img{border-radius:4px}
+.body-section .card a.card-link{align-self:flex-start;min-height:32px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:4px;line-height:1.5}
+.body-section section + section{margin-top:48px}
+.body-section dl + .section{padding-top:30px}
+.body-section .section-note{line-height:1.8}
+.site-footer .footer-copy{max-width:780px;line-height:1.9}
+@media(max-width:520px){.body-section > .wrap > dl{grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr)}.body-section > .wrap > dl dt,.body-section > .wrap > dl dd{padding:12px}}

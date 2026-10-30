@@ -1,0 +1,530 @@
+{
+  "date": "2026-10-23",
+  "baseline": "fd8cde1",
+  "proposal_commit": "8f133a4b04e268dd76d18f66ad3a8de7f1e13275",
+  "file_count": 104,
+  "added_lines": 5850,
+  "deleted_lines": 1905,
+  "files": [
+    {
+      "path": ".agent-index/context.md",
+      "added": 12,
+      "deleted": 12
+    },
+    {
+      "path": ".agent-index/repo-map.json",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": ".gitignore",
+      "added": 2,
+      "deleted": 0
+    },
+    {
+      "path": "404.html",
+      "added": 1,
+      "deleted": 0
+    },
+    {
+      "path": "OPEN_LOCAL_REVIEW.cmd",
+      "added": 4,
+      "deleted": 0
+    },
+    {
+      "path": "agent-index.config.json",
+      "added": 3,
+      "deleted": 1
+    },
+    {
+      "path": "docs/CHANGELOG.md",
+      "added": 37,
+      "deleted": 0
+    },
+    {
+      "path": "docs/CONTENT_SSOT.md",
+      "added": 24,
+      "deleted": 3
+    },
+    {
+      "path": "docs/REQUEST_TRACE.md",
+      "added": 6,
+      "deleted": 0
+    },
+    {
+      "path": "docs/REQUIREMENTS.md",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "docs/SSOT.md",
+      "added": 2,
+      "deleted": 2
+    },
+    {
+      "path": "docs/project-t/leaderboard-season-reset-proposal-20261023.md",
+      "added": 178,
+      "deleted": 0
+    },
+    {
+      "path": "docs/project-t/project-t-content-rebuild-todo.md",
+      "added": 2,
+      "deleted": 0
+    },
+    {
+      "path": "docs/project-t/project-t-public-information-architecture.md",
+      "added": 2,
+      "deleted": 0
+    },
+    {
+      "path": "docs/project-t/racing-hub-regression-qa.md",
+      "added": 10,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/brief.md",
+      "added": 13,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/checks.json",
+      "added": 1110,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/inventory.md",
+      "added": 109,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-delivery-brief.md",
+      "added": 13,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-delivery-checks.json",
+      "added": 137,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-delivery-report.md",
+      "added": 68,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-source-checks.json",
+      "added": 1513,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-source-validation.json",
+      "added": 36,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-sources-brief.md",
+      "added": 13,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/local-sources-report.md",
+      "added": 36,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/museum-editorial-checks.json",
+      "added": 14,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/museum-editorial-report.md",
+      "added": 18,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/projectt-20261022-report.md",
+      "added": 44,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/report.md",
+      "added": 57,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/visitor-copy-checks.json",
+      "added": 51,
+      "deleted": 0
+    },
+    {
+      "path": "docs/reviews/three-sites-20261020/visitor-copy-report.md",
+      "added": 24,
+      "deleted": 0
+    },
+    {
+      "path": "downloads_Museum/VR Gallery Spatial System/signage/index.html",
+      "added": 4,
+      "deleted": 4
+    },
+    {
+      "path": "llm-index.json",
+      "added": 80,
+      "deleted": 84
+    },
+    {
+      "path": "llms.txt",
+      "added": 31,
+      "deleted": 31
+    },
+    {
+      "path": "museum/about.html",
+      "added": 11,
+      "deleted": 32
+    },
+    {
+      "path": "museum/article.html",
+      "added": 17,
+      "deleted": 125
+    },
+    {
+      "path": "museum/articles.html",
+      "added": 19,
+      "deleted": 65
+    },
+    {
+      "path": "museum/contact.html",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "museum/curatorial-note.html",
+      "added": 17,
+      "deleted": 121
+    },
+    {
+      "path": "museum/exhibition.html",
+      "added": 17,
+      "deleted": 147
+    },
+    {
+      "path": "museum/exhibitions.html",
+      "added": 20,
+      "deleted": 42
+    },
+    {
+      "path": "museum/index.html",
+      "added": 23,
+      "deleted": 64
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/falloff-predictor.html",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/index.html",
+      "added": 33,
+      "deleted": 65
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/spatial-planner.html",
+      "added": 2,
+      "deleted": 1
+    },
+    {
+      "path": "museum/interactive/vr-gallery-spatial-system/index.html",
+      "added": 75,
+      "deleted": 79
+    },
+    {
+      "path": "museum/museum-editorial.css",
+      "added": 13,
+      "deleted": 0
+    },
+    {
+      "path": "museum/museum.css",
+      "added": 3,
+      "deleted": 0
+    },
+    {
+      "path": "museum/museum.js",
+      "added": 3,
+      "deleted": 1
+    },
+    {
+      "path": "museum/support.html",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "museum/web-exhibitions.html",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/TrackMap/index.html",
+      "added": 7,
+      "deleted": 6
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/catalog.html",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/event.html",
+      "added": 3,
+      "deleted": 4
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/events.html",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/index.html",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/info.html",
+      "added": 11,
+      "deleted": 36
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/player.html",
+      "added": 6,
+      "deleted": 6
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/players.html",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/team.html",
+      "added": 3,
+      "deleted": 4
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/teams.html",
+      "added": 3,
+      "deleted": 3
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/timeattack.css",
+      "added": 23,
+      "deleted": 0
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/timeattack.js",
+      "added": 89,
+      "deleted": 39
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/track.html",
+      "added": 7,
+      "deleted": 8
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/tracks.html",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/vehicle.html",
+      "added": 6,
+      "deleted": 6
+    },
+    {
+      "path": "play/RacingClub/TimeAttack/vehicles.html",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/RacingClub/guidelines.html",
+      "added": 2,
+      "deleted": 2
+    },
+    {
+      "path": "play/RacingClub/index.html",
+      "added": 2,
+      "deleted": 2
+    },
+    {
+      "path": "play/articles/article.html",
+      "added": 17,
+      "deleted": 130
+    },
+    {
+      "path": "play/articles/index.html",
+      "added": 22,
+      "deleted": 135
+    },
+    {
+      "path": "play/content-pages.css",
+      "added": 18,
+      "deleted": 0
+    },
+    {
+      "path": "play/index.html",
+      "added": 91,
+      "deleted": 31
+    },
+    {
+      "path": "play/play-landing.css",
+      "added": 8,
+      "deleted": 1
+    },
+    {
+      "path": "play/project-t-hub-data.js",
+      "added": 3,
+      "deleted": 82
+    },
+    {
+      "path": "play/project-t.js",
+      "added": 6,
+      "deleted": 5
+    },
+    {
+      "path": "play/worlds/index.html",
+      "added": 47,
+      "deleted": 125
+    },
+    {
+      "path": "projects/9turns.html",
+      "added": 12,
+      "deleted": 8
+    },
+    {
+      "path": "projects/beyond-gravity.html",
+      "added": 6,
+      "deleted": 23
+    },
+    {
+      "path": "projects/free-trajectory.html",
+      "added": 3,
+      "deleted": 8
+    },
+    {
+      "path": "projects/starsight-mt.html",
+      "added": 6,
+      "deleted": 4
+    },
+    {
+      "path": "projects/wuling.html",
+      "added": 10,
+      "deleted": 15
+    },
+    {
+      "path": "search-index.json",
+      "added": 68,
+      "deleted": 71
+    },
+    {
+      "path": "site-index.json",
+      "added": 96,
+      "deleted": 100
+    },
+    {
+      "path": "sitemap.xml",
+      "added": 26,
+      "deleted": 26
+    },
+    {
+      "path": "social.html",
+      "added": 1,
+      "deleted": 1
+    },
+    {
+      "path": "store.html",
+      "added": 8,
+      "deleted": 58
+    },
+    {
+      "path": "studio.html",
+      "added": 12,
+      "deleted": 8
+    },
+    {
+      "path": "tools/audit_content.py",
+      "added": 176,
+      "deleted": 0
+    },
+    {
+      "path": "tools/audit_creation_sources.py",
+      "added": 133,
+      "deleted": 0
+    },
+    {
+      "path": "tools/build_agent_index.py",
+      "added": 6,
+      "deleted": 4
+    },
+    {
+      "path": "tools/build_content.py",
+      "added": 3,
+      "deleted": 4
+    },
+    {
+      "path": "tools/build_local_review.py",
+      "added": 208,
+      "deleted": 0
+    },
+    {
+      "path": "tools/build_site_index.py",
+      "added": 27,
+      "deleted": 28
+    },
+    {
+      "path": "tools/check_local_review.py",
+      "added": 123,
+      "deleted": 0
+    },
+    {
+      "path": "tools/content_review_browser.py",
+      "added": 245,
+      "deleted": 0
+    },
+    {
+      "path": "tools/maintain_timeattack_public.py",
+      "added": 22,
+      "deleted": 1
+    },
+    {
+      "path": "tools/open_local_review.py",
+      "added": 14,
+      "deleted": 0
+    },
+    {
+      "path": "tools/review_bundle/README.txt.in",
+      "added": 29,
+      "deleted": 0
+    },
+    {
+      "path": "tools/review_bundle/review.css",
+      "added": 3,
+      "deleted": 0
+    },
+    {
+      "path": "tools/review_bundle/review.html.in",
+      "added": 32,
+      "deleted": 0
+    },
+    {
+      "path": "tools/review_bundle/review.js",
+      "added": 21,
+      "deleted": 0
+    },
+    {
+      "path": "tools/review_bundle/serve.py",
+      "added": 110,
+      "deleted": 0
+    },
+    {
+      "path": "tools/test_content_audit.py",
+      "added": 120,
+      "deleted": 0
+    }
+  ]
+}

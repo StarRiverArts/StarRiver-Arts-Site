@@ -1,0 +1,98 @@
+{
+  "browser": "Edg/155.0.4283.45",
+  "base": "http://127.0.0.1:4190/proposal/",
+  "external_network": "External host resolution disabled; known remote assets blocked via CDP.",
+  "cases": [
+    {
+      "path": "museum/interactive/design-system-visualize/falloff-predictor.html",
+      "status": "public",
+      "width": 390,
+      "language": "zh",
+      "failures": [],
+      "metrics": {
+        "title": "Falloff Predictor · 光衰減預估",
+        "lang": "zh-Hant",
+        "width": 390,
+        "contentWidth": 1200,
+        "h1": 1,
+        "brokenImages": [],
+        "jp": 0,
+        "placeholders": [],
+        "heroRanges": false,
+        "text": "VGSS · 003 · FALLOFF PREDICTOR\nFalloff Predictor 光衰減預估\nPredict illuminance, drift, and verdict before baking. Drift > ΔE 8 means re-light, not re-bake.\ncontrol · 控制\nLIGHT · 光源\n5000K · KEY\n3200K · warm\n暖光\n5000K · key\n主光\n5600K · cool\n冷光\nenv tint\n自然\nSURFACE · 材質\nBODY LIMESTONE\nbody limestone\n本體・石灰岩\nwarm oak\n暖・橡木\ncool marble\n冷・大理石\nenv moss\n自然・苔\nFALLOFF · 衰減模型\nUNITY HDRP / URP PHYSICAL\ninverse-square\nUnity HDRP / URP physical\nsmooth\nUnreal · URP smooth\nlinear\nUnity Built-in · lilToon\nconstant\nbaked-emission flats\nI₀ · 1M INTENSITY\n800 LUX @ 1 M\nRANGE · 衰減距離\n6.0 M\nD · 觀看距離\n1.50 M\nTARGET ILLUM · 目標照度\n300 LUX\nrender preview · 即時渲染\nalbedo × light × falloff\n#E4DDCA\nTARGET\n#EEEEEE\nRENDERED\n#E4DDCA\nILLUMINANCE\n356 lx\nΔE DRIFT\n11.64\nBAND\nstandard\nDrift 11.6 ΔE · cast yellow\nLIGHT\nSwitch light to 5600K · cool\n5000K · key → 5600K · cool compensates 10.0 warm cast\napply →\nMATL\nOr shift albedo cool · −a / −b by 7%\nlocks to this lighting only — re-do if light changes\nBOTH\nBest result · combine: light −1 step + material 3% counter-tint\neach path halves the drift; together brings ΔE under 3\nVERIFY\nRe-bake only after ΔE < 3 and illuminance in band\ncurrent: 11.6 ΔE · 356 lx · standard\nfalloff curves · 衰減曲線\nlog lux · 0.3–8 m\n50\n200\n500\n1500\n1 m\n2 m\n3 m\n4 m\n5 m\n6 m\n7 m\n356 lx\ninverse-square\nsmooth\nlinear\nconstant\ntarget illum reference"
+      },
+      "limitations": [
+        "horizontal-overflow",
+        "language-mismatch"
+      ]
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/falloff-predictor.html",
+      "status": "public",
+      "width": 1440,
+      "language": "en",
+      "failures": [],
+      "metrics": {
+        "title": "Falloff Predictor · 光衰減預估",
+        "lang": "zh-Hant",
+        "width": 1440,
+        "contentWidth": 1425,
+        "h1": 1,
+        "brokenImages": [],
+        "jp": 0,
+        "placeholders": [],
+        "heroRanges": false,
+        "text": "VGSS · 003 · FALLOFF PREDICTOR\nFalloff Predictor 光衰減預估\nPredict illuminance, drift, and verdict before baking. Drift > ΔE 8 means re-light, not re-bake.\ncontrol · 控制\nLIGHT · 光源\n5000K · KEY\n3200K · warm\n暖光\n5000K · key\n主光\n5600K · cool\n冷光\nenv tint\n自然\nSURFACE · 材質\nBODY LIMESTONE\nbody limestone\n本體・石灰岩\nwarm oak\n暖・橡木\ncool marble\n冷・大理石\nenv moss\n自然・苔\nFALLOFF · 衰減模型\nUNITY HDRP / URP PHYSICAL\ninverse-square\nUnity HDRP / URP physical\nsmooth\nUnreal · URP smooth\nlinear\nUnity Built-in · lilToon\nconstant\nbaked-emission flats\nI₀ · 1M INTENSITY\n800 LUX @ 1 M\nRANGE · 衰減距離\n6.0 M\nD · 觀看距離\n1.50 M\nTARGET ILLUM · 目標照度\n300 LUX\nrender preview · 即時渲染\nalbedo × light × falloff\n#E4DDCA\nTARGET\n#EEEEEE\nRENDERED\n#E4DDCA\nILLUMINANCE\n356 lx\nΔE DRIFT\n11.64\nBAND\nstandard\nDrift 11.6 ΔE · cast yellow\nLIGHT\nSwitch light to 5600K · cool\n5000K · key → 5600K · cool compensates 10.0 warm cast\napply →\nMATL\nOr shift albedo cool · −a / −b by 7%\nlocks to this lighting only — re-do if light changes\nBOTH\nBest result · combine: light −1 step + material 3% counter-tint\neach path halves the drift; together brings ΔE under 3\nVERIFY\nRe-bake only after ΔE < 3 and illuminance in band\ncurrent: 11.6 ΔE · 356 lx · standard\nfalloff curves · 衰減曲線\nlog lux · 0.3–8 m\n50\n200\n500\n1500\n1 m\n2 m\n3 m\n4 m\n5 m\n6 m\n7 m\n356 lx\ninverse-square\nsmooth\nlinear\nconstant\ntarget illum reference"
+      },
+      "limitations": [
+        "language-mismatch"
+      ]
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/spatial-planner.html",
+      "status": "public",
+      "width": 390,
+      "language": "zh",
+      "failures": [],
+      "metrics": {
+        "title": "Spatial Planner · 空間規劃工具",
+        "lang": "zh-Hant",
+        "width": 390,
+        "contentWidth": 1400,
+        "h1": 1,
+        "brokenImages": [],
+        "jp": 0,
+        "placeholders": [],
+        "heroRanges": false,
+        "text": "VGSS · 002 · SPATIAL PLANNER\nSpatial Planner 空間規劃工具\n↧ export scene\n↥ import\nAuto-saves locally. Drag in plan or elevation.\nMODE · 模式\nReserve\n預留\nWall\n牆\nLight\n光\nROOM · 平面\nRectangle\n矩形\nL-shape\nL 形\nT-shape\nT 形\nHexagon\n六角\nOval\n橢圓\nCorridor\n走廊\nCircle\n圓形建築\nHalf-fan\n半扇形\nSIZE · 尺寸\nS\n30×30×50\nM\n60×60×100\nL\n120×120×150\nXL\n240×240×240\nSelect a size · 選尺寸\nELEV. WALL · 立面\nN · 北\nS · 南\nE · 東\nW · 西\nSCENE\n4 R · 1 W · 4 L\nclear all\n平面圖 · Plan\n10×7 m · 1:50 · grid 100 cm\nENV\nM\nM\nL\nXL\n主光 · soft\n主光 · soft\n暖光 · soft\n暖光 · soft\nN\n0\n3 m\n立面圖 · Elevation · Wall N\n10 m wide · ceiling 350 cm\nEYE · 130\nM\nM\nL\nXL\nFLOOR · 0\nCEILING · 350\n100\n200\n300\nvalidate · 驗證\nReserve L · 120×120×150\n✓\nCentroid achievable at 130 cm\nPlinth height = 55 cm raises centroid to eye\n✗\nClearance 150 cm\n1 neighbour(s) within clearance\n✓\nFree-standing — no wall constraint\nCentre of room placement OK\n✗\nWithin ±15° focus cone @ 150 cm\nHalf-height 75 cm > cone limit — increase distance to ≥ 280 cm\n✓\nLit by 3 lights\nAmbient ≈ #262118 · sources: 主光, 主光, 暖光\nPOSITION\n(440, 280)\nVOLUME\n120 × 120 × 150 cm\nCLEARANCE\n150 cm"
+      },
+      "limitations": [
+        "horizontal-overflow",
+        "language-mismatch"
+      ]
+    },
+    {
+      "path": "museum/interactive/design-system-visualize/spatial-planner.html",
+      "status": "public",
+      "width": 1440,
+      "language": "en",
+      "failures": [],
+      "metrics": {
+        "title": "Spatial Planner · 空間規劃工具",
+        "lang": "zh-Hant",
+        "width": 1440,
+        "contentWidth": 1440,
+        "h1": 1,
+        "brokenImages": [],
+        "jp": 0,
+        "placeholders": [],
+        "heroRanges": false,
+        "text": "VGSS · 002 · SPATIAL PLANNER\nSpatial Planner 空間規劃工具\n↧ export scene\n↥ import\nAuto-saves locally. Drag in plan or elevation.\nMODE · 模式\nReserve\n預留\nWall\n牆\nLight\n光\nROOM · 平面\nRectangle\n矩形\nL-shape\nL 形\nT-shape\nT 形\nHexagon\n六角\nOval\n橢圓\nCorridor\n走廊\nCircle\n圓形建築\nHalf-fan\n半扇形\nSIZE · 尺寸\nS\n30×30×50\nM\n60×60×100\nL\n120×120×150\nXL\n240×240×240\nSelect a size · 選尺寸\nELEV. WALL · 立面\nN · 北\nS · 南\nE · 東\nW · 西\nSCENE\n4 R · 1 W · 4 L\nclear all\n平面圖 · Plan\n10×7 m · 1:50 · grid 100 cm\nENV\nM\nM\nL\nXL\n主光 · soft\n主光 · soft\n暖光 · soft\n暖光 · soft\nN\n0\n3 m\n立面圖 · Elevation · Wall N\n10 m wide · ceiling 350 cm\nEYE · 130\nM\nM\nL\nXL\nFLOOR · 0\nCEILING · 350\n100\n200\n300\nvalidate · 驗證\nReserve L · 120×120×150\n✓\nCentroid achievable at 130 cm\nPlinth height = 55 cm raises centroid to eye\n✗\nClearance 150 cm\n1 neighbour(s) within clearance\n✓\nFree-standing — no wall constraint\nCentre of room placement OK\n✗\nWithin ±15° focus cone @ 150 cm\nHalf-height 75 cm > cone limit — increase distance to ≥ 280 cm\n✓\nLit by 3 lights\nAmbient ≈ #262118 · sources: 主光, 主光, 暖光\nPOSITION\n(440, 280)\nVOLUME\n120 × 120 × 150 cm\nCLEARANCE\n150 cm"
+      },
+      "limitations": [
+        "language-mismatch"
+      ]
+    }
+  ],
+  "passed": true
+}

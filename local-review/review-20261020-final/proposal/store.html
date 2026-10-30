@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Store — 星河 StarRiver Arts</title>
+<link rel="icon" href="assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="ds-additions.css">
+<style>
+  html,body{margin:0;min-height:100%;background:var(--sr-paper,#F3EEE3)}
+  html.lang-zh #st :is(.en){display:none}
+  html.lang-en #st :is(.zh){display:none}
+  #st{min-height:100vh;background:var(--sr-paper,#F3EEE3);color:var(--sr-ink,#14140E);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  #st a{color:inherit;text-decoration:none}
+  #st img{display:block;max-width:100%}
+  #st .st-ribbon{background:var(--sr-ink,#14140E);color:var(--sr-paper,#F3EEE3);font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:9px 16px}
+  #st .st-ribbon b{color:var(--sr-amber,#E88A2E);font-weight:700}
+  #st .st-nav{position:sticky;top:0;z-index:30;height:60px;display:flex;align-items:center;padding:0 40px;background:rgba(243,238,227,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-300,rgba(40,40,41,.14))}
+  #st .st-home{display:flex;align-items:center;gap:8px;margin-right:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500)}
+  #st .st-home svg{width:10px;height:10px}
+  #st .st-brand{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--sr-ink,#14140E)}
+  #st .st-lang{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);background:none;border:1px solid var(--gray-300,rgba(40,40,41,.18));border-radius:0;padding:5px 11px;cursor:pointer}
+  #st .st-wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  #st .st-hero{padding:84px 40px 60px;max-width:1180px;margin:0 auto}
+  #st .st-kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-400);margin-bottom:22px}
+  #st .st-title{font-family:var(--font-display);font-weight:900;font-size:clamp(52px,9vw,116px);line-height:.9;letter-spacing:-.04em;color:var(--sr-ink,#14140E);margin:0 0 26px}
+  #st .st-sub{font-family:var(--font-body);font-size:20px;line-height:1.6;color:var(--gray-700);max-width:620px;margin:0}
+  #st .st-concept{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:10px 16px;border:1px dashed var(--sr-amber,#E88A2E);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sr-amber-lo,#b96a1f)}
+  #st .st-concept::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sr-amber,#E88A2E)}
+  #st .st-sec{max-width:1180px;margin:0 auto;padding:56px 40px;border-top:1px solid var(--gray-300,rgba(40,40,41,.12))}
+  #st .st-sec-h{font-family:var(--font-deck);font-weight:700;font-size:clamp(26px,3vw,34px);letter-spacing:-.01em;color:var(--sr-ink,#14140E);margin:0 0 8px}
+  #st .st-sec-note{font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--gray-600);max-width:640px;margin:0 0 32px}
+  #st .st-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #st .st-card{display:flex;flex-direction:column;background:rgba(255,255,255,.55);border:1px solid var(--gray-300,rgba(40,40,41,.12))}
+  #st .st-card-fig{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,rgba(40,40,41,.05) 0 14px,rgba(40,40,41,.025) 14px 28px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--gray-300,rgba(40,40,41,.1))}
+  #st .st-card-fig span{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #st .st-card-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  #st .st-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+  #st .st-name{font-family:var(--font-deck);font-weight:700;font-size:20px;line-height:1.12;color:var(--sr-ink,#14140E)}
+  #st .st-desc{font-family:var(--font-body);font-size:14px;line-height:1.6;color:var(--gray-600);flex:1}
+  #st .st-foot-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid var(--gray-300,rgba(40,40,41,.1))}
+  #st .st-price{font-family:var(--font-deck);font-weight:700;font-size:18px;color:var(--sr-ink,#14140E)}
+  #st .st-price small{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);margin-left:6px}
+  /* CTA rendered as a NON-interactive concept marker — deliberately not a link */
+  #st .st-cta-off{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);border:1px solid var(--gray-300,rgba(40,40,41,.16));padding:7px 11px;cursor:not-allowed;user-select:none}
+  #st .st-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  #st .st-chan{padding:22px;border:1px solid var(--gray-300,rgba(40,40,41,.12));background:rgba(255,255,255,.5)}
+  #st .st-chan-t{font-family:var(--font-deck);font-weight:700;font-size:18px;color:var(--sr-ink,#14140E);margin:0 0 8px}
+  #st .st-chan-d{font-family:var(--font-body);font-size:14px;line-height:1.65;color:var(--gray-600);margin:0}
+  #st .st-foot{margin-top:24px;padding:40px;max-width:1180px;margin-left:auto;margin-right:auto;border-top:1px solid var(--gray-300,rgba(40,40,41,.12));display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400)}
+  @media(max-width:880px){#st .st-grid,#st .st-channels{grid-template-columns:1fr}#st .st-hero,.st-sec,.st-foot{padding-left:20px;padding-right:20px}#st .st-nav{padding:0 20px}}
+</style>
+</head>
+<body>
+<div id="st" data-screen-label="Store">
+
+
+  <nav class="st-nav">
+    <a class="st-home" href="index.html">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+      <span class="st-brand">星河 STARRIVER ARTS</span>
+    </a>
+    <button class="st-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </nav>
+
+  <header class="st-hero">
+    <div class="st-kicker"><span class="zh">商店</span><span class="en">Store</span></div>
+    <h1 class="st-title">Store</h1>
+    <p class="st-sub"><span class="zh">目前沒有上架商品。</span><span class="en">There are no products available.</span></p>
+  </header>
+
+  <section class="st-sec">
+    <a class="st-home" href="studio.html"><span class="zh">探索作品</span><span class="en">Explore selected works</span> →</a>
+    <!-- StoreEnd -->
+  </section>
+  <footer class="st-foot">
+    <span><span class="zh">星河 StarRiver Arts</span><span class="en">StarRiver Arts</span></span>
+    <span>2026 StarRiver Arts</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function norm(l){ return avail.indexOf(l)>=0 ? l : avail[0]; }
+  function apply(l){ l=norm(l);
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

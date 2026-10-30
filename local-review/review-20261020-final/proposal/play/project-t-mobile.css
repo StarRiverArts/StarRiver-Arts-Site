@@ -1,0 +1,12 @@
+/* The community pages keep their night palette and share the accessible menu. */
+#rc .pt-menu-toggle{display:none}
+@media(max-width:1000px){
+  #rc .rc-nav.has-mobile-menu{display:grid;grid-template-columns:minmax(0,1fr) auto auto;height:auto;gap:8px;padding:10px 12px}
+  #rc .rc-home{min-width:0;margin:0;gap:5px}
+  #rc .rc-brand{font-size:11px;letter-spacing:0}
+  #rc .rc-lang{margin:0;min-height:44px;max-width:110px;font-size:12px;padding:8px}
+  #rc .pt-menu-toggle{display:block;order:2;min-height:44px;min-width:48px;font:inherit;font-size:13px;padding:8px;border:1px solid var(--rc-line);border-radius:4px;background:var(--rc-panel);color:var(--rc-fg);cursor:pointer}
+  #rc .rc-nav.has-mobile-menu .rc-links{display:none;grid-column:1/-1;order:3}
+  #rc .rc-nav.has-mobile-menu.is-menu-open .rc-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  #rc .rc-nav.has-mobile-menu .rc-links a{min-height:44px;height:auto;padding:12px 8px;white-space:normal;font-size:13px}
+}

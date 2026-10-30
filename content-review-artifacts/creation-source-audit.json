@@ -1,0 +1,1513 @@
+{
+  "schema": "creation-source-audit/1",
+  "generated_at": "2026-10-19T23:52:15.562369+00:00",
+  "passed": false,
+  "mode": "read-only local sources",
+  "source_fingerprints": [
+    {
+      "path": "tools/creation_ledger/decisions.yaml",
+      "sha256": "e786ce6ec2f8c9f4d985bdbd508425b3928d4b447d58e914a5aa3ac5cd073ea7"
+    },
+    {
+      "path": "tools/creation_ledger/ssot_registry.yaml",
+      "sha256": "13568b3f08996aa1de298c1abfdbdacf09bdbc4bcdd99efc6cf41e7cfb78d367"
+    },
+    {
+      "path": "tools/creation_ledger/vrchat_world_mappings.yaml",
+      "sha256": "f683abb80e722ad16eaec141c3602572e2f2dd534060cc655b877fcbbb617d82"
+    },
+    {
+      "path": "tools/creation_ledger/projects/ad-astra.yaml",
+      "sha256": "a5e1f71308bc70609a4dca5843cc53728aa1fc18c47f0c47a0e516b9d937cd02"
+    },
+    {
+      "path": "tools/creation_ledger/projects/ankeng-gt.yaml",
+      "sha256": "508a2486d94174b9be0aace5570e88e688f625be090e060d34b002fbe01463a5"
+    },
+    {
+      "path": "tools/creation_ledger/projects/artc.yaml",
+      "sha256": "45620bd80eaecce38686cb56bfc3337837909e3143ec56fe472f2ee30b4d8a6d"
+    },
+    {
+      "path": "tools/creation_ledger/projects/backroom-tpe.yaml",
+      "sha256": "3a77d4e5fc7109f2f19aa434cd94f457fa777e13c780b1f288b435f2f1129cdd"
+    },
+    {
+      "path": "tools/creation_ledger/projects/beyond-gravity.yaml",
+      "sha256": "5089a9320366c689187753e4d6b104b2d0d2f892623690ec36b04f3eeed231f1"
+    },
+    {
+      "path": "tools/creation_ledger/projects/birdlife.yaml",
+      "sha256": "6cffd02a250c041257c4b6e358dfb55e31577803b774e1e0d9163ea65ada6933"
+    },
+    {
+      "path": "tools/creation_ledger/projects/dapeng-bay-circuit.yaml",
+      "sha256": "24d29dfcc88ec95b7bdad62e8986d5dda51869bfb745b03b6f549730eb25d2a4"
+    },
+    {
+      "path": "tools/creation_ledger/projects/felis-avatar-workspace.yaml",
+      "sha256": "a5478f8f2379cb667de76c4982fb7803c2ecbdf8c08864d09764548656e81221"
+    },
+    {
+      "path": "tools/creation_ledger/projects/formosa.yaml",
+      "sha256": "1633483bc0d21a90d52869919539758d179ab044607ac79934af93483b5941a0"
+    },
+    {
+      "path": "tools/creation_ledger/projects/fujiwara-tofu.yaml",
+      "sha256": "398a6d5daf6349d6ef1ab874d2c8387e8552f8a38244d3db835d8e05a2a68099"
+    },
+    {
+      "path": "tools/creation_ledger/projects/green-island.yaml",
+      "sha256": "c4ddb61b1026984c21a714736e43887fbb6b59dfddecffd5012243f96f2276f3"
+    },
+    {
+      "path": "tools/creation_ledger/projects/greenroom.yaml",
+      "sha256": "462fef03401f852d87d4741874c9657d78ca82dc1566be282539697f571453fa"
+    },
+    {
+      "path": "tools/creation_ledger/projects/guishan-island.yaml",
+      "sha256": "250ae3b4dabd4ab62de792153e83d73a96a1e3891e0006e5cf65b6d50d47d24b"
+    },
+    {
+      "path": "tools/creation_ledger/projects/guishan.yaml",
+      "sha256": "4412e01ce57a5ef2216e4ab10c96f0141e2a2788dcad2feb10019ea2c5ca9398"
+    },
+    {
+      "path": "tools/creation_ledger/projects/hide-and-seek-lab.yaml",
+      "sha256": "73ed90203eba3cc8f30e6b268e5d8d53ef1796735a78da553517f9748959de30"
+    },
+    {
+      "path": "tools/creation_ledger/projects/highway-track.yaml",
+      "sha256": "8d6ffe8b128ecdb6262af98b202962242c45015729afa5677bfa4da656bcd30d"
+    },
+    {
+      "path": "tools/creation_ledger/projects/iseri-nina-room.yaml",
+      "sha256": "06cb850c828ccbb8554d823a75684bdb3f4872db9e830e888eaea18c5b122093"
+    },
+    {
+      "path": "tools/creation_ledger/projects/lantan.yaml",
+      "sha256": "08b927ecf5d2cbb270817ebfd7304d0187abe0fe31a157fb8a5deeabe3e4d833"
+    },
+    {
+      "path": "tools/creation_ledger/projects/lanyu.yaml",
+      "sha256": "7d5e7925178dd7c952379a9517819dfcac81061ce79ef60056f1c4000de83ab9"
+    },
+    {
+      "path": "tools/creation_ledger/projects/lishan.yaml",
+      "sha256": "e16bdc6b683b8fae86b528e5ca2ca24dbe18947644ac32a446ebc049757ce000"
+    },
+    {
+      "path": "tools/creation_ledger/projects/liyu-lake.yaml",
+      "sha256": "ef23f06c32cfd3bc43f37ad03a73397b1aa29ee80483d5b9607c0baaf2300ef7"
+    },
+    {
+      "path": "tools/creation_ledger/projects/maolin-duona.yaml",
+      "sha256": "f7224b1b103fc75065bae3c8e40900ef2790192548da792c3b4cb04d5a93abc1"
+    },
+    {
+      "path": "tools/creation_ledger/projects/nineturns.yaml",
+      "sha256": "4b8b7a0344a419e1351a51cd8961c2b80ba35d80d9354a9595945882d85290b9"
+    },
+    {
+      "path": "tools/creation_ledger/projects/penghu.yaml",
+      "sha256": "4ddd9ea7cf69a38e4a4e334ac497397037b6d9d884cc0a4af343764729216268"
+    },
+    {
+      "path": "tools/creation_ledger/projects/project-museum.yaml",
+      "sha256": "ca947a5a659e71269555bd2e22ba94e94719683cd6dc8e531528d5d6cb774286"
+    },
+    {
+      "path": "tools/creation_ledger/projects/project-prototype.yaml",
+      "sha256": "e849e90030ddd28b854819fae17c6df95e468650dfc6a6151cc162d6cd55700b"
+    },
+    {
+      "path": "tools/creation_ledger/projects/project-rail.yaml",
+      "sha256": "85ae9618f6f3a90ef3cead2ddbb4b05b312c5242e1c519e0856c0d040e5c62e7"
+    },
+    {
+      "path": "tools/creation_ledger/projects/project-taiwan.yaml",
+      "sha256": "f806f34c054c0c019a64e1635ef091fa515b86434d33502caa864c752fe3c6cc"
+    },
+    {
+      "path": "tools/creation_ledger/projects/qilan-777.yaml",
+      "sha256": "c62ab8b8baa4f6c4f27ff88caee4b13ee5490ea787bb7c1037eea766958c30f9"
+    },
+    {
+      "path": "tools/creation_ledger/projects/shaderlab.yaml",
+      "sha256": "106249dbd8da298128f4e5725bed07a43b09c0a7c73ea0d1d68120d8975078c2"
+    },
+    {
+      "path": "tools/creation_ledger/projects/shengling-scenic-road.yaml",
+      "sha256": "9bfebbf228aa2e79066c97b92d923d98d010a4d7181fcca584b7a7e4257edcfe"
+    },
+    {
+      "path": "tools/creation_ledger/projects/stair.yaml",
+      "sha256": "c0173f8fb7376cafb1ad495563d78ecf57bf4946766f6f9a04ab1d8532a01f73"
+    },
+    {
+      "path": "tools/creation_ledger/projects/stargate-plaza.yaml",
+      "sha256": "c1c675cfeaeee4dc8e41acdc8d09256f2ae9196879880dc702a0311996ea066d"
+    },
+    {
+      "path": "tools/creation_ledger/projects/starsight.yaml",
+      "sha256": "102db4e7bc96ca264c25130df192b4708cec18bbee047f112d600a413bcab3e5"
+    },
+    {
+      "path": "tools/creation_ledger/projects/sunmoon-lake.yaml",
+      "sha256": "59ecc10c3dc3830a2bf9107af3a0350d4c8e93038454df3574ee0e70578404b4"
+    },
+    {
+      "path": "tools/creation_ledger/projects/tai102-jiufen-shuangxi.yaml",
+      "sha256": "f7c97fa2553d45682cbb5daa35b57f6d344b7728bebd13ab80ecd73fd3bca489"
+    },
+    {
+      "path": "tools/creation_ledger/projects/tarot.yaml",
+      "sha256": "d81b4c6f975a6f1d105ce4c037ffd97ae1a6b1e25de67efe27e2995fd96e2d33"
+    },
+    {
+      "path": "tools/creation_ledger/projects/wuling.yaml",
+      "sha256": "0cad7c0ca5f00fe9f5509c438ac13512981cd6c9f9240cfdc2bf990805f468eb"
+    },
+    {
+      "path": "tools/creation_ledger/projects/xiaoliuqiu.yaml",
+      "sha256": "4bc999791dad0f2365299cbdbbf6bcd41fa1b49ae9c3b134d1dcef8e606bf02c"
+    },
+    {
+      "path": "tools/creation_ledger/projects/xinyi-city-racing.yaml",
+      "sha256": "ca3400e09ca9a3c7bedee173ac1d63de382108d39bd546b533ced4f7dd3434b3"
+    },
+    {
+      "path": "tools/creation_ledger/projects/yangmingshan.yaml",
+      "sha256": "ccfef26fa8012870bdff8018ef669b22d9dbcc37c8158a0d476b30e2fc3e5988"
+    },
+    {
+      "path": "tools/creation_ledger/projects/yuchang.yaml",
+      "sha256": "30921f44801257c8978733281aefb4aafde73890875057d9e75f4544b1bc8466"
+    },
+    {
+      "path": "tools/creation_ledger/projects/zhiben-dark-sky.yaml",
+      "sha256": "dc3dc961c60dccd2baf622c0a453befbf69192b5aa4c639e90fff074c47c41ae"
+    },
+    {
+      "path": "tools/creation_ledger/projects/zhiben.yaml",
+      "sha256": "b3eb6255394b8879cd809ef0c9e786c86801f9a94ec3b8663a6df27b40d5a6c7"
+    },
+    {
+      "path": "tools/creation_ledger/projects/zhonghe-park-f-class.yaml",
+      "sha256": "a729b4c2804b32d307496f3a74c41a5ba201f571a8374eaa1ea44ee0fd4ba56c"
+    }
+  ],
+  "projects": [
+    {
+      "id": "ad-astra",
+      "record_kind": null,
+      "name_zh": "Ad Astra 系統製作場",
+      "name_en": "Ad Astra",
+      "status": "inactive_research_core",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "research_core_inactive",
+        "activity": "inactive",
+        "future_phase": "production_workspace"
+      },
+      "portfolio": {
+        "visibility": "internal_until_mature",
+        "importance": "core",
+        "strategic_role": "one_of_research_cores"
+      }
+    },
+    {
+      "id": "ankeng-gt",
+      "record_kind": null,
+      "name_zh": "安坑 GT",
+      "name_en": "Ankeng GT",
+      "status": "concept_candidate",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "potential_concept",
+        "activity": "inactive",
+        "resumable": true,
+        "scene_content_state": "empty",
+        "execution_authorized": false,
+        "update_policy": "no_active_development"
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "retained_potential_concept"
+      }
+    },
+    {
+      "id": "artc",
+      "record_kind": null,
+      "name_zh": "ARTC",
+      "name_en": "ARTC",
+      "status": "semi_public_test_world",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "controlled_semi_public_testing",
+        "public_access": "tester_access",
+        "public_world_url_policy": "do_not_publish",
+        "resumable": true
+      },
+      "portfolio": {
+        "visibility": "semi_public",
+        "importance": "core",
+        "strategic_role": "key_vehicle_development_research_core"
+      }
+    },
+    {
+      "id": "backroom-tpe",
+      "record_kind": null,
+      "name_zh": "Backroom_TPE．臺北後室_松山菸廠",
+      "name_en": "Backroom TPE",
+      "status": "completed_public_updates_paused",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "completed_public",
+        "activity": "inactive",
+        "update_policy": "paused_no_current_updates",
+        "future_update_potential": true,
+        "maintenance_workspace_policy": "continue_in_yangmingshan_shared_workspace",
+        "maintenance_change_scope": "review_each_change_individually"
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "normal_public_work",
+        "strategic_role": "completed_public_work_with_update_potential"
+      }
+    },
+    {
+      "id": "beyond-gravity",
+      "record_kind": null,
+      "name_zh": "Beyond Gravity",
+      "name_en": "Beyond Gravity",
+      "status": "published_updates_paused",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "completed_event_world_public",
+        "activity": "inactive",
+        "update_policy": "paused_no_current_updates",
+        "future_update_potential": true
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "normal_public_work",
+        "strategic_role": "completed_event_world_with_update_potential"
+      }
+    },
+    {
+      "id": "birdlife",
+      "record_kind": null,
+      "name_zh": "BirdLife 景觀畢業展虛擬展區",
+      "name_en": "BirdLife",
+      "status": "discontinued",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "archived",
+        "activity": "inactive",
+        "correction_potential": true,
+        "restart_intent": "not_planned",
+        "update_policy": "paused_except_optional_corrections"
+      },
+      "portfolio": {
+        "visibility": "low",
+        "featured": false,
+        "presentation_policy": "keep_low_profile",
+        "rationale": "user_preference_not_to_emphasize"
+      }
+    },
+    {
+      "id": "dapeng-bay-circuit",
+      "record_kind": null,
+      "name_zh": "大鵬灣國際賽道",
+      "name_en": "Dapeng Bay International Circuit",
+      "status": "frozen",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_supplied_candidate_list"
+      },
+      "lifecycle": {
+        "phase": "frozen_no_production_capability",
+        "activity": "inactive",
+        "resumable": true,
+        "concept_valid": true,
+        "production_capability": "unavailable",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "valid_frozen_candidate"
+      }
+    },
+    {
+      "id": "felis-avatar-workspace",
+      "record_kind": "legacy_avatar_workspace",
+      "name_zh": "Felis Avatar 套用工作區",
+      "name_en": "Felis by ryuku256",
+      "status": "non_project_legacy_workspace",
+      "program": null,
+      "origin": {
+        "type": "adapted",
+        "confidence": "user_confirmed_third_party_asset_application"
+      },
+      "lifecycle": {
+        "phase": "legacy",
+        "activity": "historical",
+        "project_valid": false,
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "excluded",
+        "featured": false
+      }
+    },
+    {
+      "id": "formosa",
+      "record_kind": null,
+      "name_zh": "福爾摩沙社群樞紐",
+      "name_en": "Formosa Community Hub",
+      "status": "stalled_not_frozen",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "progress_stalled",
+        "activity": "stalled",
+        "collaboration": "community",
+        "frozen": false,
+        "stall_cause": "team_operations_failure",
+        "freeze_decision": "not_now"
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "core",
+        "strategic_role": "community_hub"
+      }
+    },
+    {
+      "id": "fujiwara-tofu",
+      "record_kind": null,
+      "name_zh": "藤原とうふ店",
+      "name_en": "Fujiwara Tofu Shop",
+      "status": "historical_no_current_significance",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "historical_record",
+        "activity": "inactive",
+        "resumable": false,
+        "development_value": "none",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "excluded",
+        "importance": "none",
+        "strategic_role": "identity_record_only"
+      }
+    },
+    {
+      "id": "green-island",
+      "record_kind": null,
+      "name_zh": "綠島",
+      "name_en": "Green Island",
+      "status": "active_scene_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_requested"
+      },
+      "lifecycle": {
+        "phase": "island_terrain_and_route_references_blockout"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "greenroom",
+      "record_kind": null,
+      "name_zh": "GreenRoom",
+      "name_en": "GreenRoom",
+      "status": "published_evergreen_no_maintenance",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "live_evergreen",
+        "activity": "stable",
+        "update_policy": "no_maintenance_required"
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "evergreen",
+        "strategic_role": "minimalist_evergreen_work"
+      }
+    },
+    {
+      "id": "guishan-island",
+      "record_kind": null,
+      "name_zh": "龜山島",
+      "name_en": "Guishan Island",
+      "status": "active_scene_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "island_roads_and_mainland_vista_validated"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "guishan",
+      "record_kind": null,
+      "name_zh": "龜山",
+      "name_en": "Guishan",
+      "status": "awaiting_production",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "predevelopment_waiting_production",
+        "activity": "waiting",
+        "development_tier_peer": "zhiben",
+        "relative_feasibility": "above_zhiben"
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "waiting_production_candidate"
+      }
+    },
+    {
+      "id": "hide-and-seek-lab",
+      "record_kind": null,
+      "name_zh": "Hide and Seek Lab",
+      "name_en": "Hide and Seek Lab",
+      "status": "dormant_restart_potential",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "dormant_concept",
+        "activity": "inactive",
+        "resumable": true,
+        "restart_potential": true,
+        "update_policy": "no_active_development"
+      },
+      "portfolio": {
+        "visibility": "historical",
+        "importance": "dormant_candidate",
+        "strategic_role": "restartable_concept_without_valid_system"
+      }
+    },
+    {
+      "id": "highway-track",
+      "record_kind": null,
+      "name_zh": "Project T 早期快速道路測試",
+      "name_en": "Highway Track Test",
+      "status": "dormant",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "historical_technical_validation",
+        "activity": "inactive",
+        "resumable": true,
+        "restart_potential": true,
+        "road_alignment_state": "problematic",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "historical",
+        "importance": "technical_history",
+        "strategic_role": "early_project_t_validation_evidence"
+      }
+    },
+    {
+      "id": "iseri-nina-room",
+      "record_kind": null,
+      "name_zh": "Iseri Nina's Room（Girls Band Cry）",
+      "name_en": "Iseri Nina's Room",
+      "status": "published",
+      "program": null,
+      "origin": {
+        "type": "adapted",
+        "adaptation_type": "fanmade",
+        "confidence": "user_confirmed",
+        "source_relationship": "obtained_from_another_creator",
+        "source_creator": {
+          "display_name": "negu63",
+          "role": "model_creator",
+          "confidence": "user_confirmed"
+        }
+      },
+      "lifecycle": {
+        "phase": "live_published",
+        "activity": "idle",
+        "update_policy": "no_updates",
+        "publication_state": "remain_public"
+      },
+      "portfolio": {
+        "visibility": "inventory_only",
+        "featured": false,
+        "public_world_inventory": true,
+        "showcase_eligible": false,
+        "exclusion_reason": "user_decision_fan_world_not_in_portfolio_showcase"
+      }
+    },
+    {
+      "id": "lantan",
+      "record_kind": null,
+      "name_zh": "蘭潭",
+      "name_en": "Lantan",
+      "status": "valid_candidate",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "predevelopment_candidate",
+        "activity": "waiting",
+        "concept_valid": true,
+        "implementation_confidence_peer": "guishan",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "higher_value_than_guishan_candidate",
+        "relative_value": "above_guishan"
+      }
+    },
+    {
+      "id": "lanyu",
+      "record_kind": null,
+      "name_zh": "蘭嶼",
+      "name_en": "Lanyu",
+      "status": "active_scene_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_requested"
+      },
+      "lifecycle": {
+        "phase": "island_terrain_and_route_references_blockout"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "lishan",
+      "record_kind": null,
+      "name_zh": "梨山世界",
+      "name_en": "Lishan World",
+      "status": "concept_candidate",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_supplied_concept"
+      },
+      "lifecycle": {
+        "phase": "route_selection",
+        "activity": "candidate",
+        "resumable": true,
+        "concept_valid": true,
+        "selection_priority": "later",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "development_confidence": "medium",
+        "priority": "later",
+        "strategic_role": "valid_later_candidate"
+      }
+    },
+    {
+      "id": "liyu-lake",
+      "record_kind": null,
+      "name_zh": "台 3 線鯉魚潭夜路",
+      "name_en": "Liyu Lake Night Road",
+      "status": "tentative_next_project",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "tentative_next_project_selection",
+        "activity": "planned_next",
+        "resumable": true,
+        "post_wuling_position": "tentative_first_choice",
+        "automatic_start": false,
+        "start_gate_authority": "user"
+      },
+      "portfolio": {
+        "visibility": "internal_until_mature",
+        "importance": "tentative_next",
+        "strategic_role": "tentative_next_production_project",
+        "priority": "tentative_next",
+        "development_confidence": "medium"
+      }
+    },
+    {
+      "id": "maolin-duona",
+      "record_kind": null,
+      "name_zh": "茂林多納",
+      "name_en": "Maolin Duona",
+      "status": "active_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "terrain_and_route_blockout"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "nineturns",
+      "record_kind": null,
+      "name_zh": "九彎十八拐",
+      "name_en": "NineTurns",
+      "status": "remake_required_existing_route_limited",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "awaiting_remake",
+        "activity": "existing_route_retained",
+        "remake_required": true
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "remake_candidate",
+        "strategic_role": "existing_route_awaiting_remake"
+      }
+    },
+    {
+      "id": "penghu",
+      "record_kind": null,
+      "name_zh": "澎湖群島",
+      "name_en": "Penghu Islands",
+      "status": "active_scene_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_requested"
+      },
+      "lifecycle": {
+        "phase": "archipelago_terrain_and_route_references_blockout"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "project-museum",
+      "record_kind": null,
+      "name_zh": "Project Museum",
+      "name_en": "Project Museum",
+      "status": "future_main_plan_2027",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "future_main_plan",
+        "activity": "preproduction_spatial_testing",
+        "future_phase": "production",
+        "target_year": 2027,
+        "minimum_outcome": [
+          "permanent_exhibition_complete",
+          "main_exhibition_hall_complete"
+        ],
+        "completion_authority": "user"
+      },
+      "portfolio": {
+        "visibility": "future",
+        "importance": "future_main_plan",
+        "strategic_role": "2027_main_plan"
+      }
+    },
+    {
+      "id": "project-prototype",
+      "record_kind": null,
+      "name_zh": "Project Prototype",
+      "name_en": "Project Prototype",
+      "status": "published_legacy_maintained",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "live_legacy_maintained",
+        "update_policy": "technical_and_ui_updates_continue",
+        "content_policy": "stable_unless_explicitly_revisited",
+        "public_access": "active"
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "core",
+        "strategic_role": "evergreen_core_work"
+      }
+    },
+    {
+      "id": "project-rail",
+      "record_kind": null,
+      "name_zh": "Project Rail：臺北捷運大坪林站",
+      "name_en": "Project Rail",
+      "status": "dormant",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "dormant",
+        "update_policy": "paused",
+        "resumable": true
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "dormant",
+        "strategic_role": "dormant_work"
+      }
+    },
+    {
+      "id": "project-taiwan",
+      "record_kind": null,
+      "name_zh": "Project Taiwan",
+      "name_en": "Project Taiwan",
+      "status": "discontinued_unpublished_test_world",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "archived",
+        "activity": "inactive",
+        "update_policy": "stopped",
+        "future_development": "none",
+        "concept_migration_state": "informal_experiment_influence_only",
+        "direct_successor": "none",
+        "execution_authorized": false,
+        "publication_history": "never_formally_published",
+        "retention_policy": "stay_in_place_index_only",
+        "archive_execution_authorized": false,
+        "stay_in_place": true,
+        "preservation_copy_required": false,
+        "duplicate_storage_prohibited": true,
+        "index_only_management": true
+      },
+      "portfolio": {
+        "visibility": "historical",
+        "workspace_access": "in_place_best_effort",
+        "strategic_role": "historical_experiment_only"
+      }
+    },
+    {
+      "id": "qilan-777",
+      "record_kind": null,
+      "name_zh": "棲蘭 777 路線",
+      "name_en": "Qilan 777 Route",
+      "status": "active_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_supplied_route_reference"
+      },
+      "lifecycle": {
+        "phase": "modeling_starter_ready",
+        "activity": "active_predevelopment",
+        "resumable": true
+      },
+      "portfolio": null
+    },
+    {
+      "id": "shaderlab",
+      "record_kind": null,
+      "name_zh": "ShaderLab",
+      "name_en": "ShaderLab",
+      "status": "subject_research_center",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "technical_testing",
+        "activity": "as_needed"
+      },
+      "portfolio": {
+        "visibility": "internal",
+        "importance": "core",
+        "strategic_role": "shader_technology_research_center"
+      }
+    },
+    {
+      "id": "shengling-scenic-road",
+      "record_kind": null,
+      "name_zh": "聖稜線觀景山道",
+      "name_en": "Shengling Ridge Scenic Road",
+      "status": "concept_candidate",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_supplied_concept"
+      },
+      "lifecycle": {
+        "phase": "sightline_research",
+        "activity": "candidate",
+        "resumable": true,
+        "concept_valid": true,
+        "independent_identity": true,
+        "positioning_peer": "lishan",
+        "selection_priority": "later",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "development_confidence": "medium",
+        "priority": "later",
+        "strategic_role": "valid_later_candidate"
+      }
+    },
+    {
+      "id": "stair",
+      "record_kind": "experiment_record",
+      "name_zh": "Stair",
+      "name_en": "Stair",
+      "status": "historical_experiment",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "experiment_ended",
+        "activity": "historical",
+        "world_created": false,
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "excluded",
+        "importance": "none",
+        "strategic_role": "experiment_evidence_only"
+      }
+    },
+    {
+      "id": "stargate-plaza",
+      "record_kind": null,
+      "name_zh": "StarGate Plaza",
+      "name_en": "StarGate Plaza",
+      "status": "remake_required",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "retained_for_remake",
+        "activity": "inactive",
+        "resumable": true,
+        "remake_required": true,
+        "positioning_peer": "nineturns",
+        "project_museum_relationship": "independent_work",
+        "update_policy": "remake_before_reactivation"
+      },
+      "portfolio": {
+        "visibility": "historical",
+        "featured": false,
+        "importance": "remake_candidate",
+        "strategic_role": "retained_remake_project"
+      }
+    },
+    {
+      "id": "starsight",
+      "record_kind": null,
+      "name_zh": "觀星山",
+      "name_en": "Starsight",
+      "status": "active",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "active_public_multi_role_world",
+        "activity": "active"
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "operational_core",
+        "strategic_role": "racing_club_public_test_and_headquarters_world"
+      }
+    },
+    {
+      "id": "sunmoon-lake",
+      "record_kind": null,
+      "name_zh": "日月潭",
+      "name_en": "Sun Moon Lake",
+      "status": "frozen",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "frozen",
+        "activity": "inactive",
+        "resumable": true,
+        "long_term_value": true,
+        "consideration_state": "retained_for_future_consideration",
+        "execution_authorized": false,
+        "update_policy": "no_execution"
+      },
+      "portfolio": {
+        "visibility": "internal",
+        "importance": "long_term_candidate",
+        "strategic_role": "retained_long_term_value_candidate"
+      }
+    },
+    {
+      "id": "tai102-jiufen-shuangxi",
+      "record_kind": null,
+      "name_zh": "九份",
+      "name_en": "Jiufen",
+      "status": "gis_blockout_primary_undecided",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed_scope"
+      },
+      "lifecycle": {
+        "phase": "geographic_network_and_recording_reference"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "tarot",
+      "record_kind": "legacy_avatar_record",
+      "name_zh": "TAROT",
+      "name_en": "TAROT",
+      "status": "historical_avatar_attempt",
+      "program": null,
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "historical_attempt",
+        "activity": "historical",
+        "world_created": false,
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "excluded",
+        "importance": "none",
+        "strategic_role": "avatar_attempt_evidence_only"
+      }
+    },
+    {
+      "id": "wuling",
+      "record_kind": null,
+      "name_zh": "武嶺",
+      "name_en": "Wuling",
+      "status": "active",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "completion_push_preparation",
+        "activity": "active",
+        "completion_target": "advance_to_complete",
+        "completion_authority": "user",
+        "completion_gates": [
+          {
+            "id": "drivable",
+            "requirement": "route_and_vehicle_experience_is_drivable",
+            "approval": "user"
+          },
+          {
+            "id": "visual_quality",
+            "requirement": "scenery_matches_user_aesthetic",
+            "approval": "user_visual_review"
+          },
+          {
+            "id": "performance",
+            "requirement": "performance_resource_cost_is_not_high",
+            "approval": "user"
+          },
+          {
+            "id": "racing_timing",
+            "requirement": "racing_timing_gates_are_complete",
+            "approval": "user_functional_review"
+          }
+        ]
+      },
+      "portfolio": {
+        "visibility": "normal",
+        "importance": "flagship",
+        "strategic_role": "project_t_flagship_completion_push"
+      }
+    },
+    {
+      "id": "xiaoliuqiu",
+      "record_kind": null,
+      "name_zh": "小琉球",
+      "name_en": "Xiaoliuqiu",
+      "status": "active_scene_asset_preparation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_requested"
+      },
+      "lifecycle": {
+        "phase": "island_terrain_and_route_references_blockout"
+      },
+      "portfolio": null
+    },
+    {
+      "id": "xinyi-city-racing",
+      "record_kind": null,
+      "name_zh": "信義區公車競賽",
+      "name_en": "Xinyi District Bus Racing",
+      "status": "frozen",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "frozen_prototype",
+        "activity": "inactive",
+        "resumable": true,
+        "feasibility": "low",
+        "retention": "preserve",
+        "execution_authorized": false,
+        "update_policy": "no_execution"
+      },
+      "portfolio": {
+        "visibility": "internal",
+        "importance": "preserved_candidate",
+        "strategic_role": "low_feasibility_preserved_concept"
+      }
+    },
+    {
+      "id": "yangmingshan",
+      "record_kind": null,
+      "name_zh": "Project T 台灣山道－陽明山",
+      "name_en": "Project T Yangmingshan",
+      "status": "active_planning",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "terrain_and_scene_development",
+        "production_selection": "candidate_pool_unselected",
+        "next_production_direction_confirmed": false
+      },
+      "portfolio": {
+        "visibility": "internal_until_release",
+        "importance": "candidate",
+        "strategic_role": "production_direction_candidate",
+        "priority": "unassigned"
+      }
+    },
+    {
+      "id": "yuchang",
+      "record_kind": null,
+      "name_zh": "玉長",
+      "name_en": "Yuchang (Yuli-Changbin Highway)",
+      "status": "active",
+      "program": "project-t",
+      "origin": {
+        "type": "adapted",
+        "confidence": "user_confirmed_external_origin"
+      },
+      "lifecycle": {
+        "phase": "asset_processing",
+        "activity": "active",
+        "public_world_status": "not_published"
+      },
+      "portfolio": {
+        "visibility": "internal_until_release",
+        "importance": "active_project",
+        "strategic_role": "asset_processing_unpublished_project"
+      }
+    },
+    {
+      "id": "zhiben-dark-sky",
+      "record_kind": null,
+      "name_zh": "知本暗空",
+      "name_en": "Zhiben Dark Sky",
+      "status": "active_design_prototype",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "visual_direction_and_lighting_prototype",
+        "activity": "active_prototype",
+        "next_gate": "avatar_lighting_and_two_site_whitebox"
+      },
+      "portfolio": {
+        "visibility": "internal",
+        "importance": "candidate",
+        "strategic_role": "environment_art_direction_proof"
+      }
+    },
+    {
+      "id": "zhiben",
+      "record_kind": null,
+      "name_zh": "知本",
+      "name_en": "ZhiBen",
+      "status": "active_asset_preparation_waiting_validation",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_confirmed"
+      },
+      "lifecycle": {
+        "phase": "asset_processing_predevelopment",
+        "activity": "active_predevelopment",
+        "development_gate": "after_wuling_validation",
+        "development_value": "reduced",
+        "development_confidence": "reduced"
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "post_wuling_validation_development_candidate"
+      }
+    },
+    {
+      "id": "zhonghe-park-f-class",
+      "record_kind": null,
+      "name_zh": "中和四號公園 F 組",
+      "name_en": "Zhonghe No. 4 Park F-Class",
+      "status": "concept_candidate",
+      "program": "project-t",
+      "origin": {
+        "type": "authored",
+        "confidence": "user_supplied_concept"
+      },
+      "lifecycle": {
+        "phase": "concept",
+        "activity": "candidate",
+        "resumable": true,
+        "concept_valid": true,
+        "retention": "retained_candidate",
+        "execution_authorized": false
+      },
+      "portfolio": {
+        "visibility": "internal_candidate",
+        "importance": "candidate",
+        "strategic_role": "retained_valid_candidate"
+      }
+    }
+  ],
+  "public_world_observations": [
+    {
+      "project_id": "iseri-nina-room",
+      "release_channel": "fan_world",
+      "latest": {
+        "world_id": "wrld_014b19d4-10fc-448d-aaf4-100067cc8eb2",
+        "name": "Iseri Nina's Room （Girls Band Cry）",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2025-12-15T07:34:25.776Z",
+        "updated_at": "2026-06-25T14:22:02.704Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_014b19d4-10fc-448d-aaf4-100067cc8eb2"
+      }
+    },
+    {
+      "project_id": "beyond-gravity",
+      "release_channel": null,
+      "latest": {
+        "world_id": "wrld_660d90dd-2a8e-4743-9b70-1c6237f8192b",
+        "name": "Beyond Gravity ˸ An Interplanetary Travel Showcase",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2026-04-21T00:49:48.223Z",
+        "updated_at": "2026-04-21T00:49:48.415Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_660d90dd-2a8e-4743-9b70-1c6237f8192b"
+      }
+    },
+    {
+      "project_id": "nineturns",
+      "release_channel": "cvs2",
+      "latest": {
+        "world_id": "wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
+        "name": "Project T 9 Turns Taiwan Touge CVS2 九彎十八拐",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2025-05-03T22:35:59.524Z",
+        "updated_at": "2026-04-22T15:13:15.329Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676"
+      }
+    },
+    {
+      "project_id": "backroom-tpe",
+      "release_channel": "backroom_tpe_small_scene_practice",
+      "latest": {
+        "world_id": "wrld_3e7d86b2-a420-4504-bbcc-004e76228347",
+        "name": "Backroom_TPE․ 臺北後室_松山菸廠",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": null,
+        "updated_at": "2026-06-01T16:27:11.826Z",
+        "fetched_at": "2026-10-18T19:17:16.858922+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_3e7d86b2-a420-4504-bbcc-004e76228347"
+      }
+    },
+    {
+      "project_id": "starsight",
+      "release_channel": null,
+      "latest": {
+        "world_id": "wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03",
+        "name": "Project T StarSight Mt․觀星山 CVS2 VRC賽車俱樂部TW",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2025-11-17T14:03:16.240Z",
+        "updated_at": "2026-07-30T18:55:06.999Z",
+        "fetched_at": "2026-10-18T19:49:20.048591+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_c0f03f3e-ca4c-48cb-8aea-14ed13c1ee03"
+      }
+    },
+    {
+      "project_id": "greenroom",
+      "release_channel": null,
+      "latest": {
+        "world_id": "wrld_14e668e2-f41b-4655-9440-51be3be0ae81",
+        "name": "Simple Green Room（Quest 3 MR）",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2024-07-08T21:05:28.545Z",
+        "updated_at": "2026-06-28T14:39:52.023Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_14e668e2-f41b-4655-9440-51be3be0ae81"
+      }
+    },
+    {
+      "project_id": "project-prototype",
+      "release_channel": "origin_v1_5",
+      "latest": {
+        "world_id": "wrld_fb9540f8-68f1-42e8-9430-558fc2d568c4",
+        "name": "Project Origin v1․5 Hangout and chill ǃ （Minecraft Build Project）",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2023-10-15T12:21:09.717Z",
+        "updated_at": "2026-04-28T03:07:39.945Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_fb9540f8-68f1-42e8-9430-558fc2d568c4"
+      }
+    },
+    {
+      "project_id": "yangmingshan",
+      "release_channel": null,
+      "latest": {
+        "world_id": "wrld_60f21763-fbe9-4963-8d89-2cd06881ef35",
+        "name": "YangMingShan_QingTianGang擎天崗",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2026-05-18T18:41:26.194Z",
+        "updated_at": "2026-05-23T08:14:39.334Z",
+        "fetched_at": "2026-10-18T19:29:14.964223+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_60f21763-fbe9-4963-8d89-2cd06881ef35"
+      }
+    },
+    {
+      "project_id": "nineturns",
+      "release_channel": "sacc",
+      "latest": {
+        "world_id": "wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35",
+        "name": "Project T 9 Turns Taiwan Touge Sacc 九彎十八拐",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2025-04-09T11:56:42.006Z",
+        "updated_at": "2025-05-27T15:40:33.056Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_a6f9cdae-d393-4572-b019-015e4ec6eb35"
+      }
+    },
+    {
+      "project_id": "stargate-plaza",
+      "release_channel": null,
+      "latest": {
+        "world_id": "wrld_16498412-b9e0-404c-9da7-114484c89ecd",
+        "name": "星門廣場StarGATE Exhibition",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2024-07-22T05:06:07.749Z",
+        "updated_at": "2025-05-08T16:46:38.069Z",
+        "fetched_at": "2026-10-18T19:29:14.964223+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_16498412-b9e0-404c-9da7-114484c89ecd"
+      }
+    },
+    {
+      "project_id": "project-rail",
+      "release_channel": "dapinglin_unfinished_public",
+      "latest": {
+        "world_id": "wrld_b7193f7d-4616-4b3e-8236-e2f4c7da2d8d",
+        "name": "Project Rail ˸ Taipei MRT 大坪林站 by StarRiver（未完成）",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": null,
+        "updated_at": "2026-06-04T22:51:58.618Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_b7193f7d-4616-4b3e-8236-e2f4c7da2d8d"
+      }
+    },
+    {
+      "project_id": "ad-astra",
+      "release_channel": "liftoff_public_test",
+      "latest": {
+        "world_id": "wrld_f3acb654-f2ab-49aa-9108-d261c53c5d64",
+        "name": "StarRiver Space Program v0․1․1 LiftOff",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": null,
+        "updated_at": "2025-07-13T11:38:02.242Z",
+        "fetched_at": "2026-10-18T18:48:40.801350+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_f3acb654-f2ab-49aa-9108-d261c53c5d64"
+      }
+    },
+    {
+      "project_id": "birdlife",
+      "release_channel": "free_trajectory",
+      "latest": {
+        "world_id": "wrld_81e98a0f-b8eb-4a9b-b01b-35d26758c41c",
+        "name": "Free Trajectory -A Landscape Recreation Experience",
+        "author_name": "StarRiver Arts",
+        "release_status": "public",
+        "publication_date": "2024-07-23T14:43:36.014Z",
+        "updated_at": "2024-07-22T19:52:03.599Z",
+        "fetched_at": "2026-10-18T20:49:18.239870+00:00",
+        "world_url": "https://vrchat.com/home/world/wrld_81e98a0f-b8eb-4a9b-b01b-35d26758c41c"
+      }
+    }
+  ],
+  "knowledge_indexes": [
+    {
+      "database": "knowledge.sqlite",
+      "role": "hand-authored knowledge",
+      "counts": {
+        "concept": 33,
+        "document": 1,
+        "relation": 37
+      },
+      "related_labels": []
+    },
+    {
+      "database": "creation_ideas.sqlite",
+      "role": "derived proposal index; return to source",
+      "counts": {
+        "concept": 119,
+        "document": 0,
+        "relation": 154
+      },
+      "related_labels": [
+        "StarRiverSite 首頁重建",
+        "StarRiver Arts／VR 美術館",
+        "StarRiver Studio／Project T／Museum 網站生態",
+        "StarRiver Asset Library／產品化抽取",
+        "VRChat 社群測驗／市場調查網站",
+        "Museum 展覽原型庫"
+      ]
+    }
+  ],
+  "page_count": 101,
+  "checks": [
+    {
+      "code": "beyond_identity_and_publication_verified",
+      "pass": true
+    },
+    {
+      "code": "nine_turns_two_public_2025_editions",
+      "pass": true
+    },
+    {
+      "code": "beyond_correct_world_cta",
+      "pass": true
+    },
+    {
+      "code": "nine_release_year_and_remake_limitations",
+      "pass": false
+    },
+    {
+      "code": "starsight_roles_aligned",
+      "pass": true
+    },
+    {
+      "code": "closed_tests_preserved",
+      "pass": true
+    },
+    {
+      "code": "museum_website_and_future_world_distinguished",
+      "pass": true
+    },
+    {
+      "code": "all_page_boundaries_clean",
+      "pass": true
+    },
+    {
+      "code": "birdlife_stays_unlisted",
+      "pass": true
+    }
+  ]
+}

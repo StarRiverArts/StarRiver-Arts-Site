@@ -1,17 +1,17 @@
 {
   "title_zh": "活動與賽季頁",
   "title_en": "Events And Seasons",
-  "description_zh": "活動頁先承接賽季、排位賽與錦標賽的索引，未來再逐步接上積分系統與賽程結果。",
-  "description_en": "The events page starts as an index for seasons, qualifiers, and championships, and can later grow into a full points system and results archive.",
+  "description_zh": "查詢已收錄的活動與相關成績。",
+  "description_en": "Browse recorded events and their associated results.",
   "sidebar_zh": [
-    "事件欄位會比計時頁複雜，第一版先保留活動索引與最近提交紀錄。",
-    "後續若加入積分規則、分組或 heat 設計，建議都從 `events_meta` 延伸。",
-    "如果輸入表未指定 event_code，該紀錄仍可進一般分析，但不會掛到活動頁。"
+    "選擇活動，查看已收錄的參賽成績。",
+    "僅有與活動明確關聯的紀錄會顯示於該活動。",
+    "一般計時紀錄可在賽道榜查詢。"
   ],
   "sidebar_en": [
-    "Event data will become more complex than raw time-attack records, so v1 only keeps the event index and recent linked submissions.",
-    "Points rules, class splits, and heat structures should later extend from `events_meta`.",
-    "Runs without an `event_code` can still enter general analysis, but they will not appear inside event cards."
+    "Choose an event to browse its recorded results.",
+    "Only runs explicitly associated with an event appear in its results.",
+    "Browse general timed runs on the track boards."
   ],
   "metric_cards": [
     {

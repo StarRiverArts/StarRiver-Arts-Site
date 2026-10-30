@@ -1,0 +1,377 @@
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58426)
+Exception occurred during processing of request from ('127.0.0.1', 58424)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58533)
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58535)
+----------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60016)
+Exception occurred during processing of request from ('127.0.0.1', 65172)
+Exception occurred during processing of request from ('127.0.0.1', 52995)
+Exception occurred during processing of request from ('127.0.0.1', 58058)
+Exception occurred during processing of request from ('127.0.0.1', 50123)
+Exception occurred during processing of request from ('127.0.0.1', 56912)
+Exception occurred during processing of request from ('127.0.0.1', 62713)
+----------------------------------------
+----------------------------------------
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Exception occurred during processing of request from ('127.0.0.1', 64426)
+Exception occurred during processing of request from ('127.0.0.1', 52459)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------
+----------------------------------------
+----------------------------------------
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+----------------------------------------
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+Traceback (most recent call last):
+ConnectionResetError: [WinError 10054] 遠端主機已強制關閉一個現存的連線。
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+----------------------------------------
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 21, in __init__
+    super().__init__(*args, directory=str(ROOT), **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 671, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+----------------------------------------
+  File "D:\D\CreationProject\CodeTools\StarRiverSite\local-review\review-20261020-032451\serve.py", line 55, in do_GET
+    super().do_GET()
+----------------------------------------
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 678, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 877, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 200, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\sam06\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] 連線已被您主機上的軟體中止。
+----------------------------------------

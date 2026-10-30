@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery Study Modules | Museum | StarRiver Arts</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:
+  radial-gradient(circle at 84% 10%, rgba(188,153,92,.18), transparent 24%),
+  radial-gradient(circle at 16% 20%, rgba(71,93,126,.16), transparent 26%),
+  linear-gradient(180deg,#0f1116 0%,#171a20 100%);
+color:#f4f1e8;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:18px 28px;background:rgba(15,17,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-home,.nav-link{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,232,.72)}
+.nav-home:hover,.nav-link:hover{color:#fff}
+.nav-links{display:flex;gap:16px;margin-left:auto}
+.lang-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,232,.64);background:none;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 10px;cursor:pointer}
+.lang-btn:hover{color:#fff;border-color:rgba(255,255,255,.28)}
+.shell{max-width:1240px;margin:0 auto;padding:52px 28px 72px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:28px}
+.hero-copy,.hero-note,.tool-card{border:1px solid rgba(255,255,255,.1);border-radius:28px;background:rgba(255,255,255,.04)}
+.hero-copy{padding:36px 34px 30px}
+.kicker,.tool-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,232,.54)}
+.title{font-family:var(--font-display);font-weight:900;font-size:clamp(46px,7vw,92px);line-height:.9;letter-spacing:-.05em;margin:16px 0 18px}
+.desc{max-width:760px;font-size:18px;line-height:1.75;color:rgba(244,241,232,.78)}
+.desc+.desc{margin-top:8px}
+.hero-rule{width:56px;height:2px;background:var(--sr-amber);margin-top:28px}
+.hero-note{padding:28px;display:flex;flex-direction:column;gap:16px}
+.note-copy{font-size:14px;line-height:1.72;color:rgba(244,241,232,.72)}
+.note-list{display:grid;gap:10px}
+.note-item{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,241,232,.66);padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.05)}
+.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.tool-card{padding:24px;display:flex;flex-direction:column;gap:12px;min-height:300px}
+.tool-title{font-family:var(--font-deck);font-size:28px;font-weight:700;line-height:1.06}
+.tool-text{font-size:15px;line-height:1.72;color:rgba(244,241,232,.76)}
+.tool-meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,232,.64);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 9px}
+.tool-link,.tool-passive{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.tool-link{color:#fff}
+.tool-link:hover{color:#f4d79f}
+.tool-link svg{width:10px;height:10px}
+.tool-passive{color:rgba(244,241,232,.56)}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,232,.48)}
+@media (max-width:980px){
+  .hero,.tool-grid{grid-template-columns:1fr}
+  .shell{padding:32px 18px 56px}
+  nav{padding:16px 18px}
+}
+</style>
+
+<meta name="description" content="以空間規劃與光線衰減互動模組，研究虛擬展場的尺度、觀看距離與照明。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="/proposal/museum/interactive/design-system-visualize/">
+<meta property="og:title" content="展場研究模組 | StarRiver Museum">
+<meta property="og:description" content="以空間規劃與光線衰減互動模組，研究虛擬展場的尺度、觀看距離與照明。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/proposal/museum/interactive/design-system-visualize/">
+<meta property="og:image" content="/proposal/assets/logos/starriver-primary.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "展場研究模組 | StarRiver Museum",
+  "url": "/proposal/museum/interactive/design-system-visualize/",
+  "description": "以空間規劃與光線衰減互動模組，研究虛擬展場的尺度、觀看距離與照明。",
+  "inLanguage": [
+    "zh-TW",
+    "en"
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "StarRiver Arts",
+    "url": "/proposal/"
+  }
+}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-home" href="../../../index.html">StarRiver Arts</a>
+  <div class="nav-links">
+    <a class="nav-link" href="../../exhibitions.html"><span class="zh">返回網頁展覽</span><span class="en">Back to Web Exhibitions</span></a>
+    <a class="nav-link" href="../../../index.html"><span class="zh">返回主站</span><span class="en">Back to Hub</span></a>
+  </div>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中文</span></button>
+</nav>
+
+<main class="shell">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker"><span class="zh">Museum / Web Exhibitions / Interactive Modules</span><span class="en">Museum / Web Exhibitions / Interactive Modules</span></div>
+      <h1 class="title"><span class="zh">展場研究模組</span><span class="en">Gallery Study Modules</span></h1>
+      <p class="desc zh">這一頁整理與 VR Gallery Spatial System 相關的兩個互動模組，讓觀眾從空間配置與光線變化兩個角度理解虛擬展場的觀看經驗。</p>
+      <p class="desc en">This page gathers two interactive modules related to VR Gallery Spatial System, helping visitors understand virtual gallery viewing through spatial layout and changes in light.</p>
+      <div class="hero-rule"></div>
+    </div>
+    <aside class="hero-note">
+      <div class="tool-label"><span class="zh">觀看方式</span><span class="en">Viewing Mode</span></div>
+      <p class="note-copy zh">建議使用桌面瀏覽器。空間規劃器與光衰減工具採固定寬度工作區，目前未完成手機版面；工具內保留中英對照標籤，不跟隨本頁語言切換。</p>
+      <p class="note-copy en">A desktop browser is recommended. The planner and falloff tool use fixed-width workspaces; mobile layouts are not yet available. Their bilingual labels do not follow this page’s language switch.</p>
+      <div class="note-list">
+        <div class="note-item">web exhibition modules</div>
+        <div class="note-item">scale and lighting studies</div>
+        <div class="note-item">browser-based viewing</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="tool-grid">
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">模組一</span><span class="en">Module 01</span></div>
+      <h2 class="tool-title"><span class="zh">展場空間規劃器</span><span class="en">Gallery Spatial Planner</span></h2>
+      <p class="tool-text zh">平面與立面同步的展場配置模組，可用來理解牆面位置、預留量體、觀看方向與通行淨空之間的關係。</p>
+      <p class="tool-text en">A plan-and-elevation gallery layout module for understanding the relationship between wall placement, reserve volumes, viewing direction, and circulation clearance.</p>
+      <div class="tool-meta">
+        <span class="tag">layout</span>
+        <span class="tag">lighting</span>
+        <span class="tag">validation</span>
+      </div>
+      <a class="tool-link" href="./spatial-planner.html">
+        <span class="zh">打開模組</span><span class="en">Open Module</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">模組二</span><span class="en">Module 02</span></div>
+      <h2 class="tool-title"><span class="zh">光線衰減視覺化工具</span><span class="en">Light Falloff Viewer</span></h2>
+      <p class="tool-text zh">用來理解不同光衰減模型、表面顏色與距離如何影響展場中的照度、色偏與觀看感受。</p>
+      <p class="tool-text en">A module for understanding how falloff models, surface colours, and distance shape illumination, colour drift, and the feeling of viewing in a gallery.</p>
+      <div class="tool-meta">
+        <span class="tag">falloff</span>
+        <span class="tag">colour drift</span>
+        <span class="tag">lux target</span>
+      </div>
+      <a class="tool-link" href="./falloff-predictor.html">
+        <span class="zh">打開模組</span><span class="en">Open Module</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+
+    <article class="tool-card">
+      <div class="tool-label"><span class="zh">頁面說明</span><span class="en">Page Context</span></div>
+      <h2 class="tool-title"><span class="zh">網頁展覽中的互動內容</span><span class="en">Interactive content within web exhibitions</span></h2>
+      <p class="tool-text zh">以互動方式比較虛擬展場的尺度與照明條件。模組提供設計參考，不代表實際館舍的驗證結果。</p>
+      <p class="tool-text en">Compare virtual-gallery scale and lighting through interactive studies. The modules offer design references rather than verified results for a built venue.</p>
+      <div class="tool-meta">
+        <span class="tag">web exhibition</span>
+        <span class="tag">interactive study</span>
+        <span class="tag">visitor-facing</span>
+      </div>
+      <a class="tool-link" href="../../exhibitions.html">
+        <span class="zh">返回網頁展覽</span><span class="en">Back to Web Exhibitions</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h8M6 2l3 3-3 3"/></svg>
+      </a>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <span>museum / web-exhibitions / study-modules</span>
+    <span>gallery planner + light falloff viewer</span>
+    <span>interactive viewing</span>
+    <span><span class="zh">網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。</span><span class="en">Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.</span></span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var h=document.documentElement,b=document.getElementById('langBtn');
+  var s='zh'; try{s=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  if(s!=='en')s='zh';
+  function setLang(v){v=v==='en'?'en':'zh';h.className='lang-'+v;h.lang=v==='zh'?'zh-TW':'en';try{localStorage.setItem('sr-lang',v);}catch(e){}}
+  setLang(s);
+  b.addEventListener('click',function(){setLang(h.classList.contains('lang-zh')?'en':'zh')});
+})();
+</script>
+</body>
+</html>

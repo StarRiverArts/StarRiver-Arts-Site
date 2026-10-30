@@ -1,0 +1,125 @@
+{
+  "checks": [
+    {
+      "name": "baseline_all_html_http",
+      "passed": true,
+      "detail": 101
+    },
+    {
+      "name": "proposal_all_html_http",
+      "passed": true,
+      "detail": 101
+    },
+    {
+      "name": "deny_%2e%2e/outside.html",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "deny_proposal/.private/anything.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "deny_proposal/tools/build_local_review.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "catalog_ready_390",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "review_overview_layout_390",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "content": 375,
+        "cards": 3
+      }
+    },
+    {
+      "name": "catalog_ready_1440",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "review_overview_layout_1440",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "content": 1425,
+        "cards": 3
+      }
+    },
+    {
+      "name": "studio_copy_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "changed_filter_ignores_line_endings",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parallel_comparison",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_and_area_filter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "project_detail_browsable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original_version_switch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "draft_worlds_browsable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "world_link_is_interactive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "world_to_portfolio_drilldown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "review_language_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "museum-exhibition-layout",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "projectt-articles-layout",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "review_runtime_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": true,
+  "browser": "Edg/155.0.4283.45",
+  "base": "http://127.0.0.1:4190/"
+}

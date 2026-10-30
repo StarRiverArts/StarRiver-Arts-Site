@@ -1,0 +1,245 @@
+@charset "UTF-8";
+/* ============================================================
+   StarRiver Arts — long-form article prose (Project T day set)
+   ------------------------------------------------------------
+   The site had no long-form article styling: `.pa-*` carried no
+   rules and there were no base selectors for the elements Markdown
+   emits. This file supplies both, using the Project T day tokens
+   from colors_and_type.css — never the scenery colours for type.
+
+   Load order (after play-readability.css):
+     colors_and_type.css → ds-additions.css
+     → play/play-landing.css → play/play-readability.css
+     → play/article-prose.css
+   ============================================================ */
+
+/* ─── article shell ─── */
+.pa-article { max-width: 74ch; }
+
+.pa-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 28px;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--pt-ink-3);
+}
+.pa-back:hover { color: var(--pt-sign-blue); }
+.pa-back:focus-visible { outline: 3px solid var(--pt-sign-blue); outline-offset: 4px; }
+
+/* ─── lede ─── */
+.pa-lede { padding-bottom: 26px; border-bottom: 2px solid var(--pt-ink); }
+.pa-kicker {
+  margin-bottom: 14px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--pt-sign-green);
+}
+.pa-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(30px, 1.6rem + 2.4vw, 46px);
+  line-height: 1.14; letter-spacing: -.02em;
+  color: var(--pt-ink);
+}
+.pa-ledetext {
+  margin: 0;
+  font-size: clamp(17px, 1rem + .35vw, 20px);
+  line-height: 1.65;
+  color: var(--pt-ink-2);
+}
+
+/* ─── metadata table ─── */
+.pa-spec {
+  margin: 24px 0 0; padding: 16px 18px;
+  background: var(--pt-paper);
+  border-left: 3px solid var(--pt-sign-green);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.pa-spec-row {
+  display: flex; gap: 16px;
+  padding: 5px 0;
+  font-size: .9rem;
+}
+.pa-spec-row + .pa-spec-row { border-top: 1px solid rgba(36, 51, 45, .1); }
+.pa-spec-k {
+  flex: 0 0 8.5em;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--pt-ink-3);
+  padding-top: 2px;
+}
+.pa-spec-v { margin: 0; color: var(--pt-ink); }
+
+/* ─── disclosure / research status ─── */
+.pa-disclosure {
+  margin: 28px 0 0; padding: 16px 18px;
+  background: var(--pt-sky-lo);
+  border: 1px solid rgba(36, 51, 45, .18);
+  border-radius: var(--r-sm);
+  font-size: .92rem; line-height: 1.7;
+  color: var(--pt-ink-2);
+}
+.pa-disclosure p { margin: 0; }
+.pa-disclosure p + p { margin-top: 8px; }
+.pa-disclosure-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--pt-ink-3);
+}
+.pa-research-status {
+  margin: 20px 0 0;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--pt-sign-green);
+}
+.pa-untranslated {
+  margin: 0 0 20px; padding: 10px 14px;
+  background: var(--pt-paper);
+  border-left: 3px solid var(--pt-ink-3);
+  font-size: .9rem; color: var(--pt-ink-2);
+}
+
+/* ─── body prose ─── */
+.pa-body {
+  margin-top: 34px;
+  font-size: clamp(16px, .98rem + .12vw, 18px);
+  line-height: 1.85;                 /* generous for mixed CJK + Latin */
+  color: var(--pt-ink);
+}
+.pa-body > :first-child { margin-top: 0; }
+.pa-body p { margin: 0 0 1.15em; }
+
+.pa-body h2 {
+  margin: 2.1em 0 .7em;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(22px, 1.2rem + 1vw, 28px);
+  line-height: 1.3; letter-spacing: -.01em;
+  color: var(--pt-ink);
+  padding-bottom: .3em;
+  border-bottom: 1px solid rgba(36, 51, 45, .18);
+}
+.pa-body h3 {
+  margin: 1.8em 0 .55em;
+  font-family: var(--font-deck); font-weight: 700;
+  font-size: clamp(18px, 1.05rem + .5vw, 22px);
+  line-height: 1.35;
+  color: var(--pt-ink);
+}
+.pa-body h4 {
+  margin: 1.5em 0 .45em;
+  font-family: var(--font-deck); font-weight: 700;
+  font-size: 1rem; letter-spacing: .01em;
+  color: var(--pt-ink-2);
+}
+
+.pa-body a { color: var(--pt-sign-blue); text-decoration: underline; text-underline-offset: 3px; }
+.pa-body a:hover { color: var(--pt-ink); }
+.pa-body a:focus-visible { outline: 3px solid var(--pt-sign-blue); outline-offset: 3px; }
+
+.pa-body strong { font-weight: 700; color: var(--pt-ink); }
+.pa-body em { font-style: italic; }
+
+.pa-body ul, .pa-body ol { margin: 0 0 1.15em; padding-left: 1.5em; }
+.pa-body li { margin-bottom: .4em; }
+.pa-body li > ul, .pa-body li > ol { margin-top: .4em; margin-bottom: .4em; }
+.pa-body ul { list-style: disc; }
+.pa-body ol { list-style: decimal; }
+.pa-body li::marker { color: var(--pt-sign-green); }
+
+.pa-body blockquote {
+  margin: 1.5em 0; padding: 2px 0 2px 20px;
+  border-left: 3px solid var(--pt-line);
+  color: var(--pt-ink-2);
+}
+.pa-body blockquote p:last-child { margin-bottom: 0; }
+
+.pa-body code {
+  font-family: var(--font-mono); font-size: .88em;
+  padding: .12em .38em;
+  background: var(--pt-paper);
+  border: 1px solid rgba(36, 51, 45, .14);
+  border-radius: var(--r-xs);
+}
+.pa-body pre {
+  margin: 1.5em 0; padding: 16px 18px;
+  background: var(--pt-asphalt);
+  border-radius: var(--r-sm);
+  overflow-x: auto;                  /* long lines scroll, page never does */
+  line-height: 1.6;
+}
+.pa-body pre code {
+  padding: 0; background: none; border: 0;
+  color: #E8E6DF; font-size: .86rem;
+}
+
+.pa-body img { margin: 1.6em 0; border-radius: var(--r-sm); }
+.pa-body figure { margin: 1.6em 0; }
+.pa-body figcaption {
+  margin-top: 8px;
+  font-size: .85rem; color: var(--pt-ink-3);
+}
+
+.pa-body hr {
+  margin: 2.4em 0; border: 0;
+  border-top: 1px solid rgba(36, 51, 45, .2);
+}
+
+/* Tables scroll inside their own container so the page never does. */
+.pa-body .pa-table-scroll { margin: 1.6em 0; overflow-x: auto; }
+.pa-body table {
+  width: 100%; border-collapse: collapse;
+  font-size: .92rem;
+}
+.pa-body th, .pa-body td {
+  padding: 9px 12px; text-align: left;
+  border-bottom: 1px solid rgba(36, 51, 45, .16);
+}
+.pa-body th {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--pt-ink-3);
+  border-bottom: 2px solid var(--pt-ink);
+  white-space: nowrap;
+}
+
+/* ─── list page: generated article cards ─── */
+.pa-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.pa-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px;
+  background: var(--pt-paper);
+  border: 1px solid rgba(36, 51, 45, .2);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--pt-ink-2);
+}
+.pa-chip b { color: var(--pt-sign-green); }
+
+.pa-card { display: flex; flex-direction: column; gap: 6px; }
+.pa-card-title {
+  margin: 0;
+  font-family: var(--font-deck); font-weight: 700;
+  font-size: 1.15rem; line-height: 1.35;
+  color: var(--pt-ink);
+}
+.pa-card:hover .pa-card-title { color: var(--pt-sign-blue); }
+.pa-card-summary { margin: 0; font-size: .9rem; line-height: 1.65; color: var(--pt-ink-2); }
+.pa-card-date {
+  margin-top: 4px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: .08em; color: var(--pt-ink-3);
+}
+
+/* ─── footer ─── */
+.pa-footer {
+  margin-top: 64px; padding: 26px 0 40px;
+  border-top: 1px solid rgba(36, 51, 45, .16);
+}
+.pa-footer .wrap { padding-top: 0; padding-bottom: 0; }
+.pa-credit { margin: 0; font-size: .82rem; line-height: 1.7; color: var(--pt-ink-3); }
+
+@media (max-width: 640px) {
+  .pa-spec-row { flex-direction: column; gap: 2px; }
+  .pa-spec-k { flex: none; }
+}

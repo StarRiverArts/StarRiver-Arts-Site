@@ -1,0 +1,193 @@
+{
+  "schema": "racing-qa-audit/1",
+  "snapshot_generated_at": "2026-10-18T09:35:58Z",
+  "schema_version": "0.5.1",
+  "passed": true,
+  "counts": {
+    "track_worlds": 230,
+    "board_worlds": 111,
+    "world_routes": 174,
+    "valid_records": 1983,
+    "players_with_records": 137,
+    "vehicle_models_with_records": 255,
+    "teams": 2,
+    "editorial_events": 15
+  },
+  "checks": [
+    {
+      "code": "unique_world_ids",
+      "pass": true
+    },
+    {
+      "code": "board_is_map_subset",
+      "pass": true,
+      "missing": []
+    },
+    {
+      "code": "vrc_board_identity",
+      "pass": true,
+      "vrc_only": [],
+      "board_only": []
+    },
+    {
+      "code": "unique_world_local_routes",
+      "pass": true
+    },
+    {
+      "code": "route_counts_match_rows",
+      "pass": true,
+      "mismatches": []
+    },
+    {
+      "code": "map_route_counts_match_boards",
+      "pass": true,
+      "mismatches": []
+    },
+    {
+      "code": "unique_record_ids",
+      "pass": true
+    },
+    {
+      "code": "sequential_route_ranks",
+      "pass": true,
+      "mismatches": []
+    },
+    {
+      "code": "nondescending_lap_times",
+      "pass": true,
+      "mismatches": []
+    },
+    {
+      "code": "summary_valid_runs",
+      "pass": true,
+      "summary": 1983,
+      "records": 1983
+    },
+    {
+      "code": "summary_track_worlds",
+      "pass": true,
+      "summary": 230,
+      "map": 230
+    },
+    {
+      "code": "unique_profile_ids",
+      "pass": true
+    },
+    {
+      "code": "team_members_have_player_profiles",
+      "pass": true,
+      "missing": []
+    },
+    {
+      "code": "manifest_files_exist",
+      "pass": true,
+      "missing": []
+    },
+    {
+      "code": "unique_event_ids",
+      "pass": true
+    },
+    {
+      "code": "page_shell_contract",
+      "pass": true,
+      "missing": []
+    }
+  ],
+  "warnings": [
+    {
+      "code": "index_scopes_are_distinct",
+      "map": 230,
+      "boards": 111,
+      "catalog": 111,
+      "vrc": 111
+    },
+    {
+      "code": "timing_capability_unspecified",
+      "count": 230
+    },
+    {
+      "code": "missing_world_urls_not_necessarily_public",
+      "count": 18,
+      "ids": [
+        "hi_land_raceway_2_0",
+        "mt_talkan_jintei",
+        "usui_rave_stage",
+        "owari_circuit",
+        "pt_wuling_starriver_arts",
+        "lantan",
+        "artc",
+        "pt_ych_starriver_arts",
+        "old_mountain_line",
+        "long_beach",
+        "rally_finland_ss1",
+        "ichinose_speed_ring",
+        "just_gt_3",
+        "orc_circuit",
+        "vr660_kai_kai",
+        "vestoril",
+        "bathurst_v8_supercars_cvs2",
+        "world660"
+      ]
+    },
+    {
+      "code": "editorial_generated_event_sets_differ",
+      "editorial_only": [
+        "s1.5_r01",
+        "vrrctw_Akagi_20260509",
+        "vrrctw_ryuoukouzan_20260329",
+        "vrrctw_ych_trackday_20261003"
+      ],
+      "generated_only": [
+        "vrrctw_casual_0531"
+      ]
+    },
+    {
+      "code": "event_vehicle_model_link_unresolved",
+      "links": [
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_gc8_attack",
+          "suggested_model": "veh_gc8_impreza"
+        },
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_suptokav80b_attack",
+          "suggested_model": "veh_suptokav80_attack"
+        },
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_le8_attack",
+          "suggested_model": "veh_revolution_viii"
+        },
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_gtr34_attack",
+          "suggested_model": null
+        },
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_le6_attack",
+          "suggested_model": "veh_evovi_cp9a"
+        },
+        {
+          "event": "vrrctw_ryuoukouzan_20260329",
+          "id": "veh_fd3s_drift",
+          "suggested_model": "veh_fd3s_rx7"
+        }
+      ]
+    },
+    {
+      "code": "event_participant_has_no_current_player_profile",
+      "links": [
+        {
+          "event": "vrrctw_s1_tsukuba",
+          "id": "plr_sakanakokoko"
+        },
+        {
+          "event": "vrrctw_s1_akina",
+          "id": "plr_rafi_88_fan"
+        }
+      ]
+    }
+  ]
+}

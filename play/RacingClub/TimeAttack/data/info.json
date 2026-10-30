@@ -4,7 +4,7 @@
   "description_zh": "查看計時紀錄統計與榜單使用說明。",
   "description_en": "Browse record statistics and learn how to use the boards.",
   "build_state": "live",
-  "source_label": "Racing Hub",
+  "source_label": "RacingHubData/canonical/ta_data.sqlite",
   "sidebar_zh": [
     "計時紀錄可依賽道、玩家或車輛查詢。",
     "賽道榜提供最新榜期、歷期及歷代總榜。",
@@ -19,14 +19,14 @@
     {
       "label_zh": "紀錄筆數",
       "label_en": "All Runs",
-      "value": "1875",
+      "value": "1904",
       "note_zh": "本頁統計範圍內的計時紀錄",
       "note_en": "Timed runs included in this view"
     },
     {
       "label_zh": "有效紀錄",
       "label_en": "Valid Runs",
-      "value": "1875",
+      "value": "1904",
       "note_zh": "未被拒絕、可進排行榜的紀錄",
       "note_en": "Non-rejected runs eligible for the leaderboards"
     },
@@ -40,21 +40,21 @@
     {
       "label_zh": "未驗證",
       "label_en": "Unverified",
-      "value": "1828",
+      "value": "1857",
       "note_zh": "尚未驗證的有效紀錄",
       "note_en": "Valid runs that are not verified yet"
     },
     {
       "label_zh": "賽道世界",
       "label_en": "Track Worlds",
-      "value": "230",
+      "value": "231",
       "note_zh": "以世界為準的賽道識別",
       "note_en": "World-level track identities"
     },
     {
       "label_zh": "車輛母型",
       "label_en": "Vehicle Models",
-      "value": "263",
+      "value": "264",
       "note_zh": "以統計母型合併多個世界變體",
       "note_en": "Canonical vehicle models merged across multiple world variants"
     }

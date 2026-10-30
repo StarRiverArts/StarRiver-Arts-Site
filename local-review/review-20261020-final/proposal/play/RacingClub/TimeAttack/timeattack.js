@@ -1,0 +1,3166 @@
+const TA_ROUTE_LABELS = {
+  overview: { zh: "總覽",     en: "Overview",     jp: "概覧"         },
+  tracks:   { zh: "賽道",     en: "Tracks",       jp: "コース"       },
+  track:    { zh: "賽道詳情", en: "Track Detail", jp: "コース詳細"   },
+  players:  { zh: "玩家",     en: "Players",      jp: "プレイヤー"   },
+  player:   { zh: "玩家檔案", en: "Driver File",  jp: "プレイヤーファイル" },
+  teams:    { zh: "車隊",     en: "Teams",        jp: "チーム"       },
+  team:     { zh: "車隊檔案", en: "Team File",    jp: "チーム詳細"   },
+  vehicles: { zh: "車輛",     en: "Vehicles",     jp: "車両"         },
+  vehicle:  { zh: "車輛檔案", en: "Car File",     jp: "車両ファイル" },
+  events:   { zh: "活動",     en: "Events",       jp: "イベント"     },
+  event:    { zh: "活動詳情", en: "Event Detail", jp: "イベント詳細" },
+  catalog:  { zh: "索引",     en: "Index",        jp: "索引"         },
+  info:     { zh: "資訊",     en: "Info",         jp: "情報"         },
+  review:   { zh: "審核",     en: "Review",       jp: "レビュー"     },
+  trackmap: { zh: "賽道地圖", en: "Track Map",    jp: "コースマップ" },
+};
+
+const ENABLE_HISTORY_CHARTS = false;
+const SHOW_VERIFICATION = false;
+let TA_TEAMS = [];
+let TA_EDITORIAL_EVENTS = [];
+let TA_PROOFS = {};
+
+const escapeHtml = (value) =>
+  String(value ?? "").replace(/[&<>"']/g, (char) => {
+    const map = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return map[char];
+  });
+
+const renderBilingual = (zh, en, jp) => `
+  <span class="zh">${escapeHtml(zh || "")}</span>
+  <span class="en">${escapeHtml(en || "")}</span>
+  <span class="jp">${escapeHtml(jp || en || "")}</span>
+`;
+
+// Native <option> elements cannot reliably contain the spans emitted by
+// renderBilingual. Resolve one plain-text label for selects instead.
+const localizedText = (zh, en, jp) => {
+  const root = document.documentElement;
+  if (root.classList.contains("lang-en")) return en || zh || "";
+  if (root.classList.contains("lang-jp")) return jp || en || zh || "";
+  return zh || en || jp || "";
+};
+
+// 表格內的車手 / 車輛名稱直接連到各自詳情頁(需 row 帶 player_id / vehicle_model_code)。
+const taPlayerHref = (row) => (row && row.player_id ? `./player.html?id=${encodeURIComponent(row.player_id)}` : "");
+const taVehicleHref = (row) => (row && row.vehicle_model_code ? `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}` : "");
+const taVehicleDisplayName = (row) => row?.vehicle_variant_name || row?.vehicle_model_name || "";
+const taEntityLink = (name, href) =>
+  href ? `<a class="ta-entity-link" href="${href}">${escapeHtml(name || "")}</a>` : escapeHtml(name || "");
+
+const taProofHref = (row) => {
+  if (!row) return "";
+  if (row.proof_ref && TA_PROOFS[row.proof_ref]?.href) return TA_PROOFS[row.proof_ref].href;
+  return /^https?:\/\//.test(row.proof_text || "") ? row.proof_text : "";
+};
+
+const renderProofBadge = (row, withLabel = false) => {
+  if (!SHOW_VERIFICATION || !row?.verified) return "";
+  const href = taProofHref(row);
+  const label = withLabel
+    ? `${renderBilingual("已驗證", "Verified", "検証済み")}`
+    : "✓";
+  return href
+    ? `<a class="ta-verified" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="Open verification evidence">✓ ${withLabel ? label : ""}</a>`
+    : `<span class="ta-verified">✓ ${withLabel ? label : ""}</span>`;
+};
+
+const renderProofNote = (row) => {
+  const href = taProofHref(row);
+  if (href) {
+    return `<a class="ta-entity-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${renderBilingual("查看投稿證明", "Open submission evidence", "投稿証明を開く")}</a>`;
+  }
+  return escapeHtml(row?.submission_note || row?.proof_text || "");
+};
+
+const renderCardLink = (href, labelZh, labelEn) => {
+  if (!href) {
+    return "";
+  }
+  return `
+    <a class="ta-card-link" href="${escapeHtml(href)}">
+      ${renderBilingual(labelZh || "開啟", labelEn || "Open")}
+    </a>
+  `;
+};
+
+const renderSummaryCards = (cards, options = {}) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No summary cards yet.</p>';
+  }
+
+  return `
+    <div class="ta-summary-grid${options.compact ? " is-compact" : ""}" style="--ta-summary-count:${cards.length}">
+      ${cards
+        .map(
+          (card) => `
+            <article class="ta-summary-card">
+              <div class="ta-label">
+                ${renderBilingual(card.label_zh, card.label_en)}
+              </div>
+              <div class="ta-summary-value">${escapeHtml(card.value ?? "-")}</div>
+              <p class="ta-summary-text">
+                ${renderBilingual(card.note_zh, card.note_en)}
+              </p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderPageSnapshot = (metricCards) => {
+  if (!Array.isArray(metricCards) || metricCards.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="ta-content-card ta-page-info-card">
+      <div class="ta-label">
+        ${renderBilingual("頁面資訊", "Page Info")}
+      </div>
+      ${renderSummaryCards(metricCards, { compact: true })}
+    </section>
+  `;
+};
+
+const renderBoardCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="ta-board-grid">
+      ${cards
+        .map(
+          (card) => `
+            <article class="ta-board-card">
+              <div class="ta-label">
+                ${renderBilingual(card.label_zh, card.label_en)}
+              </div>
+              <h3 class="ta-board-title">
+                ${renderBilingual(card.title_zh, card.title_en)}
+              </h3>
+              <p class="ta-board-text">
+                ${renderBilingual(card.description_zh, card.description_en)}
+              </p>
+              ${renderCardLink(card.href, card.href_label_zh, card.href_label_en)}
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderSectionCards = (sections) => {
+  if (!Array.isArray(sections) || sections.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="ta-section-grid">
+      ${sections
+        .map(
+          (section) => `
+            <article class="ta-content-card ta-content-card-inner">
+              <div class="ta-label">
+                ${renderBilingual(section.label_zh, section.label_en)}
+              </div>
+              <h3 class="ta-section-title">
+                ${renderBilingual(section.title_zh, section.title_en)}
+              </h3>
+              <p class="ta-section-text">
+                ${renderBilingual(section.body_zh, section.body_en)}
+              </p>
+              ${
+                Array.isArray(section.items_zh) && section.items_zh.length
+                  ? `
+                    <ul class="ta-bullet-list">
+                      ${section.items_zh
+                        .map(
+                          (item, index) => `
+                            <li>
+                              ${renderBilingual(item, (section.items_en || [])[index] || "")}
+                            </li>
+                          `,
+                        )
+                        .join("")}
+                    </ul>
+                  `
+                  : ""
+              }
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderModule = (labelZh, labelEn, titleZh, titleEn, content) => {
+  if (!content) {
+    return "";
+  }
+  return `
+    <section class="ta-content-card">
+      <div class="ta-content-head">
+        <div class="ta-headline-group">
+          <div class="ta-label">
+            ${renderBilingual(labelZh, labelEn)}
+          </div>
+          <h2>
+            ${renderBilingual(titleZh, titleEn)}
+          </h2>
+        </div>
+      </div>
+      ${content}
+    </section>
+  `;
+};
+
+const renderChipList = (chips) => {
+  if (!Array.isArray(chips) || chips.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-chip-list">
+      ${chips.map((chip) => `<span class="ta-chip">${escapeHtml(chip)}</span>`).join("")}
+    </div>
+  `;
+};
+
+// ── Track board (leaderboard demo adaptation) ─────────────────────────────
+
+const badgeTone = (row) => (row.badge_tone || row.badge_code || "").toLowerCase() || "empty";
+
+const tagToneForText = (text) => {
+  const value = String(text || "");
+  if (!value) return "meta";
+  if (/(山道|公路|高速公路|賽道|卡丁車|其他|Clockwise|Counter|Downhill|Uphill)/i.test(value)) {
+    return "env";
+  }
+  if (/(高速|High|Speed|Long)/i.test(value)) {
+    return "speed";
+  }
+  if (/(技術|髮夾|Technical|Hairpin|Switchback)/i.test(value)) {
+    return "skill";
+  }
+  if (/(隧道|Tunnel|Night|City)/i.test(value)) {
+    return "meta";
+  }
+  return "skill";
+};
+
+const renderToneChip = (text, tone) =>
+  `<span class="ta-tag-chip is-${escapeHtml(tone || "meta")}">${escapeHtml(text || "")}</span>`;
+
+const renderRouteTagChips = (row) => {
+  const chips = [];
+  if (row.track_env) {
+    chips.push(renderToneChip(row.track_env, "env"));
+  }
+  (row.track_tags || []).slice(0, 2).forEach((tag) => {
+    chips.push(renderToneChip(tag, tagToneForText(tag)));
+  });
+  return chips.length ? `<div class="ta-record-chiprow">${chips.join("")}</div>` : "";
+};
+
+const renderRecordBadge = (row) => {
+  if (!row.badge_code) {
+    return '<span class="ta-record-badge is-empty">—</span>';
+  }
+  return `
+    <span class="ta-record-badge is-${escapeHtml(badgeTone(row))}">
+      <span class="ta-record-badge-code">${escapeHtml(row.badge_code)}</span>
+      <span class="ta-record-badge-text">${renderBilingual(row.badge_label_zh, row.badge_label_en)}</span>
+    </span>
+  `;
+};
+
+const renderTrackLegend = () => `
+  <div class="ta-board-legend" aria-label="Badge legend">
+    <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("賽道紀錄", "Track Record")}</span></span>
+    <span class="ta-record-badge is-cr"><span class="ta-record-badge-code">CR</span><span class="ta-record-badge-text">${renderBilingual("車輛紀錄", "Car Record")}</span></span>
+    <span class="ta-record-badge is-pr"><span class="ta-record-badge-code">PR</span><span class="ta-record-badge-text">${renderBilingual("個人紀錄", "Personal Record")}</span></span>
+  </div>
+`;
+
+const renderTrackLeaderboardTable = (rows, view) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return `<p class="ta-board-empty">${renderBilingual('本期尚無成績','No times in this period yet')}</p>`;
+  }
+
+  const primaryTitle =
+    view === "vehicle"
+      ? renderBilingual("車輛", "Vehicle")
+      : renderBilingual("車手", "Driver");
+  const peerTitle =
+    view === "vehicle"
+      ? renderBilingual("最快車手", "Fastest Driver")
+      : renderBilingual("代表車輛", "Representative Car");
+
+  return `
+    <div class="ta-track-table-wrap">
+      <table class="ta-record-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>${primaryTitle}</th>
+            <th>${peerTitle}</th>
+            <th>${renderBilingual("時間", "Time")}</th>
+            <th>${renderBilingual("差距", "Gap")}</th>
+            <th>${renderBilingual("標記", "Badge")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map((row) => {
+              const primary =
+                view === "vehicle"
+                  ? taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))
+                  : taEntityLink(row.player_display_name, taPlayerHref(row));
+              const peer =
+                view === "vehicle"
+                  ? taEntityLink(row.player_display_name, taPlayerHref(row))
+                  : taEntityLink(taVehicleDisplayName(row), taVehicleHref(row));
+              return `
+                <tr class="ta-record-row${row.rank === 1 ? " is-leader" : ""}" data-plat="${escapeHtml(row.platform || "")}">
+                  <td class="ta-record-rank">${escapeHtml(row.rank)}</td>
+                  <td>
+                    <div class="ta-record-primary">
+                      <strong>${primary}</strong>
+                      <div class="ta-record-meta">
+                        <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
+                        <span>${escapeHtml(row.record_date || "")}</span>
+                        ${renderProofBadge(row, true)}
+                      </div>
+                    </div>
+                  </td>
+                  <td class="ta-record-peer">${peer}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
+                  <td class="ta-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
+                  <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
+                </tr>
+              `;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+};
+
+const renderTrackRouteCard = (board, route) => {
+  if (route.period_not_found) {
+    return `<article class="ta-track-board ta-route-card"><h3>${escapeHtml(board.track_display_name)} · ${escapeHtml(route.route_display_name)}</h3>${window.TAPeriods?.picker(board,route,escapeHtml,renderBilingual)||''}<p class="ta-empty">${renderBilingual('找不到此榜期','Leaderboard period not found')}</p></article>`;
+  }
+  const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
+    .filter(Boolean)
+    .map((tag) => renderToneChip(tag, "meta"))
+    .join("");
+  const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
+  const fastest = route.fastest;
+  const fastestStrip = fastest
+    ? `
+      <div class="ta-fastest-strip">
+        <div class="ta-fastest-kicker">
+          <span class="ta-record-badge is-tr"><span class="ta-record-badge-code">TR</span><span class="ta-record-badge-text">${renderBilingual("目前最快", "Fastest Now")}</span></span>
+        </div>
+        <div class="ta-fastest-main">
+          <strong>${taEntityLink(fastest.player_display_name, taPlayerHref(fastest))}</strong>
+          <span>${taEntityLink(taVehicleDisplayName(fastest), taVehicleHref(fastest))}</span>
+        </div>
+        <div class="ta-fastest-time">${escapeHtml(fastest.lap_time_text || "-")}</div>
+      </div>
+    `
+    : "";
+
+  return `
+    <article class="ta-track-board ta-route-card">
+      <div class="ta-track-board-head">
+        <div class="ta-label">${escapeHtml(board.world_name)}</div>
+        <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        <div class="ta-route-head">
+          <div>
+            <div class="ta-route-label">${escapeHtml(route.route_display_name)}</div>
+            ${
+              route.route_note_zh || route.route_note_en
+                ? `<p class="ta-route-note">${renderBilingual(route.route_note_zh, route.route_note_en)}</p>`
+                : ""
+            }
+          </div>
+          <div class="ta-route-stat">${escapeHtml(route.record_count || 0)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>
+        </div>
+        <div class="ta-track-chiprow">${metaChips}${techChips}</div>
+      </div>
+      ${fastestStrip}
+      ${window.TAPeriods?.picker(board, route, escapeHtml, renderBilingual) || ''}
+      <div class="ta-board-view" data-board-view="route">
+        ${renderTrackLeaderboardTable(route.route_rows, "route")}
+      </div>
+      <div class="ta-board-view" data-board-view="vehicle">
+        ${renderTrackLeaderboardTable(route.vehicle_rows, "vehicle")}
+      </div>
+      <div class="ta-board-view" data-board-view="player">
+        ${renderTrackLeaderboardTable(route.player_rows, "player")}
+      </div>
+    </article>
+  `;
+};
+
+const renderTrackBoards = (data) => {
+  const boards = data.boards || [];
+  const platforms = data.platforms || [];
+  const routeCards = boards.reduce((cards, board) => {
+    (board.routes || []).forEach((route) => cards.push(renderTrackRouteCard(board, route)));
+    return cards;
+  }, []);
+
+  const platBtns = [
+    `<button class="ta-toggle-btn is-active" data-plat="all"><span class="zh">全部平台</span><span class="en">All Platforms</span></button>`,
+    ...platforms.map(
+      (platform) =>
+        `<button class="ta-toggle-btn" data-plat="${escapeHtml(platform)}">${escapeHtml(platform.toUpperCase())}</button>`,
+    ),
+  ].join("");
+
+  return `
+    <div class="ta-board-controls">
+      <div class="ta-toggle-group" data-view-toggle>
+        <button class="ta-toggle-btn is-active" data-view="route">
+          <span class="zh">賽道榜</span><span class="en">Route Board</span>
+        </button>
+        <button class="ta-toggle-btn" data-view="vehicle">
+          <span class="zh">車輛榜</span><span class="en">Car Board</span>
+        </button>
+        <button class="ta-toggle-btn" data-view="player">
+          <span class="zh">玩家榜</span><span class="en">Player Board</span>
+        </button>
+      </div>
+      <div class="ta-toggle-group" data-plat-toggle>${platBtns}</div>
+    </div>
+    ${renderTrackLegend()}
+    <div class="ta-boards-container" data-boards-container data-active-view="route" data-active-plat="all">
+      ${routeCards.join("")}
+    </div>
+  `;
+};
+
+// ---- Tracks list (one card per track world, links into track.html detail) ----
+const trackRunTotal = (board) =>
+  (board.routes || []).reduce((sum, route) => sum + (route.record_count || 0), 0);
+
+const renderTrackListCard = (board) => {
+  const metaChips = [board.track_env, board.track_shape, board.track_distance, board.difficulty]
+    .filter(Boolean)
+    .map((tag) => renderToneChip(tag, "meta"))
+    .join("");
+  const techChips = (board.tech_tags || []).map((tag) => renderToneChip(tag, tagToneForText(tag))).join("");
+  const systemChip = board.system_name
+    ? `<span class="ta-tag-chip is-system">${escapeHtml(board.system_name)}</span>`
+    : "";
+  const id = encodeURIComponent(board.track_world_code);
+  const routeLinks = (board.routes || [])
+    .map(
+      (route) => `
+        <a class="ta-route-pill" href="./track.html?id=${id}&route=${encodeURIComponent(route.route_code)}">
+          <span class="ta-route-pill-name">${escapeHtml(route.route_display_name)}</span>
+          <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
+        </a>
+      `,
+    )
+    .join("");
+
+  return `
+    <article class="ta-track-board ta-track-list-card">
+      <a class="ta-track-list-head" href="./track.html?id=${id}">
+        <div class="ta-label">${escapeHtml(board.world_name)}</div>
+        <h3 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h3>
+        ${board.track_author ? `<div class="ta-track-list-author">${escapeHtml(board.track_author)}</div>` : ""}
+        <div class="ta-track-list-stat">
+          ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
+          ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
+        </div>
+      </a>
+      <div class="ta-track-chiprow">${systemChip}${metaChips}${techChips}</div>
+      <div class="ta-route-pill-row">${routeLinks}</div>
+    </article>
+  `;
+};
+
+const renderTrackList = (data) => {
+  const boards = data.boards || [];
+  if (!boards.length) {
+    return '<p class="ta-empty">No track worlds yet.</p>';
+  }
+  return `
+    ${renderTrackLegend()}
+    <div class="ta-track-list-grid">
+      ${boards.map(renderTrackListCard).join("")}
+    </div>
+  `;
+};
+
+// ---- Single track detail (reuses renderTrackBoards with a one-board subset) ----
+const PROJECT_T_HUB = window.PROJECT_T_HUB_DATA || { worlds: [], articles: [] };
+
+const getProjectTWorldProfile = (trackWorldCode) =>
+  (PROJECT_T_HUB.worlds || []).find(
+    (world) => Array.isArray(world.track_world_codes) && world.track_world_codes.includes(trackWorldCode),
+  ) || null;
+
+const getProjectTArticleProfile = (articleId) =>
+  (PROJECT_T_HUB.articles || []).find((article) => article.article_id === articleId) || null;
+
+const renderProjectTLinksModule = (board) => {
+  const cards = [];
+  const world = getProjectTWorldProfile(board.track_world_code);
+
+  if (world && world.page_live && world.slug) {
+    cards.push({
+      label_zh: "世界介紹",
+      label_en: "World Intro",
+      title_zh: world.title_zh || board.track_display_name,
+      title_en: world.title_en || board.track_display_name,
+      description_zh:
+        world.summary_zh || "回到 Worlds 看這個場景的背景、路線定位與 VRChat 世界入口。",
+      description_en:
+        world.summary_en || "Open the world page for scene context, route positioning, and the VRChat entry.",
+      href: `../../worlds/${world.slug}.html`,
+      href_label_zh: "檢視世界頁",
+      href_label_en: "Open World Page",
+    });
+  }
+
+  if (world) {
+    const article = (world.articles || [])
+      .map(getProjectTArticleProfile)
+      .find((entry) => entry && entry.page_live && entry.slug);
+    if (article) {
+      cards.push({
+        label_zh: "相關文章",
+        label_en: "Related Article",
+        title_zh: article.title_zh || "賽道解析",
+        title_en: article.title_en || "Course Guide",
+        description_zh:
+          article.summary_zh || "把路線性格、跑法重點與敘事補充獨立成文章層，不讓紀錄頁承擔全部說明。",
+        description_en:
+          article.summary_en || "Keep route character, driving notes, and narrative analysis in the article layer instead of overloading the leaderboard.",
+        href: `../../articles/${article.slug}.html`,
+        href_label_zh: "閱讀文章",
+        href_label_en: "Read Article",
+      });
+    }
+  }
+
+  if (!cards.length) {
+    return "";
+  }
+
+  return renderModule(
+    "世界 / 文章",
+    "World / Article",
+    "Project T 回連",
+    "Project T Cross-links",
+    renderBoardCards(cards),
+  );
+};
+
+const getQueryParam = (key) => {
+  try {
+    return new URLSearchParams(window.location.search).get(key) || "";
+  } catch (error) {
+    return "";
+  }
+};
+
+// In-page lateral switcher: filter box + dropdown + prev/next to jump ids.
+const renderDetailSwitcher = (kind, items, currentId, labelZh, labelEn) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+  const options = items
+    .map(
+      (item) =>
+        `<option value="${escapeHtml(item.id)}"${item.id === currentId ? " selected" : ""}>${escapeHtml(item.name)}</option>`,
+    )
+    .join("");
+  return `
+    <div class="ta-detail-switch" data-detail-switch-kind="${escapeHtml(kind)}">
+      <span class="ta-label ta-switch-label">${renderBilingual(labelZh, labelEn)}</span>
+      <button type="button" class="ta-switch-btn" data-switch-step="-1" aria-label="Previous">◀</button>
+      <input type="text" class="ta-switch-filter" data-switch-filter placeholder="篩選 / Filter…" autocomplete="off">
+      <select class="ta-switch-select" data-switch-select aria-label="Switch">${options}</select>
+      <button type="button" class="ta-switch-btn" data-switch-step="1" aria-label="Next">▶</button>
+    </div>
+  `;
+};
+
+// A provided-but-unknown id must not silently render the first entry.
+const renderDetailNotFound = (kindZh, kindEn, id, backHref, backZh, backEn) => `
+  <article class="ta-content-card ta-content-card-inner">
+    <h2 class="ta-section-title">${renderBilingual("找不到" + kindZh, kindEn + " not found")}</h2>
+    <p class="ta-section-text">
+      ${renderBilingual("沒有對應的" + kindZh + "資料：", "No matching " + kindEn.toLowerCase() + " for id:")}
+      <code>${escapeHtml(id || "(empty)")}</code>
+    </p>
+    <a class="ta-card-link" href="${escapeHtml(backHref)}">${renderBilingual(backZh, backEn)}</a>
+  </article>
+`;
+
+const renderTrackDetail = (data, id, routeCode) => {
+  const boards = data.boards || [];
+  if (!boards.length) {
+    return '<p class="ta-empty">No tracks yet.</p>';
+  }
+  const board = id ? boards.find((item) => item.track_world_code === id) : boards[0];
+  if (!board) {
+    return renderDetailNotFound("賽道", "Track", id, "./tracks.html", "返回賽道清單", "Back to Tracks");
+  }
+  // The world detail is one page: without ?route=, all route boards remain
+  // expanded. ?route= focuses one route in the same Track/Route data model.
+  // Never fall back to other routes when a requested route code is unknown.
+  let focusBoard = board;
+  if (routeCode) {
+    const route = (board.routes || []).find((item) => item.route_code === routeCode);
+    if (!route) {
+      return renderDetailNotFound(
+        "路線", "Route", `${board.track_world_code} / ${routeCode}`,
+        `./track.html?id=${encodeURIComponent(board.track_world_code)}`,
+        "返回此世界的全部路線", "Back to All Routes",
+      );
+    }
+    focusBoard = { ...board, routes: [route] };
+  }
+  const worldHref = `./track.html?id=${encodeURIComponent(board.track_world_code)}`;
+  const routeNav = (board.routes || []).length ? `
+    <nav class="ta-track-route-nav" aria-label="Routes in this Track World">
+      <div class="ta-label">${renderBilingual("世界內路線", "Routes in this Track World")}</div>
+      <div class="ta-route-pill-row">
+        <a class="ta-route-pill${routeCode ? "" : " is-active"}" href="${worldHref}"${routeCode ? "" : ' aria-current="page"'} data-track-route-all>
+          ${renderBilingual("全部路線", "All Routes")}
+        </a>
+        ${(board.routes || []).map((route) => `
+          <a class="ta-route-pill${route.route_code === routeCode ? " is-active" : ""}"
+             href="${worldHref}&route=${encodeURIComponent(route.route_code)}"
+             data-track-route-code="${escapeHtml(route.route_code)}"${route.route_code === routeCode ? ' aria-current="page"' : ""}>
+            <span>${escapeHtml(route.route_display_name || route.route_code)}</span>
+            <span class="ta-route-pill-stat">${escapeHtml(route.record_count || 0)}</span>
+          </a>
+        `).join("")}
+      </div>
+    </nav>
+  ` : "";
+  const switcher = renderDetailSwitcher(
+    "track",
+    boards.map((item) => ({ id: item.track_world_code, name: item.track_display_name })),
+    board.track_world_code,
+    "切換賽道",
+    "Switch Track",
+  );
+  // Collect distinct platforms from all route rows on this board.
+  const boardPlatforms = [...new Set(
+    (board.routes || []).flatMap((r) => (r.route_rows || []).map((row) => row.platform || ""))
+  )].filter(Boolean).sort();
+  const platformChips = boardPlatforms.map((p) => renderToneChip(p.toUpperCase(), "meta")).join("");
+  const worldLinkBtn = board.world_url
+    ? `<a class="ta-world-link-btn" href="${escapeHtml(board.world_url)}" target="_blank" rel="noopener noreferrer">
+        <span class="zh">前往世界 ↗</span><span class="en">Visit World ↗</span>
+        <span class="jp">ワールドへ ↗</span>
+      </a>`
+    : "";
+  const header = `
+    <article class="ta-track-board ta-track-detail-head">
+      <div class="ta-label">${escapeHtml(board.world_name)}</div>
+      <h2 class="ta-track-board-title">${escapeHtml(board.track_display_name)}</h2>
+      ${board.track_author ? `
+        <div class="ta-track-author-row">
+          <span class="ta-track-author-label">${renderBilingual("作者", "Author")}</span>
+          <strong class="ta-track-author-name">${escapeHtml(board.track_author)}</strong>
+        </div>` : ""}
+      <div class="ta-track-detail-meta-row">
+        ${board.system_name ? `<span class="ta-tag-chip is-meta">${escapeHtml(board.system_name)}</span>` : ""}
+        ${platformChips}
+      </div>
+      <div class="ta-track-list-stat">
+        ${escapeHtml((board.routes || []).length)} ${renderBilingual("條路線", "routes")}
+        ・ ${escapeHtml(trackRunTotal(board))} ${renderBilingual("筆紀錄", "runs")}
+      </div>
+      ${worldLinkBtn}
+    </article>
+  `;
+  const analysis = renderTrackAnalysis(focusBoard);
+  // 放在排行榜「之前」:熱門賽道的榜單可長達上萬 px,分析若擺頁尾會被埋到滾不到。
+  const analysisModule = analysis
+    ? renderModule("圈速分布", "Lap Spread", "競爭密度", "Competition Density", analysis)
+    : "";
+  const projectTLinksModule = renderProjectTLinksModule(board);
+  return switcher + header + routeNav + renderRelatedEvents(data.editorial_events, "track", board.track_world_code, routeCode) + projectTLinksModule + analysisModule + renderTrackBoards({ boards: [focusBoard], platforms: data.platforms });
+};
+
+// Lateral id switching for the detail pages (track/player/vehicle).
+const attachDetailSwitchListeners = () => {
+  const root = document.querySelector("[data-detail-switch-kind]");
+  if (!root) {
+    return;
+  }
+  const select = root.querySelector("[data-switch-select]");
+  const filter = root.querySelector("[data-switch-filter]");
+  if (!select) {
+    return;
+  }
+  const go = (id) => {
+    if (id) {
+      window.location.search = "?id=" + encodeURIComponent(id);
+    }
+  };
+  select.addEventListener("change", () => go(select.value));
+  root.querySelectorAll("[data-switch-step]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const visible = Array.from(select.options).filter((opt) => !opt.hidden);
+      const idx = visible.findIndex((opt) => opt.value === select.value);
+      const next = visible[idx + Number(btn.dataset.switchStep)];
+      if (next) {
+        go(next.value);
+      }
+    });
+  });
+  if (filter) {
+    filter.addEventListener("input", () => {
+      const q = filter.value.trim().toLowerCase();
+      Array.from(select.options).forEach((opt) => {
+        opt.hidden = q !== "" && !opt.textContent.toLowerCase().includes(q);
+      });
+    });
+  }
+};
+
+const attachBoardPagination = () => {
+  const wrappers = [...document.querySelectorAll('.ta-track-table-wrap')];
+  const update = (wrap) => {
+    const allRows = [...wrap.querySelectorAll('tbody .ta-record-row')];
+    const platform = (wrap.closest('[data-boards-container]')?.dataset.activePlat || 'all').toLowerCase();
+    allRows.forEach(row => { row.dataset.plat = (row.dataset.plat || '').toLowerCase(); });
+    const rows = allRows.filter(row => platform === 'all' || row.dataset.plat === platform);
+    const size = matchMedia('(max-width:900px)').matches ? 10 : 25;
+    const pages = Math.max(1,Math.ceil(rows.length/size));
+    const page = Math.max(1,Math.min(Number(wrap.dataset.page || 1),pages));
+    wrap.dataset.page = page;
+    const shown = new Set(rows.slice((page-1)*size,page*size));
+    allRows.forEach(row => { row.hidden = !shown.has(row); });
+    let nav = wrap.querySelector('.ta-pagination');
+    if (!nav) {
+      nav = document.createElement('nav'); nav.className = 'ta-pagination'; nav.setAttribute('aria-label','Leaderboard pages');
+      nav.innerHTML = `<button type="button" class="ta-page-prev">${renderBilingual('上一頁','Previous')}</button><span aria-live="polite"></span><button type="button" class="ta-page-next">${renderBilingual('下一頁','Next')}</button>`;
+      wrap.append(nav);
+      nav.querySelectorAll('button').forEach(button => button.addEventListener('click',() => {
+        wrap.dataset.page = Number(wrap.dataset.page) + (button.classList.contains('ta-page-next') ? 1 : -1);
+        update(wrap); wrap.scrollIntoView({block:'start'});
+      }));
+    }
+    nav.hidden = rows.length <= size;
+    nav.querySelector('.ta-page-prev').disabled = page === 1;
+    nav.querySelector('.ta-page-next').disabled = page === pages;
+    nav.querySelector('span[aria-live]').textContent = `${(page-1)*size+1}–${Math.min(page*size,rows.length)} / ${rows.length}`;
+  };
+  wrappers.forEach(update);
+  document.addEventListener('click',event => {
+    if (event.target.closest('[data-plat-toggle] [data-plat]')) {
+      wrappers.forEach(wrap => { wrap.dataset.page=1; update(wrap); });
+    }
+  });
+  window.addEventListener('resize',()=>wrappers.forEach(update));
+};
+
+const attachBoardToggleListeners = () => {
+  document.addEventListener("click", (e) => {
+    const viewBtn = e.target.closest("[data-view-toggle] [data-view]");
+    if (viewBtn) {
+      document.querySelectorAll("[data-view-toggle] .ta-toggle-btn").forEach((button) =>
+        button.classList.remove("is-active"),
+      );
+      viewBtn.classList.add("is-active");
+      const container = document.querySelector("[data-boards-container]");
+      if (container) {
+        container.dataset.activeView = viewBtn.dataset.view;
+      }
+    }
+
+    const platBtn = e.target.closest("[data-plat-toggle] [data-plat]");
+    if (platBtn) {
+      document.querySelectorAll("[data-plat-toggle] .ta-toggle-btn").forEach((button) =>
+        button.classList.remove("is-active"),
+      );
+      platBtn.classList.add("is-active");
+      const container = document.querySelector("[data-boards-container]");
+      if (container) {
+        container.dataset.activePlat = platBtn.dataset.plat;
+      }
+    }
+  });
+};
+
+// ── Track group rows (player/vehicle pages) ────────────────────────────────
+
+const renderTrackGroupRows = (groups, subKey) => {
+  if (!groups || groups.length === 0) return "";
+  return groups
+    .map(
+      (g) => `
+      <div class="ta-track-group">
+        <div class="ta-track-group-label">${escapeHtml(g.env)}</div>
+        <div class="ta-detail-list">
+          ${g.rows
+            .map(
+              (row, i) => `
+            <div class="ta-mini-row ta-mini-row-track">
+              <span class="ta-mini-rank">${i + 1}</span>
+              <span class="ta-mini-name">${escapeHtml(row.track_name || "")}</span>
+              <span class="ta-mini-sub">${escapeHtml(row[subKey] || "")}</span>
+              <span class="ta-mini-plat">${escapeHtml((row.platform || "").toUpperCase())}</span>
+              <span class="ta-mini-time">${escapeHtml(row.lap_time_text || "")}</span>
+            </div>`,
+            )
+            .join("")}
+        </div>
+      </div>`,
+    )
+    .join("");
+};
+
+const renderStatPills = (stats) => {
+  if (!Array.isArray(stats) || stats.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-stat-grid" style="--ta-stat-count:${stats.length}">
+      ${stats
+        .map(
+          (stat) => `
+            <div class="ta-stat-pill">
+              <div class="ta-label">
+                ${renderBilingual(stat.label_zh, stat.label_en)}
+              </div>
+              <strong>${escapeHtml(stat.value ?? "-")}</strong>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderCounterRows = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-empty">No counters yet.</p>';
+  }
+  return `
+    <div class="ta-counter-list">
+      ${rows
+        .map(
+          (row) => `
+            <div class="ta-counter-row">
+              <span class="ta-counter-label">${escapeHtml(row.label || row.route_label || "")}</span>
+              <span class="ta-counter-value">${escapeHtml(row.value ?? row.lap_time_text ?? "-")}</span>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderDetailRows = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-empty">No detail rows yet.</p>';
+  }
+  return `
+    <div class="ta-detail-list">
+      ${rows
+        .map(
+          (row) => `
+            <div class="ta-mini-row">
+              <span class="ta-mini-rank">${escapeHtml(row.rank)}</span>
+              <span class="ta-mini-name">${escapeHtml(row.route_label || "")}</span>
+              <span class="ta-mini-sub">${escapeHtml(row.sub_label || "")}</span>
+              <span class="ta-mini-time">${escapeHtml(row.lap_time_text || row.value || "-")}</span>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderHistoryChart = (route) => {
+  const runs = route.runs;
+  if (!runs || runs.length < 2) return "";
+
+  const W = 320;
+  const H = 72;
+  const PAD = { top: 12, right: 6, bottom: 18, left: 28 };
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+
+  const dates = runs.map((r) => new Date(r.date + "T00:00:00Z").getTime());
+  const minDate = Math.min(...dates);
+  const maxDate = Math.max(...dates);
+  const dateSpan = maxDate - minDate || 1;
+
+  const times = runs.map((r) => r.lap_time_ms);
+  const bestMs = Math.min(...times);
+  const worstMs = Math.max(...times);
+  const deltaSpan = worstMs - bestMs || 1;
+
+  const toX = (i) =>
+    PAD.left + ((dates[i] - minDate) / dateSpan) * plotW;
+  const toY = (ms) =>
+    PAD.top + ((ms - bestMs) / deltaSpan) * plotH;
+
+  const pts = runs.map((r, i) => `${toX(i).toFixed(1)},${toY(r.lap_time_ms).toFixed(1)}`).join(" ");
+
+  const dots = runs
+    .map((r, i) => {
+      const cx = toX(i).toFixed(1);
+      const cy = toY(r.lap_time_ms).toFixed(1);
+      const cls = r.is_pb ? "ta-chart-dot is-pb" : "ta-chart-dot";
+      const deltaText = `+${((r.lap_time_ms - bestMs) / 1000).toFixed(3)}`;
+      const tip = `${r.date} · ${r.lap_time_text} · ${escapeHtml(r.vehicle)} · ${deltaText}`;
+      return `<circle cx="${cx}" cy="${cy}" r="3.5" class="${cls}"><title>${tip}</title></circle>`;
+    })
+    .join("");
+
+  const firstMs = runs[0].lap_time_ms;
+  const lastMs = runs[runs.length - 1].lap_time_ms;
+  const diffMs = firstMs - lastMs;
+  const diffSign = diffMs > 0 ? "▼ " : diffMs < 0 ? "▲ " : "";
+  const diffText = diffMs !== 0 ? `${diffSign}${Math.abs(diffMs / 1000).toFixed(3)}s` : "持平";
+  const diffCls = diffMs > 0 ? "is-improve" : diffMs < 0 ? "is-regress" : "";
+  const bestRun = runs.reduce(
+    (currentBest, run) => (run.lap_time_ms < currentBest.lap_time_ms ? run : currentBest),
+    runs[0],
+  );
+
+  return `
+    <div class="ta-history-block">
+      <div class="ta-history-route-label">${escapeHtml(route.route_label)}</div>
+      <svg viewBox="0 0 ${W} ${H}" class="ta-history-svg" role="img" aria-label="${escapeHtml(route.route_label)} history">
+        <line x1="${PAD.left}" y1="${PAD.top}" x2="${PAD.left + plotW}" y2="${PAD.top}" class="ta-chart-axis"/>
+        <text x="${PAD.left - 6}" y="${PAD.top + 3}" text-anchor="end" class="ta-chart-axis-label">0</text>
+        <polyline points="${pts}" class="ta-chart-line"/>
+        ${dots}
+      </svg>
+      <div class="ta-chart-meta">
+        <span>${runs.length} runs</span>
+        <span class="ta-chart-diff ${diffCls}">${diffText}</span>
+        <span class="ta-chart-best">PB ${bestRun.lap_time_text}</span>
+      </div>
+    </div>
+  `;
+};
+
+const renderHistorySection = (history) => {
+  if (!ENABLE_HISTORY_CHARTS) return "";
+  if (!Array.isArray(history) || history.length === 0) return "";
+  const charts = history.map((route) => renderHistoryChart(route)).filter(Boolean).join("");
+  if (!charts) return "";
+  return `
+    <section class="ta-detail-card ta-history-section">
+      <div class="ta-lb-col-head">
+        <span class="zh">賽道歷史成績</span>
+        <span class="en">Track History</span>
+      </div>
+      <div class="ta-history-grid">${charts}</div>
+    </section>
+  `;
+};
+
+const renderProfileGrid = (cards, labels) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No profile cards yet.</p>';
+  }
+
+  return `
+    <div class="ta-profile-grid">
+      ${cards
+        .map(
+          (card) => {
+            const hasUsage = Array.isArray(card.usage_rows) && card.usage_rows.length > 0;
+            const hasTags = Array.isArray(card.tag_rows) && card.tag_rows.length > 0;
+            const detailGrid =
+              hasUsage || hasTags
+                ? `
+                  <div class="ta-detail-grid">
+                    ${
+                      hasUsage
+                        ? `
+                          <section class="ta-detail-card">
+                            <div class="ta-lb-col-head">
+                              ${renderBilingual(labels.usageZh, labels.usageEn)}
+                            </div>
+                            ${renderCounterRows(card.usage_rows)}
+                          </section>
+                        `
+                        : ""
+                    }
+                    ${
+                      hasTags
+                        ? `
+                          <section class="ta-detail-card">
+                            <div class="ta-lb-col-head">
+                              ${renderBilingual(labels.tagZh, labels.tagEn)}
+                            </div>
+                            ${renderCounterRows(card.tag_rows)}
+                          </section>
+                        `
+                        : ""
+                    }
+                  </div>
+                `
+                : "";
+
+            return `
+              <article class="ta-profile-card">
+                <div class="ta-profile-head">
+                  <div>
+                    <h3 class="ta-section-title">${escapeHtml(card.title || "")}</h3>
+                    <p class="ta-profile-subtitle">
+                      ${renderBilingual(card.subtitle_zh, card.subtitle_en)}
+                    </p>
+                  </div>
+                  ${renderStatPills(card.stats)}
+                </div>
+                ${renderChipList(card.tags)}
+                ${detailGrid}
+                ${
+                  Array.isArray(card.track_groups) && card.track_groups.length
+                    ? `<section class="ta-detail-card ta-track-groups">
+                        <div class="ta-lb-col-head">
+                          ${renderBilingual(labels.listZh, labels.listEn)}
+                        </div>
+                        ${renderTrackGroupRows(card.track_groups, labels.subKey || "vehicle")}
+                      </section>`
+                    : `<section class="ta-detail-card">
+                        <div class="ta-lb-col-head">
+                          ${renderBilingual(labels.listZh, labels.listEn)}
+                        </div>
+                        ${renderDetailRows(card.best_times)}
+                      </section>`
+                }
+                ${renderHistorySection(card.history)}
+              </article>
+            `;
+          },
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderProfilePlaceholder = (modifier, labelZh, labelEn) => `
+  <div class="ta-profile-placeholder ${modifier}">
+    <span class="zh">${escapeHtml(labelZh)}</span>
+    <span class="en">${escapeHtml(labelEn)}</span>
+  </div>
+`;
+
+const renderPlayerBanner = (card, config) => {
+  if (config !== PLAYER_PROFILE_CONFIG) return renderProfilePlaceholder("is-main", config.bannerZh, config.bannerEn);
+  const banner = card.profile_banner || {};
+  const image = String(banner.image || "").trim();
+  const position = /^(left|center|right|top|bottom|[0-9]{1,3}%)(\s+(left|center|right|top|bottom|[0-9]{1,3}%))?$/.test(String(banner.position || "").trim())
+    ? String(banner.position).trim()
+    : "center center";
+  const media = image
+    ? `<img class="ta-player-banner-image" src="${escapeHtml(image)}" alt="">`
+    : `<span class="ta-player-banner-pattern" aria-hidden="true"></span>`;
+  return `
+    <div class="ta-player-banner is-tone-${Number(banner.tone || 0) % 6}"
+         style="--ta-player-banner-position:${escapeHtml(position)}">
+      ${media}<span class="ta-player-banner-shade"></span>
+      <span class="ta-player-banner-copy">
+        <small>${renderBilingual("車手個人橫幅", "Driver Banner", "ドライバーバナー")}</small>
+        <strong>${renderBilingual(banner.title_zh || card.title, banner.title_en || card.title, banner.title_en || card.title)}</strong>
+        <em>${renderBilingual(banner.subtitle_zh || card.subtitle_zh, banner.subtitle_en || card.subtitle_en, banner.subtitle_en || card.subtitle_en)}</em>
+      </span>
+      <span class="ta-player-banner-id">${escapeHtml(card.player_id || "")}</span>
+    </div>`;
+};
+
+const eventMatchesEntity = (event, kind, id, subId = "") => {
+  if (!id) return false;
+  if (kind === "player") return (event.participant_player_ids || []).includes(id);
+  if (kind === "vehicle") return (event.vehicle_model_codes || []).includes(id);
+  if (kind === "team") return (event.team_ids || []).includes(id);
+  if (kind === "track") return event.track_world_code === id && (!subId || event.route_code === subId);
+  return false;
+};
+
+// result_zh 混了兩套詞彙:對戰賽事寫名次(「冠軍」「殿軍」「第四名」),計時賽事只有
+// 第 1 名寫「活動第 1」,第 2 名以後寫的是差距(「落後 42.692 秒」)。差距不是名次,
+// 直接沿用會讓名次欄位顯示秒數,所以只在原文確實是名次時採用,否則由 rank 推導。
+const isPlacementLabel = (text) =>
+  /^(冠軍|亞軍|季軍|殿軍)$/.test(String(text || "").trim()) || /第\s*\d+/.test(text || "");
+
+const renderEventRankChip = (result, { withName = false } = {}) => {
+  if (!result) return "";
+  const rank = Number(result.rank);
+  const hasRank = Number.isFinite(rank) && rank > 0;
+  // 無 rank 的列是榮譽獎這類特殊獎項,直接用原文(差距那批一定帶 rank,不會落到這裡)。
+  const usesOwnLabel = isPlacementLabel(result.result_zh) || !hasRank;
+  let labelZh = usesOwnLabel ? result.result_zh : (hasRank ? `第 ${rank} 名` : "");
+  let labelEn = usesOwnLabel ? (result.result_en || labelZh) : (hasRank ? `#${rank}` : "");
+  if (!labelZh) return "";
+  if (withName && result.display_name) {
+    labelZh = `${labelZh} · ${result.display_name}`;
+    labelEn = `${labelEn} · ${result.display_name}`;
+  }
+  const medal = hasRank && rank <= 3 ? ` is-rank-${rank}` : "";
+  return `<span class="ta-event-rank${medal}">${renderBilingual(labelZh, labelEn, labelEn)}</span>`;
+};
+
+const bestResultRow = (rows) =>
+  rows.filter((row) => Number.isFinite(Number(row.rank)))
+    .sort((a, b) => Number(a.rank) - Number(b.rank))[0] || rows[0];
+
+// 每個實體頁要標的活動資訊不同:玩家頁標自己的名次,賽道頁標該場冠軍,車輛頁標這台車
+// 在該場拿到的最佳名次(賽道與車輛頁一場活動對應多筆結果,標單一名次沒有意義)。
+// 車隊頁的 results 沒有車隊欄位,維持不標。
+const eventHighlight = (event, kind, id) => {
+  const rows = event.results || [];
+  if (!rows.length) return null;
+  if (kind === "player") {
+    const row = rows.find((item) => item.player_id === id);
+    return row ? { row, withName: false } : null;
+  }
+  if (kind === "track") {
+    return { row: bestResultRow(rows), withName: true };
+  }
+  if (kind === "vehicle") {
+    const matched = rows.filter((item) => item.vehicle_model_code === id);
+    return matched.length ? { row: bestResultRow(matched), withName: true } : null;
+  }
+  return null;
+};
+
+const renderRelatedEvents = (events, kind, id, subId = "") => {
+  const matches = (events || []).filter((event) => eventMatchesEntity(event, kind, id, subId));
+  if (!matches.length) return "";
+  const cards = `
+    <div class="ta-related-events">
+      ${matches.map((event) => {
+        const highlight = eventHighlight(event, kind, id);
+        const rankChip = highlight ? renderEventRankChip(highlight.row, highlight) : "";
+        return `
+        <a href="./event.html?id=${encodeURIComponent(event.event_id)}">
+          ${renderEventStatus(event)}
+          <strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong>
+          ${rankChip}
+          <small>${renderEventDate(event.starts_at)}</small>
+        </a>`;
+      }).join("")}
+    </div>`;
+  return renderModule("活動", "Events", "相關活動", "Related Events", cards);
+};
+
+const teamsForPlayer = (card) => {
+  const memberships = TA_TEAMS.filter((team) => (team.member_ids || []).includes(card.player_id));
+  if (memberships.length) return memberships;
+  const legacy = TA_TEAMS.find((team) => card.team_name && [team.code, team.name_zh, team.name_en].includes(card.team_name));
+  return legacy ? [legacy] : [];
+};
+
+const findTeamForPlayer = (card) => {
+  const memberships = teamsForPlayer(card);
+  return memberships.find((team) => team.team_id === card.primary_team_id) || memberships[0] || null;
+};
+
+const renderTeamBanner = (card) => {
+  const team = findTeamForPlayer(card);
+  if (!team) return "";
+  return `
+    <a class="ta-team-banner" href="./team.html?id=${encodeURIComponent(team.team_id)}"
+       style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+      <img class="ta-team-banner-image" src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+      <span class="ta-team-banner-shade"></span>
+      ${team.badge ? `<img class="ta-team-banner-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+      <span class="ta-team-banner-copy">
+        <small>${renderBilingual("所屬車隊", "Racing Team", "所属チーム")}</small>
+        <strong>${renderBilingual(team.name_zh, team.name_en, team.name_en)}</strong>
+      </span>
+    </a>`;
+};
+
+const renderProfileTagChips = (card) => {
+  const chips = card.tag_chips;
+  if (!Array.isArray(chips) || chips.length === 0) {
+    return "";
+  }
+  const teams = teamsForPlayer(card);
+  const primaryTeam = findTeamForPlayer(card);
+  const nonTeamChips = chips.filter((chip) => chip.tone !== "team");
+  const teamChips = teams.length
+    ? teams.map((team) => `<a class="ta-team-chip-link${team.team_id === primaryTeam?.team_id ? " is-primary" : ""}" href="./team.html?id=${encodeURIComponent(team.team_id)}" aria-label="${escapeHtml(team.name_zh || team.name_en)}">${renderToneChip(`${team.team_id === primaryTeam?.team_id ? "代表 · " : ""}${team.code || team.name_zh || team.name_en}`, "team")}</a>`).join("")
+    : chips.filter((chip) => chip.tone === "team").map((chip) => renderToneChip(chip.label, chip.tone)).join("");
+  return `
+    <div class="ta-profile-chiprow">
+      ${teamChips}
+      ${nonTeamChips.map((chip) => renderToneChip(chip.label, chip.tone)).join("")}
+    </div>
+  `;
+};
+
+const playerEventBadges = (playerId) =>
+  (TA_EDITORIAL_EVENTS || [])
+    .filter((event) => (event.participant_player_ids || []).includes(playerId))
+    .map((event) => ({ event, result: (event.results || []).find((row) => row.player_id === playerId) || null }))
+    .sort((a, b) => String(b.event.starts_at || "").localeCompare(String(a.event.starts_at || "")));
+
+const renderPlayerEventBadges = (playerId) => {
+  if (!playerId) return "";
+  const badges = playerEventBadges(playerId);
+  if (!badges.length) return `<span class="ta-profile-stamp is-event-empty">${renderBilingual("尚無賽事徽章", "No Event Badges Yet", "イベントバッジなし")}</span>`;
+  return badges.slice(0, 8).map(({ event, result }) => {
+    const rank = Number(result && result.rank);
+    const rankClass = Number.isFinite(rank) && rank > 0 && rank <= 3 ? ` is-rank-${rank}` : "";
+    const rankLabel = Number.isFinite(rank) && rank > 0
+      ? renderBilingual(`第 ${rank} 名`, `#${rank}`, `第${rank}位`)
+      : renderBilingual("參賽", "ENTRY", "参加");
+    return `<a class="ta-event-badge${rankClass}" href="./event.html?id=${encodeURIComponent(event.event_id)}" title="${escapeHtml(event.title_zh || event.title_en || event.event_id)}">
+      <span class="ta-event-badge-mark">RC</span><span class="ta-event-badge-copy"><strong>${renderBilingual(event.title_zh, event.title_en, event.title_en)}</strong><small>${rankLabel} · ${escapeHtml(renderEventDate(event.starts_at))}</small></span>
+    </a>`;
+  }).join("") + (badges.length > 8 ? `<span class="ta-profile-stamp is-event-more">+${badges.length - 8}</span>` : "");
+};
+
+const achievementItem = (code, category, tier, zh, en, current, target, tone, options = {}) => ({
+  code, category, tier, zh, en, current, target, tone,
+  unlocked: current >= target,
+  detailZh: options.detailZh || `${current} / ${target}`,
+  detailEn: options.detailEn || `${current} / ${target}`,
+  totalOnly: Boolean(options.totalOnly),
+});
+
+const playerAchievementCatalog = (card) => {
+  const completed = playerEventBadges(card.player_id).filter(({ event }) => event.status === "completed");
+  const ranks = completed.map(({ result }) => Number(result && result.rank)).filter((rank) => Number.isFinite(rank) && rank > 0);
+  const eventCount = completed.length;
+  const resultCount = ranks.length;
+  const podiums = ranks.filter((rank) => rank <= 3).length;
+  const wins = ranks.filter((rank) => rank === 1).length;
+  const stats = card.achievement_stats || {};
+  const tr = Number(stats.tr_count || 0);
+  const cr = Number(stats.cr_count || 0);
+  const models = Number(stats.distinct_vehicle_models || 0);
+  const tracks = Number(stats.distinct_tracks || 0);
+  const routeAttempts = Number(stats.max_route_attempts || 0);
+  const selectedVehicles = card.featured_vehicles || [];
+  const mastery = Math.max(0, ...selectedVehicles.map((vehicle) => Number(vehicle.track_count || 0)));
+  const catalog = [
+    achievementItem("EVENT_DEBUT", "event", 1, "初次出賽", "Event Debut", eventCount, 1, "event"),
+    achievementItem("EVENT_3", "event", 2, "賽場新秀", "Event Rookie", eventCount, 3, "event"),
+    achievementItem("EVENT_5", "event", 3, "賽場常客", "Event Regular", eventCount, 5, "event"),
+    achievementItem("EVENT_10", "event", 4, "十戰車手", "Ten-event Driver", eventCount, 10, "event"),
+    achievementItem("EVENT_25", "event", 5, "資深車手", "Veteran Driver", eventCount, 25, "event"),
+    achievementItem("FIRST_FINISH", "competition", 1, "首次完賽", "First Finish", resultCount, 1, "competition"),
+    achievementItem("FIRST_PODIUM", "competition", 2, "初登頒獎台", "First Podium", podiums, 1, "competition"),
+    achievementItem("PODIUM_3", "competition", 3, "頒獎台常客", "Podium Regular", podiums, 3, "competition"),
+    achievementItem("FIRST_WIN", "competition", 4, "首勝", "First Win", wins, 1, "competition"),
+    achievementItem("WIN_3", "competition", 5, "三冠車手", "Three Wins", wins, 3, "competition"),
+    achievementItem("WIN_5", "competition", 6, "五冠車手", "Five Wins", wins, 5, "competition"),
+    achievementItem("TR_1", "record", 1, "賽道紀錄保持者", "Track Record Holder", tr, 1, "record", { detailZh: `目前持有 ${tr} 個 TR`, detailEn: `${tr} current TR` }),
+    achievementItem("CR_1", "record", 1, "車種紀錄保持者", "Car Record Holder", cr, 1, "record", { detailZh: `目前持有 ${cr} 個 CR`, detailEn: `${cr} current CR` }),
+    achievementItem("TR_3", "record", 2, "賽道征服者", "Track Conqueror", tr, 3, "record"),
+    achievementItem("CR_3", "record", 2, "車種專家", "Car Record Expert", cr, 3, "record"),
+    achievementItem("TR_10", "record", 3, "路線支配者", "Route Dominator", tr, 10, "record"),
+    achievementItem("VEHICLE_10", "exploration", 1, "試駕員", "Test Driver", models, 10, "exploration"),
+    achievementItem("VEHICLE_20", "exploration", 2, "換車玩家", "Car Switcher", models, 20, "exploration"),
+    achievementItem("VEHICLE_30", "exploration", 3, "車輛探索家", "Vehicle Explorer", models, 30, "exploration"),
+    achievementItem("VEHICLE_50", "exploration", 4, "車輛拓荒者", "Vehicle Pioneer", models, 50, "exploration"),
+    achievementItem("MASTERY_3", "mastery", 1, "車輛熟練", "Vehicle Proficiency", mastery, 3, "mastery"),
+    achievementItem("MASTERY_5", "mastery", 2, "車輛專精", "Vehicle Specialist", mastery, 5, "mastery"),
+    achievementItem("MASTERY_10", "mastery", 3, "車輛大師", "Vehicle Master", mastery, 10, "mastery"),
+    achievementItem("ROUTE_5", "track", 1, "路線熟練", "Route Proficiency", routeAttempts, 5, "track", { totalOnly: true }),
+    achievementItem("ROUTE_10", "track", 2, "路線專家", "Route Specialist", routeAttempts, 10, "track", { totalOnly: true }),
+    achievementItem("TRACK_5", "track", 3, "四方征戰", "Track Traveller", tracks, 5, "track", { totalOnly: true }),
+  ];
+  const manualLabels = {
+    EVENT_REGULAR: ["活動常客", "Club Event Regular"], EVENT_STAFF: ["賽事工作人員", "Event Staff"],
+    BROADCASTER: ["賽事轉播員", "Broadcaster"], COMMUNITY: ["社群貢獻", "Community Contributor"],
+    FAIR_PLAY: ["運動精神", "Fair Play"], SPECIAL_AWARD: ["特別獎", "Special Award"],
+    SEASON_CHAMPION: ["賽季冠軍", "Season Champion"],
+  };
+  (card.manual_achievement_codes || []).forEach((code, index) => {
+    const labels = manualLabels[code] || [code, code];
+    catalog.push({ code, category: "manual", tier: 100 + index, zh: labels[0], en: labels[1], current: 1, target: 1, tone: "manual", unlocked: true, detailZh: "人工授予", detailEn: "Manually awarded" });
+  });
+  return catalog;
+};
+
+const achievementTooltip = (item, locked) => {
+  const stateZh = item.detailZh === "人工授予" ? "由管理員人工授予" : (locked ? `尚未解鎖，目前進度 ${item.current} / ${item.target}` : `已解鎖，目前數值 ${item.current}`);
+  const stateEn = item.detailEn === "Manually awarded" ? "Manually awarded by an administrator" : (locked ? `Locked: ${item.current} / ${item.target}` : `Unlocked: current value ${item.current}`);
+  return `${item.zh} — ${stateZh} / ${item.en} — ${stateEn}`;
+};
+
+const renderAchievementBlock = (item, locked = false) => `<span class="ta-achievement-medal is-${item.tone}${locked ? " is-locked" : ""}" tabindex="0" aria-label="${escapeHtml(achievementTooltip(item, locked))}" data-achievement-tooltip="${escapeHtml(achievementTooltip(item, locked))}">
+  <i aria-hidden="true">${escapeHtml(item.code.split("_")[0].slice(0, 2))}</i><span><strong>${renderBilingual(item.zh, item.en, item.en)}</strong><small>${renderBilingual(item.detailZh, item.detailEn, item.detailEn)}</small></span>
+</span>`;
+
+const featuredPlayerAchievements = (card) => {
+  const unlocked = playerAchievementCatalog(card).filter((item) => item.unlocked && !item.totalOnly);
+  const categoryOrder = ["manual", "competition", "record", "event", "exploration", "mastery"];
+  return categoryOrder.map((category) => unlocked.filter((item) => item.category === category).sort((a, b) => b.tier - a.tier || b.current - a.current)[0]).filter(Boolean).slice(0, 5);
+};
+
+const renderPlayerAchievements = (card) => {
+  const items = featuredPlayerAchievements(card);
+  if (!items.length) return "";
+  return `<section class="ta-achievement-panel"><div class="ta-lb-col-head">${renderBilingual("代表勳章", "Featured Achievements", "代表実績")}</div><div class="ta-achievement-grid">${items.map((item) => renderAchievementBlock(item)).join("")}</div></section>`;
+};
+
+const renderPlayerPreferences = (card) => {
+  const homes = card.home_tracks || [];
+  const vehicles = card.featured_vehicles || [];
+  if (!homes.length && !vehicles.length) return "";
+  return `<section class="ta-profile-preferences">
+    ${homes.length ? `<div><small>${renderBilingual("主場", "Home Tracks", "ホーム")}</small><div class="ta-profile-chiprow">${homes.map((track) => `<a class="ta-tag-chip is-home" href="./track.html?id=${encodeURIComponent(track.track_world_code)}">${renderBilingual(track.name_zh, track.name_en, track.name_en)}</a>`).join("")}</div></div>` : ""}
+    ${vehicles.length ? `<div><small>${renderBilingual("代表車型", "Featured Cars", "代表車両")}</small><div class="ta-profile-chiprow">${vehicles.map((vehicle) => `<a class="ta-tag-chip is-vehicle" href="./vehicle.html?id=${encodeURIComponent(vehicle.vehicle_model_code)}">${escapeHtml(vehicle.name)}</a>`).join("")}</div></div>` : ""}
+  </section>`;
+};
+
+const renderAchievementCatalog = (card) => {
+  const catalog = playerAchievementCatalog(card);
+  return renderModule("勳章收藏", "Achievement Collection", "完整勳章列表", "Achievement Catalog", `<div class="ta-achievement-catalog">${catalog.map((item) => renderAchievementBlock(item, !item.unlocked)).join("")}</div>`);
+};
+
+const renderProfileBadgeRail = (counts = {}, playerId = "") => {
+  const countRail = ["TR", "CR", "PR"]
+    .map((code) => {
+      const count = Number(counts[code] || 0);
+      return `
+        <span class="ta-profile-stamp is-${code.toLowerCase()}">
+          <strong>${code}</strong>
+          <small>${count}</small>
+        </span>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="ta-profile-badge-rail">
+      ${countRail}
+      ${renderPlayerEventBadges(playerId)}
+    </div>
+  `;
+};
+
+const renderProfilePanel = (labelZh, labelEn, rows) => `
+  <section class="ta-profile-panel">
+    <div class="ta-lb-col-head">${renderBilingual(labelZh, labelEn)}</div>
+    ${renderCounterRows(rows)}
+  </section>
+`;
+
+const renderProfileRecordTable = (rows, peerLabelZh, peerLabelEn, peerField) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-empty">No records yet.</p>';
+  }
+
+  return `
+    <div class="ta-profile-record-wrap">
+      <table class="ta-profile-record-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>${renderBilingual("路線", "Route")}</th>
+            <th>${renderBilingual(peerLabelZh, peerLabelEn)}</th>
+            <th>${renderBilingual("時間", "Time")}</th>
+            <th>${renderBilingual("差距", "Gap")}</th>
+            <th>${renderBilingual("標記", "Badge")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map(
+              (row) => `
+                <tr>
+                  <td class="ta-profile-record-rank">${escapeHtml(row.rank)}</td>
+                  <td>
+                    <div class="ta-record-primary">
+                      <strong>${renderBilingual(row.route_label_zh || "", row.route_label_en || "")}</strong>
+                      <div class="ta-record-meta">
+                        <span>${escapeHtml((row.platform || "unknown").toUpperCase())}</span>
+                        <span>${escapeHtml(row.record_date || "")}</span>
+                        ${renderProofBadge(row, true)}
+                      </div>
+                      ${renderRouteTagChips(row)}
+                    </div>
+                  </td>
+                  <td class="ta-profile-record-peer">${
+                    peerField === "player_display_name"
+                      ? taEntityLink(row.player_display_name, taPlayerHref(row))
+                      : taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))
+                  }</td>
+                  <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || "-")}</td>
+                  <td class="ta-profile-record-gap">${escapeHtml(row.delta_to_best_text || "-")}</td>
+                  <td class="ta-profile-record-badge">${renderRecordBadge(row)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+};
+
+const renderProfileFeatureCard = (card, config) => {
+  const usagePanel = renderProfilePanel(config.usageZh, config.usageEn, card.usage_rows || []);
+  const tagPanel = renderProfilePanel(config.tagZh, config.tagEn, card.tag_rows || []);
+
+  return `
+    <article class="ta-profile-feature">
+      <div class="ta-profile-marquee">
+        ${renderPlayerBanner(card, config)}
+        ${renderProfileBadgeRail(card.badge_counts, config === PLAYER_PROFILE_CONFIG ? card.player_id : "")}
+        ${renderTeamBanner(card)}
+      </div>
+      <div class="ta-profile-feature-main">
+        <div class="ta-profile-feature-head">
+          <div class="ta-headline-group">
+            <div class="ta-label">${renderBilingual(config.fileZh, config.fileEn)}</div>
+            <h3 class="ta-section-title">${escapeHtml(card.title || "")}</h3>
+            <p class="ta-profile-subtitle">${renderBilingual(card.subtitle_zh, card.subtitle_en)}</p>
+          </div>
+          ${renderStatPills(card.stats)}
+        </div>
+        ${renderProfileTagChips(card)}
+        ${config === PLAYER_PROFILE_CONFIG ? renderPlayerPreferences(card) : ""}
+        ${config === PLAYER_PROFILE_CONFIG ? renderPlayerAchievements(card) : ""}
+        <div class="ta-profile-panels">
+          ${usagePanel}
+          ${tagPanel}
+        </div>
+        <section class="ta-profile-panel is-records">
+          <div class="ta-lb-col-head">${renderBilingual(config.listZh, config.listEn)}</div>
+          ${renderProfileRecordTable(card.record_rows, config.peerZh, config.peerEn, config.peerField)}
+        </section>
+        ${renderHistorySection(card.history)}
+      </div>
+    </article>
+  `;
+};
+
+const PLAYER_PROFILE_CONFIG = {
+  fileZh: "玩家檔案",
+  fileEn: "Driver File",
+  bannerZh: "個人橫幅預留",
+  bannerEn: "Personal Banner Slot",
+  usageZh: "常用車輛",
+  usageEn: "Vehicle Usage",
+  tagZh: "路線標籤",
+  tagEn: "Track Tags",
+  listZh: "個人最佳路線",
+  listEn: "Route Personal Bests",
+  peerZh: "使用車輛",
+  peerEn: "Car Used",
+  peerField: "vehicle_model_name",
+};
+
+const renderPlayerCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No player profiles yet.</p>';
+  }
+
+  return `
+    <div class="ta-profile-stack">
+      ${cards.map((card) => renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)).join("")}
+    </div>
+  `;
+};
+
+// ---- Phase 1: profile list card (shared by players + vehicles lists) ----
+const renderProfileListCard = (card, href, subtitleZh, subtitleEn) => {
+  const counts = card.badge_counts || {};
+  const badges = ["TR", "CR", "PR"]
+    .map(
+      (code) =>
+        `<span class="ta-profile-stamp is-${code.toLowerCase()}"><strong>${code}</strong><small>${Number(counts[code] || 0)}</small></span>`,
+    )
+    .join("");
+  const validRuns = (card.stats || []).find((stat) => stat.label_en === "Valid Runs");
+  return `
+    <a class="ta-track-board ta-profile-list-card" href="${escapeHtml(href)}">
+      <div class="ta-label">${renderBilingual(subtitleZh, subtitleEn)}</div>
+      <h3 class="ta-track-board-title">${escapeHtml(card.title || "")}</h3>
+      <p class="ta-profile-subtitle">${renderBilingual(card.subtitle_zh, card.subtitle_en)}</p>
+      <div class="ta-profile-badge-rail is-compact">${badges}</div>
+      ${
+        validRuns
+          ? `<div class="ta-track-list-stat">${escapeHtml(validRuns.value)} ${renderBilingual("筆有效紀錄", "valid runs")}</div>`
+          : ""
+      }
+    </a>
+  `;
+};
+
+const renderPlayerList = (data) => {
+  const cards = data.player_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No player profiles yet.</p>';
+  }
+  return `
+    <div class="ta-track-list-grid">
+      ${cards
+        .map((card) =>
+          renderProfileListCard(card, `./player.html?id=${encodeURIComponent(card.player_id)}`, "玩家檔案", "Driver File"),
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderPlayerDetail = (data, id) => {
+  const cards = data.player_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No players yet.</p>';
+  }
+  const card = id ? cards.find((item) => item.player_id === id) : cards[0];
+  if (!card) {
+    return renderDetailNotFound("玩家", "Player", id, "./players.html", "返回玩家清單", "Back to Players");
+  }
+  const switcher = renderDetailSwitcher(
+    "player",
+    cards.map((item) => ({ id: item.player_id, name: item.title })),
+    card.player_id,
+    "切換玩家",
+    "Switch Player",
+  );
+  const progression = renderPlayerProgression(card);
+  const progressionModule = progression
+    ? renderModule("進步曲線", "Progression", "圈速進步", "Lap-time Progression", progression)
+    : "";
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, PLAYER_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "player", card.player_id) + progressionModule + renderAchievementCatalog(card);
+};
+
+const getTeamMembers = (team, players) =>
+  (team.member_ids || []).map((id) => players.find((player) => player.player_id === id)).filter(Boolean);
+
+const safeExternalHttpUrl = (value) => {
+  try {
+    const url = new URL(String(value || "").trim());
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+  } catch (_error) {
+    return "";
+  }
+};
+
+const buildVrchatGroupUrl = (team) => {
+  const groupId = String(team.vrchat_group_id || "").trim();
+  if (/^grp_[0-9a-f-]+$/i.test(groupId)) {
+    return `https://vrchat.com/home/group/${encodeURIComponent(groupId)}`;
+  }
+  if (/^[a-z0-9_-]+\.\d+$/i.test(groupId)) {
+    return `https://vrc.group/${encodeURIComponent(groupId)}`;
+  }
+  return safeExternalHttpUrl(team.vrchat_group_url);
+};
+
+const renderTeamCard = (team, players) => {
+  const members = getTeamMembers(team, players);
+  return `
+    <a class="ta-team-card" href="./team.html?id=${encodeURIComponent(team.team_id)}">
+      <div class="ta-team-card-media" style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+        <img src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+        ${team.badge ? `<img class="ta-team-card-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+      </div>
+      <div class="ta-team-card-body">
+        <div class="ta-label">${escapeHtml(team.code)}</div>
+        <h3 class="ta-section-title">${renderBilingual(team.name_zh, team.name_en, team.name_en)}</h3>
+        <p class="ta-profile-subtitle">${renderBilingual(team.tagline_zh, team.tagline_en, team.tagline_en)}</p>
+        <div class="ta-team-member-row">
+          ${members.map((member) => `<span>${escapeHtml(member.title)}</span>`).join("")}
+        </div>
+      </div>
+    </a>`;
+};
+
+const renderTeams = (data) => `
+  <div class="ta-team-grid">
+    ${(data.teams || []).map((team) => renderTeamCard(team, data.player_cards || [])).join("")}
+  </div>`;
+
+const renderTeamDetail = (data, id) => {
+  const teams = data.teams || [];
+  const team = id ? teams.find((item) => item.team_id === id) : teams[0];
+  if (!team) return renderDetailNotFound("車隊", "Team", id, "./teams.html", "返回車隊清單", "Back to Teams");
+  const members = getTeamMembers(team, data.player_cards || []);
+  const totals = members.reduce((sum, member) => {
+    sum.runs += Number(((member.stats || []).find((stat) => stat.label_en === "Valid Runs") || {}).value || 0);
+    ["TR", "CR", "PR"].forEach((code) => { sum[code] += Number((member.badge_counts || {})[code] || 0); });
+    return sum;
+  }, { runs: 0, TR: 0, CR: 0, PR: 0 });
+  const groupUrl = buildVrchatGroupUrl(team);
+  const groupAction = groupUrl ? `
+    <div class="ta-team-group-action">
+      <div>
+        <small>${renderBilingual("VRChat 群組", "VRChat Group", "VRChat グループ")}</small>
+        ${team.vrchat_group_id ? `<code>${escapeHtml(team.vrchat_group_id)}</code>` : ""}
+      </div>
+      <a href="${escapeHtml(groupUrl)}" target="_blank" rel="noopener noreferrer">
+        ${renderBilingual("開啟群組頁面", "Open Group Page", "グループページを開く")}
+      </a>
+    </div>` : "";
+  const switcher = renderDetailSwitcher(
+    "team",
+    teams.map((item) => ({ id: item.team_id, name: item.name_zh || item.name_en })),
+    team.team_id,
+    "切換車隊",
+    "Switch Team",
+  );
+  return switcher + `
+    <article class="ta-team-detail">
+      <div class="ta-team-detail-hero" style="--ta-team-banner-position:${escapeHtml(team.banner_position || "center")}">
+        <img src="${escapeHtml(team.banner)}" alt="${escapeHtml(team.name_zh || team.name_en)}">
+        <span class="ta-team-banner-shade"></span>
+        ${team.badge ? `<img class="ta-team-detail-badge" src="${escapeHtml(team.badge)}" alt="">` : ""}
+        <div class="ta-team-detail-copy">
+          <div class="ta-label">${escapeHtml(team.code)}</div>
+          <h2>${renderBilingual(team.name_zh, team.name_en, team.name_en)}</h2>
+          <p>${renderBilingual(team.tagline_zh, team.tagline_en, team.tagline_en)}</p>
+        </div>
+      </div>
+      <div class="ta-team-stats">
+        <span><strong>${members.length}</strong>${renderBilingual("位成員", "Members", "メンバー")}</span>
+        <span><strong>${totals.runs}</strong>${renderBilingual("筆紀錄", "Valid Runs", "有効記録")}</span>
+        ${["TR", "CR", "PR"].map((code) => `<span><strong>${totals[code]}</strong>${code}</span>`).join("")}
+      </div>
+      ${groupAction}
+      <section class="ta-team-roster">
+        <div class="ta-label">${renderBilingual("車隊成員", "Team Roster", "チームメンバー")}</div>
+        <div class="ta-track-list-grid">
+          ${members.map((member) => renderProfileListCard(member, `./player.html?id=${encodeURIComponent(member.player_id)}`, "車隊成員", "Team Member")).join("")}
+        </div>
+      </section>
+    </article>` + renderRelatedEvents(data.editorial_events, "team", team.team_id);
+};
+
+const VEHICLE_PROFILE_CONFIG = {
+  fileZh: "車輛檔案",
+  fileEn: "Car File",
+  bannerZh: "車輛橫幅預留",
+  bannerEn: "Car Banner Slot",
+  usageZh: "世界變體",
+  usageEn: "World Variants",
+  tagZh: "常見車手",
+  tagEn: "Frequent Drivers",
+  listZh: "車型最佳路線",
+  listEn: "Model Best Routes",
+  peerZh: "最快車手",
+  peerEn: "Fastest Driver",
+  peerField: "player_display_name",
+};
+
+const renderVehicleCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No vehicle profiles yet.</p>';
+  }
+
+  const bucketOrder = ["spotlight", "active", "rare"];
+  const grouped = new Map();
+  cards.forEach((card) => {
+    const key = card.popularity_bucket_key || "rare";
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        label_zh: card.popularity_bucket_zh || "少量紀錄",
+        label_en: card.popularity_bucket_en || "Rare Cars",
+        cards: [],
+      });
+    }
+    grouped.get(key).cards.push(card);
+  });
+
+  return `
+    <div class="ta-profile-groups">
+      ${bucketOrder
+        .filter((key) => grouped.has(key))
+        .map((key) => {
+          const group = grouped.get(key);
+          return `
+            <section class="ta-profile-group">
+              <div class="ta-profile-group-head">
+                <h3 class="ta-board-title">${renderBilingual(group.label_zh, group.label_en)}</h3>
+                <p class="ta-board-text">${escapeHtml(group.cards.length)} ${renderBilingual("台車型", "models")}</p>
+              </div>
+              <div class="ta-profile-stack">
+                ${group.cards
+                  .map((card) => renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG))
+                  .join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+};
+
+const renderVehicleList = (data) => {
+  const cards = data.vehicle_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No vehicle profiles yet.</p>';
+  }
+  return `
+    <div class="ta-track-list-grid">
+      ${cards
+        .map((card) =>
+          renderProfileListCard(card, `./vehicle.html?id=${encodeURIComponent(card.vehicle_model_code)}`, "車輛檔案", "Car File"),
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderVehicleWorldTable = (rows) => {
+  if (!Array.isArray(rows) || !rows.length) {
+    return `<p class="ta-empty">${renderBilingual("尚無世界紀錄", "No recorded worlds")}</p>`;
+  }
+  return `
+    <div class="ta-profile-record-table-wrap">
+      <table class="ta-profile-record-table">
+        <thead>
+          <tr>
+            <th>${renderBilingual("世界", "World")}</th>
+            <th>${renderBilingual("作者", "Author")}</th>
+            <th>${renderBilingual("車輛變體", "Vehicle Variant", "車両バリエーション")}</th>
+            <th>${renderBilingual("路線", "Routes")}</th>
+            <th>${renderBilingual("紀錄", "Runs")}</th>
+            <th>${renderBilingual("連結", "Links")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((row) => {
+            const worldUrl = safeExternalHttpUrl(row.world_url);
+            const trackHref = `./track.html?id=${encodeURIComponent(row.track_world_code || "")}`;
+            const worldLabel = row.track_display_name || row.world_name || row.track_world_code || "-";
+            const worldSub = row.world_name && row.world_name !== worldLabel
+              ? `<small>${escapeHtml(row.world_name)}</small>`
+              : "";
+            const variants = Array.isArray(row.variants) && row.variants.length
+              ? row.variants
+              : (row.variant_codes || []).map((code) => ({ variant_code: code, variant_name: code }));
+            const variantList = variants.length
+              ? `<div class="ta-world-variant-list">${variants.map((variant) => `
+                  <span class="ta-world-variant">
+                    <strong>${escapeHtml(variant.variant_name || variant.variant_code)}</strong>
+                    <code>${escapeHtml(variant.variant_code || "")}</code>
+                  </span>`).join("")}</div>`
+              : '<span class="ta-empty">—</span>';
+            return `
+              <tr>
+                <td><a href="${trackHref}"><strong>${escapeHtml(worldLabel)}</strong></a>${worldSub}</td>
+                <td>${escapeHtml(row.track_author || "作者待補")}</td>
+                <td>${variantList}</td>
+                <td>${escapeHtml(row.route_count || 0)}</td>
+                <td>${escapeHtml(row.record_count || 0)}</td>
+                <td>
+                  <a href="${trackHref}">${renderBilingual("賽道頁", "Track")}</a>
+                  ${worldUrl ? ` · <a href="${escapeHtml(worldUrl)}" target="_blank" rel="noopener noreferrer">VRChat</a>` : ""}
+                </td>
+              </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>`;
+};
+
+const renderVehicleWorldHistory = (card) => {
+  const allRows = card.world_rows || [];
+  if (!allRows.length) return "";
+  const variants = card.variant_worlds || [];
+  const selector = variants.length > 1
+    ? `<div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("依車輛變體篩選", "Filter By Variant", "車両バリエーションで絞り込む")}</span>
+        <select class="ta-switch-select" data-world-variant-select>
+          <option value="__all__">${escapeHtml(localizedText(`全部變體（${allRows.length} 個世界）`, `All Variants (${allRows.length} worlds)`, `全バリエーション（${allRows.length} ワールド）`))}</option>
+          ${variants.map((variant, index) => `<option value="${index}">${escapeHtml(variant.variant_name)} · ${escapeHtml(variant.variant_code)}（${variant.world_rows.length}）</option>`).join("")}
+        </select>
+      </div>`
+    : "";
+  return `
+    <div class="ta-variant" data-vehicle-worlds>
+      ${selector}
+      <div data-vehicle-world-table>${renderVehicleWorldTable(allRows)}</div>
+      ${embedJsonData("data-vehicle-world-data", { all: allRows, variants: variants.map((variant) => variant.world_rows) })}
+    </div>`;
+};
+
+const renderVehicleDetail = (data, id) => {
+  const cards = data.vehicle_cards || [];
+  if (!cards.length) {
+    return '<p class="ta-empty">No vehicles yet.</p>';
+  }
+  const card = id ? cards.find((item) => item.vehicle_model_code === id) : cards[0];
+  if (!card) {
+    return renderDetailNotFound("車輛", "Vehicle", id, "./vehicles.html", "返回車輛清單", "Back to Vehicles");
+  }
+  const switcher = renderDetailSwitcher(
+    "vehicle",
+    cards.map((item) => ({ id: item.vehicle_model_code, name: item.title })),
+    card.vehicle_model_code,
+    "切換車輛",
+    "Switch Vehicle",
+  );
+  const analysis = renderVehicleAnalysis(card);
+  const analysisModule = analysis
+    ? renderModule("車輛取向", "Profile", "環境與涵蓋", "Environment & Coverage", analysis)
+    : "";
+  const variants = renderVehicleVariants(card);
+  const variantModule = variants
+    ? renderModule("變體", "Variants", "同母型變體成績", "Variants Of This Model", variants)
+    : "";
+  const worlds = renderVehicleWorldHistory(card);
+  const worldModule = worlds
+    ? renderModule("世界履歷", "World History", "出現過的世界與作者", "Recorded Worlds & Authors", worlds)
+    : "";
+  return switcher + `<div class="ta-profile-stack">${renderProfileFeatureCard(card, VEHICLE_PROFILE_CONFIG)}</div>` + renderRelatedEvents(data.editorial_events, "vehicle", card.vehicle_model_code) + worldModule + variantModule + analysisModule;
+};
+
+// An elapsed date is not an outcome: the editorial status remains authoritative.
+const eventDisplayStatus = (event) => {
+  if (event.status === "upcoming" && /^\d{4}-\d{2}-\d{2}/.test(event.starts_at || "")) {
+    try {
+      const today = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: event.timezone || "Asia/Taipei",
+        year: "numeric", month: "2-digit", day: "2-digit",
+      }).format(new Date());
+      if (event.starts_at.slice(0, 10) < today) {
+        return { style: "needs-update", zh: "日期已過・狀態待確認", en: "Date passed · Status unconfirmed" };
+      }
+    } catch (_) {
+      // Unrecognized timezone: keep existing editorial status.
+    }
+  }
+  return {
+    style: ["upcoming", "ongoing", "completed", "archived"].includes(event.status) ? event.status : "archived",
+    zh: event.status_zh || event.status || "未確認",
+    en: event.status_en || event.status || "Unconfirmed",
+  };
+};
+const renderEventStatus = (event) => {
+  const state = eventDisplayStatus(event);
+  return `<span class="ta-event-status is-${state.style}">${renderBilingual(state.zh, state.en, state.en)}</span>`;
+};
+
+const renderEventDate = (value) => {
+  if (!value) return "-";
+  return escapeHtml(value.slice(0, 16).replace("T", " "));
+};
+
+// Shared by the events list and the overview "Recent Events" module: both take the
+// editorial_events array and render the same card grid. Pass limit to show a subset.
+const renderEventCards = (editorialEvents, limit = 0) => {
+  const statusOrder = { ongoing: 0, upcoming: 1, "needs-update": 2, completed: 3, archived: 4 };
+  const sorted = (editorialEvents || []).slice().sort((a, b) =>
+    (statusOrder[eventDisplayStatus(a).style] ?? 5) - (statusOrder[eventDisplayStatus(b).style] ?? 5) ||
+    String(b.starts_at || "").localeCompare(String(a.starts_at || "")),
+  );
+  const events = limit > 0 ? sorted.slice(0, limit) : sorted;
+  if (!events.length) return '<p class="ta-empty">No published events yet.</p>';
+  return `
+    <div class="ta-event-grid">
+      ${events.map((event) => `
+        <a class="ta-event-card" href="./event.html?id=${encodeURIComponent(event.event_id)}">
+          <div class="ta-event-card-head">
+            ${renderEventStatus(event)}
+            <span class="ta-event-date">${renderEventDate(event.starts_at)}</span>
+          </div>
+          <div class="ta-label">${escapeHtml(event.system || "")}</div>
+          <h2 class="ta-section-title">${renderBilingual(event.title_zh, event.title_en, event.title_en)}</h2>
+          <p class="ta-section-text">${renderBilingual(event.summary_zh, event.summary_en, event.summary_en)}</p>
+          <div class="ta-event-tags">
+            <span>${renderBilingual(event.format_zh, event.format_en, event.format_en)}</span>
+            <span>${renderBilingual(event.track_zh, event.track_en, event.track_en)}</span>
+            <span>${Number((event.results || []).length)} ${renderBilingual("筆已公布名次", "published results", "公開結果")}</span>
+          </div>
+        </a>`).join("")}
+    </div>`;
+};
+
+const renderEventList = (data) => {
+  const events = data.editorial_events || [];
+  const series = data.editorial_series || [];
+  const sections = series.slice().sort((a, b) =>
+    (a.status === "active" ? 0 : 1) - (b.status === "active" ? 0 : 1),
+  ).map((item) => ({
+    item,
+    events: events.filter((event) => event.series_id === item.series_id),
+  })).filter((section) => section.events.length);
+  const offseason = events.filter((event) => !event.series_id);
+  if (offseason.length) {
+    sections.push({
+      item: { display_name: "季外活動", display_name_en: "Off-season Events", scope_zh: "不列入第一、第二賽季的獨立活動。", scope_en: "Standalone events outside Seasons 1 and 2." },
+      events: offseason,
+    });
+  }
+  if (!sections.length) return renderEventCards(events);
+  return `<div class="ta-event-series-list">${sections.map(({ item, events: sectionEvents }) => `
+    <section class="ta-event-series">
+      <div class="ta-event-series-head">
+        <div>
+          <div class="ta-label">${escapeHtml(item.series_id || "offseason")}</div>
+          <h2 class="ta-section-title">${renderBilingual(item.display_name, item.display_name_en, item.display_name_en)}</h2>
+        </div>
+        <p class="ta-section-text">${renderBilingual(item.scope_zh, item.scope_en, item.scope_en)}</p>
+      </div>
+      ${renderEventCards(sectionEvents)}
+    </section>`).join("")}</div>`;
+};
+
+const renderEventInfoRows = (event, data) => {
+  const players = data.player_cards || [];
+  const vehicles = data.vehicle_cards || [];
+  const series = (data.editorial_series || []).find((item) => item.series_id === event.series_id);
+  const groupUrl = buildVrchatGroupUrl({
+    vrchat_group_id: event.group_id,
+    vrchat_group_url: event.group_url,
+  });
+  const trackHref = event.track_href || (event.track_world_code
+    ? `./track.html?id=${encodeURIComponent(event.track_world_code)}${event.route_code ? `&route=${encodeURIComponent(event.route_code)}` : ""}`
+    : "");
+  const participantLinks = (event.participant_player_ids || []).map((playerId) => {
+    const player = players.find((item) => item.player_id === playerId);
+    return player
+      ? `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player.title)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(playerId)} ${renderBilingual("（尚無公開車手頁）", "(No racer profile yet)")}</span>`;
+  }).join(" · ");
+  // Historical event rows may refer to a vehicle variant, not a model.
+  // Resolve exact identifiers only; unresolved values remain unlinked.
+  const models = new Map(vehicles.map((v) => [v.vehicle_model_code, v]));
+  const variants = new Map();
+  vehicles.forEach((model) => (model.variants || []).forEach((variant) => {
+    if (variant.variant_code && !variants.has(variant.variant_code)) {
+      variants.set(variant.variant_code, { model, variant });
+    }
+  }));
+  const vehicleLinks = (event.vehicle_model_codes || []).map((vehicleCode) => {
+    const model = models.get(vehicleCode);
+    const variant = variants.get(vehicleCode);
+    const target = model || variant?.model;
+    const label = model?.title || variant?.variant.variant_name || vehicleCode;
+    return target
+      ? `<a class="ta-entity-link" href="./vehicle.html?id=${encodeURIComponent(target.vehicle_model_code)}">${escapeHtml(label)}</a>`
+      : `<span class="ta-unlinked-entity">${escapeHtml(vehicleCode)} ${renderBilingual("（車型待確認）", "(Vehicle ID unresolved)")}</span>`;
+  }).join(" · ");
+  return `
+  <div class="ta-event-info-grid">
+    <div><small>${renderBilingual("賽季", "Season", "シーズン")}</small><strong>${series ? `${renderBilingual(series.display_name, series.display_name_en, series.display_name_en)}${event.series_round ? ` · ${renderBilingual(`第 ${event.series_round} 站`, `Round ${event.series_round}`, `Round ${event.series_round}`)}` : ""}` : renderBilingual("季外活動", "Off-season event", "シーズン外イベント")}</strong></div>
+    <div><small>${renderBilingual("時間", "Time", "日時")}</small><strong>${renderEventDate(event.starts_at)} · ${escapeHtml(event.timezone || "")}</strong></div>
+    <div><small>${renderBilingual("系統", "System", "システム")}</small><strong>${escapeHtml(event.system || "-")}</strong></div>
+    <div><small>${renderBilingual("賽制", "Format", "形式")}</small><strong>${renderBilingual(event.format_zh, event.format_en, event.format_en)}</strong></div>
+    <div><small>${renderBilingual("主辦", "Organizer", "主催")}</small><strong>${renderBilingual(event.organizer_zh, event.organizer_en, event.organizer_en)}</strong></div>
+    <div><small>${renderBilingual("群組", "Group", "グループ")}</small><strong>${groupUrl ? `<a class="ta-entity-link" href="${escapeHtml(groupUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(event.group_id)}</a>` : escapeHtml(event.group_id || "-")}</strong></div>
+    <div><small>${renderBilingual("賽道", "Track", "コース")}</small><strong>${trackHref ? `<a class="ta-entity-link" href="${escapeHtml(trackHref)}">${renderBilingual(event.track_zh, event.track_en, event.track_en)}</a>` : renderBilingual(event.track_zh, event.track_en, event.track_en)}</strong></div>
+    ${participantLinks ? `<div><small>${renderBilingual("參賽者", "Drivers", "参加者")}</small><strong>${participantLinks}</strong></div>` : ""}
+    ${vehicleLinks ? `<div><small>${renderBilingual("車輛", "Vehicles", "車両")}</small><strong>${vehicleLinks}</strong></div>` : ""}
+    ${(event.team_ids || []).length ? `<div><small>${renderBilingual("車隊", "Teams", "チーム")}</small><strong>${event.team_ids.map((teamId) => {
+      const team = TA_TEAMS.find((item) => item.team_id === teamId);
+      const label = team ? (team.name_zh || team.name_en) : teamId;
+      return `<a class="ta-entity-link" href="./team.html?id=${encodeURIComponent(teamId)}">${escapeHtml(label)}</a>`;
+    }).join(" · ")}</strong></div>` : ""}
+  </div>`;
+};
+
+const renderEventSchedule = (event) => `
+  <section class="ta-content-card ta-content-card-inner">
+    <div class="ta-label">${renderBilingual("時程", "Schedule", "スケジュール")}</div>
+    <div class="ta-event-schedule">
+      ${(event.schedule || []).map((row) => `<div><time>${escapeHtml(row.time)}</time><span>${renderBilingual(row.label_zh, row.label_en, row.label_en)}</span></div>`).join("")}
+    </div>
+  </section>`;
+
+const renderEventTextPanel = (labelZh, labelEn, rowsZh, rowsEn) => `
+  <section class="ta-content-card ta-content-card-inner">
+    <div class="ta-label">${renderBilingual(labelZh, labelEn, labelEn)}</div>
+    <ul class="ta-bullet-list">
+      ${(rowsZh || []).map((row, index) => `<li>${renderBilingual(row, (rowsEn || [])[index] || "", (rowsEn || [])[index] || "")}</li>`).join("")}
+    </ul>
+  </section>`;
+
+const renderEventResults = (event) => {
+  const groups = new Map();
+  (event.results || []).forEach((row) => {
+    const key = row.route_code || "";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+  if (!groups.size) groups.set("", []);
+  return `
+  <section class="ta-content-card ta-content-card-inner">
+    <div class="ta-label">${renderBilingual("賽事結果", "Results", "結果")}</div>
+    <p class="ta-section-text">${renderBilingual(event.result_note_zh, event.result_note_en, event.result_note_en)}</p>
+    ${Array.from(groups, ([routeCode, rows]) => `
+    <div class="ta-profile-record-wrap">
+      <table class="ta-profile-record-table ta-event-results">
+        ${routeCode ? `<caption>${renderBilingual(rows[0].route_label_zh || routeCode, rows[0].route_label_en || routeCode)}</caption>` : ""}
+        <thead><tr><th>#</th><th>${renderBilingual("選手", "Driver", "ドライバー")}</th><th>${renderBilingual("時間／結果", "Time / Result", "タイム／結果")}</th><th>${renderBilingual("備註", "Note", "注記")}</th></tr></thead>
+        <tbody>
+          ${rows.map((row) => `
+            <tr>
+              <td class="ta-profile-record-rank">${escapeHtml(row.rank)}</td>
+              <td>${row.player_id ? taEntityLink(row.display_name, `./player.html?id=${encodeURIComponent(row.player_id)}`) : escapeHtml(row.display_name)}</td>
+              <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || row.result_zh || "-")}</td>
+              <td>${row.lap_time_text ? renderBilingual(row.result_zh || "", row.result_en || "", row.result_en || "") : ""}${row.vehicle ? ` · ${row.vehicle_model_code ? taEntityLink(row.vehicle, `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}`) : escapeHtml(row.vehicle)}` : ""}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>`).join("")}
+  </section>`;
+};
+
+// 轉播與賽事紀錄連結。外部 URL 一律過 safeExternalHttpUrl,非 http(s) 直接丟棄。
+const BROADCAST_KIND_LABELS = {
+  vod: ["轉播回顧", "VOD"],
+  live: ["直播", "Live"],
+  recording: ["賽事紀錄", "Recording"],
+};
+
+const renderEventBroadcasts = (event) => {
+  const items = (event.broadcasts || [])
+    .map((item) => ({ ...item, href: safeExternalHttpUrl(item.url) }))
+    .filter((item) => item.href);
+  if (!items.length) return "";
+  return `
+    <section class="ta-content-card ta-content-card-inner">
+      <div class="ta-label">${renderBilingual("轉播與紀錄", "Broadcast & Recordings", "配信・記録")}</div>
+      <div class="ta-event-broadcasts">
+        ${items.map((item) => {
+          const [kindZh, kindEn] = BROADCAST_KIND_LABELS[item.kind] || BROADCAST_KIND_LABELS.vod;
+          return `
+          <a href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer">
+            <span class="ta-broadcast-kind">${renderBilingual(kindZh, kindEn, kindEn)}</span>
+            <strong>${renderBilingual(item.label_zh || kindZh, item.label_en || kindEn, item.label_en || kindEn)}</strong>
+          </a>`;
+        }).join("")}
+      </div>
+    </section>`;
+};
+
+const findEventTimingRecord = (data, recordId) => {
+  for (const board of data.track_boards || []) {
+    for (const route of board.routes || []) {
+      const row = (route.route_rows || []).find((item) => item.record_id === recordId);
+      if (row) {
+        return { ...row, track_world_code: board.track_world_code, route_code: route.route_code };
+      }
+    }
+  }
+  return null;
+};
+
+const eventTimingStageLabel = (stage) => {
+  if (stage === "pre_race") return renderBilingual("賽前計時紀錄", "Pre-race Timing", "レース前タイム");
+  if (stage === "event") return renderBilingual("活動計時紀錄", "Event Timing", "イベントタイム");
+  return renderBilingual("計時紀錄", "Timing Records", "タイム記録");
+};
+
+const renderEventTiming = (event, data) => {
+  const links = (event.timing_records || []).slice().sort((a, b) =>
+    String(a.stage || "event").localeCompare(String(b.stage || "event")) ||
+    Number(a.order || 0) - Number(b.order || 0),
+  );
+  if (!links.length) return "";
+
+  const groups = new Map();
+  links.forEach((link) => {
+    const stage = link.stage || "event";
+    if (!groups.has(stage)) groups.set(stage, []);
+    groups.get(stage).push(link);
+  });
+
+  return Array.from(groups.entries()).map(([stage, stageLinks]) => {
+    const rows = stageLinks.map((link) => ({ link, record: findEventTimingRecord(data, link.record_id) }));
+    const firstRecord = rows.find((item) => item.record)?.record;
+    const trackWorldCode = firstRecord?.track_world_code || event.track_world_code || "";
+    const routeCode = firstRecord?.route_code || event.route_code || "";
+    const indexHref = trackWorldCode
+      ? `./track.html?id=${encodeURIComponent(trackWorldCode)}${routeCode ? `&route=${encodeURIComponent(routeCode)}` : ""}`
+      : "";
+    return `
+      <section class="ta-content-card ta-content-card-inner">
+        <div class="ta-event-card-head">
+          <div class="ta-label">${eventTimingStageLabel(stage)}</div>
+          ${indexHref ? `<a class="ta-entity-link" href="${indexHref}">${renderBilingual("檢視完整計時索引", "Open Full Timing Index", "タイム索引を見る")}</a>` : ""}
+        </div>
+        <div class="ta-profile-record-wrap">
+          <table class="ta-profile-record-table ta-event-results">
+            <thead><tr><th>#</th><th>${renderBilingual("選手", "Driver", "ドライバー")}</th><th>${renderBilingual("車輛", "Vehicle", "車両")}</th><th>${renderBilingual("時間", "Time", "タイム")}</th><th>${renderBilingual("計時 Index", "Timing Index", "タイム索引")}</th></tr></thead>
+            <tbody>
+              ${rows.map(({ link, record }, index) => record ? `
+                <tr>
+                  <td class="ta-profile-record-rank">${escapeHtml(link.order || index + 1)}</td>
+                  <td>${taEntityLink(record.player_display_name, taPlayerHref(record))}</td>
+                  <td>${taEntityLink(taVehicleDisplayName(record), taVehicleHref(record))}</td>
+                  <td class="ta-profile-record-time">${escapeHtml(record.lap_time_text || "-")}</td>
+                  <td>${indexHref ? `<a class="ta-index-link" href="${indexHref}">#${escapeHtml(record.rank || "-")}</a>` : "-"} ${renderRecordBadge(record)}</td>
+                </tr>` : `
+                <tr><td>${escapeHtml(link.order || index + 1)}</td><td colspan="4">${renderBilingual("找不到計時紀錄", "Timing record not found", "タイム記録が見つかりません")}: ${escapeHtml(link.record_id)}</td></tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>`;
+  }).join("");
+};
+
+const renderEventMatches = (event, data) => {
+  const matches = (event.matches || []).slice().sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+  if (!matches.length) return "";
+  const players = data.player_cards || [];
+  const playerLink = (playerId) => {
+    const player = players.find((item) => item.player_id === playerId);
+    return taEntityLink(player ? player.title : playerId, `./player.html?id=${encodeURIComponent(playerId)}`);
+  };
+  const matchPlayers = (match) => {
+    if ((match.player_ids || []).length) {
+      return match.player_ids.map(playerLink).join(" vs ");
+    }
+    return (match.player_names || []).map((name) => escapeHtml(name)).join(" vs ");
+  };
+  const matchWinner = (match) => {
+    if (match.winner_id) return playerLink(match.winner_id);
+    return match.winner_name ? escapeHtml(match.winner_name) : "-";
+  };
+  return `
+    <section class="ta-content-card ta-content-card-inner">
+      <div class="ta-label">${renderBilingual("淘汰賽賽程", "Tournament Bracket", "トーナメント")}</div>
+      <div class="ta-profile-record-wrap">
+        <table class="ta-profile-record-table ta-event-results">
+          <thead><tr><th>#</th><th>${renderBilingual("輪次", "Round", "ラウンド")}</th><th>${renderBilingual("對戰", "Match", "対戦")}</th><th>${renderBilingual("勝者／結果", "Winner / Result", "勝者／結果")}</th><th>${renderBilingual("狀態", "Status", "状態")}</th></tr></thead>
+          <tbody>${matches.map((match, index) => `
+            <tr>
+              <td>${escapeHtml(match.order || index + 1)}</td>
+              <td>${renderBilingual(match.round_zh || match.round || "", match.round_en || match.round || "", match.round_en || match.round || "")}</td>
+              <td>${matchPlayers(match) || "-"}</td>
+              <td>${matchWinner(match)}${match.result_zh || match.result_en ? ` · ${renderBilingual(match.result_zh || "", match.result_en || "", match.result_en || "")}` : ""}</td>
+              <td>${renderBilingual(match.status_zh || match.status || "", match.status_en || match.status || "", match.status_en || match.status || "")}</td>
+            </tr>`).join("")}</tbody>
+        </table>
+      </div>
+  </section>`;
+};
+
+const renderEventBracket = (event) => {
+  const bracket = event.bracket;
+  if (!bracket || !Array.isArray(bracket.matches) || !bracket.matches.length) return "";
+  const participants = new Map((bracket.participants || []).map((item) => [item.id, item]));
+  const participantKind = bracket.participant_kind || "player";
+  const participantLabel = (participantId) => {
+    if (!participantId) return `<span class="ta-bracket-tbd">${renderBilingual("待定", "TBD", "未定")}</span>`;
+    if (participantId === "bye") return `<span class="ta-bracket-tbd">${renderBilingual("輪空", "Bye", "不戦勝")}</span>`;
+    const participant = participants.get(participantId);
+    const name = participant?.name || participantId;
+    if (participantKind === "teams") {
+      return taEntityLink(name, `./team.html?id=${encodeURIComponent(participantId)}`);
+    }
+    if (participantKind === "players" || participantKind === "player") {
+      return taEntityLink(name, `./player.html?id=${encodeURIComponent(participantId)}`);
+    }
+    return escapeHtml(name);
+  };
+  const sectionNames = {
+    W: ["勝者組", "Winners Bracket"],
+    L: ["敗者組", "Losers Bracket"],
+    GF: ["總決賽", "Grand Final"],
+    TP: ["季軍戰", "Third Place"],
+    KO: ["淘汰賽", "Knockout"],
+    RR: ["循環賽", "Round Robin"],
+    SW: ["瑞士制", "Swiss"],
+  };
+  const sectionOrder = [];
+  const sections = new Map();
+  bracket.matches.forEach((match) => {
+    const section = match.section || "main";
+    if (!sections.has(section)) {
+      sections.set(section, []);
+      sectionOrder.push(section);
+    }
+    sections.get(section).push(match);
+  });
+  const sectionHtml = sectionOrder.map((section) => {
+    const matches = sections.get(section);
+    const rounds = [...new Set(matches.map((match) => Number(match.round || 0)))].sort((a, b) => a - b);
+    const sectionName = sectionNames[section] || [section.startsWith("G:") ? `小組 ${section.slice(2)}` : section, section.startsWith("G:") ? `Group ${section.slice(2)}` : section];
+    return `
+      <section class="ta-bracket-section">
+        <h3>${renderBilingual(sectionName[0], sectionName[1], sectionName[1])}</h3>
+        <div class="ta-bracket-board" style="--ta-bracket-round-count:${rounds.length}">
+          ${rounds.map((round) => {
+            const roundMatches = matches.filter((match) => Number(match.round || 0) === round).sort((a, b) => Number(a.slot || 0) - Number(b.slot || 0));
+            const roundLabel = roundMatches[0]?.round_label || `${renderBilingual("第", "Round ", "ラウンド ")}${round}`;
+            return `
+              <div class="ta-bracket-round">
+                <div class="ta-bracket-round-title">${escapeHtml(roundLabel)}</div>
+                <div class="ta-bracket-round-matches">
+                  ${roundMatches.map((match) => `
+                    <article class="ta-bracket-match">
+                      <small>${escapeHtml(match.match_id || "")}</small>
+                      <div class="ta-bracket-player${match.winner_id && match.winner_id === match.a_id ? " is-winner" : ""}">${participantLabel(match.a_id)}</div>
+                      <div class="ta-bracket-player${match.winner_id && match.winner_id === match.b_id ? " is-winner" : ""}">${participantLabel(match.b_id)}</div>
+                    </article>`).join("")}
+                </div>
+              </div>`;
+          }).join("")}
+        </div>
+      </section>`;
+  }).join("");
+  return `
+    <section class="ta-content-card ta-content-card-inner ta-bracket-module">
+      <div class="ta-event-card-head">
+        <div><div class="ta-label">${renderBilingual("對戰樹", "Bracket", "トーナメント表")}</div><h2 class="ta-section-title">${escapeHtml(bracket.title || event.title_zh || "")}</h2></div>
+        <span class="ta-event-date">${escapeHtml(bracket.updated_at || "")}</span>
+      </div>
+      ${sectionHtml}
+    </section>`;
+};
+
+const renderEventDetail = (data, id) => {
+  const events = data.editorial_events || [];
+  const event = id ? events.find((item) => item.event_id === id) : events[0];
+  if (!event) return renderDetailNotFound("活動", "Event", id, "./events.html", "返回活動清單", "Back to Events");
+  const switcher = renderDetailSwitcher(
+    "event",
+    events.map((item) => ({ id: item.event_id, name: item.title_zh || item.title_en })),
+    event.event_id,
+    "切換活動",
+    "Switch Event",
+  );
+  return switcher + `
+    <article class="ta-event-detail">
+      <section class="ta-content-card ta-event-lead">
+        <div class="ta-event-card-head">${renderEventStatus(event)}<span class="ta-event-date">${renderEventDate(event.starts_at)}</span></div>
+        <h2 class="ta-title">${renderBilingual(event.title_zh, event.title_en, event.title_en)}</h2>
+        <p class="ta-section-text">${renderBilingual(event.summary_zh, event.summary_en, event.summary_en)}</p>
+        <div class="ta-event-tags">${(event.traits_zh || []).map((tag, index) => `<span>${renderBilingual(tag, (event.traits_en || [])[index] || tag, (event.traits_en || [])[index] || tag)}</span>`).join("")}</div>
+        ${renderEventInfoRows(event, data)}
+      </section>
+      ${renderEventTiming(event, data)}
+      ${renderEventBracket(event)}
+      ${renderEventMatches(event, data)}
+      ${renderEventResults(event)}
+      ${renderEventBroadcasts(event)}
+      <div class="ta-event-panel-grid">
+        ${renderEventSchedule(event)}
+        ${renderEventTextPanel("參賽方式", "Registration", event.registration_zh, event.registration_en)}
+        ${renderEventTextPanel("注意事項", "Rules", event.rules_zh, event.rules_en)}
+      </div>
+    </article>`;
+};
+
+const renderReviewCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) {
+    return '<p class="ta-empty">No review queue yet.</p>';
+  }
+  return `
+    <div class="ta-review-grid">
+      ${cards
+        .map(
+          (card) => `
+            <article class="ta-review-card">
+              <div class="ta-review-head">
+                <span class="ta-status-pill ${card.status_en === "Pending" ? "is-pending" : "is-rejected"}">
+                  ${renderBilingual(card.status_zh, card.status_en)}
+                </span>
+                <div class="ta-meta">${escapeHtml(card.record_date || "")}</div>
+              </div>
+              <h3 class="ta-section-title">
+                ${renderBilingual(card.title_zh, card.title_en)}
+              </h3>
+              <p class="ta-section-text">
+                <span class="zh">${escapeHtml(card.player_display_name || "")} / ${escapeHtml(card.vehicle_display_name || "")} / ${escapeHtml(card.event_name || "")}</span>
+                <span class="en">${escapeHtml(card.player_display_name || "")} / ${escapeHtml(card.vehicle_display_name || "")} / ${escapeHtml(card.event_name || "")}</span>
+              </p>
+              <div class="ta-summary-value ta-summary-value-small">${escapeHtml(card.lap_time_text || "")}</div>
+              <p class="ta-meta">${renderProofNote(card)}</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderTimeline = (items) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-timeline">
+      ${items
+        .map(
+          (item) => `
+            <article class="ta-timeline-item">
+              <div class="ta-label">
+                ${renderBilingual(item.label_zh, item.label_en)}
+              </div>
+              <h3 class="ta-section-title">
+                ${renderBilingual(item.title_zh, item.title_en)}
+              </h3>
+              <p class="ta-meta">${escapeHtml(item.date || "")}</p>
+              <p class="ta-section-text">
+                ${renderBilingual(item.meta_zh, item.meta_en)}
+              </p>
+              <p class="ta-meta">
+                ${renderBilingual(item.body_zh, item.body_en)}
+              </p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
+const renderIndexRows = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return '<p class="ta-board-empty">No entries yet.</p>';
+  }
+  return `<div class="ta-board-rows">${rows
+    .map((row, i) => {
+      const nameInner = escapeHtml(row.name || "");
+      const name = row.href
+        ? `<a class="ta-index-link" href="${escapeHtml(row.href)}" target="_blank" rel="noopener">${nameInner}</a>`
+        : nameInner;
+      const meta = row.meta ? `<span class="ta-row-plat">${escapeHtml(row.meta)}</span>` : `<span></span>`;
+      return `
+      <div class="ta-board-row">
+        <span class="ta-row-rank">${i + 1}</span>
+        <span class="ta-row-name">${name}</span>
+        <span class="ta-row-sub">${escapeHtml(row.sub || "")}</span>
+        ${meta}
+        <span class="ta-row-time">${escapeHtml(row.value || "")}</span>
+      </div>`;
+    })
+    .join("")}</div>`;
+};
+
+const renderIndexTables = (indexes) => {
+  if (!Array.isArray(indexes) || indexes.length === 0) {
+    return '<p class="ta-empty">No index yet.</p>';
+  }
+  return indexes
+    .map(
+      (group) => `
+        <article class="ta-track-board">
+          <div class="ta-track-board-head">
+            <h3 class="ta-section-title">
+              ${renderBilingual(group.label_zh, group.label_en)}
+            </h3>
+            <p class="ta-section-text">${escapeHtml((group.rows || []).length)} ${escapeHtml(
+              "筆",
+            )}</p>
+          </div>
+          ${renderIndexRows(group.rows)}
+        </article>
+      `,
+    )
+    .join("");
+};
+
+const renderHighlights = (items) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-highlight-grid">
+      ${items
+        .map(
+          (item) => `
+            <article class="ta-highlight-card">
+              <div class="ta-label">${renderBilingual(item.label_zh, item.label_en)}</div>
+              <div class="ta-highlight-name">${escapeHtml(item.name || "-")}</div>
+              <div class="ta-highlight-value">${escapeHtml(item.value || "")}</div>
+            </article>`,
+        )
+        .join("")}
+    </div>`;
+};
+
+const renderTrackJump = (options) => {
+  if (!Array.isArray(options) || options.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-jump">
+      <span class="ta-label">${renderBilingual("快速查賽道", "Jump to Track")}</span>
+      <select class="ta-jump-select" data-track-jump>
+        <option value="">${"— 選擇賽道 / Pick a track —"}</option>
+        ${options.map((o) => `<option value="${escapeHtml(o.code)}">${escapeHtml(o.name)}</option>`).join("")}
+      </select>
+    </div>`;
+};
+
+const renderRecentRuns = (rows) => {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return "";
+  }
+  return `
+    <div class="ta-track-table-wrap">
+      <table class="ta-record-table">
+        <thead><tr>
+          <th>${renderBilingual("日期", "Date")}</th>
+          <th>${renderBilingual("賽道 / 路線", "Track / Route")}</th>
+          <th>${renderBilingual("車手", "Driver")}</th>
+          <th>${renderBilingual("車輛", "Vehicle")}</th>
+          <th>${renderBilingual("時間", "Time")}</th>
+          <th>${renderBilingual("標記", "Badge")}</th>
+        </tr></thead>
+        <tbody>
+          ${rows
+            .map(
+              (row) => `
+                <tr class="ta-record-row" data-plat="${escapeHtml(row.platform || "")}">
+                  <td class="ta-record-gap">${escapeHtml(row.record_date || "")}</td>
+                  <td><a class="ta-index-link" href="./track.html?id=${encodeURIComponent(row.track_world_code)}&route=${encodeURIComponent(row.route_code)}">${renderBilingual(row.route_label_zh, row.route_label_en)}</a></td>
+                  <td>${taEntityLink(row.player_display_name, taPlayerHref(row))}</td>
+                  <td class="ta-record-peer">${taEntityLink(taVehicleDisplayName(row), taVehicleHref(row))}</td>
+                  <td class="ta-record-time">${escapeHtml(row.lap_time_text || "-")} ${renderProofBadge(row)}</td>
+                  <td class="ta-record-badge-cell">${renderRecordBadge(row)}</td>
+                </tr>`,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>`;
+};
+
+const attachOverviewListeners = () => {
+  const sel = document.querySelector("[data-track-jump]");
+  if (sel) {
+    sel.addEventListener("change", () => {
+      if (sel.value) window.location.href = "./track.html?id=" + encodeURIComponent(sel.value);
+    });
+  }
+};
+
+// ── 頁尾分析圖表(手刻 inline SVG / CSS,無外部圖表庫)──────────────
+// 共用色彩:色相=國家、彩度=系統(CVS 高/Sacc 低),色碼由 builder 算好
+// (category_style.colors),首頁頻率圖與地圖頁查同一份,顏色一致。
+const taCategoryColor = (style, country, system) => {
+  if (!style || !style.colors) return "#7a857e";
+  const key = `${(country || "").trim()}|${(system || "").trim()}`;
+  return style.colors[key] || style.neutral || "#7a857e";
+};
+
+const renderCategoryLegend = (legend) => {
+  if (!Array.isArray(legend) || !legend.length) return "";
+  return `
+    <div class="ta-chart-legend">
+      ${legend
+        .map(
+          (item) =>
+            `<span class="ta-chart-legend-item"><span class="ta-chart-swatch" style="background:${item.color}"></span>${renderBilingual(item.label_zh, item.label_en)}</span>`,
+        )
+        .join("")}
+    </div>`;
+};
+
+// rows: [{ label, value, color?, sub?, href? }]
+const renderBarChart = (rows) => {
+  if (!Array.isArray(rows) || !rows.length) {
+    return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  }
+  const max = Math.max(...rows.map((r) => Number(r.value) || 0), 1);
+  return `
+    <div class="ta-chart-bars">
+      ${rows
+        .map((r) => {
+          const pct = Math.max(2, Math.round(((Number(r.value) || 0) / max) * 100));
+          const inner = `
+            <span class="ta-chart-bar-label">${escapeHtml(r.label)}</span>
+            <span class="ta-chart-bar-track"><span class="ta-chart-bar-fill" style="width:${pct}%;background:${r.color || "var(--ta-accent)"}"></span></span>
+            <span class="ta-chart-bar-value">${escapeHtml(r.value)}${r.sub ? `<small>${escapeHtml(r.sub)}</small>` : ""}</span>`;
+          return r.href
+            ? `<a class="ta-chart-bar is-link" href="${escapeHtml(r.href)}">${inner}</a>`
+            : `<div class="ta-chart-bar">${inner}</div>`;
+        })
+        .join("")}
+    </div>`;
+};
+
+const fmtLap = (ms) => {
+  const m = Math.floor(ms / 60000);
+  const s = ((ms % 60000) / 1000).toFixed(3).padStart(6, "0");
+  return `${m}:${s}`;
+};
+
+// 進步曲線:最快紀錄拉一條基準橫線,每個點對基準線做垂線並標 +幾秒;含時間軸(日期)與圈速差軸。
+// runs = [{date, lap_time_ms, lap_time_text, vehicle, is_pb}](已依時間排序)
+const renderProgression = (runs) => {
+  const pts = (runs || []).filter((r) => typeof r.lap_time_ms === "number");
+  if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  const best = Math.min(...pts.map((r) => r.lap_time_ms));
+  const bestText = pts.find((r) => r.lap_time_ms === best).lap_time_text;
+  const gaps = pts.map((r) => (r.lap_time_ms - best) / 1000); // 秒
+  const maxGap = Math.max(...gaps, 0.001);
+  const W = 720;
+  const H = 260;
+  const mL = 44;
+  const mR = 14;
+  const mT = 24;
+  const mB = 30;
+  const plotW = W - mL - mR;
+  const plotH = H - mT - mB;
+  const x = (i) => mL + plotW * (pts.length === 1 ? 0.5 : i / (pts.length - 1));
+  const yBase = mT + plotH; // 基準線(gap=0)在底
+  const y = (g) => yBase - plotH * (g / maxGap);
+  const fmtGap = (g) => (g === 0 ? "最快" : `+${g.toFixed(g < 10 ? 2 : 1)}s`);
+
+  const drops = pts
+    .map((r, i) => `<line class="ta-prog-drop" x1="${x(i).toFixed(1)}" y1="${y(gaps[i]).toFixed(1)}" x2="${x(i).toFixed(1)}" y2="${yBase}"/>`)
+    .join("");
+  const linePath = pts.map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(gaps[i]).toFixed(1)}`).join(" ");
+  const dots = pts
+    .map(
+      (r, i) =>
+        `<circle class="ta-prog-dot${r.lap_time_ms === best ? " is-best" : ""}" cx="${x(i).toFixed(1)}" cy="${y(gaps[i]).toFixed(1)}" r="${r.lap_time_ms === best ? 4.5 : 3.2}"><title>${escapeHtml(r.date)} · ${escapeHtml(r.lap_time_text)} · ${escapeHtml(r.vehicle)}</title></circle>`,
+    )
+    .join("");
+  // 每個點標 +幾秒;奇偶交錯避免重疊。
+  const glabels = pts
+    .map((r, i) => `<text class="ta-prog-glabel" x="${x(i).toFixed(1)}" y="${(y(gaps[i]) - (i % 2 ? 14 : 7)).toFixed(1)}" text-anchor="middle">${escapeHtml(fmtGap(gaps[i]))}</text>`)
+    .join("");
+  // X 軸(時間):頭、尾、(夠長時)中間各標日期。
+  const xticks = pts.length >= 5 ? [0, Math.floor((pts.length - 1) / 2), pts.length - 1] : [0, pts.length - 1];
+  const xlabels = xticks
+    .map((i) => `<text class="ta-prog-axis" x="${x(i).toFixed(1)}" y="${(yBase + 16).toFixed(1)}" text-anchor="middle">${escapeHtml(pts[i].date)}</text>`)
+    .join("");
+
+  return `
+    <svg class="ta-prog" viewBox="0 0 ${W} ${H}" role="img" aria-label="lap-time progression">
+      <line class="ta-prog-baseline" x1="${mL}" y1="${yBase}" x2="${W - mR}" y2="${yBase}"/>
+      <text class="ta-prog-axis" x="4" y="${(mT + 3).toFixed(1)}">+${maxGap.toFixed(maxGap < 10 ? 2 : 1)}s</text>
+      <text class="ta-prog-axis" x="4" y="${(yBase + 3).toFixed(1)}">0s</text>
+      ${drops}
+      <path class="ta-prog-line" d="${linePath}" fill="none"/>
+      ${dots}
+      ${glabels}
+      ${xlabels}
+    </svg>
+    <div class="ta-prog-caption">${renderBilingual("基準線 = 最快", "Baseline = best")} ${escapeHtml(bestText)}　·　${renderBilingual("縱軸：與最快的差距(秒)", "Y: gap to best (s)")}</div>`;
+};
+
+// 圈速頻率密度直方圖:把該路線所有跑次的圈速分箱計數。rows = route_rows
+const renderLaptimeHistogram = (rows) => {
+  const pts = (rows || []).filter((r) => typeof r.lap_time_ms === "number");
+  if (pts.length < 2) return '<p class="ta-empty">資料太少 / Not enough data</p>';
+  const times = pts.map((r) => r.lap_time_ms);
+  const min = Math.min(...times);
+  const max = Math.max(...times);
+  const span = max - min || 1;
+  const k = Math.min(8, Math.max(3, Math.round(Math.sqrt(pts.length))));
+  const bins = new Array(k).fill(0);
+  times.forEach((t) => {
+    let b = Math.floor(((t - min) / span) * k);
+    if (b >= k) b = k - 1;
+    bins[b] += 1;
+  });
+  const maxCount = Math.max(...bins, 1);
+  const cols = bins
+    .map((c, i) => {
+      const lo = min + (span * i) / k;
+      const hi = min + (span * (i + 1)) / k;
+      const h = Math.round((c / maxCount) * 100);
+      return `<div class="ta-hist-col" title="${escapeHtml(fmtLap(lo))}–${escapeHtml(fmtLap(hi))}: ${c}"><span class="ta-hist-count">${c || ""}</span><span class="ta-hist-bar" style="height:${h}%"></span></div>`;
+    })
+    .join("");
+  const drivers = new Set(pts.map((r) => r.player_display_name)).size;
+  const spreadPct = (span / min) * 100;
+  return `
+    <div class="ta-hist">${cols}</div>
+    <div class="ta-hist-axis"><span>${escapeHtml(fmtLap(min))} ${renderBilingual("最快", "fastest")}</span><span>${escapeHtml(fmtLap(max))} ${renderBilingual("最慢", "slowest")}</span></div>
+    <div class="ta-strip-stats">
+      <span>${pts.length} ${renderBilingual("筆", "runs")}</span>
+      <span>${drivers} ${renderBilingual("位車手", "drivers")}</span>
+      <span>${renderBilingual("差距", "spread")} ${spreadPct.toFixed(1)}%</span>
+    </div>`;
+};
+
+// 把 JSON 安全嵌進 <script type="application/json">(避免 </script> 提前關閉)
+const embedJsonData = (attr, payload) =>
+  `<script type="application/json" ${attr}>${JSON.stringify(payload).replace(/</g, "\\u003c")}</script>`;
+
+// 首頁:賽道熱門度頻率圖(依國家×系統著色,與地圖頁同色)
+const renderPopularityChart = (data) => {
+  const pc = data.popularity_chart;
+  if (!pc || !Array.isArray(pc.tracks) || !pc.tracks.length) return "";
+  const style = data.category_style;
+  const rows = pc.tracks.slice(0, 20).map((t) => ({
+    label: t.name,
+    value: t.count,
+    color: taCategoryColor(style, t.country, t.system),
+    href: `./track.html?id=${encodeURIComponent(t.code)}`,
+  }));
+  return renderCategoryLegend(style && style.legend) + renderBarChart(rows);
+};
+
+// 車手:進步曲線(路線下拉,一次畫一條,資料來自既有 history,不預先攤平)
+const renderPlayerProgression = (card) => {
+  const history = (card.history || []).filter((h) => (h.runs || []).length >= 2);
+  if (!history.length) return "";
+  const options = history
+    .map((h, i) => `<option value="${i}"${i === 0 ? " selected" : ""}>${escapeHtml(h.route_label)}（${h.runs.length}）</option>`)
+    .join("");
+  return `
+    <div class="ta-progression" data-progression>
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
+        <select class="ta-switch-select" data-progression-select>${options}</select>
+      </div>
+      <div data-progression-chart>${renderProgression(history[0].runs)}</div>
+      ${embedJsonData("data-progression-data", history)}
+    </div>`;
+};
+
+// 賽道:圈速分布(路線下拉,一次畫一條)
+const renderTrackAnalysis = (board) => {
+  const routes = (board.routes || []).filter((r) => (r.route_rows || []).length >= 2);
+  if (!routes.length) return "";
+  routes.sort((a, b) => b.route_rows.length - a.route_rows.length);
+  const options = routes
+    .map((r, i) => `<option value="${i}"${i === 0 ? " selected" : ""}>${escapeHtml(r.route_display_name)}（${r.route_rows.length}）</option>`)
+    .join("");
+  return `
+    <div class="ta-laptime" data-laptime>
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇路線", "Route")}</span>
+        <select class="ta-switch-select" data-laptime-select>${options}</select>
+      </div>
+      <div data-laptime-chart>${renderLaptimeHistogram(routes[0].route_rows)}</div>
+      ${embedJsonData("data-laptime-data", routes.map((r) => r.route_rows))}
+    </div>`;
+};
+
+// 車輛:環境適性 + 路線涵蓋
+const renderVehicleAnalysis = (card) => {
+  const envTotal = (card.env_rows || []).reduce((s, e) => s + (Number(e.value) || 0), 0) || 1;
+  const env = (card.env_rows || []).map((e) => ({
+    label: e.label,
+    value: e.value,
+    sub: `${Math.round((e.value / envTotal) * 100)}%`,
+    color: "var(--ta-accent-warm)",
+  }));
+  const routeCount = (card.record_rows || []).length;
+  const tr = card.badge_counts ? card.badge_counts.TR : 0;
+  const cr = card.badge_counts ? card.badge_counts.CR : 0;
+  const coverage = `
+    <div class="ta-coverage">
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${routeCount}</span><span class="ta-coverage-lab">${renderBilingual("有紀錄路線", "Routes Run")}</span></div>
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${tr}</span><span class="ta-coverage-lab">${renderBilingual("賽道最佳 TR", "Track Records")}</span></div>
+      <div class="ta-coverage-cell"><span class="ta-coverage-num">${cr}</span><span class="ta-coverage-lab">${renderBilingual("車種最佳 CR", "Car Records")}</span></div>
+    </div>`;
+  if (!env.length) return coverage;
+  return `${coverage}<div class="ta-chart-sub">${renderBilingual("環境適性", "Environment Mix")}</div>${renderBarChart(env)}`;
+};
+
+// 同母型多變體:下拉切換「全部 / 某變體」的最佳路線榜(資料來自 card.variants)。
+const renderVehicleVariants = (card) => {
+  const variants = card.variants || [];
+  if (!variants.length) return "";
+  const allRows = card.record_rows || [];
+  const totalRuns = variants.reduce((s, v) => s + (v.record_count || 0), 0);
+  const identityCards = `<div class="ta-vehicle-variant-grid">${variants.map((variant) => {
+    const tags = Array.isArray(variant.vehicle_tags) ? variant.vehicle_tags : [];
+    return `<article class="ta-vehicle-variant-card">
+      <div class="ta-vehicle-variant-name"><strong>${escapeHtml(variant.variant_name)}</strong><code>${escapeHtml(variant.variant_code)}</code></div>
+      <div class="ta-profile-chiprow">
+        ${variant.drivetrain ? renderToneChip(`驅動型式 ${variant.drivetrain}`, "meta") : ""}
+        ${tags.map((tag) => renderToneChip(tag, "skill")).join("")}
+      </div>
+    </article>`;
+  }).join("")}</div>`;
+  if (variants.length === 1) {
+    return `${identityCards}${renderProfileRecordTable(variants[0].record_rows || allRows, "最快車手", "Fastest Driver", "player_display_name")}`;
+  }
+  const opts = `<option value="__all__">${escapeHtml(localizedText(`全部變體（${allRows.length} 路線 / ${totalRuns} 筆）`, `All Variants (${allRows.length} routes / ${totalRuns} runs)`, `全バリエーション（${allRows.length} ルート / ${totalRuns} 件）`))}</option>`
+    + variants.map((v, i) => `<option value="${i}">${escapeHtml(v.variant_name)}（${v.record_count} 筆 / ${v.record_rows.length} 路線)</option>`).join("");
+  return `
+    <div class="ta-variant" data-variant>
+      ${identityCards}
+      <div class="ta-chart-controls">
+        <span class="ta-label">${renderBilingual("選擇變體", "Variant", "バリエーション")}</span>
+        <select class="ta-switch-select" data-variant-select>${opts}</select>
+      </div>
+      <div data-variant-table>${renderProfileRecordTable(allRows, "最快車手", "Fastest Driver", "player_display_name")}</div>
+      ${embedJsonData("data-variant-data", { all: allRows, variants: variants.map((v) => v.record_rows) })}
+    </div>`;
+};
+
+// 委派:路線下拉切換 → 重繪該圖(資料已在嵌入的 JSON,一次只畫一張)
+const attachAnalysisInteractions = () => {
+  const root = document.querySelector("[data-page-root]");
+  if (!root || root.dataset.analysisBound === "1") return;
+  root.dataset.analysisBound = "1";
+  root.addEventListener("change", (e) => {
+    const progSel = e.target.closest("[data-progression-select]");
+    if (progSel) {
+      const wrap = progSel.closest("[data-progression]");
+      const hist = JSON.parse(wrap.querySelector("[data-progression-data]").textContent);
+      wrap.querySelector("[data-progression-chart]").innerHTML = renderProgression((hist[Number(progSel.value)] || {}).runs);
+      return;
+    }
+    const lapSel = e.target.closest("[data-laptime-select]");
+    if (lapSel) {
+      const wrap = lapSel.closest("[data-laptime]");
+      const routeRows = JSON.parse(wrap.querySelector("[data-laptime-data]").textContent);
+      wrap.querySelector("[data-laptime-chart]").innerHTML = renderLaptimeHistogram(routeRows[Number(lapSel.value)]);
+      return;
+    }
+    const varSel = e.target.closest("[data-variant-select]");
+    if (varSel) {
+      const wrap = varSel.closest("[data-variant]");
+      const vdata = JSON.parse(wrap.querySelector("[data-variant-data]").textContent);
+      const rows = varSel.value === "__all__" ? vdata.all : (vdata.variants[Number(varSel.value)] || []);
+      wrap.querySelector("[data-variant-table]").innerHTML = renderProfileRecordTable(rows, "最快車手", "Fastest Driver", "player_display_name");
+      return;
+    }
+    const worldVariantSel = e.target.closest("[data-world-variant-select]");
+    if (worldVariantSel) {
+      const wrap = worldVariantSel.closest("[data-vehicle-worlds]");
+      const worldData = JSON.parse(wrap.querySelector("[data-vehicle-world-data]").textContent);
+      const rows = worldVariantSel.value === "__all__"
+        ? worldData.all
+        : (worldData.variants[Number(worldVariantSel.value)] || []);
+      wrap.querySelector("[data-vehicle-world-table]").innerHTML = renderVehicleWorldTable(rows);
+    }
+  });
+};
+
+const renderOverview = (data) =>
+  [
+    renderHighlights(data.highlights),
+    renderModule("傳送門", "Portals", "分析分頁", "Analysis Views", renderBoardCards(data.board_cards) + renderTrackJump(data.track_options)),
+    Array.isArray(data.recent_runs) && data.recent_runs.length
+      ? renderModule("近期紀錄", "Recent Runs", "最新登錄", "Latest Entries", renderRecentRuns(data.recent_runs))
+      : "",
+    data.popularity_chart && Array.isArray(data.popularity_chart.tracks) && data.popularity_chart.tracks.length
+      ? renderModule("熱門度", "Popularity", "賽道熱門度", "Track Popularity", renderPopularityChart(data))
+      : "",
+  ]
+    .filter(Boolean)
+    .join("");
+
+const renderPageModules = (view, data) => {
+  if (view === "overview") {
+    const modules = [renderOverview(data)];
+    if (Array.isArray(data.editorial_events) && data.editorial_events.length) {
+      // Home page keeps the three most recent; events.html carries the full list.
+      modules.push(renderModule("近期活動", "Recent Events", "活動公告與結果", "Announcements And Results", renderEventCards(data.editorial_events, 3)));
+    }
+    return modules.filter(Boolean).join("");
+  }
+
+  if (view === "catalog") {
+    return [renderPageSnapshot(data.metric_cards), renderIndexTables(data.indexes)].filter(Boolean).join("");
+  }
+
+  if (view === "info") {
+    return renderModule("分析摘要", "Metrics", "核心指標", "Core Metrics", renderSummaryCards(data.metric_cards));
+  }
+
+  if (view === "tracks") {
+    const listHtml = Array.isArray(data.boards) && data.boards.length
+      ? renderTrackList(data)
+      : "";
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "track") {
+    return renderTrackDetail(data, getQueryParam("id"), getQueryParam("route"));
+  }
+
+  if (view === "trackmap") {
+    // Map/tree rendering lives in TrackMap/trackmap-view.js (initTrackMap),
+    // invoked after this shell lands in the DOM.
+    return [renderPageSnapshot(data.metric_cards), '<div data-trackmap-root class="ta-empty">Loading map view.</div>']
+      .filter(Boolean)
+      .join("");
+  }
+
+  if (view === "players") {
+    const listHtml = Array.isArray(data.player_cards) && data.player_cards.length
+      ? renderPlayerList(data)
+      : "";
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "player") {
+    return renderPlayerDetail(data, getQueryParam("id"));
+  }
+
+  if (view === "teams") {
+    return renderTeams(data);
+  }
+
+  if (view === "team") {
+    return renderTeamDetail(data, getQueryParam("id"));
+  }
+
+  if (view === "vehicles") {
+    const listHtml = Array.isArray(data.vehicle_cards) && data.vehicle_cards.length
+      ? renderVehicleList(data)
+      : "";
+    return [renderPageSnapshot(data.metric_cards), listHtml].filter(Boolean).join("");
+  }
+
+  if (view === "vehicle") {
+    return renderVehicleDetail(data, getQueryParam("id"));
+  }
+
+  if (view === "events") {
+    return renderEventList(data);
+  }
+
+  if (view === "event") {
+    return renderEventDetail(data, getQueryParam("id"));
+  }
+
+  const modules = [renderPageSnapshot(data.metric_cards)];
+  if (Array.isArray(data.player_cards) && data.player_cards.length) {
+    modules.push(renderModule("個人頁", "Player Profiles", "玩家分析", "Player Analysis", renderPlayerCards(data.player_cards)));
+  }
+  if (Array.isArray(data.vehicle_cards) && data.vehicle_cards.length) {
+    modules.push(renderModule("車輛頁", "Vehicle Profiles", "車輛分析", "Vehicle Analysis", renderVehicleCards(data.vehicle_cards)));
+  }
+  if (Array.isArray(data.event_cards) && data.event_cards.length) {
+    // data.event_cards is the builder's profile-card shape (stats/tags/best_times),
+    // not the editorial_events shape renderEventCards takes.
+    modules.push(renderModule("賽季索引", "Season Index", "活動清單", "Event Index", renderProfileGrid(data.event_cards, {
+      usageZh: "保留欄位",
+      usageEn: "Reserved",
+      tagZh: "保留欄位",
+      tagEn: "Reserved",
+      listZh: "最近提交",
+      listEn: "Recent Submissions",
+    })));
+  }
+  if (SHOW_VERIFICATION && Array.isArray(data.review_cards) && data.review_cards.length) {
+    modules.push(renderModule("審核佇列", "Review Queue", "待處理送件", "Pending And Rejected", renderReviewCards(data.review_cards)));
+  }
+  if (Array.isArray(data.timeline) && data.timeline.length) {
+    modules.push(renderModule("時間線", "Timeline", "最近變化", "Recent Changes", renderTimeline(data.timeline)));
+  }
+  if (Array.isArray(data.sections) && data.sections.length) {
+    modules.push(renderModule("後續規劃", "Next Layers", "預留分析", "Reserved Expansion", renderSectionCards(data.sections)));
+  }
+
+  return modules.filter(Boolean).join("");
+};
+
+const setTextContent = (selector, value) => {
+  const node = document.querySelector(selector);
+  if (node) {
+    node.textContent = value;
+  }
+};
+
+const setHtml = (selector, html) => {
+  const node = document.querySelector(selector);
+  if (node) {
+    node.innerHTML = html;
+  }
+};
+
+const activateNav = (view) => {
+  const vehicleLink = document.querySelector('[data-view-link="vehicles"]');
+  if (vehicleLink && !document.querySelector('[data-view-link="teams"]')) {
+    const navBase = document.body.dataset.base || "./";
+    vehicleLink.insertAdjacentHTML("beforebegin", `<a class="ta-navlink" href="${navBase}teams.html" data-view-link="teams">${renderBilingual("車隊", "Teams", "チーム")}</a>`);
+  }
+  // Detail views share their parent list nav entry.
+  const navView = { track: "tracks", player: "players", team: "teams", vehicle: "vehicles", event: "events" }[view] || view;
+  document.querySelectorAll("[data-view-link]").forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.viewLink === navView);
+  });
+};
+
+const loadJson = async (url) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${url}: ${response.status}`);
+  }
+  return response.json();
+};
+
+const renderGlobalSearch = (items) => {
+  const nav = document.querySelector(".ta-localnav");
+  if (!nav || document.querySelector("[data-global-search]")) return;
+  nav.insertAdjacentHTML("afterend", `
+    <section class="ta-global-search" data-global-search>
+      <label for="ta-global-search-input">${renderBilingual("搜尋全站資料", "Search all records", "データ検索")}</label>
+      <input id="ta-global-search-input" type="search" placeholder="玩家、車隊、車輛、賽道 / Player, team, vehicle, track" autocomplete="off" data-global-search-input>
+      <div class="ta-global-search-results" data-global-search-results hidden></div>
+    </section>`);
+  const input = document.querySelector("[data-global-search-input]");
+  const results = document.querySelector("[data-global-search-results]");
+  input.addEventListener("input", () => {
+    const query = input.value.trim().toLocaleLowerCase();
+    if (query.length < 2) {
+      results.hidden = true;
+      results.innerHTML = "";
+      return;
+    }
+    const matches = items.filter((item) => item.search.includes(query)).slice(0, 12);
+    results.innerHTML = matches.length
+      ? matches.map((item) => `<a href="${escapeHtml(item.href)}"><small>${escapeHtml(item.kind)}</small><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.meta || "")}</span></a>`).join("")
+      : `<p>${renderBilingual("找不到符合資料", "No matching data", "該当するデータがありません")}</p>`;
+    results.hidden = false;
+  });
+};
+
+const initGlobalSearch = async (base) => {
+  try {
+    const directory = await loadJson(`${base}vrc/index.json`);
+    const resources = directory.resources || {};
+    const [players, teams, vehicles] = await Promise.all([
+      loadJson(`${base}vrc/${resources.players || "players.json"}`),
+      loadJson(`${base}vrc/${resources.teams || "teams.json"}`),
+      loadJson(`${base}vrc/${resources.vehicles || "vehicles.json"}`),
+    ]);
+    const items = [];
+    (players.data?.players || []).forEach((item) => items.push({
+      kind: "Player", name: item.name, meta: item.team_name || "",
+      href: item.site_id ? `${base}player.html?id=${encodeURIComponent(item.site_id)}` : `${base}players.html`,
+      search: `${item.name} ${item.team_name || ""}`.toLocaleLowerCase(),
+    }));
+    (teams.data?.teams || []).forEach((item) => items.push({
+      kind: "Team", name: item.name, meta: item.representative || "",
+      href: `${base}team.html?id=${encodeURIComponent(item.team_id)}`,
+      search: `${item.name} ${item.short_name || ""} ${item.representative || ""}`.toLocaleLowerCase(),
+    }));
+    (vehicles.data?.vehicles || []).forEach((item) => items.push({
+      kind: "Vehicle", name: item.name, meta: item.manufacturer || "",
+      href: item.site_id ? `${base}vehicle.html?id=${encodeURIComponent(item.site_id)}` : `${base}vehicles.html`,
+      search: `${item.name} ${item.manufacturer || ""} ${item.class || ""}`.toLocaleLowerCase(),
+    }));
+    (directory.tracks || []).forEach((item) => items.push({
+      kind: "Track", name: item.zh || item.en || item.code, meta: item.en || "",
+      href: `${base}track.html?id=${encodeURIComponent(item.code)}`,
+      search: `${item.code} ${item.zh || ""} ${item.en || ""}`.toLocaleLowerCase(),
+    }));
+    renderGlobalSearch(items);
+  } catch (error) {
+    console.warn("Global search contracts unavailable", error);
+  }
+};
+
+const renderFreshness = async (base, manifest) => {
+  const generatedNode = document.querySelector("[data-generated-at]");
+  const generatedAt = Date.parse(manifest.generated_at || "");
+  if (!generatedNode || !Number.isFinite(generatedAt)) return;
+  const date = new Date(generatedAt);
+  const options = {timeZone: "Asia/Taipei", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", timeZoneName: "short"};
+  generatedNode.innerHTML = renderBilingual(date.toLocaleString("zh-TW", options), date.toLocaleString("en-GB", options));
+  const ageDays = Math.floor((Date.now() - generatedAt) / 86400000);
+  if (ageDays > 7) {
+    generatedNode.insertAdjacentHTML("afterend", `<p class="ta-freshness is-stale">${renderBilingual(`資料已 ${ageDays} 天未更新，近期成績可能尚未收錄。`, `Last updated ${ageDays} days ago; recent runs may be missing.`)}</p>`);
+  }
+};
+
+const initTimeAttack = async () => {
+  const view = document.body.dataset.view || "overview";
+  // Pages living one directory deeper (TrackMap/) set data-base="../" so the
+  // shared data/ fetches still resolve; default "./" keeps every flat page as-is.
+  const base = document.body.dataset.base || "./";
+  const labels = TA_ROUTE_LABELS[view] || TA_ROUTE_LABELS.overview;
+  activateNav(view);
+
+  try {
+    const manifest = await loadJson(`${base}data/manifest.json`);
+    initGlobalSearch(base);
+    // Detail views are fed by the same list artifact (track→tracks, player→players, vehicle→vehicles).
+    const DETAIL_DATA_KEY = { track: "tracks", player: "players", team: "teams", vehicle: "vehicles", event: "events" };
+    const dataKey = DETAIL_DATA_KEY[view] || view;
+    const summaryPromise = loadJson(`${base}data/${manifest.routes.overview}`);
+    const pagePromise = view === "overview" ? summaryPromise : loadJson(`${base}data/${manifest.routes[dataKey]}`);
+    const proofPromise = manifest.routes.proofs
+      ? loadJson(`${base}data/${manifest.routes.proofs}`).catch(() => ({ proofs: {} }))
+      : Promise.resolve({ proofs: {} });
+    const [summary, pageData, proofData] = await Promise.all([summaryPromise, pagePromise, proofPromise]);
+    if (window.TAPeriods && manifest.routes.leaderboard_periods) {
+      const periodData = await loadJson(`${base}data/${manifest.routes.leaderboard_periods}`);
+      const scoped = window.TAPeriods.apply(pageData, periodData, getQueryParam('period'));
+      pageData.boards = scoped.boards;
+      pageData.has_periods = periodData.scopes.length > 0;
+    }
+    TA_PROOFS = proofData.proofs || {};
+
+    if (["players", "player", "teams", "team", "events", "event"].includes(view)) {
+      const teamsData = dataKey === "teams" ? pageData : await loadJson(`${base}data/${manifest.routes.teams}`);
+      TA_TEAMS = teamsData.teams || [];
+      if (dataKey === "teams") {
+        const playersData = await loadJson(`${base}data/${manifest.routes.players}`);
+        pageData.player_cards = playersData.player_cards || [];
+      }
+    }
+
+    if (["overview", "events", "event", "track", "player", "team", "vehicle"].includes(view)) {
+      const editorial = await loadJson(`${base}data/${manifest.routes.event_editorial}`);
+      pageData.editorial_events = editorial.events || [];
+      pageData.editorial_series = editorial.series || [];
+      TA_EDITORIAL_EVENTS = pageData.editorial_events;
+      if (["events", "event"].includes(view)) {
+        pageData.title_zh = view === "event" ? "活動詳情" : "活動";
+        pageData.title_en = view === "event" ? "Event Detail" : "Events";
+        pageData.description_zh = view === "event" ? "活動資訊、時程、規則與人工確認的賽事結果。" : "VRC 賽車俱樂部的活動公告與賽事結果。";
+        pageData.description_en = view === "event" ? "Event information, schedule, rules, and manually confirmed results." : "VRC Racing Club announcements and event results.";
+        pageData.sidebar_zh = [editorial.note_zh, "活動結果不從排行榜自動推斷。"];
+        pageData.sidebar_en = [editorial.note_en, "Event results are not inferred from leaderboards."];
+      }
+    }
+
+    if (["events", "event"].includes(view)) {
+      const [playersData, vehiclesData, tracksData] = await Promise.all([
+        loadJson(`${base}data/${manifest.routes.players}`),
+        loadJson(`${base}data/${manifest.routes.vehicles}`),
+        loadJson(`${base}data/${manifest.routes.tracks}`),
+      ]);
+      pageData.player_cards = playersData.player_cards || [];
+      pageData.vehicle_cards = vehiclesData.vehicle_cards || [];
+      pageData.track_boards = tracksData.boards || [];
+    }
+
+    const visitorCopy = {
+      info: {
+        zh: "查詢 Racing Hub 的紀錄統計，了解榜單標記與投稿方式。",
+        en: "Explore Racing Hub statistics, record badges, and how to submit a run.",
+        notesZh: ["TR：該路線的最快紀錄。", "CR：該車輛在路線上的最快紀錄。", "PR：玩家在路線上的個人最佳。"],
+        notesEn: ["TR: the fastest run on a route.", "CR: the fastest run for a vehicle on a route.", "PR: a player’s personal best on a route."],
+      },
+      tracks: {
+        zh: "選擇賽道與路線，查看最快成績及完整紀錄。",
+        en: "Choose a track and route to explore the fastest times and recorded runs.",
+        notesZh: ["選擇世界，再切換要查詢的路線。", "點選玩家或車輛名稱，查看相關成績。"],
+        notesEn: ["Choose a world, then select a route.", "Select a player or vehicle to explore related runs."],
+      },
+      players: {
+        zh: "瀏覽玩家在各條路線的最快成績。",
+        en: "Explore players’ best times across routes.",
+        notesZh: ["每條路線列出玩家的最快成績。", "TR / CR / PR 分別代表賽道、車輛與個人最佳紀錄。"],
+        notesEn: ["Each route lists a player’s best time.", "TR / CR / PR indicate track, car, and personal records."],
+      },
+      vehicles: {
+        zh: "依車型瀏覽車輛與路線成績。",
+        en: "Browse vehicles by model and explore their route times.",
+        notesZh: ["同一車型可有不同世界版本。", "選擇車輛，查看各條路線的成績。"],
+        notesEn: ["A model may have editions in different worlds.", "Choose a vehicle to explore its route times."],
+      },
+      events: {
+        zh: "查看 VRC 賽車俱樂部的活動公告與賽事結果。",
+        en: "Explore VRC Racing Club announcements and event results.",
+        notesZh: ["活動時間、場地與參與方式請見各活動公告。", "點選活動，查看賽程與結果。"],
+        notesEn: ["See each announcement for dates, venues, and participation.", "Select an event to view its schedule and results."],
+      },
+    };
+    const copy = visitorCopy[dataKey];
+    if (copy) {
+      pageData.description_zh = copy.zh;
+      pageData.description_en = copy.en;
+      pageData.sidebar_zh = copy.notesZh;
+      pageData.sidebar_en = copy.notesEn;
+    }
+    if (pageData.has_periods) {
+      pageData.description_zh = '預設顯示各路線最新榜期，可切換歷史榜期與歷代最佳。';
+      pageData.description_en = 'Latest route periods are shown by default. Choose a past period or all-time bests.';
+      pageData.sidebar_zh = ['成績依完成時間歸入榜期，投稿與審核先後不影響。','TR / CR / PR 依目前選擇的榜期計算。'];
+      pageData.sidebar_en = ['Runs enter periods by completion time, regardless of submission or review order.','TR / CR / PR reflect the selected period.'];
+    }
+    if (view === "info") {
+      const notes = {
+        "Valid Runs": ["收錄於排行榜的有效成績", "Valid runs included on the leaderboards"],
+        "Track Worlds": ["資料庫收錄的賽道世界", "Track worlds in the database"],
+        "Vehicle Models": ["資料庫收錄的車型", "Vehicle models in the database"],
+      };
+      pageData.metric_cards = (pageData.metric_cards || []).filter(card => notes[card.label_en]).map(card => ({
+        ...card, note_zh: notes[card.label_en][0], note_en: notes[card.label_en][1],
+      }));
+    }
+
+    if (!SHOW_VERIFICATION && view === "overview") {
+      pageData.description_zh = "VR Racing Club 的 Time Attack 資料庫，整理持續更新的賽道、玩家、車輛與有效計時紀錄。";
+      pageData.description_en = "The VR Racing Club Time Attack database for continuously updated tracks, players, vehicles, and valid timed runs.";
+      pageData.board_cards = (pageData.board_cards || []).filter((card) => card.href !== "./review.html");
+      pageData.count_cards = (pageData.count_cards || []).filter((card) => !["已驗證", "未驗證", "Verified", "Unverified"].includes(card.label_zh) && !["Verified", "Unverified"].includes(card.label_en));
+      pageData.sidebar_zh = ["排行榜收錄所有有效計時紀錄。", "TR / CR / PR 分別標示賽道、車輛與玩家紀錄。", "點選賽道、玩家或車輛，查看相關成績。"];
+      pageData.sidebar_en = ["Leaderboards include all valid timed runs.", "TR / CR / PR mark track, vehicle, and player records.", "Choose a track, player, or vehicle to explore related runs."];
+    }
+
+    const pageTitle = view === "overview" ? "Racing Hub 賽事中心" : (pageData.title_zh || labels.zh);
+    const pageTitleEn = view === "overview" ? "Racing Hub" : (pageData.title_en || labels.en);
+    const pageDesc = pageData.description_zh || "";
+    const pageDescEn = pageData.description_en || "";
+
+    document.title = `${pageTitleEn} | VR Racing Club | StarRiver Arts`;
+
+    setTextContent("[data-generated-at]", manifest.generated_at || "pending");
+    renderFreshness(base, manifest);
+    setTextContent("[data-schema-version]", manifest.schema_version || "0.0.0");
+    setTextContent("[data-build-state]", pageData.build_state || summary.build_state || manifest.build_state || "pending");
+    setTextContent("[data-source-label]", manifest.source_label || "local builder pending");
+
+    setTextContent("[data-page-title-zh]", pageTitle);
+    setTextContent("[data-page-title-en]", pageTitleEn);
+    setTextContent("[data-page-desc-zh]", pageDesc);
+    setTextContent("[data-page-desc-en]", pageDescEn);
+    setTextContent("[data-sidebar-view-zh]", labels.zh);
+    setTextContent("[data-sidebar-view-en]", labels.en);
+
+    setHtml("[data-page-root]", renderPageModules(view, pageData));
+    if (view === "track") attachBoardToggleListeners();
+    if (view === "track") attachBoardPagination();
+    if (["track", "player", "team", "vehicle", "event"].includes(view)) attachDetailSwitchListeners();
+    if (view === "track" || view === "player" || view === "vehicle") attachAnalysisInteractions();
+    if (view === "trackmap" && typeof window.initTrackMap === "function") {
+      window.initTrackMap(pageData, base);
+    }
+    setHtml(
+      "[data-sidebar-list]",
+      `
+        <ul class="ta-inline-list">
+          ${(pageData.sidebar_zh || [])
+            .map(
+              (note, index) => `
+                <li>
+                  ${renderBilingual(note, (pageData.sidebar_en || [])[index] || "")}
+                </li>
+              `,
+            )
+            .join("")}
+        </ul>
+      `,
+    );
+  } catch (error) {
+    console.error(error);
+    setTextContent("[data-build-state]", "load-error");
+    setHtml(
+      "[data-page-root]",
+      `
+        <article class="ta-content-card ta-content-card-inner">
+          <h2 class="ta-section-title">Data Load Error</h2>
+          <p class="ta-section-text">The page shell is ready, but the JSON artifact could not be loaded.</p>
+        </article>
+      `,
+    );
+  }
+};
+
+initTimeAttack();

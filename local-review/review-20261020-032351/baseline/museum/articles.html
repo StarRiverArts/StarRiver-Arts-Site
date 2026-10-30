@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>專欄 | StarRiver Museum</title>
+<link rel="icon" href="../assets/logos/starriver-primary.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="museum.css">
+<link rel="stylesheet" href="../ds-additions.css">
+<style>
+  /* 先不互聯：頁面間連結由 CMS 連上/開啟，暫設 href="#" */
+  #arts .arts-serif{font-family:"Noto Serif TC","Source Han Serif TC",serif}
+</style>
+</head>
+<body>
+<div id="arts" class="sr-brand-museum sr-type" data-screen-label="Museum / Articles (index)">
+
+  <header class="museum-topbar">
+    <a class="museum-brand" href="#">
+      <span class="museum-brand-mark">StarRiver Arts</span>
+      <span class="museum-brand-name">Museum</span>
+    </a>
+    <nav class="museum-nav" aria-label="Museum">
+      <a href="#"><span class="zh">入口</span><span class="en">Entry</span></a>
+      <a href="#"><span class="zh">展覽</span><span class="en">Exhibitions</span></a>
+      <a href="#" aria-current="page"><span class="zh">專欄</span><span class="en">Articles</span></a>
+    </nav>
+    <button class="museum-lang" type="button" onclick="srLangToggle()"><span class="zh">EN</span><span class="en">中文</span></button>
+  </header>
+
+  <main class="museum-main">
+
+    <!-- LEDE -->
+    <section class="museum-section">
+      <div class="museum-section-head">
+        <div>
+          <div class="museum-kicker"><span class="zh">索引 · 專欄與公告</span><span class="en">Index · Columns &amp; notices</span></div>
+          <h1 class="museum-title arts-serif"><span class="zh">專欄</span><span class="en">Articles</span></h1>
+        </div>
+        <p class="museum-section-copy"><span class="zh">單件作品專欄、策展筆記與館務公告的容器索引。內容陸續補齊。</span><span class="en">The container index for single-work columns, curatorial notes, and museum notices. Entries are added over time.</span></p>
+      </div>
+
+      <div class="museum-grid museum-grid-3">
+
+        <!-- ArticlesEnd -->
+      </div>
+    </section>
+
+    <footer class="museum-footer">
+      <span><span class="zh">StarRiver Museum · 專欄索引</span><span class="en">StarRiver Museum · Article index</span></span>
+      <span>2026 StarRiver Arts</span>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  var h=document.documentElement, avail=[];
+  ['zh','en','jp'].forEach(function(l){ if(document.querySelector('.'+l)) avail.push(l); });
+  if(avail.length===0) avail=['zh'];
+  function apply(l){ if(avail.indexOf(l)<0) l=avail[0];
+    h.className=h.className.replace(/\blang-\w+\b/g,'').trim()+' lang-'+l;
+    h.lang = l==='zh'?'zh-TW':(l==='jp'?'ja':'en');
+    try{localStorage.setItem('sr-lang',l);}catch(e){} }
+  var saved='zh'; try{saved=localStorage.getItem('sr-lang')||'zh';}catch(e){}
+  apply(saved);
+  window.srLangToggle=function(){
+    var m=h.className.match(/lang-(\w+)/), cur=m?m[1]:avail[0];
+    apply(avail[(avail.indexOf(cur)+1)%avail.length]); };
+})();
+</script>
+</body>
+</html>

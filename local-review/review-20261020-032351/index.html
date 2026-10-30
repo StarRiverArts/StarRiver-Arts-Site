@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>StarRiver Arts｜網站審查室</title>
+<link rel="icon" href="favicon.png"><link rel="stylesheet" href="review.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="top"><a href="#" class="brand"><img src="favicon.png" alt=""><span>STARRIVER ARTS<small>LOCAL REVIEW / 網站審查室</small></span></a><nav aria-label="審查模式"><button data-mode="overview" aria-pressed="true">三站總覽</button><button data-mode="browse" aria-pressed="false">逐頁探索</button><button data-mode="compare" aria-pressed="false">並排比較</button></nav><button id="stop" class="quiet">停止預覽</button></header>
+<main id="main">
+<section id="overview" class="overview">
+<div class="intro"><p class="eyebrow">THREE SITES · ONE CREATIVE ECOSYSTEM</p><h1>從每一頁，<br>看見新的網站。</h1><p class="intro-copy">Studio 的作品、ProjectT 的世界與社群、Museum 的展覽與創作。完整原版與修訂版並行，從入口一路探索到內頁。</p><p class="edition" id="edition">載入網站副本…</p></div>
+<div class="site-grid">
+<article class="site studio"><div class="site-art studio-art" aria-hidden="true"><span>Selected<br>Works.</span><i></i></div><div class="site-body"><p class="eyebrow">01 / PORTFOLIO & CAPABILITIES</p><h2>Studio</h2><p>VR 應用、景觀地景建模與數位策展。從精選作品認識創作者。</p><div class="site-actions"><button data-entry="studio.html">探索修訂版 <span>↗</span></button><button class="text-btn" data-compare="studio.html">與原版比較</button></div></div></article>
+<article class="site projectt"><div class="site-art mountain-art" aria-hidden="true"><span>ProjectT</span><i></i><i></i><i></i></div><div class="site-body"><p class="eyebrow">02 / WORLDS · COMMUNITY · RACING</p><h2>ProjectT</h2><p>從臺灣出發，連結 VRChat 世界、賽車社群、活動資料與工具。</p><div class="site-actions"><button data-entry="play/index.html">探索修訂版 <span>↗</span></button><button class="text-btn" data-compare="play/index.html">與原版比較</button></div></div></article>
+<article class="site museum"><div class="site-art museum-art" aria-hidden="true"><span>Museum</span><i></i></div><div class="site-body"><p class="eyebrow">03 / EXHIBITIONS · CULTURE · SPACES</p><h2>Museum</h2><p>展覽、作品、文字與虛擬空間。保留各自的觀看方式。</p><div class="site-actions"><button data-entry="museum/index.html">探索修訂版 <span>↗</span></button><button class="text-btn" data-compare="museum/index.html">與原版比較</button></div></div></article>
+</div>
+<div class="overview-bottom"><div><h2>整個網站，都在這裡。</h2><p>作品頁、社群規範、Racing Hub、互動展示，以及尚未公開的閱讀與展覽版型，都能由頁面目錄進入。</p></div><button data-mode="browse">打開全部頁面 <span id="page-count"></span> →</button></div>
+<p class="notice">這是本機審查副本。尚未發布的頁面保留草稿狀態；參觀不代表同意發布。外部社群及 VRChat 連結由你點選後開啟。</p>
+</section>
+<section id="explorer" class="explorer" hidden>
+<aside class="sidebar"><label for="search">找一個頁面</label><input id="search" type="search" placeholder="名稱、主題或頁面路徑"><div class="filters" role="group" aria-label="網站篩選"><button data-area="all" aria-pressed="true">全部</button><button data-area="Studio">Studio</button><button data-area="ProjectT">ProjectT</button><button data-area="Museum">Museum</button><button data-area="Shared">共用</button></div><label class="check"><input id="changed-only" type="checkbox">只看有修訂的頁面</label><p id="result-count" class="muted" role="status"></p><nav id="pages" aria-label="全部網站頁面"></nav></aside>
+<div class="workspace"><div class="toolbar"><div class="page-identity"><span id="current-area" class="eyebrow"></span><h2 id="current-title"></h2><p id="current-path"></p></div><div class="view-options"><label>版本<select id="version"><option value="proposal">修訂版</option><option value="baseline">原版</option></select></label><label>畫面<select id="viewport"><option value="fluid">完整寬度</option><option value="390">手機 390</option><option value="768">平板 768</option><option value="1440">桌面 1440</option></select></label><label>語言<select id="language"><option value="zh">繁體中文</option><option value="en">English</option></select></label><a id="open-page" target="_blank" rel="noopener">獨立開啟 ↗</a></div></div>
+<div class="frame-stage" id="frame-stage"><div class="frame-panel" id="before-panel" hidden><div class="frame-label">原版</div><iframe id="before" title="原版網站" src="about:blank"></iframe></div><div class="frame-panel" id="after-panel"><div class="frame-label" id="after-label">修訂版</div><iframe id="after" title="修訂版網站" src="about:blank"></iframe></div></div>
+<div class="page-note"><strong id="page-state"></strong><p id="page-note"></p><p>你可以在網站內自由導航；上方「獨立開啟」可使用完整瀏覽器視窗。</p></div>
+</div>
+</section>
+</main>
+<footer class="review-footer"><span>StarRiver Arts · 本機網站審查</span><span>原版與提案各自包含完整 HTML、樣式、影像、字型與資料。</span></footer>
+<script src="review.js"></script>
+</body></html>

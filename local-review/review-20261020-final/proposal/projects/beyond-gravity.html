@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-TW" class="lang-zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond Gravity — StarRiver Arts</title>
+<meta name="description" content="Beyond Gravity 是於 2026 年 4 月發布的 VRChat 空間作品，以可進入的場景呈現 Skyhook 軌道運輸概念。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="/proposal/projects/beyond-gravity.html">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--sr-paper);color:var(--sr-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+html.lang-zh .en{display:none}
+html.lang-en .zh{display:none}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  height:60px;background:var(--sr-paper);
+  border-bottom:1px solid var(--gray-200);
+  display:flex;align-items:center;padding:0 48px;gap:0;
+}
+.nav-back{
+  display:flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-500);margin-right:auto;transition:color 200ms;
+}
+.nav-back:hover{color:var(--sr-ink)}
+.nav-back svg{width:10px;height:10px}
+.nav-brand{font-family:var(--font-deck);font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--gray-400)}
+.lang-btn{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-400);background:none;border:1px solid var(--gray-200);border-radius:2px;
+  padding:5px 10px;cursor:pointer;margin-left:14px;transition:color 200ms,border-color 200ms;
+}
+.lang-btn:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+
+/* HERO */
+.hero-image{
+  width:100%;aspect-ratio:21/9;background:var(--sr-bone);
+  overflow:hidden;position:relative;
+  border-bottom:1px solid var(--gray-200);
+}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);
+  background:var(--sr-bone);
+}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+.content-grid{display:grid;grid-template-columns:1fr 260px;gap:64px;padding:56px 0 48px;align-items:start}
+.main-col{}
+.meta-col{position:sticky;top:80px}
+
+/* TITLE AREA */
+.project-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-amber);margin-bottom:10px}
+.project-title{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:.95;letter-spacing:-.03em;color:var(--sr-ink);margin-bottom:20px;text-wrap:balance}
+
+/* CONCEPT */
+.concept{font-family:var(--font-body);font-size:17px;line-height:1.7;color:var(--gray-700);max-width:620px;margin-bottom:64px}
+.concept p+p{margin-top:14px}
+
+/* SECTION LABEL */
+.sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gray-200)}
+
+/* GALLERY */
+.gallery-section{margin-bottom:64px}
+.gallery-wrap{position:relative}
+.gallery-track{
+  display:flex;gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:4px;
+  cursor:grab;
+}
+.gallery-track:active{cursor:grabbing}
+.gallery-track::-webkit-scrollbar{height:3px}
+.gallery-track::-webkit-scrollbar-track{background:var(--gray-200)}
+.gallery-track::-webkit-scrollbar-thumb{background:var(--gray-400);border-radius:2px}
+.gallery-item{
+  flex-shrink:0;scroll-snap-align:start;
+  width:clamp(280px,55%,500px);
+  display:flex;flex-direction:column;gap:8px;
+}
+.gallery-thumb{
+  aspect-ratio:16/9;background:var(--sr-bone);border-radius:2px;
+  overflow:hidden;border:1px solid var(--gray-200);position:relative;
+}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.g-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);
+}
+.gallery-caption{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--gray-500);line-height:1.5;padding:0 2px}
+.gallery-arrows{display:flex;gap:6px;margin-top:12px}
+.g-arrow{
+  font-family:var(--font-mono);font-size:11px;color:var(--gray-500);
+  background:none;border:1px solid var(--gray-200);border-radius:2px;
+  padding:6px 12px;cursor:pointer;transition:color 150ms,border-color 150ms;
+}
+.g-arrow:hover{color:var(--sr-ink);border-color:var(--gray-400)}
+
+/* TECH DETAILS */
+.tech-section{margin-bottom:64px}
+.tech-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden}
+.tech-item{
+  display:grid;grid-template-columns:160px 1fr;gap:16px;
+  padding:16px 20px;border-top:1px solid var(--gray-200);
+  background:var(--sr-chalk);
+}
+.tech-item:first-child{border-top:none}
+.tech-key{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);padding-top:1px}
+.tech-val{font-family:var(--font-body);font-size:14px;color:var(--sr-ink);line-height:1.55}
+
+/* META SIDEBAR */
+.meta-block{background:var(--sr-chalk);border:1px solid var(--gray-200);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px}
+.meta-row{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-top:1px solid var(--gray-200)}
+.meta-row:first-child{border-top:none}
+.meta-key{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400)}
+.meta-val{font-family:var(--font-body);font-size:13px;color:var(--sr-ink);line-height:1.4}
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--fa-signal);color:#fff;border:none;border-radius:2px;
+  padding:12px 16px;width:100%;cursor:pointer;text-decoration:none;
+  transition:background 200ms;
+}
+.cta-btn:hover{background:var(--fa-signal-lo)}
+.cta-btn svg{width:10px;height:10px}
+
+/* PREV/NEXT */
+.project-nav{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r-sm);
+  overflow:hidden;margin:64px 0 0;
+}
+.pnav-item{
+  background:var(--sr-chalk);padding:20px 22px;
+  display:flex;flex-direction:column;gap:4px;cursor:pointer;
+  transition:background 150ms;text-decoration:none;color:inherit;
+}
+.pnav-item:hover{background:var(--sr-bone)}
+.pnav-dir{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400)}
+.pnav-title{font-family:var(--font-deck);font-weight:600;font-size:16px;color:var(--sr-ink)}
+.pnav-item.next{text-align:right}
+
+/* FOOTER */
+footer{background:var(--sr-void);color:var(--sr-paper);padding:40px 0 36px;margin-top:80px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-name{font-family:var(--font-deck);font-weight:700;font-size:13px;letter-spacing:.04em;color:rgba(243,238,227,.7)}
+.footer-copy{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-600)}
+
+@media(max-width:800px){
+  .wrap{padding:0 24px}
+  nav{padding:0 24px}
+  .content-grid{grid-template-columns:1fr;gap:40px}
+  .meta-col{position:static}
+  .tech-item{grid-template-columns:1fr;gap:4px}
+  .project-nav{grid-template-columns:1fr}
+  .hero-image{aspect-ratio:16/9}
+}
+.skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:10px 14px;background:var(--sr-ink);color:var(--sr-paper);transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--fa-signal);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
+
+<meta property="og:title" content="Beyond Gravity | StarRiver Arts">
+<meta property="og:description" content="StarRiver Arts 的 Beyond Gravity 專案頁，呈現 VR 空間與沉浸式體驗設計成果。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/proposal/projects/beyond-gravity.html">
+<meta property="og:image" content="/proposal/assets/logos/starriver-primary.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Beyond Gravity | StarRiver Arts",
+  "url": "/proposal/projects/beyond-gravity.html",
+  "description": "StarRiver Arts 的 Beyond Gravity 專案頁，呈現 VR 空間與沉浸式體驗設計成果。",
+  "inLanguage": [
+    "zh-TW",
+    "en"
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "StarRiver Arts",
+    "url": "/proposal/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="zh">跳到主要內容</span><span class="en">Skip to content</span></a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-back" href="../studio.html">
+    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H1M4 2L1 5l3 3"/></svg>
+    <span class="zh">工作室</span><span class="en">Studio</span>
+  </a>
+  <span class="nav-brand">星河 STARRIVER ARTS</span>
+  <button class="lang-btn" id="langBtn"><span class="zh">EN</span><span class="en">中</span></button>
+</nav>
+
+<!-- HERO IMAGE -->
+<main id="main">
+<div class="hero-image">
+  <img src="beyond-gravity/thumb.png" alt="Beyond Gravity VRChat 世界">
+</div>
+
+<div class="wrap">
+<div class="content-grid">
+
+  <!-- MAIN -->
+  <div class="main-col">
+
+    <div class="project-kicker">Formosa Aerospace · 2026.04 · VRChat</div>
+    <h1 class="project-title"><span class="zh">Beyond Gravity</span><span class="en">Beyond Gravity</span></h1>
+
+    <!-- CONCEPT -->
+    <div class="concept">
+      <p class="zh">Beyond Gravity 是於 2026 年 4 月發布的 VRChat 空間作品，以可進入的場景呈現天鉤（Skyhook）軌道運輸概念與太空站尺度。</p>
+      <p class="en">Released in April 2026, Beyond Gravity is a VRChat spatial work presenting the concept of Skyhook orbital transport and the scale of a space station.</p>
+    </div>
+
+    <!-- TECHNICAL DETAILS -->
+    <div class="tech-section">
+      <h2 class="sec-label"><span class="zh">技術細節</span><span class="en">Technical Details</span></h2>
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">平台</span><span class="en">Platform</span></div>
+          <div class="tech-val">VRChat</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-key"><span class="zh">製作時間</span><span class="en">Duration</span></div>
+          <div class="tech-val zh">2 週（VRChat Space Jam 3 限時挑戰）· 單人獨立完成</div>
+          <div class="tech-val en">2 weeks (VRChat Space Jam 3 timed challenge) · Solo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT NAV -->
+    <div class="project-nav">
+      <div class="pnav-item">
+        <div class="pnav-dir zh">← 上一件</div>
+        <div class="pnav-dir en">← Previous</div>
+        <div class="pnav-title" style="opacity:.4">—</div>
+      </div>
+      <a class="pnav-item next" href="starsight-mt.html">
+        <div class="pnav-dir zh">下一件 →</div>
+        <div class="pnav-dir en">Next →</div>
+        <div class="pnav-title">StarSight Mt. 觀星山</div>
+      </a>
+    </div>
+
+  </div><!-- /main-col -->
+
+  <!-- META SIDEBAR -->
+  <div class="meta-col">
+    <div class="meta-block">
+      <div class="meta-row">
+        <div class="meta-key zh">年份</div><div class="meta-key en">Year</div>
+        <div class="meta-val"><span class="zh">2026 年 4 月</span><span class="en">April 2026</span></div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">媒介</div><div class="meta-key en">Medium</div>
+        <div class="meta-val">VRChat SDK3</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">群組</div><div class="meta-key en">Group</div>
+        <div class="meta-val">Formosa Aerospace</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">製作週期</div><div class="meta-key en">Duration</div>
+        <div class="meta-val zh">2 週</div>
+        <div class="meta-val en">2 weeks</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">角色</div><div class="meta-key en">Role</div>
+        <div class="meta-val zh">環境設計 · 互動設計 · 單人</div>
+        <div class="meta-val en">Environment design · Interaction design · Solo</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-key zh">狀態</div><div class="meta-key en">Status</div>
+        <div class="meta-val" style="color:var(--terra-forest)"><span class="zh">已發佈 · 目前暫停更新</span><span class="en">Released · Updates paused</span></div>
+      </div>
+    </div>
+
+    <a class="cta-btn" href="https://vrchat.com/home/world/wrld_660d90dd-2a8e-4743-9b70-1c6237f8192b" target="_blank" rel="noopener noreferrer"><span class="zh">在 VRChat 開啟世界</span><span class="en">Open world in VRChat</span> <span aria-hidden="true">↗</span></a>
+  </div>
+
+</div><!-- /content-grid -->
+</div><!-- /wrap -->
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <span class="footer-name">星河 STARRIVER ARTS</span>
+      <span class="footer-copy">© 2026 · <span class="zh">保存 · 普及 · 發展</span><span class="en">Preservation · Accessibility · Development</span></span>
+      <span class="footer-copy"><span class="zh">網站由 StarRiver Arts 主導規劃與製作，並使用 OpenAI GPT 與 Anthropic Claude 協助資訊架構與網頁開發。</span><span class="en">Planned and produced by StarRiver Arts, with OpenAI GPT and Anthropic Claude used to assist information architecture and web development.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var btn=document.getElementById('langBtn');
+  var saved=localStorage.getItem('sr-lang')||'zh';
+  if(saved!=='zh' && saved!=='en') saved='zh';
+  function setLang(l){if(l!=='zh'&&l!=='en')l='zh';html.className='lang-'+l;html.lang=l==='zh'?'zh-TW':'en';localStorage.setItem('sr-lang',l)}
+  setLang(saved);
+  btn.addEventListener('click',function(){setLang(localStorage.getItem('sr-lang')==='zh'?'en':'zh')});
+})();
+
+// Gallery scroll
+function scroll_gallery(id, dir) {
+  var track = document.getElementById(id);
+  var item = track.querySelector('.gallery-item');
+  if (!item) return;
+  var itemW = item.offsetWidth + 12; // gap
+  track.scrollBy({ left: dir * itemW, behavior: 'smooth' });
+}
+
+// Gallery drag-to-scroll
+document.querySelectorAll('.gallery-track').forEach(function(track) {
+  var isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', function(e) {
+    isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', function() { isDown = false; });
+  track.addEventListener('mouseup', function() { isDown = false; });
+  track.addEventListener('mousemove', function(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+.blueprint-theme { display: none; }
+.blueprint-telemetry { display: none; }
+
+html[data-theme="blueprint"] {
+  color-scheme: dark;
+  --bg: #07111f;
+  --surface: #f1f4f6;
+  --surface-hover: #dce4ea;
+  --text: #f1f4f6;
+  --muted: #9aa8b8;
+  --pink: #7d9fbd;
+  --pink-soft: #dce4ea;
+  --pink-deep: #315d83;
+  --mint: #aebdca;
+  --blue-paper: #f1f4f6;
+  --blue-paper-hover: #dce4ea;
+  --violet: #183650;
+  --line: #31506b;
+  --shadow: #000711;
+  --radius: 2px;
+}
+
+html[data-theme="blueprint"] .base-theme { display: none !important; }
+html[data-theme="blueprint"] .blueprint-theme { display: inline; }
+html[data-theme="blueprint"] p.blueprint-theme { display: block; }
+html[data-theme="blueprint"] h2.blueprint-theme { display: block; }
+
+html[data-theme="blueprint"] body {
+  background: #07111f;
+  font-family: "Cascadia Mono", "IBM Plex Mono", Consolas, monospace;
+}
+html[data-theme="blueprint"] body::before,
+html[data-theme="blueprint"] body::after {
+  border-width: 1px;
+  border-color: #31506b;
+  border-radius: 0;
+  opacity: .8;
+}
+html[data-theme="blueprint"] .cyber-grid {
+  opacity: .34;
+  background-image:
+    radial-gradient(circle 250px at 86% 20%, transparent 99.2%, #486985 99.4% 99.7%, transparent 100%),
+    radial-gradient(circle 190px at 86% 20%, transparent 99%, #31506b 99.2% 99.6%, transparent 100%),
+    radial-gradient(circle 132px at 86% 20%, transparent 98.6%, #486985 99% 99.5%, transparent 100%),
+    radial-gradient(circle 76px at 86% 20%, transparent 97.8%, #7d9fbd 98.5% 99.2%, transparent 100%),
+    radial-gradient(circle 150px at 11% 72%, transparent 98.8%, #31506b 99.1% 99.6%, transparent 100%),
+    radial-gradient(circle 102px at 11% 72%, transparent 98.3%, #486985 98.8% 99.5%, transparent 100%),
+    radial-gradient(circle 55px at 11% 72%, transparent 96.8%, #7d9fbd 98% 99%, transparent 100%),
+    linear-gradient(#17334c 1px, transparent 1px),
+    linear-gradient(90deg, #17334c 1px, transparent 1px),
+    linear-gradient(#102a40 1px, transparent 1px),
+    linear-gradient(90deg, #102a40 1px, transparent 1px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+html[data-theme="blueprint"] .cyber-grid::before,
+html[data-theme="blueprint"] .cyber-grid::after {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+}
+html[data-theme="blueprint"] .cyber-grid::before {
+  width: 18px;
+  height: 18px;
+  top: calc(20% - 9px);
+  right: calc(14% - 9px);
+  border: 1px solid #dce4ea;
+  background: #07111f;
+  /* Satellites: each x/y offset lies on the 76, 132, 190, or 250px orbit above. */
+  box-shadow:
+    66px 38px 0 -6px #7d9fbd,
+    -114px 66px 0 -5px #f1f4f6,
+    95px -165px 0 -5px #7d9fbd,
+    227px 106px 0 -6px #dce4ea;
+}
+html[data-theme="blueprint"] .cyber-grid::after {
+  width: 14px;
+  height: 14px;
+  left: calc(11% - 7px);
+  top: calc(72% - 7px);
+  border: 1px solid #7d9fbd;
+  background: #07111f;
+  /* Satellites: each x/y offset lies on the 55, 102, or 150px orbit above. */
+  box-shadow:
+    0 -55px 0 -4px #f1f4f6,
+    88px 51px 0 -4px #7d9fbd,
+    -106px 106px 0 -4px #dce4ea;
+}
+html[data-theme="blueprint"] .topbar {
+  border-bottom: 1px solid #31506b;
+}
+html[data-theme="blueprint"] .back-link::before {
+  margin-right: 8px;
+  color: #7d9fbd;
+  content: "NAV-00";
+}
+html[data-theme="blueprint"] .language {
+  border-radius: 0;
+  background: #0c2133;
+}
+html[data-theme="blueprint"] .hub { position: relative; }
+html[data-theme="blueprint"] .hub::before {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  color: #607f9b;
+  content: "DWG: SR-SOC-02\A REV: 01 / SCALE: RESPONSIVE";
+  white-space: pre;
+  text-align: right;
+  font-size: .58rem;
+  line-height: 1.6;
+  letter-spacing: .08em;
+}
+html[data-theme="blueprint"] .identity { padding-top: 34px; }
+html[data-theme="blueprint"] .logo-shell {
+  width: 104px;
+  height: 104px;
+  border: 1px solid #7d9fbd;
+  border-radius: 0;
+  background: #f1f4f6;
+  box-shadow: 10px 10px 0 #000711;
+  transform: none;
+}
+html[data-theme="blueprint"] .status-dot {
+  right: -5px;
+  bottom: -5px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #07111f;
+  border-radius: 0;
+  background: #f1f4f6;
+  box-shadow: none;
+}
+html[data-theme="blueprint"] .eyebrow,
+html[data-theme="blueprint"] .section-kicker { color: #7d9fbd; }
+html[data-theme="blueprint"] .identity h1 {
+  font-size: clamp(1.9rem, 7vw, 2.85rem);
+  letter-spacing: -.055em;
+  text-shadow: none;
+}
+html[data-theme="blueprint"] .tagline { color: #dce4ea; font-weight: 500; }
+html[data-theme="blueprint"] .section-heading {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #31506b;
+}
+html[data-theme="blueprint"] .section-heading h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+html[data-theme="blueprint"] .link-list { gap: 9px; }
+html[data-theme="blueprint"] .link-card,
+html[data-theme="blueprint"] .featured-card {
+  border: 1px solid #7d9fbd;
+  border-radius: 2px;
+  box-shadow: 7px 7px 0 #000711;
+}
+html[data-theme="blueprint"] .link-card::before {
+  width: 7px;
+  background: #315d83;
+  box-shadow: none;
+}
+html[data-theme="blueprint"] .link-card:hover,
+html[data-theme="blueprint"] .featured-card:hover {
+  border-color: #f1f4f6;
+  box-shadow: 10px 10px 0 #000711;
+  transform: translate(-3px, -3px);
+}
+html[data-theme="blueprint"] .platform-icon {
+  border-color: #315d83;
+  border-radius: 0;
+  color: #183650;
+  background: transparent;
+}
+html[data-theme="blueprint"] .link-copy strong { text-transform: uppercase; letter-spacing: .04em; }
+html[data-theme="blueprint"] .card-arrow { color: #315d83; }
+html[data-theme="blueprint"] .featured-card { background: #f1f4f6; }
+html[data-theme="blueprint"] .featured-card::after {
+  width: 54px;
+  height: 54px;
+  right: 12px;
+  top: 12px;
+  border: 1px solid #315d83;
+  border-radius: 50%;
+}
+html[data-theme="blueprint"] .featured-type { color: #315d83; }
+html[data-theme="blueprint"] .footer-brand img { border-radius: 0; background: #f1f4f6; }
+html[data-theme="blueprint"] .hub-footer,
+html[data-theme="blueprint"] .footer-copy { border-color: #31506b; }
+html[data-theme="blueprint"] .footer-copy { color: #7d9fbd; }
+html[data-theme="blueprint"] :focus-visible { outline-color: #f1f4f6; }
+
+@media (min-width: 1100px) {
+  html[data-theme="blueprint"] .blueprint-telemetry {
+    position: fixed;
+    z-index: -1;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #7d9fbd;
+    font: 600 .59rem/1.45 "Cascadia Mono", Consolas, monospace;
+    letter-spacing: .1em;
+    pointer-events: none;
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry::before {
+    width: 42px;
+    height: 5px;
+    margin-bottom: 5px;
+    border-top: 1px solid #7d9fbd;
+    border-bottom: 1px solid #31506b;
+    content: "";
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry--port {
+    left: max(24px, calc(50% - 520px));
+    top: 29vh;
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry--starboard {
+    right: max(24px, calc(50% - 520px));
+    top: 64vh;
+    align-items: flex-end;
+    text-align: right;
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry--starboard::before { margin-left: auto; }
+  html[data-theme="blueprint"] .blueprint-telemetry--orbit {
+    left: max(24px, calc(50% - 520px));
+    top: 70vh;
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry--comms {
+    right: max(24px, calc(50% - 520px));
+    top: 31vh;
+    align-items: flex-end;
+    text-align: right;
+  }
+  html[data-theme="blueprint"] .blueprint-telemetry--comms::before { margin-left: auto; }
+}
+
+@media (max-width: 480px) {
+  html[data-theme="blueprint"] .hub::before { position: static; display: block; margin-bottom: 22px; text-align: left; }
+  html[data-theme="blueprint"] .identity { padding-top: 0; }
+}
