@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Project T Steward | 公開資料檢核</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}
+body{max-width:960px;margin:0 auto;padding:24px 18px;line-height:1.6}
+header{border-bottom:1px solid #9996;padding-bottom:12px;margin-bottom:20px}
+h1{font-size:1.55rem;margin:0 0 4px}h2{font-size:1.15rem}
+small,.muted{opacity:.75}button{font:inherit;padding:8px 16px;cursor:pointer}
+article{border:1px solid #8886;border-radius:10px;padding:14px 16px;margin:12px 0}
+article h3{margin:0;font-size:1rem}article p{margin:6px 0}
+code{overflow-wrap:anywhere}a{overflow-wrap:anywhere}
+.summary{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.summary span{border:1px solid #8886;padding:8px 12px;border-radius:7px}
+.error{border-left:5px solid #b34040}.warning{border-left:5px solid #b88223}
+.info{border-left:5px solid #487faa}
+</style>
+</head>
+<body>
+<header><small>PROJECT T / READ-ONLY DATA CHECK</small><h1>Steward｜公開資料檢核</h1>
+<p>核對網站已公開的活動 JSON。這不是私密後台、不執行任何寫入，也不推斷賽事結果。</p>
+</header>
+<button id="run" type="button">重新檢查</button>
+<p id="state" role="status">尚未執行檢查。</p>
+<div id="summary" class="summary" aria-live="polite"></div>
+<section aria-labelledby="findings-title"><h2 id="findings-title">檢查結果</h2><div id="findings"></div></section>
+<section><h2>判讀邊界</h2>
+<p class="muted">僅使用可公開讀取的網站資料。活動日期已過僅表示「需要確認」，不代表活動已完成或取消。資料讀取失敗回報 BLOCKED，資料不存在或不足回報 UNKNOWN。這個頁面沒有排程或 Remote 通知能力。</p>
+</section>
+<script defer src="steward-check.js"></script>
+</body></html>
