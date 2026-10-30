@@ -14,6 +14,10 @@ BASE_URL = "https://starriverarts.github.io/StarRiver-Arts-Site/"
 TZ = timezone(timedelta(hours=8))
 SKIP_DIRS = {".git", ".github", ".claude", "downloads_Museum"}
 SKIP_FILES = {"404.html", "play.html", "museum.html"}
+# Only HTML roots staged by the GitHub Pages workflow may enter public indexes.
+# Never index local-review snapshots, local QA files, or unapproved repo HTML.
+PUBLIC_INDEX_DIRS = {"museum", "play", "projects"}
+PUBLIC_INDEX_ROOT_FILES = {"index.html", "studio.html", "social.html", "store.html"}
 
 SITE = {
     "name": "StarRiver Arts",
@@ -302,6 +306,11 @@ def section_for_path(rel_path: str) -> tuple[str, str]:
 
 def should_index(path: Path) -> bool:
     rel_parts = path.relative_to(ROOT).parts
+    if len(rel_parts) == 1:
+        if path.name not in PUBLIC_INDEX_ROOT_FILES:
+            return False
+    elif rel_parts[0] not in PUBLIC_INDEX_DIRS:
+        return False
     if any(part in SKIP_DIRS for part in rel_parts):
         return False
     if path.name in SKIP_FILES:

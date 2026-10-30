@@ -11,6 +11,7 @@ import sys
 
 LOCAL_PREFIXES = (
     "content-review-artifacts/",
+    "local-review/",
     "playwright-report/",
     "test-results/",
 )

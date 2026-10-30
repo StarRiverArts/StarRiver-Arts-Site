@@ -39,7 +39,7 @@ Generated indexes must be regenerated, not manually edited. If a public page is 
 ## Local browser QA and repository hygiene (mandatory)
 
 - Browser user-data directories, temporary Edge/Chrome/Chromium profiles, cookies, login databases, session state, and browser-generated QA reports are **local ephemeral output**, never repository content. Write them to OS temporary storage **outside this Git checkout**. Never launch QA with a user’s everyday browser profile.
-- `content-review-artifacts/`, `playwright-report/`, and `test-results/` are ignored. Save any audit evidence that needs retaining in a separate local/private artifact store; do not force-add those directories to Git.
+- `content-review-artifacts/`, `local-review/`, `playwright-report/`, and `test-results/` are ignored. Local rendered review snapshots (`local-review/`) must stay outside the Git checkout. Save any audit evidence that needs retaining in a separate local/private artifact store; do not force-add those directories to Git.
 - Before committing or pushing, inspect staged paths with `git diff --cached --name-only` and run `python tools/check_repo_artifacts.py`. Avoid blanket `git add -A` when test runs have created local files.
 - Ignore rules do **not** untrack previously committed content. If a prohibited artifact appears in Git history, stop publishing, remove it from the current tree, evaluate credential/session rotation, and use a separately reviewed history-redaction process if necessary.
 - The CI guard checks tracked *paths*, not secret values; it must not read browser login databases or treat successful scanning as proof that no secret exposure occurred.
