@@ -14,6 +14,10 @@ on:
       - "**/*.xml"
       - "robots.txt"
       - "llms.txt"
+      - ".gitignore"
+      - "AGENTS.md"
+      - "tools/check_repo_artifacts.py"
+      - "content-review-artifacts/**"
   workflow_dispatch:
 
 permissions:
@@ -31,6 +35,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Reject tracked browser profiles and local QA artifacts
+        run: python tools/check_repo_artifacts.py
 
       - name: Validate discovery files before staging
         run: |

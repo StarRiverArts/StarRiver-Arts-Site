@@ -32,3 +32,16 @@ id_ed25519
 id_ed25519.*
 .npmrc
 .pypirc
+
+# Generated browser QA reports and browser profiles are local, never tracked.
+# Retain reports outside the checkout when evidence needs to be archived.
+/content-review-artifacts/
+/playwright-report/
+/test-results/
+**/edge-profile-*/
+**/chrome-profile-*/
+**/chromium-profile-*/
+**/browser-profile-*/
+**/user-data-dir/
+**/playwright/.auth/
+
