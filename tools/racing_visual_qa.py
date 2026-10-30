@@ -17,7 +17,7 @@ CASES = {
     "index": ("catalog.html", "catalog"),
     "info": ("info.html", "info"),
     "track": ("track.html?id=kamidomarizaka_calme", "track"),
-    "route": ("track.html?id=pt_ych_starriver_arts&route=FCIB", "track"),
+    "route": ("track.html?id=pt_ych_starriver_arts#route-FCIB", "track"),
     "racer": ("player.html?id=plr_cannedcarbon", "player"),
     "vehicle": ("vehicle.html?id=veh_fd3s_rx7", "vehicle"),
     "team": ("team.html?id=team_thdk", "team"),
@@ -77,6 +77,7 @@ def run(base_url, profile, output):
                             notFound:document.querySelector('[data-page-root]').textContent.toLowerCase().includes('not found')||document.querySelector('[data-page-root]').textContent.includes('找不到'),
                             brokenImages:[...document.images].filter(v).filter(e=>!e.complete||!e.naturalWidth).map(e=>e.getAttribute('src')),
                             routeCards:document.querySelectorAll('[data-boards-container] .ta-route-card').length,
+                            targetRouteCards:document.querySelectorAll('[data-boards-container] .ta-route-card#route-FCIB').length,
                             supplementCards:document.querySelectorAll('[data-supplemental-route]').length,
                             trackDirectory:!!document.querySelector('[data-track-directory]')};
                         }""")
@@ -87,8 +88,12 @@ def run(base_url, profile, output):
                         if not metrics["title"].startswith("Racing Hub"): errors.append("browser title not Racing Hub")
                         if metrics["brokenImages"]: errors.append("broken visible images")
                         if key.startswith("bad-") and not metrics["notFound"]: errors.append("invalid ID does not show not-found")
-                        if key == "route" and metrics["routeCards"] + metrics["supplementCards"] != 1:
-                            errors.append("route-scoped detail has extra/missing route cards")
+                        # Track detail displays ALL routes; a route fragment targets
+                        # one card without filtering the rest of the track.
+                        if key == "route" and metrics["routeCards"] < 1:
+                            errors.append("track detail has no route cards")
+                        if key == "route" and metrics["targetRouteCards"] != 1:
+                            errors.append("target route FCIB is missing or duplicated")
                         if key == "tracks" and not metrics["trackDirectory"]: errors.append("full track directory missing")
                         if key == "tracks":
                             query = page.locator("[data-directory-query]")

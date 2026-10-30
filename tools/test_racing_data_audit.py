@@ -149,7 +149,9 @@ class CorrelatedSnapshotDriftTests(unittest.TestCase):
             "warnings": [],
         }, generated_at="2026-10-30T07:00:00Z")
         self.assertEqual(out["overall_status"], "ACTION_REQUIRED")
-        self.assertEqual(out["checks"][0]["status"], "ACTION_REQUIRED")
+        check = next(c for c in out["checks"] if c["rule_id"] == "racing_audit_summary_valid_runs")
+        self.assertEqual(check["status"], "ACTION_REQUIRED")
+        self.assertFalse(check["observed"]["pass"])
 
 
 
