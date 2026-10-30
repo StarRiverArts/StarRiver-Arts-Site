@@ -72,3 +72,16 @@ python tools/racing_data_audit.py
 4. 再跑唯讀檢核，並分別驗證網站與 VRChat 公開端。
 
 已知案例：`vrrctw_ych_trackday_20261003` 的 editorial 已是 `completed`，但在 2026-10-30 檢查時 `vrc/events.json` 仍是 `upcoming`。這是跨輸出狀態差異，不應推定世界本身的公開權限。
+
+## Steward 唯讀資料出口
+
+執行 `python tools/racing_data_audit.py` 後，除既有 `racing-qa-artifacts/data-audit.json` 外，會在忽略追蹤的本機目錄輸出：
+
+- `racing-qa-artifacts/steward-report.json`（`project-t-steward/1`）
+- `overall_status`：`PASS`／`ACTION_REQUIRED`／`UNKNOWN`／`BLOCKED`
+- `checks[]`：`rule_id`、`subject_id`、`issue_key`、`fingerprint`、`expected`、`observed`、`source_paths`、`status`
+
+`fingerprint` 不包含執行時間，用來判斷某一個異常是否有內容變更。這不是系統向外發送通知，也不能取代真正的來源權限核對。
+
+GitHub Actions 只把兩份報告上傳為短期 CI artifact，不提交報告至版本控制、不放入 GitHub Pages 部署樹、不加入網站前端或搜尋索引。GitHub Actions artifacts 的存取權限仍依 GitHub Repository 與 Actions 的權限控管；由於本 repo 公開，本版只從既有公開投影取材，禁止加入私密的治理紀錄、憑證或未公開來源。
+

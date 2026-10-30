@@ -46,3 +46,5 @@ id_ed25519.*
 **/user-data-dir/
 **/playwright/.auth/
 
+# Internal Racing audit and Steward reports: CI artifact only, never GitHub Pages
+/racing-qa-artifacts/

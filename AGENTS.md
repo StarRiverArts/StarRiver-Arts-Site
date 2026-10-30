@@ -44,3 +44,11 @@ Generated indexes must be regenerated, not manually edited. If a public page is 
 - Ignore rules do **not** untrack previously committed content. If a prohibited artifact appears in Git history, stop publishing, remove it from the current tree, evaluate credential/session rotation, and use a separately reviewed history-redaction process if necessary.
 - The CI guard checks tracked *paths*, not secret values; it must not read browser login databases or treat successful scanning as proof that no secret exposure occurred.
 
+## Project T Steward: private-by-deployment, public-data-only export
+
+- Steward is a machine-readable diagnostic layer, **not a web page or admin UI**. Do not create or merge any `steward*.html` / client-side Steward dashboard under Pages-served roots.
+- `python tools/racing_data_audit.py` emits `racing-qa-artifacts/steward-report.json` using the `project-t-steward/1` schema. It is a read-only derivative of existing public Racing Hub data, not another canonical store.
+- Keep `racing-qa-artifacts/` ignored and untracked. Upload report only as an Actions artifact with bounded retention; never deploy to GitHub Pages, include in discovery indexes, or place it under `play/`, `assets/`, `data/`, `projects/`, or `museum/`.
+- A past event date is a review alert, not proof of completion; status discrepancies require upstream owner/exporter correction. Do not mutate `data/event-editorial.json`, `vrc/events.json`, or the underlying SQLite from an audit result.
+- `issue_key` and `fingerprint` are stable across run timestamps so Remote can later deduplicate exceptions. No Remote notifications, credentials, or scheduled writes are part of the current implementation.
+
