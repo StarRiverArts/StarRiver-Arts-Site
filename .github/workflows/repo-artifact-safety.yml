@@ -1,0 +1,21 @@
+name: Guard repository artifacts
+
+# Check every contribution, including branches and PRs that do not touch the site.
+on:
+  pull_request:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tracked-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reject local QA snapshots and browser profiles in Git
+        run: python tools/check_repo_artifacts.py
