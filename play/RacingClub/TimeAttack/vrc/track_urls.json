@@ -1,6 +1,6 @@
 {
   "schema": "srvrc-trackmap/1",
-  "updated": "2026-10-30",
+  "updated": "2026-11-06",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "tracks": [
     {
@@ -450,22 +450,6 @@
       ]
     },
     {
-      "code": "kart_totuka_kaoru",
-      "zh": "@Kart",
-      "en": "@Kart",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_7378b3c5-89ef-4d49-bdaf-4f452e82dcb8",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru__TBD.json"
-        }
-      ]
-    },
-    {
       "code": "suzuka2026",
       "zh": "鈴鹿國際賽車場",
       "en": "Suzuka2026",
@@ -499,6 +483,22 @@
           "code": "IB",
           "zh": "進場",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_lamina_03__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "kart_totuka_kaoru",
+      "zh": "@Kart",
+      "en": "@Kart",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_7378b3c5-89ef-4d49-bdaf-4f452e82dcb8",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kart_totuka_kaoru__TBD.json"
         }
       ]
     },
@@ -582,27 +582,6 @@
       ]
     },
     {
-      "code": "akina_snow_jintei",
-      "zh": "秋名雪",
-      "en": "Akina Snow",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei.head.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei__DH.json"
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei__UH.json"
-        }
-      ]
-    },
-    {
       "code": "ichinose_speed_ring",
       "zh": "Ichinose Speed Ring",
       "en": "Ichinose Speed Ring",
@@ -636,6 +615,43 @@
           "code": "IB",
           "zh": "進場",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/happogahara_jintei__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "akina_snow_jintei",
+      "zh": "秋名雪",
+      "en": "Akina Snow",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_c0272bd4-83ca-4680-abaf-7151f7974da2",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei.head.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei__DH.json"
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akina_snow_jintei__UH.json"
+        }
+      ]
+    },
+    {
+      "code": "pt_9t_starriver_arts",
+      "zh": "九彎十八拐CVS",
+      "en": "PT:9T",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts.head.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts__DH.json"
         }
       ]
     },
@@ -677,71 +693,18 @@
       ]
     },
     {
-      "code": "pt_9t_starriver_arts",
-      "zh": "九彎十八拐CVS",
-      "en": "PT:9T",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_c4d985d3-11de-4a89-9e8b-60b0342a1676",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts.head.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/pt_9t_starriver_arts__DH.json"
-        }
-      ]
-    },
-    {
-      "code": "tail_of_the_dragon",
-      "zh": "Tail Of The Dragon",
-      "en": "Tail Of The Dragon",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_3baf8b66-05c2-4a3d-bc30-0e0a75365c4a",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon.head.json",
-      "routes": [
-        {
-          "code": "FC",
-          "zh": "全程",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon__FC.json"
-        }
-      ]
-    },
-    {
-      "code": "unknown_calme",
-      "zh": "座辰モーターパーク",
-      "en": "座辰モーターパーク",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_e3ca7f8a-3203-4bc2-8874-bd59e0a0546d",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme.head.json",
-      "routes": [
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme__CW.json"
-        }
-      ]
-    },
-    {
-      "code": "shinmyogi",
-      "zh": "真.妙義",
-      "en": "ShinMyogi",
+      "code": "akinaun_jintei",
+      "zh": "秋名無限",
+      "en": "AkinaUN",
       "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_7f2ab4b2-012c-49d1-a968-3c4ff4a6f7fb",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi.head.json",
+      "world_url": "https://vrchat.com/home/world/wrld_e332c061-c0d4-4d00-af3d-3240e4cd0d63",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei.head.json",
       "routes": [
         {
           "code": "DH",
           "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi__DH.json"
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi__UH.json"
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei__DH.json"
         }
       ]
     },
@@ -777,60 +740,23 @@
       ]
     },
     {
-      "code": "myogi_cc_jintei",
-      "zh": "妙義環線",
-      "en": "Myogi(CC)",
+      "code": "shinmyogi",
+      "zh": "真.妙義",
+      "en": "ShinMyogi",
       "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_78e566af-c5f4-4654-9baf-98209560fbb9",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei.head.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei__CC.json"
-        },
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei__CW.json"
-        }
-      ]
-    },
-    {
-      "code": "akinaun_jintei",
-      "zh": "秋名無限",
-      "en": "AkinaUN",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_e332c061-c0d4-4d00-af3d-3240e4cd0d63",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei.head.json",
+      "world_url": "https://vrchat.com/home/world/wrld_7f2ab4b2-012c-49d1-a968-3c4ff4a6f7fb",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi.head.json",
       "routes": [
         {
           "code": "DH",
           "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/akinaun_jintei__DH.json"
-        }
-      ]
-    },
-    {
-      "code": "usui_v1_jintei",
-      "zh": "碓冰V1",
-      "en": "Usui V1",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_da3ab600-6c79-46c4-9f3b-0f05e21a1a91",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei.head.json",
-      "routes": [
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei__CW.json"
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi__DH.json"
         },
         {
-          "code": "CC",
-          "zh": "逆向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei__CC.json"
+          "code": "UH",
+          "zh": "上行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shinmyogi__UH.json"
         }
       ]
     },
@@ -861,6 +787,96 @@
       ]
     },
     {
+      "code": "unknown_calme",
+      "zh": "座辰モーターパーク",
+      "en": "座辰モーターパーク",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_e3ca7f8a-3203-4bc2-8874-bd59e0a0546d",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme.head.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/unknown_calme__CW.json"
+        }
+      ]
+    },
+    {
+      "code": "usui_v1_jintei",
+      "zh": "碓冰V1",
+      "en": "Usui V1",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_da3ab600-6c79-46c4-9f3b-0f05e21a1a91",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei.head.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei__CW.json"
+        },
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_v1_jintei__CC.json"
+        }
+      ]
+    },
+    {
+      "code": "tail_of_the_dragon",
+      "zh": "Tail Of The Dragon",
+      "en": "Tail Of The Dragon",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_3baf8b66-05c2-4a3d-bc30-0e0a75365c4a",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon.head.json",
+      "routes": [
+        {
+          "code": "FC",
+          "zh": "全程",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tail_of_the_dragon__FC.json"
+        }
+      ]
+    },
+    {
+      "code": "myogi_cc_jintei",
+      "zh": "妙義環線",
+      "en": "Myogi(CC)",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_78e566af-c5f4-4654-9baf-98209560fbb9",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei.head.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei__CC.json"
+        },
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/myogi_cc_jintei__CW.json"
+        }
+      ]
+    },
+    {
+      "code": "bathurst_v8_supercars_cvs2",
+      "zh": "Bathurst V8 Supercars CVS2",
+      "en": "Bathurst V8 Supercars CVS2",
+      "system": "unknown",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2.head.json",
+      "routes": [
+        {
+          "code": "FWD",
+          "zh": "Forward",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2__FWD.json"
+        }
+      ]
+    },
+    {
       "code": "tsukuba_snow_jintei",
       "zh": "筑波雪",
       "en": "Tsukuba Snow",
@@ -878,6 +894,22 @@
           "code": "OB",
           "zh": "出場",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tsukuba_snow_jintei__OB.json"
+        }
+      ]
+    },
+    {
+      "code": "monaco_aiden1408",
+      "zh": "摩納哥",
+      "en": "Monaco",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_4529b8ee-4e38-44d0-afd8-8fdf109bdae6",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408__TBD.json"
         }
       ]
     },
@@ -903,34 +935,23 @@
       ]
     },
     {
-      "code": "monaco_aiden1408",
-      "zh": "摩納哥",
-      "en": "Monaco",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_4529b8ee-4e38-44d0-afd8-8fdf109bdae6",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408.head.json",
+      "code": "carpi",
+      "zh": "Carpi",
+      "en": "Carpi",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_da5847c7-8704-47d6-aacd-b7cc2913dff9",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi.head.json",
       "routes": [
         {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/monaco_aiden1408__TBD.json"
-        }
-      ]
-    },
-    {
-      "code": "bathurst_v8_supercars_cvs2",
-      "zh": "Bathurst V8 Supercars CVS2",
-      "en": "Bathurst V8 Supercars CVS2",
-      "system": "unknown",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2.head.json",
-      "routes": [
+          "code": "OB",
+          "zh": "出場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi__OB.json"
+        },
         {
-          "code": "FWD",
-          "zh": "Forward",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/bathurst_v8_supercars_cvs2__FWD.json"
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi__IB.json"
         }
       ]
     },
@@ -977,48 +998,6 @@
       ]
     },
     {
-      "code": "carpi",
-      "zh": "Carpi",
-      "en": "Carpi",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_da5847c7-8704-47d6-aacd-b7cc2913dff9",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi.head.json",
-      "routes": [
-        {
-          "code": "OB",
-          "zh": "出場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi__OB.json"
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/carpi__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "h_nanamagari_jintei",
-      "zh": "箱根七曲",
-      "en": "H-Nanamagari",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_de9c3566-8384-41da-944d-b0f07a1bb477",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei.head.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei__DH.json"
-        },
-        {
-          "code": "UH",
-          "zh": "上行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei__UH.json"
-        }
-      ]
-    },
-    {
       "code": "momiji_jintei",
       "zh": "紅葉Momiji",
       "en": "Momiji",
@@ -1061,18 +1040,23 @@
       ]
     },
     {
-      "code": "chikuyasan_hi50u",
-      "zh": "築和山",
-      "en": "Chikuyasan",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_ef125b11-9b73-457c-97b1-b75870315a00",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u.head.json",
+      "code": "h_nanamagari_jintei",
+      "zh": "箱根七曲",
+      "en": "H-Nanamagari",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_de9c3566-8384-41da-944d-b0f07a1bb477",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei.head.json",
       "routes": [
         {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u__TBD.json"
+          "code": "DH",
+          "zh": "下行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei__DH.json"
+        },
+        {
+          "code": "UH",
+          "zh": "上行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/h_nanamagari_jintei__UH.json"
         }
       ]
     },
@@ -1089,22 +1073,6 @@
           "code": "OB",
           "zh": "出場",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsai_foxbg__OB.json"
-        }
-      ]
-    },
-    {
-      "code": "fukuoka_jintei",
-      "zh": "福岡快速",
-      "en": "Fukuoka",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_ca5c0d63-2501-4b5e-82db-c5d771486acd",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei__TBD.json"
         }
       ]
     },
@@ -1130,6 +1098,22 @@
       ]
     },
     {
+      "code": "chikuyasan_hi50u",
+      "zh": "築和山",
+      "en": "Chikuyasan",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_ef125b11-9b73-457c-97b1-b75870315a00",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/chikuyasan_hi50u__TBD.json"
+        }
+      ]
+    },
+    {
       "code": "mt_talkan_jintei",
       "zh": "Mt.Talkan",
       "en": "Mt.Talkan",
@@ -1151,6 +1135,22 @@
       ]
     },
     {
+      "code": "fukuoka_jintei",
+      "zh": "福岡快速",
+      "en": "Fukuoka",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_ca5c0d63-2501-4b5e-82db-c5d771486acd",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukuoka_jintei__TBD.json"
+        }
+      ]
+    },
+    {
       "code": "summit_jintei",
       "zh": "Summit",
       "en": "Summit",
@@ -1168,6 +1168,27 @@
           "code": "",
           "zh": "Unknown",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/summit_jintei__.json"
+        }
+      ]
+    },
+    {
+      "code": "f1_circuit_fuffyferret",
+      "zh": "F1 Circuit",
+      "en": "F1 Circuit",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_ab240657-e177-4df8-93d3-c97559559d3e",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret__TBD.json"
+        },
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret__CW.json"
         }
       ]
     },
@@ -1214,27 +1235,6 @@
       ]
     },
     {
-      "code": "f1_circuit_fuffyferret",
-      "zh": "F1 Circuit",
-      "en": "F1 Circuit",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_ab240657-e177-4df8-93d3-c97559559d3e",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret__TBD.json"
-        },
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/f1_circuit_fuffyferret__CW.json"
-        }
-      ]
-    },
-    {
       "code": "c1_runner",
       "zh": "東京環狀 C1 Runner",
       "en": "C1 Runner",
@@ -1252,6 +1252,22 @@
           "code": "IN",
           "zh": "Inner",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/c1_runner__IN.json"
+        }
+      ]
+    },
+    {
+      "code": "usuidaa_k_a_u_b_e_r_u",
+      "zh": "碓冰DAA",
+      "en": "UsuiDAA",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_0c982147-aa72-485a-8e56-139dfdfc30c6/info",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u.head.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u__CC.json"
         }
       ]
     },
@@ -1287,59 +1303,6 @@
       ]
     },
     {
-      "code": "osaka_hanshin",
-      "zh": "Osaka Hanshin",
-      "en": "Osaka Hanshin",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_f3c6e594-5160-4423-9d7a-c7bf025c3615",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin.head.json",
-      "routes": [
-        {
-          "code": "",
-          "zh": "Unknown",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin__.json"
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "lasvegas_aiden1408",
-      "zh": "LasVegas",
-      "en": "LasVegas",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_5d3d72a6-b764-4dad-94e1-50bfc9c32b7d",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408__TBD.json"
-        }
-      ]
-    },
-    {
-      "code": "usuidaa_k_a_u_b_e_r_u",
-      "zh": "碓冰DAA",
-      "en": "UsuiDAA",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_0c982147-aa72-485a-8e56-139dfdfc30c6/info",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u.head.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usuidaa_k_a_u_b_e_r_u__CC.json"
-        }
-      ]
-    },
-    {
       "code": "tokyo_metropolitan_expressway",
       "zh": "［MaxiTune］ Tokyo Metropolitan",
       "en": "Tokyo Metropolitan Expressway",
@@ -1366,6 +1329,59 @@
       ]
     },
     {
+      "code": "lasvegas_aiden1408",
+      "zh": "LasVegas",
+      "en": "LasVegas",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_5d3d72a6-b764-4dad-94e1-50bfc9c32b7d",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/lasvegas_aiden1408__TBD.json"
+        }
+      ]
+    },
+    {
+      "code": "cadence_island",
+      "zh": "Cadence Island",
+      "en": "Cadence Island",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_9537c0a9-60ba-455f-8ec1-bb8638d8fef0",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island.head.json",
+      "routes": [
+        {
+          "code": "Rally Stage",
+          "zh": "Rally Stage",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island__Rally Stage.json"
+        }
+      ]
+    },
+    {
+      "code": "osaka_hanshin",
+      "zh": "Osaka Hanshin",
+      "en": "Osaka Hanshin",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_f3c6e594-5160-4423-9d7a-c7bf025c3615",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin.head.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "Unknown",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin__.json"
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/osaka_hanshin__IB.json"
+        }
+      ]
+    },
+    {
       "code": "rally_snowland",
       "zh": "Rally Snowland",
       "en": "Rally Snowland",
@@ -1387,75 +1403,6 @@
       ]
     },
     {
-      "code": "cadence_island",
-      "zh": "Cadence Island",
-      "en": "Cadence Island",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_9537c0a9-60ba-455f-8ec1-bb8638d8fef0",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island.head.json",
-      "routes": [
-        {
-          "code": "Rally Stage",
-          "zh": "Rally Stage",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/cadence_island__Rally Stage.json"
-        }
-      ]
-    },
-    {
-      "code": "silverstone_afeminineguy",
-      "zh": "Silverstone",
-      "en": "Silverstone",
-      "system": "unknown",
-      "world_url": "https://vrchat.com/home/world/wrld_32c9d71f-30ab-4ae9-9be0-14f74e3850b2",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy.head.json",
-      "routes": [
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy__CW.json"
-        }
-      ]
-    },
-    {
-      "code": "fujino_gt",
-      "zh": "Fujino-GT",
-      "en": "Fujino-GT",
-      "system": "unknown",
-      "world_url": "https://vrchat.com/home/world/wrld_9a17a599-e79d-4b12-b9fb-3bc3fc95fcdc",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt.head.json",
-      "routes": [
-        {
-          "code": "",
-          "zh": "Unknown",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt__.json"
-        },
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt__TBD.json"
-        }
-      ]
-    },
-    {
-      "code": "suzuka",
-      "zh": "鈴鹿國際賽車場",
-      "en": "SuzukaGP",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_f14c5faf-2dd2-4667-9bff-08a5ed5f0764",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka__TBD.json"
-        }
-      ]
-    },
-    {
       "code": "santa_monica_mountains",
       "zh": "Santa Monica Mountains",
       "en": "Santa Monica Mountains",
@@ -1468,22 +1415,6 @@
           "code": "Eastbound",
           "zh": "Eastbound",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/santa_monica_mountains__Eastbound.json"
-        }
-      ]
-    },
-    {
-      "code": "hiroshima_expressway",
-      "zh": "廣島高速公路",
-      "en": "Hiroshima Expressway",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_f284ff01-eda3-47ee-98e5-a710c3849e14",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway.head.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway__IB.json"
         }
       ]
     },
@@ -1505,6 +1436,22 @@
           "code": "CC",
           "zh": "逆向",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/just_gt_3__CC.json"
+        }
+      ]
+    },
+    {
+      "code": "suzuka",
+      "zh": "鈴鹿國際賽車場",
+      "en": "SuzukaGP",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_f14c5faf-2dd2-4667-9bff-08a5ed5f0764",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/suzuka__TBD.json"
         }
       ]
     },
@@ -1535,6 +1482,112 @@
       ]
     },
     {
+      "code": "fujino_gt",
+      "zh": "Fujino-GT",
+      "en": "Fujino-GT",
+      "system": "unknown",
+      "world_url": "https://vrchat.com/home/world/wrld_9a17a599-e79d-4b12-b9fb-3bc3fc95fcdc",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt.head.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "Unknown",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt__.json"
+        },
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fujino_gt__TBD.json"
+        }
+      ]
+    },
+    {
+      "code": "hiroshima_expressway",
+      "zh": "廣島高速公路",
+      "en": "Hiroshima Expressway",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_f284ff01-eda3-47ee-98e5-a710c3849e14",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway.head.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hiroshima_expressway__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "silverstone_afeminineguy",
+      "zh": "Silverstone",
+      "en": "Silverstone",
+      "system": "unknown",
+      "world_url": "https://vrchat.com/home/world/wrld_32c9d71f-30ab-4ae9-9be0-14f74e3850b2",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy.head.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/silverstone_afeminineguy__CW.json"
+        }
+      ]
+    },
+    {
+      "code": "fukutoshin_expressway",
+      "zh": "Fukutoshin Expressway",
+      "en": "Fukutoshin Expressway",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_4e525ff3-9fd6-44b6-b315-da88ef085705",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway.head.json",
+      "routes": [
+        {
+          "code": "SHIBUYA-SHINJIKU",
+          "zh": "SHIBUYA-SHINJIKU",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway__SHIBUYA-SHINJIKU.json"
+        }
+      ]
+    },
+    {
+      "code": "kobe",
+      "zh": "神戶高速",
+      "en": "Kobe",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_f2ae5442-2a75-4a72-9f3e-b5ce461dcae6",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe.head.json",
+      "routes": [
+        {
+          "code": "",
+          "zh": "Unknown",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe__.json"
+        },
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "hi_land_raceway_2_0",
+      "zh": "Hi-Land Raceway 2.0",
+      "en": "Hi-Land Raceway 2.0",
+      "system": "unknown",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0.head.json",
+      "routes": [
+        {
+          "code": "Circuit",
+          "zh": "Circuit",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0__Circuit.json"
+        }
+      ]
+    },
+    {
       "code": "vestoril",
       "zh": "Vestoril",
       "en": "Vestoril",
@@ -1551,18 +1604,55 @@
       ]
     },
     {
-      "code": "hatomiya_circuit",
-      "zh": "鳩宮サーキット",
-      "en": "鳩宮サーキット (CVS2)",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_677decd8-b5c2-47e7-a690-3b0da28f49dc",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit.head.json",
+      "code": "kielder",
+      "zh": "Kielder",
+      "en": "Kielder",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_dfc20b4b-0bd1-4438-aed7-c60278312c7b",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder.head.json",
       "routes": [
         {
-          "code": "Circuit",
-          "zh": "Circuit",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit__Circuit.json"
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder__TBD.json"
+        }
+      ]
+    },
+    {
+      "code": "gunsaicp_jintei",
+      "zh": "群山 跨平台版",
+      "en": "GunsaiCP",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_5ebf26ae-7fd1-4510-bab0-c1a4e55b29cd",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei.head.json",
+      "routes": [
+        {
+          "code": "C-A",
+          "zh": "Course A",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei__C-A.json"
+        },
+        {
+          "code": "FC",
+          "zh": "全程",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei__FC.json"
+        }
+      ]
+    },
+    {
+      "code": "shin_usui",
+      "zh": "真碓冰",
+      "en": "Shin Usui",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_842b91f7-de2a-4703-89ae-785198e886db",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui.head.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui__DH.json"
         }
       ]
     },
@@ -1579,22 +1669,6 @@
           "code": "IB",
           "zh": "進場",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukushima__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "kielder",
-      "zh": "Kielder",
-      "en": "Kielder",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_dfc20b4b-0bd1-4438-aed7-c60278312c7b",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kielder__TBD.json"
         }
       ]
     },
@@ -1630,6 +1704,22 @@
       ]
     },
     {
+      "code": "hatomiya_circuit",
+      "zh": "鳩宮サーキット",
+      "en": "鳩宮サーキット (CVS2)",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_677decd8-b5c2-47e7-a690-3b0da28f49dc",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit.head.json",
+      "routes": [
+        {
+          "code": "Circuit",
+          "zh": "Circuit",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hatomiya_circuit__Circuit.json"
+        }
+      ]
+    },
+    {
       "code": "seattle_circuit",
       "zh": "西雅圖賽道",
       "en": "Seattle Circuit",
@@ -1642,48 +1732,6 @@
           "code": "FWD",
           "zh": "Forward",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/seattle_circuit__FWD.json"
-        }
-      ]
-    },
-    {
-      "code": "kobe",
-      "zh": "神戶高速",
-      "en": "Kobe",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_f2ae5442-2a75-4a72-9f3e-b5ce461dcae6",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe.head.json",
-      "routes": [
-        {
-          "code": "",
-          "zh": "Unknown",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe__.json"
-        },
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/kobe__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "gunsaicp_jintei",
-      "zh": "群山 跨平台版",
-      "en": "GunsaiCP",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_5ebf26ae-7fd1-4510-bab0-c1a4e55b29cd",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei.head.json",
-      "routes": [
-        {
-          "code": "C-A",
-          "zh": "Course A",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei__C-A.json"
-        },
-        {
-          "code": "FC",
-          "zh": "全程",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/gunsaicp_jintei__FC.json"
         }
       ]
     },
@@ -1720,182 +1768,6 @@
       ]
     },
     {
-      "code": "fukutoshin_expressway",
-      "zh": "Fukutoshin Expressway",
-      "en": "Fukutoshin Expressway",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_4e525ff3-9fd6-44b6-b315-da88ef085705",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway.head.json",
-      "routes": [
-        {
-          "code": "SHIBUYA-SHINJIKU",
-          "zh": "SHIBUYA-SHINJIKU",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/fukutoshin_expressway__SHIBUYA-SHINJIKU.json"
-        }
-      ]
-    },
-    {
-      "code": "shin_usui",
-      "zh": "真碓冰",
-      "en": "Shin Usui",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_842b91f7-de2a-4703-89ae-785198e886db",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui.head.json",
-      "routes": [
-        {
-          "code": "DH",
-          "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shin_usui__DH.json"
-        }
-      ]
-    },
-    {
-      "code": "hi_land_raceway_2_0",
-      "zh": "Hi-Land Raceway 2.0",
-      "en": "Hi-Land Raceway 2.0",
-      "system": "unknown",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0.head.json",
-      "routes": [
-        {
-          "code": "Circuit",
-          "zh": "Circuit",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/hi_land_raceway_2_0__Circuit.json"
-        }
-      ]
-    },
-    {
-      "code": "circuit_de_la_sarthe_aiden1408",
-      "zh": "Circuit de la Sarthe",
-      "en": "Circuit de la Sarthe",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_85bee910-b321-43ac-bc47-4e0c93e39c9b",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408.head.json",
-      "routes": [
-        {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408__CW.json"
-        }
-      ]
-    },
-    {
-      "code": "orc_circuit",
-      "zh": "ORC賽道",
-      "en": "ORC Circuit",
-      "system": "unknown",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit.head.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "long_beach",
-      "zh": "Long Beach",
-      "en": "Long Beach",
-      "system": "cvs",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach.head.json",
-      "routes": [
-        {
-          "code": "Long Beach",
-          "zh": "Long Beach",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach__Long Beach.json"
-        }
-      ]
-    },
-    {
-      "code": "deep_forest_raceway_cvs2",
-      "zh": "Deep Forest Raceway CVS2",
-      "en": "Deep Forest Raceway CVS2",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_1930bc7e-08b4-40bf-bc0b-a72c77a12457",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2.head.json",
-      "routes": [
-        {
-          "code": "FWD",
-          "zh": "Forward",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2__FWD.json"
-        }
-      ]
-    },
-    {
-      "code": "spelberg_circuit_ff_challenge",
-      "zh": "SPELBERG Circuit FF Challenge",
-      "en": "SPELBERG Circuit FF Challenge",
-      "system": "unknown",
-      "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge.head.json",
-      "routes": [
-        {
-          "code": "Spielberg",
-          "zh": "Spielberg",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge__Spielberg.json"
-        }
-      ]
-    },
-    {
-      "code": "usui_rave_stage",
-      "zh": "Usui˸ Rave Stage",
-      "en": "Usui˸ Rave Stage",
-      "system": "unknown",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage.head.json",
-      "routes": [
-        {
-          "code": "CC",
-          "zh": "逆向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage__CC.json"
-        }
-      ]
-    },
-    {
-      "code": "watkins_glen",
-      "zh": "Watkins Glen",
-      "en": "Watkins Glen",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_8ba29d30-03f1-4aeb-898f-0e7610dbcd0e",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen.head.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "ford_racing_3_raceway",
-      "zh": "Ford Racing 3 Raceway",
-      "en": "Ford Racing 3 Raceway",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_9fbadff0-8e11-4b5f-b3dc-b8ae531389b5",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway.head.json",
-      "routes": [
-        {
-          "code": "Racetrack",
-          "zh": "Racetrack",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway__Racetrack.json"
-        }
-      ]
-    },
-    {
       "code": "ragingice_cliffsideblizzard_jintei",
       "zh": "Raging Ice˸ Cliffside Blizzard",
       "en": "Raging Ice˸ Cliffside Blizzard",
@@ -1917,18 +1789,82 @@
       ]
     },
     {
-      "code": "underground_irohazaka",
-      "zh": "地下賽事伊呂波",
-      "en": "Underground Irohazaka",
-      "system": "cvs",
-      "world_url": "https://vrchat.com/home/world/wrld_e4f63e9b-5e80-4d53-b99f-5edf7871d7db",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka.head.json",
+      "code": "tc2000_n2",
+      "zh": "TC2000 N2決戦",
+      "en": "TC2000 N2決戦",
+      "system": "unknown",
+      "world_url": "https://vrchat.com/home/world/wrld_82b273da-070e-42c3-87f9-2ae2a06c5dfc",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2.head.json",
       "routes": [
         {
-          "code": "DH",
-          "zh": "下行",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka__DH.json"
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "shibushinjuline_jintei",
+      "zh": "Shibu-Shinju Line",
+      "en": "Shibu-Shinju Line",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_605f989b-a0b5-43e0-ab49-2dc823dfdcd4",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei.head.json",
+      "routes": [
+        {
+          "code": "Cw",
+          "zh": "Cw",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei__Cw.json"
+        }
+      ]
+    },
+    {
+      "code": "vr660_kai_kai",
+      "zh": "VR660",
+      "en": "VR660",
+      "system": "cvs",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai.head.json",
+      "routes": [
+        {
+          "code": "TBD",
+          "zh": "待整理",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai__TBD.json"
+        }
+      ]
+    },
+    {
+      "code": "watkins_glen",
+      "zh": "Watkins Glen",
+      "en": "Watkins Glen",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_8ba29d30-03f1-4aeb-898f-0e7610dbcd0e",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen.head.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/watkins_glen__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "rally_finland_ss1",
+      "zh": "芬蘭拉力SS1",
+      "en": "Rally Finland SS1",
+      "system": "unknown",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1.head.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1__IB.json"
         }
       ]
     },
@@ -1949,6 +1885,134 @@
       ]
     },
     {
+      "code": "long_beach",
+      "zh": "Long Beach",
+      "en": "Long Beach",
+      "system": "cvs",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach.head.json",
+      "routes": [
+        {
+          "code": "Long Beach",
+          "zh": "Long Beach",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/long_beach__Long Beach.json"
+        }
+      ]
+    },
+    {
+      "code": "autopolis_jintei",
+      "zh": "Autopolis",
+      "en": "Autopolis",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_3e250f11-a3b4-4966-b76a-132b9834a985",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei.head.json",
+      "routes": [
+        {
+          "code": "GP Circuit",
+          "zh": "GP Circuit",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei__GP Circuit.json"
+        }
+      ]
+    },
+    {
+      "code": "underground_irohazaka",
+      "zh": "地下賽事伊呂波",
+      "en": "Underground Irohazaka",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_e4f63e9b-5e80-4d53-b99f-5edf7871d7db",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka.head.json",
+      "routes": [
+        {
+          "code": "DH",
+          "zh": "下行",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/underground_irohazaka__DH.json"
+        }
+      ]
+    },
+    {
+      "code": "coldeturini_jintei",
+      "zh": "Col de Turini",
+      "en": "Col de Turini",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_629d4c6c-420c-4546-b31b-35614dbb470e",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei.head.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei__CW.json"
+        }
+      ]
+    },
+    {
+      "code": "ford_racing_3_raceway",
+      "zh": "Ford Racing 3 Raceway",
+      "en": "Ford Racing 3 Raceway",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_9fbadff0-8e11-4b5f-b3dc-b8ae531389b5",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway.head.json",
+      "routes": [
+        {
+          "code": "Racetrack",
+          "zh": "Racetrack",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/ford_racing_3_raceway__Racetrack.json"
+        }
+      ]
+    },
+    {
+      "code": "usui_rave_stage",
+      "zh": "Usui˸ Rave Stage",
+      "en": "Usui˸ Rave Stage",
+      "system": "unknown",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage.head.json",
+      "routes": [
+        {
+          "code": "CC",
+          "zh": "逆向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/usui_rave_stage__CC.json"
+        }
+      ]
+    },
+    {
+      "code": "calumet_pass",
+      "zh": "Calumet Pass",
+      "en": "Calumet Pass",
+      "system": "sacc",
+      "world_url": "https://vrchat.com/home/world/wrld_83f6a44d-f698-4cb6-a444-50212910bdf6",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass.head.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass__IB.json"
+        }
+      ]
+    },
+    {
+      "code": "orc_circuit",
+      "zh": "ORC賽道",
+      "en": "ORC Circuit",
+      "system": "unknown",
+      "world_url": "",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit.head.json",
+      "routes": [
+        {
+          "code": "IB",
+          "zh": "進場",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/orc_circuit__IB.json"
+        }
+      ]
+    },
+    {
       "code": "rallyfinlandss1_chikwanmets_kkclint",
       "zh": "Rally Finland SS1＂Chikwan metsä＂",
       "en": "Rally Finland SS1＂Chikwan metsä＂",
@@ -1961,22 +2025,6 @@
           "code": "SS1",
           "zh": "SS1",
           "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rallyfinlandss1_chikwanmets_kkclint__SS1.json"
-        }
-      ]
-    },
-    {
-      "code": "knockhill_racing_circuit_rallycross",
-      "zh": "Knockhill Racing Circuit ＆ Rallycross",
-      "en": "Knockhill Racing Circuit ＆ Rallycross",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_91056a52-c61b-4c17-a427-87d4dcbb1c38",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross.head.json",
-      "routes": [
-        {
-          "code": "Circuit",
-          "zh": "Circuit",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross__Circuit.json"
         }
       ]
     },
@@ -2013,66 +2061,18 @@
       ]
     },
     {
-      "code": "coldeturini_jintei",
-      "zh": "Col de Turini",
-      "en": "Col de Turini",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_629d4c6c-420c-4546-b31b-35614dbb470e",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei.head.json",
+      "code": "spelberg_circuit_ff_challenge",
+      "zh": "SPELBERG Circuit FF Challenge",
+      "en": "SPELBERG Circuit FF Challenge",
+      "system": "unknown",
+      "world_url": "https://vrchat.com/home/world/wrld_9ab0a8be-db0a-449e-8bf8-353823af62c0",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge.head.json",
       "routes": [
         {
-          "code": "CW",
-          "zh": "順向",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/coldeturini_jintei__CW.json"
-        }
-      ]
-    },
-    {
-      "code": "vr660_kai_kai",
-      "zh": "VR660",
-      "en": "VR660",
-      "system": "cvs",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai.head.json",
-      "routes": [
-        {
-          "code": "TBD",
-          "zh": "待整理",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/vr660_kai_kai__TBD.json"
-        }
-      ]
-    },
-    {
-      "code": "autopolis_jintei",
-      "zh": "Autopolis",
-      "en": "Autopolis",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_3e250f11-a3b4-4966-b76a-132b9834a985",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei.head.json",
-      "routes": [
-        {
-          "code": "GP Circuit",
-          "zh": "GP Circuit",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/autopolis_jintei__GP Circuit.json"
-        }
-      ]
-    },
-    {
-      "code": "shibushinjuline_jintei",
-      "zh": "Shibu-Shinju Line",
-      "en": "Shibu-Shinju Line",
-      "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_605f989b-a0b5-43e0-ab49-2dc823dfdcd4",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei.head.json",
-      "routes": [
-        {
-          "code": "Cw",
-          "zh": "Cw",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/shibushinjuline_jintei__Cw.json"
+          "code": "Spielberg",
+          "zh": "Spielberg",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/spelberg_circuit_ff_challenge__Spielberg.json"
         }
       ]
     },
@@ -2093,50 +2093,50 @@
       ]
     },
     {
-      "code": "calumet_pass",
-      "zh": "Calumet Pass",
-      "en": "Calumet Pass",
+      "code": "deep_forest_raceway_cvs2",
+      "zh": "Deep Forest Raceway CVS2",
+      "en": "Deep Forest Raceway CVS2",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_1930bc7e-08b4-40bf-bc0b-a72c77a12457",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2.head.json",
+      "routes": [
+        {
+          "code": "FWD",
+          "zh": "Forward",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/deep_forest_raceway_cvs2__FWD.json"
+        }
+      ]
+    },
+    {
+      "code": "circuit_de_la_sarthe_aiden1408",
+      "zh": "Circuit de la Sarthe",
+      "en": "Circuit de la Sarthe",
+      "system": "cvs",
+      "world_url": "https://vrchat.com/home/world/wrld_85bee910-b321-43ac-bc47-4e0c93e39c9b",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408.head.json",
+      "routes": [
+        {
+          "code": "CW",
+          "zh": "順向",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/circuit_de_la_sarthe_aiden1408__CW.json"
+        }
+      ]
+    },
+    {
+      "code": "knockhill_racing_circuit_rallycross",
+      "zh": "Knockhill Racing Circuit ＆ Rallycross",
+      "en": "Knockhill Racing Circuit ＆ Rallycross",
       "system": "sacc",
-      "world_url": "https://vrchat.com/home/world/wrld_83f6a44d-f698-4cb6-a444-50212910bdf6",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass.head.json",
+      "world_url": "https://vrchat.com/home/world/wrld_91056a52-c61b-4c17-a427-87d4dcbb1c38",
+      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross.json",
+      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross.head.json",
       "routes": [
         {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/calumet_pass__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "rally_finland_ss1",
-      "zh": "芬蘭拉力SS1",
-      "en": "Rally Finland SS1",
-      "system": "unknown",
-      "world_url": "",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1.head.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/rally_finland_ss1__IB.json"
-        }
-      ]
-    },
-    {
-      "code": "tc2000_n2",
-      "zh": "TC2000 N2決戦",
-      "en": "TC2000 N2決戦",
-      "system": "unknown",
-      "world_url": "https://vrchat.com/home/world/wrld_82b273da-070e-42c3-87f9-2ae2a06c5dfc",
-      "combined": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2.json",
-      "head": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2.head.json",
-      "routes": [
-        {
-          "code": "IB",
-          "zh": "進場",
-          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/tc2000_n2__IB.json"
+          "code": "Circuit",
+          "zh": "Circuit",
+          "url": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/knockhill_racing_circuit_rallycross__Circuit.json"
         }
       ]
     }
