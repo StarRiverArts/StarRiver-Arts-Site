@@ -1911,9 +1911,10 @@ const renderEventInfoRows = (event, data) => {
     : "");
   const participantLinks = (event.participant_player_ids || []).map((playerId) => {
     const player = players.find((item) => item.player_id === playerId);
+    const bracketName = (event.bracket?.participants || []).find((item) => item.id === playerId)?.name;
     return player
       ? `<a class="ta-entity-link" href="./player.html?id=${encodeURIComponent(playerId)}">${escapeHtml(player.title)}</a>`
-      : `<span class="ta-unlinked-entity">${escapeHtml(playerId)} ${renderBilingual("（尚無公開車手頁）", "(No racer profile yet)")}</span>`;
+      : `<span class="ta-unlinked-entity">${escapeHtml(bracketName || playerId)} ${renderBilingual("（尚無公開車手頁）", "(No racer profile yet)")}</span>`;
   }).join(" · ");
   // Historical event rows may refer to a vehicle variant, not a model.
   // Resolve exact identifiers only; unresolved values remain unlinked.
@@ -1968,7 +1969,8 @@ const renderEventTextPanel = (labelZh, labelEn, rowsZh, rowsEn) => `
     </ul>
   </section>`;
 
-const renderEventResults = (event) => {
+const renderEventResults = (event, data) => {
+  const publicPlayerIds = new Set((data.player_cards || []).map((player) => player.player_id));
   const groups = new Map();
   (event.results || []).forEach((row) => {
     const key = row.route_code || "";
@@ -1989,7 +1991,7 @@ const renderEventResults = (event) => {
           ${rows.map((row) => `
             <tr>
               <td class="ta-profile-record-rank">${escapeHtml(row.rank)}</td>
-              <td>${row.player_id ? taEntityLink(row.display_name, `./player.html?id=${encodeURIComponent(row.player_id)}`) : escapeHtml(row.display_name)}</td>
+              <td>${publicPlayerIds.has(row.player_id) ? taEntityLink(row.display_name, `./player.html?id=${encodeURIComponent(row.player_id)}`) : escapeHtml(row.display_name)}</td>
               <td class="ta-profile-record-time">${escapeHtml(row.lap_time_text || row.result_zh || "-")}</td>
               <td>${row.lap_time_text ? renderBilingual(row.result_zh || "", row.result_en || "", row.result_en || "") : ""}${row.vehicle ? ` · ${row.vehicle_model_code ? taEntityLink(row.vehicle, `./vehicle.html?id=${encodeURIComponent(row.vehicle_model_code)}`) : escapeHtml(row.vehicle)}` : ""}</td>
             </tr>`).join("")}
@@ -2130,7 +2132,8 @@ const renderEventMatches = (event, data) => {
   </section>`;
 };
 
-const renderEventBracket = (event) => {
+const renderEventBracket = (event, data) => {
+  const publicPlayerIds = new Set((data.player_cards || []).map((player) => player.player_id));
   const bracket = event.bracket;
   if (!bracket || !Array.isArray(bracket.matches) || !bracket.matches.length) return "";
   const participants = new Map((bracket.participants || []).map((item) => [item.id, item]));
@@ -2144,7 +2147,9 @@ const renderEventBracket = (event) => {
       return taEntityLink(name, `./team.html?id=${encodeURIComponent(participantId)}`);
     }
     if (participantKind === "players" || participantKind === "player") {
-      return taEntityLink(name, `./player.html?id=${encodeURIComponent(participantId)}`);
+      return publicPlayerIds.has(participantId)
+        ? taEntityLink(name, `./player.html?id=${encodeURIComponent(participantId)}`)
+        : escapeHtml(name);
     }
     return escapeHtml(name);
   };
@@ -2225,9 +2230,9 @@ const renderEventDetail = (data, id) => {
         ${renderEventInfoRows(event, data)}
       </section>
       ${renderEventTiming(event, data)}
-      ${renderEventBracket(event)}
+      ${renderEventBracket(event, data)}
       ${renderEventMatches(event, data)}
-      ${renderEventResults(event)}
+      ${renderEventResults(event, data)}
       ${renderEventBroadcasts(event)}
       <div class="ta-event-panel-grid">
         ${renderEventSchedule(event)}
