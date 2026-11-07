@@ -1,7 +1,7 @@
 {
   "contract": "news",
   "version": "1.0.0",
-  "generated_at": "2026-10-29T01:01:47Z",
+  "generated_at": "2026-11-07T17:51:03Z",
   "source_id": "project-t",
   "world_id": "pt_ych_starriver_arts",
   "data": {
@@ -20,6 +20,20 @@
         },
         "display": {
           "class": "important"
+        }
+      },
+      {
+        "id": "auto-event-vrrctw_ych_veryca_one_make_20261107-completed",
+        "scope": "global",
+        "kind": "event",
+        "text": "活動結果：玉長公路・發財車統規賽（已結束）｜冠軍 CannedCarbon",
+        "at": "2026-11-07T14:00:00Z",
+        "priority": 55,
+        "valid_from": "2026-11-07T14:00:00Z",
+        "valid_until": "2026-11-15T14:00:00Z",
+        "target": {
+          "event_id": "vrrctw_ych_veryca_one_make_20261107",
+          "world_id": "pt_ych_starriver_arts"
         }
       }
     ]
