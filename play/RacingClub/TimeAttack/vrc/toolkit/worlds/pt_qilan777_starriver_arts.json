@@ -1,0 +1,46 @@
+{
+  "contract": "world",
+  "version": "1.0.0",
+  "generated_at": "2026-11-14T09:44:56Z",
+  "source_id": "project-t",
+  "world_id": "pt_qilan777_starriver_arts",
+  "data": {
+    "name": "棲蘭 777 / Qilan 777",
+    "author": "StarRiver Arts",
+    "world_version": "",
+    "status": "testing",
+    "vehicle_system": "cvs",
+    "description": "以宜蘭棲蘭一帶山區公路為主題的約 6.6 km 線性山道，設有下山／上山兩條計時路線，目前為 Closed Test。",
+    "routes": [
+      {
+        "route_id": "DH",
+        "name": "Downhill",
+        "direction": "downhill",
+        "type": "full_course",
+        "length_m": 6573,
+        "has_leaderboard": true,
+        "has_event": false
+      },
+      {
+        "route_id": "UH",
+        "name": "Uphill",
+        "direction": "uphill",
+        "type": "full_course",
+        "length_m": 6573,
+        "has_leaderboard": true,
+        "has_event": false
+      }
+    ],
+    "location": {
+      "country": "Taiwan",
+      "region": "宜蘭縣",
+      "locality": "大同鄉・棲蘭"
+    },
+    "access": {
+      "release_state": "closed_test",
+      "pc": true,
+      "quest": true,
+      "quest_target": true
+    }
+  }
+}

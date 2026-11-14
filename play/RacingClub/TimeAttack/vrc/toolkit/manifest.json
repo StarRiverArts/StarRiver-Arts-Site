@@ -1,6 +1,6 @@
 {
   "schema": "project-t-toolkit-manifest/1",
-  "generated_at": "2026-09-14T18:53:59Z",
+  "generated_at": "2026-11-14T09:44:56Z",
   "base": "https://starriverarts.github.io/StarRiver-Arts-Site/play/RacingClub/TimeAttack/vrc/",
   "worlds": [
     {
@@ -92,6 +92,25 @@
           "FCOB": "toolkit/routes/pt_ych_starriver_arts__FCOB.json",
           "HCIB": "toolkit/routes/pt_ych_starriver_arts__HCIB.json",
           "HCOB": "toolkit/routes/pt_ych_starriver_arts__HCOB.json"
+        },
+        "players": "players.json",
+        "vehicles": "vehicles.json",
+        "teams": "teams.json",
+        "world_directory": "toolkit/worlds.json"
+      }
+    },
+    {
+      "source_id": "project-t",
+      "world_id": "pt_qilan777_starriver_arts",
+      "track_id": "pt_qilan777_starriver_arts",
+      "endpoints": {
+        "world": "toolkit/worlds/pt_qilan777_starriver_arts.json",
+        "leaderboard": "pt_qilan777_starriver_arts.json",
+        "news": "toolkit/news/pt_qilan777_starriver_arts.json",
+        "event": "toolkit/events/current.json",
+        "routes": {
+          "DH": "toolkit/routes/pt_qilan777_starriver_arts__DH.json",
+          "UH": "toolkit/routes/pt_qilan777_starriver_arts__UH.json"
         },
         "players": "players.json",
         "vehicles": "vehicles.json",
