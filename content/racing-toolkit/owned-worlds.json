@@ -89,6 +89,21 @@
         {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course", "length_m": 6573},
         {"route_id": "UH", "name": "Uphill", "direction": "uphill", "type": "full_course", "length_m": 6573}
       ]
+    },
+    {
+      "world_id": "pt_maolin_starriver_arts",
+      "name": "茂林多納 / Maolin Duona",
+      "name_en": "Maolin Duona",
+      "author": "StarRiver Arts",
+      "status": "testing",
+      "vehicle_system": "CVS",
+      "description": "以高雄茂林往多納的山區公路為主題的約 5.3 km 線性山道，途經多納大橋，設有下山／上山兩條計時路線，目前為 Closed Test。",
+      "location": {"country": "Taiwan", "region": "高雄市", "locality": "茂林區・多納"},
+      "access": {"release_state": "closed_test", "pc": true, "quest": true, "quest_target": true},
+      "routes": [
+        {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course"},
+        {"route_id": "UH", "name": "Uphill", "direction": "uphill", "type": "full_course"}
+      ]
     }
   ]
 }
