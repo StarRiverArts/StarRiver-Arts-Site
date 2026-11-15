@@ -104,6 +104,20 @@
         {"route_id": "DH", "name": "Downhill", "direction": "downhill", "type": "full_course"},
         {"route_id": "UH", "name": "Uphill", "direction": "uphill", "type": "full_course"}
       ]
+    },
+    {
+      "world_id": "pt_lantan_starriver_arts",
+      "name": "蘭潭 / Lantan",
+      "name_en": "Lantan",
+      "author": "StarRiver Arts",
+      "status": "development",
+      "vehicle_system": "CVS",
+      "description": "繞嘉義蘭潭水庫一圈約 6.4 km 的環湖道路，半城市路網；目前為開發中的不完整版本。",
+      "location": {"country": "Taiwan", "region": "嘉義市", "locality": "蘭潭水庫"},
+      "access": {"release_state": "closed_test", "pc": true, "quest": true, "quest_target": true},
+      "routes": [
+        {"route_id": "CW", "name": "Loop (clockwise)", "direction": "other", "type": "full_course", "length_m": 6360}
+      ]
     }
   ]
 }

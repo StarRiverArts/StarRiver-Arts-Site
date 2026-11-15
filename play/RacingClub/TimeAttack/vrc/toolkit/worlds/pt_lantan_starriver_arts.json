@@ -1,0 +1,37 @@
+{
+  "contract": "world",
+  "version": "1.0.0",
+  "generated_at": "2026-11-15T02:04:04Z",
+  "source_id": "project-t",
+  "world_id": "pt_lantan_starriver_arts",
+  "data": {
+    "name": "蘭潭 / Lantan",
+    "author": "StarRiver Arts",
+    "world_version": "",
+    "status": "development",
+    "vehicle_system": "cvs",
+    "description": "繞嘉義蘭潭水庫一圈約 6.4 km 的環湖道路，半城市路網；目前為開發中的不完整版本。",
+    "routes": [
+      {
+        "route_id": "CW",
+        "name": "Loop (clockwise)",
+        "direction": "other",
+        "type": "full_course",
+        "length_m": 6360,
+        "has_leaderboard": true,
+        "has_event": false
+      }
+    ],
+    "location": {
+      "country": "Taiwan",
+      "region": "嘉義市",
+      "locality": "蘭潭水庫"
+    },
+    "access": {
+      "release_state": "closed_test",
+      "pc": true,
+      "quest": true,
+      "quest_target": true
+    }
+  }
+}
