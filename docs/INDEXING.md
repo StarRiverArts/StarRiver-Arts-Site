@@ -78,4 +78,8 @@ What requires project judgment:
 
 Therefore, a universal zero-configuration index is unsafe. The supported pattern is a universal deterministic builder plus a small reviewed configuration file.
 
+## GitHub Pages project-site robots boundary
 
+This GitHub Pages project site is hosted under `/StarRiver-Arts-Site/`. The deployed `/StarRiver-Arts-Site/robots.txt` is a discovery reference and a required file in the existing deployment checks. Standard crawler robots rules, however, are resolved at the origin root: `https://starriverarts.github.io/robots.txt`. The project-path file does not configure origin-wide crawler policy.
+
+Do not move this file or change the existing canonical URL to work around that boundary. If origin-root robots directives are needed, configure them at the host root separately. The project sitemap can be submitted directly to Google Search Console. `llms.txt`, structured metadata, and generated indexes aid discovery but cannot guarantee indexing or search ranking.
